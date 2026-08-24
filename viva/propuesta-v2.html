@@ -379,6 +379,7 @@
       <li><a href="#detalle">Detalle de cada fase y estimación</a></li>
       <li><a href="#cronograma">Cronograma y esfuerzo</a></li>
       <li><a href="#medicion">Cómo mediremos que funcionó</a></li>
+      <li><a href="#evolucion">Capacidad designada para soporte y evolución</a></li>
       <li><a href="#dependencias">De qué depende</a></li>
       <li><a href="#cambios">Cambios que requiere la dinámica de trabajo</a></li>
       <li><a href="#riesgos">Riesgos y mitigación</a></li>
@@ -397,7 +398,7 @@
       <tr><th>Por qué</th><td>Hoy, cuando un desarrollador declara terminado un desarrollo, empieza un ciclo de devoluciones en la revisión del PR. El estándar se aplica a mano, PR por PR; el conocimiento del sistema vive en pocas cabezas; y el costo del error se paga tarde.</td></tr>
       <tr><th>Cómo</th><td>Nueve fases en orden de dependencia: primero el <strong>conocimiento</strong>, luego el <strong>estándar</strong>, luego el <strong>proceso</strong>, luego la <strong>automatización</strong>. Sobre esa base se cierran diseño, pruebas y entrega.</td></tr>
       <tr><th>Bajo qué supuestos</th><td>El plan asume <strong>pruebas unitarias</strong> como alcance de automatización, y supone que los <strong>accesos, permisos y decisiones del cliente</strong> llegan en el momento en que se los necesita. El alcance de pruebas <strong>queda abierto a modificación</strong>: si el proyecto requiere integración, end-to-end u otros tipos, se incorporan revisando antes su impacto en el tiempo. Los supuestos y ese impacto están en la sección 7.</td></tr>
-      <tr><th>Decisión pedida</th><td>Aprobar el alcance y el orden de las fases, designar un <strong>dueño del proceso</strong>, y aceptar los <strong>cambios en la dinámica de trabajo</strong> de la sección 10.</td></tr>
+      <tr><th>Decisión pedida</th><td>Aprobar el alcance y el orden de las fases, designar un <strong>dueño del proceso</strong>, y aceptar los <strong>cambios en la dinámica de trabajo</strong> de la sección 11.</td></tr>
     </tbody>
   </table>
 
@@ -878,7 +879,7 @@
 
   <h3>F8 · Adopción, formación y medición &mdash; 3 sp</h3>
   <p><strong>Objetivo.</strong> Pasar de "funciona con quien lo construyó" a "así trabaja el equipo".</p>
-  <p><strong>Entregables.</strong> Secuencia de adopción por etapas (plantilla de PR, definición de listo y de terminado, matriz de impacto obligatoria, revisión de diseño, listas de verificación); formación del equipo; tablero de indicadores; retrospectiva mensual del proceso; y el dueño del proceso formalmente designado.</p>
+  <p><strong>Entregables.</strong> Secuencia de adopción por etapas (plantilla de PR, definición de listo y de terminado, matriz de impacto obligatoria, revisión de diseño, listas de verificación); formación del equipo; tablero de indicadores; retrospectiva mensual del proceso; el <strong>set de evaluación</strong> con el que después se detecta la degradación (sección 9); y el dueño del proceso formalmente designado.</p>
   <p><strong>Por qué va al final y por qué no es opcional.</strong> Sin dueño y sin medición, cualquier proceso se apaga en semanas. Esta fase es la que protege toda la inversión anterior, y continúa como esfuerzo recurrente después de la semana 16.</p>
 
   <h2 id="cronograma">7. Cronograma y esfuerzo</h2>
@@ -989,12 +990,12 @@
       <tr><th>Respuestas a preguntas bloqueantes durante el piloto</th><td>En cualquier momento</td><td>La compuerta detiene la task: el reloj corre sin que el trabajo avance</td></tr>
       <tr><th>Designación del dueño del proceso</th><td>Antes de la semana 14, cuando arranca F8</td><td>Sin dueño, F8 no cierra y la inversión anterior queda sin sostener</td></tr>
       <tr><th>Aprobación de licencias y cupo de uso de IA</th><td>Antes de F8</td><td>Limita el escalamiento al equipo completo</td></tr>
-      <tr><th>Adopción de las condiciones C-1 a C-6 (sección 10)</th><td>C-1 antes de F6; el resto durante F8</td><td>Sin C-1 no hay evidencia que automatizar y F6 queda sin sustento</td></tr>
+      <tr><th>Adopción de las condiciones C-1 a C-6 (sección 11)</th><td>C-1 antes de F6; el resto durante F8</td><td>Sin C-1 no hay evidencia que automatizar y F6 queda sin sustento</td></tr>
     </tbody>
   </table>
 
   <div class="soft-highlight">
-    <p style="margin-bottom:0"><strong>Condición de validez de esta estimación.</strong> Las 16 semanas son válidas en la medida en que el cliente pueda sostener la disponibilidad que el plan supone: accesos otorgados en la semana cero, decisiones tomadas en la ventana en que se necesitan, personas disponibles para las reuniones de definición, y las condiciones de la sección 10 adoptadas en su momento. No es una salvedad de trámite: la mayor parte del riesgo de calendario de esta iniciativa no está en la construcción, está en la espera. Cuando una de estas dependencias se corre, el calendario se recalcula en ese momento &mdash; no cuando el atraso ya se acumuló.</p>
+    <p style="margin-bottom:0"><strong>Condición de validez de esta estimación.</strong> Las 16 semanas son válidas en la medida en que el cliente pueda sostener la disponibilidad que el plan supone: accesos otorgados en la semana cero, decisiones tomadas en la ventana en que se necesitan, personas disponibles para las reuniones de definición, y las condiciones de la sección 11 adoptadas en su momento. No es una salvedad de trámite: la mayor parte del riesgo de calendario de esta iniciativa no está en la construcción, está en la espera. Cuando una de estas dependencias se corre, el calendario se recalcula en ese momento &mdash; no cuando el atraso ya se acumuló.</p>
   </div>
 
   <h2 id="medicion">8. Cómo mediremos que funcionó</h2>
@@ -1019,7 +1020,99 @@
 
   <p>Hay además beneficios que no se expresan en porcentaje y son igual de reales: el conocimiento deja de ser tácito, cada línea de código se remonta a un plan, un análisis y un ticket, y se reduce de forma sostenida la dependencia de personas clave.</p>
 
-  <h2 id="dependencias">9. De qué depende</h2>
+  <h2 id="evolucion">9. Capacidad designada para soporte y evolución</h2>
+
+  <p>Una guía generativa no es un entregable que se congela. El conocimiento del sistema envejece, el estándar se queda corto, el proceso acumula deuda y el modelo cambia de comportamiento. Y a diferencia del software convencional, esto <strong>no falla con un error visible: se degrada en silencio</strong>, y se nota cuando un PR malo llega a revisión.</p>
+
+  <p>Por eso, a partir de la semana 16 el plan no propone soporte abierto, sino una <strong>capacidad designada</strong>: una asignación dimensionada y acotada que cubre, en un mismo cupo, el soporte de lo entregado y la evolución de la guía.</p>
+
+  <div class="soft-highlight">
+    <p style="margin-bottom:0"><strong>Por qué un cupo único y no dos bolsas separadas.</strong> Separar "garantía" de "mejoras" obliga a discutir, en cada pedido, de cuál de las dos sale. Esa discusión desgasta la relación y no le aporta nada al producto. Con un cupo único no hay clasificación que negociar: el dueño del proceso prioriza, la capacidad se consume y el consumo queda a la vista.</p>
+  </div>
+
+  <h3>Qué cubre</h3>
+
+  <table class="scenario-table">
+    <thead><tr><th>Naturaleza</th><th>Ejemplos</th></tr></thead>
+    <tbody>
+      <tr><th>Soporte &mdash; que lo entregado siga funcionando</th><td>Defectos en el proceso o en las compuertas; falsos positivos del enforcement que frenan trabajo legítimo; ajustes cuando el repositorio, Jira o el pipeline cambian de forma</td></tr>
+      <tr><th>Evolución &mdash; que la guía siga al día</th><td>Reglas normativas nuevas surgidas de la revisión; documentar módulos que quedaron fuera del alcance priorizado de F0; poda del proceso que resultó ruido; cambio de versión del modelo y su re-evaluación; capacidades nuevas</td></tr>
+    </tbody>
+  </table>
+
+  <div class="diagram-wrap">
+    <div class="diagram-name">Figura 7. El ciclo de evolución</div>
+    <svg width="100%" viewBox="0 0 680 158" role="img" xmlns="http://www.w3.org/2000/svg">
+      <title>El ciclo de evolucion de la guia</title><desc>La guia se usa sobre tasks reales. De ese uso salen senales: devoluciones que no previno e indicadores. El dueno del proceso las clasifica en regla, conocimiento o proceso. La capacidad designada ejecuta el cambio y lo valida contra el set de evaluacion antes de publicar una version nueva, con la que vuelve a empezar el ciclo.</desc>
+      <defs><marker id="a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M0,0.8 L7,4 L0,7.2 Z" fill="#5300DF"/></marker></defs>
+      <rect x="20" y="30" width="116" height="58" rx="6" fill="#EBEBFF" stroke="#5300DF" stroke-width="1.2"/>
+      <text x="78.0" y="52" text-anchor="middle" font-size="8.6" font-weight="600" fill="#280265">Uso sobre</text>
+      <text x="78.0" y="64" text-anchor="middle" font-size="8.6" font-weight="600" fill="#280265">tasks reales</text>
+      <line x1="138" y1="59" x2="148" y2="59" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a)"/>
+      <rect x="151" y="30" width="116" height="58" rx="6" fill="#EBEBFF" stroke="#5300DF" stroke-width="1.2"/>
+      <text x="209.0" y="47" text-anchor="middle" font-size="8.6" font-weight="600" fill="#280265">Señales:</text>
+      <text x="209.0" y="59" text-anchor="middle" font-size="8.6" font-weight="600" fill="#280265">devoluciones</text>
+      <text x="209.0" y="71" text-anchor="middle" font-size="8.6" font-weight="600" fill="#280265">e indicadores</text>
+      <line x1="269" y1="59" x2="279" y2="59" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a)"/>
+      <rect x="282" y="30" width="116" height="58" rx="6" fill="#FFFFFF" stroke="#280265" stroke-width="1.2"/>
+      <text x="340.0" y="47" text-anchor="middle" font-size="8.6" font-weight="600" fill="#280265">Triage: ¿regla,</text>
+      <text x="340.0" y="59" text-anchor="middle" font-size="8.6" font-weight="600" fill="#280265">conocimiento</text>
+      <text x="340.0" y="71" text-anchor="middle" font-size="8.6" font-weight="600" fill="#280265">o proceso?</text>
+      <line x1="400" y1="59" x2="410" y2="59" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a)"/>
+      <rect x="413" y="30" width="116" height="58" rx="6" fill="#EBEBFF" stroke="#5300DF" stroke-width="1.2"/>
+      <text x="471.0" y="52" text-anchor="middle" font-size="8.6" font-weight="600" fill="#280265">Cambio en</text>
+      <text x="471.0" y="64" text-anchor="middle" font-size="8.6" font-weight="600" fill="#280265">la guía</text>
+      <line x1="531" y1="59" x2="541" y2="59" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a)"/>
+      <rect x="544" y="30" width="116" height="58" rx="6" fill="#280265" stroke="#280265" stroke-width="1.2"/>
+      <text x="602.0" y="52" text-anchor="middle" font-size="8.6" font-weight="600" fill="#FFFFFF">Evaluación y</text>
+      <text x="602.0" y="64" text-anchor="middle" font-size="8.6" font-weight="600" fill="#FFFFFF">versión nueva</text>
+      <polyline points="602,90 602,118 78,118 78,92" fill="none" stroke="#5300DF" stroke-width="1.4" marker-end="url(#a)"/>
+      <text x="340" y="114" text-anchor="middle" font-size="8.4" fill="#8A8998">Cada vuelta deja la guía más certera; sin vueltas, se degrada en silencio</text>
+      <text x="78.0" y="12" text-anchor="middle" font-size="6.8" font-weight="700" fill="#8A8998">EQUIPO DE DESARROLLO</text>
+      <path d="M 23 16 L 23 20 L 133 20 L 133 16" fill="none" stroke="#8A8998" stroke-width="0.8" opacity="0.6"/>
+      <text x="274.5" y="12" text-anchor="middle" font-size="6.8" font-weight="700" fill="#280265">DUEÑO DEL PROCESO</text>
+      <path d="M 154 16 L 154 20 L 395 20 L 395 16" fill="none" stroke="#280265" stroke-width="0.8" opacity="0.6"/>
+      <text x="536.5" y="12" text-anchor="middle" font-size="6.8" font-weight="700" fill="#5300DF">CAPACIDAD DESIGNADA</text>
+      <path d="M 416 16 L 416 20 L 657 20 L 657 16" fill="none" stroke="#5300DF" stroke-width="0.8" opacity="0.6"/>
+      <text x="340" y="150" text-anchor="middle" font-size="8.4" fill="#8A8998">El set de evaluación es lo que hace visible la degradación antes de que llegue a un PR real</text>
+      </svg>
+    <div class="diagram-caption">El uso genera señales; el dueño del proceso las clasifica; la capacidad designada las convierte en una versión nueva, validada antes de publicarse.</div>
+  </div>
+
+  <h3>El motor: cada devolución que la guía debió prevenir es un defecto de la guía</h3>
+
+  <p>No del desarrollador. Ese cambio de atribución es lo que convierte el indicador de la sección 8 en un motor de mejora con destino concreto:</p>
+
+  <ul>
+    <li>Devolución <strong>de forma</strong> que la guía no previno &rarr; falta una regla normativa, hay un hueco de conocimiento, o falta una compuerta. Entra al backlog de la guía con un destino identificado.</li>
+    <li>Devolución <strong>de criterio</strong> &rarr; no es defecto de la guía. Si sienta precedente, se registra como decisión de arquitectura y pasa a formar parte del catálogo.</li>
+  </ul>
+
+  <h3>El ritmo que sostiene</h3>
+
+  <table class="scenario-table">
+    <thead><tr><th>Cadencia</th><th>Qué se hace</th><th>Quién</th></tr></thead>
+    <tbody>
+      <tr><th>En cada task</th><td>Re-documentación automática del sistema con lo que cambió</td><td>La guía (F7)</td></tr>
+      <tr><th>Semanal</th><td>Triage de lo que la guía debió prevenir y no previno</td><td>Dueño del proceso</td></tr>
+      <tr><th>Mensual</th><td>Retrospectiva con los indicadores de la sección 8; poda de lo que resultó ruido</td><td>Dueño del proceso y capacidad designada</td></tr>
+      <tr><th>Trimestral</th><td>Revisión del estándar y de la versión del modelo; corrida del set de evaluación</td><td>Capacidad designada</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Cómo se detecta la degradación: el set de evaluación</h3>
+
+  <p>Un conjunto acotado de tasks ya resueltas que se vuelve a correr cada vez que cambia el modelo, el proceso o las reglas. Si el análisis deja de detectar bloqueadores que antes detectaba, o el plan deja de cubrir escenarios que antes cubría, <strong>se ve ahí y no en un PR real</strong>. Es la única forma de que la degradación silenciosa deje de ser silenciosa, y es la razón por la que el set se construye durante el proyecto y no después: sin él, el primer cambio de modelo no tiene contra qué compararse.</p>
+
+  <h3>Qué acota esta capacidad</h3>
+
+  <div class="soft-highlight">
+    <p>Se dimensiona en <strong>días-persona por mes</strong> y se acuerda por un <strong>plazo definido, renovable</strong>. El piso lo fija el propio ritmo: el triage semanal, la retrospectiva mensual y la revisión trimestral consumen capacidad aunque no haya ninguna mejora pendiente.</p>
+    <p>Lo que no entra en el cupo del mes se prioriza para el siguiente, o se amplía el cupo de forma explícita. La decisión es siempre del dueño del proceso, con el consumo del período a la vista.</p>
+    <p style="margin-bottom:0"><strong>No está incluida en el esfuerzo ni en el alcance de las 16 semanas.</strong> La semana 16 entrega la versión 1 de la guía, operando sobre tasks reales. Esta capacidad es un acuerdo aparte, y su dimensionamiento se define con el volumen real de tasks del proyecto.</p>
+  </div>
+
+  <h2 id="dependencias">10. De qué depende</h2>
 
   <table class="scenario-table">
     <thead><tr><th>Dependencia</th><th>Quién</th><th>Criticidad</th><th>Si no se cumple</th></tr></thead>
@@ -1029,7 +1122,7 @@
       <tr><th>Un dueño del proceso designado, más allá de la semana 16</th><td>Dirección</td><td>Alta</td><td>La guía se degrada en semanas (F8)</td></tr>
       <tr><th>Disponibilidad de PO y tech lead para responder preguntas bloqueantes</th><td>Negocio</td><td>Alta</td><td>Las compuertas detienen tickets. Es el comportamiento correcto, pero frena el flujo</td></tr>
       <tr><th>Acceso al histórico de revisiones de PR</th><td>Cliente</td><td>Media</td><td>F1 se construye por criterio y no por evidencia</td></tr>
-      <tr><th>Suite de pruebas ejecutable en local y en integración continua</th><td>Equipo</td><td>Alta</td><td>Bloquea F6 por completo &mdash; es la condición C-1 de la sección 10</td></tr>
+      <tr><th>Suite de pruebas ejecutable en local y en integración continua</th><td>Equipo</td><td>Alta</td><td>Bloquea F6 por completo &mdash; es la condición C-1 de la sección 11</td></tr>
       <tr><th>Tickets con una definición de listo mínima</th><td>Equipo</td><td>Media</td><td>Más ciclos en la etapa de análisis</td></tr>
       <tr><th>Licencias y cupo de uso de IA para el equipo</th><td>Dirección</td><td>Media</td><td>Limita el escalamiento en F8</td></tr>
       <tr><th>Ventana de formación, aproximadamente cuatro horas por persona</th><td>Equipo</td><td>Baja</td><td>Adopción más lenta</td></tr>
@@ -1038,7 +1131,7 @@
 
   <p>Cada una de estas dependencias tiene un momento a partir del cual deja de ser una espera y pasa a ser un bloqueo con costo en calendario. Ese detalle, con su efecto concreto sobre las fechas, está en la sección 7.</p>
 
-  <h2 id="cambios">10. Cambios que requiere la dinámica de trabajo</h2>
+  <h2 id="cambios">11. Cambios que requiere la dinámica de trabajo</h2>
 
   <p>La guía no funciona sobre cualquier forma de trabajar. Hay prácticas del proyecto que <strong>deben cambiar</strong> para que pueda garantizar lo que promete, y no son preferencias metodológicas: son condiciones técnicas de las que depende que la evidencia sea verificable por máquina y no la afirmación de alguien.</p>
 
@@ -1076,7 +1169,7 @@
 
   <blockquote>Estas condiciones no se imponen el primer día: F8 las introduce por etapas y cada una necesita un dueño identificable. La excepción es C-1, que es una precondición y no una meta de adopción: sin pruebas automatizadas en el código fuente no hay nada que automatizar, y F6 no tiene sobre qué operar.</blockquote>
 
-  <h2 id="riesgos">11. Riesgos y mitigación</h2>
+  <h2 id="riesgos">12. Riesgos y mitigación</h2>
 
   <table class="scenario-table">
     <thead><tr><th>Riesgo</th><th>Mitigación</th></tr></thead>
@@ -1087,6 +1180,7 @@
       <tr><th>La disponibilidad para reuniones de decisión es menor que la supuesta</th><td>Las decisiones se preparan por escrito con opciones y recomendación, para que la reunión sirva para decidir y no para explicar. Lo que se puede resolver de forma asíncrona no se agenda.</td></tr>
       <tr><th>Las condiciones C-1 a C-6 no se adoptan</th><td>Cada una tiene responsable y fecha desde el arranque. C-1 es precondición de F6: si no está lista, F6 no arranca y se replanifica antes de gastar el esfuerzo.</td></tr>
       <tr><th>F0 se desborda porque el sistema es más grande de lo estimado</th><td>Se prioriza por los módulos de mayor tránsito y el resto se documenta bajo demanda. Todo lo no cubierto queda marcado de forma explícita como desconocido, de modo que la guía lo trate como pregunta bloqueante y no como dato. El hueco se ve; no se disimula.</td></tr>
+      <tr><th>La guía se degrada después de la entrega</th><td>La capacidad designada de la sección 9 existe para eso, con un ritmo fijo y un set de evaluación que hace visible la degradación antes de que llegue a un PR.</td></tr>
       <tr><th>La salida de un integrante detiene el proyecto</th><td>Auditoría cruzada desde F0: cada frente es revisado por alguien distinto de quien lo produjo, así que nadie es el único que entiende su parte.</td></tr>
       <tr><th>Se percibe como burocracia y el equipo lo rechaza</th><td>El rigor escala al riesgo: un cambio trivial no lleva registro de decisión ni revisión de diseño. La adopción es por etapas (F8), no "todo el lunes".</td></tr>
       <tr><th>El conocimiento queda obsoleto y la IA razona sobre datos viejos</th><td>La sincronización es obligatoria y verificada; F7 hace que cada cierre re-documente el sistema.</td></tr>
@@ -1097,15 +1191,16 @@
     </tbody>
   </table>
 
-  <h2 id="pasos">12. Próximos pasos</h2>
+  <h2 id="pasos">13. Próximos pasos</h2>
 
   <ol>
     <li><strong>Validar el alcance</strong> &mdash; en particular sus dos límites: la task recibida y el PR abierto &mdash; y el orden de las nueve fases.</li>
     <li><strong>Designar el dueño del proceso.</strong> Sin dueño, no arranca.</li>
     <li><strong>Levantar la línea base</strong> de los siete indicadores de la sección 8.</li>
     <li><strong>Decidir el alcance de automatización de pruebas</strong> (sección 7). Si pasa de unitarias, la estimación se recalcula antes de comprometer fechas.</li>
-    <li><strong>Asignar responsable y fecha a cada condición C-1 a C-6</strong> (sección 10), empezando por C-1.</li>
+    <li><strong>Asignar responsable y fecha a cada condición C-1 a C-6</strong> (sección 11), empezando por C-1.</li>
     <li><strong>Fijar la semana cero</strong>, tramitar permisos y accesos, y acordar el foro y la cadencia donde se toman las decisiones que involucran a varias áreas.</li>
+    <li><strong>Dimensionar la capacidad designada</strong> para soporte y evolución (sección 9), y su plazo inicial.</li>
     <li><strong>Arrancar F0.</strong></li>
   </ol>
 
