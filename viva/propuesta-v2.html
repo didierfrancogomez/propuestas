@@ -334,8 +334,18 @@
   .scenario-table tbody th{width:30%;}
   .cynefin-table, .scenario-table{width:100%;}
   .diagram-wrap{overflow-x:auto;}
+  /* Los <text> de los SVG heredan mal la tipografia al imprimir: la fijamos. */
+  svg text, svg tspan{font-family:'Poppins',sans-serif;}
   @media print{
     .cynefin-table tbody th, .scenario-table tbody th{white-space:normal;}
+    /* El encabezado/pie con position:fixed y offsets negativos se posiciona mal
+       en el render real de Chrome. El encabezado corrido y la numeracion los
+       aporta el motor de impresion; el pie del documento vuelve al flujo. */
+    .print-header{display:none !important;}
+    footer{position:static !important; top:auto !important; bottom:auto !important;
+           left:auto !important; right:auto !important; text-align:left;
+           margin-top:26px; padding-top:12px; border-top:1px solid var(--border);}
+    .cover-page{min-height:250mm;}
   }
 </style>
 </head>
