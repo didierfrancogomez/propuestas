@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tech and Solve - Guía Generativa de Desarrollo · Generic API</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --violet:#280265;
+    --violet-light:#EBEBFF;
+    --accent:#5300DF;
+    --amber:#B9720A;
+    --amber-bg:#FBF0DC;
+    --bg:#FFFFFF;
+    --card:#FFFFFF;
+    --text:#1A1E27;
+    --text-2:#5B5A66;
+    --text-3:#8A8998;
+    --border:#DCD8EC;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Poppins',sans-serif;
+    font-weight:400;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+    font-size:11px;
+    padding:24px;
+  }
+  .page{
+    max-width:760px;
+    margin:0 auto;
+    background:#FFFFFF;
+  }
+
+  .print-header{display:none;}
+
+  .cover-page{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    padding:60px 20px 50px;
+  }
+  .cover-logos{
+    display:flex;
+    align-items:center;
+    gap:28px;
+    margin-bottom:36px;
+  }
+  .cover-logo-main{width:170px;height:auto;display:block;}
+  .cover-logo-sura{width:130px;height:auto;display:block;}
+  .cover-logos-sep{width:1px;height:38px;background:var(--border);}
+  .cover-page .eyebrow{margin-bottom:10px;}
+  .cover-page h1{font-size:26px;margin-bottom:12px;}
+  .cover-page .subtitle{max-width:440px;margin:0 auto 28px;}
+  .cover-meta{font-size:10px;color:var(--text-3);line-height:1.6;margin-bottom:18px;}
+  .cover-confidential{
+    font-size:9px;
+    color:var(--text-3);
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    border-top:1px solid var(--border);
+    padding-top:14px;
+    margin-top:10px;
+  }
+
+  .eyebrow{
+    font-size:9.5px;
+    font-weight:600;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:8px;
+  }
+  h1{
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    font-size:20px;
+    color:var(--violet);
+    letter-spacing:-0.01em;
+    margin-bottom:8px;
+    line-height:1.3;
+  }
+  .subtitle{font-size:11px;color:var(--text-2);margin-bottom:20px;}
+
+  h2{
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    font-size:14px;
+    color:var(--violet);
+    margin-top:26px;
+    margin-bottom:8px;
+    page-break-after:avoid;
+  }
+  h3{
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    font-size:11.5px;
+    color:var(--text);
+    margin-top:14px;
+    margin-bottom:4px;
+    page-break-after:avoid;
+  }
+  h4{
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    font-size:11px;
+    color:var(--violet);
+    margin-top:12px;
+    margin-bottom:4px;
+    page-break-after:avoid;
+  }
+  p{margin-bottom:9px;}
+  ul, ol{margin:0 0 9px 18px;}
+  li{margin-bottom:5px;}
+  strong{font-weight:600;color:var(--text);}
+  em{font-style:italic;}
+
+  .toc{
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:14px 18px;
+    margin-bottom:20px;
+    page-break-inside:avoid;
+  }
+  .toc-title{
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    font-size:11px;
+    color:var(--violet);
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    margin-bottom:8px;
+  }
+  .toc ol{margin:0 0 0 18px;counter-reset:toc-counter;}
+  .toc li{margin-bottom:5px;}
+  .toc a{color:var(--text);text-decoration:none;}
+  .toc a:hover{color:var(--accent);}
+
+  .finding{
+    margin-bottom:14px;
+    padding-left:14px;
+    border-left:2px solid var(--accent);
+  }
+  .soft-highlight{
+    border-left:2px solid var(--violet);
+    padding-left:14px;
+    margin:12px 0;
+    page-break-inside:avoid;
+  }
+  .finding-title{
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    font-size:12.5px;
+    color:var(--violet);
+    margin-bottom:3px;
+  }
+  .finding-body{margin-bottom:0;color:var(--text-2);}
+
+  blockquote{
+    border-left:2px solid var(--amber);
+    padding:6px 0 6px 12px;
+    color:#8A5A00;
+    font-size:10.5px;
+    margin-bottom:10px;
+  }
+
+  .caveat-list li{color:var(--text-2);font-size:10.5px;}
+
+  .cynefin-table{
+    width:100%;
+    border-collapse:collapse;
+    margin:10px 0 16px;
+    font-size:9.5px;
+    page-break-inside:avoid;
+  }
+  .cynefin-table th, .cynefin-table td{
+    border:none;
+    border-bottom:1px solid var(--border);
+    padding:9px 10px;
+    text-align:left;
+    vertical-align:top;
+  }
+  .cynefin-table thead th{
+    background:#FFFFFF;
+    color:var(--violet);
+    font-weight:600;
+    font-size:9.5px;
+    border-bottom:2px solid var(--violet);
+  }
+  .cynefin-table tbody th{
+    font-weight:600;
+    color:var(--violet);
+    white-space:nowrap;
+    background:#FFFFFF;
+  }
+  .cynefin-table td{color:var(--text-2);line-height:1.5;}
+
+  .scenario-table{
+    width:100%;
+    border-collapse:collapse;
+    margin:10px 0 16px;
+    font-size:9.5px;
+    page-break-inside:avoid;
+  }
+  .scenario-table th, .scenario-table td{
+    border:none;
+    border-bottom:1px solid var(--border);
+    padding:9px 10px;
+    text-align:left;
+    vertical-align:top;
+  }
+  .scenario-table thead th{
+    color:var(--violet);
+    font-weight:600;
+    border-bottom:2px solid var(--violet);
+  }
+  .scenario-table tbody th{
+    font-weight:600;
+    color:var(--violet);
+    white-space:nowrap;
+  }
+  .scenario-table td{color:var(--text-2);line-height:1.5;}
+
+  .template-box{
+    border-left:2px solid var(--violet);
+    padding-left:14px;
+    margin:12px 0;
+    page-break-inside:avoid;
+  }
+  .template-box em{color:var(--violet);font-style:normal;font-weight:600;}
+  .cynefin-check{list-style:none;}
+  .cynefin-check li{
+    position:relative;
+    padding-left:15px;
+    margin-bottom:5px;
+    font-size:9.5px;
+  }
+  .cynefin-check li::before{
+    content:'\2610';
+    position:absolute;
+    left:0;
+    top:0;
+    color:var(--accent);
+    font-size:10px;
+  }
+
+  .sources{
+    margin-top:6px;
+    font-size:9.5px;
+    color:var(--text-2);
+    line-height:1.7;
+  }
+  .sources li{margin-bottom:4px;word-break:break-word;}
+  .sources a{color:var(--accent);text-decoration:none;}
+
+  .diagram-wrap{margin:10px 0 16px;page-break-inside:avoid;}
+  .diagram-wrap svg{display:block;width:100%;height:auto;}
+  .diagram-name{
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    font-size:11px;
+    color:var(--violet);
+    text-align:center;
+    margin-bottom:6px;
+  }
+  .diagram-caption{font-size:9px;color:var(--text-3);text-align:center;margin-top:4px;font-style:italic;}
+
+  section{page-break-inside:auto;}
+
+  footer{
+    margin-top:28px;
+    padding-top:12px;
+    border-top:1px solid var(--border);
+    font-size:9px;
+    color:var(--text-3);
+    line-height:1.6;
+  }
+
+  @media print{
+    @page{
+      size:A4 portrait;
+      margin:34mm 16mm 26mm 16mm;
+    }
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+    body{padding:0;font-size:10px;}
+    .page{max-width:none;}
+    h2{margin-top:16px;}
+    .finding, blockquote, .toc{page-break-inside:avoid;}
+    footer{position:fixed;bottom:-22mm;left:0;right:0;font-size:8px;text-align:center;border-top:1px solid var(--border);padding-top:6px;}
+    .diagram-wrap{page-break-inside:avoid;}
+
+    .cover-page{
+      break-after:page;
+      page-break-after:always;
+      min-height:237mm;
+      justify-content:center;
+      padding:0;
+    }
+
+    .print-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      position:fixed;
+      top:-30mm;
+      left:0;
+      right:0;
+      padding-bottom:6px;
+      border-bottom:1px solid var(--border);
+    }
+    .print-header-logo{width:60px;height:auto;display:block;}
+    .print-header-logo-sura{width:52px;height:auto;display:block;}
+    .print-header-text{
+      font-family:'Poppins',sans-serif;
+      font-weight:600;
+      font-size:9px;
+      color:var(--text-3);
+      text-transform:uppercase;
+      letter-spacing:0.04em;
+    }
+  }
+</style>
+<style>
+  /* Ajustes propios: los encabezados de fila largos deben poder envolver.
+     El CSS base los fija con white-space:nowrap y eso desborda la página. */
+  .cynefin-table tbody th, .scenario-table tbody th{white-space:normal;}
+  .cynefin-table tbody th{width:26%;}
+  .scenario-table tbody th{width:30%;}
+  .cynefin-table, .scenario-table{width:100%;}
+  .diagram-wrap{overflow-x:auto;}
+  /* Los <text> de los SVG heredan mal la tipografia al imprimir: la fijamos. */
+  svg text, svg tspan{font-family:'Poppins',sans-serif;}
+  @media print{
+    .cynefin-table tbody th, .scenario-table tbody th{white-space:normal;}
+    /* El encabezado/pie con position:fixed y offsets negativos se posiciona mal
+       en el render real de Chrome. El encabezado corrido y la numeracion los
+       aporta el motor de impresion; el pie del documento vuelve al flujo. */
+    .print-header{display:none !important;}
+    footer{position:static !important; top:auto !important; bottom:auto !important;
+           left:auto !important; right:auto !important; text-align:left;
+           margin-top:26px; padding-top:12px; border-top:1px solid var(--border);}
+    .cover-page{min-height:250mm;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="print-header">
+    <img src="data:image/jpeg;base64,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" alt="Tech and Solve" class="print-header-logo">
+    <span class="print-header-text">Guía Generativa · Generic API</span>
+  </div>
+
+  <div class="cover-page">
+    <div class="cover-logos">
+      <img src="data:image/jpeg;base64,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" alt="Tech and Solve" class="cover-logo-main">
+    </div>
+    <div class="eyebrow">Propuesta de automatización del ciclo de desarrollo</div>
+    <h1>Guía Generativa de Desarrollo</h1>
+    <p class="subtitle">Convertir la fase de desarrollo de una task &mdash; desde que el equipo la recibe hasta dejar el PR abierto en GitHub &mdash; en un proceso ejecutable por IA: verificable, auditable y repetible.</p>
+    <div class="cover-meta">Viva Aerobus<br>Proyecto Generic API<br><strong>Plan de trabajo &mdash; 16 semanas</strong></div>
+    <div class="cover-confidential">Documento confidencial. Elaborado por Tech and Solve para Viva Aerobus.</div>
+  </div>
+
+  <div class="toc">
+    <div class="toc-title">Contenido</div>
+    <ol>
+      <li><a href="#resumen">Resumen ejecutivo</a></li>
+      <li><a href="#problema">El problema que resolvemos</a></li>
+      <li><a href="#objetivo">Qué queremos lograr</a></li>
+      <li><a href="#flujo">El flujo de trabajo completo, paso a paso</a></li>
+      <li><a href="#fases">Las fases, y por qué en ese orden</a></li>
+      <li><a href="#detalle">Detalle de cada fase y estimación</a></li>
+      <li><a href="#cronograma">Cronograma y esfuerzo</a></li>
+      <li><a href="#medicion">Cómo mediremos que funcionó</a></li>
+      <li><a href="#evolucion">Capacidad designada para soporte y evolución</a></li>
+      <li><a href="#dependencias">De qué depende</a></li>
+      <li><a href="#cambios">Cambios que requiere la dinámica de trabajo</a></li>
+      <li><a href="#riesgos">Riesgos y mitigación</a></li>
+      <li><a href="#pasos">Próximos pasos</a></li>
+    </ol>
+  </div>
+
+  <h2 id="resumen">1. Resumen ejecutivo</h2>
+
+  <p>Tech and Solve pone a consideración de Viva Aerobus esta propuesta para el proyecto <strong>Generic API</strong>. La intención es concreta: que la forma de diseñar, implementar, probar y entregar software deje de depender de quién tome el ticket, y pase a ser un proceso asistido por inteligencia artificial, con evidencia citada en cada paso y con compuertas que <strong>impiden</strong> avanzar cuando falta algo.</p>
+
+  <table class="cynefin-table">
+    <tbody>
+      <tr><th>Qué queremos lograr</th><td>Que la <strong>fase de desarrollo de una task</strong> &mdash; análisis, diseño, implementación, pruebas y apertura del PR &mdash; ocurra asistida por IA, y que el PR llegue a revisión <strong>acertado a la primera</strong> en todo lo que es verificable mecánicamente: estándar de código, cobertura de pruebas y completitud contra la task.</td></tr>
+      <tr><th>Dónde empieza y dónde termina</th><td><strong>Empieza</strong> cuando el equipo implementador recibe una task de Jira. <strong>Termina</strong> con el PR abierto en GitHub, con la evidencia de lo desarrollado, la de las pruebas que lo cubren, y el match entre lo solicitado en la task y lo entregado, publicado como comentario del PR. La revisión del PR, el merge y el despliegue quedan fuera.</td></tr>
+      <tr><th>Por qué</th><td>Hoy, cuando un desarrollador declara terminado un desarrollo, empieza un ciclo de devoluciones en la revisión del PR. El estándar se aplica a mano, PR por PR; el conocimiento del sistema vive en pocas cabezas; y el costo del error se paga tarde.</td></tr>
+      <tr><th>Cómo</th><td>Nueve fases en orden de dependencia: primero el <strong>conocimiento</strong>, luego el <strong>estándar</strong>, luego el <strong>proceso</strong>, luego la <strong>automatización</strong>. Sobre esa base se cierran diseño, pruebas y entrega.</td></tr>
+      <tr><th>Bajo qué supuestos</th><td>El plan asume <strong>pruebas unitarias</strong> como alcance de automatización, y supone que los <strong>accesos, permisos y decisiones del cliente</strong> llegan en el momento en que se los necesita. El alcance de pruebas <strong>queda abierto a modificación</strong>: si el proyecto requiere integración, end-to-end u otros tipos, se incorporan revisando antes su impacto en el tiempo. Los supuestos y ese impacto están en la sección 7.</td></tr>
+      <tr><th>Decisión pedida</th><td>Aprobar el alcance y el orden de las fases, designar un <strong>dueño del proceso</strong>, y aceptar los <strong>cambios en la dinámica de trabajo</strong> de la sección 11.</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="problema">2. El problema que resolvemos</h2>
+
+  <div class="diagram-wrap">
+    <div class="diagram-name">Figura 1. El ciclo de devoluciones</div>
+    <svg width="100%" viewBox="0 0 680 166" role="img" xmlns="http://www.w3.org/2000/svg">
+      <title>El ciclo de devoluciones</title><desc>Una task ambigua lleva a codificar sobre supuestos. El desarrollador declara terminado el desarrollo y el revisor devuelve observaciones en el PR, lo que reinicia el ciclo. Lo que escapa a la revision lo devuelve mas tarde el equipo que testea, y ahi el costo se multiplica.</desc>
+      <defs><marker id="a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M0,0.8 L7,4 L0,7.2 Z" fill="#5300DF"/></marker><marker id="w" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M0,0.8 L7,4 L0,7.2 Z" fill="#B9720A"/></marker></defs>
+      <rect x="22" y="28" width="132" height="56" rx="6" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1.2"/>
+      <text x="88.0" y="60" text-anchor="middle" font-size="10.5" font-weight="600" fill="#280265">Task ambigua</text>
+      <line x1="158" y1="56" x2="186" y2="56" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a)"/>
+      <rect x="190" y="28" width="132" height="56" rx="6" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1.2"/>
+      <text x="256.0" y="50" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">Se codifica</text>
+      <text x="256.0" y="64" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">sobre supuestos</text>
+      <line x1="326" y1="56" x2="354" y2="56" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a)"/>
+      <rect x="358" y="28" width="132" height="56" rx="6" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1.2"/>
+      <text x="424.0" y="50" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">El desarrollador</text>
+      <text x="424.0" y="64" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">declara "terminado"</text>
+      <line x1="494" y1="56" x2="522" y2="56" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a)"/>
+      <rect x="526" y="28" width="132" height="56" rx="6" fill="#FBF0DC" stroke="#B9720A" stroke-width="1.2"/>
+      <text x="592.0" y="50" text-anchor="middle" font-size="9.4" font-weight="600" fill="#B9720A">Devoluciones en la</text>
+      <text x="592.0" y="64" text-anchor="middle" font-size="9.4" font-weight="600" fill="#B9720A">revisión del PR</text>
+      <polyline points="592,88 592,116 88,116 88,90" fill="none" stroke="#B9720A" stroke-width="1.5" marker-end="url(#w)"/>
+      <text x="340" y="131" text-anchor="middle" font-size="8.4" fill="#B9720A">Y lo que escapa a la revisión lo devuelve después el equipo que testea, donde el costo se multiplica</text>
+      <text x="340" y="148" text-anchor="middle" font-size="8.4" fill="#8A8998">Cada devolución paga una ambigüedad que pudo resolverse antes de escribir código</text>
+      </svg>
+    <div class="diagram-caption">El error no se origina al codificar: se origina antes, y solo se hace visible cuando alguien lo devuelve.</div>
+  </div>
+
+  <div class="finding">
+    <div class="finding-title">1. "Terminar el desarrollo" no es lo mismo que estar terminado</div>
+    <p class="finding-body">El desarrollador declara terminado, y ahí empieza la verdadera cola: el revisor devuelve el PR con observaciones, una y otra vez. Ese hueco entre <em>"ya terminé"</em> y <em>"ya pasó"</em> es donde vive el costo, y es el dolor que esta propuesta ataca de frente. La task envejece, el desarrollador cambia de contexto y vuelve, y el revisor gasta su tiempo &mdash; el más escaso del equipo &mdash; en observaciones que se repiten.</p>
+  </div>
+
+  <div class="finding">
+    <div class="finding-title">2. El alcance se descubre codificando</div>
+    <p class="finding-body">Las preguntas que debieron hacerse antes se terminan haciendo después, cuando cambiar de rumbo ya cuesta mucho más. La ambigüedad no desaparece por avanzar: se paga con intereses.</p>
+  </div>
+
+  <div class="finding">
+    <div class="finding-title">3. El conocimiento del sistema no está escrito</div>
+    <p class="finding-body">Depende de personas. El onboarding es lento, el impacto de un cambio se estima de memoria y la salida de una persona clave se siente como una pérdida de capacidad, no como un relevo.</p>
+  </div>
+
+  <div class="finding">
+    <div class="finding-title">4. El estándar técnico se aplica en el review, a mano</div>
+    <p class="finding-body">Las mismas observaciones se repiten PR tras PR porque nadie las verifica antes. El tiempo del revisor, que es el recurso más escaso, se consume en lo que una máquina podría validar.</p>
+  </div>
+
+  <div class="finding">
+    <div class="finding-title">5. La devolución es la factura de todo lo anterior</div>
+    <p class="finding-body">Hay dos devoluciones, y cuestan distinto. La primera y más frecuente son las <strong>observaciones del revisor en el PR</strong>: barata en comparación, pero repetitiva, y consume el tiempo del revisor en cosas que una máquina podría haber validado antes. La segunda es la <strong>task devuelta por el equipo que testea</strong>: ahí se paga de golpe todo lo que no se resolvió antes, porque hay que reabrir el contexto, reanalizar, reimplementar, volver a revisar y volver a desplegar. Juntas son la métrica más honesta del costo de la ambigüedad, y son las que esta guía busca mover.</p>
+  </div>
+
+  <blockquote>Principio rector: el costo de corregir un error se multiplica aproximadamente diez veces por cada fase que avanza. Todo el diseño de esta guía existe para mover el hallazgo a las fases tempranas, donde corregir cuesta una conversación.</blockquote>
+
+  <h2 id="objetivo">3. Qué queremos lograr</h2>
+
+  <p>Cuatro capacidades encadenadas, sostenidas por una sola guía. No se trata de acelerar la escritura de código, sino de que la fase de desarrollo completa &mdash; desde entender la task hasta dejar el PR listo para revisión &mdash; ocurra con la misma disciplina cada vez.</p>
+
+  <h3>El alcance, delimitado</h3>
+
+  <div class="soft-highlight">
+    <p>Hoy intervienen <strong>cuatro equipos</strong> en la vida de una task, y el alcance de esta guía es exactamente el del segundo:</p>
+    <ol style="margin-bottom:9px">
+      <li>El equipo que <strong>diseña la task</strong> &mdash; define qué hay que hacer. <em>Fuera de alcance.</em></li>
+      <li>El equipo que <strong>implementa el código</strong> para resolverla. <em>Aquí opera la guía.</em></li>
+      <li>El equipo que <strong>revisa el PR</strong> &mdash; devuelve observaciones como comentarios del PR y, cuando queda conforme, lo integra y lo despliega a otros ambientes. <em>Fuera de alcance.</em></li>
+      <li>El equipo que <strong>testea</strong> en esos ambientes y decide: aprueba para producción, o <strong>devuelve la task</strong> al equipo de desarrollo. <em>Fuera de alcance.</em></li>
+    </ol>
+    <p><strong>Tres puertas de entrada, un solo proceso.</strong> El alcance es una <em>pasada</em>, y se entra por tres caminos:</p>
+    <ul style="margin-bottom:9px">
+      <li>Una <strong>task nueva</strong> que entrega el equipo que la diseña.</li>
+      <li>Las <strong>observaciones del revisor</strong> como comentarios en el PR. Es la devolución más frecuente y la primera que ocurre.</li>
+      <li>Una <strong>task devuelta</strong> por el equipo que testea. Es la más costosa, porque ya pasó por todo.</li>
+    </ul>
+    <p>La guía trata las tres igual: vuelven a pasar por el análisis y por la compuerta, con el contexto de la pasada anterior ya versionado. Reducir la segunda y la tercera puerta es, en la práctica, la forma más directa de medir si esta guía sirve.</p>
+    <p><strong>Dentro.</strong> Todo lo que ocurre entre la recepción de la task por parte del equipo implementador y el PR abierto en GitHub: entender la task, contrastarla con el código, resolver los bloqueadores, diseñar la solución, planearla, implementarla, probarla, verificar que lo entregado corresponde a lo solicitado, y publicar el PR con esa evidencia.</p>
+    <p><strong>El entregable final es el PR</strong>, y debe sostenerse por sí solo: el commit con la solución, la evidencia de las pruebas que la cubren, y un comentario que enfrenta uno a uno lo solicitado en la task contra lo entregado, incluyendo lo que quedó fuera y por qué.</p>
+    <p style="margin-bottom:0"><strong>Los límites son entregas entre equipos.</strong> A la entrada, la task diseñada que llega al desarrollador asignado. A la salida, el PR abierto que pasa al equipo revisor. La guía no reemplaza ni automatiza lo que hacen los otros tres equipos: se hace responsable del tramo del medio y les entrega evidencia para que su trabajo sea más corto y sus devoluciones más raras.</p>
+  </div>
+
+  <div class="diagram-wrap">
+    <div class="diagram-name">Figura 2. Las cuatro capacidades</div>
+    <svg width="100%" viewBox="0 0 680 140" role="img" xmlns="http://www.w3.org/2000/svg">
+      <title>Las cuatro capacidades de la guia generativa</title><desc>Disenar, implementar, probar y entregar, encadenadas como un unico ciclo asistido que va desde la task recibida hasta el PR abierto con su evidencia.</desc>
+      <defs><marker id="a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M0,0.8 L7,4 L0,7.2 Z" fill="#5300DF"/></marker><marker id="b" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M0,0.8 L7,4 L0,7.2 Z" fill="#B9720A"/></marker></defs>
+      <rect x="8" y="20" width="154" height="102" rx="6" fill="#FFFFFF" stroke="#5300DF" stroke-width="1.2"/>
+      <text x="85.0" y="42" text-anchor="middle" font-size="10.5" font-weight="600" fill="#280265">DISEÑAR</text>
+      <line x1="38" y1="50" x2="132" y2="50" stroke="#5300DF" stroke-width="0.8" opacity="0.5"/>
+      <text x="85.0" y="66" text-anchor="middle" font-size="8.4" fill="#5B5A66">De la task recibida a</text>
+      <text x="85.0" y="80" text-anchor="middle" font-size="8.4" fill="#5B5A66">una solución con alternativas</text>
+      <text x="85.0" y="94" text-anchor="middle" font-size="8.4" fill="#5B5A66">y decisión registrada</text>
+      <line x1="164" y1="71" x2="175" y2="71" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a)"/>
+      <rect x="178" y="20" width="154" height="102" rx="6" fill="#EBEBFF" stroke="#5300DF" stroke-width="1.2"/>
+      <text x="255.0" y="42" text-anchor="middle" font-size="10.5" font-weight="600" fill="#280265">IMPLEMENTAR</text>
+      <line x1="208" y1="50" x2="302" y2="50" stroke="#5300DF" stroke-width="0.8" opacity="0.5"/>
+      <text x="255.0" y="66" text-anchor="middle" font-size="8.4" fill="#5B5A66">Código que cumple el</text>
+      <text x="255.0" y="80" text-anchor="middle" font-size="8.4" fill="#5B5A66">estándar por construcción,</text>
+      <text x="255.0" y="94" text-anchor="middle" font-size="8.4" fill="#5B5A66">no por revisión</text>
+      <line x1="334" y1="71" x2="345" y2="71" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a)"/>
+      <rect x="348" y="20" width="154" height="102" rx="6" fill="#FBF0DC" stroke="#B9720A" stroke-width="1.2"/>
+      <text x="425.0" y="42" text-anchor="middle" font-size="10.5" font-weight="600" fill="#B9720A">PROBAR</text>
+      <line x1="378" y1="50" x2="472" y2="50" stroke="#B9720A" stroke-width="0.8" opacity="0.5"/>
+      <text x="425.0" y="66" text-anchor="middle" font-size="8.4" fill="#7A5100">Escenarios derivados del</text>
+      <text x="425.0" y="80" text-anchor="middle" font-size="8.4" fill="#7A5100">plan, con evidencia</text>
+      <text x="425.0" y="94" text-anchor="middle" font-size="8.4" fill="#7A5100">verificable por máquina</text>
+      <line x1="504" y1="71" x2="515" y2="71" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a)"/>
+      <rect x="518" y="20" width="154" height="102" rx="6" fill="#280265" stroke="#280265" stroke-width="1.2"/>
+      <text x="595.0" y="42" text-anchor="middle" font-size="10.5" font-weight="600" fill="#FFFFFF">ENTREGAR</text>
+      <line x1="548" y1="50" x2="642" y2="50" stroke="#280265" stroke-width="0.8" opacity="0.5"/>
+      <text x="595.0" y="66" text-anchor="middle" font-size="8.4" fill="#CFC4EA">PR abierto con la evidencia</text>
+      <text x="595.0" y="80" text-anchor="middle" font-size="8.4" fill="#CFC4EA">y el match contra la task,</text>
+      <text x="595.0" y="94" text-anchor="middle" font-size="8.4" fill="#CFC4EA">listo para revisión</text>
+      </svg>
+  </div>
+
+  <p>En el día a día esto se traduce en algo simple: el desarrollador abre una sesión y ejecuta un solo comando. A partir de ahí, la guía conduce el ciclo y le pide a la persona exactamente lo que necesita de ella, ni más ni menos.</p>
+
+  <h3>El objetivo concreto: acertar a la primera</h3>
+
+  <p>Si la propuesta se resume en una sola cosa medible, es esta: <strong>que el PR llegue a revisión sin las devoluciones que hoy se repiten</strong>. No es una aspiración genérica. Cada tipo de observación que hoy escribe un revisor a mano tiene un mecanismo que la previene antes de que el PR exista.</p>
+
+  <table class="scenario-table">
+    <thead><tr><th>Lo que hoy encuentra el revisor a mano</th><th>Qué lo previene antes de abrir el PR</th></tr></thead>
+    <tbody>
+      <tr><th>Incumplimientos del estándar de código</th><td>Las reglas normativas se aplican durante la implementación, y la auto-revisión las audita una a una antes de publicar</td></tr>
+      <tr><th>Faltan pruebas, o la cobertura es insuficiente</th><td>La compuerta exige suite verde y cobertura sobre lo modificado. Sin eso no hay push</td></tr>
+      <tr><th>Quedó algo del alcance sin hacer</th><td>La verificación de match enfrenta uno a uno lo solicitado en la task contra lo entregado, y lo publica como comentario del PR</td></tr>
+      <tr><th>El PR es difícil de revisar</th><td>Un solo commit limpio con la solución completa, y la evidencia adjunta</td></tr>
+      <tr><th>Se resolvió sobre un supuesto equivocado</th><td>La compuerta de bloqueadores lo devuelve como pregunta <em>antes</em> de escribir código, no después</td></tr>
+    </tbody>
+  </table>
+
+  <div class="soft-highlight">
+    <p><strong>Hasta dónde llega la promesa.</strong> La guía puede acertar a la primera en todo lo <strong>verificable mecánicamente</strong>: el estándar, la cobertura, la completitud contra la task, la forma del PR. Ahí está la mayor parte del volumen de devoluciones, y es justamente lo que hoy se repite PR tras PR.</p>
+    <p style="margin-bottom:0"><strong>Lo que no puede garantizar es el juicio:</strong> si el enfoque elegido es el mejor para el negocio, o si el revisor prefiere otra solución igualmente válida. Esas devoluciones van a seguir existiendo, y está bien que existan &mdash; son la conversación técnica que sí aporta. <strong>El objetivo no es un PR sin comentarios: es que los comentarios que queden sean los que valen la pena.</strong></p>
+  </div>
+
+  <h3>Tres reglas que hacen esto confiable</h3>
+
+  <div class="soft-highlight">
+    <p><strong>Evidencia primero.</strong> Toda afirmación va citada contra el código. Lo que no se sabe se escribe como desconocido, nunca se inventa. Una ambigüedad es una pregunta bloqueante, no una decisión que el sistema tome por su cuenta.</p>
+    <p><strong>Las compuertas son mecánicas.</strong> No dependen de la buena voluntad ni de la presión de entrega: si falta un artefacto, la escritura de código o la publicación quedan denegadas.</p>
+    <p style="margin-bottom:0"><strong>Lo humano se marca como humano.</strong> La guía nunca declara hecho un paso que le corresponde a una persona. Lo prepara, lo entrega y lo dice explícitamente.</p>
+  </div>
+
+  <h2 id="flujo">4. El flujo de trabajo completo, paso a paso</h2>
+
+  <p>Las dos figuras siguientes muestran la secuencia real, con un carril por cada participante. Las <strong>columnas grises de los extremos</strong> son los otros tres equipos: quedan fuera del alcance y aparecen solo en las entregas, para que se vea con qué llegan y con qué se van. Todo lo que pasa entre las dos líneas punteadas es lo que esta guía se hace cargo de ejecutar.</p>
+
+  <p>Conviene leerlas atendiendo a <em>quién</em> actúa en cada momento: la persona decide, la guía ejecuta y deja evidencia. Las <strong>compuertas</strong> son las bandas ámbar que cruzan el diagrama: puntos de control donde el proceso se detiene si no se cumple una condición, y que no dependen de la disciplina de nadie.</p>
+
+  <p>Las <strong>flechas ámbar gruesas</strong> son reproceso: trabajo que vuelve. Son dos caminos distintos &mdash; las observaciones del revisor en el PR y la task devuelta por el equipo que testea &mdash; y cada uno aparece en las dos figuras: en la 4 cuando sale, en la 3 cuando vuelve a entrar.</p>
+
+  <div class="diagram-wrap">
+    <div class="diagram-name">Figura 3. Las tres puertas de entrada, análisis y compuerta de bloqueadores</div>
+    <svg width="100%" viewBox="0 0 680 708" role="img" xmlns="http://www.w3.org/2000/svg">
+      <title>Las tres puertas de entrada, analisis y compuerta de bloqueadores</title><desc>El alcance tiene tres puertas de entrada: una task nueva que entrega el equipo que la disena, las observaciones que el revisor deja como comentarios en el PR, o una task devuelta por el equipo que testea. En ambos casos la guia lee la task en Jira, lee el codigo en GitHub, sincroniza su conocimiento y analiza. La compuerta decide: si hay bloqueadores, las preguntas vuelven al equipo que diseno la task y no se escribe codigo.</desc>
+      <defs><marker id="arrF" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0.8 L7,4 L0,7.2 Z" fill="#5300DF"/></marker><marker id="arrR" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0.8 L7,4 L0,7.2 Z" fill="#8A8998"/></marker><marker id="arrX" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0.8 L7,4 L0,7.2 Z" fill="#280265"/></marker><marker id="arrW" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M0,0.8 L7,4 L0,7.2 Z" fill="#B9720A"/></marker></defs>
+      <rect x="12" y="14" width="99.4" height="686" fill="#F7F7FA"/>
+      <rect x="477.1" y="14" width="190.9" height="686" fill="#F7F7FA"/>
+      <line x1="111.4" y1="14" x2="111.4" y2="702" stroke="#280265" stroke-width="1" stroke-dasharray="5 3" opacity="0.55"/>
+      <line x1="477.1" y1="14" x2="477.1" y2="702" stroke="#280265" stroke-width="1" stroke-dasharray="5 3" opacity="0.55"/>
+      <line x1="65.7" y1="58.0" x2="65.7" y2="700" stroke="#C9C4DC" stroke-width="1" stroke-dasharray="3 3"/>
+      <line x1="157.1" y1="58.0" x2="157.1" y2="700" stroke="#DCD8EC" stroke-width="1" stroke-dasharray="3 3"/>
+      <line x1="248.6" y1="58.0" x2="248.6" y2="700" stroke="#DCD8EC" stroke-width="1" stroke-dasharray="3 3"/>
+      <line x1="340.0" y1="58.0" x2="340.0" y2="700" stroke="#DCD8EC" stroke-width="1" stroke-dasharray="3 3"/>
+      <line x1="431.4" y1="58.0" x2="431.4" y2="700" stroke="#DCD8EC" stroke-width="1" stroke-dasharray="3 3"/>
+      <line x1="522.9" y1="58.0" x2="522.9" y2="700" stroke="#C9C4DC" stroke-width="1" stroke-dasharray="3 3"/>
+      <line x1="614.3" y1="58.0" x2="614.3" y2="700" stroke="#C9C4DC" stroke-width="1" stroke-dasharray="3 3"/>
+      <rect x="116.4" y="307.0" width="355.7" height="120.0" rx="5" fill="#EBEBFF" stroke="#5300DF" stroke-width="0.9"/>
+      <text x="125.4" y="320.0" font-size="7.8" font-weight="600" fill="#5300DF" letter-spacing="0.05em">ANÁLISIS — TODAVÍA NO SE ESCRIBE UNA SOLA LÍNEA DE CÓDIGO</text>
+      <rect x="116.4" y="466.0" width="355.7" height="161.0" rx="5" fill="#FBF0DC" stroke="#B9720A" stroke-width="0.9"/>
+      <text x="125.4" y="479.0" font-size="7.8" font-weight="600" fill="#B9720A" letter-spacing="0.05em">SI HAY BLOQUEADORES</text>
+      <rect x="116.4" y="635.0" width="355.7" height="49.0" rx="5" fill="#EBEBFF" stroke="#5300DF" stroke-width="0.9"/>
+      <text x="125.4" y="648.0" font-size="7.8" font-weight="600" fill="#5300DF" letter-spacing="0.05em">SI NO HAY BLOQUEADORES</text>
+      <rect x="12" y="437.0" width="656" height="21" rx="4" fill="#FBF0DC" stroke="#B9720A" stroke-width="1.2"/>
+      <text x="340" y="451.0" text-anchor="middle" font-size="8.2" font-weight="700" fill="#B9720A" letter-spacing="0.03em">COMPUERTA · ¿hay bloqueadores? · sin veredicto favorable no se escribe código</text>
+      <text x="61.7" y="12" text-anchor="middle" font-size="6.8" font-weight="700" fill="#9A98A8" letter-spacing="0.09em">FUERA</text>
+      <path d="M 15.0 16 L 15.0 19 L 108.4 19 L 108.4 16" fill="none" stroke="#9A98A8" stroke-width="0.8" opacity="0.6"/>
+      <text x="294.3" y="12" text-anchor="middle" font-size="6.8" font-weight="700" fill="#280265" letter-spacing="0.09em">DENTRO DEL ALCANCE DE LA GUÍA</text>
+      <path d="M 114.4 16 L 114.4 19 L 474.1 19 L 474.1 16" fill="none" stroke="#280265" stroke-width="0.8" opacity="0.6"/>
+      <text x="572.6" y="12" text-anchor="middle" font-size="6.8" font-weight="700" fill="#9A98A8" letter-spacing="0.09em">FUERA</text>
+      <path d="M 480.1 16 L 480.1 19 L 665.0 19 L 665.0 16" fill="none" stroke="#9A98A8" stroke-width="0.8" opacity="0.6"/>
+      <rect x="22.7" y="24" width="86" height="34" rx="5" fill="#F7F7FA" stroke="#C9C4DC" stroke-width="1" stroke-dasharray="3 2"/>
+      <text x="65.7" y="39.0" text-anchor="middle" font-size="8.4" font-weight="600" fill="#9A98A8">Equipo que</text>
+      <text x="65.7" y="50.0" text-anchor="middle" font-size="8.4" font-weight="600" fill="#9A98A8">diseña la task</text>
+      <rect x="114.1" y="24" width="86" height="34" rx="5" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1"/>
+      <text x="157.1" y="39.0" text-anchor="middle" font-size="8.4" font-weight="600" fill="#280265">Desarrollador</text>
+      <text x="157.1" y="50.0" text-anchor="middle" font-size="8.4" font-weight="600" fill="#280265">asignado</text>
+      <rect x="205.6" y="24" width="86" height="34" rx="5" fill="#280265" stroke="#280265" stroke-width="1"/>
+      <text x="248.6" y="39.0" text-anchor="middle" font-size="8.4" font-weight="600" fill="#FFFFFF">Guía</text>
+      <text x="248.6" y="50.0" text-anchor="middle" font-size="8.4" font-weight="600" fill="#FFFFFF">Generativa</text>
+      <rect x="297.0" y="24" width="86" height="34" rx="5" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1"/>
+      <text x="340.0" y="45.0" text-anchor="middle" font-size="8.6" font-weight="600" fill="#280265">Jira</text>
+      <rect x="388.4" y="24" width="86" height="34" rx="5" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1"/>
+      <text x="431.4" y="45.0" text-anchor="middle" font-size="8.6" font-weight="600" fill="#280265">GitHub</text>
+      <rect x="479.9" y="24" width="86" height="34" rx="5" fill="#F7F7FA" stroke="#C9C4DC" stroke-width="1" stroke-dasharray="3 2"/>
+      <text x="522.9" y="39.0" text-anchor="middle" font-size="8.4" font-weight="600" fill="#9A98A8">Equipo que</text>
+      <text x="522.9" y="50.0" text-anchor="middle" font-size="8.4" font-weight="600" fill="#9A98A8">revisa el PR</text>
+      <rect x="571.3" y="24" width="86" height="34" rx="5" fill="#F7F7FA" stroke="#C9C4DC" stroke-width="1" stroke-dasharray="3 2"/>
+      <text x="614.3" y="39.0" text-anchor="middle" font-size="8.4" font-weight="600" fill="#9A98A8">Equipo que</text>
+      <text x="614.3" y="50.0" text-anchor="middle" font-size="8.4" font-weight="600" fill="#9A98A8">testea</text>
+      <line x1="65.7" y1="86.0" x2="157.1" y2="86.0" stroke="#280265" stroke-width="1.5" marker-end="url(#arrX)"/>
+      <text x="111.4" y="81.0" text-anchor="middle" font-size="8" font-weight="600" fill="#280265">Entrega la task diseñada</text>
+      <line x1="522.9" y1="114.0" x2="157.1" y2="114.0" stroke="#B9720A" stroke-width="1.5" marker-end="url(#arrW)"/>
+      <text x="340.0" y="109.0" text-anchor="middle" font-size="8" font-weight="600" fill="#B9720A">Observaciones del revisor en el PR</text>
+      <line x1="614.3" y1="142.0" x2="157.1" y2="142.0" stroke="#B9720A" stroke-width="1.5" marker-end="url(#arrW)"/>
+      <text x="385.7" y="137.0" text-anchor="middle" font-size="8" font-weight="600" fill="#B9720A">Task devuelta por el equipo que testea</text>
+      <line x1="157.1" y1="170.0" x2="248.6" y2="170.0" stroke="#5300DF" stroke-width="1.1" marker-end="url(#arrF)"/>
+      <text x="202.9" y="165.0" text-anchor="middle" font-size="8" fill="#5B5A66">/implement API-1234</text>
+      <line x1="248.6" y1="198.0" x2="340.0" y2="198.0" stroke="#5300DF" stroke-width="1.1" marker-end="url(#arrF)"/>
+      <text x="294.3" y="193.0" text-anchor="middle" font-size="8" fill="#5B5A66">Lee la task completa</text>
+      <line x1="340.0" y1="226.0" x2="248.6" y2="226.0" stroke="#8A8998" stroke-width="1.1" stroke-dasharray="4 3" marker-end="url(#arrR)"/>
+      <text x="294.3" y="221.0" text-anchor="middle" font-size="8" fill="#5B5A66">Descripción, subtareas y comentarios</text>
+      <line x1="248.6" y1="254.0" x2="431.4" y2="254.0" stroke="#5300DF" stroke-width="1.1" marker-end="url(#arrF)"/>
+      <text x="340.0" y="249.0" text-anchor="middle" font-size="8" fill="#5B5A66">Lee el código en su estado actual</text>
+      <path d="M 248.6 282.0 L 276.6 282.0 L 276.6 297.0 L 253.6 297.0" fill="none" stroke="#5300DF" stroke-width="1.1" marker-end="url(#arrF)"/>
+      <text x="284.6" y="292.0" font-size="7.8" fill="#5B5A66">Sincroniza su conocimiento con el código</text>
+      <path d="M 248.6 334.0 L 276.6 334.0 L 276.6 349.0 L 253.6 349.0" fill="none" stroke="#5300DF" stroke-width="1.1" marker-end="url(#arrF)"/>
+      <text x="284.6" y="344.0" font-size="7.8" fill="#5B5A66">Contrasta lo pedido contra el código</text>
+      <path d="M 248.6 367.0 L 276.6 367.0 L 276.6 382.0 L 253.6 382.0" fill="none" stroke="#5300DF" stroke-width="1.1" marker-end="url(#arrF)"/>
+      <text x="284.6" y="377.0" font-size="7.8" fill="#5B5A66">Mide impacto, cobertura y factibilidad</text>
+      <path d="M 248.6 400.0 L 276.6 400.0 L 276.6 415.0 L 253.6 415.0" fill="none" stroke="#5300DF" stroke-width="1.1" marker-end="url(#arrF)"/>
+      <text x="284.6" y="410.0" font-size="7.8" fill="#5B5A66">Clasifica dudas y supuestos</text>
+      <line x1="248.6" y1="493.0" x2="157.1" y2="493.0" stroke="#5300DF" stroke-width="1.1" marker-end="url(#arrF)"/>
+      <text x="202.9" y="488.0" text-anchor="middle" font-size="8" fill="#5B5A66">Preguntas con opciones y recomendación</text>
+      <line x1="157.1" y1="521.0" x2="65.7" y2="521.0" stroke="#280265" stroke-width="1.5" marker-end="url(#arrX)"/>
+      <text x="111.4" y="516.0" text-anchor="middle" font-size="8" font-weight="600" fill="#280265">Traslada las preguntas bloqueantes</text>
+      <line x1="65.7" y1="549.0" x2="157.1" y2="549.0" stroke="#8A8998" stroke-width="1.1" stroke-dasharray="4 3" marker-end="url(#arrR)"/>
+      <text x="111.4" y="544.0" text-anchor="middle" font-size="8" fill="#5B5A66">Definiciones</text>
+      <line x1="157.1" y1="577.0" x2="248.6" y2="577.0" stroke="#5300DF" stroke-width="1.1" marker-end="url(#arrF)"/>
+      <text x="202.9" y="572.0" text-anchor="middle" font-size="8" fill="#5B5A66">Entrega las definiciones</text>
+      <line x1="248.6" y1="605.0" x2="340.0" y2="605.0" stroke="#5300DF" stroke-width="1.1" marker-end="url(#arrF)"/>
+      <text x="294.3" y="600.0" text-anchor="middle" font-size="8" fill="#5B5A66">Registra las decisiones en la task</text>
+      <line x1="248.6" y1="662.0" x2="157.1" y2="662.0" stroke="#5300DF" stroke-width="1.1" marker-end="url(#arrF)"/>
+      <text x="202.9" y="657.0" text-anchor="middle" font-size="8" fill="#5B5A66">Vía libre: se puede implementar</text>
+      </svg>
+    <div class="diagram-caption">Se entra por una task nueva, por las observaciones del revisor o por una task devuelta, y el proceso es el mismo en los tres casos. Mientras existan bloqueadores, no se escribe una sola línea de código.</div>
+  </div>
+
+  <div class="diagram-wrap">
+    <div class="diagram-name">Figura 4. Diseño, implementación, pruebas y entrega del PR</div>
+    <svg width="100%" viewBox="0 0 680 812" role="img" xmlns="http://www.w3.org/2000/svg">
+      <title>Diseno de la solucion, implementacion, pruebas y entrega del PR</title><desc>La guia disena la solucion y la propone al desarrollador, implementa y prueba en GitHub, verifica el match entre lo solicitado y lo entregado, y tras la firma humana abre el PR con su evidencia. Ahi termina el alcance. El revisor puede devolver observaciones como comentarios del PR, que es la devolucion mas frecuente; cuando queda conforme integra, y el equipo que testea valida en otros ambientes antes de aprobar para produccion o devolver la task.</desc>
+      <defs><marker id="arrF" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0.8 L7,4 L0,7.2 Z" fill="#5300DF"/></marker><marker id="arrR" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0.8 L7,4 L0,7.2 Z" fill="#8A8998"/></marker><marker id="arrX" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0.8 L7,4 L0,7.2 Z" fill="#280265"/></marker><marker id="arrW" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M0,0.8 L7,4 L0,7.2 Z" fill="#B9720A"/></marker></defs>
+      <rect x="12" y="14" width="99.4" height="790" fill="#F7F7FA"/>
+      <rect x="477.1" y="14" width="190.9" height="790" fill="#F7F7FA"/>
+      <line x1="111.4" y1="14" x2="111.4" y2="806" stroke="#280265" stroke-width="1" stroke-dasharray="5 3" opacity="0.55"/>
+      <line x1="477.1" y1="14" x2="477.1" y2="806" stroke="#280265" stroke-width="1" stroke-dasharray="5 3" opacity="0.55"/>
+      <line x1="65.7" y1="58.0" x2="65.7" y2="804" stroke="#C9C4DC" stroke-width="1" stroke-dasharray="3 3"/>
+      <line x1="157.1" y1="58.0" x2="157.1" y2="804" stroke="#DCD8EC" stroke-width="1" stroke-dasharray="3 3"/>
+      <line x1="248.6" y1="58.0" x2="248.6" y2="804" stroke="#DCD8EC" stroke-width="1" stroke-dasharray="3 3"/>
+      <line x1="340.0" y1="58.0" x2="340.0" y2="804" stroke="#DCD8EC" stroke-width="1" stroke-dasharray="3 3"/>
+      <line x1="431.4" y1="58.0" x2="431.4" y2="804" stroke="#DCD8EC" stroke-width="1" stroke-dasharray="3 3"/>
+      <line x1="522.9" y1="58.0" x2="522.9" y2="804" stroke="#C9C4DC" stroke-width="1" stroke-dasharray="3 3"/>
+      <line x1="614.3" y1="58.0" x2="614.3" y2="804" stroke="#C9C4DC" stroke-width="1" stroke-dasharray="3 3"/>
+      <rect x="116.4" y="78.0" width="355.7" height="110.0" rx="5" fill="#EBEBFF" stroke="#5300DF" stroke-width="0.9"/>
+      <text x="125.4" y="91.0" font-size="7.8" font-weight="600" fill="#5300DF" letter-spacing="0.05em">DISEÑO DE LA SOLUCIÓN Y PLAN</text>
+      <rect x="116.4" y="196.0" width="355.7" height="138.0" rx="5" fill="#FBF0DC" stroke="#B9720A" stroke-width="0.9"/>
+      <text x="125.4" y="209.0" font-size="7.8" font-weight="600" fill="#B9720A" letter-spacing="0.05em">IMPLEMENTACIÓN Y PRUEBAS — SI ALGO FALLA, NO AVANZA</text>
+      <rect x="116.4" y="462.0" width="355.7" height="138.0" rx="5" fill="#F4F2FA" stroke="#280265" stroke-width="0.9"/>
+      <text x="125.4" y="475.0" font-size="7.8" font-weight="600" fill="#280265" letter-spacing="0.05em">ENTREGA — EL PR CON SU EVIDENCIA</text>
+      <rect x="12" y="377.0" width="656" height="21" rx="4" fill="#FBF0DC" stroke="#B9720A" stroke-width="1.2"/>
+      <text x="340" y="391.0" text-anchor="middle" font-size="8.2" font-weight="700" fill="#B9720A" letter-spacing="0.03em">COMPUERTA · pruebas verdes + revisión aprobada + match verificado</text>
+      <text x="61.7" y="12" text-anchor="middle" font-size="6.8" font-weight="700" fill="#9A98A8" letter-spacing="0.09em">FUERA</text>
+      <path d="M 15.0 16 L 15.0 19 L 108.4 19 L 108.4 16" fill="none" stroke="#9A98A8" stroke-width="0.8" opacity="0.6"/>
+      <text x="294.3" y="12" text-anchor="middle" font-size="6.8" font-weight="700" fill="#280265" letter-spacing="0.09em">DENTRO DEL ALCANCE DE LA GUÍA</text>
+      <path d="M 114.4 16 L 114.4 19 L 474.1 19 L 474.1 16" fill="none" stroke="#280265" stroke-width="0.8" opacity="0.6"/>
+      <text x="572.6" y="12" text-anchor="middle" font-size="6.8" font-weight="700" fill="#9A98A8" letter-spacing="0.09em">FUERA</text>
+      <path d="M 480.1 16 L 480.1 19 L 665.0 19 L 665.0 16" fill="none" stroke="#9A98A8" stroke-width="0.8" opacity="0.6"/>
+      <rect x="22.7" y="24" width="86" height="34" rx="5" fill="#F7F7FA" stroke="#C9C4DC" stroke-width="1" stroke-dasharray="3 2"/>
+      <text x="65.7" y="39.0" text-anchor="middle" font-size="8.4" font-weight="600" fill="#9A98A8">Equipo que</text>
+      <text x="65.7" y="50.0" text-anchor="middle" font-size="8.4" font-weight="600" fill="#9A98A8">diseña la task</text>
+      <rect x="114.1" y="24" width="86" height="34" rx="5" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1"/>
+      <text x="157.1" y="39.0" text-anchor="middle" font-size="8.4" font-weight="600" fill="#280265">Desarrollador</text>
+      <text x="157.1" y="50.0" text-anchor="middle" font-size="8.4" font-weight="600" fill="#280265">asignado</text>
+      <rect x="205.6" y="24" width="86" height="34" rx="5" fill="#280265" stroke="#280265" stroke-width="1"/>
+      <text x="248.6" y="39.0" text-anchor="middle" font-size="8.4" font-weight="600" fill="#FFFFFF">Guía</text>
+      <text x="248.6" y="50.0" text-anchor="middle" font-size="8.4" font-weight="600" fill="#FFFFFF">Generativa</text>
+      <rect x="297.0" y="24" width="86" height="34" rx="5" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1"/>
+      <text x="340.0" y="45.0" text-anchor="middle" font-size="8.6" font-weight="600" fill="#280265">Jira</text>
+      <rect x="388.4" y="24" width="86" height="34" rx="5" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1"/>
+      <text x="431.4" y="45.0" text-anchor="middle" font-size="8.6" font-weight="600" fill="#280265">GitHub</text>
+      <rect x="479.9" y="24" width="86" height="34" rx="5" fill="#F7F7FA" stroke="#C9C4DC" stroke-width="1" stroke-dasharray="3 2"/>
+      <text x="522.9" y="39.0" text-anchor="middle" font-size="8.4" font-weight="600" fill="#9A98A8">Equipo que</text>
+      <text x="522.9" y="50.0" text-anchor="middle" font-size="8.4" font-weight="600" fill="#9A98A8">revisa el PR</text>
+      <rect x="571.3" y="24" width="86" height="34" rx="5" fill="#F7F7FA" stroke="#C9C4DC" stroke-width="1" stroke-dasharray="3 2"/>
+      <text x="614.3" y="39.0" text-anchor="middle" font-size="8.4" font-weight="600" fill="#9A98A8">Equipo que</text>
+      <text x="614.3" y="50.0" text-anchor="middle" font-size="8.4" font-weight="600" fill="#9A98A8">testea</text>
+      <path d="M 248.6 105.0 L 276.6 105.0 L 276.6 120.0 L 253.6 120.0" fill="none" stroke="#5300DF" stroke-width="1.1" marker-end="url(#arrF)"/>
+      <text x="284.6" y="115.0" font-size="7.8" fill="#5B5A66">Alternativas, trade-offs y decisión (ADR)</text>
+      <line x1="248.6" y1="138.0" x2="157.1" y2="138.0" stroke="#5300DF" stroke-width="1.1" marker-end="url(#arrF)"/>
+      <text x="202.9" y="133.0" text-anchor="middle" font-size="8" fill="#5B5A66">Propone la solución y el plan numerado</text>
+      <line x1="157.1" y1="166.0" x2="248.6" y2="166.0" stroke="#8A8998" stroke-width="1.1" stroke-dasharray="4 3" marker-end="url(#arrR)"/>
+      <text x="202.9" y="161.0" text-anchor="middle" font-size="8" fill="#5B5A66">Aprueba o ajusta</text>
+      <line x1="248.6" y1="223.0" x2="431.4" y2="223.0" stroke="#5300DF" stroke-width="1.1" marker-end="url(#arrF)"/>
+      <text x="340.0" y="218.0" text-anchor="middle" font-size="8" fill="#5B5A66">Escribe el código conforme al estándar</text>
+      <line x1="248.6" y1="251.0" x2="431.4" y2="251.0" stroke="#5300DF" stroke-width="1.1" marker-end="url(#arrF)"/>
+      <text x="340.0" y="246.0" text-anchor="middle" font-size="8" fill="#5B5A66">Escribe la prueba de cada escenario del plan</text>
+      <line x1="431.4" y1="279.0" x2="248.6" y2="279.0" stroke="#8A8998" stroke-width="1.1" stroke-dasharray="4 3" marker-end="url(#arrR)"/>
+      <text x="340.0" y="274.0" text-anchor="middle" font-size="8" fill="#5B5A66">Suite verde y cobertura del cambio</text>
+      <path d="M 248.6 307.0 L 276.6 307.0 L 276.6 322.0 L 253.6 322.0" fill="none" stroke="#5300DF" stroke-width="1.1" marker-end="url(#arrF)"/>
+      <text x="284.6" y="317.0" font-size="7.8" fill="#5B5A66">Auto-revisión contra las reglas normativas</text>
+      <path d="M 248.6 350.0 L 276.6 350.0 L 276.6 365.0 L 253.6 365.0" fill="none" stroke="#5300DF" stroke-width="1.1" marker-end="url(#arrF)"/>
+      <text x="284.6" y="360.0" font-size="7.8" fill="#5B5A66">Verifica el match: solicitado vs. entregado</text>
+      <line x1="248.6" y1="414.0" x2="157.1" y2="414.0" stroke="#5300DF" stroke-width="1.1" marker-end="url(#arrF)"/>
+      <text x="202.9" y="409.0" text-anchor="middle" font-size="8" fill="#5B5A66">Resumen del cambio y solicitud de publicación</text>
+      <line x1="157.1" y1="442.0" x2="248.6" y2="442.0" stroke="#5300DF" stroke-width="1.1" marker-end="url(#arrF)"/>
+      <text x="202.9" y="437.0" text-anchor="middle" font-size="8" fill="#5B5A66">Aprueba la publicación (firma humana)</text>
+      <line x1="248.6" y1="489.0" x2="431.4" y2="489.0" stroke="#5300DF" stroke-width="1.1" marker-end="url(#arrF)"/>
+      <text x="340.0" y="484.0" text-anchor="middle" font-size="8" fill="#5B5A66">Push del commit validado y apertura del PR</text>
+      <line x1="248.6" y1="517.0" x2="431.4" y2="517.0" stroke="#5300DF" stroke-width="1.1" marker-end="url(#arrF)"/>
+      <text x="340.0" y="512.0" text-anchor="middle" font-size="8" fill="#5B5A66">Comenta la evidencia de pruebas y el match con la task</text>
+      <line x1="248.6" y1="545.0" x2="340.0" y2="545.0" stroke="#5300DF" stroke-width="1.1" marker-end="url(#arrF)"/>
+      <text x="294.3" y="540.0" text-anchor="middle" font-size="8" fill="#5B5A66">Publica la evidencia y transiciona la task</text>
+      <path d="M 248.6 573.0 L 276.6 573.0 L 276.6 588.0 L 253.6 588.0" fill="none" stroke="#5300DF" stroke-width="1.1" marker-end="url(#arrF)"/>
+      <text x="284.6" y="583.0" font-size="7.8" fill="#5B5A66">Re-documenta el sistema con lo que cambió</text>
+      <line x1="248.6" y1="616.0" x2="157.1" y2="616.0" stroke="#5300DF" stroke-width="1.1" marker-end="url(#arrF)"/>
+      <text x="202.9" y="611.0" text-anchor="middle" font-size="8" fill="#5B5A66">PR abierto: aquí termina el alcance</text>
+      <line x1="157.1" y1="644.0" x2="522.9" y2="644.0" stroke="#280265" stroke-width="1.5" marker-end="url(#arrX)"/>
+      <text x="340.0" y="639.0" text-anchor="middle" font-size="8" font-weight="600" fill="#280265">Entrega el PR para revisión</text>
+      <line x1="522.9" y1="672.0" x2="157.1" y2="672.0" stroke="#B9720A" stroke-width="1.5" marker-end="url(#arrW)"/>
+      <text x="340.0" y="667.0" text-anchor="middle" font-size="8" font-weight="600" fill="#B9720A">Comenta observaciones en el PR: la devolución más frecuente</text>
+      <rect x="495.2" y="696.0" width="172.8" height="45" rx="4" fill="#F7F7FA" stroke="#C9C4DC" stroke-width="0.9" stroke-dasharray="3 2"/>
+      <text x="581.6" y="710.0" text-anchor="middle" font-size="7.8" fill="#9A98A8">Cuando queda conforme, el revisor</text>
+      <text x="581.6" y="721.0" text-anchor="middle" font-size="7.8" fill="#9A98A8">integra. El equipo que testea valida</text>
+      <text x="581.6" y="732.0" text-anchor="middle" font-size="7.8" fill="#9A98A8">en otros ambientes y decide:</text>
+      <rect x="547.1" y="749.0" width="118.9" height="15" rx="7.5" fill="#EBEBFF" stroke="#280265" stroke-width="1"/>
+      <circle cx="556.1" cy="756.5" r="2.6" fill="#280265"/>
+      <text x="612.5" y="759.5" text-anchor="middle" font-size="7.8" font-weight="600" fill="#280265">Aprueba para producción</text>
+      <line x1="614.3" y1="776.0" x2="157.1" y2="776.0" stroke="#B9720A" stroke-width="1.5" marker-end="url(#arrW)"/>
+      <text x="385.7" y="771.0" text-anchor="middle" font-size="8" font-weight="600" fill="#B9720A">O devuelve la task: vuelve a la Figura 3</text>
+      </svg>
+    <div class="diagram-caption">Nada se publica sin pruebas verdes, revisión aprobada, match verificado y la firma explícita del desarrollador. El último acto de la guía es abrir el PR con su evidencia; de ahí en adelante deciden los otros equipos, y de sus decisiones salen las dos devoluciones.</div>
+  </div>
+
+  <h3>Lo que este flujo garantiza</h3>
+
+  <table class="scenario-table">
+    <thead><tr><th>Momento</th><th>Garantía</th></tr></thead>
+    <tbody>
+      <tr><th>Al reentrar</th><td>Ni las observaciones del revisor ni una task devuelta se atienden de memoria: vuelven a pasar por el análisis y por la compuerta, con el plan y el contexto de la pasada anterior ya versionados.</td></tr>
+      <tr><th>Antes de codificar</th><td>Nadie escribe código sobre supuestos. La ambigüedad se devuelve como pregunta con opciones y recomendación; no se resuelve sola.</td></tr>
+      <tr><th>Durante</th><td>El estándar se cumple por construcción. El plan y las pruebas están numerados y trazados entre sí, uno a uno.</td></tr>
+      <tr><th>Antes de publicar</th><td>Suite verde, revisión aprobada y firma humana explícita. Ninguna de las tres es opcional ni se puede omitir por prisa.</td></tr>
+      <tr><th>Al entregar</th><td>El PR llega con la evidencia de las pruebas y con el match uno a uno contra la task. Quien revisa no tiene que reconstruir el contexto ni creer en la palabra de nadie.</td></tr>
+      <tr><th>Al cerrar</th><td>El conocimiento se actualiza solo, de modo que la siguiente task parte de un mapa vigente y no de uno degradado.</td></tr>
+      <tr><th>En cualquier punto</th><td>El trabajo está versionado: se retoma desde cualquier máquina y cualquier sesión, sin perder el contexto acumulado.</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="fases">5. Las fases, y por qué en ese orden</h2>
+
+  <p>El orden no es una preferencia de método: <strong>cada fase es insumo de la siguiente</strong>. Construir la automatización antes que el proceso, o el proceso antes que el conocimiento, produce trabajo que después hay que rehacer. Las fases F0 a F4 forman el camino crítico y son estrictamente secuenciales; a partir de F4 aparece el primer espacio real de paralelización.</p>
+
+  <div class="diagram-wrap">
+    <div class="diagram-name">Figura 5. Orden y dependencias de las nueve fases</div>
+    <svg width="100%" viewBox="0 0 680 272" role="img" xmlns="http://www.w3.org/2000/svg">
+      <title>Orden y dependencias de las nueve fases</title><desc>Las fases F0 a F4 forman el camino critico secuencial. F5 y F6 pueden ejecutarse en paralelo y ambas convergen en F7, el cierre de la entrega. F8 sostiene la adopcion en el tiempo.</desc>
+      <defs><marker id="a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M0,0.8 L7,4 L0,7.2 Z" fill="#5300DF"/></marker><marker id="b" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M0,0.8 L7,4 L0,7.2 Z" fill="#B9720A"/></marker></defs>
+      <rect x="22" y="42" width="118" height="52" rx="6" fill="#EBEBFF" stroke="#5300DF" stroke-width="1.2"/>
+      <text x="31" y="57" text-anchor="start" font-size="9" font-weight="700" fill="#5300DF">F0</text>
+      <text x="81.0" y="73" text-anchor="middle" font-size="9.2" font-weight="600" fill="#280265">Conocimiento</text>
+      <text x="81.0" y="85" text-anchor="middle" font-size="9.2" font-weight="600" fill="#280265">del sistema</text>
+      <line x1="142" y1="68" x2="152" y2="68" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a)"/>
+      <rect x="155" y="42" width="118" height="52" rx="6" fill="#EBEBFF" stroke="#5300DF" stroke-width="1.2"/>
+      <text x="164" y="57" text-anchor="start" font-size="9" font-weight="700" fill="#5300DF">F1</text>
+      <text x="214.0" y="73" text-anchor="middle" font-size="9.2" font-weight="600" fill="#280265">Estándar</text>
+      <text x="214.0" y="85" text-anchor="middle" font-size="9.2" font-weight="600" fill="#280265">normativo</text>
+      <line x1="275" y1="68" x2="285" y2="68" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a)"/>
+      <rect x="288" y="42" width="118" height="52" rx="6" fill="#FFFFFF" stroke="#280265" stroke-width="1.2"/>
+      <text x="297" y="57" text-anchor="start" font-size="9" font-weight="700" fill="#280265">F2</text>
+      <text x="347.0" y="73" text-anchor="middle" font-size="9.2" font-weight="600" fill="#280265">Proceso de</text>
+      <text x="347.0" y="85" text-anchor="middle" font-size="9.2" font-weight="600" fill="#280265">trabajo</text>
+      <line x1="408" y1="68" x2="418" y2="68" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a)"/>
+      <rect x="421" y="42" width="118" height="52" rx="6" fill="#FFFFFF" stroke="#280265" stroke-width="1.2"/>
+      <text x="430" y="57" text-anchor="start" font-size="9" font-weight="700" fill="#280265">F3</text>
+      <text x="480.0" y="73" text-anchor="middle" font-size="9.2" font-weight="600" fill="#280265">Enforcement</text>
+      <text x="480.0" y="85" text-anchor="middle" font-size="9.2" font-weight="600" fill="#280265">automático</text>
+      <line x1="541" y1="68" x2="551" y2="68" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a)"/>
+      <rect x="554" y="42" width="118" height="52" rx="6" fill="#FFFFFF" stroke="#280265" stroke-width="1.2"/>
+      <text x="563" y="57" text-anchor="start" font-size="9" font-weight="700" fill="#280265">F4</text>
+      <text x="613.0" y="73" text-anchor="middle" font-size="9.2" font-weight="600" fill="#280265">Integración</text>
+      <text x="613.0" y="85" text-anchor="middle" font-size="9.2" font-weight="600" fill="#280265">con el flujo</text>
+      <polyline points="613,96 613,114 92,114 92,132" fill="none" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a)"/>
+      <polyline points="300,114 14,114 14,214 20,214" fill="none" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a)"/>
+      <circle cx="613" cy="114" r="2.2" fill="#5300DF"/>
+      <text x="400" y="110" text-anchor="middle" font-size="8.4" fill="#8A8998">en paralelo</text>
+      <rect x="22" y="134" width="140" height="52" rx="6" fill="#FBF0DC" stroke="#B9720A" stroke-width="1.2"/>
+      <text x="31" y="149" text-anchor="start" font-size="9" font-weight="700" fill="#B9720A">F5</text>
+      <text x="92" y="167" text-anchor="middle" font-size="9.2" font-weight="600" fill="#B9720A">Frente de</text>
+      <text x="92" y="179" text-anchor="middle" font-size="9.2" font-weight="600" fill="#B9720A">diseño</text>
+      <rect x="22" y="190" width="140" height="52" rx="6" fill="#FBF0DC" stroke="#B9720A" stroke-width="1.2"/>
+      <text x="31" y="205" text-anchor="start" font-size="9" font-weight="700" fill="#B9720A">F6</text>
+      <text x="92" y="223" text-anchor="middle" font-size="9.2" font-weight="600" fill="#B9720A">Frente de</text>
+      <text x="92" y="235" text-anchor="middle" font-size="9.2" font-weight="600" fill="#B9720A">pruebas</text>
+      <rect x="230" y="161" width="140" height="52" rx="6" fill="#FBF0DC" stroke="#B9720A" stroke-width="1.2"/>
+      <text x="239" y="176" text-anchor="start" font-size="9" font-weight="700" fill="#B9720A">F7</text>
+      <text x="300" y="194" text-anchor="middle" font-size="9.2" font-weight="600" fill="#B9720A">Cierre de</text>
+      <text x="300" y="206" text-anchor="middle" font-size="9.2" font-weight="600" fill="#B9720A">la entrega</text>
+      <rect x="438" y="161" width="140" height="52" rx="6" fill="#280265" stroke="#280265" stroke-width="1.2"/>
+      <text x="447" y="176" text-anchor="start" font-size="9" font-weight="700" fill="#CFC4EA">F8</text>
+      <text x="508" y="194" text-anchor="middle" font-size="9.2" font-weight="600" fill="#FFFFFF">Adopción y</text>
+      <text x="508" y="206" text-anchor="middle" font-size="9.2" font-weight="600" fill="#FFFFFF">medición</text>
+      <line x1="164" y1="158" x2="228" y2="178" stroke="#B9720A" stroke-width="1.3" marker-end="url(#a)"/>
+      <line x1="164" y1="218" x2="228" y2="198" stroke="#B9720A" stroke-width="1.3" marker-end="url(#a)"/>
+      <line x1="372" y1="187" x2="436" y2="187" stroke="#B9720A" stroke-width="1.3" marker-end="url(#a)"/>
+      <rect x="22" y="252" width="10" height="10" rx="2" fill="#EBEBFF" stroke="#5300DF" stroke-width="1"/>
+      <text x="37" y="261" font-size="8.2" fill="#5B5A66">Base</text>
+      <rect x="86" y="252" width="10" height="10" rx="2" fill="#FFFFFF" stroke="#280265" stroke-width="1"/>
+      <text x="101" y="261" font-size="8.2" fill="#5B5A66">Método</text>
+      <rect x="160" y="252" width="10" height="10" rx="2" fill="#FBF0DC" stroke="#B9720A" stroke-width="1"/>
+      <text x="175" y="261" font-size="8.2" fill="#5B5A66">Ciclo completo</text>
+      <rect x="262" y="252" width="10" height="10" rx="2" fill="#280265" stroke="#280265" stroke-width="1"/>
+      <text x="277" y="261" font-size="8.2" fill="#5B5A66">Permanencia</text>
+      </svg>
+    <div class="diagram-caption">F5 y F6 son las únicas fases que pueden ejecutarse en paralelo; ambas convergen en F7. F8 es la que sostiene todo lo anterior en el tiempo.</div>
+  </div>
+
+  <table class="scenario-table">
+    <thead><tr><th>Bloque</th><th>Fases</th><th>Pregunta que responde</th></tr></thead>
+    <tbody>
+      <tr><th>Base</th><td>F0, F1</td><td>¿Qué es este sistema y cómo se escribe código en él?</td></tr>
+      <tr><th>Método</th><td>F2, F3, F4</td><td>¿Cómo se trabaja, y cómo se garantiza que efectivamente se trabaje así?</td></tr>
+      <tr><th>Ciclo completo</th><td>F5, F6, F7</td><td>¿Cómo cerramos los frentes de diseño, pruebas y entrega?</td></tr>
+      <tr><th>Permanencia</th><td>F8</td><td>¿Cómo evitamos que todo esto se apague en seis semanas?</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="detalle">6. Detalle de cada fase y estimación</h2>
+
+  <p><strong>Base de la estimación:</strong> perfiles senior familiarizados con el dominio, a dedicación completa. Las cifras están en semanas-persona (sp) y son de orden de magnitud, pensadas para dimensionar la iniciativa; se afinan antes de comprometer fechas.</p>
+
+  <h3>F0 · Base de conocimiento del sistema &mdash; 7 sp</h3>
+  <p><strong>Objetivo.</strong> Que el API deje de ser una caja negra: un mapa funcional y técnico donde cada afirmación está citada contra el código y lo desconocido está marcado como desconocido.</p>
+  <p><strong>Entregables.</strong> Catálogo de conceptos de negocio; mapa de integraciones externas; arquitectura y patrones; mapa de dependencias entre módulos; catálogo de códigos de error; mecanismo de sincronización entre documentación y código.</p>
+  <p><strong>Por qué va primero.</strong> Todo lo demás razona sobre esto. Un proceso excelente sobre conocimiento inexistente produce planes equivocados con mucha ceremonia. <strong>Cómo se organiza:</strong> el trabajo se corta por módulos, que es la unidad natural, y lo documentado se audita de forma cruzada. Esa auditoría es la que sostiene la disciplina de citar.</p>
+
+  <h3>F1 · Estándar normativo de implementación &mdash; 3 sp</h3>
+  <p><strong>Objetivo.</strong> Que "cómo se escribe código aquí" sea un conjunto de reglas explícitas y numeradas, y no el criterio de quien revisa ese día.</p>
+  <p><strong>Entregables.</strong> Reglas normativas de estilo, arquitectura, robustez y proceso, extraídas del histórico real de revisiones de PR; convenciones y patrones documentados.</p>
+  <p><strong>Por qué va aquí.</strong> Es la vara con la que se implementa (F2) y con la que se revisa (F3). Definirla después obliga a rehacer planes y revisiones ya emitidos. El trabajo se corta por familias de reglas.</p>
+
+  <h3>F2 · Proceso de trabajo &mdash; 4 sp</h3>
+  <p><strong>Objetivo.</strong> Que un ticket siempre recorra los mismos pasos, con criterio de salida explícito en cada uno y artefactos de nombre fijo.</p>
+  <p><strong>Entregables.</strong> Las fases del ciclo con su criterio de salida; plantillas de cada artefacto; taxonomía de hallazgos y severidades; trazabilidad numerada entre plan y pruebas; escalamiento del rigor según riesgo (trivial, normal, riesgoso); rutas especiales para incidentes en producción.</p>
+  <p><strong>Por qué va aquí.</strong> Es el diseño de lo que después se automatiza. Automatizar un proceso que no ha sido diseñado equivale a codificar el caos. <strong>Cómo se organiza:</strong> la redacción del proceso y la construcción de plantillas y taxonomías son trabajo separable, y avanzan a la vez.</p>
+
+  <h3>F3 · Enforcement automático &mdash; 2 sp</h3>
+  <p><strong>Objetivo.</strong> Que las compuertas no dependan de la buena voluntad.</p>
+  <p><strong>Entregables.</strong> Guardianes que deniegan escribir código sin el análisis aprobado, y que deniegan publicar sin pruebas verdes, revisión aprobada y aprobación explícita de una persona; anclaje de la aprobación al commit exacto que fue validado; protección de las firmas humanas; suite de pruebas del propio enforcement.</p>
+  <p><strong>Por qué va aquí.</strong> Sin esto, bajo presión de entrega el proceso se salta. Con esto, sencillamente no se puede. Los guardianes y su suite de pruebas son trabajo separable.</p>
+
+  <h3>F4 · Integración con el flujo real de trabajo &mdash; 2 sp</h3>
+  <p><strong>Objetivo.</strong> Cero fricción de arranque: un comando, y el resto ocurre.</p>
+  <p><strong>Entregables.</strong> Puente con Jira (lectura automática del ticket, escritura siempre detrás de aprobación); preparación automática del espacio de trabajo por ticket; progreso versionado y reanudable desde cualquier máquina; índice de trabajos por clave de ticket; varios tickets en curso sin interferencia entre sí.</p>
+  <p><strong>Por qué va aquí.</strong> Determina si el equipo lo usa o lo evade. Un proceso correcto con un arranque costoso no se adopta.</p>
+
+  <h3>F5 · Frente de diseño &mdash; 3 sp</h3>
+  <p><strong>Objetivo.</strong> Que entre la task recibida y la primera línea de código exista una solución <em>diseñada</em>: alternativas evaluadas, trade-offs explícitos y decisión registrada. No cubre la definición del requerimiento &mdash; eso ocurre antes de que la task llegue.</p>
+  <p><strong>Entregables.</strong> Fase de diseño dentro del proceso; plantilla de registro de decisión de arquitectura acotada al alcance de una task; catálogo de decisiones que se acumula task a task; criterio explícito de cuándo una task exige revisión de diseño con el tech lead.</p>
+  <p><strong>Beneficio.</strong> Las decisiones dejan de repetirse y de discutirse dos veces. <strong>Se ejecuta en paralelo con F6.</strong></p>
+
+  <h3>F6 · Frente de pruebas &mdash; 3 sp</h3>
+  <p><strong>Objetivo.</strong> Que la evidencia de calidad sea un resultado verificable por máquina, no un texto que alguien redactó.</p>
+  <p><strong>Entregables.</strong> Generación asistida de pruebas a partir de la matriz de escenarios del plan; medición de cobertura sobre lo efectivamente modificado; integración con QA; criterios de aceptación funcional trazados al ticket.</p>
+  <p><strong>Alcance de esta estimación: pruebas unitarias.</strong> Es el punto de partida, porque son las que no exigen infraestructura adicional. Incorporar integración o end-to-end cambia el esfuerzo de esta fase &mdash; el detalle está en la sección 7.</p>
+  <p><strong>Beneficio.</strong> Menos defectos escapados, y la prueba deja de ser lo primero que se sacrifica cuando aprieta la fecha.</p>
+
+  <h3>F7 · Cierre de la entrega: el PR como evidencia &mdash; 2 sp</h3>
+  <p><strong>Objetivo.</strong> Que el PR sea autosuficiente. Quien lo revisa debe poder juzgarlo sin reconstruir el contexto: qué se pidió, qué se hizo, con qué pruebas quedó cubierto y en qué se diferencia una cosa de la otra.</p>
+  <p><strong>Entregables.</strong> PR con un solo commit limpio que contiene la solución completa; evidencia de las pruebas ejecutadas y de la cobertura sobre lo modificado, adjunta al PR; <strong>comentario en el PR que enfrenta uno a uno lo solicitado en la task contra lo entregado</strong>, con lo que quedó fuera y por qué; publicación de esa evidencia en la task de Jira y su transición de estado; re-documentación automática del sistema con lo que cambió.</p>
+  <p><strong>Beneficio.</strong> El tiempo del revisor se dedica a juzgar la solución, no a averiguar qué se hizo. Y el conocimiento construido en F0 se mantiene vivo solo, en lugar de degradarse mes a mes. <strong>Fuera de esta fase:</strong> el merge, el despliegue, los runbooks de release y la observabilidad en producción.</p>
+
+  <h3>F8 · Adopción, formación y medición &mdash; 3 sp</h3>
+  <p><strong>Objetivo.</strong> Pasar de "funciona con quien lo construyó" a "así trabaja el equipo".</p>
+  <p><strong>Entregables.</strong> Secuencia de adopción por etapas (plantilla de PR, definición de listo y de terminado, matriz de impacto obligatoria, revisión de diseño, listas de verificación); formación del equipo; tablero de indicadores; retrospectiva mensual del proceso; el <strong>set de evaluación</strong> con el que después se detecta la degradación (sección 9); y el dueño del proceso formalmente designado.</p>
+  <p><strong>Por qué va al final y por qué no es opcional.</strong> Sin dueño y sin medición, cualquier proceso se apaga en semanas. Esta fase es la que protege toda la inversión anterior, y continúa como esfuerzo recurrente después de la semana 16.</p>
+
+  <h2 id="cronograma">7. Cronograma y esfuerzo</h2>
+
+  <div class="diagram-wrap">
+    <div class="diagram-name">Figura 6. Cronograma del plan de trabajo</div>
+    <svg width="100%" viewBox="0 0 680 284" role="img" xmlns="http://www.w3.org/2000/svg">
+      <title>Cronograma del plan de trabajo</title><desc>Dieciseis semanas en total. Conocimiento del sistema cuatro semanas, estandar normativo dos semanas, proceso de trabajo dos semanas, enforcement automatico una semana, integracion con el flujo una semana, frente de diseno y frente de pruebas tres semanas en paralelo, cierre de la entrega una semana, adopcion y medicion dos semanas.</desc>
+      <defs><marker id="a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M0,0.8 L7,4 L0,7.2 Z" fill="#5300DF"/></marker><marker id="b" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M0,0.8 L7,4 L0,7.2 Z" fill="#B9720A"/></marker></defs>
+      <line x1="214.0" y1="26" x2="214.0" y2="250" stroke="#DCD8EC" stroke-width="0.7"/>
+      <text x="214.0" y="20" text-anchor="middle" font-size="7.6" fill="#8A8998">sem 0</text>
+      <line x1="325.5" y1="26" x2="325.5" y2="250" stroke="#DCD8EC" stroke-width="0.7"/>
+      <text x="325.5" y="20" text-anchor="middle" font-size="7.6" fill="#8A8998">4</text>
+      <line x1="437.0" y1="26" x2="437.0" y2="250" stroke="#DCD8EC" stroke-width="0.7"/>
+      <text x="437.0" y="20" text-anchor="middle" font-size="7.6" fill="#8A8998">8</text>
+      <line x1="548.5" y1="26" x2="548.5" y2="250" stroke="#DCD8EC" stroke-width="0.7"/>
+      <text x="548.5" y="20" text-anchor="middle" font-size="7.6" fill="#8A8998">12</text>
+      <line x1="660.0" y1="26" x2="660.0" y2="250" stroke="#280265" stroke-width="0.9"/>
+      <text x="660.0" y="20" text-anchor="middle" font-size="7.6" font-weight="600" fill="#280265">16</text>
+      <text x="8" y="51" text-anchor="start" font-size="8.6" font-weight="700" fill="#5300DF">F0</text>
+      <text x="30" y="51" text-anchor="start" font-size="8.6" fill="#5B5A66">Conocimiento del sistema</text>
+      <rect x="214.0" y="41" width="111.5" height="14" rx="3" fill="#EBEBFF" stroke="#5300DF" stroke-width="1"/>
+      <text x="269.75" y="51" text-anchor="middle" font-size="7.6" font-weight="600" fill="#5300DF">4 sem</text>
+      <text x="8" y="75" text-anchor="start" font-size="8.6" font-weight="700" fill="#5300DF">F1</text>
+      <text x="30" y="75" text-anchor="start" font-size="8.6" fill="#5B5A66">Estándar normativo</text>
+      <rect x="325.5" y="65" width="55.8" height="14" rx="3" fill="#EBEBFF" stroke="#5300DF" stroke-width="1"/>
+      <text x="353.375" y="75" text-anchor="middle" font-size="7.6" font-weight="600" fill="#5300DF">2 sem</text>
+      <text x="8" y="99" text-anchor="start" font-size="8.6" font-weight="700" fill="#280265">F2</text>
+      <text x="30" y="99" text-anchor="start" font-size="8.6" fill="#5B5A66">Proceso de trabajo</text>
+      <rect x="381.2" y="89" width="55.8" height="14" rx="3" fill="#EFEBF9" stroke="#280265" stroke-width="1"/>
+      <text x="409.125" y="99" text-anchor="middle" font-size="7.6" font-weight="600" fill="#280265">2 sem</text>
+      <text x="8" y="123" text-anchor="start" font-size="8.6" font-weight="700" fill="#280265">F3</text>
+      <text x="30" y="123" text-anchor="start" font-size="8.6" fill="#5B5A66">Enforcement automático</text>
+      <rect x="437.0" y="113" width="27.9" height="14" rx="3" fill="#EFEBF9" stroke="#280265" stroke-width="1"/>
+      <text x="468.875" y="123" text-anchor="start" font-size="7.6" font-weight="600" fill="#280265">1 sem</text>
+      <text x="8" y="147" text-anchor="start" font-size="8.6" font-weight="700" fill="#280265">F4</text>
+      <text x="30" y="147" text-anchor="start" font-size="8.6" fill="#5B5A66">Integración con el flujo</text>
+      <rect x="464.9" y="137" width="27.9" height="14" rx="3" fill="#EFEBF9" stroke="#280265" stroke-width="1"/>
+      <text x="496.75" y="147" text-anchor="start" font-size="7.6" font-weight="600" fill="#280265">1 sem</text>
+      <text x="8" y="171" text-anchor="start" font-size="8.6" font-weight="700" fill="#B9720A">F5</text>
+      <text x="30" y="171" text-anchor="start" font-size="8.6" fill="#5B5A66">Frente de diseño</text>
+      <rect x="492.8" y="161" width="83.6" height="14" rx="3" fill="#FBF0DC" stroke="#B9720A" stroke-width="1"/>
+      <text x="534.5625" y="171" text-anchor="middle" font-size="7.6" font-weight="600" fill="#B9720A">3 sem</text>
+      <text x="8" y="195" text-anchor="start" font-size="8.6" font-weight="700" fill="#B9720A">F6</text>
+      <text x="30" y="195" text-anchor="start" font-size="8.6" fill="#5B5A66">Frente de pruebas</text>
+      <rect x="492.8" y="185" width="83.6" height="14" rx="3" fill="#FBF0DC" stroke="#B9720A" stroke-width="1"/>
+      <text x="534.5625" y="195" text-anchor="middle" font-size="7.6" font-weight="600" fill="#B9720A">3 sem</text>
+      <text x="8" y="219" text-anchor="start" font-size="8.6" font-weight="700" fill="#B9720A">F7</text>
+      <text x="30" y="219" text-anchor="start" font-size="8.6" fill="#5B5A66">Cierre de la entrega</text>
+      <rect x="576.4" y="209" width="27.9" height="14" rx="3" fill="#FBF0DC" stroke="#B9720A" stroke-width="1"/>
+      <text x="608.25" y="219" text-anchor="start" font-size="7.6" font-weight="600" fill="#B9720A">1 sem</text>
+      <text x="8" y="243" text-anchor="start" font-size="8.6" font-weight="700" fill="#280265">F8</text>
+      <text x="30" y="243" text-anchor="start" font-size="8.6" fill="#5B5A66">Adopción y medición</text>
+      <rect x="604.2" y="233" width="55.8" height="14" rx="3" fill="#280265" stroke="#280265" stroke-width="1"/>
+      <text x="632.125" y="243" text-anchor="middle" font-size="7.6" font-weight="600" fill="#FFFFFF">2 sem</text>
+      <path d="M 486.8 161 L 481.8 161 L 481.8 199 L 486.8 199" fill="none" stroke="#B9720A" stroke-width="1.1"/>
+      <text x="478.75" y="186" text-anchor="end" font-size="7.4" font-weight="600" fill="#B9720A">en paralelo</text>
+      <line x1="8" y1="260" x2="672" y2="260" stroke="#DCD8EC" stroke-width="0.8"/>
+      <text x="8" y="275" font-size="8.6" font-weight="600" fill="#280265">Total: 16 semanas (≈4 meses)</text>
+      </svg>
+    <div class="diagram-caption">La llave marca el único tramo verdaderamente paralelo: los frentes de diseño y de pruebas.</div>
+  </div>
+
+  <table class="cynefin-table">
+    <thead><tr><th>Fase</th><th style="text-align:right">Esfuerzo (sp)</th><th style="text-align:right">Calendario</th><th style="text-align:right">Semanas</th></tr></thead>
+    <tbody>
+      <tr><th>F0 · Conocimiento del sistema</th><td style="text-align:right">7</td><td style="text-align:right">4 sem</td><td style="text-align:right">0 &ndash; 4</td></tr>
+      <tr><th>F1 · Estándar normativo</th><td style="text-align:right">3</td><td style="text-align:right">2 sem</td><td style="text-align:right">4 &ndash; 6</td></tr>
+      <tr><th>F2 · Proceso de trabajo</th><td style="text-align:right">4</td><td style="text-align:right">2 sem</td><td style="text-align:right">6 &ndash; 8</td></tr>
+      <tr><th>F3 · Enforcement automático</th><td style="text-align:right">2</td><td style="text-align:right">1 sem</td><td style="text-align:right">8 &ndash; 9</td></tr>
+      <tr><th>F4 · Integración con el flujo</th><td style="text-align:right">2</td><td style="text-align:right">1 sem</td><td style="text-align:right">9 &ndash; 10</td></tr>
+      <tr><th>F5 · Frente de diseño</th><td style="text-align:right">3</td><td style="text-align:right">3 sem</td><td style="text-align:right">10 &ndash; 13</td></tr>
+      <tr><th>F6 · Frente de pruebas</th><td style="text-align:right">3</td><td style="text-align:right">en paralelo</td><td style="text-align:right">10 &ndash; 13</td></tr>
+      <tr><th>F7 · Cierre de la entrega</th><td style="text-align:right">2</td><td style="text-align:right">1 sem</td><td style="text-align:right">13 &ndash; 14</td></tr>
+      <tr><th>F8 · Adopción y medición</th><td style="text-align:right">3</td><td style="text-align:right">2 sem</td><td style="text-align:right">14 &ndash; 16</td></tr>
+      <tr><th>Total</th><td style="text-align:right"><strong>29</strong></td><td style="text-align:right"><strong>16 sem</strong></td><td style="text-align:right">≈4 meses</td></tr>
+    </tbody>
+  </table>
+
+  <p>El plan reserva cerca del 10% de holgura entre la capacidad disponible y el trabajo estimado. No es margen sobrante: absorbe coordinación, auditoría cruzada e interrupciones. Un plan al 100% de utilización no es un plan, es un deseo.</p>
+
+  <h3>El alcance de automatización de pruebas mueve la estimación</h3>
+
+  <p>Conviene decirlo antes de que aparezca como sorpresa: <strong>esta estimación toma las pruebas unitarias como punto de partida</strong>, y nada más. El esfuerzo de F6 &mdash; y con él el total &mdash; depende de qué niveles de prueba se decida automatizar, y esa decisión todavía no está tomada.</p>
+
+  <table class="scenario-table">
+    <thead><tr><th>Nivel de prueba</th><th>Qué arrastra construirlo</th><th>En esta estimación</th></tr></thead>
+    <tbody>
+      <tr><th>Unitarias</th><td>La suite dentro del código fuente y su ejecución determinista en local y en CI</td><td><strong>Incluido</strong></td></tr>
+      <tr><th>Integración</th><td>Datos de prueba, dobles de los servicios externos, un ambiente reproducible</td><td>No incluido</td></tr>
+      <tr><th>End-to-end</th><td>Ambiente completo, datos estables, orquestación y tiempos de ejecución largos</td><td>No incluido</td></tr>
+      <tr><th>Contrato, carga, seguridad</th><td>Herramental propio y criterios de aceptación específicos por cada tipo</td><td>No incluido</td></tr>
+    </tbody>
+  </table>
+
+  <p><strong>El plan está abierto a incorporarlos.</strong> Ninguno de estos niveles queda excluido por diseño: si el proyecto los requiere, se suman al alcance revisando antes su impacto en el tiempo, de modo que la decisión se tome con el costo a la vista y no después. Lo que no cambia es el mecanismo &mdash; la matriz de escenarios del plan y la compuerta de suite verde funcionan igual en cualquier nivel; lo que crece es lo que hay que construir debajo. Por eso cada nivel adicional se dimensiona cuando se decida incluirlo: su costo lo determinan los ambientes y los datos disponibles del proyecto, no la guía.</p>
+
+  <h3>Qué puede mover estas fechas</h3>
+
+  <p>Las 16 semanas suponen que el equipo puede avanzar sin esperar. En la práctica, una parte del plan depende de cosas que el equipo no controla: permisos, accesos y decisiones que necesitan a otras personas en la mesa. Conviene ponerlas por delante, no descubrirlas en la semana seis.</p>
+
+  <table class="scenario-table">
+    <thead><tr><th>Qué se necesita del cliente</th><th>Cuándo deja de ser espera y pasa a ser bloqueo</th><th>Efecto en el calendario</th></tr></thead>
+    <tbody>
+      <tr><th>Permisos y accesos: repositorio, Jira, ambientes, histórico de PR</th><td>Semana cero, antes de F0</td><td>Cada semana de demora corre el plan completo una semana</td></tr>
+      <tr><th>Decisión sobre el alcance de automatización de pruebas</th><td>Antes de la semana 10, cuando arranca F6</td><td>Si se define después, F6 se replanifica; si suma niveles, la estimación se recalcula</td></tr>
+      <tr><th>Reuniones de decisión con participantes de varias áreas</th><td>F2, F5 y F8</td><td>Agendar tres áreas suele costar más que ejecutar la decisión misma</td></tr>
+      <tr><th>Respuestas a preguntas bloqueantes durante el piloto</th><td>En cualquier momento</td><td>La compuerta detiene la task: el reloj corre sin que el trabajo avance</td></tr>
+      <tr><th>Designación del dueño del proceso</th><td>Antes de la semana 14, cuando arranca F8</td><td>Sin dueño, F8 no cierra y la inversión anterior queda sin sostener</td></tr>
+      <tr><th>Aprobación de licencias y cupo de uso de IA</th><td>Antes de F8</td><td>Limita el escalamiento al equipo completo</td></tr>
+      <tr><th>Adopción de las condiciones C-1 a C-6 (sección 11)</th><td>C-1 antes de F6; el resto durante F8</td><td>Sin C-1 no hay evidencia que automatizar y F6 queda sin sustento</td></tr>
+    </tbody>
+  </table>
+
+  <div class="soft-highlight">
+    <p style="margin-bottom:0"><strong>Condición de validez de esta estimación.</strong> Las 16 semanas son válidas en la medida en que el cliente pueda sostener la disponibilidad que el plan supone: accesos otorgados en la semana cero, decisiones tomadas en la ventana en que se necesitan, personas disponibles para las reuniones de definición, y las condiciones de la sección 11 adoptadas en su momento. No es una salvedad de trámite: la mayor parte del riesgo de calendario de esta iniciativa no está en la construcción, está en la espera. Cuando una de estas dependencias se corre, el calendario se recalcula en ese momento &mdash; no cuando el atraso ya se acumuló.</p>
+  </div>
+
+  <h2 id="medicion">8. Cómo mediremos que funcionó</h2>
+
+  <table class="scenario-table">
+    <thead><tr><th>Indicador</th><th>Meta</th><th>Cómo se mide</th></tr></thead>
+    <tbody>
+      <tr><th><strong>Ciclos de revisión por PR</strong></th><td>&minus;50%</td><td>Idas y vueltas entre el PR abierto y su aprobación. La meta operativa es que el primer ciclo alcance</td></tr>
+      <tr><th><strong>Tasks devueltas por el equipo que testea</strong></th><td>&minus;50%</td><td>Devoluciones sobre tasks entregadas, por período</td></tr>
+      <tr><th>Retrabajo por alcance mal entendido</th><td>&minus;50%</td><td>Tasks reabiertas o cambios de alcance posteriores al plan</td></tr>
+      <tr><th>Defectos escapados a producción</th><td>&minus;40%</td><td>Incidentes con causa evitable</td></tr>
+      <tr><th>Tiempo de ciclo por ticket</th><td>&minus;30%</td><td>Jira: de "en progreso" a "terminado"</td></tr>
+      <tr><th>Tiempo hasta el primer review</th><td>&minus;50%</td><td>PR abierto hasta primer comentario</td></tr>
+      <tr><th>Observaciones repetidas en PR</th><td>&minus;70%</td><td>Hallazgos bloqueantes por PR</td></tr>
+      <tr><th>Onboarding hasta productividad</th><td>Meses a semanas</td><td>Primer PR integrado de un nuevo integrante</td></tr>
+    </tbody>
+  </table>
+
+  <p><strong>Los dos primeros indicadores son los que importan.</strong> Miden las dos devoluciones, que son la medida más directa y menos discutible de si esta guía funciona: son números que ya existen en GitHub y en Jira, que nadie tiene que inventar, y que caen solo si el problema se resolvió antes. El resto explica <em>por qué</em> se mueven. Conviene además separar, al mirar la tendencia, las observaciones de forma de las de criterio técnico: la guía debe llevar las primeras casi a cero, y no pretende eliminar las segundas.</p>
+
+  <p><strong>La línea base se levanta antes de F0.</strong> Sin ella no hay forma de demostrar el retorno, y la conversación se vuelve una discusión de percepciones. La regla es medir el <em>efecto</em>, no el cumplimiento: si el proceso no mueve estos números, se ajusta o se poda.</p>
+
+  <p>Hay además beneficios que no se expresan en porcentaje y son igual de reales: el conocimiento deja de ser tácito, cada línea de código se remonta a un plan, un análisis y un ticket, y se reduce de forma sostenida la dependencia de personas clave.</p>
+
+  <h2 id="evolucion">9. Capacidad designada para soporte y evolución</h2>
+
+  <p>Una guía generativa no es un entregable que se congela. El conocimiento del sistema envejece, el estándar se queda corto, el proceso acumula deuda y el modelo cambia de comportamiento. Y a diferencia del software convencional, esto <strong>no falla con un error visible: se degrada en silencio</strong>, y se nota cuando un PR malo llega a revisión.</p>
+
+  <p>Por eso, a partir de la semana 16 el plan no propone soporte abierto, sino una <strong>capacidad designada</strong>: una asignación dimensionada y acotada que cubre, en un mismo cupo, el soporte de lo entregado y la evolución de la guía.</p>
+
+  <div class="soft-highlight">
+    <p style="margin-bottom:0"><strong>Por qué un cupo único y no dos bolsas separadas.</strong> Separar "garantía" de "mejoras" obliga a discutir, en cada pedido, de cuál de las dos sale. Esa discusión desgasta la relación y no le aporta nada al producto. Con un cupo único no hay clasificación que negociar: el dueño del proceso prioriza, la capacidad se consume y el consumo queda a la vista.</p>
+  </div>
+
+  <h3>Qué cubre</h3>
+
+  <table class="scenario-table">
+    <thead><tr><th>Naturaleza</th><th>Ejemplos</th></tr></thead>
+    <tbody>
+      <tr><th>Soporte &mdash; que lo entregado siga funcionando</th><td>Defectos en el proceso o en las compuertas; falsos positivos del enforcement que frenan trabajo legítimo; ajustes cuando el repositorio, Jira o el pipeline cambian de forma</td></tr>
+      <tr><th>Evolución &mdash; que la guía siga al día</th><td>Reglas normativas nuevas surgidas de la revisión; documentar módulos que quedaron fuera del alcance priorizado de F0; poda del proceso que resultó ruido; cambio de versión del modelo y su re-evaluación; capacidades nuevas</td></tr>
+    </tbody>
+  </table>
+
+  <div class="diagram-wrap">
+    <div class="diagram-name">Figura 7. El ciclo de evolución</div>
+    <svg width="100%" viewBox="0 0 680 158" role="img" xmlns="http://www.w3.org/2000/svg">
+      <title>El ciclo de evolucion de la guia</title><desc>La guia se usa sobre tasks reales. De ese uso salen senales: devoluciones que no previno e indicadores. El dueno del proceso las clasifica en regla, conocimiento o proceso. La capacidad designada ejecuta el cambio y lo valida contra el set de evaluacion antes de publicar una version nueva, con la que vuelve a empezar el ciclo.</desc>
+      <defs><marker id="a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M0,0.8 L7,4 L0,7.2 Z" fill="#5300DF"/></marker></defs>
+      <rect x="20" y="30" width="116" height="58" rx="6" fill="#EBEBFF" stroke="#5300DF" stroke-width="1.2"/>
+      <text x="78.0" y="52" text-anchor="middle" font-size="8.6" font-weight="600" fill="#280265">Uso sobre</text>
+      <text x="78.0" y="64" text-anchor="middle" font-size="8.6" font-weight="600" fill="#280265">tasks reales</text>
+      <line x1="138" y1="59" x2="148" y2="59" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a)"/>
+      <rect x="151" y="30" width="116" height="58" rx="6" fill="#EBEBFF" stroke="#5300DF" stroke-width="1.2"/>
+      <text x="209.0" y="47" text-anchor="middle" font-size="8.6" font-weight="600" fill="#280265">Señales:</text>
+      <text x="209.0" y="59" text-anchor="middle" font-size="8.6" font-weight="600" fill="#280265">devoluciones</text>
+      <text x="209.0" y="71" text-anchor="middle" font-size="8.6" font-weight="600" fill="#280265">e indicadores</text>
+      <line x1="269" y1="59" x2="279" y2="59" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a)"/>
+      <rect x="282" y="30" width="116" height="58" rx="6" fill="#FFFFFF" stroke="#280265" stroke-width="1.2"/>
+      <text x="340.0" y="47" text-anchor="middle" font-size="8.6" font-weight="600" fill="#280265">Triage: ¿regla,</text>
+      <text x="340.0" y="59" text-anchor="middle" font-size="8.6" font-weight="600" fill="#280265">conocimiento</text>
+      <text x="340.0" y="71" text-anchor="middle" font-size="8.6" font-weight="600" fill="#280265">o proceso?</text>
+      <line x1="400" y1="59" x2="410" y2="59" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a)"/>
+      <rect x="413" y="30" width="116" height="58" rx="6" fill="#EBEBFF" stroke="#5300DF" stroke-width="1.2"/>
+      <text x="471.0" y="52" text-anchor="middle" font-size="8.6" font-weight="600" fill="#280265">Cambio en</text>
+      <text x="471.0" y="64" text-anchor="middle" font-size="8.6" font-weight="600" fill="#280265">la guía</text>
+      <line x1="531" y1="59" x2="541" y2="59" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a)"/>
+      <rect x="544" y="30" width="116" height="58" rx="6" fill="#280265" stroke="#280265" stroke-width="1.2"/>
+      <text x="602.0" y="52" text-anchor="middle" font-size="8.6" font-weight="600" fill="#FFFFFF">Evaluación y</text>
+      <text x="602.0" y="64" text-anchor="middle" font-size="8.6" font-weight="600" fill="#FFFFFF">versión nueva</text>
+      <polyline points="602,90 602,118 78,118 78,92" fill="none" stroke="#5300DF" stroke-width="1.4" marker-end="url(#a)"/>
+      <text x="340" y="114" text-anchor="middle" font-size="8.4" fill="#8A8998">Cada vuelta deja la guía más certera; sin vueltas, se degrada en silencio</text>
+      <text x="78.0" y="12" text-anchor="middle" font-size="6.8" font-weight="700" fill="#8A8998">EQUIPO DE DESARROLLO</text>
+      <path d="M 23 16 L 23 20 L 133 20 L 133 16" fill="none" stroke="#8A8998" stroke-width="0.8" opacity="0.6"/>
+      <text x="274.5" y="12" text-anchor="middle" font-size="6.8" font-weight="700" fill="#280265">DUEÑO DEL PROCESO</text>
+      <path d="M 154 16 L 154 20 L 395 20 L 395 16" fill="none" stroke="#280265" stroke-width="0.8" opacity="0.6"/>
+      <text x="536.5" y="12" text-anchor="middle" font-size="6.8" font-weight="700" fill="#5300DF">CAPACIDAD DESIGNADA</text>
+      <path d="M 416 16 L 416 20 L 657 20 L 657 16" fill="none" stroke="#5300DF" stroke-width="0.8" opacity="0.6"/>
+      <text x="340" y="150" text-anchor="middle" font-size="8.4" fill="#8A8998">El set de evaluación es lo que hace visible la degradación antes de que llegue a un PR real</text>
+      </svg>
+    <div class="diagram-caption">El uso genera señales; el dueño del proceso las clasifica; la capacidad designada las convierte en una versión nueva, validada antes de publicarse.</div>
+  </div>
+
+  <h3>El motor: cada devolución que la guía debió prevenir es un defecto de la guía</h3>
+
+  <p>No del desarrollador. Ese cambio de atribución es lo que convierte el indicador de la sección 8 en un motor de mejora con destino concreto:</p>
+
+  <ul>
+    <li>Devolución <strong>de forma</strong> que la guía no previno &rarr; falta una regla normativa, hay un hueco de conocimiento, o falta una compuerta. Entra al backlog de la guía con un destino identificado.</li>
+    <li>Devolución <strong>de criterio</strong> &rarr; no es defecto de la guía. Si sienta precedente, se registra como decisión de arquitectura y pasa a formar parte del catálogo.</li>
+  </ul>
+
+  <h3>El ritmo que sostiene</h3>
+
+  <table class="scenario-table">
+    <thead><tr><th>Cadencia</th><th>Qué se hace</th><th>Quién</th></tr></thead>
+    <tbody>
+      <tr><th>En cada task</th><td>Re-documentación automática del sistema con lo que cambió</td><td>La guía (F7)</td></tr>
+      <tr><th>Semanal</th><td>Triage de lo que la guía debió prevenir y no previno</td><td>Dueño del proceso</td></tr>
+      <tr><th>Mensual</th><td>Retrospectiva con los indicadores de la sección 8; poda de lo que resultó ruido</td><td>Dueño del proceso y capacidad designada</td></tr>
+      <tr><th>Trimestral</th><td>Revisión del estándar y de la versión del modelo; corrida del set de evaluación</td><td>Capacidad designada</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Cómo se detecta la degradación: el set de evaluación</h3>
+
+  <p>Un conjunto acotado de tasks ya resueltas que se vuelve a correr cada vez que cambia el modelo, el proceso o las reglas. Si el análisis deja de detectar bloqueadores que antes detectaba, o el plan deja de cubrir escenarios que antes cubría, <strong>se ve ahí y no en un PR real</strong>. Es la única forma de que la degradación silenciosa deje de ser silenciosa, y es la razón por la que el set se construye durante el proyecto y no después: sin él, el primer cambio de modelo no tiene contra qué compararse.</p>
+
+  <h3>Qué acota esta capacidad</h3>
+
+  <div class="soft-highlight">
+    <p>Se dimensiona en <strong>días-persona por mes</strong> y se acuerda por un <strong>plazo definido, renovable</strong>. El piso lo fija el propio ritmo: el triage semanal, la retrospectiva mensual y la revisión trimestral consumen capacidad aunque no haya ninguna mejora pendiente.</p>
+    <p>Lo que no entra en el cupo del mes se prioriza para el siguiente, o se amplía el cupo de forma explícita. La decisión es siempre del dueño del proceso, con el consumo del período a la vista.</p>
+    <p style="margin-bottom:0"><strong>No está incluida en el esfuerzo ni en el alcance de las 16 semanas.</strong> La semana 16 entrega la versión 1 de la guía, operando sobre tasks reales. Esta capacidad es un acuerdo aparte, y su dimensionamiento se define con el volumen real de tasks del proyecto.</p>
+  </div>
+
+  <h2 id="dependencias">10. De qué depende</h2>
+
+  <table class="scenario-table">
+    <thead><tr><th>Dependencia</th><th>Quién</th><th>Criticidad</th><th>Si no se cumple</th></tr></thead>
+    <tbody>
+      <tr><th>Equipo a dedicación completa durante las 16 semanas</th><td>Dirección</td><td>Alta</td><td>El calendario se estira de forma proporcional a la dedicación real</td></tr>
+      <tr><th>Acceso al repositorio de código y a Jira</th><td>Cliente / DevOps</td><td>Alta</td><td>El ciclo opera en modo manual, con fricción alta</td></tr>
+      <tr><th>Un dueño del proceso designado, más allá de la semana 16</th><td>Dirección</td><td>Alta</td><td>La guía se degrada en semanas (F8)</td></tr>
+      <tr><th>Disponibilidad de PO y tech lead para responder preguntas bloqueantes</th><td>Negocio</td><td>Alta</td><td>Las compuertas detienen tickets. Es el comportamiento correcto, pero frena el flujo</td></tr>
+      <tr><th>Acceso al histórico de revisiones de PR</th><td>Cliente</td><td>Media</td><td>F1 se construye por criterio y no por evidencia</td></tr>
+      <tr><th>Suite de pruebas ejecutable en local y en integración continua</th><td>Equipo</td><td>Alta</td><td>Bloquea F6 por completo &mdash; es la condición C-1 de la sección 11</td></tr>
+      <tr><th>Tickets con una definición de listo mínima</th><td>Equipo</td><td>Media</td><td>Más ciclos en la etapa de análisis</td></tr>
+      <tr><th>Licencias y cupo de uso de IA para el equipo</th><td>Dirección</td><td>Media</td><td>Limita el escalamiento en F8</td></tr>
+      <tr><th>Ventana de formación, aproximadamente cuatro horas por persona</th><td>Equipo</td><td>Baja</td><td>Adopción más lenta</td></tr>
+    </tbody>
+  </table>
+
+  <p>Cada una de estas dependencias tiene un momento a partir del cual deja de ser una espera y pasa a ser un bloqueo con costo en calendario. Ese detalle, con su efecto concreto sobre las fechas, está en la sección 7.</p>
+
+  <h2 id="cambios">11. Cambios que requiere la dinámica de trabajo</h2>
+
+  <p>La guía no funciona sobre cualquier forma de trabajar. Hay prácticas del proyecto que <strong>deben cambiar</strong> para que pueda garantizar lo que promete, y no son preferencias metodológicas: son condiciones técnicas de las que depende que la evidencia sea verificable por máquina y no la afirmación de alguien.</p>
+
+  <p>Cada una queda marcada con un identificador, para poder seguirla como tema aparte con su propio responsable y su propia fecha.</p>
+
+  <div class="finding">
+    <div class="finding-title">C-1 · Las pruebas automatizadas deben ser obligatorias dentro del código fuente</div>
+    <p class="finding-body"><strong>Por qué la guía lo necesita:</strong> la compuerta de publicación exige suite verde como evidencia verificable. Si las pruebas no viven en el repositorio y no se ejecutan con un comando, no hay nada que la guía pueda verificar ni adjuntar al PR. <strong>Si no cambia:</strong> la evidencia de calidad vuelve a ser una afirmación humana, la compuerta más importante deja de existir y el PR autosuficiente se cae. <strong>Es la única de estas condiciones que debe estar resuelta antes de que F6 arranque.</strong></p>
+  </div>
+
+  <div class="finding">
+    <div class="finding-title">C-2 · La task debe cumplir una definición de listo mínima</div>
+    <p class="finding-body"><strong>Por qué:</strong> el análisis contrasta lo pedido contra el código. Sin un enunciado analizable, la compuerta bloquea y la task rebota antes de empezar. <strong>Si no cambia:</strong> más ciclos de preguntas al inicio, y el tiempo de ciclo empeora antes de mejorar.</p>
+  </div>
+
+  <div class="finding">
+    <div class="finding-title">C-3 · Las decisiones se escriben en la task, no solo se conversan</div>
+    <p class="finding-body"><strong>Por qué:</strong> la task es la memoria del proyecto. La guía la lee al arrancar, y una task devuelta se retoma desde ahí. <strong>Si no cambia:</strong> cada reproceso vuelve a discutir lo que ya se había decidido.</p>
+  </div>
+
+  <div class="finding">
+    <div class="finding-title">C-4 · El PR lleva un solo commit limpio y la evidencia como comentario</div>
+    <p class="finding-body"><strong>Por qué:</strong> es el formato del entregable, y es lo que ancla la aprobación al commit exacto que fue validado. <strong>Si no cambia:</strong> hay que rediseñar el cierre de la entrega y se pierde la trazabilidad entre lo aprobado y lo publicado.</p>
+  </div>
+
+  <div class="finding">
+    <div class="finding-title">C-5 · Las preguntas bloqueantes tienen responsable y plazo acordado</div>
+    <p class="finding-body"><strong>Por qué:</strong> la compuerta detiene la task hasta que se responden. Es el comportamiento correcto, pero sin un acuerdo de respuesta se vuelve un cuello de botella. <strong>Si no cambia:</strong> tasks bloqueadas por tiempo indefinido, y el equipo aprende a rodear el proceso.</p>
+  </div>
+
+  <div class="finding">
+    <div class="finding-title">C-6 · El equipo que testea registra la causa de cada devolución</div>
+    <p class="finding-body"><strong>Por qué:</strong> la tasa de devolución es uno de los dos indicadores principales de la sección 8. Sin causa registrada, el número sube o baja sin que se pueda atribuir a nada. <strong>Si no cambia:</strong> no hay forma de demostrar el retorno con datos propios del proyecto.</p>
+  </div>
+
+  <blockquote>Estas condiciones no se imponen el primer día: F8 las introduce por etapas y cada una necesita un dueño identificable. La excepción es C-1, que es una precondición y no una meta de adopción: sin pruebas automatizadas en el código fuente no hay nada que automatizar, y F6 no tiene sobre qué operar.</blockquote>
+
+  <h2 id="riesgos">12. Riesgos y mitigación</h2>
+
+  <table class="scenario-table">
+    <thead><tr><th>Riesgo</th><th>Mitigación</th></tr></thead>
+    <tbody>
+      <tr><th>Los permisos y accesos llegan tarde</th><td>Se piden y se verifican en la semana cero, antes de comprometer fechas. El plan arranca por lo que no requiere acceso, y cada semana de demora se traslada explícitamente al calendario en vez de absorberse en silencio.</td></tr>
+      <tr><th>Las decisiones que involucran a varias áreas se demoran</th><td>Cada decisión pendiente lleva fecha límite y una <strong>opción por defecto documentada</strong>, que se aplica si no hay respuesta. Toda decisión tomada por defecto queda registrada como supuesto, visible y reversible.</td></tr>
+      <tr><th>El alcance de automatización de pruebas se decide tarde, o crece</th><td>Se decide antes de la semana 10. Si crece por encima de las unitarias, se recalcula y se cotiza antes de continuar, no después. La sección 7 deja escrito qué arrastra cada nivel.</td></tr>
+      <tr><th>La disponibilidad para reuniones de decisión es menor que la supuesta</th><td>Las decisiones se preparan por escrito con opciones y recomendación, para que la reunión sirva para decidir y no para explicar. Lo que se puede resolver de forma asíncrona no se agenda.</td></tr>
+      <tr><th>Las condiciones C-1 a C-6 no se adoptan</th><td>Cada una tiene responsable y fecha desde el arranque. C-1 es precondición de F6: si no está lista, F6 no arranca y se replanifica antes de gastar el esfuerzo.</td></tr>
+      <tr><th>F0 se desborda porque el sistema es más grande de lo estimado</th><td>Se prioriza por los módulos de mayor tránsito y el resto se documenta bajo demanda. Todo lo no cubierto queda marcado de forma explícita como desconocido, de modo que la guía lo trate como pregunta bloqueante y no como dato. El hueco se ve; no se disimula.</td></tr>
+      <tr><th>La guía se degrada después de la entrega</th><td>La capacidad designada de la sección 9 existe para eso, con un ritmo fijo y un set de evaluación que hace visible la degradación antes de que llegue a un PR.</td></tr>
+      <tr><th>La salida de un integrante detiene el proyecto</th><td>Auditoría cruzada desde F0: cada frente es revisado por alguien distinto de quien lo produjo, así que nadie es el único que entiende su parte.</td></tr>
+      <tr><th>Se percibe como burocracia y el equipo lo rechaza</th><td>El rigor escala al riesgo: un cambio trivial no lleva registro de decisión ni revisión de diseño. La adopción es por etapas (F8), no "todo el lunes".</td></tr>
+      <tr><th>El conocimiento queda obsoleto y la IA razona sobre datos viejos</th><td>La sincronización es obligatoria y verificada; F7 hace que cada cierre re-documente el sistema.</td></tr>
+      <tr><th>La guía afirma lo que no sabe</th><td>Regla no negociable de evidencia: todo citado contra el código, lo desconocido marcado como tal, y la ambigüedad convertida en pregunta bloqueante.</td></tr>
+      <tr><th>Se salta una compuerta por presión de entrega</th><td>Las compuertas deniegan la operación (F3). No dependen de disciplina individual.</td></tr>
+      <tr><th>El enforcement genera falsos positivos y frena el trabajo</th><td>Calibración con tickets reales antes de escalar al equipo completo.</td></tr>
+      <tr><th>La formación de F8 no alcanza para la adopción</th><td>El acompañamiento se hace sobre trabajo real en lugar de en aula, y la retrospectiva mensual detecta temprano si el equipo no está usando la guía.</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="pasos">13. Próximos pasos</h2>
+
+  <ol>
+    <li><strong>Validar el alcance</strong> &mdash; en particular sus dos límites: la task recibida y el PR abierto &mdash; y el orden de las nueve fases.</li>
+    <li><strong>Designar el dueño del proceso.</strong> Sin dueño, no arranca.</li>
+    <li><strong>Levantar la línea base</strong> de los siete indicadores de la sección 8.</li>
+    <li><strong>Decidir el alcance de automatización de pruebas</strong> (sección 7). Si pasa de unitarias, la estimación se recalcula antes de comprometer fechas.</li>
+    <li><strong>Asignar responsable y fecha a cada condición C-1 a C-6</strong> (sección 11), empezando por C-1.</li>
+    <li><strong>Fijar la semana cero</strong>, tramitar permisos y accesos, y acordar el foro y la cadencia donde se toman las decisiones que involucran a varias áreas.</li>
+    <li><strong>Dimensionar la capacidad designada</strong> para soporte y evolución (sección 9), y su plazo inicial.</li>
+    <li><strong>Arrancar F0.</strong></li>
+  </ol>
+
+  <p class="caveat-list" style="color:var(--text-2);font-size:10.5px">Documento vivo. El alcance de las fases, los indicadores y las estimaciones se afinan con el equipo antes de comprometer fechas. Las cifras de esfuerzo dimensionan la iniciativa; el precio se cotiza una vez aprobado el alcance. Las 16 semanas son válidas bajo los supuestos declarados en la sección 7 &mdash; alcance de pruebas unitarias, y disponibilidad del cliente para accesos, decisiones y definiciones en la ventana en que el plan los necesita.</p>
+
+  <footer>
+    Documento confidencial. Elaborado por Tech and Solve para Viva Aerobus. Propuesta de guía generativa para el ciclo de desarrollo del proyecto Generic API, agosto de 2026.
+  </footer>
+
+
+</div>
+</body>
+</html>
