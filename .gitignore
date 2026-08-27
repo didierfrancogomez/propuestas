@@ -1,0 +1,7 @@
+# Metadatos de macOS
+.DS_Store
+**/.DS_Store
+
+# Miniaturas y archivos temporales del sistema
+._*
+Thumbs.db
