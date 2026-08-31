@@ -309,6 +309,9 @@ operativo, ya está en su catálogo, y la torre solo lo consume como insumo de a
 - La carpeta externa `~/Documents/GitHub/techandsolve` es **otro repositorio sin remoto**,
   con cambios pendientes de la reorganización que movió todo a `propuestas/`.
 - Convención: commits directos a `main`, mensajes en español, en minúscula.
+- `propuestas/CLAUDE.md` es el punto de entrada automático de cada sesión de Claude Code:
+  se carga al inicio en cualquier subcarpeta del repositorio y remite a este archivo. Si se
+  mueve o renombra `context.md`, hay que actualizar ese puntero.
 
 ---
 
