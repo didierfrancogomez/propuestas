@@ -240,6 +240,40 @@ por caso correcto en Impacto financiero; nivel de autonomía en Automatización.
 
 ---
 
+## 6b. Regla de oro sobre las fuentes
+
+Está escrita como política del repositorio en `CLAUDE.md`. En resumen: **solo fuentes
+oficiales del emisor y solo versiones liberadas.** Nunca sitios de terceros, nunca
+borradores ni especificaciones en desarrollo, y verificar la URL antes de citar. La práctica
+de fabricante se cita desde su sitio oficial y se etiqueta como práctica, no como norma. Y
+no citamos plazos de trabajo de otros equipos como si fueran nuestros.
+
+Y una segunda regla que la complementa: **todo estándar debe ser citable con enlace
+oficial, en el mismo bloque donde se afirma.** No basta con tener las fuentes en una lista
+de referencias al final: quien lee una afirmación debe poder verificarla ahí mismo. Si no
+hay enlace oficial, la afirmación se reformula como opinión propia o se elimina.
+
+Correcciones ya aplicadas por estas reglas, para no repetirlas:
+
+- El Reglamento europeo de IA se citaba desde `artificialintelligenceact.eu`, un sitio de
+  seguimiento de terceros cuyas páginas advierten que la traducción es generada por
+  máquina. Ahora se cita desde **EUR-Lex**, texto del Diario Oficial en español, con
+  anclas por artículo del tipo `#art_14` y `#anx_III` sobre
+  `legal-content/ES/TXT/HTML/?uri=CELEX:32024R1689`.
+- Las convenciones semánticas de OpenTelemetry para IA generativa se citaban como
+  estándar, pero esas páginas están marcadas como trasladadas y sin mantenimiento, y las
+  convenciones viven en un repositorio aparte todavía en desarrollo. Ahora se cita la
+  **versión liberada 1.44.0** de las convenciones semánticas, y se declara explícitamente
+  que la parte de IA generativa está en desarrollo, recomendando fijar esquema propio.
+
+
+- Las afirmaciones que invocaban "la práctica documentada" sin enlace ahora lo llevan
+  inline: gestión del ciclo de vida, ciclo de vida de desarrollo, pruebas de agentes,
+  arquitectura agéntica y agentes jerárquicos.
+- El contexto colombiano citaba el régimen de datos y de historia clínica sin fuente. Ahora
+  enlaza la Ley 1581 de 2012 en el Gestor Normativo de Función Pública y la Resolución 1995
+  de 1999 en el sitio del Ministerio de Salud.
+
 ## 7. Fuentes del sustento
 
 ### Del cliente

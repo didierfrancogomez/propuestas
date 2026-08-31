@@ -3,6 +3,38 @@
 Propuestas de consultoría para clientes. Cada entregable es un HTML autocontenido, con
 logos embebidos y sin dependencias externas más allá de Google Fonts, y su PDF exportado.
 
+## Regla de oro: fuentes oficiales y versiones liberadas
+
+Aplica a toda propuesta de este repositorio, sin excepción.
+
+1. **Solo fuentes oficiales.** Toda afirmación que se sustente en un estándar, una norma o
+   una regulación se cita desde el emisor: el organismo normativo, el diario oficial, el
+   supervisor o el proyecto que publica la especificación. **Nunca desde un sitio de
+   terceros**, por conveniente que sea de leer: agregadores, trackers, explicadores,
+   resúmenes de consultoras o wikis no son fuente.
+2. **Solo versiones liberadas.** Se cita lo publicado y vigente. **Nunca borradores**,
+   preprints, versiones en desarrollo, consultas públicas abiertas ni páginas marcadas como
+   experimentales o no mantenidas. Si un estándar aún no tiene versión liberada, se dice
+   así en el documento y no se presenta como estándar.
+3. **Verificar antes de citar.** Confirmar que la URL responde, que el contenido es el
+   emisor y no un espejo, y que la versión está liberada. Si una página advierte que se
+   movió o que no se mantiene, no se cita: se busca la ubicación canónica.
+4. **La práctica de industria se etiqueta como tal.** La documentación de un fabricante
+   (por ejemplo IBM) es fuente válida sobre su propia práctica, y se cita desde su sitio
+   oficial, pero se presenta como práctica documentada y nunca como norma.
+5. **Todo estándar tiene que ser enlazable.** Ninguna afirmación que invoque un estándar,
+   una norma o una regulación entra al documento sin su enlace a la documentación oficial,
+   en el mismo bloque donde se afirma y no solo en una lista de referencias al final. Si no
+   existe un enlace oficial que la respalde, la afirmación se reformula como opinión propia
+   o se elimina. La regla práctica: **si no se puede citar, no se afirma como estándar.**
+6. **Sin plazos ajenos.** No estimamos ni citamos como propios los tiempos de trabajo de
+   otros equipos. Se nombra la dependencia, y el plazo lo declara su dueño.
+
+Ejemplos resueltos en este repositorio: el Reglamento europeo de IA se cita desde EUR-Lex,
+no desde sitios de seguimiento cuyas traducciones son generadas por máquina; las
+convenciones semánticas de OpenTelemetry se citan en su versión liberada, y las específicas
+de IA generativa se declaran en desarrollo en lugar de presentarse como estándar.
+
 ## Antes de tocar `gestores-sura/`
 
 Leer primero `gestores-sura/v4/context.md`. Contiene el enfoque acordado, los entregables

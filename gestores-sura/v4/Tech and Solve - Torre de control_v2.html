@@ -307,9 +307,12 @@
   <a href="#autonomia">Gobierno de la autonomía</a>
   <a href="#anomalias">Anomalías e integridad</a>
   <a href="#secuencia" class="nav-strong">Qué construir primero</a>
+  <a href="#dependencias" class="nav-sub">Dependencias y calendario</a>
   <a href="#riesgos">Riesgos</a>
   <a href="#anexoA">Anexo A. Estándares</a>
   <a href="#anexoB">Anexo B. Coherencia</a>
+  <a href="#anexoC">Anexo C. Los nueve agentes</a>
+  <a href="#anexoD">Anexo D. Mapa de cobertura</a>
   <a href="#referencias">Referencias</a>
 </nav>
 
@@ -353,7 +356,7 @@
 
   <ul class="notprop">
     <li>No proponemos que la torre sea dueña del estado del negocio. El core sigue siendo el sistema de registro.</li>
-    <li>No proponemos que la torre ejecute decisiones de negocio. No autoriza, no niega y no coordina: observa, mide, alerta y habilita.</li>
+    <li>No proponemos que la torre decida el negocio. No autoriza, no niega y no coordina. Sí ejecuta acciones operativas sobre el flujo, como el equipo ya lo pidió, y por eso proponemos gobernarla con las mismas reglas que a cualquier agente.</li>
     <li>No proponemos una herramienta de analítica más. Un tablero que solo se mira no cambia una decisión.</li>
     <li>No proponemos construirla completa antes de operar. Las capas se habilitan por etapas, y la primera se paga sola.</li>
   </ul>
@@ -368,7 +371,7 @@
     <div class="diagram-name">Figura 1. La torre de control dentro del sistema</div>
     <svg width="100%" viewBox="0 0 680 340" role="img">
       <title>La torre de control dentro del sistema de gestores</title>
-      <desc>Los cinco gestores de flujo emiten eventos al almacén y bróker, que alimenta la torre de control. A la izquierda, el core conserva el estado autoritativo, las señales tardías de cuenta médica, glosas, reclamaciones y tutelas entran a la torre, y el AI Control Plane administra permisos, modelos y prompts. La torre produce tableros por actor, notificaciones por canal, productos de datos hacia el lago de datos y la API de parametrización de autonomía. La torre no escribe estado ni otorga permisos.</desc>
+      <desc>Los cinco gestores de flujo emiten eventos al almacén y bróker, que alimenta la torre de control. A la izquierda, el core conserva el estado autoritativo, las señales tardías de cuenta médica, glosas, reclamaciones y tutelas entran a la torre a través del core, y el AI Control Plane administra permisos, modelos y prompts. La torre produce tableros por actor, notificaciones por canal, productos de datos hacia el lago de datos y la API de parametrización de autonomía. La torre no escribe estado ni otorga permisos.</desc>
 
       <text x="8" y="12" font-size="7.5" font-weight="600" fill="#8A8998">GESTORES DE FLUJO</text>
       <rect x="8" y="18" width="120" height="26" rx="5" fill="#FFFFFF" stroke="#5300DF" stroke-width="1.2"/><text x="68" y="35" text-anchor="middle" font-size="8" fill="#280265">Solicitud</text>
@@ -391,7 +394,7 @@
       <text x="74" y="147" text-anchor="middle" font-size="8" font-weight="600" fill="#8A5A00">Señales tardías</text>
       <text x="74" y="159" text-anchor="middle" font-size="7" fill="#8A5A00">cuenta médica y glosas</text>
       <text x="74" y="170" text-anchor="middle" font-size="7" fill="#8A5A00">reclamaciones y tutelas</text>
-      <text x="74" y="181" text-anchor="middle" font-size="7" fill="#8A5A00">agenda e interoperabilidad</text>
+      <text x="74" y="181" text-anchor="middle" font-size="7" fill="#8A5A00">vía el core, no directo</text>
 
       <rect x="8" y="196" width="132" height="42" rx="5" fill="#EBEBFF" stroke="#5300DF"/>
       <text x="74" y="211" text-anchor="middle" font-size="8" font-weight="600" fill="#280265">AI Control Plane</text>
@@ -433,8 +436,8 @@
   <table class="tbl">
     <thead><tr><th>Confusión frecuente</th><th>Por qué es un problema</th><th>Qué es en realidad</th></tr></thead>
     <tbody>
-      <tr><th>La torre como dueña del estado</th><td>Si la torre y el core pueden escribir estado, aparecen discrepancias que nadie sabe resolver, y la auditoría deja de tener una fuente única.</td><td>El core conserva el estado autoritativo. La torre construye la vista materializada y los meta-estados derivados.</td></tr>
-      <tr><th>La torre como un gestor más</th><td>Si la torre decide algo del negocio, hay que gobernarla como agente, con su propia madurez y su propio umbral, y se pierde el punto de observación neutral.</td><td>Observa, mide, alerta y habilita autonomía. No autoriza, no niega, no coordina.</td></tr>
+      <tr><th>La torre como dueña del estado</th><td>Si la torre y el core pueden escribir el mismo estado, aparecen discrepancias que nadie sabe resolver y la auditoría deja de tener una fuente única.</td><td>El core conserva el estado autoritativo de la autorización. Gestores conserva sus propios estados, como preradicado, que el core no tiene. La torre construye la vista materializada y los meta-estados derivados, y correlaciona ambos conjuntos.</td></tr>
+      <tr><th>La torre como un gestor más</th><td>Si la torre decide el negocio, autorizar, negar o coordinar, se pierde el punto de observación neutral y hay que auditarla como parte de la decisión clínica.</td><td>Observa, mide, alerta, habilita autonomía <strong>y ejecuta acciones operativas sobre el flujo</strong>: reencolar, reasignar, activar rescate, bloquear un duplicado. Nunca decide el resultado de la solicitud.</td></tr>
       <tr><th>La torre como AI Control Plane</th><td>Mezclar permisos, modelos y prompts con observación hace que un cambio de tablero pueda alterar el comportamiento de un agente.</td><td>El AI Control Plane decide qué le está permitido a cada agente. La torre observa qué hizo y con qué resultado.</td></tr>
       <tr><th>La torre como tablero de analítica</th><td>Un tablero que solo se mira no cambia decisiones, y a las pocas semanas nadie lo abre.</td><td>Cada indicador que expone tiene una acción asociada: una alerta con dueño, un escalamiento o un cambio de nivel de autonomía.</td></tr>
     </tbody>
@@ -444,6 +447,34 @@
   <div class="keypoint">
     <span class="keypoint-label">La prueba para saber si una capacidad pertenece a la torre</span>
     <p>Preguntar qué decisión cambia. Si la respuesta es "ninguna, es para saber", pertenece a analítica. Si la respuesta es "alguien actúa, o el sistema se autolimita", pertenece a la torre.</p>
+  </div>
+
+  <h3>La torre ejecuta, y por eso hay que gobernarla</h3>
+
+  <p>El equipo pidió explícitamente cuatro capacidades que implican acción, no solo observación: intervenir otros gestores ante comportamiento inusual, activar rescate digital automático cuando falla el canal al radicar, bloquear la radicación de una solicitud repetida, y reasignar automáticamente los casos que superan el tiempo de respuesta. Nuestra recomendación es aceptarlas, y aceptar también su consecuencia.</p>
+
+  <div class="teamq">
+    <span class="teamq-label">Anotado en los requisitos técnicos de la torre</span>
+    <p>"El nivel de autonomía de ejecución de cada agente, recomendar frente a ejecutar, determina directamente con qué sistemas debe conectarse y qué capacidades técnicas de escritura o ejecución requiere; pendiente de definir antes de dimensionar el desarrollo."</p>
+  </div>
+
+  <p>Ese pendiente se cierra con una regla simple: <strong>si la torre ejecuta, la torre es un agente más y se gobierna como tal.</strong> En concreto, cuatro condiciones:</p>
+
+  <div class="tbl-wide">
+  <table class="tbl">
+    <thead><tr><th>Condición</th><th>Qué implica en la práctica</th></tr></thead>
+    <tbody>
+      <tr><th>Identidad propia</th><td>La torre actúa con su propia identidad, nunca suplantando a un gestor o a un usuario. Toda acción es atribuible a ella.</td></tr>
+      <tr><th>Alcance de escritura mínimo</th><td>Se declara, acción por acción, qué puede escribir y dónde. Reencolar y reasignar sí; tocar el estado de la autorización, no.</td></tr>
+      <tr><th>Registro por acción</th><td>Cada ejecución automática queda con su disparador, su evidencia, su resultado y la forma de revertirla.</td></tr>
+      <tr><th>Grado de autonomía propio</th><td>La torre entra a la misma escala que los demás agentes, empieza en recomendar y asciende a ejecutar por tipo de acción, con el mismo criterio.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="keypoint">
+    <span class="keypoint-label">La frontera, en una línea</span>
+    <p>La torre puede cambiar <strong>cómo se mueve</strong> una solicitud. No puede cambiar <strong>qué se decidió</strong> sobre ella.</p>
   </div>
 
   <h2 id="capas">Las cinco capas de la torre</h2>
@@ -522,7 +553,29 @@
   <p>Tres decisiones técnicas de la primera capa merecen atención temprana, porque son las que después no se pueden agregar sin reprocesar lo que ya quedó registrado. La primera es la <strong>idempotencia</strong>: los eventos se reintentan, y una torre que cuenta dos veces el mismo hito reporta indicadores inflados sin que nadie lo note. La segunda es el <strong>orden</strong>: en un proceso de autorizaciones los hitos llegan desordenados, y una vista que asume secuencia estricta muestra casos imposibles. La tercera, y la más específica de seguros, es la <strong>ventana para datos que llegan tarde</strong>: la cuenta médica y las reclamaciones aparecen semanas después de la decisión que quieren evaluar, y si el modelo de datos cierra el caso al autorizar, esa evidencia no tiene dónde entrar.</p>
 
   <div class="support">
-    <p><span class="support-label">Sustento</span>El diseño del equipo ya contempla una arquitectura de dos caminos, en línea y por lotes, y productos de datos hacia el lago. Eso resuelve la mitad del problema. Lo que proponemos agregar es explícito: que la vista del caso admita actualización tardía sin reabrir el proceso de negocio, es decir que un caso cerrado operativamente pueda seguir recibiendo evidencia de calidad.</p>
+    <p><span class="support-label">Sustento</span>El diseño del equipo ya contempla una arquitectura de dos caminos, en línea y por lotes, y productos de datos hacia el lago de datos. Eso resuelve la mitad del problema. Lo que proponemos agregar es explícito: que la vista del caso admita actualización tardía sin reabrir el proceso de negocio, es decir que un caso cerrado operativamente pueda seguir recibiendo evidencia de calidad.</p>
+  </div>
+
+  <h3>De dónde entra cada fuente, con la realidad de hoy</h3>
+
+  <p>El equipo fijó un principio que condiciona esta capa: si Gestores necesita un dato de interoperabilidad, lo pide primero al core, y una conexión directa solo se justifica cuando el core no tiene ni va a tener ese dato. Aplicado a la torre, eso ordena las fuentes así:</p>
+
+  <div class="tbl-wide">
+  <table class="tbl">
+    <thead><tr><th>Fuente</th><th>Cómo entra</th><th>Realidad hoy</th></tr></thead>
+    <tbody>
+      <tr><th>Eventos de los gestores</th><td>Suscripción a la totalidad del bus, no a un subconjunto.</td><td>Disponible en la medida en que cada gestor emita; es la etapa 1.</td></tr>
+      <tr><th>Estados del core</th><td>Eventos emitidos por quien tiene autoridad sobre la entidad, normalmente el core.</td><td>Depende de que el core exponga sus API. El plazo lo define el equipo del core.</td></tr>
+      <tr><th>Cuenta médica y glosas</th><td>Vía el core, como carga periódica, no en línea.</td><td>Sujeto al plan de releases del equipo, donde el lago de datos de autorizaciones es un entregable posterior.</td></tr>
+      <tr><th>Reclamaciones y tutelas</th><td>Vía el core o el sistema que las administre, con el caso como llave.</td><td>Requiere acordar la llave de correlación; hoy no está resuelta.</td></tr>
+      <tr><th>Confirmación de la atención</th><td>Por el front de canales y por interoperabilidad clínica cuando aplique.</td><td>Interoperabilidad cubre cerca del 30% de prestadores y hoy solo consulta externa. Agenda no es fuente: no existe interoperabilidad de agenda. La clave dinámica y el código de un solo uso quedaron fuera del alcance de esta fase.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="keypoint">
+    <span class="keypoint-label">La consecuencia práctica</span>
+    <p>La torre no debería diseñarse asumiendo acceso directo a esas fuentes. Se diseña con el core como intermediario y con una ventana que admite datos rezagados, que es lo que permite que la correlación tardía funcione cuando el lago exista, sin rehacer el modelo.</p>
   </div>
 
   <h2 id="relojes">Los tres relojes de la verdad</h2>
@@ -619,21 +672,43 @@
 
   <p>Nuestra recomendación sobre eso: la aproximación es aceptable, pero la torre debe <strong>publicar el nivel de confianza de cada correlación</strong> en lugar de presentarla como un hecho. Un indicador construido sobre correlaciones débiles se ve igual que uno construido sobre correlaciones firmes, y esa es la forma más silenciosa de perder credibilidad frente al negocio.</p>
 
-  <h2 id="indicadores">Indicadores que proponemos</h2>
+  <h2 id="indicadores">Indicadores</h2>
 
-  <p>Tres grupos, con un criterio de admisión: cada indicador debe tener una acción asociada y un dueño. Los nombres son propuestas; lo que importa es que cada uno tenga su fórmula escrita, porque dos formas razonables de calcular la misma tasa producen incentivos distintos.</p>
+  <p>El equipo ya construyó su catálogo de monitoreo: nueve ejes y ochenta y ocho variables, desde demanda e inventario hasta impacto financiero y automatización. <strong>Ese catálogo no se reemplaza.</strong> Está en el idioma de su operación y mantenido por quien lo usa. Lo que proponemos es una capa que se enchufa en él: los indicadores que miden a los agentes, que hoy no existen en ninguno de los nueve ejes.</p>
 
-  <h3>Del proceso y del negocio</h3>
+  <div class="tbl-wide">
+  <table class="tbl">
+    <thead><tr><th>Eje del catálogo</th><th>Qué agrega esta propuesta</th></tr></thead>
+    <tbody>
+      <tr><th>1. Demanda</th><td>Deriva en la mezcla de entrada como disparador de re-medición: documento nuevo, prestador con otro formato, cambio de proporción entre tipos.</td></tr>
+      <tr><th>2. Inventario</th><td>Nada. Es medición operativa pura.</td></tr>
+      <tr><th>3. Oportunidad, ANS</th><td>Presupuesto de tiempo por agente, que es lo que hace que el ANS sea explicable cuando se incumple.</td></tr>
+      <tr><th>4. Capacidad operativa</th><td>Nada propio. La torre lo consume del core como insumo de alertas.</td></tr>
+      <tr><th>5. Calidad</th><td>Acierto por campo, proporción de campos con respaldo verificable, validez de esquema del contrato, y escalamiento correcto e incorrecto medidos por separado.</td></tr>
+      <tr><th>6. Experiencia cliente</th><td>Nada propio, pero es insumo del reloj tardío: la queja por negación es evidencia sobre la decisión.</td></tr>
+      <tr><th>7. Riesgos operativos</th><td>Deriva, consistencia entre corridas del mismo caso, e incidentes atribuibles a decisiones automáticas.</td></tr>
+      <tr><th>8. Impacto financiero</th><td>Costo por caso y costo por caso correcto, y glosa asociada a la decisión de autorización.</td></tr>
+      <tr><th>9. Automatización</th><td>Grado de autonomía por agente y tipo de caso, y distancia al siguiente grado. Es lo que explica por qué el toque cero está donde está.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="keypoint">
+    <span class="keypoint-label">Lo que ya tienen y no hay que volver a inventar</span>
+    <p>Casos revocados, reprocesos, reaperturas, quejas por negación y tutelas activas ya están en su catálogo, en los ejes de calidad, experiencia y riesgos. Son exactamente los insumos del reloj tardío. Lo que falta no es el dato: es leerlos como medición de calidad del agente y no solo como medición operativa.</p>
+  </div>
+
+  <p>Sobre los indicadores que sí proponemos, un criterio de admisión: cada uno debe tener una acción asociada y un dueño, y su fórmula escrita, porque dos formas razonables de calcular la misma tasa producen incentivos distintos.</p>
+
+  <h3>Del proceso, leídos en clave de agente</h3>
+
+  <p>Solo los que cambian de significado cuando el que decide es un agente. Los indicadores operativos puros, tiempo de ciclo, cumplimiento de tiempos, envejecimiento de bandeja y reproceso, ya están en el catálogo del equipo y se leen de ahí.</p>
 
   <div class="tbl-wide">
   <table class="tbl">
     <thead><tr><th>Indicador</th><th>Qué revela</th><th>Por qué importa en este negocio</th></tr></thead>
     <tbody>
       <tr><th>Resolución sin intervención humana</th><td>Proporción de solicitudes que completan el ciclo sin que nadie las toque, por tipo de caso.</td><td>Es el indicador que justifica la inversión, y el que hay que leer siempre junto al error caro para que no se optimice solo.</td></tr>
-      <tr><th>Tiempo de ciclo por tipo de solicitud</th><td>Distribución, no promedio: mediana y cola alta.</td><td>El promedio esconde los casos que incumplen los tiempos comprometidos, que son justamente los que generan reclamación.</td></tr>
-      <tr><th>Cumplimiento de tiempos comprometidos</th><td>Proporción de casos resueltos dentro del plazo, por tipo y por canal.</td><td>Es la promesa al asegurado y al prestador, y la primera fuente de queja cuando se rompe.</td></tr>
-      <tr><th>Tasa y envejecimiento de preradicado</th><td>Cuánto se escala y cuánto tiempo llevan esperando los casos escalados.</td><td>Una bandeja que crece convierte automatización en cola oculta; el envejecimiento avisa antes que el volumen.</td></tr>
-      <tr><th>Reproceso</th><td>Casos que vuelven por documentación incompleta o datos mal estructurados.</td><td>Mide el costo real de una extracción mediocre, que no aparece en el acierto por campo.</td></tr>
       <tr><th>Negaciones revertidas</th><td>Proporción de negaciones que se revierten tras reclamación, queja o tutela.</td><td>Es la evaluación externa de la calidad de las negaciones, y tiene consecuencia legal y reputacional, no solo operativa.</td></tr>
       <tr><th>Glosa asociada a la autorización</th><td>Glosas de cuenta médica que se pueden rastrear a una decisión de autorización y su causal.</td><td>Es el reloj tardío convertido en número, y la única señal fuerte de autorizaciones emitidas sin sustento.</td></tr>
       <tr><th>Autorizaciones sin atención identificada</th><td>Casos autorizados donde nunca se pudo confirmar la prestación.</td><td>Mezcla fuga de servicio, problemas de agenda y debilidad de correlación; hay que separarlos antes de actuar.</td></tr>
@@ -650,9 +725,27 @@
 
   <p>Latencia por agente contra su presupuesto de tiempo, consumo de modelos por línea y por gestor, incidentes atribuibles a decisiones automáticas, intentos de manipulación de instrucciones detectados, y violaciones de política de acceso a datos. Estos rara vez interesan al negocio en el día a día, y son los primeros que pide una auditoría.</p>
 
+  <h3>De salud técnica del ecosistema</h3>
+
+  <p>El equipo pidió que la torre garantice que la arquitectura, las integraciones y las conexiones que intervienen en el proceso estén funcionando, y que alerte ante cualquier novedad. Nos parece correcto y lo agregamos como cuarta familia, porque en un sistema agéntico la distinción entre "el agente se equivocó" y "la fuente que el agente consultó estaba caída" es la diferencia entre corregir un prompt y corregir una integración.</p>
+
+  <ul>
+    <li><strong>Disponibilidad y latencia de cada fuente</strong> que un agente consulta, con su propio presupuesto de tiempo.</li>
+    <li><strong>Tasa de error por integración</strong>, separando el fallo de la fuente del fallo del agente.</li>
+    <li><strong>Rezago del bus de eventos</strong>: cuánto tardan los eventos en llegar y cuántos quedan sin procesar.</li>
+    <li><strong>Cobertura de emisión</strong>: qué proporción de los cambios de estado esperados está llegando efectivamente a la torre. Un gestor que deja de emitir es invisible en los tableros de negocio y evidente en este indicador.</li>
+  </ul>
+
+  <div class="keypoint">
+    <span class="keypoint-label">Por qué importa para la acertividad</span>
+    <p>Sin esta familia, una caída de una fuente se lee como caída de acierto del agente, y el equipo termina ajustando un prompt para resolver un problema de red. Separar las dos cosas es la condición para que la medición de acertividad sea confiable.</p>
+  </div>
+
   <h2 id="tableros">Tableros por actor</h2>
 
-  <p>El diseño ya plantea visibilidad diferenciada por actor. Proponemos concretarla así, con una regla: cada tablero se define por la <strong>pregunta</strong> que responde y por la <strong>acción</strong> que habilita, no por los datos disponibles.</p>
+  <p>El diseño ya plantea visibilidad diferenciada por actor, y ya decidió algo que conviene respetar: la torre expone <strong>el bosque y el árbol</strong>, es decir la vista consolidada del proceso y también el detalle caso a caso de una solicitud concreta. Son dos modos de un mismo tablero, no dos productos.</p>
+
+  <p>Proponemos concretarlo con una regla: cada tablero se define por la <strong>pregunta</strong> que responde y por la <strong>acción</strong> que habilita, no por los datos disponibles.</p>
 
   <div class="tbl-wide">
   <table class="tbl">
@@ -666,6 +759,22 @@
       <tr><th>Arquitectura</th><td>¿Qué nivel de autonomía tiene cada agente y con qué respaldo?</td><td>Aprobar o revertir un ascenso, con el registro de decisión.</td></tr>
       <tr><th>Negocio</th><td>¿Cuánto estamos resolviendo solos, a qué costo y con qué riesgo?</td><td>Ajustar el límite tolerable del error caro y priorizar tipos de caso.</td></tr>
       <tr><th>Cumplimiento</th><td>¿Podemos reconstruir cualquier decisión si nos la piden?</td><td>Exportar la traza completa de un caso con su evidencia.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Notificar en tres dimensiones</h3>
+
+  <p>El equipo definió que las notificaciones se emiten cruzando tres dimensiones: <strong>actor</strong>, quién recibe; <strong>canal</strong>, por dónde; y <strong>carácter</strong>, si la torre avisa por iniciativa propia o solo responde cuando le preguntan. Nos parece la formulación correcta y agregamos una cuarta condición, la del gobierno: toda notificación proactiva es una acción de la torre, así que entra en la misma escala de grados que el resto de sus acciones.</p>
+
+  <div class="tbl-wide">
+  <table class="tbl">
+    <thead><tr><th>Ejemplo</th><th>Actor y canal</th><th>Carácter</th></tr></thead>
+    <tbody>
+      <tr><th>Aviso de posible incumplimiento del tiempo de respuesta</th><td>Asegurado, por aplicación o mensajería</td><td>Proactivo: da tranquilidad antes de que el cliente pregunte</td></tr>
+      <tr><th>Alerta de casos por vencer o de desborde de capacidad</th><td>Evaluadores y líderes, por canal interno</td><td>Proactivo, con dueño y plazo</td></tr>
+      <tr><th>Estado de la autorización</th><td>Prestador o asesor, por su propio canal</td><td>Pasivo: responde a la consulta</td></tr>
+      <tr><th>Solicitud radicada en nombre del cliente</th><td>Asegurado, por su canal preferido</td><td>Proactivo: evita duplicados, que es lo que el equipo buscaba</td></tr>
     </tbody>
   </table>
   </div>
@@ -748,11 +857,48 @@
 
   <p>La torre ya declara que controla niveles de autonomía y expone una interfaz para parametrizarlos. Esa es, en nuestra opinión, su capacidad más valiosa y la que más conviene hacer visible: es el lugar donde el negocio ve, en una sola pantalla, cuánta decisión automática tiene entregada y con qué respaldo.</p>
 
+  <h3>Primero, una aclaración de vocabulario</h3>
+
+  <p>La palabra "nivel" ya está ocupada dos veces en este proyecto, y las tres escalas se prestan a confusión en una misma conversación. Para evitarlo, llamamos <strong>grado de autonomía</strong> a la escala nuestra, y la escribimos G1 a G4.</p>
+
+  <div class="tbl-wide">
+  <table class="tbl">
+    <thead><tr><th>Escala</th><th>Qué mide</th><th>Valores</th><th>De dónde viene</th></tr></thead>
+    <tbody>
+      <tr><th>Nivel de escalamiento</th><td>A qué perfil humano se escala una solicitud.</td><td>1 automático · 2 administrativo · 3 enfermeras e instrumentadoras · 4 médicos y especialistas</td><td>Definición de negocio del equipo</td></tr>
+      <tr><th>Nivel de servicio</th><td>Complejidad y riesgo del servicio solicitado, que decide si puede ir por vía automática.</td><td>1 a 4, donde 3 y 4 son alto costo o riesgo y siempre van a evaluación manual</td><td>Definición de negocio del equipo</td></tr>
+      <tr><th>Grado de autonomía</th><td>Cuánta decisión automática tiene entregada un agente, para un tipo de caso.</td><td>G1 en calibración · G2 supervisado · G3 autónomo con umbral · G4 autónomo pleno</td><td>Esta propuesta</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>La escala de madurez agéntica que ya se definió para el Gestor de Coordinación, determinístico, con asistente explicativo, y agente autónomo, se mapea sin fricción: determinístico corresponde a un componente que no está en esta escala porque no decide, el asistente explicativo equivale a G2, y el agente autónomo a G3.</p>
+
+  <h3>Los techos que el negocio ya fijó</h3>
+
+  <p>Hay tres decisiones tomadas que ningún ascenso puede superar, por buena que sea la métrica. Las traemos aquí porque el semáforo tiene que mostrarlas como techo y no como oportunidad de mejora.</p>
+
+  <div class="tbl-wide">
+  <table class="tbl">
+    <thead><tr><th>Decisión ya tomada</th><th>Techo que impone</th></tr></thead>
+    <tbody>
+      <tr><th>La negación nunca es totalmente automática y siempre exige un evaluador humano</th><td>El agente evaluador no pasa de <strong>G2</strong> en negaciones: propone, un humano decide. Nunca G3 ni G4 para negar.</td></tr>
+      <tr><th>La negación debe ser determinística y trazable, nunca probabilística</th><td>La negación no se sustenta en la salida de un modelo de lenguaje: se sustenta en reglas versionadas, y el modelo solo aporta el concepto que acelera la revisión.</td></tr>
+      <tr><th>La autorización automática aplica solo a servicios de nivel 1; los de nivel 3 y 4 van siempre a evaluación manual</th><td>En alto costo y alto riesgo el techo es <strong>G2</strong>, sin importar el acierto medido.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="keypoint">
+    <span class="keypoint-label">Por qué esto fortalece la propuesta en lugar de limitarla</span>
+    <p>Un techo explícito es lo que permite dar autonomía real donde sí se puede. Sin techos, cada ascenso se discute como si pusiera en riesgo la decisión clínica; con techos, la conversación se concentra en los tipos de caso donde el negocio ya aceptó que la máquina decida.</p>
+  </div>
+
     <div class="diagram-wrap">
     <div class="diagram-name">Figura 5. Semáforo de autonomía por agente y tipo de caso</div>
     <svg width="100%" viewBox="0 0 680 250" role="img">
       <title>Semáforo de autonomía por agente y tipo de caso</title>
-      <desc>Matriz de agentes por tipo de caso mostrando el nivel de madurez vigente en cada combinación. Los casos rutinarios llegan a niveles altos de autonomía, mientras que alto costo y los casos no incluidos en el plan o con tutela se mantienen supervisados. La última columna muestra qué falta para el siguiente ascenso.</desc>
+      <desc>Matriz de agentes por tipo de caso mostrando el grado de autonomía vigente en cada combinación. Los casos rutinarios llegan a niveles altos de autonomía, mientras que alto costo y los casos no incluidos en el plan o con tutela se mantienen supervisados. La última columna muestra qué falta para el siguiente ascenso.</desc>
 
       <text x="8" y="14" font-size="7.5" font-weight="600" fill="#8A8998">AGENTE</text>
       <text x="200" y="14" text-anchor="middle" font-size="7.5" font-weight="600" fill="#8A8998">RUTINARIO</text>
@@ -762,52 +908,52 @@
       <line x1="8" y1="20" x2="672" y2="20" stroke="#280265" stroke-width="1.2"/>
 
       <text x="8" y="40" font-size="8" fill="#1A1E27">Extractor historia clínica</text>
-      <rect x="160" y="30" width="80" height="14" rx="3" fill="#280265"/><text x="200" y="40" text-anchor="middle" font-size="7.5" font-weight="600" fill="#FFFFFF">Nivel 4</text>
-      <rect x="270" y="30" width="80" height="14" rx="3" fill="#5300DF"/><text x="310" y="40" text-anchor="middle" font-size="7.5" font-weight="600" fill="#FFFFFF">Nivel 3</text>
-      <rect x="384" y="30" width="80" height="14" rx="3" fill="#EBEBFF"/><text x="424" y="40" text-anchor="middle" font-size="7.5" font-weight="600" fill="#280265">Nivel 2</text>
+      <rect x="160" y="30" width="80" height="14" rx="3" fill="#280265"/><text x="200" y="40" text-anchor="middle" font-size="7.5" font-weight="600" fill="#FFFFFF">G4</text>
+      <rect x="270" y="30" width="80" height="14" rx="3" fill="#5300DF"/><text x="310" y="40" text-anchor="middle" font-size="7.5" font-weight="600" fill="#FFFFFF">G3</text>
+      <rect x="384" y="30" width="80" height="14" rx="3" fill="#EBEBFF"/><text x="424" y="40" text-anchor="middle" font-size="7.5" font-weight="600" fill="#280265">G2</text>
       <text x="480" y="40" font-size="7" fill="#5B5A66">no PBS: faltan 120 casos con acierto sostenido</text>
       <line x1="8" y1="48" x2="672" y2="48" stroke="#DCD8EC"/>
 
       <text x="8" y="68" font-size="8" fill="#1A1E27">Extractor orden médica</text>
-      <rect x="160" y="58" width="80" height="14" rx="3" fill="#280265"/><text x="200" y="68" text-anchor="middle" font-size="7.5" font-weight="600" fill="#FFFFFF">Nivel 4</text>
-      <rect x="270" y="58" width="80" height="14" rx="3" fill="#280265"/><text x="310" y="68" text-anchor="middle" font-size="7.5" font-weight="600" fill="#FFFFFF">Nivel 4</text>
-      <rect x="384" y="58" width="80" height="14" rx="3" fill="#5300DF"/><text x="424" y="68" text-anchor="middle" font-size="7.5" font-weight="600" fill="#FFFFFF">Nivel 3</text>
+      <rect x="160" y="58" width="80" height="14" rx="3" fill="#280265"/><text x="200" y="68" text-anchor="middle" font-size="7.5" font-weight="600" fill="#FFFFFF">G4</text>
+      <rect x="270" y="58" width="80" height="14" rx="3" fill="#280265"/><text x="310" y="68" text-anchor="middle" font-size="7.5" font-weight="600" fill="#FFFFFF">G4</text>
+      <rect x="384" y="58" width="80" height="14" rx="3" fill="#5300DF"/><text x="424" y="68" text-anchor="middle" font-size="7.5" font-weight="600" fill="#FFFFFF">G3</text>
       <text x="480" y="68" font-size="7" fill="#5B5A66">cumple criterio, pendiente aprobación en sesión</text>
       <line x1="8" y1="76" x2="672" y2="76" stroke="#DCD8EC"/>
 
       <text x="8" y="96" font-size="8" fill="#1A1E27">Evaluador de autorización</text>
-      <rect x="160" y="86" width="80" height="14" rx="3" fill="#5300DF"/><text x="200" y="96" text-anchor="middle" font-size="7.5" font-weight="600" fill="#FFFFFF">Nivel 3</text>
-      <rect x="270" y="86" width="80" height="14" rx="3" fill="#EBEBFF"/><text x="310" y="96" text-anchor="middle" font-size="7.5" font-weight="600" fill="#280265">Nivel 2</text>
-      <rect x="384" y="86" width="80" height="14" rx="3" fill="#FBF0DC"/><text x="424" y="96" text-anchor="middle" font-size="7.5" font-weight="600" fill="#8A5A00">Nivel 1</text>
-      <text x="480" y="96" font-size="7" fill="#5B5A66">alto costo: 2 negaciones revertidas este mes</text>
+      <rect x="160" y="86" width="80" height="14" rx="3" fill="#5300DF"/><text x="200" y="96" text-anchor="middle" font-size="7.5" font-weight="600" fill="#FFFFFF">G3</text>
+      <rect x="270" y="86" width="80" height="14" rx="3" fill="#FBF0DC" stroke="#B9720A"/><text x="310" y="96" text-anchor="middle" font-size="7.5" font-weight="600" fill="#8A5A00">G2 techo</text>
+      <rect x="384" y="86" width="80" height="14" rx="3" fill="#FBF0DC"/><text x="424" y="96" text-anchor="middle" font-size="7.5" font-weight="600" fill="#8A5A00">G1</text>
+      <text x="480" y="96" font-size="7" fill="#B9720A">techo G2 en negaciones y alto costo</text>
       <line x1="8" y1="104" x2="672" y2="104" stroke="#DCD8EC"/>
 
       <text x="8" y="124" font-size="8" fill="#1A1E27">Coordinador de proveedor</text>
-      <rect x="160" y="114" width="80" height="14" rx="3" fill="#5300DF"/><text x="200" y="124" text-anchor="middle" font-size="7.5" font-weight="600" fill="#FFFFFF">Nivel 3</text>
-      <rect x="270" y="114" width="80" height="14" rx="3" fill="#5300DF"/><text x="310" y="124" text-anchor="middle" font-size="7.5" font-weight="600" fill="#FFFFFF">Nivel 3</text>
-      <rect x="384" y="114" width="80" height="14" rx="3" fill="#EBEBFF"/><text x="424" y="124" text-anchor="middle" font-size="7.5" font-weight="600" fill="#280265">Nivel 2</text>
+      <rect x="160" y="114" width="80" height="14" rx="3" fill="#5300DF"/><text x="200" y="124" text-anchor="middle" font-size="7.5" font-weight="600" fill="#FFFFFF">G3</text>
+      <rect x="270" y="114" width="80" height="14" rx="3" fill="#5300DF"/><text x="310" y="124" text-anchor="middle" font-size="7.5" font-weight="600" fill="#FFFFFF">G3</text>
+      <rect x="384" y="114" width="80" height="14" rx="3" fill="#EBEBFF"/><text x="424" y="124" text-anchor="middle" font-size="7.5" font-weight="600" fill="#280265">G2</text>
       <text x="480" y="124" font-size="7" fill="#5B5A66">rutinario: volumen suficiente, sin incidentes</text>
       <line x1="8" y1="132" x2="672" y2="132" stroke="#DCD8EC"/>
 
       <rect x="8" y="148" width="664" height="34" rx="6" fill="#FAF9FE" stroke="#DCD8EC"/>
-      <text x="20" y="162" font-size="7.5" font-weight="600" fill="#280265">Nivel 1 en calibración, opera en modo shadow · Nivel 2 supervisado, un humano revisa cada propuesta</text>
-      <text x="20" y="175" font-size="7.5" font-weight="600" fill="#280265">Nivel 3 autónomo con umbral, escala lo dudoso · Nivel 4 autónomo pleno, auditoría por muestreo</text>
+      <text x="20" y="162" font-size="7.5" font-weight="600" fill="#280265">G1 en calibración, opera en modo shadow · G2 supervisado, un humano revisa cada propuesta</text>
+      <text x="20" y="175" font-size="7.5" font-weight="600" fill="#280265">G3 autónomo con umbral, escala lo dudoso · G4 autónomo pleno, auditoría por muestreo</text>
 
-      <text x="340" y="204" text-anchor="middle" font-size="8" font-weight="600" fill="#1A1E27">Los valores son ilustrativos: el punto es que el nivel se declara por combinación de agente y tipo de caso, no por agente.</text>
+      <text x="340" y="204" text-anchor="middle" font-size="8" font-weight="600" fill="#1A1E27">Los valores son ilustrativos: el punto es que el grado se declara por combinación de agente y tipo de caso, no por agente.</text>
       <text x="340" y="220" text-anchor="middle" font-size="7.5" fill="#5B5A66">Así un extractor puede ser plenamente autónomo en órdenes simples y seguir supervisado en casos no incluidos en el plan o con tutela.</text>
-      <text x="340" y="236" text-anchor="middle" font-size="7.5" fill="#8A8998">Este es el tablero que la torre debería mostrar en una sola pantalla, junto con la distancia al siguiente ascenso.</text>
+      <text x="340" y="236" text-anchor="middle" font-size="7.5" fill="#8A8998">En ámbar, los techos que el negocio ya fijó: ningún ascenso los supera, por buena que sea la métrica.</text>
     </svg>
     <div class="diagram-caption">El semáforo hace visible, en un solo lugar, cuánta autonomía está entregada y con qué respaldo.</div>
   </div>
 
 
-  <p>El vocabulario de esos niveles es el mismo de la propuesta de arquitectura de esta serie, y lo repetimos aquí para que esta nota se pueda leer sola.</p>
+  <p>Los cuatro grados, en detalle, para que esta nota se pueda leer sola.</p>
 
     <div class="diagram-wrap">
-    <div class="diagram-name">Figura 6. Los cuatro niveles del modelo de madurez de un agente</div>
+    <div class="diagram-name">Figura 6. Los cuatro grados de autonomía de un agente</div>
     <svg width="100%" viewBox="0 0 680 300" role="img">
-      <title>Progresión de los cuatro niveles de madurez de un agente</title>
-      <desc>Nivel 1, en calibración, opera en modo shadow sin decisiones reales. Nivel 2, supervisado, un humano revisa cada propuesta. Nivel 3, autónomo con umbral, decide solo, escala si su confianza es baja. Nivel 4, autónomo pleno para ese tipo de caso, con auditoría por muestreo. El ascenso entre niveles exige volumen de casos, tasa de acierto sostenida, y ausencia de incidentes.</desc>
+      <title>Progresión de los cuatro grados de autonomía de un agente</title>
+      <desc>G1, en calibración, opera en modo shadow sin decisiones reales. G2, supervisado, un humano revisa cada propuesta. G3, autónomo con umbral, decide solo y escala si su confianza es baja. G4, autónomo pleno para ese tipo de caso, con auditoría por muestreo. El ascenso entre niveles exige volumen de casos, tasa de acierto sostenida, y ausencia de incidentes.</desc>
       <defs>
         <marker id="arrowMad" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
           <path d="M2 1L8 5L2 9" fill="none" stroke="#5B5A66" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -819,7 +965,7 @@
       <text x="510" y="18" text-anchor="middle" font-size="9" fill="#8A8998">Más autonomía del agente</text>
 
       <rect x="10" y="40" width="150" height="110" rx="8" fill="#FFFFFF" stroke="#DCD8EC"/>
-      <text x="85" y="65" text-anchor="middle" font-size="11" font-weight="600" fill="#1A1E27">Nivel 1</text>
+      <text x="85" y="65" text-anchor="middle" font-size="11" font-weight="600" fill="#1A1E27">G1</text>
       <text x="85" y="80" text-anchor="middle" font-size="9.5" font-weight="600" fill="#1A1E27">En calibración</text>
       <text x="85" y="102" text-anchor="middle" font-size="8.5" fill="#5B5A66">Opera en modo shadow,</text>
       <text x="85" y="114" text-anchor="middle" font-size="8.5" fill="#5B5A66">sin decisiones reales</text>
@@ -827,7 +973,7 @@
       <line x1="160" y1="95" x2="180" y2="95" stroke="#8A8998" stroke-width="1.2" marker-end="url(#arrowMad)"/>
 
       <rect x="180" y="40" width="150" height="110" rx="8" fill="#EBEBFF" stroke="#5300DF"/>
-      <text x="255" y="65" text-anchor="middle" font-size="11" font-weight="600" fill="#280265">Nivel 2</text>
+      <text x="255" y="65" text-anchor="middle" font-size="11" font-weight="600" fill="#280265">G2</text>
       <text x="255" y="80" text-anchor="middle" font-size="9.5" font-weight="600" fill="#280265">Supervisado</text>
       <text x="255" y="102" text-anchor="middle" font-size="8.5" fill="#5B5A66">Un humano revisa</text>
       <text x="255" y="114" text-anchor="middle" font-size="8.5" fill="#5B5A66">cada propuesta</text>
@@ -835,7 +981,7 @@
       <line x1="330" y1="95" x2="350" y2="95" stroke="#8A8998" stroke-width="1.2" marker-end="url(#arrowMad)"/>
 
       <rect x="350" y="40" width="150" height="110" rx="8" fill="#EBEBFF" stroke="#5300DF" stroke-width="2"/>
-      <text x="425" y="65" text-anchor="middle" font-size="11" font-weight="600" fill="#280265">Nivel 3</text>
+      <text x="425" y="65" text-anchor="middle" font-size="11" font-weight="600" fill="#280265">G3</text>
       <text x="425" y="80" text-anchor="middle" font-size="9.5" font-weight="600" fill="#280265">Autónomo con umbral</text>
       <text x="425" y="102" text-anchor="middle" font-size="8.5" fill="#5B5A66">Decide solo si supera</text>
       <text x="425" y="114" text-anchor="middle" font-size="8.5" fill="#5B5A66">la confianza mínima</text>
@@ -843,7 +989,7 @@
       <line x1="500" y1="95" x2="520" y2="95" stroke="#8A8998" stroke-width="1.2" marker-end="url(#arrowMad)"/>
 
       <rect x="520" y="40" width="150" height="110" rx="8" fill="#280265"/>
-      <text x="595" y="65" text-anchor="middle" font-size="11" font-weight="600" fill="#FFFFFF">Nivel 4</text>
+      <text x="595" y="65" text-anchor="middle" font-size="11" font-weight="600" fill="#FFFFFF">G4</text>
       <text x="595" y="80" text-anchor="middle" font-size="9.5" font-weight="600" fill="#FFFFFF">Autónomo pleno</text>
       <text x="595" y="102" text-anchor="middle" font-size="8.5" fill="#EBEBFF">Auditoría por muestreo,</text>
       <text x="595" y="114" text-anchor="middle" font-size="8.5" fill="#EBEBFF">no revisión previa</text>
@@ -852,9 +998,9 @@
       <text x="340" y="203" text-anchor="middle" font-size="8.5" fill="#5B5A66">volumen mínimo de casos procesados, tasa de acierto sostenida en un período definido,</text>
       <text x="340" y="217" text-anchor="middle" font-size="8.5" fill="#5B5A66">y ausencia de incidentes atribuibles a sus decisiones</text>
 
-      <text x="340" y="255" text-anchor="middle" font-size="8" fill="#8A8998">El nivel no lo decide quien construyó el agente; lo aplica la API de parametrización de autonomía.</text>
+      <text x="340" y="255" text-anchor="middle" font-size="8" fill="#8A8998">El grado no lo decide quien construyó el agente; lo aplica la API de parametrización de autonomía.</text>
     </svg>
-    <div class="diagram-caption">El nivel 3 es el mecanismo de la compuerta: decidir solo, y escalar cuando la confianza no alcanza.</div>
+    <div class="diagram-caption">El grado G3 es el mecanismo de la compuerta: decidir solo, y escalar cuando la confianza no alcanza.</div>
   </div>
 
 
@@ -862,14 +1008,26 @@
   <table class="tbl">
     <thead><tr><th>Qué expone la torre</th><th>Regla que proponemos</th></tr></thead>
     <tbody>
-      <tr><th>Nivel vigente por agente y tipo de caso</th><td>Con la fecha y el registro de decisión que lo autorizó. Sin registro, la API no acepta el cambio.</td></tr>
-      <tr><th>Distancia al siguiente ascenso</th><td>Cuánto volumen y cuántas semanas de acierto sostenido faltan, calculado por la torre y no reportado por el equipo del agente.</td></tr>
+      <tr><th>Grado vigente por agente y tipo de caso</th><td>Con la fecha, el registro de decisión que lo autorizó y el techo aplicable si lo hay. Sin registro, la API no acepta el cambio.</td></tr>
+      <tr><th>Distancia al siguiente ascenso</th><td>Cuánto volumen y cuántas semanas de acierto sostenido faltan para el siguiente grado, calculado por la torre y no reportado por el equipo del agente.</td></tr>
       <tr><th>Umbral aplicado</th><td>Derivado del límite tolerable del error caro acordado con el negocio, y distinto por tipo de caso.</td></tr>
-      <tr><th>Versiones en observación</th><td>Toda versión nueva aparece marcada en modo shadow o canary hasta que recupera el nivel de la anterior.</td></tr>
+      <tr><th>Versiones en observación</th><td>Toda versión nueva aparece marcada en modo shadow o canary hasta que recupera el grado de la anterior.</td></tr>
       <tr><th>Descensos ocurridos</th><td>Visibles con su causa. Un historial de descensos es información valiosa, no un demérito que convenga esconder.</td></tr>
     </tbody>
   </table>
   </div>
+
+  <h3>El front de configuración, un solo patrón para todo</h3>
+
+  <p>El equipo pidió un front para configurar los tiempos de respuesta según criterios, y en la propuesta de arquitectura existe la necesidad equivalente para ajustar prompts y umbrales. Recomendamos que los tres usen el mismo patrón, porque los tres cambian el comportamiento del sistema en producción:</p>
+
+  <ol class="steps">
+    <li>El front <strong>no escribe en producción</strong>: produce una versión candidata.</li>
+    <li>Ofrece <strong>vista previa y simulación</strong> contra los casos conocidos, para que quien ajusta vea el efecto sobre el conjunto y no solo sobre el caso que tiene enfrente.</li>
+    <li>Toda confirmación queda con <strong>autor, motivo y resultado de la simulación</strong>, con reversión inmediata disponible.</li>
+  </ol>
+
+  <p>Ubicarlo en la torre nos parece correcto, porque es donde ya vive la parametrización de autonomía y el tablero de estado. Lo que no recomendamos es que el ajuste de tiempos siga un camino y el de umbrales otro: son la misma clase de cambio y merecen la misma compuerta.</p>
 
   <div class="support">
     <p><span class="support-label">Sustento</span>La formulación que usa la regulación europea de referencia para sistemas de alto riesgo es que las medidas de supervisión humana deben ser proporcionales a los riesgos, al nivel de autonomía y al contexto de uso. Esa frase es, literalmente, el argumento de una escala de madurez por tipo de caso, y es la mejor defensa disponible frente a un auditor que pregunte por qué un agente decide solo en unos casos y no en otros. El detalle de fuentes está en el <a href="#anexoA">anexo A</a>.</p>
@@ -909,6 +1067,31 @@
     <p>El esquema de eventos y la ventana para datos tardíos. Ambos son de la etapa 1 y son los que después obligan a reprocesar historia o a reconstruir el modelo de datos. Todo lo demás, incluida la detección de anomalías, se puede sumar más tarde sin costo de reversión.</p>
   </div>
 
+  <h3 id="dependencias">Dependencias, y qué se puede medir antes</h3>
+
+  <p>Dos dependencias externas condicionan el calendario de la torre, y las dos están declaradas en el seguimiento del equipo. La primera: el proyecto solo funciona si los cores exponen información vía API. La segunda: el lago de datos de autorizaciones es un entregable posterior del plan de releases. Los plazos de ambas los definen sus equipos, no esta propuesta; lo que aportamos es el orden de dependencia, no la fecha.</p>
+
+  <p>Eso no bloquea la torre, pero sí ordena qué se mide y cuándo. La tabla siguiente separa lo que depende de terceros de lo que depende solo de Gestores.</p>
+
+  <div class="tbl-wide">
+  <table class="tbl">
+    <thead><tr><th>Capacidad</th><th>De qué depende</th><th>Se puede empezar</th></tr></thead>
+    <tbody>
+      <tr><th>Trazabilidad del tramo de Gestores</th><td>Solo de que los gestores emitan con el esquema acordado.</td><td>Desde el día uno, sin esperar a nadie.</td></tr>
+      <tr><th>Acertividad por agente</th><td>De los eventos propios y de la captura estructurada de la corrección humana.</td><td>Desde el día uno. No requiere el core.</td></tr>
+      <tr><th>Tablero operativo de bandejas y tiempos</th><td>De los estados propios de Gestores; el detalle de carga y capacidad viene del core.</td><td>Parcial desde el día uno, completo cuando el core exponga.</td></tr>
+      <tr><th>Grado de autonomía y su semáforo</th><td>De tener medición sostenida, no de integraciones externas.</td><td>Cuando haya volumen de casos suficiente para que la métrica signifique algo.</td></tr>
+      <tr><th>Trazabilidad de punta a punta con el core</th><td>De que el core emita eventos por cada cambio de estado.</td><td>Cuando el core exponga sus API, según su propio plan.</td></tr>
+      <tr><th>Reloj tardío y analítica prescriptiva</th><td>Del lago de datos de autorizaciones y de la llave de correlación con cuenta médica.</td><td>Cuando exista el lago de datos de autorizaciones, según el plan de releases.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="keypoint">
+    <span class="keypoint-label">La decisión que esto habilita</span>
+    <p>Se puede empezar a medir la acertividad de los agentes <strong>antes</strong> de que el core esté listo, con el tramo que Gestores controla. Y conviene, porque cuando el core exponga sus API la conversación va a ser sobre volumen y capacidad, no sobre si el agente acierta. Esa pregunta ya debería estar respondida con datos.</p>
+  </div>
+
   <h3 id="riesgos">Riesgos de esta propuesta</h3>
 
   <div class="grid grid-2">
@@ -929,24 +1112,24 @@
 
   <div class="tbl-wide">
   <table class="tbl">
-    <thead><tr><th>Capacidad de la torre</th><th>Referencia externa</th></tr></thead>
+    <thead><tr><th>Capacidad de la torre</th><th>Referencia externa</th><th>Documentación</th></tr></thead>
     <tbody>
-      <tr><th>Traza homogénea de cada decisión de agente</th><td>Convenciones semánticas de OpenTelemetry, versión liberada 1.44.0: el estándar abierto para spans, métricas y atributos de traza. Las convenciones específicas de IA generativa están en desarrollo y se trasladaron a un repositorio aparte, así que recomendamos fijar el esquema propio sobre la parte liberada en lugar de depender de una convención en movimiento.</td></tr>
-      <tr><th>Plano de control sobre los agentes</th><td>El concepto documentado como plano de control de agentes: registro de agentes y herramientas, control de acceso, gestión de ejecución y de ciclo de vida, aplicación de políticas, enrutamiento, estado y telemetría. Incluye la distinción que usamos: medir lo que un agente hace es distinto de definir lo que le está permitido.</td></tr>
-      <tr><th>Operar la medición como sistema de gestión, no como proyecto</th><td>ISO/IEC 42001:2023, primer estándar de sistema de gestión de IA: objetivos y criterios de éxito, evaluación de riesgos, controles proporcionales y monitoreo continuo. ISO/IEC 23894:2023 aporta la guía de gestión de riesgos.</td></tr>
-      <tr><th>Vocabulario de riesgo y medición</th><td>NIST AI Risk Management Framework 1.0, con sus funciones de gobernar, mapear, medir y gestionar, y su Playbook. Es de uso voluntario y es la referencia más citada del mercado.</td></tr>
-      <tr><th>Autonomía con supervisión proporcional</th><td>Reglamento europeo de IA, artículo 14: las medidas de supervisión humana serán proporcionales a los riesgos, al nivel de autonomía y al contexto de uso. Es el sustento directo de una escala de madurez por tipo de caso.</td></tr>
-      <tr><th>Registro de eventos y monitoreo posterior al despliegue</th><td>Mismo reglamento: artículo 12 sobre registro de eventos, artículo 15 sobre exactitud y robustez, artículo 19 sobre conservación de registros generados automáticamente, y artículo 72 sobre monitoreo posterior a la puesta en servicio con plan formal.</td></tr>
-      <tr><th>Por qué este proceso se trata con ese estándar de cuidado</th><td>Anexo III del mismo reglamento: se clasifican como de alto riesgo los sistemas usados para evaluación de riesgos y tarificación en seguros de vida y salud, y los usados para evaluar la elegibilidad de personas a servicios esenciales, incluidos los de salud. Una preautorización vive en ese vecindario.</td></tr>
-      <tr><th>Programa formal de gobierno de IA en una aseguradora</th><td>Boletín modelo de la asociación de supervisores de seguros de Estados Unidos, adoptado en diciembre de 2023 y acogido por más de veinte estados: exige un programa escrito de sistemas de IA, proporcional al riesgo, con gobierno, controles y documentación que el regulador puede solicitar en un examen.</td></tr>
-      <tr><th>Enfoque supervisor específico del sector</th><td>Opinión de la autoridad europea de seguros y pensiones sobre gobernanza y gestión de riesgos de IA, de agosto de 2025, con enfoque basado en riesgo y proporcionalidad, cubriendo tarificación, suscripción, siniestros y fraude.</td></tr>
+      <tr><th>Traza homogénea de cada decisión de agente</th><td>Convenciones semánticas de OpenTelemetry, versión liberada 1.44.0: el estándar abierto para spans, métricas y atributos de traza. Las convenciones específicas de IA generativa están en desarrollo y se trasladaron a un repositorio aparte, así que recomendamos fijar el esquema propio sobre la parte liberada en lugar de depender de una convención en movimiento.</td><td><a href="https://opentelemetry.io/docs/specs/semconv/">Convenciones semánticas, versión 1.44.0</a></td></tr>
+      <tr><th>Plano de control sobre los agentes</th><td>El concepto documentado como plano de control de agentes: registro de agentes y herramientas, control de acceso, gestión de ejecución y de ciclo de vida, aplicación de políticas, enrutamiento, estado y telemetría. Incluye la distinción que usamos: medir lo que un agente hace es distinto de definir lo que le está permitido.</td><td><a href="https://www.ibm.com/es-es/think/topics/agent-control-plane">IBM, plano de control de agentes</a></td></tr>
+      <tr><th>Operar la medición como sistema de gestión, no como proyecto</th><td>ISO/IEC 42001:2023, primer estándar de sistema de gestión de IA: objetivos y criterios de éxito, evaluación de riesgos, controles proporcionales y monitoreo continuo. ISO/IEC 23894:2023 aporta la guía de gestión de riesgos.</td><td><a href="https://www.iso.org/standard/42001">ISO/IEC 42001:2023</a> · <a href="https://www.iso.org/standard/77304.html">ISO/IEC 23894:2023</a></td></tr>
+      <tr><th>Vocabulario de riesgo y medición</th><td>NIST AI Risk Management Framework 1.0, con sus funciones de gobernar, mapear, medir y gestionar, y su Playbook. Es de uso voluntario y es la referencia más citada del mercado.</td><td><a href="https://www.nist.gov/itl/ai-risk-management-framework">NIST AI RMF 1.0 y su Playbook</a></td></tr>
+      <tr><th>Autonomía con supervisión proporcional</th><td>Reglamento europeo de IA, artículo 14: las medidas de supervisión humana serán proporcionales a los riesgos, al nivel de autonomía y al contexto de uso. Es el sustento directo de una escala de grados de autonomía por tipo de caso.</td><td><a href="https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32024R1689#art_14">Artículo 14, supervisión humana</a></td></tr>
+      <tr><th>Registro de eventos y monitoreo posterior al despliegue</th><td>Mismo reglamento: artículo 12 sobre registro de eventos, artículo 15 sobre exactitud y robustez, artículo 19 sobre conservación de registros generados automáticamente, y artículo 72 sobre monitoreo posterior a la puesta en servicio con plan formal.</td><td><a href="https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32024R1689#art_12">Art. 12</a> · <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32024R1689#art_15">Art. 15</a> · <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32024R1689#art_19">Art. 19</a> · <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32024R1689#art_72">Art. 72</a></td></tr>
+      <tr><th>Por qué este proceso se trata con ese estándar de cuidado</th><td>Anexo III del mismo reglamento: se clasifican como de alto riesgo los sistemas usados para evaluación de riesgos y tarificación en seguros de vida y salud, y los usados para evaluar la elegibilidad de personas a servicios esenciales, incluidos los de salud. Una preautorización vive en ese vecindario.</td><td><a href="https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32024R1689#anx_III">Anexo III, puntos 5(a) y 5(c)</a></td></tr>
+      <tr><th>Programa formal de gobierno de IA en una aseguradora</th><td>Boletín modelo de la asociación de supervisores de seguros de Estados Unidos, adoptado en diciembre de 2023 y acogido por más de veinte estados: exige un programa escrito de sistemas de IA, proporcional al riesgo, con gobierno, controles y documentación que el regulador puede solicitar en un examen.</td><td><a href="https://content.naic.org/sites/default/files/inline-files/2023-12-4%20Model%20Bulletin_Adopted_0.pdf">Boletín modelo adoptado</a> · <a href="https://content.naic.org/insurance-topics/artificial-intelligence">NAIC, tema de IA</a></td></tr>
+      <tr><th>Enfoque supervisor específico del sector</th><td>Opinión de la autoridad europea de seguros y pensiones sobre gobernanza y gestión de riesgos de IA, de agosto de 2025, con enfoque basado en riesgo y proporcionalidad, cubriendo tarificación, suscripción, siniestros y fraude.</td><td><a href="https://www.eiopa.europa.eu/publications/opinion-artificial-intelligence-governance-and-risk-management_en">EIOPA, opinión de 2025</a></td></tr>
     </tbody>
   </table>
   </div>
 
   <div class="keypoint">
     <span class="keypoint-label">Cómo leer esto en el contexto colombiano</span>
-    <p>Ninguna de estas normas obliga a SURA en Colombia. No encontramos una norma local específica sobre sistemas agénticos: lo que aplica de forma directa es el régimen de datos personales sensibles y el de historia clínica, y el supervisor financiero ha comunicado su propio enfoque de uso de IA con intervención humana en el bucle. Por eso proponemos tratar todo lo anterior como <strong>referencia de mercado y defensa razonable</strong>, no como cumplimiento exigible: es el criterio que un auditor, un reasegurador o un socio internacional van a reconocer.</p>
+    <p>Ninguna de estas normas obliga a SURA en Colombia. No encontramos una norma local específica sobre sistemas agénticos: lo que aplica de forma directa es el régimen de protección de datos personales, <a href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=49981">Ley 1581 de 2012</a>, que clasifica los datos de salud como sensibles, y la normativa de historia clínica, <a href="https://www.minsalud.gov.co/Normatividad_Nuevo/RESOLUCI%C3%93N%201995%20DE%201999.pdf">Resolución 1995 de 1999</a>. El supervisor financiero ha comunicado su propio enfoque de uso de IA con intervención humana en el bucle en sus <a href="https://www.superfinanciera.gov.co/publicaciones/10115382/inteligencia-artificial-aplicada-al-sector-financiero/">publicaciones sobre IA aplicada al sector financiero</a>. Por eso proponemos tratar todo lo anterior como <strong>referencia de mercado y defensa razonable</strong>, no como cumplimiento exigible: es el criterio que un auditor, un reasegurador o un socio internacional van a reconocer.</p>
   </div>
 
   <div class="annex" id="anexoB">
@@ -967,6 +1150,104 @@
       <tr><th>Acuerdo sobre estados</th><td>La torre es dueña de la vista materializada y de los meta-estados, nunca del estado autoritativo. Esta nota lo repite porque es la confusión más costosa.</td></tr>
     </tbody>
   </table>
+  </div>
+
+  <div class="annex" id="anexoC">
+    <div class="annex-kicker"><span class="annex-num">ANEXO C</span><span class="annex-title">Los nueve agentes, mapeados a las cinco capas</span></div>
+    <div class="annex-sum">Para resolver el pendiente de validarlos uno por uno.</div>
+  </div>
+
+  <p>El seguimiento del equipo registra, como insumo de referencia y no de adopción literal, una propuesta de arquitectura agéntica para torres de control de salud compuesta por nueve agentes especializados, más un comandante de operaciones a futuro con capacidad de ejecución directa. Queda pendiente validar cada agente contra casos de uso reales para identificar cuáles aportan algo nuevo.</p>
+
+  <p>No compite con esta propuesta: esa arquitectura describe <strong>quién hace el trabajo</strong> y la nuestra describe <strong>qué debe producir la torre y con qué gobierno</strong>. Aplicando nuestro criterio de admisión, qué decisión cambia cada capacidad, el mapeo queda así.</p>
+
+  <p>Las cinco capas son las que define la sección <a href="#capas">Las cinco capas de la torre</a>, y se listan aquí para que este anexo se pueda leer suelto: <strong>1 ingesta y consolidación</strong>, recibe eventos y cargas y tolera datos rezagados · <strong>2 correlación y contexto</strong>, arma la vista del caso con una llave única · <strong>3 medición y evaluación</strong>, indicadores de negocio y de acertividad · <strong>4 decisión y actuación</strong>, alertas con dueño y plazo, marcos de actuación y escalamientos · <strong>5 exposición</strong>, tableros, notificaciones, productos de datos y la API de autonomía.</p>
+
+  <div class="tbl-wide">
+  <table class="tbl">
+    <thead><tr><th>Agente propuesto</th><th>Capa donde cae</th><th>Qué decisión cambia</th><th>Grado inicial sugerido</th></tr></thead>
+    <tbody>
+      <tr><th>Radar</th><td>3, medición</td><td>Ninguna por sí solo: detecta y publica. Su valor depende de que alguien actúe con lo que detecta.</td><td>No aplica: no decide</td></tr>
+      <tr><th>Riesgo operacional</th><td>3 y 4</td><td>Qué casos se priorizan y cuáles se escalan antes de vencer.</td><td>G2, recomienda</td></tr>
+      <tr><th>Capacidad</th><td>3, con insumo del core</td><td>Si se redistribuye carga o se abre desborde. Depende de datos que hoy administra el core.</td><td>G2, recomienda</td></tr>
+      <tr><th>Predictor</th><td>3</td><td>Qué casos van a incumplir el tiempo de respuesta. Solo cambia una decisión si está conectado a una acción.</td><td>G1 hasta demostrar calibración</td></tr>
+      <tr><th>Director del tráfico</th><td>4, actuación</td><td>Reencolar, reasignar, cambiar la ruta de un caso. Es la capacidad de ejecución más clara del conjunto.</td><td>G2, y G3 por tipo de acción</td></tr>
+      <tr><th>Marcos de actuación</th><td>4</td><td>Qué se hace ante cada alerta, con dueño y plazo. Es el guion, no el ejecutor.</td><td>No aplica: es configuración gobernada</td></tr>
+      <tr><th>Anomalías</th><td>4, con la salvaguarda de señalar y no acusar</td><td>Qué casos entran a una cola de investigación humana.</td><td>G2 como techo, nunca más</td></tr>
+      <tr><th>Explicador</th><td>5, exposición</td><td>Ninguna decisión del proceso. Cambia el tiempo que tarda un humano en entender un caso, que es valor real.</td><td>No aplica: no decide</td></tr>
+      <tr><th>Recomendación</th><td>5, hacia el líder operativo</td><td>Sugiere la acción; el humano decide. Es el requisito de sugerir reasignaciones.</td><td>G2, recomienda</td></tr>
+      <tr><th>Comandante de operaciones</th><td>4, futuro</td><td>Ejecuta directamente sin intervención. Es el caso que obliga a tener escala de grados, techos y registro por acción antes de habilitarlo.</td><td>No habilitar hasta que existan medición y compuerta</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="keypoint">
+    <span class="keypoint-label">Lo que muestra el mapeo</span>
+    <p>De los diez, cuatro no toman decisiones y su valor es de visibilidad o de configuración; cinco recomiendan o ejecutan y por lo tanto entran a la escala de grados; y uno, el comandante, es precisamente el que no debería habilitarse antes que la medición. Ninguno queda fuera de las cinco capas, lo que sugiere que las dos propuestas describen el mismo sistema desde ángulos distintos.</p>
+  </div>
+
+  <div class="annex" id="anexoD">
+    <div class="annex-kicker"><span class="annex-num">ANEXO D</span><span class="annex-title">Mapa de cobertura</span></div>
+    <div class="annex-sum">Dónde cae cada requisito que el equipo ya escribió, y de quién es.</div>
+  </div>
+
+  <p>Este anexo existe para que se pueda verificar que leímos todo lo que el equipo documentó sobre la torre, sin que esa verificación invada el cuerpo del documento. La columna del medio ubica cada requisito en una de las cinco capas descritas en <a href="#capas">Las cinco capas de la torre</a>. La última columna es la más importante: dice si algo lo cubre esta propuesta, si es diseño del propio equipo, o si está declarado fuera de alcance.</p>
+
+  <h3>Requisitos funcionales de la torre de control</h3>
+
+  <div class="tbl-wide">
+  <table class="tbl">
+    <thead><tr><th>Lo que pide el equipo</th><th>Dónde cae</th><th>De quién es</th></tr></thead>
+    <tbody>
+      <tr><th>Monitoreo funcional de los seis momentos, no solo del ciclo de la autorización</th><td>Capa 2, correlación</td><td>Diseño del equipo; la propuesta se alinea</td></tr>
+      <tr><th>ANS con semáforos, carga de trabajo, capacidad y riesgo acumulado</th><td>Capa 3, con insumo del core</td><td>Diseño del equipo; aportamos el presupuesto de tiempo por agente</td></tr>
+      <tr><th>Vista consolidada única bajo el siniestro padre</th><td>Capa 2, llave de correlación</td><td>Diseño del equipo</td></tr>
+      <tr><th>Notificaciones en tres dimensiones: actor, canal, carácter</th><td>Capa 5 y sección de tableros</td><td>Diseño del equipo; aportamos que la notificación proactiva es una acción gobernada</td></tr>
+      <tr><th>Capacidad de intervenir otros gestores ante comportamiento inusual</th><td>Capa 4 y sección de delimitación</td><td>Esta propuesta: el gobierno de esa ejecución</td></tr>
+      <tr><th>Rescate digital automático si falla el canal al radicar</th><td>Capa 4, marco de actuación</td><td>Diseño del equipo; aportamos el registro y la reversión</td></tr>
+      <tr><th>Detectar solicitudes repetidas y bloquear la radicación nueva</th><td>Capa 4 y anomalías</td><td>Diseño del equipo; aportamos el techo de grado para bloquear</td></tr>
+      <tr><th>Exponer información distinta por actor, enmascarando datos sensibles</th><td>Capa 5</td><td>Diseño del equipo; aportamos filtrar por perfil antes de construir la vista</td></tr>
+      <tr><th>Vista de auditoría de toda la trazabilidad</th><td>Tablero de cumplimiento</td><td>Esta propuesta lo sostiene con el esquema de traza</td></tr>
+      <tr><th>Exponer el bosque y el árbol</th><td>Sección de tableros</td><td>Diseño del equipo</td></tr>
+      <tr><th>Detectar desborde, incumplimientos y ratio de rechazos fuera de lo normal</th><td>Capa 4, severidades</td><td>Compartido</td></tr>
+      <tr><th>Gestor auditor con autoaprendizaje sobre el Gestor de Evaluación</th><td>Sección del auditor, en la propuesta de arquitectura</td><td>Esta propuesta: la compuerta que lo hace seguro</td></tr>
+      <tr><th>Agente que sugiere decisiones al líder operativo</th><td>Capa 5, grado G2</td><td>Diseño del equipo; aportamos el grado</td></tr>
+      <tr><th>Agente que ejecuta la reasignación automática</th><td>Capa 4, grado G3 por tipo de acción</td><td>Esta propuesta: identidad, alcance, registro y grado</td></tr>
+      <tr><th>Analítica prescriptiva integrando torre y lago de datos</th><td>Capas 3 y 5</td><td>Diseño del equipo; depende del lago de datos</td></tr>
+      <tr><th>Entrega de información al lago de datos</th><td>Capa 5, productos de datos</td><td>Diseño del equipo</td></tr>
+      <tr><th>Garantizar que arquitectura, integraciones y conexiones funcionen, con alertamiento</th><td>Indicadores de salud técnica del ecosistema</td><td>Esta propuesta lo formaliza como familia de indicadores</td></tr>
+      <tr><th>Front de configuración de tiempos de respuesta según criterios</th><td>Sección del front de configuración</td><td>Diseño del equipo; aportamos la compuerta y el registro</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Catálogo de monitoreo, los nueve ejes</h3>
+
+  <p>Los ochenta y ocho indicadores del catálogo son <strong>diseño del equipo y se mantienen tal cual</strong>. La tabla de la sección de indicadores muestra, eje por eje, qué agrega esta propuesta y qué ya está cubierto. Resumen: aportamos en calidad, riesgos operativos, impacto financiero y automatización; no aportamos nada en inventario ni en capacidad operativa, que son medición operativa pura.</p>
+
+  <h3>Requisitos técnicos que tocan a la torre</h3>
+
+  <div class="tbl-wide">
+  <table class="tbl">
+    <thead><tr><th>Definición técnica del equipo</th><th>Dónde cae</th><th>De quién es</th></tr></thead>
+    <tbody>
+      <tr><th>Arquitectura orientada a eventos, consumiendo de todos los gestores y cores</th><td>Capa 1</td><td>Diseño del equipo</td></tr>
+      <tr><th>Suscripción a la totalidad de los eventos, no a un subconjunto</th><td>Capa 1</td><td>Diseño del equipo; más exigente que lo que pedimos</td></tr>
+      <tr><th>Almacén de eventos en un bus compartido con múltiples consumidores</th><td>Capa 1</td><td>Diseño del equipo</td></tr>
+      <tr><th>Un evento por cada cambio de estado como contrato mínimo</th><td>Sección de eventos mínimos</td><td>Compartido: aportamos los hitos de agente, con confianza y respaldo</td></tr>
+      <tr><th>Estados de Gestores y del core como conjuntos diferenciados pero correlacionables</th><td>Capa 2 y delimitación</td><td>Diseño del equipo; corrige nuestra formulación inicial</td></tr>
+      <tr><th>Pendiente: una API única con filtrado por perfil o varias por actor</th><td>Capa 5</td><td>Esta propuesta recomienda filtrar por perfil antes de construir la vista</td></tr>
+      <tr><th>Nivel de autonomía de ejecución, recomendar frente a ejecutar, pendiente antes de dimensionar</th><td>Sección de autonomía y semáforo</td><td>Esta propuesta lo cierra</td></tr>
+      <tr><th>Lago de datos de autorizaciones como entregable posterior</th><td>Sección de dependencias</td><td>Diseño del equipo; condiciona el reloj tardío</td></tr>
+      <tr><th>Propuesta de nueve agentes, por validar uno por uno</th><td>Anexo C</td><td>Insumo de referencia; esta propuesta aporta el criterio de validación</td></tr>
+      <tr><th>Principio de responsabilidad única: pedir datos al core antes de ir a interoperabilidad</th><td>Capa 1, tabla de fuentes</td><td>Diseño del equipo; corrige nuestra figura inicial</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="keypoint">
+    <span class="keypoint-label">Lo que queda explícitamente fuera</span>
+    <p>El detalle funcional de los otros cinco gestores, que son ochenta y dos filas del seguimiento y no pertenecen a una nota de torre de control. La reproducción del catálogo de indicadores, que se referencia y no se copia. Y la validación agente por agente de la propuesta de nueve, que requiere una sesión de trabajo con el equipo y no se resuelve en un documento.</p>
   </div>
 
   <h2 id="referencias">Referencias</h2>

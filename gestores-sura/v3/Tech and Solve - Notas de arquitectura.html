@@ -576,7 +576,7 @@
       <table class="tbl">
         <thead><tr><th>Acuerdo</th><th>Qué recomendamos</th><th>Dueño</th></tr></thead>
         <tbody>
-          <tr><th id="D4">D4</th><td>Esquema de la traza y estándar abierto de telemetría, con campos mínimos obligatorios.</td><td>Plataforma, con arquitectura y seguridad</td></tr>
+          <tr><th id="D4">D4</th><td>Esquema de la traza sobre las <a href="https://opentelemetry.io/docs/specs/semconv/">convenciones semánticas de OpenTelemetry</a> en su versión liberada, con campos mínimos obligatorios.</td><td>Plataforma, con arquitectura y seguridad</td></tr>
           <tr><th id="D1">D1</th><td>Esquema del evento del almacén y bróker, versionado con compatibilidad hacia atrás.</td><td>Arquitectura con plataforma</td></tr>
           <tr><th id="D12">D12</th><td>Atribución de costo y cuotas por línea, gestor, agente y caso en el AI Control Plane.</td><td>Plataforma del AI Control Plane</td></tr>
         </tbody>
@@ -692,7 +692,7 @@
       </div>
 
       <div class="support">
-        <p><span class="support-label">Sustento</span>La práctica documentada insiste en tres propiedades del conjunto de casos: balanceado, incluyendo trayectorias que no deberían ocurrir; versionado y auditado, porque datos mal etiquetados producen métricas engañosas; y actualizado con ejemplos reales a medida que cambian los patrones de uso. El detalle está en el <a href="#anexoC">anexo C</a>.</p>
+        <p><span class="support-label">Sustento</span>La práctica documentada por IBM sobre <a href="https://www.ibm.com/es-es/think/topics/ai-agent-testing">pruebas de agentes</a> insiste en tres propiedades del conjunto de casos: balanceado, incluyendo trayectorias que no deberían ocurrir; versionado y auditado, porque datos mal etiquetados producen métricas engañosas; y actualizado con ejemplos reales a medida que cambian los patrones de uso. El detalle está en el <a href="#anexoC">anexo C</a>.</p>
       </div>
     </div>
   </div>
@@ -897,7 +897,7 @@
       </div>
 
       <div class="support">
-        <p><span class="support-label">Sustento</span>La práctica documentada ubica esta definición en la fase de planificación de cada agente: propósito, dueño de negocio, métricas de éxito, perfil de riesgo y nivel adecuado de autonomía, junto con los límites de autoridad y los puntos de aprobación humana.</p>
+        <p><span class="support-label">Sustento</span>La práctica documentada por IBM sobre <a href="https://www.ibm.com/es-es/think/topics/agent-lifecycle-management">gestión del ciclo de vida de agentes</a> ubica esta definición en la fase de planificación de cada agente: propósito, dueño de negocio, métricas de éxito, perfil de riesgo y nivel adecuado de autonomía, junto con los límites de autoridad y los puntos de aprobación humana.</p>
       </div>
     </div>
   </div>
@@ -1204,7 +1204,7 @@
 
 
   <div class="support">
-    <p><span class="support-label">Sustento</span>La práctica documentada para el ciclo de vida de agentes recomienda buscar la solución más simple que resuelva la necesidad, y advierte que si un problema se resuelve con automatización tradicional, recuperación de información o una instrucción bien diseñada, la IA agéntica introduce complicaciones innecesarias. La separación que el equipo ya hizo entre reglas duras y agentes evaluadores es una aplicación directa de ese criterio.</p>
+    <p><span class="support-label">Sustento</span>La práctica documentada por IBM para el <a href="https://www.ibm.com/es-es/think/topics/agent-development-lifecycle-adlc">ciclo de vida de desarrollo de agentes</a> recomienda buscar la solución más simple que resuelva la necesidad, y advierte que si un problema se resuelve con automatización tradicional, recuperación de información o una instrucción bien diseñada, la IA agéntica introduce complicaciones innecesarias. La separación que el equipo ya hizo entre reglas duras y agentes evaluadores es una aplicación directa de ese criterio.</p>
   </div>
 
   <div class="annex" id="anexoB">
@@ -1212,7 +1212,7 @@
     <div class="annex-sum">El nombre que la industria le da a lo que el equipo construyó, y qué se sigue de eso.</div>
   </div>
 
-  <p>El Gestor de Solicitud es, en el vocabulario de la práctica documentada, una <strong>arquitectura vertical jerárquica</strong>: un agente de nivel alto interpreta y descompone, uno de nivel medio convierte objetivos en directivas y reparte, y varios de nivel bajo ejecutan tareas especializadas. Esto no es una observación académica: significa que se le pueden aplicar las mitigaciones conocidas de ese patrón.</p>
+  <p>El Gestor de Solicitud es, en el vocabulario de la práctica documentada por IBM sobre <a href="https://www.ibm.com/es-es/think/topics/agentic-architecture">arquitectura agéntica</a> y <a href="https://www.ibm.com/es-es/think/topics/hierarchical-ai-agents">agentes jerárquicos</a>, una <strong>arquitectura vertical jerárquica</strong>: un agente de nivel alto interpreta y descompone, uno de nivel medio convierte objetivos en directivas y reparte, y varios de nivel bajo ejecutan tareas especializadas. Esto no es una observación académica: significa que se le pueden aplicar las mitigaciones conocidas de ese patrón.</p>
 
   <div class="tbl-wide">
   <table class="tbl">
@@ -1509,7 +1509,7 @@
     <li>Skelton, Pais. <em>Team Topologies</em>. IT Revolution, 2019.</li>
     <li>Thoughtworks Technology Radar. Proceso de asesoría de arquitectura. <a href="https://www.thoughtworks.com/radar/techniques/architecture-advice-process">thoughtworks.com</a></li>
     <li>Poppendieck, último momento responsable; y la distinción entre decisiones de una vía y de dos vías, carta a los accionistas de Amazon, 1997.</li>
-    <li>Snowden, Boone. Marco Cynefin.</li>
+    <li>Snowden, Boone. <em>A Leader's Framework for Decision Making</em>, Harvard Business Review, noviembre de 2007. Marco Cynefin. <a href="https://hbr.org/2007/11/a-leaders-framework-for-decision-making">hbr.org</a></li>
   </ul>
 
   <p style="margin-top:18px;"><em>Este documento recoge la lectura profesional de Tech and Solve sobre el diseño vigente y la evidencia disponible en esta etapa. Cada propuesta es un punto de partida para la discusión: queda al criterio del equipo de SURA adoptarla, ajustarla o descartarla.</em></p>
