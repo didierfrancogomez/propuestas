@@ -301,6 +301,7 @@
   <a href="#herramientas" class="nav-sub">Las piezas, una por una</a>
   <a href="#efecto" class="nav-sub">Efecto en el número</a>
   <a href="#equipo" class="nav-strong">El equipo propuesto</a>
+  <a href="#comparacion" class="nav-sub">Comparación con el squad definido</a>
   <a href="#etapas" class="nav-strong">Las cuatro etapas</a>
   <a href="#etapa1" class="nav-sub">1 · Eventos y tablero</a>
   <a href="#etapa2" class="nav-sub">2 · Acertividad y semáforo</a>
@@ -353,9 +354,9 @@
   <table class="tbl">
     <thead><tr><th>Supuesto</th><th>Detalle</th></tr></thead>
     <tbody>
-      <tr><th>Escala de tallas</th><td>Tallamos cada frente de trabajo con la escala que el equipo ya definió para su backlog, M, L y XL, y convertimos el resultado a sprints con el equipo propuesto. El detalle del tallaje queda en nuestro cálculo interno y se puede compartir si lo piden.</td></tr>
+      <tr><th>Escala de tallas</th><td>Tallamos cada frente de trabajo con la escala que el equipo ya definió para su backlog, <strong>XXL 30 · XL 20 · L 10 · M 5 · S 2</strong> días hábiles, y convertimos el resultado a sprints con el equipo propuesto. El detalle del tallaje queda en nuestro cálculo interno y se puede compartir si lo piden.</td></tr>
       <tr><th>Margen de incertidumbre</th><td>Aplicamos la regla del equipo para estructuración: toda estimación declara un <strong>margen del 30%</strong>. Los rangos de este documento ya lo incluyen.</td></tr>
-      <tr><th>Sprint</th><td>Dos semanas, sin descontar ceremonias. Si la capacidad real por sprint es menor, la duración se estira de forma proporcional.</td></tr>
+      <tr><th>Sprint</th><td><strong>Once días hábiles</strong>, que es la duración que el equipo ya fijó para el proyecto, sin descontar ceremonias. Si la capacidad real por sprint es menor, la duración se estira de forma proporcional.</td></tr>
       <tr><th>Dedicación</th><td>Las dos personas senior a tiempo completo sobre esta iniciativa. Una dedicación parcial no reduce el esfuerzo, solo alarga el calendario y agrega costo de contexto.</td></tr>
       <tr><th>Alcance del front</th><td>Incluimos el <strong>front interno de la torre</strong>: tableros de operación, líderes, arquitectura y cumplimiento. Las vistas para asegurado y prestador siguen en el componente único de canales, porque son superficies externas y esa decisión ya está tomada.</td></tr>
       <tr><th>Plataforma de base</th><td>La torre se monta sobre la recolección, el bus y el almacenamiento que la organización ya opere. <strong>No incluimos el aprovisionamiento ni el licenciamiento</strong> de esa plataforma. Qué existe hoy es una pregunta abierta al equipo, y la sección de arquitectura declara qué le hace al número cada respuesta.</td></tr>
@@ -546,6 +547,27 @@
   <div class="keypoint">
     <span class="keypoint-label">Dos formas de resolver el front, y qué cuesta cada una</span>
     <p><strong>Con perfil dedicado</strong>, que es lo que recomendamos: tres personas en total, el front corre en paralelo al back desde el sprint 2 y el calendario se mantiene en nueve sprints. <strong>Sin perfil dedicado</strong>, las mismas dos personas senior asumen la interfaz: el esfuerzo total es el mismo, pero el calendario se estira a cerca de trece sprints y el tablero operativo llega tarde, justo el entregable que hace visible el valor temprano.</p>
+  </div>
+
+  <h3 id="comparacion">Cómo se compara con el squad que el equipo ya definió</h3>
+
+  <p>La planeación vigente ya asignó un squad a la Torre de Control: <strong>un tech lead, dos desarrolladores backend y un ingeniero de datos</strong>, con treinta requisitos y ciento ochenta y ocho días hábiles de trabajo acumulado. Vale la pena poner los dos números lado a lado, porque a primera vista el nuestro parece mayor y no lo es.</p>
+
+  <div class="tbl-wide">
+  <table class="tbl">
+    <thead><tr><th>&nbsp;</th><th>Squad ya definido</th><th>Esta propuesta</th></tr></thead>
+    <tbody>
+      <tr><th>Personas</th><td>Cuatro: tech lead, dos backend, un ingeniero de datos</td><td>Tres, más el arquitecto parcial</td></tr>
+      <tr><th>Esfuerzo</th><td>188 días hábiles</td><td>Cerca de 300 días-persona</td></tr>
+      <tr><th>Front interno</th><td>No hay perfil asignado</td><td>Ocho sprints de front dedicado, unos 88 días</td></tr>
+      <tr><th>Diferencia real</th><td colspan="2">Los 188 días del squad más los 88 del front dan 276. La distancia con nuestros 300 la explica el acompañamiento del arquitecto y el margen. <strong>No estamos proponiendo un equipo más grande: proponemos uno más pequeño, con el front que hoy no está asignado.</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="keypoint">
+    <span class="keypoint-label">Por qué el front no es un extra</span>
+    <p>El alcance que el propio diseño le da a la torre incluye bandejas, backoffice y la interfaz de parametrización de autonomía, y deja escrita la pregunta de si los fronts deben vivir en la torre. Con un squad sin perfil de front, esas tres cosas las termina haciendo el backend o no se hacen. Nuestra recomendación es que se decida antes del arranque, no cuando el tablero deba mostrarse.</p>
   </div>
 
   <h2 id="etapas">Las cuatro etapas, una por una</h2>
@@ -761,7 +783,7 @@
         <li>Ingesta de cuenta médica, glosas, casos revocados y reclamaciones, correlacionadas con la decisión que las originó.</li>
         <li>Detección de patrones en su primera versión determinística: duplicidad, fragmentación y prestador atípico.</li>
         <li>Realimentación automática: lo que el reloj tardío desmiente entra al conjunto de casos del agente responsable.</li>
-        <li>Entrega de productos de datos hacia el lago: solicitudes, autorizaciones y decisiones, con su definición y su periodicidad.</li>
+        <li>Entrega de productos de datos hacia el lago: solicitudes, autorizaciones y decisiones, con su definición y su periodicidad. El equipo acotó el lago a <strong>solo lectura para la torre y con frescura T-1</strong>: eso alcanza de sobra para el reloj tardío, que trabaja en semanas, y confirma que nada de lo que decide en el momento puede depender de esa fuente.</li>
       </ul>
 
       <h4>De qué depende</h4>
@@ -772,6 +794,7 @@
         <li><strong>La construcción del lago de datos de autorizaciones</strong>, que es entregable de otro frente.</li>
         <li><strong>Los cambios en los sistemas de origen</strong> si la cuenta médica o las reclamaciones no pueden entregarse con la llave de correlación acordada.</li>
         <li><strong>La analítica prescriptiva</strong>, que requiere el lago y un perfil de datos que no está en esta conformación.</li>
+        <li><strong>La auditoría por muestreo de decisiones automáticas</strong> que el equipo pidió para pertinencia médica. La torre aporta la selección de la muestra y el registro del resultado; el juicio clínico de cada caso muestreado es trabajo del equipo médico.</li>
       </ul>
 
       <h4>Lo que todavía no puede hacer</h4>

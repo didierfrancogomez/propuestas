@@ -1070,6 +1070,26 @@
 
   <p>Es la pregunta que decide si esta torre entra al presupuesto ahora o se pospone a cuando los gestores ya estén andando. La respondemos aquí porque la respuesta no es de preferencia, es de costo.</p>
 
+  <p>La programación vigente del equipo ya fija las ventanas, y conviene leerlas juntas antes de discutir la secuencia:</p>
+
+  <div class="tbl-wide">
+  <table class="tbl">
+    <thead><tr><th>Etapa del plan</th><th>Ventana</th><th>Qué implica para la medición</th></tr></thead>
+    <tbody>
+      <tr><th>Sprint 0</th><td>Septiembre de 2026</td><td>Se elabora el borrador del catálogo de eventos y de los contratos de API, y se define el umbral de acertividad. Es el momento en que el esquema se puede acordar barato.</td></tr>
+      <tr><th>Release 1, Solicitud y Plataforma</th><td>Octubre a diciembre de 2026</td><td>El primer gestor empieza a decidir en producción. Desde aquí, cada caso que pasa sin traza es evidencia que no se recupera.</td></tr>
+      <tr><th>Release 2, Evaluación y Coordinación</th><td>Enero a junio de 2027</td><td>Entran los agentes que autorizan, niegan y escalan. El volumen de decisiones automáticas se multiplica.</td></tr>
+      <tr><th>Release 3, Torre de Control y Datalake</th><td>Mayo a septiembre de 2027</td><td>La capacidad de medir llega cuando ya hay meses de decisiones tomadas sin línea base.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="keypoint">
+    <span class="keypoint-label">La tensión que el propio plan deja ver</span>
+    <p>El backlog fija que <strong>el umbral de acertividad se aplica desde el Release 1</strong>, y la torre que lo mide llega en el Release 3. No es una contradicción de fondo: es una consecuencia de haber ordenado las entregas por gestor y no por capacidad. La propia ficha lo anticipa cuando anota que, para la Torre de Control, <em>la capa de consolidación puede adelantarse</em>. Lo que proponemos es exactamente eso, y nada más: adelantar la primera capa, no el proyecto completo.</p>
+  </div>
+
+
   <ol>
     <li><strong>La evidencia no es retroactiva.</strong> Un gestor que opera sin emitir traza no deja nada que reconstruir. Los casos de esas semanas se pierden: no hay conjunto de casos conocidos, no hay línea base, y no hay forma de afirmar si una versión nueva del agente mejoró o empeoró.</li>
     <li><strong>El costo de instrumentar crece, y no de forma lineal.</strong> Mientras el gestor se construye, la traza es parte del trabajo. Después es tocar código en producción, coordinar despliegues y reprocesar historia, multiplicado por seis gestores.</li>
@@ -1322,6 +1342,11 @@
       <tr><th>Entrega de información al lago de datos</th><td>Capa 5, productos de datos</td><td>Diseño del equipo</td></tr>
       <tr><th>Garantizar que arquitectura, integraciones y conexiones funcionen, con alertamiento</th><td>Indicadores de salud técnica del ecosistema</td><td>Esta propuesta lo formaliza como familia de indicadores</td></tr>
       <tr><th>Front de configuración de tiempos de respuesta según criterios</th><td>Sección del front de configuración</td><td>Diseño del equipo; aportamos la compuerta y el registro</td></tr>
+      <tr><th>Umbral de acertividad por campo, con referencia del 90%, aplicable desde el Release 1</th><td>Capa 3, y sección de gobierno de la autonomía</td><td>Diseño del equipo; aportamos que el umbral se derive del costo del error y se verifique la calibración</td></tr>
+      <tr><th>Seguimiento del momento de verdad: cita programada, asistencia y novedades del servicio</th><td>Capa 2, correlación</td><td>Diseño del equipo; aportamos el nivel de confianza por fuente de confirmación</td></tr>
+      <tr><th>Auditoría de decisiones automáticas por muestreo, con foco en pertinencia médica</th><td>Capa 3 y sección de anomalías</td><td>Compartido: la torre selecciona la muestra y registra el resultado; el juicio clínico es del equipo médico</td></tr>
+      <tr><th>Capa de auditoría que reporta patrones a la torre, pasiva en su primera versión</th><td>Fuera de la torre; entra como fuente</td><td>Diseño del equipo; coincide con la compuerta que proponemos para que pueda actuar</td></tr>
+      <tr><th>Límite de la auto-reparación de prompts del agente auditor</th><td>Sección de gobierno de la autonomía</td><td>Diseño del equipo; es el mismo argumento del conjunto de casos conocidos y la compuerta de regresión</td></tr>
     </tbody>
   </table>
   </div>
@@ -1346,6 +1371,12 @@
       <tr><th>Lago de datos de autorizaciones como entregable posterior</th><td>Sección de dependencias</td><td>Diseño del equipo; condiciona el reloj tardío</td></tr>
       <tr><th>Propuesta de nueve agentes, por validar uno por uno</th><td>Anexo C</td><td>Insumo de referencia; esta propuesta aporta el criterio de validación</td></tr>
       <tr><th>Principio de responsabilidad única: pedir datos al core antes de ir a interoperabilidad</th><td>Capa 1, tabla de fuentes</td><td>Diseño del equipo; corrige nuestra figura inicial</td></tr>
+      <tr><th>Lago de datos como fuente de solo lectura, con frescura T-1</th><td>Capa 1, tabla de fuentes</td><td>Diseño del equipo; refuerza la separación entre lo que decide en el momento y lo que juzga después</td></tr>
+      <tr><th>Marco de buenas prácticas para sistemas agénticos y criterios de acertividad, en Sprint 0</th><td>Todo el documento</td><td>Es el objeto de esta propuesta</td></tr>
+      <tr><th>Versionamiento de sistemas agénticos con capacidad de rollback ante una liberación fallida</th><td>Capa 3, y compuerta de regresión</td><td>Compartido: aportamos qué se versiona como una unidad y el criterio de no regresión</td></tr>
+      <tr><th>Retención de la información clínica, pendiente de definir</th><td>Capa 1, y decisión de retención</td><td>Esta propuesta aporta los dos horizontes: traza técnica y evidencia que juzga la decisión</td></tr>
+      <tr><th>MCP como principio transversal y exposición de gestores a agentes conversacionales</th><td>Fuera de la torre; el inventario vive en el AI Control Plane</td><td>Diseño del equipo; la torre solo necesita que el uso de cada herramienta quede en la traza</td></tr>
+      <tr><th>Gestor de Asignación como responsabilidad del core, fuera del cronograma de Gestores</th><td>Capa 2, como emisor de eventos</td><td>Diseño del equipo; la torre lo trata como una fuente más, con su propia cobertura de emisión</td></tr>
     </tbody>
   </table>
   </div>
