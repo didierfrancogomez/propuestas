@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tech and Solve - Perfiles torre de control (interno)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --violet:#280265;
+    --violet-light:#EBEBFF;
+    --accent:#5300DF;
+    --amber:#B9720A;
+    --amber-bg:#FBF0DC;
+    --green:#1B6B4F;
+    --green-bg:#E7F4EE;
+    --bg:#FFFFFF;
+    --card:#FAF9FE;
+    --text:#1A1E27;
+    --text-2:#5B5A66;
+    --text-3:#8A8998;
+    --border:#DCD8EC;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Poppins',sans-serif;
+    font-weight:400;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.65;
+    font-size:15px;
+  }
+  .page{width:100%;max-width:760px;margin:0 auto;padding:48px 24px 64px;}
+  @media (max-width:600px){.page{padding:32px 16px 48px;}}
+
+  /* ---------- navegacion lateral, solo pantalla ---------- */
+  .doc-nav{
+    position:fixed;top:28px;left:20px;width:186px;
+    font-size:10.5px;line-height:1.45;z-index:10;
+    max-height:calc(100vh - 56px);overflow-y:auto;
+  }
+  .doc-nav-title{
+    font-weight:600;font-size:9.5px;color:var(--text-3);
+    text-transform:uppercase;letter-spacing:0.06em;
+    margin-bottom:8px;padding-left:10px;
+  }
+  .doc-nav a{
+    display:block;color:var(--text-2);text-decoration:none;
+    padding:3px 0 3px 10px;border-left:2px solid var(--border);
+  }
+  .doc-nav a:hover{color:var(--accent);border-left-color:var(--accent);}
+  .doc-nav a.nav-strong{font-weight:600;color:var(--violet);}
+  @media (max-width:1260px){.doc-nav{display:none;}}
+
+  /* ---------- portada ---------- */
+  .print-header{display:none;}
+  .site-header{
+    display:flex;align-items:center;justify-content:space-between;
+    flex-wrap:wrap;gap:16px;padding-bottom:20px;margin-bottom:32px;
+    border-bottom:1px solid var(--border);
+  }
+  .site-header-logos{display:flex;align-items:center;gap:18px;}
+  .cover-logo-main{width:130px;height:auto;display:block;}
+  .cover-logos-sep{width:1px;height:28px;background:var(--border);}
+  .cover-logo-sura{width:98px;height:auto;display:block;}
+  .cover-confidential{font-size:9.5px;color:var(--text-3);text-transform:uppercase;letter-spacing:0.05em;}
+  .cover-page h1{font-size:2.1em;line-height:1.2;color:var(--violet);font-weight:600;letter-spacing:-0.015em;margin-bottom:14px;}
+  .cover-page .subtitle{font-size:1.06em;color:var(--text-2);max-width:620px;margin:0 0 20px;}
+  .cover-meta{font-size:0.8em;color:var(--text-3);line-height:1.6;margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid var(--border);}
+
+  /* ---------- tipografia ---------- */
+  h2{font-weight:600;font-size:1.3em;color:var(--violet);letter-spacing:-0.01em;line-height:1.3;margin:34px 0 10px;page-break-after:avoid;}
+  h3{font-weight:600;font-size:1.15em;color:var(--violet);line-height:1.35;margin:24px 0 6px;page-break-after:avoid;}
+  h4{font-weight:600;font-size:0.98em;color:var(--accent);line-height:1.4;margin:16px 0 4px;page-break-after:avoid;}
+  p{margin-bottom:9px;}
+  ul,ol{margin:0 0 10px 18px;}
+  li{margin-bottom:5px;}
+  strong{font-weight:600;color:var(--text);}
+  em{font-style:italic;}
+  a{color:var(--accent);}
+  .lead{font-size:1.05em;color:var(--text-2);margin-bottom:14px;}
+
+  /* ---------- partes ---------- */
+  .part{margin-top:44px;padding-top:22px;border-top:2px solid var(--violet);}
+  .part-kicker{display:flex;align-items:baseline;gap:10px;margin-bottom:2px;}
+  .part-num{
+    font-weight:700;font-size:0.72em;color:#FFFFFF;background:var(--violet);
+    border-radius:4px;padding:3px 7px;letter-spacing:0.04em;white-space:nowrap;
+  }
+  .part-title{font-weight:600;font-size:1.45em;color:var(--violet);line-height:1.25;letter-spacing:-0.015em;}
+  .part-sum{font-size:0.88em;color:var(--text-3);margin-bottom:6px;}
+
+  /* ---------- tarjetas ---------- */
+  .grid{display:grid;gap:12px;margin:14px 0 18px;}
+  .grid-2{grid-template-columns:repeat(2,1fr);}
+  .grid-3{grid-template-columns:repeat(3,1fr);}
+  @media (max-width:640px){.grid-2,.grid-3{grid-template-columns:1fr;}}
+  .card{
+    border:1px solid var(--border);border-radius:8px;background:var(--card);
+    padding:12px 14px;page-break-inside:avoid;
+  }
+  .card-title{font-weight:600;font-size:0.92em;color:var(--violet);margin-bottom:4px;}
+  .card-body{font-size:0.84em;color:var(--text-2);line-height:1.55;}
+  .card a{text-decoration:none;}
+  .map-card{display:flex;gap:10px;align-items:flex-start;}
+  .map-num{
+    font-weight:700;font-size:0.8em;color:var(--accent);border:1px solid var(--border);
+    border-radius:5px;padding:1px 6px;background:#FFFFFF;white-space:nowrap;
+  }
+
+  /* ---------- bloques destacados ---------- */
+  .keypoint{
+    border-left:3px solid var(--accent);background:var(--violet-light);
+    padding:10px 14px;border-radius:0 6px 6px 0;margin:12px 0;page-break-inside:avoid;
+  }
+  .keypoint-label{
+    font-weight:600;font-size:0.72em;color:var(--accent);text-transform:uppercase;
+    letter-spacing:0.06em;display:block;margin-bottom:3px;
+  }
+  .keypoint p{margin-bottom:0;font-size:0.94em;}
+  .support{
+    border-left:2px solid var(--border);padding:6px 0 6px 12px;margin:10px 0 12px;
+    font-size:0.82em;color:var(--text-2);page-break-inside:avoid;
+  }
+  .support-label{
+    font-weight:600;font-size:0.86em;color:var(--violet);text-transform:uppercase;
+    letter-spacing:0.05em;margin-right:6px;
+  }
+  .support p{margin-bottom:0;}
+  .teamq{
+    border-left:3px solid var(--amber);background:var(--amber-bg);
+    padding:10px 14px;border-radius:0 6px 6px 0;margin:12px 0;
+    font-size:0.9em;color:#7A4E06;page-break-inside:avoid;
+  }
+  .teamq-label{
+    font-weight:600;font-size:0.78em;color:var(--amber);text-transform:uppercase;
+    letter-spacing:0.05em;display:block;margin-bottom:3px;
+  }
+  .teamq p{margin-bottom:0;}
+  .changed{
+    border:1px dashed var(--accent);border-radius:6px;padding:10px 14px;margin:12px 0;
+    font-size:0.9em;color:var(--text-2);page-break-inside:avoid;
+  }
+  .changed-label{
+    font-weight:600;font-size:0.78em;color:var(--accent);text-transform:uppercase;
+    letter-spacing:0.05em;display:block;margin-bottom:3px;
+  }
+  .changed p{margin-bottom:0;}
+
+  /* ---------- distintivos ---------- */
+  .badge{
+    display:inline-block;font-size:0.7em;font-weight:600;border-radius:4px;
+    padding:2px 7px;letter-spacing:0.03em;white-space:nowrap;
+  }
+  .b-una{background:var(--violet);color:#FFFFFF;}
+  .b-dos{background:var(--violet-light);color:var(--violet);}
+  .b-hecho{background:var(--green-bg);color:var(--green);}
+  .b-nuevo{background:var(--amber-bg);color:var(--amber);}
+  .b-negocio{background:#FFFFFF;color:var(--accent);border:1px solid var(--accent);}
+
+  /* ---------- fichas de decision ---------- */
+  .dec{border:1px solid var(--border);border-radius:8px;margin:14px 0;page-break-inside:avoid;overflow:hidden;}
+  .dec-head{background:var(--card);border-bottom:1px solid var(--border);padding:9px 14px;}
+  .dec-code{font-weight:700;font-size:0.74em;color:#FFFFFF;background:var(--accent);border-radius:4px;padding:2px 6px;margin-right:8px;}
+  .dec-title{font-weight:600;font-size:0.98em;color:var(--violet);}
+  .dec-badges{margin-top:5px;display:flex;flex-wrap:wrap;gap:5px;}
+  .dec-body{padding:10px 14px;font-size:0.87em;color:var(--text-2);}
+  .dec-row{display:flex;gap:10px;margin-bottom:5px;}
+  .dec-row:last-child{margin-bottom:0;}
+  .dec-k{
+    flex:0 0 118px;font-weight:600;font-size:0.9em;color:var(--violet);
+    text-transform:uppercase;letter-spacing:0.03em;line-height:1.5;
+  }
+  .dec-v{flex:1;}
+  @media (max-width:520px){.dec-row{flex-direction:column;gap:1px;}.dec-k{flex:none;}}
+
+  /* ---------- pasos ---------- */
+  .steps{list-style:none;margin:12px 0 16px;counter-reset:st;}
+  .steps li{
+    counter-increment:st;position:relative;padding-left:30px;margin-bottom:9px;
+    font-size:0.94em;
+  }
+  .steps li::before{
+    content:counter(st);position:absolute;left:0;top:1px;
+    width:20px;height:20px;border-radius:50%;background:var(--violet);color:#FFFFFF;
+    font-size:10px;font-weight:600;display:flex;align-items:center;justify-content:center;
+  }
+
+  /* ---------- tablas ---------- */
+  .tbl{width:100%;border-collapse:collapse;margin:10px 0 16px;font-size:0.66em;page-break-inside:avoid;}
+  .tbl th,.tbl td{border:none;border-bottom:1px solid var(--border);padding:8px 9px;text-align:left;vertical-align:top;line-height:1.5;}
+  .tbl thead th{color:var(--violet);font-weight:600;border-bottom:2px solid var(--violet);}
+  .tbl tbody th{font-weight:600;color:var(--violet);}
+  .tbl td{color:var(--text-2);}
+  .tbl-wide{overflow-x:auto;}
+
+  /* ---------- figuras ---------- */
+  .diagram-wrap{margin:14px 0 18px;page-break-inside:avoid;}
+  .diagram-wrap svg{display:block;width:100%;height:auto;}
+  .diagram-name{font-weight:600;font-size:0.86em;color:var(--violet);text-align:center;margin-bottom:6px;}
+  .diagram-caption{font-size:0.72em;color:var(--text-3);text-align:center;margin-top:4px;font-style:italic;}
+
+  /* ---------- referencias y cierre ---------- */
+  .sources{margin-top:6px;font-size:0.72em;color:var(--text-2);line-height:1.7;}
+  .sources li{margin-bottom:4px;word-break:break-word;}
+  .sources a{color:var(--accent);text-decoration:none;}
+  footer{margin-top:40px;padding-top:14px;border-top:1px solid var(--border);font-size:0.7em;color:var(--text-3);}
+
+  /* ---------- propuestas ---------- */
+  .prop{border:1px solid var(--border);border-radius:9px;margin:18px 0 22px;overflow:hidden;page-break-inside:avoid;}
+  .prop-head{background:var(--violet);padding:11px 15px;}
+  .prop-code{
+    display:inline-block;font-weight:700;font-size:0.74em;color:var(--violet);
+    background:#FFFFFF;border-radius:4px;padding:2px 7px;margin-right:9px;vertical-align:2px;
+  }
+  .prop-title{font-weight:600;font-size:1.06em;color:#FFFFFF;line-height:1.3;}
+  .prop-chips{margin-top:7px;display:flex;flex-wrap:wrap;gap:5px;}
+  .prop-body{padding:13px 15px;}
+  .prop-value{
+    border-left:3px solid var(--accent);background:var(--violet-light);
+    padding:9px 13px;border-radius:0 6px 6px 0;margin-bottom:12px;
+  }
+  .prop-value-label{
+    font-weight:600;font-size:0.72em;color:var(--accent);text-transform:uppercase;
+    letter-spacing:0.06em;display:block;margin-bottom:2px;
+  }
+  .prop-value p{margin-bottom:0;font-weight:500;}
+  .prop-body h4{margin-top:14px;}
+  .prop-body h4:first-child{margin-top:0;}
+  .prop-body p, .prop-body li{font-size:0.94em;}
+  .prop.rol{page-break-inside:auto;}
+  .prop.rol .prop-head{page-break-after:avoid;}
+  .tbl-req tbody th{width:30%;white-space:nowrap;}
+  .tbl-req{margin-top:0;}
+  .b-esf{background:var(--violet-light);color:var(--violet);}
+  .b-when{background:rgba(255,255,255,0.12);color:#EBEBFF;border:1px solid rgba(255,255,255,0.45);}
+  .b-dep{background:var(--amber-bg);color:var(--amber);}
+
+  /* ---------- anexos ---------- */
+  .annex{margin-top:40px;padding-top:18px;border-top:1px solid var(--border);}
+  .annex-kicker{display:flex;align-items:baseline;gap:10px;margin-bottom:2px;}
+  .annex-num{
+    font-weight:700;font-size:0.7em;color:var(--text-2);background:var(--card);
+    border:1px solid var(--border);border-radius:4px;padding:2px 7px;letter-spacing:0.04em;white-space:nowrap;
+  }
+  .annex-title{font-weight:600;font-size:1.22em;color:var(--violet);line-height:1.25;}
+  .annex-sum{font-size:0.86em;color:var(--text-3);margin-bottom:6px;}
+
+  /* ---------- objetivo ---------- */
+  .goal{
+    border:1.5px solid var(--violet);border-radius:9px;padding:14px 16px;margin:18px 0;
+    page-break-inside:avoid;
+  }
+  .goal-label{
+    font-weight:600;font-size:0.72em;color:var(--accent);text-transform:uppercase;
+    letter-spacing:0.06em;display:block;margin-bottom:4px;
+  }
+  .goal p{margin-bottom:0;font-size:1.04em;}
+  .notprop{border-left:3px solid var(--text-3);padding:2px 0 2px 14px;margin:14px 0;}
+  .notprop li{font-size:0.92em;color:var(--text-2);}
+  /* ---------- impresion ---------- */
+  @media print{
+    @page{size:A4;margin:18mm 16mm 22mm 16mm;}
+    body{padding:0;font-size:10px;}
+    .doc-nav{display:none;}
+    .page{max-width:none;padding:0;}
+    h2{font-size:14px;margin-top:16px;margin-bottom:8px;}
+    h3{font-size:11.5px;margin-top:13px;margin-bottom:4px;}
+    h4{font-size:10.5px;margin-top:11px;}
+    .part{page-break-before:always;border-top-width:1.5px;margin-top:0;padding-top:10px;}
+    .part-title{font-size:16px;}
+    .part-num{font-size:8px;}
+    .cover-page h1{font-size:26px;}
+    .cover-page .subtitle{font-size:13px;}
+    .tbl{font-size:8px;}
+    .diagram-name{font-size:9.5px;}
+    .diagram-caption{font-size:8px;}
+    .sources{font-size:8px;}
+    .print-header{
+      display:flex;align-items:center;gap:10px;position:fixed;top:-12mm;left:0;right:0;
+      padding-bottom:4px;border-bottom:1px solid var(--border);
+    }
+    .print-header-logo{width:60px;height:auto;display:block;}
+    .print-header-logo-sura{width:52px;height:auto;display:block;}
+    .print-header-text{font-size:8px;color:var(--text-3);margin-left:auto;}
+    footer{position:fixed;bottom:-16mm;left:0;right:0;font-size:8px;text-align:center;border-top:1px solid var(--border);padding-top:6px;}
+    .prop{page-break-inside:avoid;}
+    .prop.rol{page-break-inside:auto;}
+    .prop-title{font-size:12px;}
+    .prop-head{padding:7px 10px;}
+    .prop-body{padding:9px 10px;}
+    .annex{page-break-before:always;}
+    .annex-title{font-size:14px;}
+    .goal p{font-size:10px;}
+  }
+</style>
+</head>
+<body>
+<nav class="doc-nav">
+  <div class="doc-nav-title">Contenido</div>
+  <a href="#objetivo" class="nav-strong">Para qué es este documento</a>
+  <a href="#roles" class="nav-strong">Los cuatro roles</a>
+  <a href="#p1">1 · Plataforma, espina de datos</a>
+  <a href="#p2">2 · Plataforma, medición y actuación</a>
+  <a href="#p3">3 · Front, aplicaciones de datos</a>
+  <a href="#p4">4 · Arquitecto, parcial</a>
+  <a href="#cobertura" class="nav-strong">Matriz de cobertura</a>
+  <a href="#escaso">El conocimiento escaso</a>
+  <a href="#entrevista" class="nav-strong">Cómo verificarlo en entrevista</a>
+  <a href="#formable">Qué se forma y qué no</a>
+  <a href="#riesgos">Riesgos de dotación</a>
+</nav>
+
+<div class="page">
+
+  <div class="print-header">
+    <img src="data:image/jpeg;base64,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" alt="Tech and Solve" class="print-header-logo">
+    <span class="print-header-text">Uso interno · perfiles para la torre de control</span>
+  </div>
+
+  <div class="site-header">
+    <div class="site-header-logos">
+      <img src="data:image/jpeg;base64,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" alt="Tech and Solve" class="cover-logo-main">
+    </div>
+    <div class="cover-confidential">Uso interno · no se comparte con el cliente</div>
+  </div>
+
+  <div class="cover-page">
+    <h1>Perfiles para implementar la torre de control</h1>
+    <p class="subtitle">Cuatro requisiciones listas para abrir, con lo que busca cada rol, cómo verificarlo en entrevista, qué se puede formar sobre la marcha y dónde está el riesgo de dotación.</p>
+  </div>
+  <div class="cover-meta">Tech and Solve · Documento interno de conformación de equipo<br>
+  Septiembre de 2026 · Acompaña el dimensionamiento de la torre de control para SURA<br>
+  <strong>No se entrega al cliente.</strong> El documento que sí se comparte es <em>Tech and Solve - Torre de control_v2_sprints</em>, que habla de enfoque, etapas, sprints y número de personas.</div>
+
+  <h2 id="objetivo">Para qué es este documento</h2>
+
+  <div class="goal">
+    <span class="goal-label">Qué resuelve</span>
+    <p>Cómo buscar y verificar el talento que implementa esta torre, con criterios que se puedan usar en una entrevista y no solo en una descripción de cargo.</p>
+  </div>
+
+  <p>El dimensionamiento comprometido con el cliente son <strong>tres integrantes más un arquitecto parcial</strong>, en nueve sprints. Este documento traduce esa conformación a perfiles concretos: qué tiene que saber cada uno, qué se le puede pedir que aprenda, y qué preguntas separan a alguien que ya lo hizo de alguien que leyó sobre el tema.</p>
+
+  <p>Los cuatro roles están redactados en el <strong>formato de requisición de personal</strong>, con los mismos campos que usa selección, de modo que cada ficha se pueda abrir como búsqueda sin traducción intermedia. Lo que agregamos al formato es la tabla de <em>por qué se pide cada conocimiento</em> al cierre de cada ficha, la matriz de cobertura del equipo y la guía de entrevista: eso es lo que evita que la búsqueda se resuelva por palabras clave del currículo.</p>
+
+  <div class="keypoint">
+    <span class="keypoint-label">La confusión que hay que evitar al buscar</span>
+    <p>Esto <strong>no es un proyecto de modelos de lenguaje</strong>. Es una plataforma orientada a eventos con una capa de medición encima. Un perfil fuerte en integración, datos y observabilidad rinde mucho más aquí que un perfil especializado en IA. Si la búsqueda se publica como "ingeniero de IA", vamos a entrevistar a las personas equivocadas.</p>
+  </div>
+
+  <h2 id="roles">Los cuatro roles</h2>
+
+  <div class="tbl-wide">
+  <table class="tbl">
+    <thead><tr><th>Rol</th><th>Cantidad</th><th>Asignación</th><th>Responsabilidad en el proyecto</th><th>Perfil equivalente en el mercado</th></tr></thead>
+    <tbody>
+      <tr><th>Plataforma, espina de datos</th><td>1</td><td>100%, sprints 1 a 9</td><td>Recolección y canalizaciones de telemetría, retención y muestreo, ingesta idempotente, orden, correlación del caso y modelo de datos con eventos rezagados.</td><td>Ingeniero de plataforma, de datos o de confiabilidad, con experiencia en telemetría y arquitecturas dirigidas por eventos. El cliente nombra este rol como ingeniero de datos en su propio squad. No es un backend de aplicación clásico.</td></tr>
+      <tr><th>Plataforma, medición y actuación</th><td>1</td><td>100%, sprints 1 a 9</td><td>Indicadores y series, API por perfil, motor de alertas, ejecución de acciones con registro y reversión.</td><td>Backend senior de integración, con experiencia en automatización de procesos o motores de reglas.</td></tr>
+      <tr><th>Front interno</th><td>1</td><td>100%, sprints 2 a 9</td><td>Tableros de operación y de gobierno, semáforo, bandeja de alertas y front de configuración con vista previa.</td><td>Front senior con experiencia en aplicaciones de datos densas, no en sitios de contenido.</td></tr>
+      <tr><th>Arquitecto o líder técnico</th><td>1</td><td>20% hasta el sprint 5, 10% después</td><td>Cerrar el esquema de eventos, el contrato de autonomía y el catálogo de métricas, y revisar lo que no falla de forma ruidosa.</td><td>Arquitecto de soluciones con experiencia real en producción de sistemas dirigidos por eventos.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="keypoint">
+    <span class="keypoint-label">Cómo leer las cuatro fichas que siguen</span>
+    <p>Cada rol está escrito en el formato de requisición que usa selección, para que se pueda abrir la búsqueda sin reescribirlo. Los tres roles de ejecución van como <strong>S3</strong>, que es el senior de la escala de Tech and Solve. Lo único que queda marcado como <strong>por definir</strong> es lo que depende de la cuenta: quién solicita y el porcentaje de negociación aprobado, más el nivel del arquitecto si la escala lo ubica por encima de S3. Lo que sí está cerrado es lo técnico, y cada ficha cierra con la tabla de <em>por qué se pide cada conocimiento</em>, que es lo que permite sostener el criterio en la entrevista.</p>
+  </div>
+
+  <div class="prop rol" id="p1">
+    <div class="prop-head">
+      <span class="prop-code">1</span><span class="prop-title">Ingeniero de plataforma y observabilidad, espina de datos</span>
+      <div class="prop-chips"><span class="badge b-esf">1 puesto · 100%</span><span class="badge b-when">Sprints 1 a 9</span></div>
+    </div>
+    <div class="prop-body">
+
+      <div class="tbl-wide">
+      <table class="tbl tbl-req">
+        <tbody>
+          <tr><th>Cliente</th><td>SURA · proyecto Gestores, torre de control</td></tr>
+          <tr><th>Solicitado por</th><td>Por definir, liderazgo de la cuenta</td></tr>
+          <tr><th>Modalidad</th><td>Remoto</td></tr>
+          <tr><th>Tipo de ubicación</th><td>Nacional</td></tr>
+          <tr><th>Nivel de inglés</th><td>Lectura técnica. No se requiere conversacional.</td></tr>
+          <tr><th>Cantidad de puestos</th><td>1</td></tr>
+          <tr><th>Tipo de solicitud</th><td>Nuevo, por arranque de proyecto</td></tr>
+          <tr><th>Nivel de cargo</th><td>S3, senior</td></tr>
+          <tr><th>Duración de proyecto</th><td>9 sprints comprometidos, hasta 12 con el margen del 30%. El sprint del proyecto es de once días hábiles.</td></tr>
+          <tr><th>Porcentaje de negociación aprobado</th><td>Por definir</td></tr>
+          <tr><th>Asignación</th><td>100%, desde el sprint 1</td></tr>
+          <tr><th>¿Sector financiero o seguros?</th><td>Sí. Salud y seguros, con datos clínicos.</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h4>Responsabilidades del rol</h4>
+      <ul>
+        <li>Construir la ingesta de eventos de la torre sobre el bus del ecosistema, con reintentos, tolerancia al desorden y ventana para los eventos que llegan tarde.</li>
+        <li>Garantizar la idempotencia de la ingesta, de forma que un hito repetido no altere los indicadores ni los tiempos del caso.</li>
+        <li>Implementar la correlación de la solicitud de punta a punta, incluyendo el agrupamiento por siniestro padre y la vista única del caso.</li>
+        <li>Modelar los datos de la torre contemplando evidencia de llegada tardía, sin reprocesar lo que ya quedó registrado.</li>
+        <li>Construir y mantener las vistas materializadas y las series que consumen los tableros, sin que las consultas toquen a los gestores.</li>
+        <li>Definir con el arquitecto el esquema de eventos y de traza, y sostener su versionamiento y su validación automática.</li>
+        <li>Instrumentar la ingesta para que un dato faltante o duplicado se detecte por alerta y no por revisión manual.</li>
+        <li>Documentar el modelo y los contratos de datos para los equipos que publican eventos hacia la torre.</li>
+        <li>Participar en la revisión cruzada de código con la otra persona de plataforma, con foco en los errores silenciosos.</li>
+      </ul>
+
+      <h4>Skills</h4>
+      <ul>
+        <li>Recolección de telemetría y canalizaciones: colector, procesadores y exportadores</li>
+        <li>Arquitecturas dirigidas por eventos, con sistemas en producción</li>
+        <li>Idempotencia, deduplicación y manejo de entrega duplicada</li>
+        <li>Cardinalidad, retención y muestreo: qué se guarda, cuánto tiempo y qué cuesta</li>
+        <li>Modelado de datos con eventos de llegada tardía</li>
+        <li>Almacenes de series y consultas sobre series de tiempo, con ajuste de desempeño</li>
+        <li>Diseño de esquemas y contratos de evento, con versionamiento</li>
+        <li>Bus de eventos gestionado en nube, con particiones y consumidores</li>
+        <li>Pruebas automatizadas sobre flujos de datos</li>
+        <li>Integración continua y despliegue en nube</li>
+      </ul>
+
+      <h4>Negociables</h4>
+      <ul>
+        <li>Experiencia en el sector salud o asegurador</li>
+        <li>Conocimiento del bus de eventos y la nube específicos del cliente</li>
+        <li>Ingeniería de sistemas, informática o afines</li>
+      </ul>
+
+      <h4>Habilidades blandas</h4>
+      <p>Análisis de información, Rigor y atención al detalle, Proactividad, Trabajo en equipo, Comunicación efectiva y asertiva, Orientación al logro.</p>
+
+      <h4>Caracterización del cliente o el proyecto</h4>
+      <p>La torre se suscribe a la totalidad del bus de eventos del ecosistema de gestores. Este rol construye el cimiento sobre el que se paran los indicadores, las alertas y el gobierno de autonomía: si la ingesta cuenta un hito dos veces o pierde uno, todo lo que está encima queda mal y nadie lo nota. Buscamos a alguien que ya haya operado un sistema dirigido por eventos en producción, que trate la idempotencia como requisito y no como optimización, y que sepa que la evidencia de calidad de una decisión clínica llega semanas después de haberla tomado. El perfil se parece más a plataforma o confiabilidad que a desarrollo de aplicación: buena parte del trabajo es configurar recolección y decidir retención sobre plataforma que ya existe, no escribir servicios nuevos. <strong>No es un proyecto de modelos de lenguaje</strong>: es plataforma de datos con una capa de medición encima.</p>
+
+      <h4>Por qué se pide cada conocimiento</h4>
+      <div class="tbl-wide">
+      <table class="tbl">
+        <thead><tr><th>Conocimiento</th><th>Nivel</th><th>Por qué en este proyecto</th></tr></thead>
+        <tbody>
+          <tr><th>Arquitecturas dirigidas por eventos</th><td>Imprescindible, con producción encima</td><td>La torre se suscribe a la totalidad del bus. Reintentos, orden y entrega duplicada no son teoría aquí: son el día a día.</td></tr>
+          <tr><th>Idempotencia y deduplicación</th><td>Imprescindible</td><td>Un hito contado dos veces infla los indicadores sin que nadie lo note. Es el error más silencioso del proyecto.</td></tr>
+          <tr><th>Modelado de datos con llegada tardía</th><td>Imprescindible</td><td>La cuenta médica y las reclamaciones llegan semanas después de la decisión que evalúan. Si el modelo cierra el caso al autorizar, esa evidencia no entra.</td></tr>
+          <tr><th>Vistas materializadas y consultas sobre series</th><td>Imprescindible</td><td>Los tableros no consultan a los gestores: leen vistas construidas por la torre.</td></tr>
+          <tr><th>Recolección de telemetría y canalizaciones</th><td>Imprescindible</td><td>La torre no levanta su propia recolección: se monta sobre la que exista. Hay que saber configurar el colector, no solo consumir de él.</td></tr>
+          <tr><th>Cardinalidad, retención y muestreo</th><td>Imprescindible, y es lo que más se subestima</td><td>La evidencia que juzga una decisión no se puede muestrear, y guardarla toda con criterio de traza técnica cuesta de más. Son dos horizontes, y se deciden antes de emitir el primer evento.</td></tr>
+          <tr><th>Nube y bus de eventos del ecosistema</th><td>Deseable, se forma rápido</td><td>Lo específico de la organización se aprende en el arranque si la base conceptual está.</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="prop rol" id="p2">
+    <div class="prop-head">
+      <span class="prop-code">2</span><span class="prop-title">Ingeniero de plataforma, medición y actuación</span>
+      <div class="prop-chips"><span class="badge b-esf">1 puesto · 100%</span><span class="badge b-when">Sprints 1 a 9</span></div>
+    </div>
+    <div class="prop-body">
+
+      <div class="tbl-wide">
+      <table class="tbl tbl-req">
+        <tbody>
+          <tr><th>Cliente</th><td>SURA · proyecto Gestores, torre de control</td></tr>
+          <tr><th>Solicitado por</th><td>Por definir, liderazgo de la cuenta</td></tr>
+          <tr><th>Modalidad</th><td>Remoto</td></tr>
+          <tr><th>Tipo de ubicación</th><td>Nacional</td></tr>
+          <tr><th>Nivel de inglés</th><td>Lectura técnica. No se requiere conversacional.</td></tr>
+          <tr><th>Cantidad de puestos</th><td>1</td></tr>
+          <tr><th>Tipo de solicitud</th><td>Nuevo, por arranque de proyecto</td></tr>
+          <tr><th>Nivel de cargo</th><td>S3, senior</td></tr>
+          <tr><th>Duración de proyecto</th><td>9 sprints comprometidos, hasta 12 con el margen del 30%. El sprint del proyecto es de once días hábiles.</td></tr>
+          <tr><th>Porcentaje de negociación aprobado</th><td>Por definir</td></tr>
+          <tr><th>Asignación</th><td>100%, desde el sprint 1</td></tr>
+          <tr><th>¿Sector financiero o seguros?</th><td>Sí. Salud y seguros, con datos clínicos.</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h4>Responsabilidades del rol</h4>
+      <ul>
+        <li>Construir el cálculo de los indicadores y las series de la torre, con la fórmula, la ventana y la fuente declaradas para cada uno.</li>
+        <li>Diseñar y construir la API de consulta con filtrado por perfil, de modo que el recorte ocurra antes de construir la vista y no en el navegador.</li>
+        <li>Implementar el motor de alertas: severidad, dueño, plazo y escalamiento, con estado y cierre trazables.</li>
+        <li>Construir la ejecución de acciones de la torre sobre el flujo, con identidad propia, alcance de escritura mínimo, registro por acción y reversión.</li>
+        <li>Implementar el semáforo de grados de autonomía y las compuertas que impiden que un agente supere el grado que tiene otorgado.</li>
+        <li>Fijar el esquema de traza sobre convenciones abiertas en su versión liberada, y mantenerlo alineado con el resto de la plataforma.</li>
+        <li>Aplicar enmascaramiento de datos sensibles por perfil y sostener la retención declarada.</li>
+        <li>Documentar los contratos de la API y los marcos de actuación para los equipos consumidores.</li>
+        <li>Participar en la revisión cruzada de código con la otra persona de plataforma, con foco en el filtrado por perfil y la reversibilidad.</li>
+      </ul>
+
+      <h4>Skills</h4>
+      <ul>
+        <li>Diseño de API con control de acceso por perfil</li>
+        <li>Observabilidad y convenciones de traza en versión liberada</li>
+        <li>Acciones reversibles, registro de ejecución y auditoría</li>
+        <li>Motores de reglas o automatización de procesos</li>
+        <li>Seguridad de datos sensibles: enmascaramiento, retención, mínimo privilegio</li>
+        <li>Cálculo de indicadores sobre series de tiempo</li>
+        <li>Integración con sistemas de terceros y manejo de fallas parciales</li>
+        <li>Pruebas automatizadas sobre reglas y umbrales</li>
+        <li>Integración continua y despliegue en nube</li>
+      </ul>
+
+      <h4>Negociables</h4>
+      <ul>
+        <li>Experiencia previa en evaluación de sistemas con IA</li>
+        <li>Experiencia en el sector salud o asegurador</li>
+        <li>Ingeniería de sistemas, informática o afines</li>
+      </ul>
+
+      <h4>Habilidades blandas</h4>
+      <p>Análisis de información, Pensamiento crítico, Proactividad, Orientación al cliente, Trabajo en equipo, Comunicación efectiva y asertiva.</p>
+
+      <h4>Caracterización del cliente o el proyecto</h4>
+      <p>La torre no solo observa: puede mover una solicitud, subir su prioridad o restringir a un agente. Este rol construye esa parte, y por eso necesita a alguien que entienda que toda acción automática necesita identidad, alcance mínimo, registro y forma de revertirse. También concentra información clínica de punta a punta, de manera que el control de acceso por perfil es requisito funcional y no un ajuste posterior. Buscamos criterio para distinguir una métrica que describe de una que decide, y disciplina para no dejar que un umbral quede escrito en el código sin quedar registrado quién lo cambió.</p>
+
+      <h4>Por qué se pide cada conocimiento</h4>
+      <div class="tbl-wide">
+      <table class="tbl">
+        <thead><tr><th>Conocimiento</th><th>Nivel</th><th>Por qué en este proyecto</th></tr></thead>
+        <tbody>
+          <tr><th>Diseño de API con control de acceso por perfil</th><td>Imprescindible</td><td>La torre concentra información clínica de punta a punta. El filtrado va antes de construir la vista, no después.</td></tr>
+          <tr><th>Observabilidad y convenciones de traza</th><td>Imprescindible</td><td>El esquema de traza se fija sobre convenciones abiertas en su versión liberada, y es la base de todo lo demás.</td></tr>
+          <tr><th>Motores de reglas o automatización de procesos</th><td>Deseable</td><td>Las alertas con severidad, dueño y plazo, y los marcos de actuación, se parecen más a un motor de reglas que a un tablero.</td></tr>
+          <tr><th>Acciones reversibles y auditoría de ejecución</th><td>Imprescindible</td><td>La torre ejecuta sobre el flujo. Cada acción necesita identidad, alcance mínimo, registro y forma de revertirse.</td></tr>
+          <tr><th>Seguridad y datos sensibles</th><td>Imprescindible en al menos una de las dos personas de plataforma</td><td>Datos clínicos, con enmascaramiento por perfil y retención declarada.</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="prop rol" id="p3">
+    <div class="prop-head">
+      <span class="prop-code">3</span><span class="prop-title">Desarrollador front, aplicaciones internas de datos</span>
+      <div class="prop-chips"><span class="badge b-esf">1 puesto · 100%</span><span class="badge b-when">Sprints 2 a 9</span></div>
+    </div>
+    <div class="prop-body">
+
+      <div class="tbl-wide">
+      <table class="tbl tbl-req">
+        <tbody>
+          <tr><th>Cliente</th><td>SURA · proyecto Gestores, torre de control</td></tr>
+          <tr><th>Solicitado por</th><td>Por definir, liderazgo de la cuenta</td></tr>
+          <tr><th>Modalidad</th><td>Remoto</td></tr>
+          <tr><th>Tipo de ubicación</th><td>Nacional</td></tr>
+          <tr><th>Nivel de inglés</th><td>Lectura técnica. No se requiere conversacional.</td></tr>
+          <tr><th>Cantidad de puestos</th><td>1</td></tr>
+          <tr><th>Tipo de solicitud</th><td>Nuevo, por arranque de proyecto</td></tr>
+          <tr><th>Nivel de cargo</th><td>S3, senior</td></tr>
+          <tr><th>Duración de proyecto</th><td>8 sprints, del 2 al 9, dentro de un proyecto de 9 sprints de once días hábiles cada uno</td></tr>
+          <tr><th>Porcentaje de negociación aprobado</th><td>Por definir</td></tr>
+          <tr><th>Asignación</th><td>100%, desde el sprint 2</td></tr>
+          <tr><th>¿Sector financiero o seguros?</th><td>Sí. Salud y seguros, con datos clínicos.</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h4>Responsabilidades del rol</h4>
+      <ul>
+        <li>Construir el tablero operativo: bandejas, vencimientos, envejecimiento y detalle del caso, sobre volúmenes de miles de solicitudes.</li>
+        <li>Construir el tablero de gobierno: semáforo de grados de autonomía, tendencias y distancia al siguiente grado.</li>
+        <li>Construir la bandeja de alertas con severidad, dueño, plazo y cierre, usable como herramienta de turno y no solo como reporte.</li>
+        <li>Construir el front de configuración de tiempos y umbrales, con vista previa del efecto antes de confirmar y reversión inmediata.</li>
+        <li>Resolver la convivencia de los dos niveles de lectura que pidió el equipo: la vista consolidada y el caso a caso, en un solo producto.</li>
+        <li>Implementar el comportamiento por rol y permisos en la interfaz, sobre el filtrado que ya viene resuelto en la API.</li>
+        <li>Sostener el desempeño de las vistas con datos reales de producción, no con muestras.</li>
+        <li>Cumplir los criterios de accesibilidad acordados para herramientas internas.</li>
+        <li>Trabajar de cerca con la operación para validar cada vista con quien la va a usar en su turno.</li>
+      </ul>
+
+      <h4>Skills</h4>
+      <ul>
+        <li>Aplicaciones de datos densas: tablas grandes, filtros, paginación y detalle</li>
+        <li>Visualización de series de tiempo y de estados</li>
+        <li>Interfaces con dos niveles de lectura, consolidado y detalle</li>
+        <li>Front de configuración con simulación y reversión</li>
+        <li>Accesibilidad y manejo de rol y permisos en la interfaz</li>
+        <li>Desempeño en el navegador: virtualización, memoria y tiempos de respuesta</li>
+        <li>Consumo de API y manejo de estados de error y datos parciales</li>
+        <li>Pruebas de interfaz automatizadas</li>
+        <li>Trabajo con diseño y con usuarios internos</li>
+      </ul>
+
+      <h4>Negociables</h4>
+      <ul>
+        <li>Experiencia en herramientas internas de operación, centros de mando o mesas de control</li>
+        <li>Experiencia en el sector salud o asegurador</li>
+        <li>Ingeniería de sistemas, informática, diseño de interacción o afines</li>
+      </ul>
+
+      <h4>Habilidades blandas</h4>
+      <p>Orientación al cliente, Análisis de información, Comunicación efectiva y asertiva, Trabajo en equipo, Proactividad, Apertura a la experiencia.</p>
+
+      <h4>Caracterización del cliente o el proyecto</h4>
+      <p>Las vistas de esta torre las usa gente que trabaja contra el reloj: la operación prioriza su día con ellas y el gobierno decide con ellas si un agente sube o baja de grado de autonomía. No es un sitio de contenido ni un formulario: son bandejas con miles de casos, tendencias y detalle clínico, y tienen que responder rápido con datos reales. Buscamos un perfil que haya hecho herramientas internas densas, que sepa que la vista previa antes de confirmar un cambio de umbral es parte del producto, y que esté cómodo sentándose con quien opera para ajustar lo que estorba.</p>
+
+      <h4>Por qué se pide cada conocimiento</h4>
+      <div class="tbl-wide">
+      <table class="tbl">
+        <thead><tr><th>Conocimiento</th><th>Nivel</th><th>Por qué en este proyecto</th></tr></thead>
+        <tbody>
+          <tr><th>Aplicaciones de datos densas</th><td>Imprescindible</td><td>Bandejas con miles de casos, filtros, tendencias y detalle. No es un sitio de contenido ni un formulario.</td></tr>
+          <tr><th>Visualización de series y estados</th><td>Imprescindible</td><td>Semáforo de autonomía, tendencias, distancia al siguiente grado, envejecimiento de bandeja.</td></tr>
+          <tr><th>Interfaces con dos niveles de lectura</th><td>Deseable</td><td>El equipo pidió el bosque y el árbol: la vista consolidada y el caso a caso tienen que convivir sin ser dos productos.</td></tr>
+          <tr><th>Front de configuración con simulación</th><td>Deseable</td><td>El ajuste de tiempos y umbrales necesita vista previa antes de confirmar, y reversión inmediata.</td></tr>
+          <tr><th>Accesibilidad y trabajo con rol y permisos</th><td>Imprescindible</td><td>Cada actor ve algo distinto, y lo que no le corresponde no debería viajar hasta su navegador.</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="prop rol" id="p4">
+    <div class="prop-head">
+      <span class="prop-code">4</span><span class="prop-title">Arquitecto o líder técnico, parcial</span>
+      <div class="prop-chips"><span class="badge b-esf">1 puesto · parcial</span><span class="badge b-when">20% hasta el sprint 5, 10% después</span></div>
+    </div>
+    <div class="prop-body">
+
+      <div class="tbl-wide">
+      <table class="tbl tbl-req">
+        <tbody>
+          <tr><th>Cliente</th><td>SURA · proyecto Gestores, torre de control</td></tr>
+          <tr><th>Solicitado por</th><td>Por definir, liderazgo de la cuenta</td></tr>
+          <tr><th>Modalidad</th><td>Remoto, con disponibilidad para sesiones con los equipos del cliente</td></tr>
+          <tr><th>Tipo de ubicación</th><td>Nacional</td></tr>
+          <tr><th>Nivel de inglés</th><td>Lectura técnica de normas y especificaciones. Conversacional deseable.</td></tr>
+          <tr><th>Cantidad de puestos</th><td>1</td></tr>
+          <tr><th>Tipo de solicitud</th><td>Nuevo, por arranque de proyecto</td></tr>
+          <tr><th>Nivel de cargo</th><td>S3 como piso. Si la escala interna ubica arquitectura por encima de senior, se confirma con selección.</td></tr>
+          <tr><th>Duración de proyecto</th><td>9 sprints comprometidos, hasta 12 con el margen del 30%. El sprint del proyecto es de once días hábiles.</td></tr>
+          <tr><th>Porcentaje de negociación aprobado</th><td>Por definir</td></tr>
+          <tr><th>Asignación</th><td>20% (un día por semana) hasta el sprint 5, 10% después</td></tr>
+          <tr><th>¿Sector financiero o seguros?</th><td>Sí. Salud y seguros, con datos clínicos y exposición regulatoria.</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h4>Responsabilidades del rol</h4>
+      <ul>
+        <li>Cerrar el esquema de eventos y de traza en los primeros sprints, sabiendo que determina el trabajo de varios equipos y que revertirlo es caro.</li>
+        <li>Definir el contrato de grados de autonomía: qué habilita cada grado, con qué evidencia se sube y qué techos no se cruzan.</li>
+        <li>Definir el catálogo de métricas de la torre, con fórmula, ventana y fuente por cada una, y distinguir las que describen de las que deciden.</li>
+        <li>Revisar críticamente la implementación en los puntos que no fallan de forma ruidosa: idempotencia, orden, filtrado por perfil y reversibilidad.</li>
+        <li>Sostener la trazabilidad reconstruible y la supervisión proporcional a la autonomía frente a las áreas de riesgo y cumplimiento del cliente.</li>
+        <li>Alinear las decisiones de la torre con la arquitectura del cliente y con los equipos dueños del core, sin comprometer plazos ajenos.</li>
+        <li>Acompañar al equipo en las decisiones que no se pueden delegar y dejar por escrito las que sí.</li>
+        <li>Anticipar riesgos técnicos y dependencias, y escalarlos con evidencia y no con impresiones.</li>
+      </ul>
+
+      <h4>Skills</h4>
+      <ul>
+        <li>Diseño de contratos y esquemas de evento, con versionamiento</li>
+        <li>Evaluación de sistemas con IA: qué medir, con qué fórmula y contra qué evidencia</li>
+        <li>Arquitecturas dirigidas por eventos en producción</li>
+        <li>Gobierno y cumplimiento en sector regulado</li>
+        <li>Revisión crítica de implementación y de código</li>
+        <li>Observabilidad y convenciones abiertas de traza</li>
+        <li>Seguridad y manejo de datos sensibles</li>
+        <li>Comunicación con áreas de negocio, riesgo y cumplimiento</li>
+        <li>Documentación de decisiones de arquitectura</li>
+      </ul>
+
+      <h4>Negociables</h4>
+      <ul>
+        <li>Experiencia previa en salud, aseguramiento o banca</li>
+        <li>Familiaridad con marcos de gestión de riesgo de IA y con normas de gestión de sistemas de IA</li>
+        <li>Ingeniería de sistemas, informática o afines</li>
+      </ul>
+
+      <h4>Habilidades blandas</h4>
+      <p>Pensamiento crítico, Análisis de información, Comunicación efectiva y asertiva, Influencia y negociación, Orientación al logro, Trabajo en equipo.</p>
+
+      <h4>Caracterización del cliente o el proyecto</h4>
+      <p>Es una asignación parcial pero determinante: concentra las decisiones que se toman una vez y condicionan todo lo demás. Aquí está además el <strong>conocimiento escaso del proyecto</strong>, que es saber evaluar sistemas con IA: qué medir, contra qué evidencia y cuándo un agente puede decidir solo. Buscamos a alguien con producción encima en sistemas dirigidos por eventos, con criterio para revisar implementaciones que parecen correctas y están sutilmente mal, y capaz de sostener las decisiones frente a riesgo y cumplimiento en un sector regulado. Si el perfil solo aporta marco conceptual y no baja al código, no sirve para esta asignación.</p>
+
+      <h4>Por qué se pide cada conocimiento</h4>
+      <div class="tbl-wide">
+      <table class="tbl">
+        <thead><tr><th>Conocimiento</th><th>Nivel</th><th>Por qué en este proyecto</th></tr></thead>
+        <tbody>
+          <tr><th>Diseño de contratos y esquemas de evento</th><td>Imprescindible</td><td>Es lo primero que se cierra y lo más costoso de revertir. Determina el trabajo de seis equipos.</td></tr>
+          <tr><th>Evaluación de sistemas con IA</th><td>Imprescindible, y es el conocimiento escaso</td><td>Qué medir, con qué fórmula, contra qué evidencia, y cuándo un agente puede decidir solo.</td></tr>
+          <tr><th>Gobierno y cumplimiento en sector regulado</th><td>Deseable</td><td>Trazabilidad reconstruible, supervisión proporcional a la autonomía, y saber sostener eso frente a un auditor.</td></tr>
+          <tr><th>Revisión crítica de implementación</th><td>Imprescindible</td><td>Idempotencia, orden y filtrado por perfil se pueden implementar de forma que parezca correcta y esté sutilmente mal.</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <h2 id="cobertura">Matriz de cobertura, y dónde hay un solo punto de falla</h2>
+
+  <div class="tbl-wide">
+  <table class="tbl">
+    <thead><tr><th>Conocimiento</th><th>Espina de datos</th><th>Medición</th><th>Front</th><th>Arquitecto</th></tr></thead>
+    <tbody>
+      <tr><th>Eventos e idempotencia</th><td>Principal</td><td>Apoya</td><td>—</td><td>Revisa</td></tr>
+      <tr><th>Datos con llegada tardía</th><td>Principal</td><td>—</td><td>—</td><td>Revisa</td></tr>
+      <tr><th>Recolección, retención y cardinalidad</th><td>Principal</td><td>Apoya</td><td>—</td><td>Define</td></tr>
+      <tr><th>Observabilidad y traza</th><td>Apoya</td><td>Principal</td><td>—</td><td>Define</td></tr>
+      <tr><th>Seguridad y datos sensibles</th><td>Apoya</td><td>Principal</td><td>Apoya</td><td>Revisa</td></tr>
+      <tr><th>Acciones reversibles</th><td>—</td><td>Principal</td><td>Apoya</td><td>Revisa</td></tr>
+      <tr><th>Visualización de datos</th><td>—</td><td>—</td><td>Principal</td><td>—</td></tr>
+      <tr><th>Evaluación de sistemas con IA</th><td>—</td><td>Apoya</td><td>—</td><td><strong>Único</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="keypoint">
+    <span class="keypoint-label">El único punto de falla real</span>
+    <p>La evaluación de sistemas con IA depende de una sola persona, y es parcial. Si el arquitecto se cae del proyecto en los primeros dos sprints, el equipo va a construir una torre que muestra datos correctos y conclusiones discutibles. La mitigación no es contratar un segundo arquitecto: es <strong>exigir que su salida quede escrita</strong> como catálogo de métricas con su fórmula y como criterios de ascenso, antes del cierre del sprint 5.</p>
+  </div>
+
+  <h2 id="escaso">El conocimiento escaso, y cómo lo cubrimos</h2>
+
+  <p>De los siete conocimientos de la matriz, seis se consiguen en el mercado con una búsqueda normal. El séptimo no: <strong>evaluación de sistemas con IA</strong>, entendida como saber qué medir y contra qué evidencia, es un perfil que todavía no existe como cargo y que se confunde con dos cosas distintas.</p>
+
+  <div class="tbl-wide">
+  <table class="tbl">
+    <thead><tr><th>Lo que suele aparecer en el mercado</th><th>Por qué no es lo que necesitamos</th></tr></thead>
+    <tbody>
+      <tr><th>Científico de datos o ingeniero de aprendizaje automático</th><td>Sabe entrenar y evaluar modelos, pero aquí no entrenamos nada: consumimos modelos de terceros y medimos el comportamiento del sistema alrededor.</td></tr>
+      <tr><th>Ingeniero de instrucciones o especialista en asistentes</th><td>Optimiza salidas caso a caso. Lo que necesitamos es diseñar la medición y la compuerta que evitan depender del caso a caso.</td></tr>
+      <tr><th>Analista de calidad tradicional</th><td>Piensa en casos de prueba deterministas. Aquí el sistema es probabilístico y hay que medir distribuciones y consistencia, no una única corrida.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>Nuestra forma de cubrirlo, en orden de preferencia: <strong>uno</strong>, que lo aporte el arquitecto en la parcialidad ya prevista, dejándolo documentado; <strong>dos</strong>, que una de las dos personas de plataforma lo desarrolle durante el proyecto con acompañamiento, que es viable porque el fundamento es estadístico y de diseño, no de modelos; <strong>tres</strong>, buscarlo afuera, que es lo más lento y lo más caro.</p>
+
+  <h2 id="entrevista">Cómo verificarlo en entrevista</h2>
+
+  <p>Preguntas que separan a quien ya lo hizo de quien leyó sobre el tema. La señal no está en la respuesta correcta, está en si la persona cuenta una historia concreta o habla en general.</p>
+
+  <div class="tbl-wide">
+  <table class="tbl">
+    <thead><tr><th>Para verificar</th><th>Pregunta</th><th>Señal de que sí · señal de alerta</th></tr></thead>
+    <tbody>
+      <tr>
+        <th>Idempotencia real</th>
+        <td>Cuéntame de una vez que un consumidor procesó el mismo evento dos veces en producción. ¿Cómo se dieron cuenta y qué cambiaron?</td>
+        <td><strong>Sí:</strong> describe la clave de deduplicación y por qué la eligió. <strong>Alerta:</strong> responde que eso se resuelve con la garantía de entrega del bus.</td>
+      </tr>
+      <tr>
+        <th>Datos con llegada tardía</th>
+        <td>¿Cómo modelarías un caso que se cierra operativamente pero puede recibir evidencia semanas después sin reabrirse?</td>
+        <td><strong>Sí:</strong> separa estado operativo de estado analítico, y menciona ventanas y reproceso. <strong>Alerta:</strong> propone reabrir el registro o versionarlo entero.</td>
+      </tr>
+      <tr>
+        <th>Orden de eventos</th>
+        <td>¿Qué haces cuando el hito de cierre llega antes que el de apertura?</td>
+        <td><strong>Sí:</strong> habla de tolerancia al desorden y de reconstruir por marca de tiempo del hecho, no de llegada. <strong>Alerta:</strong> asume que el bus garantiza orden global.</td>
+      </tr>
+      <tr>
+        <th>Criterio de retención</th>
+        <td>¿Qué decidiste <em>no</em> mandar al backend de observabilidad, y por qué?</td>
+        <td><strong>Sí:</strong> nombra costo, cardinalidad o ruido, y cuenta a qué destino mandó lo que sacó. <strong>Alerta:</strong> nunca se lo preguntó, o responde que se manda todo y luego se filtra al consultar.</td>
+      </tr>
+      <tr>
+        <th>Cardinalidad</th>
+        <td>Agregaste un atributo nuevo a una métrica y el costo o el desempeño se dispararon. ¿Qué pasó?</td>
+        <td><strong>Sí:</strong> explica la explosión de series por un atributo de alta cardinalidad, y cómo lo movió a traza o a registro. <strong>Alerta:</strong> lo atribuye al volumen de tráfico y no al diseño de la métrica.</td>
+      </tr>
+      <tr>
+        <th>Filtrado por perfil</th>
+        <td>Tienes un tablero con datos clínicos y tres tipos de usuario. ¿Dónde filtras?</td>
+        <td><strong>Sí:</strong> antes de construir la vista, en el servidor, y explica por qué. <strong>Alerta:</strong> filtra en el front o lo resuelve ocultando columnas.</td>
+      </tr>
+      <tr>
+        <th>Acciones reversibles</th>
+        <td>Tu sistema reasigna un caso automáticamente y alguien reclama al día siguiente. ¿Qué le muestras?</td>
+        <td><strong>Sí:</strong> disparador, evidencia, autor del cambio y cómo revertirlo. <strong>Alerta:</strong> ofrece revisar los registros del servidor.</td>
+      </tr>
+      <tr>
+        <th>Medición de sistemas no deterministas</th>
+        <td>El mismo caso da dos resultados distintos en dos corridas. ¿Es un defecto?</td>
+        <td><strong>Sí:</strong> distingue variabilidad esperada de defecto, y propone medir consistencia sobre varias corridas. <strong>Alerta:</strong> lo trata como error a corregir siempre.</td>
+      </tr>
+      <tr>
+        <th>Front de datos denso</th>
+        <td>Una bandeja con veinte mil casos y filtros combinados. ¿Cómo la haces usable y rápida?</td>
+        <td><strong>Sí:</strong> paginación del lado del servidor, estado en la URL, y prioriza la tarea del usuario. <strong>Alerta:</strong> propone traer todo y filtrar en memoria.</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2 id="formable">Qué se puede formar sobre la marcha y qué no</h2>
+
+  <div class="grid grid-2">
+    <div class="card">
+      <div class="card-title">Se forma en el arranque</div>
+      <div class="card-body">La nube y el bus específicos de la organización · las convenciones de traza, que se leen y se fijan en el sprint 1 · el dominio de autorizaciones de salud, con acompañamiento del negocio · las herramientas internas de despliegue.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">No se forma en el proyecto</div>
+      <div class="card-body">El criterio para diseñar bajo desorden y duplicidad, que viene de haber sufrido producción · la sensibilidad para tratar datos clínicos · y el juicio para revisar código que parece correcto. Estos tres se contratan, no se enseñan en nueve sprints.</div>
+    </div>
+  </div>
+
+  <h2 id="riesgos">Riesgos de dotación</h2>
+
+  <div class="tbl-wide">
+  <table class="tbl">
+    <thead><tr><th>Riesgo</th><th>Cómo se manifiesta</th><th>Mitigación</th></tr></thead>
+    <tbody>
+      <tr><th>Buscar el perfil equivocado</th><td>Se publica como cargo de IA y llegan perfiles de modelos, no de plataforma.</td><td>Publicar como plataforma dirigida por eventos con medición, y usar las preguntas de este documento como filtro.</td></tr>
+      <tr><th>Dependencia del arquitecto</th><td>El único conocimiento escaso está en una persona parcial.</td><td>Exigir catálogo de métricas y criterios escritos antes del sprint 5.</td></tr>
+      <tr><th>Front subestimado</th><td>Se asigna un perfil de sitios de contenido a una aplicación de datos densa.</td><td>Verificar con la pregunta de la bandeja de veinte mil casos antes de asignar.</td></tr>
+      <tr><th>Dedicación parcial encubierta</th><td>Las personas figuran a tiempo completo pero atienden otros frentes.</td><td>El compromiso de nueve sprints asume dedicación real; si no la hay, se recalcula el calendario antes de comprometerlo.</td></tr>
+      <tr><th>Rotación a mitad de proyecto</th><td>La espina de datos concentra decisiones que solo esa persona conoce.</td><td>Registros de decisión cortos desde el sprint 1, y revisión cruzada entre las dos personas de plataforma.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p style="margin-top:18px;"><em>Documento interno de Tech and Solve para conformar el equipo. No forma parte de la propuesta ni del dimensionamiento que se comparte con el cliente.</em></p>
+
+  <footer>
+    Uso interno de Tech and Solve. Perfiles y criterios de selección para la implementación de la torre de control, septiembre de 2026.
+  </footer>
+
+</div>
+
+</body>
+</html>
