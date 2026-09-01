@@ -765,7 +765,7 @@
         <marker id="arrB2" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#8A8998"/></marker>
       </defs>
       <text x="333" y="226" text-anchor="middle" font-size="8.5" font-weight="600" fill="#5300DF">Los hallazgos suben: casos que fallaron se vuelven casos de prueba</text>
-      <text x="333" y="277" text-anchor="middle" font-size="8.5" fill="#8A8998">Las reglas bajan: umbrales y niveles aprobados se aplican en ejecución</text>
+      <text x="333" y="277" text-anchor="middle" font-size="8.5" fill="#8A8998">Las reglas bajan: umbrales y grados aprobados se aplican en ejecución</text>
 
       <text x="340" y="296" text-anchor="middle" font-size="9" font-weight="600" fill="#1A1E27">Un caso que falló en el bucle 1 no se corrige en el bucle 1: se convierte en evidencia para el bucle 2.</text>
     </svg>
@@ -819,7 +819,7 @@
     <div class="diagram-name">Figura 5. Los cuatro grados de autonomía de un agente</div>
     <svg width="100%" viewBox="0 0 680 300" role="img">
       <title>Progresión de los cuatro grados de autonomía de un agente</title>
-      <desc>G1, en calibración, opera en modo shadow sin decisiones reales. G2, supervisado, un humano revisa cada propuesta. G3, autónomo con umbral, decide solo, escala si su confianza es baja. G4, autónomo pleno para ese tipo de caso, con auditoría por muestreo. El ascenso entre niveles exige volumen de casos, tasa de acierto sostenida, y ausencia de incidentes.</desc>
+      <desc>G1, en calibración, opera en modo shadow sin decisiones reales. G2, supervisado, un humano revisa cada propuesta. G3, autónomo con umbral, decide solo, escala si su confianza es baja. G4, autónomo pleno para ese tipo de caso, con auditoría por muestreo. El ascenso entre grados exige volumen de casos, tasa de acierto sostenida, y ausencia de incidentes.</desc>
       <defs>
         <marker id="arrowMad" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
           <path d="M2 1L8 5L2 9" fill="none" stroke="#5B5A66" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -877,27 +877,27 @@
         <li><strong>G3, autónomo con umbral:</strong> decide solo cuando su confianza supera el umbral del tipo de caso, y escala por debajo. Es lo que en el diseño actual hacen la compuerta y las bandejas de preradicado y de evaluación por humano.</li>
         <li><strong>G4, autónomo pleno para ese tipo de caso:</strong> decide sin revisión previa, con auditoría posterior por muestreo.</li>
         <li>El grado es <strong>por tipo de caso y no por agente</strong>: el mismo extractor puede estar en G4 para órdenes simples y en G2 para historias clínicas escaneadas.</li>
-        <li>Ascenso con criterio explícito, volumen mínimo, acierto sostenido y ausencia de incidentes, y <strong>condición de descenso definida con el mismo detalle</strong>. Y recalibración: una versión nueva corre un período en modo shadow o canary antes de recuperar el nivel que tenía la anterior.</li>
+        <li>Ascenso con criterio explícito, volumen mínimo, acierto sostenido y ausencia de incidentes, y <strong>condición de descenso definida con el mismo detalle</strong>. Y recalibración: una versión nueva corre un período en modo shadow o canary antes de recuperar el grado que tenía la anterior.</li>
       </ul>
 
       <h4>Qué cuesta</h4>
-      <p>Acordar una vez las categorías y los cuatro niveles, y definir los números concretos por agente cuando ese agente empieza su construcción, con contexto real de dominio y volumen. El costo de implementación es bajo porque la API ya está prevista; lo que se agrega es el contrato y el registro.</p>
+      <p>Acordar una vez las categorías y los cuatro grados, y definir los números concretos por agente cuando ese agente empieza su construcción, con contexto real de dominio y volumen. El costo de implementación es bajo porque la API ya está prevista; lo que se agrega es el contrato y el registro.</p>
 
       <h4>Cómo se verifica</h4>
-      <p>La API rechaza cualquier cambio de nivel que no referencie un registro de decisión con su evidencia. Y ningún agente sube de nivel por decisión de quien lo construyó.</p>
+      <p>La API rechaza cualquier cambio de grado que no referencie un registro de decisión con su evidencia. Y ningún agente sube de grado por decisión de quien lo construyó.</p>
 
       <h4>Acuerdos que requiere</h4>
       <div class="tbl-wide">
       <table class="tbl">
         <thead><tr><th>Acuerdo</th><th>Qué recomendamos</th><th>Dueño</th></tr></thead>
         <tbody>
-          <tr><th id="D9">D9</th><td>Contrato de la API de parametrización: nivel vigente, umbral, modo de observación, criterio de ascenso y condición de descenso, cada uno con autoría y registro.</td><td>Arquitectura con el equipo de torre de control</td></tr>
+          <tr><th id="D9">D9</th><td>Contrato de la API de parametrización: grado vigente, umbral, modo de observación, criterio de ascenso y condición de descenso, cada uno con autoría y registro.</td><td>Arquitectura con el equipo de torre de control</td></tr>
         </tbody>
       </table>
       </div>
 
       <div class="support">
-        <p><span class="support-label">Sustento</span>La práctica documentada por IBM sobre <a href="https://www.ibm.com/es-es/think/topics/agent-lifecycle-management">gestión del ciclo de vida de agentes</a> ubica esta definición en la fase de planificación de cada agente: propósito, dueño de negocio, métricas de éxito, perfil de riesgo y nivel adecuado de autonomía, junto con los límites de autoridad y los puntos de aprobación humana.</p>
+        <p><span class="support-label">Sustento</span>La práctica documentada por IBM sobre <a href="https://www.ibm.com/es-es/think/topics/agent-lifecycle-management">gestión del ciclo de vida de agentes</a> ubica esta definición en la fase de planificación de cada agente: propósito, dueño de negocio, métricas de éxito, perfil de riesgo y grado adecuado de autonomía, junto con los límites de autoridad y los puntos de aprobación humana.</p>
       </div>
     </div>
   </div>
@@ -991,7 +991,7 @@
       <p>En modo pasivo, casi nada: observa trazas y notifica a la torre de control, y se puede activar en cuanto exista P1. En modo activo depende de P2 y P3, y el front es desarrollo de producto. Nuestra recomendación es empezar pasivo ahora y no esperar a tener todo listo.</p>
 
       <h4>Cómo se verifica</h4>
-      <p>Ningún cambio originado en el auditor o en el front llega a producción sin simulación ejecutada y aprobación registrada. Y toda versión nueva de un agente vuelve a medirse antes de recuperar el nivel de autonomía que tenía la anterior.</p>
+      <p>Ningún cambio originado en el auditor o en el front llega a producción sin simulación ejecutada y aprobación registrada. Y toda versión nueva de un agente vuelve a medirse antes de recuperar el grado de autonomía que tenía la anterior.</p>
 
       <h4>Acuerdos que requiere</h4>
       <div class="tbl-wide">
@@ -1042,7 +1042,7 @@
       <p>Una conversación con negocio y una revisión periódica. La medición del cumplimiento depende de P1 y P2, pero el acuerdo puede tomarse antes, y de hecho conviene, porque es el que orienta los umbrales de todos los agentes.</p>
 
       <h4>Cómo se verifica</h4>
-      <p>Alerta automática cuando el error caro medido en la ventana definida supera el límite acordado, con descenso automático de nivel del agente responsable.</p>
+      <p>Alerta automática cuando el error caro medido en la ventana definida supera el límite acordado, con descenso automático de grado del agente responsable.</p>
 
       <h4>Acuerdos que requiere</h4>
       <div class="tbl-wide">
@@ -1469,7 +1469,7 @@
     <li><strong>Cambió alguna de las cuatro partes del agente:</strong> prompt, modelo, herramienta o política de memoria, incluida una actualización menor del modelo en uso.</li>
     <li><strong>Subió la tasa de escalamiento sin explicación:</strong> suele ser la primera señal de deriva, porque el agente se vuelve inseguro antes de volverse incorrecto.</li>
     <li><strong>Bajó la consistencia entre corridas</strong> para el mismo caso.</li>
-    <li><strong>Ocurrió un incidente atribuible a una decisión del agente:</strong> aquí la re-evaluación no es opcional, y conviene acompañarla de un descenso temporal de nivel.</li>
+    <li><strong>Ocurrió un incidente atribuible a una decisión del agente:</strong> aquí la re-evaluación no es opcional, y conviene acompañarla de un descenso temporal de grado.</li>
   </ul>
 
   <p>Estos disparadores deberían ser alertas sobre la torre de control y no un punto en la agenda de una reunión. En la misma línea, conviene tener definidos desde el inicio tres mecanismos de contención: desactivar un agente de inmediato, volver a la versión anterior sin reconstruir nada, y cortar el acceso de un agente a una herramienta sin tumbar el gestor completo.</p>

@@ -425,7 +425,7 @@
       <rect x="8" y="262" width="160" height="30" rx="5" fill="#FFFFFF" stroke="#DCD8EC"/><text x="88" y="275" text-anchor="middle" font-size="7.5" fill="#280265">Tableros por actor</text><text x="88" y="286" text-anchor="middle" font-size="7" fill="#5B5A66">cliente, prestador, asesor, negocio</text>
       <rect x="176" y="262" width="152" height="30" rx="5" fill="#FFFFFF" stroke="#DCD8EC"/><text x="252" y="275" text-anchor="middle" font-size="7.5" fill="#280265">Notificaciones</text><text x="252" y="286" text-anchor="middle" font-size="7" fill="#5B5A66">correo, push, WhatsApp, interno</text>
       <rect x="336" y="262" width="152" height="30" rx="5" fill="#FFFFFF" stroke="#DCD8EC"/><text x="412" y="275" text-anchor="middle" font-size="7.5" fill="#280265">Productos de datos</text><text x="412" y="286" text-anchor="middle" font-size="7" fill="#5B5A66">al lago de datos, para análisis actuarial</text>
-      <rect x="496" y="262" width="176" height="30" rx="5" fill="#5300DF"/><text x="584" y="275" text-anchor="middle" font-size="7.5" font-weight="600" fill="#FFFFFF">API de autonomía</text><text x="584" y="286" text-anchor="middle" font-size="7" fill="#EBEBFF">nivel y umbral por agente y caso</text>
+      <rect x="496" y="262" width="176" height="30" rx="5" fill="#5300DF"/><text x="584" y="275" text-anchor="middle" font-size="7.5" font-weight="600" fill="#FFFFFF">API de autonomía</text><text x="584" y="286" text-anchor="middle" font-size="7" fill="#EBEBFF">grado y umbral por agente y caso</text>
       <line x1="412" y1="238" x2="412" y2="262" stroke="#5300DF"/>
 
       <text x="8" y="312" font-size="8" font-weight="600" fill="#1A1E27">La torre no escribe estado y no otorga permisos: esas dos cosas viven en el core y en el AI Control Plane.</text>
@@ -446,7 +446,7 @@
       <tr><th>La torre como dueña del estado</th><td>Si la torre y el core pueden escribir el mismo estado, aparecen discrepancias que nadie sabe resolver y la auditoría deja de tener una fuente única.</td><td>El core conserva el estado autoritativo de la autorización. Gestores conserva sus propios estados, como preradicado, que el core no tiene. La torre construye la vista materializada y los meta-estados derivados, y correlaciona ambos conjuntos.</td></tr>
       <tr><th>La torre como un gestor más</th><td>Si la torre decide el negocio, autorizar, negar o coordinar, se pierde el punto de observación neutral y hay que auditarla como parte de la decisión clínica.</td><td>Observa, mide, alerta, habilita autonomía <strong>y ejecuta acciones operativas sobre el flujo</strong>: reencolar, reasignar, activar rescate, bloquear un duplicado. Nunca decide el resultado de la solicitud.</td></tr>
       <tr><th>La torre como AI Control Plane</th><td>Mezclar permisos, modelos y prompts con observación hace que un cambio de tablero pueda alterar el comportamiento de un agente.</td><td>El AI Control Plane decide qué le está permitido a cada agente. La torre observa qué hizo y con qué resultado.</td></tr>
-      <tr><th>La torre como tablero de analítica</th><td>Un tablero que solo se mira no cambia decisiones, y a las pocas semanas nadie lo abre.</td><td>Cada indicador que expone tiene una acción asociada: una alerta con dueño, un escalamiento o un cambio de nivel de autonomía.</td></tr>
+      <tr><th>La torre como tablero de analítica</th><td>Un tablero que solo se mira no cambia decisiones, y a las pocas semanas nadie lo abre.</td><td>Cada indicador que expone tiene una acción asociada: una alerta con dueño, un escalamiento o un cambio de grado de autonomía.</td></tr>
     </tbody>
   </table>
   </div>
@@ -651,7 +651,7 @@
       <path d="M566 106 L566 126 L480 126 L480 146" fill="none" stroke="#B9720A" stroke-width="1.2"/>
 
       <rect x="152" y="206" width="376" height="30" rx="6" fill="#EBEBFF" stroke="#5300DF" stroke-width="1.1"/>
-      <text x="340" y="218" text-anchor="middle" font-size="7.5" font-weight="600" fill="#280265">Consecuencia: umbral, nivel de autonomía y casos de prueba nuevos</text>
+      <text x="340" y="218" text-anchor="middle" font-size="7.5" font-weight="600" fill="#280265">Consecuencia: umbral, grado de autonomía y casos de prueba nuevos</text>
       <text x="340" y="229" text-anchor="middle" font-size="7" fill="#5B5A66">lo que el reloj tardío desmiente entra al golden set como caso obligatorio</text>
       <line x1="340" y1="190" x2="340" y2="206" stroke="#5300DF" stroke-width="1.2"/>
 
@@ -780,8 +780,8 @@
       <tr><th>Prestador</th><td>¿Qué tengo autorizado, con qué vigencia y qué me van a glosar?</td><td>Corregir soporte antes de radicar la cuenta, que es donde se evita la glosa.</td></tr>
       <tr><th>Asesor y backoffice</th><td>¿Qué casos están esperándome y cuáles se van a vencer?</td><td>Priorizar por vencimiento y criticidad, y registrar la corrección con estructura.</td></tr>
       <tr><th>Auditoría médica</th><td>¿Qué decidió el agente, con qué criterio y sobre qué evidencia?</td><td>Revisar la muestra de casos aprobados y devolver la corrección como etiqueta.</td></tr>
-      <tr><th>Líder del gestor</th><td>¿Mi agente está acertando y en qué se está degradando?</td><td>Abrir una versión candidata, ajustar umbral o pedir descenso de nivel.</td></tr>
-      <tr><th>Arquitectura</th><td>¿Qué nivel de autonomía tiene cada agente y con qué respaldo?</td><td>Aprobar o revertir un ascenso, con el registro de decisión.</td></tr>
+      <tr><th>Líder del gestor</th><td>¿Mi agente está acertando y en qué se está degradando?</td><td>Abrir una versión candidata, ajustar umbral o pedir descenso de grado.</td></tr>
+      <tr><th>Arquitectura</th><td>¿Qué grado de autonomía tiene cada agente y con qué respaldo?</td><td>Aprobar o revertir un ascenso, con el registro de decisión.</td></tr>
       <tr><th>Negocio</th><td>¿Cuánto estamos resolviendo solos, a qué costo y con qué riesgo?</td><td>Ajustar el límite tolerable del error caro y priorizar tipos de caso.</td></tr>
       <tr><th>Cumplimiento</th><td>¿Podemos reconstruir cualquier decisión si nos la piden?</td><td>Exportar la traza completa de un caso con su evidencia.</td></tr>
     </tbody>
@@ -807,7 +807,7 @@
     <div class="diagram-name">Figura 4. Alertas y marcos de actuación</div>
     <svg width="100%" viewBox="0 0 680 254" role="img">
       <title>Alertas y marcos de actuación de la torre de control</title>
-      <desc>Tres niveles de severidad. La severidad alta dispara acción automática inmediata, como descenso de nivel de autonomía o corte de tráfico, más escalamiento a un responsable. La media abre una alerta con dueño y plazo. La baja se acumula como tendencia para la revisión periódica. Toda alerta y toda acción quedan registradas.</desc>
+      <desc>Tres niveles de severidad. La severidad alta dispara acción automática inmediata, como descenso de grado de autonomía o corte de tráfico, más escalamiento a un responsable. La media abre una alerta con dueño y plazo. La baja se acumula como tendencia para la revisión periódica. Toda alerta y toda acción quedan registradas.</desc>
 
       <text x="8" y="14" font-size="7.5" font-weight="600" fill="#8A8998">SEVERIDAD</text>
       <text x="150" y="14" font-size="7.5" font-weight="600" fill="#8A8998">EJEMPLO DE DISPARADOR</text>
@@ -822,7 +822,7 @@
       <text x="150" y="40" font-size="7.5" fill="#5B5A66">El error caro supera el límite acordado.</text>
       <text x="150" y="52" font-size="7.5" fill="#5B5A66">Un agente contradice reglas duras.</text>
       <text x="150" y="64" font-size="7.5" fill="#5B5A66">Caída de una fuente crítica.</text>
-      <text x="392" y="40" font-size="7.5" fill="#280265">Descenso de nivel de</text>
+      <text x="392" y="40" font-size="7.5" fill="#280265">Descenso de grado de</text>
       <text x="392" y="52" font-size="7.5" fill="#280265">autonomía y desvío del</text>
       <text x="392" y="64" font-size="7.5" fill="#280265">tráfico a revisión humana.</text>
       <text x="556" y="46" font-size="7.5" fill="#5B5A66">Líder del gestor y</text>
@@ -913,7 +913,7 @@
     <div class="diagram-name">Figura 5. Semáforo de autonomía por agente y tipo de caso</div>
     <svg width="100%" viewBox="0 0 680 250" role="img">
       <title>Semáforo de autonomía por agente y tipo de caso</title>
-      <desc>Matriz de agentes por tipo de caso mostrando el grado de autonomía vigente en cada combinación. Los casos rutinarios llegan a niveles altos de autonomía, mientras que alto costo y los casos no incluidos en el plan o con tutela se mantienen supervisados. La última columna muestra qué falta para el siguiente ascenso.</desc>
+      <desc>Matriz de agentes por tipo de caso mostrando el grado de autonomía vigente en cada combinación. Los casos rutinarios llegan a grados altos de autonomía, mientras que alto costo y los casos no incluidos en el plan o con tutela se mantienen supervisados. La última columna muestra qué falta para el siguiente ascenso.</desc>
 
       <text x="8" y="14" font-size="7.5" font-weight="600" fill="#8A8998">AGENTE</text>
       <text x="200" y="14" text-anchor="middle" font-size="7.5" font-weight="600" fill="#8A8998">RUTINARIO</text>
@@ -968,7 +968,7 @@
     <div class="diagram-name">Figura 6. Los cuatro grados de autonomía de un agente</div>
     <svg width="100%" viewBox="0 0 680 300" role="img">
       <title>Progresión de los cuatro grados de autonomía de un agente</title>
-      <desc>G1, en calibración, opera en modo shadow sin decisiones reales. G2, supervisado, un humano revisa cada propuesta. G3, autónomo con umbral, decide solo y escala si su confianza es baja. G4, autónomo pleno para ese tipo de caso, con auditoría por muestreo. El ascenso entre niveles exige volumen de casos, tasa de acierto sostenida, y ausencia de incidentes.</desc>
+      <desc>G1, en calibración, opera en modo shadow sin decisiones reales. G2, supervisado, un humano revisa cada propuesta. G3, autónomo con umbral, decide solo y escala si su confianza es baja. G4, autónomo pleno para ese tipo de caso, con auditoría por muestreo. El ascenso entre grados exige volumen de casos, tasa de acierto sostenida, y ausencia de incidentes.</desc>
       <defs>
         <marker id="arrowMad" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
           <path d="M2 1L8 5L2 9" fill="none" stroke="#5B5A66" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1249,7 +1249,7 @@
       <tr><th>P1. Traza y evento comunes</th><td>Es su consumidor principal y la razón por la que el esquema debe ser único. La capa 1 de la torre define la ventana para datos tardíos que P1 no contempla por sí sola.</td></tr>
       <tr><th>P2. Verdad de referencia desde preradicado</th><td>La torre expone la corrección humana como etiqueta y agrega la fuente que preradicado no tiene: el reloj tardío de glosas y reclamaciones.</td></tr>
       <tr><th>P3. Compuerta antes de producción</th><td>La torre no ejecuta la compuerta, pero muestra su resultado por versión y detecta la deriva que obliga a volver a medir.</td></tr>
-      <tr><th>P4. Escala de grados de autonomía conectada a la API</th><td>Es donde vive: el semáforo por agente y tipo de caso, la distancia al ascenso y el registro de cada cambio de nivel.</td></tr>
+      <tr><th>P4. Escala de grados de autonomía conectada a la API</th><td>Es donde vive: el semáforo por agente y tipo de caso, la distancia al ascenso y el registro de cada cambio de grado.</td></tr>
       <tr><th>P5. Auditor con compuerta</th><td>La torre es el destinatario del auditor en su modo pasivo, y la que hace visible si sus recomendaciones aprobadas mejoraron la métrica.</td></tr>
       <tr><th>P6. Umbral por costo del error</th><td>La torre mide el error caro contra el límite acordado y ejecuta el descenso automático de autonomía cuando se cruza.</td></tr>
       <tr><th>Acuerdo sobre estados</th><td>La torre es dueña de la vista materializada y de los meta-estados, nunca del estado autoritativo. Esta nota lo repite porque es la confusión más costosa.</td></tr>
