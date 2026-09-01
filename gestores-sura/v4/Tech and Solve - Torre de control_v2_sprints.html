@@ -301,7 +301,6 @@
   <a href="#herramientas" class="nav-sub">Las piezas, una por una</a>
   <a href="#efecto" class="nav-sub">Efecto en el número</a>
   <a href="#equipo" class="nav-strong">El equipo propuesto</a>
-  <a href="#comparacion" class="nav-sub">Comparación con el squad definido</a>
   <a href="#etapas" class="nav-strong">Las cuatro etapas</a>
   <a href="#etapa1" class="nav-sub">1 · Eventos y tablero</a>
   <a href="#etapa2" class="nav-sub">2 · Acertividad y semáforo</a>
@@ -547,27 +546,6 @@
   <div class="keypoint">
     <span class="keypoint-label">Dos formas de resolver el front, y qué cuesta cada una</span>
     <p><strong>Con perfil dedicado</strong>, que es lo que recomendamos: tres personas en total, el front corre en paralelo al back desde el sprint 2 y el calendario se mantiene en nueve sprints. <strong>Sin perfil dedicado</strong>, las mismas dos personas senior asumen la interfaz: el esfuerzo total es el mismo, pero el calendario se estira a cerca de trece sprints y el tablero operativo llega tarde, justo el entregable que hace visible el valor temprano.</p>
-  </div>
-
-  <h3 id="comparacion">Cómo se compara con el squad que el equipo ya definió</h3>
-
-  <p>La planeación vigente ya asignó un squad a la Torre de Control: <strong>un tech lead, dos desarrolladores backend y un ingeniero de datos</strong>, con treinta requisitos y ciento ochenta y ocho días hábiles de trabajo acumulado. Vale la pena poner los dos números lado a lado, porque a primera vista el nuestro parece mayor y no lo es.</p>
-
-  <div class="tbl-wide">
-  <table class="tbl">
-    <thead><tr><th>&nbsp;</th><th>Squad ya definido</th><th>Esta propuesta</th></tr></thead>
-    <tbody>
-      <tr><th>Personas</th><td>Cuatro: tech lead, dos backend, un ingeniero de datos</td><td>Tres, más el arquitecto parcial</td></tr>
-      <tr><th>Esfuerzo</th><td>188 días hábiles</td><td>Cerca de 300 días-persona</td></tr>
-      <tr><th>Front interno</th><td>No hay perfil asignado</td><td>Ocho sprints de front dedicado, unos 88 días</td></tr>
-      <tr><th>Diferencia real</th><td colspan="2">Los 188 días del squad más los 88 del front dan 276. La distancia con nuestros 300 la explica el acompañamiento del arquitecto y el margen. <strong>No estamos proponiendo un equipo más grande: proponemos uno más pequeño, con el front que hoy no está asignado.</strong></td></tr>
-    </tbody>
-  </table>
-  </div>
-
-  <div class="keypoint">
-    <span class="keypoint-label">Por qué el front no es un extra</span>
-    <p>El alcance que el propio diseño le da a la torre incluye bandejas, backoffice y la interfaz de parametrización de autonomía, y deja escrita la pregunta de si los fronts deben vivir en la torre. Con un squad sin perfil de front, esas tres cosas las termina haciendo el backend o no se hacen. Nuestra recomendación es que se decida antes del arranque, no cuando el tablero deba mostrarse.</p>
   </div>
 
   <h2 id="etapas">Las cuatro etapas, una por una</h2>
@@ -869,7 +847,7 @@
 
   <ul class="sources">
     <li>Tech and Solve. <em>Torre de control</em>, propuesta de capacidades, indicadores y gobierno. Este dimensionamiento corresponde a las cuatro etapas descritas en la sección de construcción de su versión 2.</li>
-    <li>Escala de tallas del equipo para el backlog, M, L y XL, y regla de declarar un margen de incertidumbre del 30% en las estimaciones de la fase de estructuración. Fuente: seguimiento de requisitos técnicos del proyecto, <em>Gestores_Seguimiento_Requerimientos_2026</em>.</li>
+    <li>Escala de tallas del equipo para el backlog, de XXL a S, y regla de declarar un margen de incertidumbre del 30% en las estimaciones de la fase de estructuración. Fuente: seguimiento de requisitos técnicos del proyecto, <em>Gestores_Seguimiento_Requerimientos_2026</em>.</li>
     <li>Decisión de un componente único de front por canal, y de que el front no se construya por gestor. Misma fuente.</li>
     <li>Convenciones semánticas de OpenTelemetry, versión liberada, para el esquema de traza. <a href="https://opentelemetry.io/docs/specs/semconv/">opentelemetry.io/docs/specs/semconv</a></li>
   </ul>
