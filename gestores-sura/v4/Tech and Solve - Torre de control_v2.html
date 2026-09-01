@@ -311,13 +311,11 @@
   <a href="#secuencia" class="nav-strong">Qué construir primero</a>
   <a href="#dependencias" class="nav-sub">Dependencias y calendario</a>
   <a href="#riesgos">Riesgos</a>
-  <a href="#arquitectura" class="nav-strong">Arquitectura y herramientas</a>
-  <a href="#esfuerzo" class="nav-strong">Cuánto cuesta</a>
   <a href="#anexoA">Anexo A. Estándares</a>
   <a href="#anexoB">Anexo B. Coherencia</a>
   <a href="#anexoC">Anexo C. Los nueve agentes</a>
   <a href="#anexoD">Anexo D. Mapa de cobertura</a>
-<a href="#referencias">Referencias</a>
+  <a href="#referencias">Referencias</a>
 </nav>
 
 <div class="page">
@@ -1208,152 +1206,6 @@
     <div class="card"><div class="card-title">Ecosistema repartido entre dos nubes</div><div class="card-body">El propio seguimiento del equipo tiene abierto el riesgo de que una pieza del ecosistema quede en una nube distinta al resto. Para una torre que se suscribe a la totalidad de los eventos, eso se traduce en latencia, costo de salida y un punto más donde la traza se corta. Mitigación: decidir temprano dónde vive la recolección y tratar el cruce de nubes como una integración con su propio presupuesto de tiempo y su propia métrica de rezago.</div></div>
     <div class="card"><div class="card-title">Que mida el gestor y no el proceso</div><div class="card-body">Seis gestores impecables no garantizan una autorización correcta. Mitigación: mantener al menos un indicador de punta a punta y el reloj tardío.</div></div>
     <div class="card"><div class="card-title">Que la torre termine decidiendo</div><div class="card-body">Bajo presión operativa es tentador dejar que la torre resuelva. Mitigación: si una capacidad decide sobre el negocio, se gobierna como agente, con su nivel de madurez.</div></div>
-  </div>
-
-  <h2 id="arquitectura">Arquitectura y herramientas, como punto de partida</h2>
-
-  <div class="goal">
-    <span class="goal-label">Cómo leer esta sección</span>
-    <p>Todo lo que sigue es <strong>tentativo y está pendiente de validar con SURA</strong> contra el stack tecnológico ya definido. No proponemos cambiar herramientas: proponemos un punto de partida concreto para poder conversar, y donde exista una capacidad equivalente en operación, se usa la que existe.</p>
-  </div>
-
-  <p>La sección <a href="#plataforma">Qué se apoya en la plataforma que ya existe</a> plantea la frontera en términos de arquitectura. Aquí la bajamos a piezas concretas, porque una estimación sin arquitectura no se puede discutir. La idea que ordena todo lo demás es la misma: la torre <strong>se monta sobre plataforma que ya se opera</strong> para recolectar, transportar y almacenar, y <strong>construye</strong> lo que ninguna herramienta trae de fábrica, que es el contrato de eventos del negocio, la correlación de la solicitud, los indicadores que deciden y la actuación registrada.</p>
-
-  <div class="diagram-wrap">
-    <div class="diagram-name">Figura 7. Punto de partida: qué se configura y qué se construye</div>
-    <svg width="100%" viewBox="0 0 700 330" role="img">
-      <title>Arquitectura propuesta de la torre de control</title>
-      <desc>Tres zonas. A la izquierda, la plataforma que se configura: emisores, recolección y bus. En el centro, lo que construye la torre: correlación, medición, actuación y el front interno. A la derecha, el almacenamiento, con un horizonte corto para la traza técnica y uno largo para la evidencia que juzga las decisiones.</desc>
-
-      <rect x="6" y="8" width="374" height="256" rx="7" fill="#F5F1FC" stroke="#D9CCF2"/>
-      <text x="16" y="26" font-family="Poppins,sans-serif" font-size="10" font-weight="600" fill="#5300DF">SE CONFIGURA · plataforma</text>
-
-      <rect x="392" y="8" width="176" height="256" rx="7" fill="#FDF6EC" stroke="#EDD9B8"/>
-      <text x="402" y="26" font-family="Poppins,sans-serif" font-size="10" font-weight="600" fill="#B9720A">SE CONSTRUYE · torre</text>
-
-      <rect x="580" y="8" width="114" height="256" rx="7" fill="#F2F4F7" stroke="#D5D9E0"/>
-      <text x="590" y="26" font-family="Poppins,sans-serif" font-size="10" font-weight="600" fill="#4A5160">ALMACENAMIENTO</text>
-
-      <text x="18" y="52" font-family="Poppins,sans-serif" font-size="10.5" font-weight="600" fill="#280265">Emisores</text>
-      <rect x="16" y="60" width="96" height="30" rx="5" fill="#FFFFFF" stroke="#C9B8E8"/>
-      <text x="64" y="79" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" fill="#280265">Gestores</text>
-      <rect x="16" y="98" width="96" height="30" rx="5" fill="#FFFFFF" stroke="#C9B8E8"/>
-      <text x="64" y="117" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" fill="#280265">Core · SuraHis</text>
-      <rect x="16" y="136" width="96" height="30" rx="5" fill="#FFFFFF" stroke="#C9B8E8"/>
-      <text x="64" y="155" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" fill="#280265">Canales</text>
-      <text x="64" y="190" text-anchor="middle" font-family="Poppins,sans-serif" font-size="9.5" fill="#6B6B7B">emiten con el</text>
-      <text x="64" y="202" text-anchor="middle" font-family="Poppins,sans-serif" font-size="9.5" fill="#6B6B7B">esquema acordado</text>
-
-      <path d="M116 113 L134 113" stroke="#9B8AC4" stroke-width="1.4" marker-end="url(#fl)"/>
-
-      <rect x="138" y="60" width="106" height="106" rx="5" fill="#FFFFFF" stroke="#C9B8E8"/>
-      <text x="191" y="100" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" font-weight="600" fill="#280265">Recolección</text>
-      <text x="191" y="120" text-anchor="middle" font-family="Poppins,sans-serif" font-size="9.5" fill="#6B6B7B">OTel Collector</text>
-
-      <path d="M248 113 L266 113" stroke="#9B8AC4" stroke-width="1.4" marker-end="url(#fl)"/>
-
-      <rect x="270" y="60" width="102" height="106" rx="5" fill="#FFFFFF" stroke="#C9B8E8"/>
-      <text x="321" y="100" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" font-weight="600" fill="#280265">Bus</text>
-      <text x="321" y="120" text-anchor="middle" font-family="Poppins,sans-serif" font-size="9.5" fill="#6B6B7B">eventos y</text>
-      <text x="321" y="132" text-anchor="middle" font-family="Poppins,sans-serif" font-size="9.5" fill="#6B6B7B">comandos</text>
-
-      <path d="M376 113 L390 113" stroke="#B9720A" stroke-width="1.4" marker-end="url(#fo)"/>
-
-      <rect x="400" y="42" width="160" height="150" rx="5" fill="#FFFFFF" stroke="#EDD9B8"/>
-      <text x="480" y="62" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" font-weight="600" fill="#280265">Servicios de la torre</text>
-      <rect x="408" y="72" width="144" height="26" rx="4" fill="#FDF6EC" stroke="#EDD9B8"/>
-      <text x="480" y="89" text-anchor="middle" font-family="Poppins,sans-serif" font-size="10" fill="#280265">Correlación del caso</text>
-      <rect x="408" y="104" width="144" height="26" rx="4" fill="#FDF6EC" stroke="#EDD9B8"/>
-      <text x="480" y="121" text-anchor="middle" font-family="Poppins,sans-serif" font-size="10" fill="#280265">Medición y compuertas</text>
-      <rect x="408" y="136" width="144" height="26" rx="4" fill="#FDF6EC" stroke="#EDD9B8"/>
-      <text x="480" y="153" text-anchor="middle" font-family="Poppins,sans-serif" font-size="10" fill="#280265">Actuación registrada</text>
-      <text x="480" y="180" text-anchor="middle" font-family="Poppins,sans-serif" font-size="9.5" fill="#6B6B7B">API por perfil</text>
-
-      <path d="M564 90 L578 90" stroke="#8A93A5" stroke-width="1.4" marker-end="url(#fg)"/>
-      <path d="M564 150 L578 150" stroke="#1B6B4F" stroke-width="1.4" marker-end="url(#fv)"/>
-
-      <rect x="588" y="62" width="98" height="54" rx="5" fill="#FFFFFF" stroke="#D5D9E0"/>
-      <text x="637" y="82" text-anchor="middle" font-family="Poppins,sans-serif" font-size="10" font-weight="600" fill="#4A5160">Traza corta</text>
-      <text x="637" y="96" text-anchor="middle" font-family="Poppins,sans-serif" font-size="8.5" fill="#6B6B7B">diagnóstico</text>
-      <text x="637" y="107" text-anchor="middle" font-family="Poppins,sans-serif" font-size="8.5" fill="#6B6B7B">técnico</text>
-
-      <rect x="588" y="126" width="98" height="54" rx="5" fill="#FFFFFF" stroke="#1B6B4F"/>
-      <text x="637" y="146" text-anchor="middle" font-family="Poppins,sans-serif" font-size="10" font-weight="600" fill="#1B6B4F">Evidencia larga</text>
-      <text x="637" y="160" text-anchor="middle" font-family="Poppins,sans-serif" font-size="8.5" fill="#6B6B7B">el reloj</text>
-      <text x="637" y="171" text-anchor="middle" font-family="Poppins,sans-serif" font-size="8.5" fill="#6B6B7B">tardío</text>
-
-      <text x="637" y="204" text-anchor="middle" font-family="Poppins,sans-serif" font-size="8.5" fill="#6B6B7B">el modelo lo pone</text>
-      <text x="637" y="215" text-anchor="middle" font-family="Poppins,sans-serif" font-size="8.5" fill="#6B6B7B">la torre</text>
-
-      <path d="M480 196 L480 214" stroke="#B9720A" stroke-width="1.4" marker-end="url(#fo)"/>
-      <rect x="400" y="218" width="160" height="34" rx="5" fill="#FFFFFF" stroke="#EDD9B8"/>
-      <text x="480" y="239" text-anchor="middle" font-family="Poppins,sans-serif" font-size="10.5" fill="#280265">Front interno de la torre</text>
-
-      <text x="16" y="292" font-family="Poppins,sans-serif" font-size="10" fill="#6B6B7B">Dos horizontes de retención, decididos antes de emitir el primer evento: la traza técnica vive lo que dura el</text>
-      <text x="16" y="308" font-family="Poppins,sans-serif" font-size="10" fill="#6B6B7B">diagnóstico; la evidencia que juzga una decisión vive lo que tarde la glosa o la reclamación en llegar.</text>
-
-      <defs>
-        <marker id="fl" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#9B8AC4"/></marker>
-        <marker id="fo" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#B9720A"/></marker>
-        <marker id="fg" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#8A93A5"/></marker>
-        <marker id="fv" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#1B6B4F"/></marker>
-      </defs>
-    </svg>
-    <div class="diagram-caption">La zona izquierda se configura sobre plataforma que la organización ya opera. La del centro es el trabajo propio de la torre. El almacenamiento se configura, pero el modelo de datos que vive dentro lo construye la torre.</div>
-  </div>
-
-  <div class="tbl-wide">
-  <table class="tbl">
-    <thead><tr><th>Capacidad</th><th>Punto de partida que proponemos</th><th>Por qué esa</th><th>Qué habría que validar</th></tr></thead>
-    <tbody>
-      <tr><th>Esquema de traza y de evento</th><td>Convenciones semánticas de <a href="https://opentelemetry.io/docs/specs/semconv/">OpenTelemetry, versión 1.44.0</a></td><td>Es convención abierta, no herramienta: fija cómo se nombran los atributos sin atar la decisión a un proveedor.</td><td>Es la única pieza que sugerimos conservar aunque cambie todo lo demás.</td></tr>
-      <tr><th>Recolección de telemetría</th><td><a href="https://opentelemetry.io/docs/collector/">OpenTelemetry Collector</a></td><td>Desacopla a los emisores del destino: se puede cambiar de plataforma de observabilidad sin volver a tocar los gestores.</td><td>Si ya hay un agente propio del backend en uso, se usa ese.</td></tr>
-      <tr><th>Transporte de eventos del negocio</th><td><a href="https://learn.microsoft.com/en-us/azure/event-hubs/event-hubs-about">Azure Event Hubs</a></td><td>El diseño ya declara un almacén y bróker de eventos, y la torre necesita suscribirse a la totalidad del flujo.</td><td>Cuál es el bróker ya habilitado y si admite un consumidor más sin afectar a los existentes.</td></tr>
-      <tr><th>Comandos</th><td><a href="https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview">Azure Service Bus</a></td><td>La distinción entre comando y evento ya está tomada, y conviene que tenga también dos caminos técnicos.</td><td>Si la distinción ya está resuelta con otro mecanismo, se conserva.</td></tr>
-      <tr><th>Traza técnica de corta vida</th><td><a href="https://learn.microsoft.com/en-us/azure/azure-monitor/overview">Azure Monitor</a></td><td>Diagnóstico de latencia, errores y saturación, donde la retención corta es lo correcto.</td><td>Qué plataforma de observabilidad se opera hoy, con qué retención y con qué política de muestreo.</td></tr>
-      <tr><th>Evidencia de retención larga</th><td><a href="https://learn.microsoft.com/en-us/azure/data-explorer/data-explorer-overview">Azure Data Explorer</a></td><td>Alta cardinalidad, retención larga y consulta sobre series. Es la pieza que sostiene el reloj tardío, y la que una plataforma de observabilidad convencional no cubre.</td><td>Si existe ya un destino apto. Es la pieza con más efecto sobre el esfuerzo.</td></tr>
-      <tr><th>Servicios de la torre</th><td>Desarrollo propio sobre el estándar de backend del ecosistema</td><td>Correlación del caso, indicadores con fórmula declarada, compuertas de autonomía y actuación reversible. No hay producto que traiga esto.</td><td>Cuál es el estándar de backend y de despliegue vigente.</td></tr>
-      <tr><th>Front interno</th><td>Aplicación propia de datos densos</td><td>Bandejas, semáforo, alertas y configuración con vista previa. Los paneles de una herramienta de observabilidad no resuelven una bandeja operativa.</td><td>Si conviene alinearlo con el front único reutilizable que ya se privilegia como principio.</td></tr>
-    </tbody>
-  </table>
-  </div>
-
-  <div class="support">
-    <p><span class="support-label">Sobre estas referencias</span>La documentación de fabricante se cita desde su sitio oficial y vale como práctica documentada del producto, nunca como norma. La única pieza de la tabla que es estándar abierto es la convención de OpenTelemetry, en su versión liberada.</p>
-  </div>
-
-  <div class="teamq">
-    <span class="teamq-label">Lo que necesitamos saber para cerrar esta sección</span>
-    <p>Cuál es el stack definido para observabilidad y eventos, con qué retención opera hoy, y si hay un destino disponible para la evidencia de retención larga. Con esas tres respuestas, la mitad de esta tabla deja de ser propuesta y pasa a ser configuración.</p>
-  </div>
-
-  <h2 id="esfuerzo">Cuánto cuesta, en términos prácticos</h2>
-
-  <p>Las cuatro etapas de <a href="#secuencia">Qué construir primero</a> caben en <strong>nueve sprints con tres personas y un arquitecto parcial</strong>. No es una torre construida entera antes de servir: al cerrar la etapa 1 ya hay valor en producción, y cada etapa siguiente se apoya en la anterior.</p>
-
-  <div class="tbl-wide">
-  <table class="tbl">
-    <thead><tr><th>Etapa</th><th>Sprints</th><th>Equipo en esa etapa</th><th>Qué queda funcionando</th></tr></thead>
-    <tbody>
-      <tr><th>1. Eventos y tablero operativo</th><td>1 a 3</td><td>2 de plataforma; front desde el sprint 2</td><td>Dónde está cada solicitud, qué se va a vencer y con qué capacidad se cuenta.</td></tr>
-      <tr><th>2. Acertividad y semáforo</th><td>3 y 4</td><td>2 de plataforma y 1 de front</td><td>Evidencia para decidir cuánta autonomía tiene cada agente.</td></tr>
-      <tr><th>3. Alertas y actuación</th><td>4 a 7</td><td>2 de plataforma y 1 de front</td><td>La torre interviene y notifica, con registro y reversión.</td></tr>
-      <tr><th>4. Relojes tardíos y anomalías</th><td>7 a 9</td><td>2 de plataforma y 1 de front</td><td>El bucle cerrado con la evidencia que llega semanas después.</td></tr>
-      <tr><th><strong>Total</strong></th><td><strong>9</strong></td><td><strong>3 personas más el arquitecto parcial</strong></td><td>Hasta doce sprints con el margen del 30%.</td></tr>
-    </tbody>
-  </table>
-  </div>
-
-  <p>El equipo son <strong>dos perfiles de plataforma a tiempo completo</strong>, uno enfocado en la espina de datos y otro en medición y actuación; <strong>un perfil de front</strong> desde el sprint 2, porque sin interfaz el tablero operativo es una API y el valor no llega a la operación; y un <strong>arquitecto o líder técnico parcial</strong>, con un día por semana hasta el sprint 5 y medio día después, concentrado donde se toman las decisiones costosas de revertir.</p>
-
-  <div class="keypoint">
-    <span class="keypoint-label">Qué no está incluido en esos nueve sprints</span>
-    <p>La <strong>emisión de eventos dentro de cada gestor</strong>, que es trabajo de cada equipo y para la que aportamos el esquema, la validación y el acompañamiento al piloto. El <strong>aprovisionamiento y el licenciamiento de la plataforma de base</strong>: recolección, bus y almacenamiento. Las <strong>vistas de asegurado y prestador</strong>, que siguen en el componente único de canales. Y el <strong>agente auditor</strong>, que vive en el plano de evaluación como servicio compartido y no es una capacidad de la torre. El detalle etapa por etapa, con lo que cada una habilita y lo que todavía no puede hacer, está en el documento de dimensionamiento que acompaña a esta propuesta.</p>
-  </div>
-
-  <div class="changed">
-    <span class="changed-label">Los supuestos que sostienen el número</span>
-    <p>Sprint de once días hábiles. Tallaje con la escala del backlog y margen declarado del 30%, ya incluido en el rango de nueve a doce sprints. Dedicación completa de los tres perfiles: una dedicación parcial no reduce el esfuerzo, solo alarga el calendario. Y la plataforma de base descrita arriba, disponible o habilitada por su dueño. Si alguno no se cumple, el número cambia y conviene decirlo antes de comprometerlo.</p>
   </div>
 
   <div class="annex" id="anexoA">
