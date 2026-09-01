@@ -311,28 +311,44 @@ producción. En total 27 páginas leídas.
 
 ---
 
-## 8. Cambios aprobados y pendientes de aplicar en v4
+## 8. Estado de los entregables de v4
 
-Aprobados en enfoque el 31-ago-2026, **sin aplicar todavía**:
+Al 1 de septiembre de 2026, los ocho cambios acordados el 31 de agosto **ya están aplicados**
+en `Tech and Solve - Torre de control_v2.html`: la torre ejecuta y se gobierna como agente,
+escala de grados G1 a G4, techos de autonomía, fuentes reales, indicadores enchufados en los
+nueve ejes, salud técnica del ecosistema, dependencias sin plazos ajenos, y los anexos C, el
+mapeo de los nueve agentes, y D, el mapa de cobertura. Se sumaron después la sección de por
+qué construir en paralelo y las etapas con campos fijos.
 
-**Por fidelidad, obligatorios**
-1. La torre sí ejecuta acciones operativas → reformular la delimitación, y darle identidad,
-   alcance de escritura, registro y nivel de autonomía propio.
-2. Corregir el acuerdo de custodia de reglas y matizar el de estados.
-3. Renombrar nuestra escala de madurez y mapearla contra las otras dos escalas de "nivel".
-4. Respetar los techos de autonomía: negación siempre determinística con humano, alto costo
-   siempre manual. Corregir la figura del semáforo.
-5. Corregir fuentes en la Figura 1: señales tardías vía SuraHis, sin agenda, sin OTP.
+### Archivos de v4
 
-**Adiciones que refuerzan el enfoque**
-6. Tabla que enchufa nuestros indicadores agénticos en sus 9 ejes, dejando su catálogo intacto.
-7. Mapeo contra la propuesta de 9 agentes, con nuestro criterio de admisión.
-8. Sección corta de dependencias y qué se puede medir antes de que el core exponga sus API.
+| Archivo | Para quién | Estado |
+|---|---|---|
+| `Torre de control_v2.html` | Cliente | Propuesta vigente |
+| `Torre de control_v2_sprints.html` | Cliente | Dimensionamiento: cuatro etapas, nueve sprints, tres personas más arquitecto parcial |
+| `Torre de control_v2_skills (interno).html` | Interno | Perfiles, matriz de cobertura, guía de entrevista |
+| `_borradores/Torre de control_v1.html` | Nadie | Versión superada, archivada el 1-sep |
+| `Gestores_Seguimiento_Requerimientos_2026.xlsx` | Insumo | Del cliente |
 
-**Dado de baja**: ampliar el documento con capacidad y carga de trabajo. Es monitoreo
-operativo, ya está en su catálogo, y la torre solo lo consume como insumo de alertas.
+### Decisiones de alcance que conviene recordar
 
----
+- **El agente auditor no es parte de la torre.** Vive en el plano de evaluación como
+  servicio compartido, según P5 de la nota de arquitectura. El cliente lo registró bajo el
+  Gestor de Monitoreo en su seguimiento; nosotros lo ubicamos donde corresponde y lo
+  declaramos fuera del dimensionamiento de la torre.
+- **El front interno sí está dentro**; las vistas de asegurado y prestador siguen en el
+  componente único de canales.
+- **El dimensionamiento habla en sprints, no en días.** La escala de tallas del equipo se usa
+  para calcular, pero el detalle en días queda en el cálculo interno.
+- **Sin plazos ajenos**: las dependencias se nombran, y su plazo lo declara su dueño.
+
+### Presupuesto de tamaño
+
+El cuerpo de la nota de arquitectura está en 25 mil caracteres y el del dimensionamiento en
+19 mil, ambos dentro del techo de 35 mil. El de la torre está en **41 mil**, por encima. Se
+aceptó conscientemente: el crecimiento vino de cubrir requisitos que el cliente ya tenía
+escritos. Si vuelve a crecer, los candidatos a comprimir son la tabla de eventos mínimos y la
+sección de secuencia.
 
 ## 9. Operación del repositorio
 

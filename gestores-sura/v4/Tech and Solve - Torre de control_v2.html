@@ -299,6 +299,7 @@
   <a href="#partida" class="nav-strong">Punto de partida</a>
   <a href="#delimitacion">Qué es y qué no es</a>
   <a href="#capas" class="nav-strong">Las cinco capas</a>
+  <a href="#plataforma" class="nav-sub">Qué se apoya en la plataforma</a>
   <a href="#relojes">Los tres relojes de la verdad</a>
   <a href="#eventos">Eventos mínimos del ciclo</a>
   <a href="#indicadores" class="nav-strong">Indicadores</a>
@@ -306,6 +307,7 @@
   <a href="#alertas">Alertas y marcos de actuación</a>
   <a href="#autonomia">Gobierno de la autonomía</a>
   <a href="#anomalias">Anomalías e integridad</a>
+  <a href="#paralelo" class="nav-strong">Por qué en paralelo</a>
   <a href="#secuencia" class="nav-strong">Qué construir primero</a>
   <a href="#dependencias" class="nav-sub">Dependencias y calendario</a>
   <a href="#riesgos">Riesgos</a>
@@ -363,7 +365,12 @@
 
   <h2 id="partida">Punto de partida</h2>
 
-  <p>El diseño vigente ya declara con bastante precisión qué debería hacer la torre: trazabilidad de punta a punta del estado de cada solicitud, visibilidad diferenciada por actor, definición de rutas y activación de escalamientos y marcos de actuación según tiempos de respuesta, capacidad operativa y criticidad, analítica para mejora continua y decisiones tácticas y estratégicas, monitoreo de indicadores observables, control de niveles de autonomía con interfaz y API de parametrización, entrega de información a los canales en el lenguaje de cada actor, y consumo bidireccional del lago de datos. Internamente aparecen capas de consolidación en línea, correlación, decisión y reacción, más detección de anomalías.</p>
+  <p>El diseño vigente ya declara con bastante precisión qué debería hacer la torre: trazabilidad de punta a punta del estado de cada solicitud, visibilidad diferenciada por actor, definición de rutas y activación de escalamientos y marcos de actuación según tiempos de respuesta, capacidad operativa y criticidad, analítica para mejora continua y decisiones tácticas y estratégicas, monitoreo de indicadores observables, control de niveles de autonomía con interfaz y API de parametrización, entrega de información a los canales en el lenguaje de cada actor, y consumo del lago de datos, que el equipo acotó a <strong>solo lectura y con frescura T-1</strong>. Internamente aparecen capas de consolidación en línea, correlación, decisión y reacción, más detección de anomalías.</p>
+
+  <div class="keypoint">
+    <span class="keypoint-label">Por qué esa acotación del lago encaja</span>
+    <p>Que el lago sea de solo lectura y llegue con un día de rezago no es una limitación para la torre: es la confirmación de que hacen falta dos caminos. Lo que decide en el momento —una compuerta, una alerta por vencimiento— no puede esperar a T-1 y tiene que salir del flujo de eventos. Lo que juzga si una decisión estuvo bien llega semanas después de todos modos, y ahí T-1 sobra. Es la misma separación que desarrollamos en los tres relojes.</p>
+  </div>
 
   <p>Es una lista correcta y ambiciosa. Lo que proponemos aquí no es cambiarla: es <strong>ordenarla en capas con entradas y salidas explícitas</strong>, ponerle los indicadores del negocio de autorizaciones, y cerrar el bucle con la única evidencia que en seguros dice la verdad completa, la que llega semanas después.</p>
 
@@ -558,24 +565,47 @@
 
   <h3>De dónde entra cada fuente, con la realidad de hoy</h3>
 
-  <p>El equipo fijó un principio que condiciona esta capa: si Gestores necesita un dato de interoperabilidad, lo pide primero al core, y una conexión directa solo se justifica cuando el core no tiene ni va a tener ese dato. Aplicado a la torre, eso ordena las fuentes así:</p>
+  <p>El equipo fijó un principio que condiciona esta capa: si Gestores necesita un dato de interoperabilidad, lo pide primero al core, y una conexión directa solo se justifica cuando el core no tiene ni va a tener ese dato. Aplicado a la torre:</p>
+
+  <ul>
+    <li><strong>Eventos de los gestores</strong>, por suscripción a la totalidad del bus. Disponibles en la medida en que cada gestor emita.</li>
+    <li><strong>Estados y señales tardías</strong>, cuenta médica, glosas, reclamaciones y tutelas, <strong>vía el core</strong> y como carga periódica, no en línea.</li>
+    <li><strong>Confirmación de la atención</strong>, por tres caminos con alcance distinto. <strong>Agenda Web</strong>, dentro de la red SURA, que ya aporta la secuencia agendado, confirmado, inasistencia, en atención y prestado: es la fuente más fuerte donde existe. <strong>Interoperabilidad clínica</strong>, hoy cerca del 30% de prestadores y solo consulta externa. Y el <strong>front de canales</strong>, cuando el asegurado confirma. Fuera de la red SURA no hay agenda, y ahí la confirmación depende de los otros dos. La clave dinámica y el código de un solo uso quedaron fuera del alcance de esta fase.</li>
+  </ul>
+
+  <div class="keypoint">
+    <span class="keypoint-label">La consecuencia práctica</span>
+    <p>La torre no debería diseñarse asumiendo acceso directo a esas fuentes. Se diseña con el core como intermediario y con una ventana que admite datos rezagados, que es lo que permite que la correlación tardía funcione cuando el lago exista, sin rehacer el modelo.</p>
+  </div>
+
+  <h3 id="plataforma">Qué se apoya en la plataforma que ya existe, y qué no puede vivir ahí</h3>
+
+  <p>Buena parte de esta primera capa no hay que construirla. La recolección de telemetría, el transporte de eventos y el almacenamiento de series son capacidades de plataforma que la organización ya opera o va a operar de todos modos, y la torre debería montarse encima en lugar de levantar las suyas. Lo que sí construye la torre es lo que ninguna plataforma trae de fábrica: el <strong>contrato de eventos del negocio</strong>, la <strong>correlación de la solicitud</strong> con su siniestro padre, y la <strong>ventana para evidencia rezagada</strong>.</p>
+
+  <p>La distinción importa porque hay una tentación razonable: si ya existe una plataforma de observabilidad, ¿por qué no resolver la torre completa ahí? La respuesta está en los tres relojes que vienen a continuación. Las plataformas de observabilidad están diseñadas para diagnosticar un incidente técnico que ocurrió hace minutos u horas, y por eso privilegian retención corta, muestreo y control de cardinalidad. La evidencia que juzga una autorización, en cambio, aparece semanas después y no se puede muestrear: si la glosa que contradice una decisión cayó en la fracción descartada, esa decisión queda evaluada como correcta para siempre.</p>
 
   <div class="tbl-wide">
   <table class="tbl">
-    <thead><tr><th>Fuente</th><th>Cómo entra</th><th>Realidad hoy</th></tr></thead>
+    <thead><tr><th>Capacidad</th><th>Dónde vive</th><th>Por qué</th></tr></thead>
     <tbody>
-      <tr><th>Eventos de los gestores</th><td>Suscripción a la totalidad del bus, no a un subconjunto.</td><td>Disponible en la medida en que cada gestor emita; es la etapa 1.</td></tr>
-      <tr><th>Estados del core</th><td>Eventos emitidos por quien tiene autoridad sobre la entidad, normalmente el core.</td><td>Depende de que el core exponga sus API. El plazo lo define el equipo del core.</td></tr>
-      <tr><th>Cuenta médica y glosas</th><td>Vía el core, como carga periódica, no en línea.</td><td>Sujeto al plan de releases del equipo, donde el lago de datos de autorizaciones es un entregable posterior.</td></tr>
-      <tr><th>Reclamaciones y tutelas</th><td>Vía el core o el sistema que las administre, con el caso como llave.</td><td>Requiere acordar la llave de correlación; hoy no está resuelta.</td></tr>
-      <tr><th>Confirmación de la atención</th><td>Por el front de canales y por interoperabilidad clínica cuando aplique.</td><td>Interoperabilidad cubre cerca del 30% de prestadores y hoy solo consulta externa. Agenda no es fuente: no existe interoperabilidad de agenda. La clave dinámica y el código de un solo uso quedaron fuera del alcance de esta fase.</td></tr>
+      <tr><th>Recolección y transporte de telemetría y eventos</th><td>Plataforma existente</td><td>Es infraestructura resuelta. Duplicarla agrega costo y un segundo lugar donde las cosas se pierden.</td></tr>
+      <tr><th>Traza técnica de corta vida</th><td>Plataforma existente</td><td>Diagnóstico de incidentes: latencia, errores, saturación. Retención corta es lo correcto aquí.</td></tr>
+      <tr><th>Contrato de eventos del negocio y correlación del caso</th><td>Torre</td><td>Los seis momentos del ciclo y la llave del siniestro padre son vocabulario del negocio, no señales técnicas.</td></tr>
+      <tr><th>Evidencia de calidad con retención larga</th><td>Torre</td><td>El reloj tardío obliga a conservar sin muestreo, y a poder reabrir un caso ya cerrado operativamente.</td></tr>
+      <tr><th>Indicadores que deciden, compuertas y grados de autonomía</th><td>Torre</td><td>Un tablero describe. Aquí hay una decisión que se toma y hay que poder sustentar quién la tomó y con qué evidencia.</td></tr>
+      <tr><th>Ejecución de acciones sobre el flujo</th><td>Torre</td><td>Una herramienta de observación no mueve una solicitud ni le baja el grado a un agente.</td></tr>
     </tbody>
   </table>
   </div>
 
   <div class="keypoint">
-    <span class="keypoint-label">La consecuencia práctica</span>
-    <p>La torre no debería diseñarse asumiendo acceso directo a esas fuentes. Se diseña con el core como intermediario y con una ventana que admite datos rezagados, que es lo que permite que la correlación tardía funcione cuando el lago exista, sin rehacer el modelo.</p>
+    <span class="keypoint-label">La consecuencia de retención</span>
+    <p>Se necesitan <strong>dos horizontes distintos</strong>, y conviene decidirlo antes de emitir el primer evento: la traza fina vive lo que dure el diagnóstico técnico, y el registro que sustenta si una decisión estuvo bien vive lo que tarde el reloj tardío en cerrar. Guardarlo todo con el criterio corto es perder la evidencia; guardarlo todo con el criterio largo es pagar de más por telemetría que nadie va a volver a mirar.</p>
+  </div>
+
+  <div class="teamq">
+    <span class="teamq-label">Pregunta para el equipo</span>
+    <p>¿Qué plataforma de observabilidad opera hoy el ecosistema, con qué retención y con qué política de muestreo? De la respuesta depende cuánto de la primera capa es configuración y cuánto es construcción, y si hace falta un almacén aparte para la evidencia de retención larga.</p>
   </div>
 
   <h2 id="relojes">Los tres relojes de la verdad</h2>
@@ -702,20 +732,15 @@
 
   <h3>Del proceso, leídos en clave de agente</h3>
 
-  <p>Solo los que cambian de significado cuando el que decide es un agente. Los indicadores operativos puros, tiempo de ciclo, cumplimiento de tiempos, envejecimiento de bandeja y reproceso, ya están en el catálogo del equipo y se leen de ahí.</p>
+  <p>Solo los que cambian de significado cuando el que decide es un agente. Los operativos puros, tiempo de ciclo, cumplimiento de tiempos, envejecimiento de bandeja y reproceso, ya están en el catálogo del equipo y se leen de ahí.</p>
 
-  <div class="tbl-wide">
-  <table class="tbl">
-    <thead><tr><th>Indicador</th><th>Qué revela</th><th>Por qué importa en este negocio</th></tr></thead>
-    <tbody>
-      <tr><th>Resolución sin intervención humana</th><td>Proporción de solicitudes que completan el ciclo sin que nadie las toque, por tipo de caso.</td><td>Es el indicador que justifica la inversión, y el que hay que leer siempre junto al error caro para que no se optimice solo.</td></tr>
-      <tr><th>Negaciones revertidas</th><td>Proporción de negaciones que se revierten tras reclamación, queja o tutela.</td><td>Es la evaluación externa de la calidad de las negaciones, y tiene consecuencia legal y reputacional, no solo operativa.</td></tr>
-      <tr><th>Glosa asociada a la autorización</th><td>Glosas de cuenta médica que se pueden rastrear a una decisión de autorización y su causal.</td><td>Es el reloj tardío convertido en número, y la única señal fuerte de autorizaciones emitidas sin sustento.</td></tr>
-      <tr><th>Autorizaciones sin atención identificada</th><td>Casos autorizados donde nunca se pudo confirmar la prestación.</td><td>Mezcla fuga de servicio, problemas de agenda y debilidad de correlación; hay que separarlos antes de actuar.</td></tr>
-      <tr><th>Costo por caso y costo por caso correcto</th><td>Consumo de modelos y tiempo humano, sobre casos totales y sobre casos bien resueltos.</td><td>Un agente 2 % más acertado a 5 veces el costo puede no valer la pena, y sin este par no hay forma de verlo.</td></tr>
-    </tbody>
-  </table>
-  </div>
+  <ul>
+    <li><strong>Resolución sin intervención humana</strong>, por tipo de caso. Es el indicador que justifica la inversión, y hay que leerlo siempre junto al error caro para que no se optimice solo.</li>
+    <li><strong>Negaciones revertidas</strong> tras reclamación, queja o tutela. Es la evaluación externa de la calidad de las negaciones, con consecuencia legal y reputacional.</li>
+    <li><strong>Glosa asociada a la autorización</strong>, con su causal. Es el reloj tardío convertido en número, y la única señal fuerte de autorizaciones emitidas sin sustento.</li>
+    <li><strong>Autorizaciones sin atención identificada</strong>, que mezclan fuga de servicio, problemas de agenda y debilidad de correlación: hay que separarlos antes de actuar.</li>
+    <li><strong>Costo por caso y costo por caso correcto</strong>. Un agente 2% más acertado a cinco veces el costo puede no valer la pena, y sin este par no hay forma de verlo.</li>
+  </ul>
 
   <h3>De acertividad por agente</h3>
 
@@ -767,17 +792,7 @@
 
   <p>El equipo definió que las notificaciones se emiten cruzando tres dimensiones: <strong>actor</strong>, quién recibe; <strong>canal</strong>, por dónde; y <strong>carácter</strong>, si la torre avisa por iniciativa propia o solo responde cuando le preguntan. Nos parece la formulación correcta y agregamos una cuarta condición, la del gobierno: toda notificación proactiva es una acción de la torre, así que entra en la misma escala de grados que el resto de sus acciones.</p>
 
-  <div class="tbl-wide">
-  <table class="tbl">
-    <thead><tr><th>Ejemplo</th><th>Actor y canal</th><th>Carácter</th></tr></thead>
-    <tbody>
-      <tr><th>Aviso de posible incumplimiento del tiempo de respuesta</th><td>Asegurado, por aplicación o mensajería</td><td>Proactivo: da tranquilidad antes de que el cliente pregunte</td></tr>
-      <tr><th>Alerta de casos por vencer o de desborde de capacidad</th><td>Evaluadores y líderes, por canal interno</td><td>Proactivo, con dueño y plazo</td></tr>
-      <tr><th>Estado de la autorización</th><td>Prestador o asesor, por su propio canal</td><td>Pasivo: responde a la consulta</td></tr>
-      <tr><th>Solicitud radicada en nombre del cliente</th><td>Asegurado, por su canal preferido</td><td>Proactivo: evita duplicados, que es lo que el equipo buscaba</td></tr>
-    </tbody>
-  </table>
-  </div>
+  <p>Los casos típicos: avisar al asegurado cuando un tiempo comprometido está en riesgo, alertar a evaluadores y líderes por casos por vencer o desborde de capacidad, responder el estado al prestador o al asesor cuando consultan, y avisar al asegurado cuando alguien radica en su nombre, que es lo que evita duplicados.</p>
 
   <div class="keypoint">
     <span class="keypoint-label">Una advertencia sobre datos sensibles</span>
@@ -1051,16 +1066,105 @@
     <p>Recomendamos que ninguna consecuencia hacia un prestador o un asegurado se dispare de forma automática desde esta capa. Una anomalía es una hipótesis con evidencia, y su destino es una cola de investigación humana con su propio registro. Automatizar la sanción convierte un falso positivo estadístico en un daño real y difícil de deshacer, y expone a la organización más de lo que la protege.</p>
   </div>
 
+  <h2 id="paralelo">Por qué la torre se construye junto con los gestores, no después</h2>
+
+  <p>Es la pregunta que decide si esta torre entra al presupuesto ahora o se pospone a cuando los gestores ya estén andando. La respondemos aquí porque la respuesta no es de preferencia, es de costo.</p>
+
+  <ol>
+    <li><strong>La evidencia no es retroactiva.</strong> Un gestor que opera sin emitir traza no deja nada que reconstruir. Los casos de esas semanas se pierden: no hay conjunto de casos conocidos, no hay línea base, y no hay forma de afirmar si una versión nueva del agente mejoró o empeoró.</li>
+    <li><strong>El costo de instrumentar crece, y no de forma lineal.</strong> Mientras el gestor se construye, la traza es parte del trabajo. Después es tocar código en producción, coordinar despliegues y reprocesar historia, multiplicado por seis gestores.</li>
+    <li><strong>Sin definición común, cada gestor inventa su propia medición.</strong> Unificar seis mediciones distintas cuesta más que acordar una sola, y mientras tanto ninguna se puede comparar con las demás.</li>
+    <li><strong>La autonomía no se otorga sin historia.</strong> El criterio de ascenso exige volumen de casos y acierto sostenido durante un período. Si la medición arranca cuando el gestor ya está en producción, el reloj de la autonomía arranca tarde: el agente pasa meses en revisión humana no porque falle, sino porque no hay evidencia para promoverlo. Ese retraso tiene costo operativo directo.</li>
+    <li><strong>El primer gestor fija el estándar de los otros cinco.</strong> Lo que emita el Gestor de Solicitud se va a copiar. Si emite bien, los demás heredan; si emite mal, el error se hereda y se paga seis veces.</li>
+    <li><strong>Los riesgos ya declarados corren desde el primer caso.</strong> El fraude estructural que el propio equipo registró, que hoy no se verifica que el servicio facturado se haya prestado, y el avance indebido de una autorización sin sustento, no esperan a que exista la torre. Ocurren desde que el primer agente decide en producción.</li>
+  </ol>
+
+  <div class="keypoint">
+    <span class="keypoint-label">La objeción, y la respuesta</span>
+    <p>Esto compite por capacidad con construir funcionalidad, y esa objeción es legítima. La respuesta tiene dos partes. La etapa 1 <strong>no depende del core ni del lago de datos</strong>: pide que cada gestor emita con un esquema acordado, que es trabajo de días por gestor cuando se hace mientras se construye. Y lo que se obtiene a cambio, el tablero de dónde está cada solicitud y qué se va a vencer, se paga solo en la operación diaria, antes de que exista un solo indicador de acertividad.</p>
+  </div>
+
   <h2 id="secuencia">Qué construir primero</h2>
 
-  <p>La torre no tiene que estar completa para ser útil. Proponemos cuatro etapas, cada una con valor propio y con la siguiente ya habilitada.</p>
+  <p>La torre no tiene que estar completa para ser útil. Proponemos cuatro etapas, cada una con valor propio y con la siguiente ya habilitada. Ninguna es un proyecto aparte: las dos primeras son, sobre todo, trabajo dentro de cada gestor mientras se construye.</p>
 
   <ol class="steps">
-    <li><strong>Eventos y correlación del caso, más el tablero operativo.</strong> Con los hitos mínimos y la llave de correlación se obtiene lo que hoy no existe: saber dónde está cada solicitud, cuánto lleva esperando y qué se va a vencer. Ese tablero se paga solo en la operación diaria.</li>
-    <li><strong>Medición de acertividad y semáforo de autonomía.</strong> Cuando la corrección humana empiece a capturarse con estructura, la torre puede mostrar acierto por agente junto a los indicadores del negocio, y el nivel de autonomía deja de ser una conversación de pasillo.</li>
-    <li><strong>Alertas con marcos de actuación.</strong> Aquí la torre pasa de informar a intervenir: severidades, dueños, plazos y descenso automático de autonomía cuando se cruza el límite acordado.</li>
-    <li><strong>Relojes tardíos y anomalías.</strong> La correlación con cuenta médica, glosas y reclamaciones, y la detección de patrones. Es la etapa que más valor de negocio agrega y la que más depende de que las tres anteriores estén sanas.</li>
+    <li><strong>Eventos y correlación del caso, más el tablero operativo.</strong> Habilita lo que hoy no existe: saber dónde está cada solicitud, cuánto lleva esperando y qué se va a vencer. Ese tablero se paga solo en la operación diaria, antes de que exista un solo indicador de acertividad.</li>
+    <li><strong>Medición de acertividad y semáforo de autonomía.</strong> Habilita mostrar el acierto por agente junto a los indicadores del negocio, y convierte el grado de autonomía en una decisión con evidencia en lugar de una conversación de pasillo.</li>
+    <li><strong>Alertas con marcos de actuación.</strong> Habilita que la torre pase de informar a intervenir: severidades, dueños, plazos y descenso automático de autonomía cuando se cruza el límite acordado.</li>
+    <li><strong>Relojes tardíos y anomalías.</strong> Habilita cerrar el bucle con la evidencia que llega semanas después, glosas, casos revocados y reclamaciones, y detectar patrones. Es la que más valor de negocio agrega y la que más depende de que las tres anteriores estén sanas.</li>
   </ol>
+
+  <p>Con más detalle, para poder estimarlas y para saber cuándo cada una está realmente terminada:</p>
+
+  <div class="tbl-wide">
+  <table class="tbl">
+    <thead><tr><th>Etapa</th><th>Qué incluye</th><th>De qué depende</th><th>Terminó cuando</th></tr></thead>
+    <tbody>
+      <tr>
+        <th>1. Eventos y tablero operativo</th>
+        <td>Esquema de traza y de evento acordado; emisión desde cada gestor; ingesta idempotente con ventana para datos tardíos; llave de correlación del caso y del siniestro padre; tablero de bandejas, tiempos y vencimientos.</td>
+        <td>Solo de Gestores. No requiere el core ni el lago de datos.</td>
+        <td>Todos los cambios de estado de los gestores en operación llegan a la torre con el esquema acordado, y la operación usa el tablero para priorizar su día.</td>
+      </tr>
+      <tr>
+        <th>2. Acertividad y semáforo</th>
+        <td>Captura estructurada de la corrección humana; conjunto de casos conocidos con dueño; indicadores de acierto por agente; semáforo de grados por agente y tipo de caso, con techos; contrato de la API de autonomía.</td>
+        <td>De la etapa 1 y de que exista volumen de casos revisados.</td>
+        <td>Cada agente en producción tiene grado declarado, con la evidencia que lo respalda y la distancia al siguiente grado calculada por la torre.</td>
+      </tr>
+      <tr>
+        <th>3. Alertas y actuación</th>
+        <td>Severidades con dueño y plazo; marcos de actuación escritos como guiones cortos; ejecución de acciones operativas con registro y reversión; descenso automático de autonomía.</td>
+        <td>De las etapas 1 y 2, y de acordar con el negocio el límite tolerable del error caro.</td>
+        <td>Toda alerta tiene dueño y plazo, y existe al menos un caso real donde una acción automática se ejecutó, quedó registrada y pudo revertirse.</td>
+      </tr>
+      <tr>
+        <th>4. Relojes tardíos y anomalías</th>
+        <td>Ingesta de cuenta médica, glosas, casos revocados y reclamaciones; correlación con la decisión que las originó; detección de patrones de duplicidad, fragmentación y prestador atípico; analítica prescriptiva.</td>
+        <td>Del lago de datos de autorizaciones y de acordar la llave de correlación con cuenta médica.</td>
+        <td>Un caso desmentido por el reloj tardío entra automáticamente al conjunto de casos conocidos del agente responsable.</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>Qué le toca a cada gestor, y qué al equipo de la torre</h3>
+
+  <p>Esta separación es la que hace posible avanzar en paralelo. La mayor parte del trabajo de las dos primeras etapas no es de un equipo de torre: es de cada equipo de gestor, mientras construye lo suyo.</p>
+
+  <div class="tbl-wide">
+  <table class="tbl">
+    <thead><tr><th>Le toca a cada gestor</th><th>Le toca al equipo de la torre</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Emitir un evento por cada cambio de estado, con el esquema común y sin campos propios inventados.</td>
+        <td>Publicar y versionar ese esquema, y rechazar lo que no cumpla.</td>
+      </tr>
+      <tr>
+        <td>Registrar la traza de sus agentes: entrada, salida, herramienta usada, confianza, latencia, costo y versión del artefacto.</td>
+        <td>Consolidar, correlacionar por caso y conservar la ventana para datos rezagados.</td>
+      </tr>
+      <tr>
+        <td>Capturar con estructura la corrección humana que ocurre en sus bandejas.</td>
+        <td>Convertir esas correcciones en indicadores comparables entre gestores.</td>
+      </tr>
+      <tr>
+        <td>Proponer los números de ascenso de sus propios agentes.</td>
+        <td>Calcular la distancia al siguiente grado y exponer el semáforo, sin depender de lo que reporte el equipo del agente.</td>
+      </tr>
+      <tr>
+        <td>Exponer un punto de reversión para las acciones operativas que la torre pueda ejecutar sobre su flujo.</td>
+        <td>Ejecutar esas acciones con identidad propia, alcance mínimo y registro por acción.</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="keypoint">
+    <span class="keypoint-label">La consecuencia para la planeación</span>
+    <p>El costo de la etapa 1 se reparte: es trabajo de días dentro de cada gestor, más un consumidor común. Presentarla como un proyecto de torre de control separado, con su propio cronograma detrás de los seis gestores, es lo que la vuelve cara y lo que hace que llegue tarde.</p>
+  </div>
 
   <div class="keypoint">
     <span class="keypoint-label">Lo único que no conviene diferir</span>
@@ -1069,7 +1173,7 @@
 
   <h3 id="dependencias">Dependencias, y qué se puede medir antes</h3>
 
-  <p>Dos dependencias externas condicionan el calendario de la torre, y las dos están declaradas en el seguimiento del equipo. La primera: el proyecto solo funciona si los cores exponen información vía API. La segunda: el lago de datos de autorizaciones es un entregable posterior del plan de releases. Los plazos de ambas los definen sus equipos, no esta propuesta; lo que aportamos es el orden de dependencia, no la fecha.</p>
+  <p>Dos dependencias externas condicionan el calendario de la torre, y las dos están declaradas en el seguimiento del equipo. La primera: el proyecto solo funciona si los cores exponen información vía API. La segunda: el lago de datos de autorizaciones es un entregable posterior del plan de releases. Hay una tercera, de plataforma y no de negocio: la torre se monta sobre la recolección de telemetría, el bus de eventos y el almacenamiento de series que la organización opere, y necesita que ese almacenamiento admita el horizonte largo del reloj tardío. Si la plataforma existente solo cubre el horizonte corto, hace falta habilitar un almacén aparte para la evidencia, y esa habilitación tiene dueño propio. Los plazos de ambas los definen sus equipos, no esta propuesta; lo que aportamos es el orden de dependencia, no la fecha.</p>
 
   <p>Eso no bloquea la torre, pero sí ordena qué se mide y cuándo. La tabla siguiente separa lo que depende de terceros de lo que depende solo de Gestores.</p>
 
@@ -1099,6 +1203,7 @@
     <div class="card"><div class="card-title">Alertas que nadie atiende</div><div class="card-body">Es la forma más común de matar una torre. Mitigación: dueño y plazo obligatorios, y revisar cada mes qué alertas se ignoraron para apagarlas o corregir su umbral.</div></div>
     <div class="card"><div class="card-title">Correlaciones débiles presentadas como hechos</div><div class="card-body">Un indicador armado sobre aproximaciones se ve idéntico a uno firme. Mitigación: publicar el nivel de confianza de la correlación junto al indicador.</div></div>
     <div class="card"><div class="card-title">Concentración de datos sensibles</div><div class="card-body">La torre ve todo el caso clínico de punta a punta. Mitigación: filtrado por perfil antes de construir la vista, y tratar los tableros externos como superficies con control propio.</div></div>
+    <div class="card"><div class="card-title">Ecosistema repartido entre dos nubes</div><div class="card-body">El propio seguimiento del equipo tiene abierto el riesgo de que una pieza del ecosistema quede en una nube distinta al resto. Para una torre que se suscribe a la totalidad de los eventos, eso se traduce en latencia, costo de salida y un punto más donde la traza se corta. Mitigación: decidir temprano dónde vive la recolección y tratar el cruce de nubes como una integración con su propio presupuesto de tiempo y su propia métrica de rezago.</div></div>
     <div class="card"><div class="card-title">Que mida el gestor y no el proceso</div><div class="card-body">Seis gestores impecables no garantizan una autorización correcta. Mitigación: mantener al menos un indicador de punta a punta y el reloj tardío.</div></div>
     <div class="card"><div class="card-title">Que la torre termine decidiendo</div><div class="card-body">Bajo presión operativa es tentador dejar que la torre resuelva. Mitigación: si una capacidad decide sobre el negocio, se gobierna como agente, con su nivel de madurez.</div></div>
   </div>
@@ -1114,7 +1219,7 @@
   <table class="tbl">
     <thead><tr><th>Capacidad de la torre</th><th>Referencia externa</th><th>Documentación</th></tr></thead>
     <tbody>
-      <tr><th>Traza homogénea de cada decisión de agente</th><td>Convenciones semánticas de OpenTelemetry, versión liberada 1.44.0: el estándar abierto para spans, métricas y atributos de traza. Las convenciones específicas de IA generativa están en desarrollo y se trasladaron a un repositorio aparte, así que recomendamos fijar el esquema propio sobre la parte liberada en lugar de depender de una convención en movimiento.</td><td><a href="https://opentelemetry.io/docs/specs/semconv/">Convenciones semánticas, versión 1.44.0</a></td></tr>
+      <tr><th>Traza homogénea de cada decisión de agente</th><td>Convenciones semánticas de OpenTelemetry, versión liberada 1.44.0: el estándar abierto para spans, métricas y atributos de traza. Lo citamos como <strong>convención de esquema, no como herramienta</strong>: fija cómo se nombran los atributos de la traza, y es compatible con cualquier plataforma de observabilidad que la organización ya opere. Las convenciones específicas de IA generativa están en desarrollo y se trasladaron a un repositorio aparte, así que recomendamos fijar el esquema propio sobre la parte liberada en lugar de depender de una convención en movimiento.</td><td><a href="https://opentelemetry.io/docs/specs/semconv/">Convenciones semánticas, versión 1.44.0</a></td></tr>
       <tr><th>Plano de control sobre los agentes</th><td>El concepto documentado como plano de control de agentes: registro de agentes y herramientas, control de acceso, gestión de ejecución y de ciclo de vida, aplicación de políticas, enrutamiento, estado y telemetría. Incluye la distinción que usamos: medir lo que un agente hace es distinto de definir lo que le está permitido.</td><td><a href="https://www.ibm.com/es-es/think/topics/agent-control-plane">IBM, plano de control de agentes</a></td></tr>
       <tr><th>Operar la medición como sistema de gestión, no como proyecto</th><td>ISO/IEC 42001:2023, primer estándar de sistema de gestión de IA: objetivos y criterios de éxito, evaluación de riesgos, controles proporcionales y monitoreo continuo. ISO/IEC 23894:2023 aporta la guía de gestión de riesgos.</td><td><a href="https://www.iso.org/standard/42001">ISO/IEC 42001:2023</a> · <a href="https://www.iso.org/standard/77304.html">ISO/IEC 23894:2023</a></td></tr>
       <tr><th>Vocabulario de riesgo y medición</th><td>NIST AI Risk Management Framework 1.0, con sus funciones de gobernar, mapear, medir y gestionar, y su Playbook. Es de uso voluntario y es la referencia más citada del mercado.</td><td><a href="https://www.nist.gov/itl/ai-risk-management-framework">NIST AI RMF 1.0 y su Playbook</a></td></tr>
