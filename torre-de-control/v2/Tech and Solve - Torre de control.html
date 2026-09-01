@@ -306,6 +306,7 @@
   <a href="#alertas">Alertas y marcos de actuación</a>
   <a href="#autonomia">Gobierno de la autonomía</a>
   <a href="#partida" class="nav-strong">II · Punto de partida</a>
+  <a href="#fuentes" class="nav-sub">De dónde entra cada fuente</a>
   <a href="#eventos">Eventos mínimos del ciclo</a>
   <a href="#tableros">Tableros por actor</a>
   <a href="#anomalias">Anomalías e integridad</a>
@@ -361,7 +362,7 @@
   </div>
 
   <div class="support">
-    <p><span class="support-label">De quién es el marco</span>Lo que aporta rigor aquí no es un método propietario: son <strong>estándares publicados y verificables</strong> — ISO/IEC 42001 y 23894, el marco de gestión de riesgo de IA del NIST, el reglamento europeo de IA y las convenciones semánticas de OpenTelemetry en su versión liberada. Cada capacidad de la primera parte remite a uno de ellos, con su enlace, en el <a href="#anexoA">Anexo A</a>. Lo nuestro es la estructuración: ordenar lo que esos estándares exigen en cinco capas, tres relojes y una escala de autonomía, y traducirlo a un sistema agéntico de autorizaciones. Ninguna de esas normas obliga al cliente: se presentan como referencia de mercado.</p>
+    <p><span class="support-label">De quién es el marco</span>Lo que aporta rigor aquí no es un método propietario: son <strong>estándares publicados y verificables</strong> — ISO/IEC 42001 y 23894, el marco de gestión de riesgo de IA del NIST, el reglamento europeo de IA y las convenciones semánticas de OpenTelemetry en su versión liberada. Las exigencias que provienen de un estándar remiten a él, con su enlace, en el <a href="#anexoA">Anexo A</a>: la traza homogénea, el plano de control, la supervisión proporcional a la autonomía, el registro de eventos y el monitoreo posterior al despliegue. Lo demás es <strong>aporte propio y lo declaramos como tal</strong>: la descomposición en cinco capas y, sobre todo, los tres relojes de la verdad, que no salen de ninguna norma sino de cómo se comporta el negocio de salud. Distinguir las dos cosas nos parece más útil que presentarlo todo como si viniera respaldado. Ninguna de esas normas obliga al cliente: se presentan como referencia de mercado.</p>
   </div>
 
   <p>Todo se apoya en componentes que el equipo ya dibujó, y todo es debatible: cada capacidad se puede tomar, ajustar o descartar sin que se caigan las demás.</p>
@@ -551,21 +552,6 @@
     <p><span class="support-label">Sustento</span>El diseño del equipo ya contempla una arquitectura de dos caminos, en línea y por lotes, y productos de datos hacia el lago de datos. Eso resuelve la mitad del problema. Lo que proponemos agregar es explícito: que la vista del caso admita actualización tardía sin reabrir el proceso de negocio, es decir que un caso cerrado operativamente pueda seguir recibiendo evidencia de calidad.</p>
   </div>
 
-  <h3>De dónde entra cada fuente, con la realidad de hoy</h3>
-
-  <p>El equipo fijó un principio que condiciona esta capa: si Gestores necesita un dato de interoperabilidad, lo pide primero al core, y una conexión directa solo se justifica cuando el core no tiene ni va a tener ese dato. Aplicado a la torre:</p>
-
-  <ul>
-    <li><strong>Eventos de los gestores</strong>, por suscripción a la totalidad del bus. Disponibles en la medida en que cada gestor emita.</li>
-    <li><strong>Estados y señales tardías</strong>, cuenta médica, glosas, reclamaciones y tutelas, <strong>vía el core</strong> y como carga periódica, no en línea.</li>
-    <li><strong>Confirmación de la atención</strong>, por tres caminos con alcance distinto. <strong>Agenda Web</strong>, dentro de la red SURA, que ya aporta la secuencia agendado, confirmado, inasistencia, en atención y prestado: es la fuente más fuerte donde existe. <strong>Interoperabilidad clínica</strong>, hoy cerca del 30% de prestadores y solo consulta externa. Y el <strong>front de canales</strong>, cuando el asegurado confirma. Fuera de la red SURA no hay agenda, y ahí la confirmación depende de los otros dos. La clave dinámica y el código de un solo uso quedaron fuera del alcance de esta fase.</li>
-  </ul>
-
-  <div class="keypoint">
-    <span class="keypoint-label">La consecuencia práctica</span>
-    <p>La torre no debería diseñarse asumiendo acceso directo a esas fuentes. Se diseña con el core como intermediario y con una ventana que admite datos rezagados, que es lo que permite que la correlación tardía funcione cuando el lago exista, sin rehacer el modelo.</p>
-  </div>
-
   <h3 id="plataforma">Qué se apoya en la plataforma que ya existe, y qué no puede vivir ahí</h3>
 
   <p>Buena parte de esta primera capa no hay que construirla. La recolección de telemetría, el transporte de eventos y el almacenamiento de series son capacidades de plataforma que la organización ya opera o va a operar de todos modos, y la torre debería montarse encima en lugar de levantar las suyas. Lo que sí construye la torre es lo que ninguna plataforma trae de fábrica: el <strong>contrato de eventos del negocio</strong>, la <strong>correlación de la solicitud</strong> con su siniestro padre, y la <strong>ventana para evidencia rezagada</strong>.</p>
@@ -657,7 +643,7 @@
 
   <div class="keypoint">
     <span class="keypoint-label">La consecuencia de diseño</span>
-    <p>Correlacionar autorizaciones con glosas, reclamaciones y tutelas no es analítica financiera: es <strong>medición de calidad del agente con retraso</strong>. Por eso proponemos que la torre trate esas fuentes como entrada de primera clase desde el diseño inicial, y que cada caso desmentido por el reloj tardío entre automáticamente al conjunto de casos de prueba del agente responsable.</p>
+    <p>Correlacionar autorizaciones con glosas, reclamaciones y tutelas no es analítica financiera: es <strong>medición de calidad del agente con retraso</strong>. Por eso proponemos que la torre trate esas fuentes como entrada de primera clase desde el diseño inicial, y que cada caso desmentido por el reloj tardío entre automáticamente al golden set del agente responsable.</p>
   </div>
 
   <h2 id="indicadores">Indicadores</h2>
@@ -1050,6 +1036,21 @@
   </div>
 
 
+  <h3 id="fuentes">De dónde entra cada fuente, con la realidad de hoy</h3>
+
+  <p>El equipo fijó un principio que condiciona la capa de ingesta de la torre: si Gestores necesita un dato de interoperabilidad, lo pide primero al core, y una conexión directa solo se justifica cuando el core no tiene ni va a tener ese dato. Aplicado a la torre:</p>
+
+  <ul>
+    <li><strong>Eventos de los gestores</strong>, por suscripción a la totalidad del bus. Disponibles en la medida en que cada gestor emita.</li>
+    <li><strong>Estados y señales tardías</strong>, cuenta médica, glosas, reclamaciones y tutelas, <strong>vía el core</strong> y como carga periódica, no en línea.</li>
+    <li><strong>Confirmación de la atención</strong>, por tres caminos con alcance distinto. <strong>Agenda Web</strong>, dentro de la red SURA, que ya aporta la secuencia agendado, confirmado, inasistencia, en atención y prestado: es la fuente más fuerte donde existe. <strong>Interoperabilidad clínica</strong>, hoy cerca del 30% de prestadores y solo consulta externa. Y el <strong>front de canales</strong>, cuando el asegurado confirma. Fuera de la red SURA no hay agenda, y ahí la confirmación depende de los otros dos. La clave dinámica y el código de un solo uso quedaron fuera del alcance de esta fase.</li>
+  </ul>
+
+  <div class="keypoint">
+    <span class="keypoint-label">La consecuencia práctica</span>
+    <p>La torre no debería diseñarse asumiendo acceso directo a esas fuentes. Se diseña con el core como intermediario y con una ventana que admite datos rezagados, que es lo que permite que la correlación tardía funcione cuando el lago exista, sin rehacer el modelo.</p>
+  </div>
+
   <h2 id="eventos">Los eventos mínimos del ciclo</h2>
 
   <p>La torre solo puede mostrar lo que los gestores emitan. Esta es nuestra propuesta de hitos mínimos para el ciclo de una autorización de salud, con lo que cada uno habilita. Todos comparten los campos comunes del esquema, caso, línea de negocio, tipo de solicitud, gestor y agente con su versión, y marca de tiempo.</p>
@@ -1301,7 +1302,7 @@
     <div class="annex-sum">Para que cada capacidad tenga una referencia externa y no dependa de nuestra opinión.</div>
   </div>
 
-  <p>Una torre de control de agentes no es una invención de este proyecto. Cada una de sus capacidades tiene un estándar, una guía o una norma que la respalda, y en seguros hay además pronunciamientos de supervisores. Vale la pena tenerlos a mano, porque son la mejor defensa cuando alguien pregunte de dónde salió el criterio.</p>
+  <p>Una torre de control de agentes no es una invención de este proyecto. Buena parte de sus capacidades tiene un estándar, una guía o una norma que la respalda, y en seguros hay además pronunciamientos de supervisores; esta tabla los reúne. Vale la pena tenerlos a mano, porque son la mejor defensa cuando alguien pregunte de dónde salió el criterio. <strong>Lo que no aparece aquí es aporte nuestro</strong>, empezando por los tres relojes de la verdad: ninguna norma los exige, y los proponemos porque es como se comporta la evidencia en autorizaciones de salud.</p>
 
   <div class="tbl-wide">
   <table class="tbl">
