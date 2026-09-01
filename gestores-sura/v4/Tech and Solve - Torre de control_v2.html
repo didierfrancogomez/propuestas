@@ -340,8 +340,8 @@
     <p class="subtitle">Propuesta de capacidades, indicadores y gobierno para la torre de control del sistema de gestores, pensada para el negocio de autorizaciones de salud.</p>
   </div>
   <div class="cover-meta">SURA Colombia · Transformación prestación y reclamaciones, MVP autorizaciones de salud<br>
-  Elaborado por Tech and Solve para SURA · Agosto de 2026<br>
-  Complementa las notas de arquitectura de esta serie y se apoya en los diseños vigentes del equipo, <em>Arquitectura-Gestores</em> y <em>Arquitectura-Gestores General Transversal</em>.</div>
+  Elaborado por Tech and Solve para SURA · Septiembre de 2026<br>
+  Complementa las notas de arquitectura de esta serie y se apoya en los diseños vigentes del equipo, en su versión del 1 de septiembre de 2026.</div>
 
   <h2 id="objetivo">Objetivo</h2>
 
@@ -1045,7 +1045,7 @@
   <p>Ubicarlo en la torre nos parece correcto, porque es donde ya vive la parametrización de autonomía y el tablero de estado. Lo que no recomendamos es que el ajuste de tiempos siga un camino y el de umbrales otro: son la misma clase de cambio y merecen la misma compuerta.</p>
 
   <div class="support">
-    <p><span class="support-label">Sustento</span>La formulación que usa la regulación europea de referencia para sistemas de alto riesgo es que las medidas de supervisión humana deben ser proporcionales a los riesgos, al nivel de autonomía y al contexto de uso. Esa frase es, literalmente, el argumento de una escala de madurez por tipo de caso, y es la mejor defensa disponible frente a un auditor que pregunte por qué un agente decide solo en unos casos y no en otros. El detalle de fuentes está en el <a href="#anexoA">anexo A</a>.</p>
+    <p><span class="support-label">Sustento</span>La formulación que usa la regulación europea de referencia para sistemas de alto riesgo es que las medidas de supervisión humana deben ser proporcionales a los riesgos, al nivel de autonomía y al contexto de uso. Esa frase es, literalmente, el argumento de una escala de grados de autonomía por tipo de caso, y es la mejor defensa disponible frente a un auditor que pregunte por qué un agente decide solo en unos casos y no en otros. El detalle de fuentes está en el <a href="#anexoA">anexo A</a>.</p>
   </div>
 
   <h2 id="anomalias">Anomalías e integridad de la reclamación</h2>
@@ -1071,7 +1071,7 @@
   <p>Es la pregunta que decide si esta torre entra al presupuesto ahora o se pospone a cuando los gestores ya estén andando. La respondemos aquí porque la respuesta no es de preferencia, es de costo.</p>
 
   <ol>
-    <li><strong>La evidencia no es retroactiva.</strong> Un gestor que opera sin emitir traza no deja nada que reconstruir. Los casos de esas semanas se pierden: no hay conjunto de casos conocidos, no hay línea base, y no hay forma de afirmar si una versión nueva del agente mejoró o empeoró.</li>
+    <li><strong>La evidencia no es retroactiva.</strong> Un gestor que opera sin emitir traza no deja nada que reconstruir. Los casos de esas semanas se pierden: no hay <strong>golden set</strong>, el conjunto de casos con respuesta conocida contra el que se mide un agente, no hay línea base, y no hay forma de afirmar si una versión nueva del agente mejoró o empeoró.</li>
     <li><strong>El costo de instrumentar crece, y no de forma lineal.</strong> Mientras el gestor se construye, la traza es parte del trabajo. Después es tocar código en producción, coordinar despliegues y reprocesar historia, multiplicado por seis gestores.</li>
     <li><strong>Sin definición común, cada gestor inventa su propia medición.</strong> Unificar seis mediciones distintas cuesta más que acordar una sola, y mientras tanto ninguna se puede comparar con las demás.</li>
     <li><strong>La autonomía no se otorga sin historia.</strong> El criterio de ascenso exige volumen de casos y acierto sostenido durante un período. Si la medición arranca cuando el gestor ya está en producción, el reloj de la autonomía arranca tarde: el agente pasa meses en revisión humana no porque falle, sino porque no hay evidencia para promoverlo. Ese retraso tiene costo operativo directo.</li>
@@ -1089,9 +1089,9 @@
   <p>La torre no tiene que estar completa para ser útil. Proponemos cuatro etapas, cada una con valor propio y con la siguiente ya habilitada. Ninguna es un proyecto aparte: las dos primeras son, sobre todo, trabajo dentro de cada gestor mientras se construye.</p>
 
   <ol class="steps">
-    <li><strong>Eventos y correlación del caso, más el tablero operativo.</strong> Habilita lo que hoy no existe: saber dónde está cada solicitud, cuánto lleva esperando y qué se va a vencer. Ese tablero se paga solo en la operación diaria, antes de que exista un solo indicador de acertividad.</li>
-    <li><strong>Medición de acertividad y semáforo de autonomía.</strong> Habilita mostrar el acierto por agente junto a los indicadores del negocio, y convierte el grado de autonomía en una decisión con evidencia en lugar de una conversación de pasillo.</li>
-    <li><strong>Alertas con marcos de actuación.</strong> Habilita que la torre pase de informar a intervenir: severidades, dueños, plazos y descenso automático de autonomía cuando se cruza el límite acordado.</li>
+    <li><strong>Eventos, correlación y tablero operativo.</strong> Habilita lo que hoy no existe: saber dónde está cada solicitud, cuánto lleva esperando y qué se va a vencer. Ese tablero se paga solo en la operación diaria, antes de que exista un solo indicador de acertividad.</li>
+    <li><strong>Acertividad y semáforo de autonomía.</strong> Habilita mostrar el acierto por agente junto a los indicadores del negocio, y convierte el grado de autonomía en una decisión con evidencia en lugar de una conversación de pasillo.</li>
+    <li><strong>Alertas y actuación.</strong> Habilita que la torre pase de informar a intervenir: severidades, dueños, plazos y descenso automático de autonomía cuando se cruza el límite acordado.</li>
     <li><strong>Relojes tardíos y anomalías.</strong> Habilita cerrar el bucle con la evidencia que llega semanas después, glosas, casos revocados y reclamaciones, y detectar patrones. Es la que más valor de negocio agrega y la que más depende de que las tres anteriores estén sanas.</li>
   </ol>
 
@@ -1102,14 +1102,14 @@
     <thead><tr><th>Etapa</th><th>Qué incluye</th><th>De qué depende</th><th>Terminó cuando</th></tr></thead>
     <tbody>
       <tr>
-        <th>1. Eventos y tablero operativo</th>
+        <th>1. Eventos, correlación y tablero operativo</th>
         <td>Esquema de traza y de evento acordado; emisión desde cada gestor; ingesta idempotente con ventana para datos tardíos; llave de correlación del caso y del siniestro padre; tablero de bandejas, tiempos y vencimientos.</td>
         <td>Solo de Gestores. No requiere el core ni el lago de datos.</td>
         <td>Todos los cambios de estado de los gestores en operación llegan a la torre con el esquema acordado, y la operación usa el tablero para priorizar su día.</td>
       </tr>
       <tr>
-        <th>2. Acertividad y semáforo</th>
-        <td>Captura estructurada de la corrección humana; conjunto de casos conocidos con dueño; indicadores de acierto por agente; semáforo de grados por agente y tipo de caso, con techos; contrato de la API de autonomía.</td>
+        <th>2. Acertividad y semáforo de autonomía</th>
+        <td>Captura estructurada de la corrección humana; golden set con dueño; indicadores de acierto por agente; semáforo de grados por agente y tipo de caso, con techos; contrato de la API de autonomía.</td>
         <td>De la etapa 1 y de que exista volumen de casos revisados.</td>
         <td>Cada agente en producción tiene grado declarado, con la evidencia que lo respalda y la distancia al siguiente grado calculada por la torre.</td>
       </tr>
@@ -1123,7 +1123,7 @@
         <th>4. Relojes tardíos y anomalías</th>
         <td>Ingesta de cuenta médica, glosas, casos revocados y reclamaciones; correlación con la decisión que las originó; detección de patrones de duplicidad, fragmentación y prestador atípico; analítica prescriptiva.</td>
         <td>Del lago de datos de autorizaciones y de acordar la llave de correlación con cuenta médica.</td>
-        <td>Un caso desmentido por el reloj tardío entra automáticamente al conjunto de casos conocidos del agente responsable.</td>
+        <td>Un caso desmentido por el reloj tardío entra automáticamente al golden set del agente responsable.</td>
       </tr>
     </tbody>
   </table>
@@ -1205,7 +1205,7 @@
     <div class="card"><div class="card-title">Concentración de datos sensibles</div><div class="card-body">La torre ve todo el caso clínico de punta a punta. Mitigación: filtrado por perfil antes de construir la vista, y tratar los tableros externos como superficies con control propio.</div></div>
     <div class="card"><div class="card-title">Ecosistema repartido entre dos nubes</div><div class="card-body">El propio seguimiento del equipo tiene abierto el riesgo de que una pieza del ecosistema quede en una nube distinta al resto. Para una torre que se suscribe a la totalidad de los eventos, eso se traduce en latencia, costo de salida y un punto más donde la traza se corta. Mitigación: decidir temprano dónde vive la recolección y tratar el cruce de nubes como una integración con su propio presupuesto de tiempo y su propia métrica de rezago.</div></div>
     <div class="card"><div class="card-title">Que mida el gestor y no el proceso</div><div class="card-body">Seis gestores impecables no garantizan una autorización correcta. Mitigación: mantener al menos un indicador de punta a punta y el reloj tardío.</div></div>
-    <div class="card"><div class="card-title">Que la torre termine decidiendo</div><div class="card-body">Bajo presión operativa es tentador dejar que la torre resuelva. Mitigación: si una capacidad decide sobre el negocio, se gobierna como agente, con su nivel de madurez.</div></div>
+    <div class="card"><div class="card-title">Que la torre termine decidiendo</div><div class="card-body">Bajo presión operativa es tentador dejar que la torre resuelva. Mitigación: si una capacidad decide sobre el negocio, se gobierna como agente, con su grado de autonomía.</div></div>
   </div>
 
   <div class="annex" id="anexoA">
@@ -1249,7 +1249,7 @@
       <tr><th>P1. Traza y evento comunes</th><td>Es su consumidor principal y la razón por la que el esquema debe ser único. La capa 1 de la torre define la ventana para datos tardíos que P1 no contempla por sí sola.</td></tr>
       <tr><th>P2. Verdad de referencia desde preradicado</th><td>La torre expone la corrección humana como etiqueta y agrega la fuente que preradicado no tiene: el reloj tardío de glosas y reclamaciones.</td></tr>
       <tr><th>P3. Compuerta antes de producción</th><td>La torre no ejecuta la compuerta, pero muestra su resultado por versión y detecta la deriva que obliga a volver a medir.</td></tr>
-      <tr><th>P4. Escala de madurez y API de autonomía</th><td>Es donde vive: el semáforo por agente y tipo de caso, la distancia al ascenso y el registro de cada cambio de nivel.</td></tr>
+      <tr><th>P4. Escala de grados de autonomía conectada a la API</th><td>Es donde vive: el semáforo por agente y tipo de caso, la distancia al ascenso y el registro de cada cambio de nivel.</td></tr>
       <tr><th>P5. Auditor con compuerta</th><td>La torre es el destinatario del auditor en su modo pasivo, y la que hace visible si sus recomendaciones aprobadas mejoraron la métrica.</td></tr>
       <tr><th>P6. Umbral por costo del error</th><td>La torre mide el error caro contra el límite acordado y ejecuta el descenso automático de autonomía cuando se cruza.</td></tr>
       <tr><th>Acuerdo sobre estados</th><td>La torre es dueña de la vista materializada y de los meta-estados, nunca del estado autoritativo. Esta nota lo repite porque es la confusión más costosa.</td></tr>
@@ -1326,7 +1326,7 @@
       <tr><th>Seguimiento del momento de verdad: cita programada, asistencia y novedades del servicio</th><td>Capa 2, correlación</td><td>Diseño del equipo; aportamos el nivel de confianza por fuente de confirmación</td></tr>
       <tr><th>Auditoría de decisiones automáticas por muestreo, con foco en pertinencia médica</th><td>Capa 3 y sección de anomalías</td><td>Compartido: la torre selecciona la muestra y registra el resultado; el juicio clínico es del equipo médico</td></tr>
       <tr><th>Capa de auditoría que reporta patrones a la torre, pasiva en su primera versión</th><td>Fuera de la torre; entra como fuente</td><td>Diseño del equipo; coincide con la compuerta que proponemos para que pueda actuar</td></tr>
-      <tr><th>Límite de la auto-reparación de prompts del agente auditor</th><td>Sección de gobierno de la autonomía</td><td>Diseño del equipo; es el mismo argumento del conjunto de casos conocidos y la compuerta de regresión</td></tr>
+      <tr><th>Límite de la auto-reparación de prompts del agente auditor</th><td>Sección de gobierno de la autonomía</td><td>Diseño del equipo; es el mismo argumento del golden set y la compuerta de regresión</td></tr>
     </tbody>
   </table>
   </div>
@@ -1370,7 +1370,8 @@
 
   <h4>Diseños del equipo, fuente primaria</h4>
   <ul class="sources">
-    <li><em>Arquitectura-Gestores.drawio</em>, con las vistas Gestor de monitoreo, Detalle y Arq gestores V2, de donde provienen las capacidades declaradas de la torre de control.</li>
+    <li><em>Arquitectura-Gestores</em>, en su versión del 1 de septiembre de 2026, con las vistas Gestor de monitoreo, Detalle y Arq gestores V2, de donde provienen las capacidades declaradas de la torre de control.</li>
+    <li><em>Seguimiento de requerimientos de Gestores 2026</em> y <em>ficha integral de la iniciativa</em>, de donde provienen los requisitos funcionales y técnicos de la torre, el catálogo de monitoreo y el registro de riesgos.</li>
     <li><em>Arquitectura-Gestores-General Transversal.drawio</em>, vista general multi-línea de negocio.</li>
   </ul>
 
@@ -1391,7 +1392,7 @@
   <p style="margin-top:18px;"><em>Este documento recoge la lectura profesional de Tech and Solve sobre cómo podría plantearse la torre de control, a partir del diseño vigente del equipo. Cada propuesta es un punto de partida para la discusión: queda al criterio del equipo de SURA adoptarla, ajustarla o descartarla.</em></p>
 
   <footer>
-    Documento confidencial. Elaborado por Tech and Solve para SURA. Propuesta de torre de control para el sistema agéntico de gestores, MVP de autorizaciones de salud, agosto de 2026.
+    Documento confidencial. Elaborado por Tech and Solve para SURA. Propuesta de torre de control para el sistema agéntico de gestores, MVP de autorizaciones de salud, septiembre de 2026.
   </footer>
 
 </div>

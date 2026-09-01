@@ -302,7 +302,7 @@
   <a href="#P1">P1. Traza y evento comunes</a>
   <a href="#P2">P2. Verdad de referencia</a>
   <a href="#P3">P3. Compuerta antes de producción</a>
-  <a href="#P4">P4. Madurez y autonomía</a>
+  <a href="#P4">P4. Grados de autonomía</a>
   <a href="#P5">P5. Auditor con compuerta</a>
   <a href="#P6">P6. Umbral por costo del error</a>
   <a href="#independientes">Dos acuerdos aparte</a>
@@ -335,8 +335,8 @@
     <p class="subtitle">Seis propuestas para medir la acertividad de los agentes y para entregarles autonomía con evidencia, sobre el diseño que el equipo ya tiene en marcha.</p>
   </div>
   <div class="cover-meta">SURA Colombia · Transformación prestación y reclamaciones, MVP autorizaciones de salud<br>
-  Elaborado por Tech and Solve para SURA · Agosto de 2026<br>
-  Elaborado sobre los diseños vigentes del equipo, <em>Arquitectura-Gestores</em> y <em>Arquitectura-Gestores General Transversal</em>.</div>
+  Elaborado por Tech and Solve para SURA · Septiembre de 2026<br>
+  Elaborado sobre los diseños vigentes del equipo, en su versión del 1 de septiembre de 2026.</div>
 
   <h2 id="objetivo">Objetivo</h2>
 
@@ -448,7 +448,7 @@
       <tr><th><a href="#P1">P1</a></th><td>Una traza y un evento comunes para los seis gestores</td><td>Reconstruir por qué un agente decidió, y atribuir tiempo y costo por caso.</td><td>Medio</td></tr>
       <tr><th><a href="#P2">P2</a></th><td>Producir la verdad de referencia desde preradicado</td><td>Medir acertividad con datos reales, sin montar un proyecto de datos aparte.</td><td>Bajo</td></tr>
       <tr><th><a href="#P3">P3</a></th><td>Una compuerta antes de producción</td><td>Cambiar prompts y modelos rápido sin romper lo que ya funcionaba.</td><td>Medio</td></tr>
-      <tr><th><a href="#P4">P4</a></th><td>Escala de madurez conectada a la API de autonomía</td><td>Entregar autonomía con evidencia, y retirarla sin discusión política.</td><td>Bajo</td></tr>
+      <tr><th><a href="#P4">P4</a></th><td>Una escala de grados de autonomía conectada a la API</td><td>Entregar autonomía con evidencia, y retirarla sin discusión política.</td><td>Bajo</td></tr>
       <tr><th><a href="#P5">P5</a></th><td>El agente auditor como capa pasiva con compuerta</td><td>Mejora continua que se puede auditar, y no deriva silenciosa.</td><td>Medio</td></tr>
       <tr><th><a href="#P6">P6</a></th><td>Umbral derivado del costo del error</td><td>Decidir cuánto riesgo se acepta con un número acordado, no con intuición.</td><td>Bajo</td></tr>
     </tbody>
@@ -1093,7 +1093,7 @@
     <li><strong>P2, verdad de referencia desde preradicado.</strong> En paralelo con P1 si hay capacidad, e inmediatamente después si no. Es la propuesta más barata y la que más habilita.</li>
     <li><strong>P6, límite del error caro.</strong> Se acuerda con negocio en paralelo desde el primer día, porque no depende de nada técnico y orienta los umbrales de todos los agentes.</li>
     <li><strong>P3, compuerta antes de producción.</strong> Cuando el golden set tenga volumen suficiente para que la compuerta signifique algo.</li>
-    <li><strong>P4, escala de madurez conectada a la API.</strong> Antes de que el primer agente decida sin revisión previa, no después.</li>
+    <li><strong>P4, escala de grados de autonomía conectada a la API.</strong> Antes de que el primer agente decida sin revisión previa, no después.</li>
     <li><strong>P5, auditor.</strong> En modo pasivo desde que exista P1; en modo activo cuando P2 y P3 estén en pie.</li>
     <li><strong>D2 y D3, estados y reglas.</strong> Avanzan aparte, sin esperar a ninguna de las seis.</li>
   </ol>
@@ -1244,7 +1244,7 @@
 
       <rect x="8" y="8" width="470" height="58" rx="7" fill="#280265"/>
       <text x="22" y="28" font-size="11" font-weight="600" fill="#FFFFFF">5. Gobierno</text>
-      <text x="22" y="43" font-size="9" fill="#EBEBFF">Niveles de madurez, umbrales por tipo de caso, API de autonomía,</text>
+      <text x="22" y="43" font-size="9" fill="#EBEBFF">Grados de autonomía, umbrales por tipo de caso, API de autonomía,</text>
       <text x="22" y="55" font-size="9" fill="#EBEBFF">registros de decisión, criterio de ascenso y de descenso.</text>
       <text x="492" y="30" font-size="8.5" font-weight="600" fill="#280265">¿Cuánta autonomía?</text>
       <text x="492" y="43" font-size="8" fill="#5B5A66">Arquitectura y negocio</text>
@@ -1486,7 +1486,8 @@
 
   <h4>Diseños del equipo, fuente primaria</h4>
   <ul class="sources">
-    <li><em>Arquitectura-Gestores.drawio</em>, ocho vistas, incluidas Arq gestores V2, Gestor de monitoreo, Detalle, Gestor de finalización y Resumen.</li>
+    <li><em>Arquitectura-Gestores</em>, en su versión del 1 de septiembre de 2026, con las vistas Arq gestores V2, Gestor de monitoreo, Detalle, Descartado y Resumen.</li>
+    <li><em>Seguimiento de requerimientos de Gestores 2026</em> y <em>ficha integral de la iniciativa</em>, de donde provienen los requisitos, los pendientes abiertos y el registro de riesgos.</li>
     <li><em>Arquitectura-Gestores-General Transversal.drawio</em>, vista general multi-línea de negocio.</li>
   </ul>
 
@@ -1516,7 +1517,7 @@
   <p style="margin-top:18px;"><em>Este documento recoge la lectura profesional de Tech and Solve sobre el diseño vigente y la evidencia disponible en esta etapa. Cada propuesta es un punto de partida para la discusión: queda al criterio del equipo de SURA adoptarla, ajustarla o descartarla.</em></p>
 
   <footer>
-    Documento confidencial. Elaborado por Tech and Solve para SURA. Notas de arquitectura sobre el sistema agéntico de gestores, MVP de autorizaciones de salud, agosto de 2026.
+    Documento confidencial. Elaborado por Tech and Solve para SURA. Notas de arquitectura sobre el sistema agéntico de gestores, MVP de autorizaciones de salud, septiembre de 2026.
   </footer>
 
 </div>
