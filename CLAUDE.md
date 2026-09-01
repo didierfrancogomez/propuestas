@@ -35,6 +35,33 @@ no desde sitios de seguimiento cuyas traducciones son generadas por máquina; la
 convenciones semánticas de OpenTelemetry se citan en su versión liberada, y las específicas
 de IA generativa se declaran en desarrollo en lugar de presentarse como estándar.
 
+## Regla de oro: el insumo del cliente no se modifica
+
+Aplica a toda propuesta de este repositorio, sin excepción.
+
+1. **Ningún insumo entregado por el cliente es modificable directamente.** Diagramas,
+   hojas de cálculo, presentaciones, actas, documentos y capturas se tratan como evidencia
+   de solo lectura. No se editan, ni siquiera para corregir un error evidente, un nombre
+   mal escrito o un formato incómodo.
+2. **Se versiona tal como llegó.** Se conserva el nombre original, incluidos los sufijos
+   raros que traiga. Una versión nueva del mismo insumo se agrega al lado, no reemplaza a
+   la anterior, para que el historial muestre qué recibimos y cuándo.
+3. **Lo que haya que corregir o derivar vive en un artefacto propio.** Si un dato del
+   insumo está mal, o hace falta transformarlo, el resultado va en nuestro documento o en
+   el contexto interno, con la observación de dónde salió. El archivo del cliente queda
+   intacto.
+4. **Los scripts que lo leen, solo leen.** Nada de reescribir la hoja, normalizar columnas
+   en el sitio ni guardar de vuelta. Si hace falta un extracto, se escribe en el
+   scratchpad o en un archivo nuevo.
+5. **La propuesta no se compara contra el insumo.** Se construye sobre el diseño del
+   cliente y lo cita como base, pero no pone nuestras cifras al lado de las suyas ni
+   señala inconsistencias de su planeación. Eso es conversación de sesión, no contenido
+   del entregable.
+
+Ejemplo resuelto en este repositorio: el insumo de SURA del 1 de septiembre se versionó
+completo y sin tocar en `gestores-sura/v4/documentacion 1 septiembre/`, y todos los
+ajustes que produjo quedaron en nuestros documentos.
+
 ## Antes de tocar `gestores-sura/`
 
 Leer primero `gestores-sura/v4/context.md`. Contiene el enfoque acordado, los entregables
