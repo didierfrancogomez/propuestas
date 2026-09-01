@@ -301,6 +301,8 @@
   <a href="#herramientas" class="nav-sub">Las piezas, una por una</a>
   <a href="#efecto" class="nav-sub">Efecto en el número</a>
   <a href="#equipo" class="nav-strong">El equipo propuesto</a>
+  <a href="#base" class="nav-sub">El equipo base</a>
+  <a href="#interaccion" class="nav-sub">Equipos con los que se interactúa</a>
   <a href="#etapas" class="nav-strong">Las cuatro etapas</a>
   <a href="#etapa1" class="nav-sub">1 · Eventos y tablero</a>
   <a href="#etapa2" class="nav-sub">2 · Acertividad y semáforo</a>
@@ -343,7 +345,7 @@
     <p>Con qué equipo y en cuántos sprints se puede implementar la torre de control por etapas, qué conocimientos hacen falta, y qué condiciones tienen que cumplirse para que ese número se sostenga.</p>
   </div>
 
-  <p>La hipótesis de partida que discutimos es <strong>dos personas de desarrollo senior con acompañamiento parcial de un líder técnico o arquitecto</strong>. Nuestra conclusión, en una frase: es la conformación correcta para las dos primeras etapas y alcanza para las cuatro, con dos condiciones, que el front del tablero no lo construya este equipo y que el acompañamiento del arquitecto se concentre al inicio y no se reparta uniforme.</p>
+  <p>La hipótesis de partida que discutimos es <strong>dos integrantes senior con acompañamiento parcial de un líder técnico o arquitecto</strong>. Nuestra conclusión, en una frase: es la conformación correcta para las dos primeras etapas y alcanza para las cuatro, con dos condiciones, que el front del tablero no lo construya este equipo y que el acompañamiento del arquitecto se concentre al inicio y no se reparta uniforme.</p>
 
   <h2 id="supuestos">Supuestos declarados</h2>
 
@@ -356,7 +358,7 @@
       <tr><th>Escala de tallas</th><td>Tallamos cada frente de trabajo con la escala que el equipo ya definió para su backlog, <strong>XXL 30 · XL 20 · L 10 · M 5 · S 2</strong> días hábiles, y convertimos el resultado a sprints con el equipo propuesto. El detalle del tallaje queda en nuestro cálculo interno y se puede compartir si lo piden.</td></tr>
       <tr><th>Margen de incertidumbre</th><td>Aplicamos la regla del equipo para estructuración: toda estimación declara un <strong>margen del 30%</strong>. Los rangos de este documento ya lo incluyen.</td></tr>
       <tr><th>Sprint</th><td><strong>Once días hábiles</strong>, que es la duración que el equipo ya fijó para el proyecto, sin descontar ceremonias. Si la capacidad real por sprint es menor, la duración se estira de forma proporcional.</td></tr>
-      <tr><th>Dedicación</th><td>Las dos personas senior a tiempo completo sobre esta iniciativa. Una dedicación parcial no reduce el esfuerzo, solo alarga el calendario y agrega costo de contexto.</td></tr>
+      <tr><th>Dedicación</th><td>Los tres integrantes del equipo base, a tiempo completo sobre esta iniciativa. Una dedicación parcial no reduce el esfuerzo, solo alarga el calendario y agrega costo de contexto.</td></tr>
       <tr><th>Alcance del front</th><td>Incluimos el <strong>front interno de la torre</strong>: tableros de operación, líderes, arquitectura y cumplimiento. Las vistas para asegurado y prestador siguen en el componente único de canales, porque son superficies externas y esa decisión ya está tomada.</td></tr>
       <tr><th>Plataforma de base</th><td>La torre se monta sobre la recolección, el bus y el almacenamiento que la organización ya opere. <strong>No incluimos el aprovisionamiento ni el licenciamiento</strong> de esa plataforma. Qué existe hoy es una pregunta abierta al equipo, y la sección de arquitectura declara qué le hace al número cada respuesta.</td></tr>
       <tr><th>Plazos de terceros</th><td>No estimamos trabajo de otros equipos. Cuando una etapa depende del core, del lago de datos o de las vistas externas de canales, lo declaramos como dependencia y el plazo lo pone su dueño.</td></tr>
@@ -497,55 +499,63 @@
 
   <h2 id="equipo">El equipo propuesto</h2>
 
-  <p>Confirmamos la hipótesis con un ajuste. Dos personas senior y un arquitecto parcial cubren el alcance, pero el acompañamiento no debe repartirse uniforme: se necesita fuerte al inicio, cuando se cierran las decisiones costosas de revertir, y liviano después.</p>
+  <p>Confirmamos la hipótesis con un ajuste. El equipo base son <strong>tres integrantes</strong>, con el acompañamiento parcial de un líder técnico o arquitecto, y ese acompañamiento no debe repartirse uniforme: se necesita fuerte al inicio, cuando se cierran las decisiones costosas de revertir, y liviano después.</p>
+
+  <p>Los describimos por <strong>los conocimientos que aporta cada integrante</strong> y no por un cargo, porque lo que hace falta es la combinación de conocimientos, y una misma persona puede traerla con distintos títulos. Y los separamos de los equipos con los que hay que interactuar, que no forman parte de esta estimación aunque aparezcan en el día a día.</p>
+
+  <h3 id="base">El equipo base, tres integrantes</h3>
 
   <div class="tbl-wide">
   <table class="tbl">
-    <thead><tr><th>Perfil</th><th>Dedicación</th><th>Para qué</th><th>Dónde es crítico</th></tr></thead>
+    <thead><tr><th>Integrante</th><th>Conocimientos que aporta</th><th>Dedicación</th><th>Dónde es crítico</th></tr></thead>
     <tbody>
       <tr>
-        <th>Desarrollo senior, persona 1</th>
-        <td>Tiempo completo, las cuatro etapas</td>
-        <td>Ingesta, idempotencia, correlación del caso y modelo de datos con ventana para rezagados.</td>
+        <th>1 integrante con conocimientos en plataforma de eventos y datos</th>
+        <td>Arquitecturas dirigidas por eventos, idempotencia y deduplicación, modelado con evidencia de llegada tardía, y consultas sobre series.</td>
+        <td>Completa, las cuatro etapas</td>
         <td>Etapa 1: es la que fija el modelo que después no se cambia sin reprocesar.</td>
       </tr>
       <tr>
-        <th>Desarrollo senior, persona 2</th>
-        <td>Tiempo completo, las cuatro etapas</td>
-        <td>Indicadores y series, API por perfil, motor de alertas, ejecución de acciones con registro y reversión.</td>
+        <th>1 integrante con conocimientos en medición y actuación</th>
+        <td>Diseño de API con control de acceso por perfil, convenciones de traza, motores de reglas, y acciones reversibles con registro de ejecución.</td>
+        <td>Completa, las cuatro etapas</td>
         <td>Etapa 3: la ejecución con identidad, alcance mínimo y reversión es donde un error se paga caro.</td>
       </tr>
       <tr>
-        <th>Líder técnico o arquitecto</th>
-        <td>Parcial. Un día por semana en las etapas 1 y 2, medio día en las etapas 3 y 4</td>
+        <th>1 integrante con conocimientos en aplicaciones de datos densas</th>
+        <td>Bandejas con miles de casos, visualización de series y estados, y front de configuración con vista previa y reversión.</td>
+        <td>Completa, del sprint 2 al 9</td>
+        <td>Etapa 1: sin interfaz, el tablero operativo es una API y el valor no llega a la operación.</td>
+      </tr>
+      <tr>
+        <th>Acompañamiento: líder técnico o arquitecto</th>
         <td>Cerrar el esquema de eventos y de traza, el contrato de la API de autonomía, los techos de autonomía con el negocio, y resolver las dudas de diseño que aparezcan.</td>
+        <td>Parcial. Un día por semana en las etapas 1 y 2, medio día en las etapas 3 y 4</td>
         <td>Los primeros dos sprints: ahí se decide lo irreversible.</td>
       </tr>
-      <tr>
-        <th>Desarrollo de front senior</th>
-        <td>Tiempo completo del sprint 2 al 9</td>
-        <td>Tableros internos de la torre: operativo con bandejas y vencimientos, vista consolidada y detalle del caso, semáforo de autonomía, bandeja de alertas y el front de configuración con vista previa.</td>
-        <td>Etapa 1: sin front, el tablero operativo es una API y el valor no llega a la operación.</td>
-      </tr>
-      <tr>
-        <th>Canales</th>
-        <td>Por demanda, del equipo de canales</td>
-        <td>Exponer al asegurado y al prestador el estado de su caso, consumiendo nuestras API desde el componente único ya decidido.</td>
-        <td>No es parte de esta estimación, pero condiciona la experiencia externa.</td>
-      </tr>
-      <tr>
-        <th>Ingeniería de datos</th>
-        <td>Por demanda, cuando exista el lago</td>
-        <td>Cargas de cuenta médica y reclamaciones, y productos de datos.</td>
-        <td>Etapa 4, no antes.</td>
-      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3 id="interaccion">Equipos con los que se interactúa, fuera de esta estimación</h3>
+
+  <p>Aparecen en el día a día del proyecto y condicionan el resultado, pero su trabajo lo estima y lo programa su propio dueño. Los nombramos para que quede claro que <strong>no engrosan el equipo base</strong>.</p>
+
+  <div class="tbl-wide">
+  <table class="tbl">
+    <thead><tr><th>Equipo</th><th>Qué aporta</th><th>Cuándo se necesita</th></tr></thead>
+    <tbody>
+      <tr><th>Equipos de cada gestor</th><td>Emitir sus cambios de estado con el esquema acordado. Nosotros entregamos el esquema, la validación y el acompañamiento al piloto.</td><td>Desde la etapa 1, mientras cada gestor se construye.</td></tr>
+      <tr><th>Dueño de la plataforma de base</th><td>Recolección, bus de eventos y almacenamiento con los dos horizontes de retención.</td><td>Antes de la etapa 1, o en paralelo si ya está en operación.</td></tr>
+      <tr><th>Canales</th><td>Exponer al asegurado y al prestador el estado de su caso, consumiendo nuestras API desde el componente único ya decidido.</td><td>Según su propio plan. Condiciona la experiencia externa, no el avance de la torre.</td></tr>
+      <tr><th>Ingeniería de datos</th><td>Cargas de cuenta médica y reclamaciones, y productos de datos hacia el lago.</td><td>Etapa 4, no antes.</td></tr>
     </tbody>
   </table>
   </div>
 
   <div class="keypoint">
     <span class="keypoint-label">Dos formas de resolver el front, y qué cuesta cada una</span>
-    <p><strong>Con perfil dedicado</strong>, que es lo que recomendamos: tres personas en total, el front corre en paralelo al back desde el sprint 2 y el calendario se mantiene en nueve sprints. <strong>Sin perfil dedicado</strong>, las mismas dos personas senior asumen la interfaz: el esfuerzo total es el mismo, pero el calendario se estira a cerca de trece sprints y el tablero operativo llega tarde, justo el entregable que hace visible el valor temprano.</p>
+    <p><strong>Con el tercer integrante</strong>, que es lo que recomendamos: el front corre en paralelo desde el sprint 2 y el calendario se mantiene en nueve sprints. <strong>Sin él</strong>, los dos integrantes de plataforma asumen la interfaz: el esfuerzo total es el mismo, pero el calendario se estira a cerca de trece sprints y el tablero operativo llega tarde, justo el entregable que hace visible el valor temprano.</p>
   </div>
 
   <h2 id="etapas">Las cuatro etapas, una por una</h2>
@@ -557,11 +567,11 @@
     <p>La mayor parte de lo que hace posible la torre no se construye en la torre: se construye dentro de cada gestor mientras se desarrolla. Nuestro equipo entrega el consumidor común, el contrato y la inteligencia. Por eso cada etapa declara qué queda por fuera y de quién es, en lugar de dejarlo en una lista general que después nadie recuerda.</p>
   </div>
 
-  <p>El recorrido completo son <strong>nueve sprints</strong> de dos semanas en la estimación central, y hasta doce con el margen del 30% que el equipo definió para la fase de estructuración. El front interno avanza en paralelo desde el sprint 2, así que no suma calendario.</p>
+  <p>El recorrido completo son <strong>nueve sprints</strong> en la estimación central, y hasta doce con el margen del 30% que el equipo definió para la fase de estructuración. El front interno avanza en paralelo desde el sprint 2, así que no suma calendario.</p>
 
   <div class="keypoint">
     <span class="keypoint-label">Cómo leer las cifras de cada etapa</span>
-    <p>Los sprints son de dos semanas y se cuentan sobre el equipo completo: dos personas de plataforma y una de front, con el arquitecto en paralelo. El rango de cada etapa indica en qué sprints transcurre, no cuánto ocupa a una persona. Las etapas se solapan donde el trabajo lo permite, por eso el total del recorrido es menor que la suma de los rangos.</p>
+    <p>Los sprints se cuentan sobre el equipo base completo: dos integrantes de plataforma y uno de aplicaciones de datos, con el arquitecto en paralelo. El rango de cada etapa indica en qué sprints transcurre, no cuánto ocupa a una persona. Las etapas se solapan donde el trabajo lo permite, por eso el total del recorrido es menor que la suma de los rangos.</p>
   </div>
 
   <p>Este dimensionamiento cubre la torre de control. <strong>No incluye el agente auditor</strong>: en la propuesta de arquitectura ese componente vive en el plano de evaluación, como servicio compartido que audita a los agentes de todos los gestores, no como una capacidad de la torre. La torre es su destinatario, y recibir sus notificaciones ya está cubierto por la ingesta de la etapa 1. Si se decide construirlo, se dimensiona junto a esa propuesta.</p>
@@ -825,7 +835,7 @@
   <table class="tbl">
     <thead><tr><th>Condición</th><th>Efecto en el dimensionamiento</th></tr></thead>
     <tbody>
-      <tr><th>No se suma el perfil de front</th><td>El esfuerzo no cambia, pero el calendario pasa de nueve a cerca de trece sprints, porque las dos personas de plataforma tendrían que asumir la interfaz. Y el tablero operativo, que es el entregable de valor temprano, llegaría tarde.</td></tr>
+      <tr><th>No se suma el tercer integrante</th><td>El esfuerzo no cambia, pero el calendario pasa de nueve a cerca de trece sprints, porque los dos integrantes de plataforma tendrían que asumir la interfaz. Y el tablero operativo, que es el entregable de valor temprano, llegaría tarde.</td></tr>
       <tr><th>No hay destino apto para la evidencia de retención larga</th><td>Si la plataforma existente solo cubre el horizonte corto, hay que habilitar un almacén aparte. Esa habilitación no está dentro de los nueve sprints: si recae en otro equipo, el plazo lo pone su dueño; si recae en nosotros, se estima aparte. Mientras tanto la etapa 1 avanza, pero el reloj tardío de la etapa 4 no tiene dónde apoyarse.</td></tr>
       <tr><th>El ecosistema queda repartido entre dos nubes</th><td>Es un riesgo que el propio equipo ya tiene abierto. Para una torre que se suscribe a la totalidad de los eventos, se traduce en latencia, costo de salida y un punto más donde la traza se corta. No cambia el esfuerzo de construcción, pero sí agrega trabajo de integración que hoy no está tallado.</td></tr>
       <tr><th>Dedicación parcial de cualquiera de los tres perfiles</th><td>No reduce el esfuerzo, alarga el calendario de forma proporcional y agrega costo de cambio de contexto.</td></tr>
