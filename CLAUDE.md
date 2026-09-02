@@ -80,7 +80,7 @@ de oro de más arriba.
 **El enfoque, en una frase**: indicar, según estándar, cómo tener una torre de control de
 sistemas agénticos orientada a las necesidades del cliente, sin perder las buenas
 prácticas. No es una especificación de monitoreo operativo: el cliente ya tiene su catálogo
-de 9 ejes y 88 variables, y no se reemplaza.
+de 9 ejes y más de 80 variables, y no se reemplaza.
 
 ## Terminología obligatoria
 
