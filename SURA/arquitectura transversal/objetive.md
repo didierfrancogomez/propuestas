@@ -20,3 +20,5 @@ A partir de la auditoria, debemos:
 De fondo lo que queremos es apoyar al cliente a tener una arquitectura robusta que le permita tener una buena solución.
 
 El resultado lo vas a poner en /Users/didierfranco/Documents/GitHub/techandsolve/propuestas/SURA/arquitectura transversal/Tech and Solve - Notas de arquitectura.html siguiendo el mismo estilo visual que hemos tenido en las demas propuestas.
+
+Sigue todos los lineamientos que tenemos en /Users/didierfranco/Documents/GitHub/techandsolve/propuestas/CLAUDE.md
