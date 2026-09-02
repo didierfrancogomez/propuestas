@@ -258,7 +258,7 @@
   .notprop li{font-size:0.92em;color:var(--text-2);}
   /* ---------- impresion ---------- */
   @media print{
-    @page{size:A4;margin:18mm 16mm 22mm 16mm;}
+    @page{size:A4;margin:18mm 16mm 30mm 16mm;}
     body{padding:0;font-size:10px;}
     .doc-nav{display:none;}
     .page{max-width:none;padding:0;}
@@ -270,7 +270,10 @@
     .part-num{font-size:8px;}
     .cover-page h1{font-size:26px;}
     .cover-page .subtitle{font-size:13px;}
-    .tbl{font-size:8px;}
+    .tbl{font-size:8px;page-break-inside:auto;}
+    .tbl-wide{overflow:visible;}
+    .tbl thead{display:table-header-group;}
+    .tbl tr{page-break-inside:avoid;}
     .diagram-name{font-size:9.5px;}
     .diagram-caption{font-size:8px;}
     .sources{font-size:8px;}
@@ -281,7 +284,7 @@
     .print-header-logo{width:60px;height:auto;display:block;}
     .print-header-logo-sura{width:52px;height:auto;display:block;}
     .print-header-text{font-size:8px;color:var(--text-3);margin-left:auto;}
-    footer{position:fixed;bottom:-16mm;left:0;right:0;font-size:8px;text-align:center;border-top:1px solid var(--border);padding-top:6px;}
+    footer{position:fixed;bottom:-22mm;left:0;right:0;font-size:8px;text-align:center;border-top:1px solid var(--border);padding-top:6px;}
     .prop{page-break-inside:avoid;}
     .prop-title{font-size:12px;}
     .prop-head{padding:7px 10px;}
@@ -358,7 +361,7 @@
 
   <div class="keypoint">
     <span class="keypoint-label">Cómo está organizado este documento</span>
-    <p>La <strong>primera parte es el marco</strong>: qué debe tener una torre de control de sistemas agénticos, con cada capacidad anclada en un estándar publicado y enlazable. No depende de autorizaciones de salud y se puede discutir por sí sola. La <strong>segunda parte lo aterriza</strong> en el diseño vigente de gestores: los eventos del ciclo, los tableros por actor, la integridad de la reclamación y el orden en que conviene construir.</p>
+    <p>La <strong>primera parte es el marco</strong>: qué debe tener una torre de control de sistemas agénticos, con lo que exige un estándar anclado en él y enlazado, y lo que es aporte nuestro declarado como tal. No depende de autorizaciones de salud y se puede discutir por sí sola. La <strong>segunda parte lo aterriza</strong> en el diseño vigente de gestores: los eventos del ciclo, los tableros por actor, la integridad de la reclamación y el orden en que conviene construir.</p>
   </div>
 
   <div class="support">
