@@ -639,7 +639,7 @@
 
   <p>El reloj inmediato es la compuerta: valida el contrato, verifica que los campos tengan respaldo y compara la confianza con el umbral. Dice si la solicitud podía avanzar, no si la decisión fue correcta. El reloj medio es la corrección humana, en preradicado, en la bandeja de evaluación por humano o en los ajustes de coordinación: es la primera evidencia real de acierto, pero solo cubre los casos que alguien revisó.</p>
 
-  <p>El reloj tardío es el que casi nadie diseña, y el que en seguros contiene la verdad: las <strong>glosas</strong> que aparecen cuando llega la cuenta médica, las <strong>negaciones revertidas</strong> tras una reclamación o una acción de tutela, los reprocesos por documentación insuficiente, y las atenciones que nunca se pudieron correlacionar con su autorización. Ese reloj mide exactamente lo que la compuerta no puede ver, porque el error caro, una autorización emitida sin sustento o una negación mal fundamentada, no produce ninguna señal en el momento en que se comete.</p>
+  <p>El reloj tardío es el que casi nadie diseña, y el que en seguros contiene la verdad: las <strong>glosas</strong> que aparecen cuando llega la cuenta médica, las <strong>negaciones revertidas</strong> tras una reclamación o una acción de tutela, los reprocesos por documentación insuficiente, y las atenciones que nunca se pudieron correlacionar con su autorización. Ese reloj mide exactamente lo que la compuerta no puede ver, porque el error caro, una autorización emitida sin sustento o una negación mal fundamentada que la persona tomó sobre un escalamiento del agente, no produce ninguna señal en el momento en que se comete.</p>
 
   <div class="keypoint">
     <span class="keypoint-label">La consecuencia de diseño</span>
@@ -802,13 +802,13 @@
 
   <h3>Los techos que el negocio ya fijó</h3>
 
-  <p>Hay tres decisiones tomadas que ningún ascenso puede superar, por buena que sea la métrica. Las traemos aquí porque el semáforo tiene que mostrarlas como techo y no como oportunidad de mejora.</p>
+  <p>Hay tres decisiones tomadas que ningún ascenso puede superar, por buena que sea la métrica. Las traemos aquí porque el semáforo tiene que mostrarlas como techo y no como oportunidad de mejora. La primera no es siquiera un techo: es una frontera de diseño, y conviene leerla así.</p>
 
   <div class="tbl-wide">
   <table class="tbl">
     <thead><tr><th>Decisión ya tomada</th><th>Techo que impone</th></tr></thead>
     <tbody>
-      <tr><th>La negación nunca es totalmente automática y siempre exige un evaluador humano</th><td>El agente evaluador no pasa de <strong>G2</strong> en negaciones: propone, un humano decide. Nunca G3 ni G4 para negar.</td></tr>
+      <tr><th>Ningún agente rechaza una solicitud. Ante la posibilidad de un rechazo, escala</th><td>No es un techo que pueda subir con mejor métrica: <strong>la negación no es una capacidad de los agentes</strong>. El evaluador autoriza o escala, y cuando escala puede señalar que el caso parece candidato a negación. Quien niega es siempre una persona. En consecuencia, para negar no existe G3 ni G4.</td></tr>
       <tr><th>La negación debe ser determinística y trazable, nunca probabilística</th><td>La negación no se sustenta en la salida de un modelo de lenguaje: se sustenta en reglas versionadas, y el modelo solo aporta el concepto que acelera la revisión.</td></tr>
       <tr><th>La autorización automática aplica solo a servicios de nivel 1; los de nivel 3 y 4 van siempre a evaluación manual</th><td>En alto costo y alto riesgo el techo es <strong>G2</strong>, sin importar el acierto medido.</td></tr>
     </tbody>
@@ -851,7 +851,7 @@
       <rect x="160" y="86" width="80" height="14" rx="3" fill="#5300DF"/><text x="200" y="96" text-anchor="middle" font-size="7.5" font-weight="600" fill="#FFFFFF">G3</text>
       <rect x="270" y="86" width="80" height="14" rx="3" fill="#FBF0DC" stroke="#B9720A"/><text x="310" y="96" text-anchor="middle" font-size="7.5" font-weight="600" fill="#8A5A00">G2 techo</text>
       <rect x="384" y="86" width="80" height="14" rx="3" fill="#FBF0DC"/><text x="424" y="96" text-anchor="middle" font-size="7.5" font-weight="600" fill="#8A5A00">G1</text>
-      <text x="480" y="96" font-size="7" fill="#B9720A">techo G2 en negaciones y alto costo</text>
+      <text x="480" y="96" font-size="7" fill="#B9720A">nunca niega; techo G2 en alto costo</text>
       <line x1="8" y1="104" x2="672" y2="104" stroke="#DCD8EC"/>
 
       <text x="8" y="124" font-size="8" fill="#1A1E27">Coordinador de proveedor</text>
@@ -1065,7 +1065,7 @@
       <tr><th>Solicitud armada</th><td>Agente que arma</td><td>Estado completa o incompleta, campos faltantes, confianza global.</td><td>Tasa de solicitudes listas sin intervención.</td></tr>
       <tr><th>Escalada a preradicado</th><td>Compuerta</td><td>Motivo, umbral aplicado, confianza obtenida.</td><td>Tasa y motivos de escalamiento, y envejecimiento de la bandeja.</td></tr>
       <tr><th>Corrección humana registrada</th><td>Backoffice</td><td>Campo corregido, valor correcto, origen en el documento, tiempo empleado.</td><td>Verdad de referencia y costo humano real por caso.</td></tr>
-      <tr><th>Decisión de evaluación</th><td>Agentes evaluadores</td><td>Autoriza, niega o escala; regla o criterio aplicado con su versión; explicación.</td><td>Concordancia con la decisión humana y trazabilidad de la negación.</td></tr>
+      <tr><th>Decisión de evaluación</th><td>Agentes evaluadores</td><td>Autoriza o escala, nunca niega; regla o criterio aplicado con su versión; si el escalamiento se marca como probable negación; explicación.</td><td>Concordancia entre el escalamiento por probable negación y la negación que decide la persona, y trazabilidad de esa negación.</td></tr>
       <tr><th>Coordinación resuelta</th><td>Gestor de coordinación</td><td>Prestador asignado, si tenía convenio, si hubo rechazo del prestador.</td><td>Tiempo hasta agenda y capacidad efectiva de la red.</td></tr>
       <tr><th>Atención confirmada o fallida</th><td>Gestor de prestación</td><td>Fuente de la confirmación y su nivel de confianza, motivo de inasistencia.</td><td>Autorizaciones sin atención identificada y fuga por inasistencia.</td></tr>
       <tr><th>Cierre y desenlace</th><td>Gestor de finalización</td><td>Resultado, cuenta médica asociada, valor.</td><td>Cierre del caso y enlace con el reloj tardío.</td></tr>
