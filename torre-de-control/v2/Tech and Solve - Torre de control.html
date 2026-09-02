@@ -433,7 +433,7 @@
     <thead><tr><th>Confusión frecuente</th><th>Por qué es un problema</th><th>Qué es en realidad</th></tr></thead>
     <tbody>
       <tr><th>La torre como dueña del estado</th><td>Si la torre y el core pueden escribir el mismo estado, aparecen discrepancias que nadie sabe resolver y la auditoría deja de tener una fuente única.</td><td>El core conserva el estado autoritativo de la autorización. Gestores conserva sus propios estados, como preradicado, que el core no tiene. La torre construye la vista materializada y los meta-estados derivados, y correlaciona ambos conjuntos.</td></tr>
-      <tr><th>La torre como un gestor más</th><td>Si la torre decide el negocio, autorizar, negar o coordinar, se pierde el punto de observación neutral y hay que auditarla como parte de la decisión clínica.</td><td>Observa, mide, alerta, habilita autonomía <strong>y ejecuta acciones operativas sobre el flujo</strong>: reencolar, reasignar, activar rescate, bloquear un duplicado. Nunca decide el resultado de la solicitud.</td></tr>
+      <tr><th>La torre como un gestor más</th><td>Si la torre decide el negocio, autorizar, negar o coordinar, se pierde el punto de observación neutral y hay que auditarla como parte de la decisión clínica.</td><td>Observa, mide, alerta, habilita autonomía <strong>y ejecuta acciones operativas sobre el flujo</strong>: reencolar, reasignar, activar rescate, escalar un posible duplicado. Nunca decide el resultado de la solicitud.</td></tr>
       <tr><th>La torre como AI Control Plane</th><td>Mezclar permisos, modelos y prompts con observación hace que un cambio de tablero pueda alterar el comportamiento de un agente.</td><td>El AI Control Plane decide qué le está permitido a cada agente. La torre observa qué hizo y con qué resultado.</td></tr>
       <tr><th>La torre como tablero de analítica</th><td>Un tablero que solo se mira no cambia decisiones, y a las pocas semanas nadie lo abre.</td><td>Cada indicador que expone tiene una acción asociada: una alerta con dueño, un escalamiento o un cambio de grado de autonomía.</td></tr>
     </tbody>
@@ -447,7 +447,12 @@
 
   <h3>La torre ejecuta, y por eso hay que gobernarla</h3>
 
-  <p>El equipo pidió explícitamente cuatro capacidades que implican acción, no solo observación: intervenir otros gestores ante comportamiento inusual, activar rescate digital automático cuando falla el canal al radicar, bloquear la radicación de una solicitud repetida, y reasignar automáticamente los casos que superan el tiempo de respuesta. Nuestra recomendación es aceptarlas, y aceptar también su consecuencia.</p>
+  <p>El equipo pidió explícitamente cuatro capacidades que implican acción, no solo observación: intervenir otros gestores ante comportamiento inusual, activar rescate digital automático cuando falla el canal al radicar, evitar que se radique dos veces la misma solicitud, y reasignar automáticamente los casos que superan el tiempo de respuesta. Nuestra recomendación es aceptarlas, y aceptar también su consecuencia.</p>
+
+  <div class="keypoint">
+    <span class="keypoint-label">La tercera no se resuelve bloqueando</span>
+    <p>Evitar la doble autorización de un mismo servicio no significa que un agente rechace la segunda solicitud, porque <strong>ningún agente rechaza</strong>. Significa que el agente tiene que ser lo bastante bueno para <strong>reconocer que ya existe una solicitud equivalente</strong> y escalarla con el motivo explícito, <em>posible duplicado</em>, junto a la evidencia de con cuál se parece. La persona decide si coincide. Visto así, el trabajo del agente no es bloquear: es <strong>detectar bien y explicar por qué</strong>, y eso es medible con acierto y falsos positivos como cualquier otra capacidad.</p>
+  </div>
 
   <div class="teamq">
     <span class="teamq-label">Anotado en los requisitos técnicos de la torre</span>
@@ -1399,7 +1404,7 @@
       <tr><th>Notificaciones en tres dimensiones: actor, canal, carácter</th><td>Capa 5 y sección de tableros</td><td>Diseño del equipo; aportamos que la notificación proactiva es una acción gobernada</td></tr>
       <tr><th>Capacidad de intervenir otros gestores ante comportamiento inusual</th><td>Capa 4 y sección de delimitación</td><td>Esta propuesta: el gobierno de esa ejecución</td></tr>
       <tr><th>Rescate digital automático si falla el canal al radicar</th><td>Capa 4, marco de actuación</td><td>Diseño del equipo; aportamos el registro y la reversión</td></tr>
-      <tr><th>Detectar solicitudes repetidas y bloquear la radicación nueva</th><td>Capa 4 y anomalías</td><td>Diseño del equipo; aportamos el techo de grado para bloquear</td></tr>
+      <tr><th>Detectar solicitudes repetidas y bloquear la radicación nueva</th><td>Capa 4 y anomalías</td><td>Diseño del equipo; aportamos que se resuelva por escalamiento con motivo de posible duplicado, no por bloqueo automático, y la medición de acierto y falsos positivos de esa detección</td></tr>
       <tr><th>Exponer información distinta por actor, enmascarando datos sensibles</th><td>Capa 5</td><td>Diseño del equipo; aportamos filtrar por perfil antes de construir la vista</td></tr>
       <tr><th>Vista de auditoría de toda la trazabilidad</th><td>Tablero de cumplimiento</td><td>Esta propuesta lo sostiene con el esquema de traza</td></tr>
       <tr><th>Exponer el bosque y el árbol</th><td>Sección de tableros</td><td>Diseño del equipo</td></tr>
