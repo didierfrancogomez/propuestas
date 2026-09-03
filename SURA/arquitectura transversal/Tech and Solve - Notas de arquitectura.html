@@ -376,8 +376,8 @@
       <div class="card-body">La caché de reglas duras y el modelo experto están dibujados como piezas distintas dentro de la capa de evaluación. Es la separación entre lo que debe ser determinístico y lo que admite juicio, y es la que permite que una negación se sustente en reglas versionadas.</div>
     </div>
     <div class="card">
-      <div class="card-title">LLM-as-a-judge en la capa de entrada y salida</div>
-      <div class="card-body">Está ubicado donde tiene sentido: verificando lo que no se puede verificar con reglas, junto al armado de la solicitud. Es la única forma de evaluar fundamentación a escala.</div>
+      <div class="card-title">Una API orquestadora por tipo de solicitud, en los tres gestores</div>
+      <div class="card-body">Es el nivel alto de la jerarquía: interpreta la solicitud, determina el tipo y decide qué se necesita. Que el tipo de solicitud sea explícito desde la entrada es lo que después permite declarar umbrales y autonomía por tipo de caso, en lugar de una sola constante por agente.</div>
     </div>
     <div class="card">
       <div class="card-title">Una persona al final de los dos caminos que pesan</div>
@@ -717,7 +717,7 @@
         <li>Criterio explícito de no regresión: si empeora en alguna métrica acordada no se promueve, aunque mejore en otras. Las excepciones se permiten, con registro firmado de quién asumió el riesgo.</li>
         <li>Cada caso corre varias veces, no una, y se reporta la consistencia entre corridas. El sistema es probabilístico y una sola corrida no distingue un agente confiable de uno afortunado.</li>
         <li>El artefacto que se versiona es la unidad completa: prompt, modelo, herramientas, política de memoria y umbrales. Actualizar la versión menor del modelo en uso también pasa por la compuerta.</li>
-        <li>El LLM-as-a-judge que la vista ya ubica se calibra contra una muestra revisada por personas expertas, y ese nivel de coincidencia se reporta junto a cualquier métrica que dependa de él. Trabaja con los evaluadores humanos, no los sustituye.</li>
+        <li>El LLM-as-a-judge previsto en esa capa se calibra contra una muestra revisada por personas expertas, y ese nivel de coincidencia se reporta junto a cualquier métrica que dependa de él. Trabaja con los evaluadores humanos, no los sustituye.</li>
         <li>Tres mecanismos de contención definidos desde el inicio: desactivar un agente de inmediato, volver a la versión anterior sin reconstruir nada, y cortar el acceso de un agente a una herramienta sin tumbar el gestor completo.</li>
         <li>El auditor se mide por resultado: no por cuántas recomendaciones produjo, sino por qué proporción de las aprobadas mejoró la métrica del agente auditado en la medición siguiente.</li>
       </ul>
@@ -1107,7 +1107,7 @@
 
   <div class="keypoint">
     <span class="keypoint-label">Cuatro detalles de forma, pensando en la lámina</span>
-    <p>Conviene que los tres modelos expertos de coordinación lleguen con nombre, porque un recuadro sin nombre es la primera pregunta que hace un sponsor y desvía la conversación. Conviene también un solo recurso visual que distinga lo que ya opera de lo que está en construcción, que hoy se lee por el trazo pero no está en la convención. Y conviene que la convención de elementos aparezca en la misma lámina: la diferencia entre componente agéntico, modelo experto y regla dura es justamente la que sostiene la respuesta a por qué una negación no la decide un modelo. Por último, el rombo conviene reservarlo para las decisiones: hoy <em>Evaluar proveedor</em> y <em>Sugerir proveedor</em> están dibujados como rombos y son pasos, no bifurcaciones. En la vista complementaria los dibujamos como pasos, para que los rombos de la lámina sean exactamente los puntos donde el sistema decide, que son los que un sponsor va a contar.</p>
+    <p>Conviene que los tres modelos expertos de coordinación lleguen con nombre, porque un recuadro sin nombre es la primera pregunta que hace un sponsor y desvía la conversación. Conviene también un solo recurso visual que distinga lo que ya opera de lo que está en construcción, que hoy se lee por el trazo pero no está en la convención. Y conviene que la convención de elementos aparezca en la misma lámina: la diferencia entre componente agéntico, modelo experto y regla dura es justamente la que sostiene la respuesta a por qué una negación no la decide un modelo. Por último, el rombo conviene reservarlo para las decisiones. Hoy la vista tiene cinco: tres son decisiones —si la solicitud ya existe, si cumple la evaluación y si hay proveedor sugerido— y dos, <em>Evaluar proveedor</em> y <em>Sugerir proveedor</em>, son pasos. En la vista complementaria dibujamos esos dos como pasos, para que los rombos de la lámina sean exactamente los puntos donde el sistema decide, que son los que un sponsor va a contar.</p>
   </div>
 
   <h2 id="secuencia">Secuencia recomendada y riesgos</h2>
@@ -1162,7 +1162,7 @@
     <div class="annex-kicker"><span class="annex-num">ANEXO A</span><span class="annex-title">Cobertura, pieza por pieza</span></div>
     <div class="annex-sum">Qué resuelve cada elemento de la vista, y qué complemento lo extiende.</div>
 
-    <p>Este anexo existe para que se pueda verificar que leímos la vista completa, sin que esa verificación invada el cuerpo del documento. Las diecinueve filas recorren la vista completa, pieza por pieza: la columna del medio dice qué resuelve hoy cada una, y la última, cuál de los siete complementos la extiende y por dónde.</p>
+    <p>Este anexo existe para que se pueda verificar que leímos la vista completa, sin que esa verificación invada el cuerpo del documento. Las diecinueve filas recorren la vista completa, pieza por pieza: la columna del medio dice qué resuelve hoy cada una, y la última, qué de esta propuesta la extiende y por dónde.</p>
 
     <div class="tbl-wide">
     <table class="tbl">
@@ -1174,14 +1174,14 @@
         <tr><th>Receptor y enrutador de documentos</th><td>El nivel medio: valida que los archivos correspondan e identifica dónde está cada documento.</td><td>C2, acierto de clasificación y matriz de confusión contra el tipo confirmado por una persona</td></tr>
         <tr><th>Los cuatro extractores en paralelo</th><td>El nivel bajo, un experto por documento, con el reparto que evita que la latencia sea la suma.</td><td>C2, acierto por campo y proporción de campos con respaldo verificable en la fuente</td></tr>
         <tr><th>Agente request builder</th><td>Consolida el análisis de los expertos y arma la solicitud según el tipo.</td><td>C1, validez de esquema del contrato hacia Evaluación, verificada automáticamente</td></tr>
-        <tr><th>LLM-as-a-judge</th><td>Evalúa lo que no se puede verificar con reglas, que es la única forma de hacerlo a escala.</td><td>C3, calibrarlo contra una muestra revisada por personas expertas y reportar ese nivel de coincidencia junto a la métrica que dependa de él</td></tr>
+        <tr><th>LLM-as-a-judge</th><td>Está previsto en la capa de entrada y salida, como la vía para evaluar lo que no se puede verificar con reglas. Es la única forma de hacerlo a escala.</td><td>C3, calibrarlo contra una muestra revisada por personas expertas y reportar ese nivel de coincidencia junto a la métrica que dependa de él</td></tr>
         <tr><th>Capa de auditoría, en Solicitud y en Evaluación</th><td>El agente auditor existe, está en los dos gestores donde más importa y en el plano correcto.</td><td>C3, abrir la flecha de aplicar mejoras en versión candidata, compuerta y promoción registrada</td></tr>
         <tr><th>Capa de duplicidad</th><td>Detecta solicitudes equivalentes antes de evaluar, que es donde el equipo ya identificó el riesgo.</td><td>C5, escalar con motivo y evidencia en lugar de cerrar el camino, que es lo que además la vuelve medible</td></tr>
         <tr><th>Caché de reglas duras y modelo experto</th><td>Separa lo determinístico de lo que admite juicio, dentro de la misma capa de evaluación.</td><td>C4, es lo que sostiene el techo de negación determinística; C6, versión y vigencia de la regla registradas en cada decisión</td></tr>
         <tr><th>Información del cliente y pertinencia médica</th><td>El componente analítico que aporta el criterio clínico a la evaluación.</td><td>C2, concordancia con la decisión humana, medida por separado para autorizar y para escalar</td></tr>
         <tr><th>Rombo de cumplimiento de la evaluación</th><td>El punto donde el caso se aprueba o pasa a una persona. La bifurcación está bien puesta.</td><td>C4, con qué umbral y con qué grado se decide; C5, cómo se llama el estado del caso que pasa a una persona</td></tr>
         <tr><th>Modelos expertos de coordinación</th><td>El coordinador de autorización y los que vienen detrás, con la madurez agéntica que el equipo ya definió para este gestor.</td><td>C4, el grado convive con la madurez: una dice qué tipo de componente es, el otro cuánta decisión tiene entregada hoy</td></tr>
-        <tr><th>Decisión de proveedor y sus dos pasos</th><td>El punto donde se resuelve si hay proveedor sugerido, y las dos acciones que salen de ahí: evaluarlo o sugerir uno.</td><td>Notación: el rombo se reserva para la decisión, y evaluar y sugerir se dibujan como los pasos que son</td></tr>
+        <tr><th>Decisión de proveedor y sus dos pasos</th><td>El punto donde se resuelve si hay proveedor sugerido, y las dos acciones que salen de ahí: evaluarlo o sugerir uno.</td><td>Notación · el rombo se reserva para la decisión, y evaluar y sugerir se dibujan como los pasos que son</td></tr>
         <tr><th>Bandejas de coordinación</th><td>Dos estados nombrados, con su condición de entrada y su dueño humano. Nombrar la bandeja ya definió el estado.</td><td>C2, el ajuste que hace la persona sobre el prestador sugerido es una etiqueta, y hoy el trazo termina en la bandeja</td></tr>
         <tr><th>Gestor de prestación y Gestor de finalización</th><td>Están presentes como bloque, que es la forma correcta de declarar alcance sin comprometer detalle.</td><td>C7, la confirmación de la atención con su nivel de confianza, y el enlace del desenlace con la cuenta médica</td></tr>
         <tr><th>Interoperabilidad, marcada como relevante</th><td>Reconoce la pieza y su importancia dentro del ecosistema.</td><td>C6, conectarla según el principio de responsabilidad única, vía el core, y declarar su alcance real y no solo su existencia</td></tr>
