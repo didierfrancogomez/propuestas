@@ -42,13 +42,25 @@ y su catálogo se mantiene tal como está.
 
 ## 2. Entregables vigentes
 
+> Todas las rutas son relativas a la raíz del repositorio `propuestas/`. La reorganización
+> del 2 de septiembre agrupó el trabajo de la cuenta bajo `SURA/`, y separó la torre de
+> control, las notas de gestores y la arquitectura transversal en carpetas propias, cada una
+> con su versionado. Las rutas de abajo son las vigentes; las de la forma `gestores-sura/v4/`
+> que aparecían antes ya no existen.
+
 | Ruta | Qué es | Estado |
 |---|---|---|
-| `gestores-sura/v3/Tech and Solve - Notas de arquitectura.html` | Propuesta principal: catálogo de 6 propuestas (P1–P6) con anatomía fija, 2 acuerdos aparte, secuencia, y 4 anexos | Entregable, versionado y con PDF |
-| `gestores-sura/v4/Tech and Solve - Torre de control.html` | Propuesta de torre de control: 5 capas, 3 relojes de la verdad, eventos mínimos, indicadores, tableros por actor, alertas, autonomía, anomalías, secuencia, 2 anexos | Entregable, versionado. **Pendiente de actualizar** con los hallazgos de la sección 5 |
-| `gestores-sura/v4/Gestores_Seguimiento_Requerimientos_2026.xlsx` | Insumo del cliente, 5 hojas | Insumo, ya analizado |
-| `gestores-sura/v3/currentDesigns/*.drawio` | Diseños vigentes del cliente, 2 archivos, 9 vistas | Insumo, ya analizado |
-| `gestores-sura/v3/_borradores/` | Notas locales de la iteración previa | No se entregan |
+| `SURA/gestores-sura/v3/Tech and Solve - Notas de arquitectura.html` | Notas de arquitectura de gestores: catálogo de 6 propuestas (P1–P6) con anatomía fija, 2 acuerdos aparte, secuencia, y 4 anexos | Entregable, versionado y con PDF |
+| `SURA/torre-de-control/v2/Tech and Solve - Torre de control.html` | Propuesta de torre de control: 5 capas, 3 relojes de la verdad, eventos mínimos, indicadores, tableros por actor, alertas, autonomía, anomalías, secuencia, 4 anexos | Entregable, versionado y con PDF |
+| `SURA/torre-de-control/v2/Tech and Solve - Torre de control_estimacion.html` | Dimensionamiento: cuatro etapas, nueve sprints | Entregable, versionado y con PDF |
+| `SURA/torre-de-control/v2/Tech and Solve - Torre de control_equipo_tech.html` | Perfiles, matriz de cobertura y guía de entrevista | **Interno**, no se entrega |
+| `SURA/arquitectura transversal/Tech and Solve - Notas de arquitectura.html` | Siete complementos (C1–C7) a la vista de resumen, para la presentación a los sponsor | Entregable, con PDF. Ver sección 8b |
+| `SURA/arquitectura transversal/resumen-arquitectura-gestores.drawio` | La vista de resumen como proponemos que quede, con los siete complementos ubicados | Entregable |
+| `SURA/torre-de-control/v2/Gestores_Seguimiento_Requerimientos_2026.xlsx` | Insumo del cliente, 5 hojas | Insumo, ya analizado |
+| `SURA/gestores-sura/v3/currentDesigns/*.drawio` | Diseños del cliente del 1 de septiembre, 2 archivos, 9 vistas | Insumo, ya analizado |
+| `SURA/arquitectura transversal/Arquitectura-Gestores 02092026.drawio` | Diseño del cliente del 2 de septiembre, 10 vistas. **No se modifica** | Insumo, ya analizado |
+| `SURA/arquitectura transversal/documentacion/` | Copias de insumos y de entregables previos que el cliente puso sobre la mesa. **No se modifica** | Insumo |
+| `SURA/gestores-sura/v3/_borradores/` | Notas locales de una iteración previa | No se entregan |
 
 ### Estructura de la propuesta principal (v3)
 
@@ -82,7 +94,7 @@ revela el error caro.
 
 ## 3. Decisiones de forma y estilo
 
-- **Sistema de diseño**: hoja de estilos compartida entre v3 y v4. Poppins, violeta
+- **Sistema de diseño**: hoja de estilos compartida por los tres entregables. Poppins, violeta
   `#280265`, acento `#5300DF`, ámbar `#B9720A`. Logos embebidos en base64, sin
   dependencias externas salvo Google Fonts.
 - **Escala tipográfica en `em`** relativa al cuerpo, con valores fijos en `@media print`
@@ -311,24 +323,27 @@ producción. En total 27 páginas leídas.
 
 ---
 
-## 8. Estado de los entregables de v4
+## 8. Estado de los entregables de la torre de control
 
 Al 1 de septiembre de 2026, los ocho cambios acordados el 31 de agosto **ya están aplicados**
-en `Tech and Solve - Torre de control_v2.html`: la torre ejecuta y se gobierna como agente,
+en `SURA/torre-de-control/v2/Tech and Solve - Torre de control.html`: la torre ejecuta y se gobierna como agente,
 escala de grados G1 a G4, techos de autonomía, fuentes reales, indicadores enchufados en los
 nueve ejes, salud técnica del ecosistema, dependencias sin plazos ajenos, y los anexos C, el
 mapeo de los nueve agentes, y D, el mapa de cobertura. Se sumaron después la sección de por
 qué construir en paralelo y las etapas con campos fijos.
 
-### Archivos de v4
+### Archivos de `SURA/torre-de-control/v2/`
 
 | Archivo | Para quién | Estado |
 |---|---|---|
-| `Torre de control_v2.html` | Cliente | Propuesta vigente |
-| `Torre de control_v2_sprints.html` | Cliente | Dimensionamiento: cuatro etapas, nueve sprints, tres personas más arquitecto parcial |
-| `Torre de control_v2_skills (interno).html` | Interno | Perfiles, matriz de cobertura, guía de entrevista |
-| `_borradores/Torre de control_v1.html` | Nadie | Versión superada, archivada el 1-sep |
+| `Tech and Solve - Torre de control.html` | Cliente | Propuesta vigente, con PDF |
+| `Tech and Solve - Torre de control_estimacion.html` | Cliente | Dimensionamiento: cuatro etapas, nueve sprints, tres personas más arquitecto parcial. Con PDF |
+| `Tech and Solve - Torre de control_equipo_tech.html` | Interno | Perfiles, matriz de cobertura, guía de entrevista. Con PDF |
 | `Gestores_Seguimiento_Requerimientos_2026.xlsx` | Insumo | Del cliente |
+| `documentacion 1 septiembre/` | Insumo | Del cliente, sin modificar |
+
+La versión anterior queda archivada completa en `SURA/torre-de-control/v1/`, que conserva su
+propio `context.md`. No se entrega.
 
 ### Decisiones de alcance que conviene recordar
 
@@ -345,10 +360,62 @@ qué construir en paralelo y las etapas con campos fijos.
 ### Presupuesto de tamaño
 
 El cuerpo de la nota de arquitectura está en 25 mil caracteres y el del dimensionamiento en
-19 mil, ambos dentro del techo de 35 mil. El de la torre está en **41 mil**, por encima. Se
+19 mil, ambos dentro del techo de 35 mil. El de la torre está en **41 mil**, por encima, y el de
+la arquitectura transversal en **35 mil**, justo en el techo. Se
 aceptó conscientemente: el crecimiento vino de cubrir requisitos que el cliente ya tenía
 escritos. Si vuelve a crecer, los candidatos a comprimir son la tabla de eventos mínimos y la
 sección de secuencia.
+
+## 8b. La arquitectura transversal, en `SURA/arquitectura transversal/`
+
+Frente nuevo, abierto el 2 de septiembre. El equipo del cliente refinó su vista **Resumen Arq
+gestores** y necesita llevarla a una presentación a los sponsor del proyecto. El encargo, en
+`objetive.md` de esa carpeta, fue leer esa vista y proponer qué le falta.
+
+**El enfoque**: la vista responde bien *qué hace* el sistema; no tiene dónde responder *cómo se
+sabe que lo hace bien*. De ahí salen **siete complementos, C1 a C7**, cada uno anclado a una
+pregunta que un comité de patrocinadores hace:
+
+**C1** bus de eventos y la torre con contenido · **C2** la corrección humana capturada como
+insumo · **C3** el auditor propone y una compuerta decide · **C4** grados de autonomía con los
+techos del negocio · **C5** escalar con motivo en lugar de cerrar el camino · **C6** el plano de
+control y dónde queda el dato clínico · **C7** el reloj tardío, de la autorización a la glosa.
+
+Los siete son extensiones de piezas que ya están dibujadas, salvo el bus de eventos, que agrega
+la pieza que su convención de elementos ya anticipaba al declarar el generador de evento.
+
+### Decisiones tomadas en este frente
+
+- **El diagrama es la propuesta, no una copia fiel del diseño actual.** El HTML lo respalda. De
+  ahí sale la regla de notación: **el rombo se reserva para las decisiones**. La vista del
+  cliente tiene cinco rombos y solo tres son decisiones; *Evaluar proveedor* y *Sugerir
+  proveedor* son pasos, y en nuestra vista se dibujan como tales.
+- **El LLM-as-a-judge es recomendación nuestra, no decisión del equipo.** En su diagrama está
+  como globo de comentario. No va en la sección de decisiones que el equipo ya tomó: se
+  presenta como pieza prevista, con sus dos condiciones, calibrarla contra una muestra revisada
+  por personas expertas y que trabaje con los evaluadores humanos sin sustituirlos. Error a no
+  repetir: **antes de acreditarle una decisión al cliente, verificar que sea suya y no nuestra**,
+  contrastando contra el diseño anterior. Las otras cinco decisiones que la sección declara sí
+  estaban en su diseño del 1 de septiembre; se verificó una por una.
+- **Se reutiliza el vocabulario de formas del cliente** en el drawio: el icono de componente
+  agéntico, el de modelo experto, la nube del generador de evento y el SVG de la Api, para que
+  la vista sea reemplazable en su propio archivo.
+- **Las aristas llevan puerto explícito de salida y entrada.** El enrutado automático de drawio
+  cruzaba etiquetas y hacía parecer que el reparto del enrutador salía de cuatro iconos
+  distintos.
+
+### Pendiente antes de presentar
+
+- **Verificar contra el xlsx de seguimiento** las afirmaciones que el documento pone en boca del
+  cliente y que se trajeron de la sección 5 de este contexto: los tres techos de autonomía, el
+  alcance real de la interoperabilidad, el lago de datos como entregable posterior y el
+  pendiente del nivel de autonomía de ejecución. Son las citas más fuertes del documento y no se
+  han vuelto a contrastar desde el 31 de agosto.
+- **Decidir cómo entra el diagrama en la presentación.** Mide 3360×3850; no es una lámina.
+- **Conversar con el equipo** los dos estados que proponemos renombrar y las dos formas que
+  cambiamos, antes de que aparezcan proyectados frente a sus sponsor.
+
+---
 
 ## 9. Operación del repositorio
 
@@ -356,8 +423,9 @@ sección de secuencia.
 - Perfil de gh correcto: **didierfrancogomez**. El otro perfil de la máquina,
   `franco52428`, no es dueño de ese remoto.
 - `.gitignore` con `.DS_Store`, `._*` y `Thumbs.db`. Los `.DS_Store` ya no se versionan.
-- La carpeta externa `~/Documents/GitHub/techandsolve` es **otro repositorio sin remoto**,
-  con cambios pendientes de la reorganización que movió todo a `propuestas/`.
+- `.gitignore` ignora además los respaldos `.$*.bkp` que deja la app de escritorio de draw.io.
+- La reorganización que agrupó el trabajo de la cuenta bajo `SURA/` ya está subida. La carpeta
+  externa `~/Documents/GitHub/techandsolve` es **otro repositorio sin remoto**.
 - Convención: commits directos a `main`, mensajes en español, en minúscula.
 - `propuestas/CLAUDE.md` es el punto de entrada automático de cada sesión de Claude Code:
   se carga al inicio en cualquier subcarpeta del repositorio y remite a este archivo. Si se
@@ -370,4 +438,4 @@ sección de secuencia.
 - Si `compuerta de regresión` pasa a `gate`.
 - Cómo se renombra la escala de madurez para evitar la colisión de "nivel".
 - Si el mapeo contra los 9 agentes va en el cuerpo o en un anexo.
-- Si se archiva o se elimina la carpeta `_borradores` de v3 antes de la entrega final.
+- Si se archiva o se elimina la carpeta `SURA/gestores-sura/v3/_borradores/` antes de la entrega final.

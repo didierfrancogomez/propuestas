@@ -59,19 +59,22 @@ Aplica a toda propuesta de este repositorio, sin excepción.
    del entregable.
 
 Ejemplo resuelto en este repositorio: el insumo de SURA del 1 de septiembre se versionó
-completo y sin tocar en `torre-de-control/v1/documentacion 1 septiembre/`, y todos los
+completo y sin tocar en `SURA/torre-de-control/v1/documentacion 1 septiembre/`, y todos los
 ajustes que produjo quedaron en nuestros documentos.
 
 ## Antes de tocar la cuenta de SURA
 
-El trabajo de SURA está repartido en dos carpetas, y cada una versiona por su cuenta:
+El trabajo de SURA vive bajo `SURA/`, repartido en tres carpetas que versionan por su cuenta:
 
-- `torre-de-control/` — la torre de control, con la propuesta, el dimensionamiento y el
+- `SURA/torre-de-control/` — la torre de control, con la propuesta, el dimensionamiento y el
   documento interno de equipo. Cada versión es una subcarpeta, `v1`, `v2` y siguientes.
-- `gestores-sura/` — las notas de arquitectura sobre la acertividad de los agentes, con el
-  mismo esquema de subcarpetas por versión.
+- `SURA/gestores-sura/` — las notas de arquitectura sobre la acertividad de los agentes, con
+  el mismo esquema de subcarpetas por versión.
+- `SURA/arquitectura transversal/` — los siete complementos a la vista de resumen, para la
+  presentación a los sponsor. Esta no versiona por subcarpetas: el encargo está en su
+  `objetive.md`, y su carpeta `documentacion/` es insumo del cliente que **no se modifica**.
 
-Leer primero el `context.md` de la versión vigente de `torre-de-control/`. Contiene el
+Leer primero el `context.md` de la versión vigente de `SURA/torre-de-control/`. Contiene el
 enfoque acordado, los entregables vigentes, la terminología, las reglas de tono, las
 fuentes del sustento y los cambios pendientes. Es documento interno: no se entrega al
 cliente. El insumo que entrega el cliente vive junto a ese contexto y se rige por la regla
