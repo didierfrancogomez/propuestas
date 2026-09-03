@@ -42,25 +42,35 @@ y su catálogo se mantiene tal como está.
 
 ## 2. Entregables vigentes
 
-> Todas las rutas son relativas a la raíz del repositorio `propuestas/`. La reorganización
-> del 2 de septiembre agrupó el trabajo de la cuenta bajo `SURA/`, y separó la torre de
-> control, las notas de gestores y la arquitectura transversal en carpetas propias, cada una
-> con su versionado. Las rutas de abajo son las vigentes; las de la forma `gestores-sura/v4/`
-> que aparecían antes ya no existen.
+> Todas las rutas son relativas a la raíz del repositorio `propuestas/`. Tras la
+> reorganización del 3 de septiembre, **todo el trabajo de la cuenta cuelga de
+> `SURA/gestores-sura/`**: las notas de arquitectura en sus subcarpetas `v1` a `v3`, y la
+> torre de control, la arquitectura transversal y la estimación del MVP como carpetas
+> hermanas dentro de ella. Las rutas de abajo son las vigentes; las de la forma
+> `SURA/torre-de-control/` o `SURA/arquitectura transversal/` que aparecían antes ya no
+> existen en ese nivel.
 
 | Ruta | Qué es | Estado |
 |---|---|---|
 | `SURA/gestores-sura/v3/Tech and Solve - Notas de arquitectura.html` | Notas de arquitectura de gestores: catálogo de 6 propuestas (P1–P6) con anatomía fija, 2 acuerdos aparte, secuencia, y 4 anexos | Entregable, versionado y con PDF |
-| `SURA/torre-de-control/v2/Tech and Solve - Torre de control.html` | Propuesta de torre de control: 5 capas, 3 relojes de la verdad, eventos mínimos, indicadores, tableros por actor, alertas, autonomía, anomalías, secuencia, 4 anexos | Entregable, versionado y con PDF |
-| `SURA/torre-de-control/v2/Tech and Solve - Torre de control_estimacion.html` | Dimensionamiento: cuatro etapas, nueve sprints | Entregable, versionado y con PDF |
-| `SURA/torre-de-control/v2/Tech and Solve - Torre de control_equipo_tech.html` | Perfiles, matriz de cobertura y guía de entrevista | **Interno**, no se entrega |
-| `SURA/arquitectura transversal/Tech and Solve - Notas de arquitectura.html` | Siete complementos (C1–C7) a la vista de resumen, para la presentación a los sponsor | Entregable, con PDF. Ver sección 8b |
-| `SURA/arquitectura transversal/resumen-arquitectura-gestores.drawio` | La vista de resumen como proponemos que quede, con los siete complementos ubicados | Entregable |
-| `SURA/torre-de-control/v2/Gestores_Seguimiento_Requerimientos_2026.xlsx` | Insumo del cliente, 5 hojas | Insumo, ya analizado |
+| `SURA/gestores-sura/torre-de-control/v2/Tech and Solve - Torre de control.html` | Propuesta de torre de control: 5 capas, 3 relojes de la verdad, eventos mínimos, indicadores, tableros por actor, alertas, autonomía, anomalías, secuencia, 4 anexos | Entregable, versionado y con PDF |
+| `SURA/gestores-sura/torre-de-control/v2/Tech and Solve - Torre de control_estimacion.html` | Dimensionamiento: cuatro etapas, nueve sprints | Entregable, versionado y con PDF |
+| `SURA/gestores-sura/torre-de-control/v2/Tech and Solve - Torre de control_equipo_tech.html` | Perfiles, matriz de cobertura y guía de entrevista | **Interno**, no se entrega |
+| `SURA/gestores-sura/arquitectura transversal/Tech and Solve - Notas de arquitectura.html` | Siete complementos (C1–C7) a la vista de resumen, para la presentación a los sponsor | Entregable, con PDF. Ver sección 8b |
+| `SURA/gestores-sura/arquitectura transversal/resumen-arquitectura-gestores.drawio` | La vista de resumen como proponemos que quede, con los siete complementos ubicados | Entregable |
+| `SURA/gestores-sura/torre-de-control/v2/Gestores_Seguimiento_Requerimientos_2026.xlsx` | Insumo del cliente, 5 hojas | Insumo, ya analizado |
 | `SURA/gestores-sura/v3/currentDesigns/*.drawio` | Diseños del cliente del 1 de septiembre, 2 archivos, 9 vistas | Insumo, ya analizado |
-| `SURA/arquitectura transversal/Arquitectura-Gestores 02092026.drawio` | Diseño del cliente del 2 de septiembre, 10 vistas. **No se modifica** | Insumo, ya analizado |
-| `SURA/arquitectura transversal/documentacion/` | Copias de insumos y de entregables previos que el cliente puso sobre la mesa. **No se modifica** | Insumo |
+| `SURA/gestores-sura/arquitectura transversal/Arquitectura-Gestores 02092026.drawio` | Diseño del cliente del 2 de septiembre, 10 vistas. **No se modifica** | Insumo, ya analizado |
+| `SURA/gestores-sura/arquitectura transversal/documentacion/` | Copias de insumos y de entregables previos que el cliente puso sobre la mesa. **No se modifica** | Insumo |
+| `SURA/gestores-sura/arquitectura transversal/Arquitectura final refinada en conjunto con el equipo sura.drawio` | Diseño refinado con el equipo del cliente | Insumo, sin analizar |
+| `SURA/gestores-sura/arquitectura transversal/Tech and Solve - Analisis arquitectura inicial.html` | Análisis inicial de la vista de resumen | Entregable previo |
+| `SURA/gestores-sura/estimacin mvp/` | Estimación del MVP: seguimiento, `estimacion.htlm` y una copia del drawio de resumen | Frente nuevo, **sin catalogar**. Ver nota abajo |
 | `SURA/gestores-sura/v3/_borradores/` | Notas locales de una iteración previa | No se entregan |
+
+> **Sobre `estimacin mvp/`**: la carpeta llegó con la reorganización del 3 de septiembre y
+> todavía no se ha revisado. Dos nombres vienen con erratas, `estimacin` sin la ó y
+> `estimacion.htlm` con la extensión traspuesta; se dejan como están hasta decidir si la
+> carpeta se renombra.
 
 ### Estructura de la propuesta principal (v3)
 
@@ -326,13 +336,13 @@ producción. En total 27 páginas leídas.
 ## 8. Estado de los entregables de la torre de control
 
 Al 1 de septiembre de 2026, los ocho cambios acordados el 31 de agosto **ya están aplicados**
-en `SURA/torre-de-control/v2/Tech and Solve - Torre de control.html`: la torre ejecuta y se gobierna como agente,
+en `SURA/gestores-sura/torre-de-control/v2/Tech and Solve - Torre de control.html`: la torre ejecuta y se gobierna como agente,
 escala de grados G1 a G4, techos de autonomía, fuentes reales, indicadores enchufados en los
 nueve ejes, salud técnica del ecosistema, dependencias sin plazos ajenos, y los anexos C, el
 mapeo de los nueve agentes, y D, el mapa de cobertura. Se sumaron después la sección de por
 qué construir en paralelo y las etapas con campos fijos.
 
-### Archivos de `SURA/torre-de-control/v2/`
+### Archivos de `SURA/gestores-sura/torre-de-control/v2/`
 
 | Archivo | Para quién | Estado |
 |---|---|---|
@@ -342,7 +352,7 @@ qué construir en paralelo y las etapas con campos fijos.
 | `Gestores_Seguimiento_Requerimientos_2026.xlsx` | Insumo | Del cliente |
 | `documentacion 1 septiembre/` | Insumo | Del cliente, sin modificar |
 
-La versión anterior queda archivada completa en `SURA/torre-de-control/v1/`, que conserva su
+La versión anterior queda archivada completa en `SURA/gestores-sura/torre-de-control/v1/`, que conserva su
 propio `context.md`. No se entrega.
 
 ### Decisiones de alcance que conviene recordar
@@ -366,7 +376,7 @@ aceptó conscientemente: el crecimiento vino de cubrir requisitos que el cliente
 escritos. Si vuelve a crecer, los candidatos a comprimir son la tabla de eventos mínimos y la
 sección de secuencia.
 
-## 8b. La arquitectura transversal, en `SURA/arquitectura transversal/`
+## 8b. La arquitectura transversal, en `SURA/gestores-sura/arquitectura transversal/`
 
 Frente nuevo, abierto el 2 de septiembre. El equipo del cliente refinó su vista **Resumen Arq
 gestores** y necesita llevarla a una presentación a los sponsor del proyecto. El encargo, en
@@ -424,7 +434,7 @@ la pieza que su convención de elementos ya anticipaba al declarar el generador 
   `franco52428`, no es dueño de ese remoto.
 - `.gitignore` con `.DS_Store`, `._*` y `Thumbs.db`. Los `.DS_Store` ya no se versionan.
 - `.gitignore` ignora además los respaldos `.$*.bkp` que deja la app de escritorio de draw.io.
-- La reorganización que agrupó el trabajo de la cuenta bajo `SURA/` ya está subida. La carpeta
+- La reorganización que dejó todo colgando de `SURA/gestores-sura/` ya está subida. La carpeta
   externa `~/Documents/GitHub/techandsolve` es **otro repositorio sin remoto**.
 - Convención: commits directos a `main`, mensajes en español, en minúscula.
 - `propuestas/CLAUDE.md` es el punto de entrada automático de cada sesión de Claude Code:
