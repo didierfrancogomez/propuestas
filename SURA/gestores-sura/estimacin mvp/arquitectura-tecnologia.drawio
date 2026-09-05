@@ -1,0 +1,1249 @@
+<mxfile host="app.diagrams.net" agent="Tech and Solve" version="24.7.17" type="device">
+  <diagram name="MVP · despliegue tecnológico" id="mvp-despliegue-tecnol-gico">
+    <mxGraphModel dx="2000" dy="1200" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="c-1" value="&lt;b&gt;Arquitectura de tecnología del MVP de Gestores&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;strokeColor=none;fillColor=none;fontSize=32;" vertex="1" parent="1">
+          <mxGeometry x="0" y="-190" width="3300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c-2" value="Vista de despliegue (C4 · nivel 2) del alcance dibujado en «Arquitectura MVP», realizada sobre el stack que fijan los lineamientos AI First de SURA.&lt;br&gt;Cada componente cita la página del espacio AFGLYP que lo define. Morado: lo fija el lineamiento · naranja: extrapolación nuestra sobre una herramienta del lineamiento · rojo: sin respaldo en el lineamiento." style="text;html=1;align=center;verticalAlign=middle;strokeColor=none;fillColor=none;fontSize=15;fontColor=#555555;" vertex="1" parent="1">
+          <mxGeometry x="0" y="-128" width="3300" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="c-3" value="CANALES Y EXPERIENCIA" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 8;verticalAlign=top;align=left;spacingLeft=18;spacingTop=8;fontSize=19;fontStyle=1;fillColor=#EFFCFF;strokeColor=#4D9DB5;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="3300" height="216" as="geometry" />
+        </mxCell>
+        <mxCell id="c-4" value="Prestador" style="html=1;fontSize=11;dashed=0;whiteSpace=wrap;fillColor=#083F75;strokeColor=#06315C;fontColor=#ffffff;shape=mxgraph.c4.person2;align=center;resizable=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="46" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="c-5" value="Asesor" style="html=1;fontSize=11;dashed=0;whiteSpace=wrap;fillColor=#083F75;strokeColor=#06315C;fontColor=#ffffff;shape=mxgraph.c4.person2;align=center;resizable=0;" vertex="1" parent="1">
+          <mxGeometry x="170" y="46" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="c-6" value="Cliente" style="html=1;fontSize=11;dashed=0;whiteSpace=wrap;fillColor=#083F75;strokeColor=#06315C;fontColor=#ffffff;shape=mxgraph.c4.person2;align=center;resizable=0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="46" width="110" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="c-7" value='&lt;b&gt;Portal prestador&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 10px;"&gt;[Software System]&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8C8496;strokeColor=#736782;fontColor=#FFFFFF;strokeWidth=1;arcSize=10;align=center;verticalAlign=middle;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="450" y="46" width="225" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c-8" value='&lt;b&gt;SVP&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 10px;"&gt;[Software System]&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8C8496;strokeColor=#736782;fontColor=#FFFFFF;strokeWidth=1;arcSize=10;align=center;verticalAlign=middle;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="685" y="46" width="225" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c-9" value='&lt;b&gt;SuperApp proveedores&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 10px;"&gt;[Software System]&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8C8496;strokeColor=#736782;fontColor=#FFFFFF;strokeWidth=1;arcSize=10;align=center;verticalAlign=middle;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="920" y="46" width="225" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c-10" value='&lt;b&gt;SuperApp clientes (Erika)&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 10px;"&gt;[Software System]&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8C8496;strokeColor=#736782;fontColor=#FFFFFF;strokeWidth=1;arcSize=10;align=center;verticalAlign=middle;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1155" y="46" width="225" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c-11" value='&lt;b&gt;WhatsApp&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 10px;"&gt;[Software System]&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8C8496;strokeColor=#736782;fontColor=#FFFFFF;strokeWidth=1;arcSize=10;align=center;verticalAlign=middle;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1390" y="46" width="225" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c-12" value='&lt;b&gt;Nexo&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 10px;"&gt;[Software System]&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8C8496;strokeColor=#736782;fontColor=#FFFFFF;strokeWidth=1;arcSize=10;align=center;verticalAlign=middle;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1625" y="46" width="225" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c-13" value='&lt;b&gt;AVA&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 10px;"&gt;[Software System]&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#8C8496;strokeColor=#736782;fontColor=#FFFFFF;strokeWidth=1;arcSize=10;align=center;verticalAlign=middle;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1860" y="46" width="225" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c-14" value='&lt;b&gt;Chat conversacional&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Azure Static Web App · Angular SPA, desacoplada del plano agéntico y consumiendo la plataforma por el AI Gateway.&lt;/font&gt;&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Arq. de implementación · 6243680318 · Experiencia e interacción&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="2095" y="46" width="300" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="c-15" value="&lt;b&gt;Entrada gobernada&lt;/b&gt;&lt;br&gt;Todo canal entra por el AI Gateway con identidad propagada (Entra ID · OAuth2/OIDC/JWT). Cada solicitud viaja marcada con su canal de origen, para que los casos que se saltan gestores no contaminen la métrica de quien no participó." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="2420" y="46" width="850" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="c-16" value="CONTROL PLANE · PLATAFORMA AGÉNTICA — realiza el «AI Control Plane» del dibujo del MVP" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 8;verticalAlign=top;align=left;spacingLeft=18;spacingTop=8;fontSize=19;fontStyle=1;fillColor=#F7F2FF;strokeColor=#7B4FB0;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="0" y="256" width="3300" height="316" as="geometry" />
+        </mxCell>
+        <mxCell id="c-17" value='&lt;b&gt;Azure API Management&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;AI Gateway. Puerta de entrada obligatoria del tráfico agéntico: autenticación con Entra ID, cuotas, rate limiting y trazabilidad.&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Arq. de implementación · 6243680318 · AI Gateway · ADR-2026-001 · 6244532291&lt;/font&gt;&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="30" y="302" width="383" height="165" as="geometry" />
+        </mxCell>
+        <mxCell id="c-18" value='&lt;b&gt;Azure API Management&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;MCP Tool Gateway &amp;amp; Registry. Catálogo de herramientas con dueño y contrato, allow-lists por agente y versionamiento.&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Arq. de implementación · 6243680318 · MCP Tool Gateway &amp;amp; Registry&lt;/font&gt;&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="438" y="302" width="383" height="165" as="geometry" />
+        </mxCell>
+        <mxCell id="c-19" value='&lt;b&gt;Microsoft Entra ID&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Identidad humana y técnica. OAuth2 / OIDC / JWT, service principals y Managed Identity; autorización contextual en el gateway.&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Arq. de implementación · 6243680318 · Identidad y autenticación&lt;/font&gt;&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="846" y="302" width="383" height="165" as="geometry" />
+        </mxCell>
+        <mxCell id="c-20" value='&lt;b&gt;LiteLLM&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;LLM Gateway. Routing, fallback, límites de tokens y presupuesto por gestor, agente y entorno. Desacopla el contrato del proveedor.&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Arq. de implementación · 6243680318 · LLM / Model Gateway · Diseño Datos · 5900140571&lt;/font&gt;&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1254" y="302" width="383" height="165" as="geometry" />
+        </mxCell>
+        <mxCell id="c-21" value='&lt;b&gt;Azure AI Foundry&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Modelos y servicios cognitivos, con Azure AI Content Safety y Microsoft Presidio para guardrails de entrada y salida y datos personales.&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Arq. de implementación · 6243680318 · AI Security Enforcement&lt;/font&gt;&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1662" y="302" width="383" height="165" as="geometry" />
+        </mxCell>
+        <mxCell id="c-22" value='&lt;b&gt;Langfuse + PostgreSQL Flexible&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Prompt Management, versionado, evaluaciones y trazas de calidad. ClickHouse queda como prerrequisito interno, no como observabilidad. El registro de evaluaciones con golden set se apoya además en MLflow.&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Arq. de implementación · 6243680318 · AI/LLM Lifecycle · MLflow en Diseño Datos · 5900140571&lt;/font&gt;&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="2070" y="302" width="383" height="165" as="geometry" />
+        </mxCell>
+        <mxCell id="c-23" value='&lt;b&gt;API de gestión y configuraciones&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Umbrales por tipo de caso, techos de autonomía y parámetros de cada agente, versionados. Publicación por pipeline, sin acceso directo a la herramienta de prompts.&lt;br&gt;&lt;font style="font-size: 10px; color: #B85C00;"&gt;&amp;#9656; Patrón nuestro sobre APIM + PostgreSQL Flexible · 6243680318&lt;/font&gt;&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="2478" y="302" width="383" height="165" as="geometry" />
+        </mxCell>
+        <mxCell id="c-24" value='&lt;b&gt;FinOps&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Políticas de APIM, presupuestos de LiteLLM y Cost Management. Costo por gestor, agente, modelo y entorno.&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Arq. de implementación · 6243680318 · FinOps&lt;/font&gt;&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="2886" y="302" width="383" height="165" as="geometry" />
+        </mxCell>
+        <mxCell id="c-25" value="&lt;b&gt;Frontera del control plane en el MVP&lt;/b&gt;&lt;br&gt;Quedan fuera el A2A Gateway —el MVP no tiene colaboración entre agentes— y el catálogo MCP público completo. Apigee sigue siendo el estándar corporativo de las APIs de negocio y coexiste con APIM, que gobierna el tráfico agéntico." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="30" y="487" width="3240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c-26" value="DOMINIO DE AGENTES · suscripción de agentes (Azure) — runtime de los gestores" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 8;verticalAlign=top;align=left;spacingLeft=18;spacingTop=8;fontSize=19;fontStyle=1;fillColor=#FBFAFF;strokeColor=#280265;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="0" y="612" width="3300" height="977" as="geometry" />
+        </mxCell>
+        <mxCell id="c-27" value="GESTOR SOLICITUD" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;align=center;fontSize=18;fontStyle=1;fillColor=#F8F5FF;strokeColor=#280265;strokeWidth=3;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="30" y="658" width="1600" height="746" as="geometry" />
+        </mxCell>
+        <mxCell id="c-28" value="GESTOR EVALUACIÓN · AUTORIZACIÓN SALUD" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;align=center;fontSize=18;fontStyle=1;fillColor=#F8F5FF;strokeColor=#280265;strokeWidth=3;spacingTop=6;" vertex="1" parent="1">
+          <mxGeometry x="1670" y="658" width="1600" height="746" as="geometry" />
+        </mxCell>
+        <mxCell id="c-29" value="RUNTIME · AKS namespace &lt;i&gt;gestores-solicitud&lt;/i&gt; · contenedor Python (FastAPI + Uvicorn) · grafo LangGraph · OpenTelemetry" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=6 6;verticalAlign=top;align=left;spacingLeft=12;spacingTop=6;fontSize=13;fontStyle=1;fillColor=none;strokeColor=#9673A6;fontColor=#6C3483;" vertex="1" parent="1">
+          <mxGeometry x="55" y="704" width="1550" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="c-30" value="RUNTIME · AKS namespace &lt;i&gt;gestores-evaluacion&lt;/i&gt; · contenedor Python (FastAPI + Uvicorn) · grafo LangGraph · OpenTelemetry" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=6 6;verticalAlign=top;align=left;spacingLeft=12;spacingTop=6;fontSize=13;fontStyle=1;fillColor=none;strokeColor=#9673A6;fontColor=#6C3483;" vertex="1" parent="1">
+          <mxGeometry x="1695" y="704" width="1550" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="c-31" value='&lt;b&gt;Api orquestadora&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Rol &lt;i&gt;Orchestrator&lt;/i&gt;. Adaptador FastAPI + Uvicorn, publicado en APIM&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Agentic Runtime · 5838045207&lt;/font&gt;&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="65" y="756" width="238" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="c-32" value='&lt;b&gt;Clasificador de documentos&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Rol &lt;i&gt;Specialist&lt;/i&gt; documental. Nodo LangGraph, modelo vía LiteLLM&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Agentic Runtime · 5838045207&lt;/font&gt;&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="323" y="756" width="238" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="c-33" value='&lt;b&gt;Enrutador&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Rol &lt;i&gt;Planner / Router&lt;/i&gt;. Nodo LangGraph; la ruta queda en telemetría&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Agentic Runtime · 5838045207&lt;/font&gt;&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="581" y="756" width="238" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="c-34" value='&lt;b&gt;Agente request builder&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Rol &lt;i&gt;Specialist&lt;/i&gt;. Nodo LangGraph; arma la solicitud con los campos con respaldo&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Agentic Runtime · 5838045207&lt;/font&gt;&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="839" y="756" width="238" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="c-35" value='&lt;b&gt;LLM-as-a-judge&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Rol &lt;i&gt;Reviewer / Safety&lt;/i&gt;. Nodo LangGraph; valida contrato, grounding y confianza&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Agentic Runtime · 5838045207&lt;/font&gt;&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1097" y="756" width="238" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="c-36" value='&lt;b&gt;Agente auditor&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Nodo LangGraph; propone cambios y no promueve nada&lt;br&gt;&lt;font style="font-size: 10px; color: #B85C00;"&gt;&amp;#9656; Patrón nuestro sobre LangGraph + Langfuse&lt;/font&gt;&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1355" y="756" width="238" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="c-37" value='&lt;b&gt;Api orquestadora&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Rol &lt;i&gt;Orchestrator&lt;/i&gt;. Adaptador FastAPI + Uvicorn, publicado en APIM&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Agentic Runtime · 5838045207&lt;/font&gt;&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1705" y="756" width="238" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="c-38" value='&lt;b&gt;Duplicidad · solicitud equivalente&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Rol &lt;i&gt;Specialist&lt;/i&gt;. Similitud sobre el caso y su siniestro padre&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Agentic Runtime · 5838045207&lt;/font&gt;&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1963" y="756" width="238" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="c-39" value='&lt;b&gt;Información cliente&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Herramienta determinística del MCP privado sobre Domain APIs&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Arq. de implementación · 6243680318 · MCP interno&lt;/font&gt;&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="2221" y="756" width="238" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="c-40" value='&lt;b&gt;Pertinencia médica&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Rol &lt;i&gt;Specialist&lt;/i&gt; RAG. Recuperación híbrida y reranking sobre Azure AI Search&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Diseño Datos · 5900140571&lt;/font&gt;&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="2479" y="756" width="238" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="c-41" value='&lt;b&gt;Componente analítico&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Microservicio Python del dominio, invocado como herramienta&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Arq. de implementación · 6243680318 · Application Runtime&lt;/font&gt;&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="2737" y="756" width="238" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="c-42" value='&lt;b&gt;Agente auditor&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Nodo LangGraph; propone cambios y no promueve nada&lt;br&gt;&lt;font style="font-size: 10px; color: #B85C00;"&gt;&amp;#9656; Patrón nuestro sobre LangGraph + Langfuse&lt;/font&gt;&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="2995" y="756" width="238" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="c-43" value='&lt;b&gt;Extractor historia clínica&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Rol &lt;i&gt;Specialist&lt;/i&gt; de extracción estructurada. OCR con Azure Document Intelligence y razonamiento con modelos de Foundry vía LiteLLM.&lt;/font&gt;&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Diseño Datos · 5900140571 · Stack v0.5, prioridad obligatorio&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="65" y="916" width="238" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="c-44" value='&lt;b&gt;Extractor orden&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Rol &lt;i&gt;Specialist&lt;/i&gt; de extracción estructurada. Mismo par: Document Intelligence para OCR y modelo para la interpretación.&lt;/font&gt;&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Diseño Datos · 5900140571 · Stack v0.5, prioridad obligatorio&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="323" y="916" width="238" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="c-45" value='&lt;b&gt;El motor de extracción sí está fijado&lt;/b&gt;&lt;br&gt;El stack tecnológico v0.5 declara &lt;b&gt;Azure Document Intelligence&lt;/b&gt; para OCR y extracción estructurada con prioridad &lt;b&gt;obligatorio&lt;/b&gt;, y lo ubica en el pipeline de conocimiento. Por eso el extractor no llama al modelo contra el documento crudo: el OCR es determinístico y lo que razona el modelo es el texto ya estructurado. Queda por acordar si el llamado se hace desde el nodo o como herramienta del MCP privado.&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Diseño Datos RAG / Knowledge / Memory · 5900140571 · Limpieza y normalización (Silver)&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="581" y="916" width="1012" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="c-46" value='&lt;b&gt;Evaluación de reglas duras&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Herramienta determinística expuesta por el MCP privado, no razonamiento libre del modelo.&lt;/font&gt;&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; PoC Control Plane · 5957550095 · Restricciones tecnológicas&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1705" y="916" width="238" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="c-47" value='&lt;b&gt;Modelo experto&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Microservicio del dominio, propiedad del negocio y orquestado por el agente.&lt;/font&gt;&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Arq. de implementación · 6243680318 · Application Runtime&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1963" y="916" width="238" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="c-48" value="¿Cumple&lt;br&gt;evaluación?" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;verticalAlign=middle;align=center;fillColor=#FFE6CC;strokeColor=#D79B00;strokeWidth=2;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="2221" y="916" width="238" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="c-49" value='&lt;b&gt;Ningún agente niega&lt;/b&gt;&lt;br&gt;La negación es determinística y se sustenta en la caché de reglas versionadas; ante la posibilidad de un rechazo el grafo escala a persona. El umbral es política por tipo de caso en el control plane, no una constante del agente. El lineamiento respalda el patrón: la matriz determinística se expone como herramienta, no se embebe en el prompt.&lt;br&gt;&lt;font style="font-size: 10px; color: #B85C00;"&gt;&amp;#9656; Techos: decisión del negocio · patrón: PoC Control Plane · 5957550095&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="2479" y="916" width="754" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="c-50" value='&lt;b&gt;Un desplegable, varios agentes lógicos&lt;/b&gt;&lt;br&gt;Los agentes del dibujo son nodos del mismo grafo LangGraph, no contenedores separados. El lineamiento nombra estos roles —orchestrator, planner/router, specialist, reviewer/safety y human supervisor— como patrón multiagente lógico dentro de un mismo runtime.&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Agentic Runtime · 5838045207 · Roles multiagente · Arq. de implementación · 6243680318&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="65" y="1111" width="1530" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="c-51" value='&lt;b&gt;Autonomía con techo&lt;/b&gt;&lt;br&gt;Autorización automática solo para servicios de nivel 1. En niveles 3 y 4 —médicos y especialistas—, alto costo o riesgo, el techo es supervisado. El lineamiento coincide: toda decisión de alto impacto exige confirmación humana y el rol &lt;i&gt;human supervisor&lt;/i&gt; es parte del runtime.&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Techos: decisión del negocio · gate humano: PoC Control Plane · 5957550095&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1705" y="1111" width="1530" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="c-52" value='&lt;b&gt;MCP privado · Gestor Solicitud&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Contenedor Python o Java sobre el lego MCP, desplegado junto al runtime. Herramientas privadas del gestor: lectura de P8 y Siniestro Integral, escritura del preradicado y publicación de eventos. Se invoca por el MCP Gateway, nunca directo desde el grafo.&lt;/font&gt;&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Arq. de impl. v1.1 · 5684887560 · Lego MCP Server · Arq. de implementación · 6243680318 · MCP interno&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="55" y="1249" width="760" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="c-53" value='&lt;b&gt;Golden set y correcciones · Gestor Solicitud&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Conjuntos de evaluación versionados en Langfuse y registrados en MLflow, con el almacén de evidencia detrás. Guarda la corrección estructurada —qué campo estaba mal, cuál era el valor correcto y de dónde salía— y los casos adversarios. Es la compuerta de la próxima versión.&lt;/font&gt;&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Langfuse: 6243680318 · MLflow + LLM-as-Judge: Diseño Datos · 5900140571&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="845" y="1249" width="760" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="c-54" value='&lt;b&gt;MCP privado · Gestor Evaluación&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Contenedor Python o Java sobre el lego MCP. Expone las reglas duras como herramienta determinística, la consulta de información de cliente y la escritura de estados propios del gestor.&lt;/font&gt;&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Arq. de impl. v1.1 · 5684887560 · Arq. de implementación · 6243680318 · MCP interno&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1695" y="1249" width="760" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="c-55" value='&lt;b&gt;Caché de reglas duras · reglas versionadas&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;El lineamiento fija el &lt;b&gt;patrón&lt;/b&gt;: la matriz determinística se expone como herramienta o componente MCP y no se embebe en el prompt. No fija el almacén. Proponemos reglas versionadas como producto del dominio, con Azure Redis Cache para la caché de lectura, que el stack v0.5 declara opcional.&lt;/font&gt;&lt;br&gt;&lt;font style="font-size: 10px; color: #B85C00;"&gt;&amp;#9656; Patrón: PoC Control Plane · 5957550095 · Redis: Diseño Datos · 5900140571 (opcional) · almacén: extrapolación nuestra&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="2485" y="1249" width="760" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="c-56" value='&lt;b&gt;AKS · cómputo agéntico&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Namespace por gestor, aislamiento y despliegue de los MCP privados. El lineamiento privilegia Container Apps para un agente singular liviano y AKS cuando hay varios desplegables, múltiples MCP servers o capacidades transversales compartidas: el MVP está en el segundo caso.&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Arq. de implementación · 6243680318 · Runtime agéntico en Azure Container / AKS&lt;/font&gt;&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="30" y="1434" width="628" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="c-57" value='&lt;b&gt;Azure Cosmos DB · Memory Layer&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Memoria conversacional, memoria operacional —los checkpoints del grafo LangGraph— y estados propios de los gestores, como el preradicado. Acceso con PyMongo. TTL por tipo de memoria.&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Diseño Datos · 5900140571 · Diseño de Memory, prioridad obligatorio&lt;/font&gt;&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="683" y="1434" width="628" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="c-58" value='&lt;b&gt;Azure Container Registry Premium&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Imágenes del runtime y de los MCP privados. Revisiones inmutables y promoción registrada con autor, motivo y reversión inmediata.&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Arq. de impl. v1.1 · 5684887560 · Capacidades operativas y de seguridad&lt;/font&gt;&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1336" y="1434" width="628" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="c-59" value='&lt;b&gt;Key Vault · Managed Identity · Private Endpoints&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Secretos y credenciales bajo enfoque zero-trust, identidad técnica sin secretos embebidos y red privada sobre VNet.&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Arq. de implementación · 6243680318 · Gestión de secretos&lt;/font&gt;&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1989" y="1434" width="628" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="c-60" value='&lt;b&gt;Observabilidad del runtime&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;OpenTelemetry y OpenLLMetry en el orquestador. La PoC fija los campos: correlationId, sessionId, userId con hash, agentId, workerId, promptVersion y toolCallId. Backend: Application Insights, Log Analytics y Azure Monitor, o Dynatrace.&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Diseño Datos · 5900140571 · Arq. de implementación · 6243680318 · PoC · 5957550095&lt;/font&gt;&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="2642" y="1434" width="628" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="c-61" value="TORRE DE CONTROL · alcance del MVP: capas 1 (ingesta y consolidación) y 2 (correlación y contexto)" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 8;verticalAlign=top;align=left;spacingLeft=18;spacingTop=8;fontSize=19;fontStyle=1;fillColor=#F2FBF1;strokeColor=#82B366;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="0" y="1629" width="3300" height="301" as="geometry" />
+        </mxCell>
+        <mxCell id="c-62" value='&lt;b&gt;Bus de eventos compartido&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Un evento por cada cambio de estado, con la llave de correlación del caso y del siniestro padre, y esquema publicado y versionado con compatibilidad hacia atrás. &lt;b&gt;El lineamiento no nombra un producto de mensajería&lt;/b&gt;: la arquitectura de referencia define el contenedor «Broker / Mensajería» sin tecnología, y la de implementación solo nombra la librería de consumo, aio-pika sobre RabbitMQ. En las 40 páginas revisadas no aparece Service Bus, Event Hubs ni Kafka. La tecnología y el plazo los declara el dueño del bus.&lt;/font&gt;&lt;br&gt;&lt;font style="font-size: 10px; color: #B00020;"&gt;&amp;#9656; Contenedor: Arq. de referencia v1.1 · 5666766913 · librería: 5684887560 · producto: sin lineamiento&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="30" y="1675" width="980" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="c-63" value='&lt;b&gt;1 · Ingesta y consolidación&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Contenedor Python sobre AKS. Idempotencia por llave de evento, orden y ventana para la evidencia que llega semanas después. El emisor que no cumple el esquema queda rechazado y registrado como falla del emisor.&lt;/font&gt;&lt;br&gt;&lt;font style="font-size: 10px; color: #B85C00;"&gt;&amp;#9656; Cómputo: 6243680318 · el contrato de eventos del negocio es recomendación nuestra&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1035" y="1675" width="700" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="c-64" value='&lt;b&gt;2 · Correlación y contexto&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Contenedor Python sobre AKS. Arma la vista del caso con llave única y lo agrupa bajo su siniestro padre. Es vocabulario del negocio, no señal técnica: por eso lo construye la torre y no la plataforma de observabilidad.&lt;/font&gt;&lt;br&gt;&lt;font style="font-size: 10px; color: #B85C00;"&gt;&amp;#9656; Cómputo: 6243680318 · la correlación del caso es recomendación nuestra&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1760" y="1675" width="700" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="c-65" value='&lt;b&gt;Almacén de evidencia de calidad · retención larga&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Sin muestreo, y con capacidad de reabrir un caso ya cerrado operativamente. Proponemos ADLS Gen2, que el stack v0.5 declara obligatorio como data lake y almacén documental, con índice de consulta. Separado de la traza técnica, que vive en la plataforma existente con retención corta.&lt;/font&gt;&lt;br&gt;&lt;font style="font-size: 10px; color: #B85C00;"&gt;&amp;#9656; Herramienta: Diseño Datos · 5900140571 · el uso para evidencia de la torre es extrapolación nuestra&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="2485" y="1675" width="785" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="c-66" value="&lt;b&gt;Dos horizontes de retención, decididos antes de emitir el primer evento&lt;/b&gt;&lt;br&gt;La traza técnica vive lo que dure el diagnóstico de un incidente y se apoya en la plataforma de observabilidad que ya opera el ecosistema. El registro que sustenta si una decisión estuvo bien vive hasta que llegue la glosa o la reclamación, y ese no se muestrea: si la glosa que contradice una decisión cae en la fracción descartada, esa decisión queda evaluada como correcta para siempre. Guardarlo todo con el criterio corto es perder la evidencia; guardarlo todo con el criterio largo es pagar de más por telemetría que nadie vuelve a mirar." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="30" y="1825" width="3240" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c-67" value="DOMINIO DE INFORMACIÓN Y CONOCIMIENTO · suscripción separada de la de agentes" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 8;verticalAlign=top;align=left;spacingLeft=18;spacingTop=8;fontSize=19;fontStyle=1;fillColor=#FFF8F1;strokeColor=#B85C00;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="0" y="1970" width="3300" height="181" as="geometry" />
+        </mxCell>
+        <mxCell id="c-68" value='&lt;b&gt;Azure Container Apps Job&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Pipeline de ingesta programada: bronze, silver y gold. Es el patrón que el lineamiento marca como obligatorio y el que ya usa Insuregent. Databricks entra solo cuando el volumen lo justifica, donde el lineamiento lo declara recomendado.&lt;/font&gt;&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Diseño Datos · 5900140571 · Stack v0.5 · Análisis As-Is · 5821431820&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="30" y="2016" width="628" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="c-69" value='&lt;b&gt;Azure Document Intelligence + ADLS Gen2&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;OCR y extracción estructurada en la capa silver, y almacenamiento medallion con la colección documental curada en gold. Ambos declarados obligatorios.&lt;/font&gt;&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Diseño Datos · 5900140571 · Stack v0.5&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="683" y="2016" width="628" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="c-70" value='&lt;b&gt;Azure AI Search + text-embedding-3-large&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Índice por producto de conocimiento con búsqueda híbrida HNSW, keyword y reranking semántico. Embeddings con el modelo que el lineamiento fija, de 3072 dimensiones, con versión registrada.&lt;/font&gt;&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Diseño Datos · 5900140571 · Stack v0.5, ambos obligatorios&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1336" y="2016" width="628" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="c-71" value='&lt;b&gt;MCP server de conocimiento&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Una herramienta por dominio de conocimiento, publicada y gobernada en APIM. El agente no accede al índice directamente. Catálogo en Purview o Unity Catalog.&lt;/font&gt;&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Diseño Datos · 5900140571 · Knowledge APIs / MCP Tools&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1989" y="2016" width="628" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="c-72" value='&lt;b&gt;Frontera del dominio&lt;/b&gt;&lt;br&gt;Databricks prepara datos y no opera agentes. La separación de suscripciones entre el dominio de agentes y el de información es obligatoria, con dueños, evolución y costo distintos.&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; LIN Infraestructura · 6150193162 · Arq. de impl. v1.1 · 5684887560&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="2642" y="2016" width="628" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="c-73" value="SISTEMAS EMPRESARIALES · expuestos como Domain APIs (Apigee, API-led) y publicados como herramientas MCP en APIM" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 8;verticalAlign=top;align=left;spacingLeft=18;spacingTop=8;fontSize=19;fontStyle=1;fillColor=#F3FAFD;strokeColor=#0E7DAD;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="0" y="2191" width="3300" height="191" as="geometry" />
+        </mxCell>
+        <mxCell id="c-74" value='&lt;b&gt;core · SuraHis &lt;font style="font-size: 10px;"&gt;[Software System]&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Sistema de registro: estado autoritativo de la autorización. Los gestores conservan sus propios estados, como el preradicado, en su capa de memoria.&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;strokeColor=#0E7DAD;fontColor=#FFFFFF;strokeWidth=2;arcSize=10;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="30" y="2237" width="760" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="c-75" value='&lt;b&gt;P8 &lt;font style="font-size: 10px;"&gt;[Software System]&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Gestor documental de la solicitud.&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;strokeColor=#0E7DAD;fontColor=#FFFFFF;strokeWidth=2;arcSize=10;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="815" y="2237" width="620" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="c-76" value="Storage P8" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=11;image=img/lib/azure2/general/Storage_Azure_Files.svg;" vertex="1" parent="1">
+          <mxGeometry x="1460" y="2252" width="110" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="c-77" value='&lt;b&gt;Siniestro Integral &lt;font style="font-size: 10px;"&gt;[Software System]&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Documentos de la solicitud.&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;strokeColor=#0E7DAD;fontColor=#FFFFFF;strokeWidth=2;arcSize=10;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1595" y="2237" width="620" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="c-78" value="Storage" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=11;image=img/lib/azure2/general/Storage_Azure_Files.svg;" vertex="1" parent="1">
+          <mxGeometry x="2240" y="2252" width="110" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="c-79" value='&lt;b&gt;EPS &lt;font style="font-size: 10px;"&gt;[Software System]&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Consulta externa.&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#23A2D9;strokeColor=#0E7DAD;fontColor=#FFFFFF;strokeWidth=2;arcSize=10;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="2375" y="2237" width="380" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="c-80" value="&lt;b&gt;Interoperabilidad vía el core&lt;/b&gt;&lt;br&gt;El dato se pide primero a SuraHis; la conexión directa solo se justifica cuando el core no lo tiene ni lo va a tener." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="2780" y="2237" width="490" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="c-81" value="DECISIONES, SUPUESTOS Y CONVENCIÓN" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 8;verticalAlign=top;align=left;spacingLeft=18;spacingTop=8;fontSize=19;fontStyle=1;fillColor=#FAFAFA;strokeColor=#999999;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="0" y="2422" width="3300" height="375" as="geometry" />
+        </mxCell>
+        <mxCell id="c-82" value="&lt;b&gt;Cómputo del runtime&lt;/b&gt;&lt;br&gt;El lineamiento fija Azure Container Apps para el agente singular liviano y señala AKS cuando la solución crece en desplegables, MCP servers o capacidades transversales compartidas. El MVP tiene dos runtimes de gestor, dos MCP privados y dos servicios de torre, así que la vista se dibuja sobre AKS. Si el alcance se reduce a un desplegable por gestor sin MCP privado propio, Container Apps vuelve a ser la opción adecuada y esta vista se ajusta sin cambiar nada más." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="30" y="2468" width="791" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c-83" value="&lt;b&gt;Lo que esta vista deja explícitamente fuera&lt;/b&gt;&lt;br&gt;A2A Gateway, catálogo MCP público completo, Prompt Compiler y Policy Engine de la arquitectura deseada, y las capas 3, 4 y 5 de la torre —medición, decisión y exposición—. También los gestores de Coordinación, Prestación y Finalización, y los extractores de factura y de otros documentos. Se dibujan como frontera del MVP, no como faltante del diseño." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="846" y="2468" width="791" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c-84" value="&lt;b&gt;Decisiones abiertas que conviene cerrar antes de estimar&lt;/b&gt;&lt;br&gt;Producto de mensajería del bus, que el lineamiento no nombra. Motor de políticas del guardrail de rol, que el propio lineamiento deja abierto entre Casbin y OPA. Motor de plantillas de prompt, que el lineamiento declara sin decidir entre Jinja2 y PromptTemplates. Almacén de las reglas duras versionadas y de la evidencia de retención larga. Reparto entre Langfuse y MLflow para las evaluaciones, que el lineamiento nombra en páginas distintas sin arbitrar. Habilitación de LiteLLM, Langfuse y Container Apps en el marco de IaC, que el propio lineamiento declara inexistente." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="1662" y="2468" width="791" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c-85" value="&lt;b&gt;Fronteras que la vista respeta&lt;/b&gt;&lt;br&gt;El agente orquesta y no absorbe la lógica transaccional. Databricks prepara datos y no opera agentes. El agente llega al conocimiento solo por MCP y nunca al índice directo. Toda capacidad se expone primero como API y luego, cuando aporta, como herramienta MCP. El LLM no se consume desde el runtime sino por el gateway. Los prompts no viven como archivos del proyecto. La matriz determinística no se embebe en el prompt. La suscripción de agentes se separa de la de información y conocimiento." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="2478" y="2468" width="791" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c-86" value="&lt;b&gt;Convención de elementos&lt;/b&gt;" style="text;html=1;align=left;verticalAlign=middle;strokeColor=none;fillColor=none;fontSize=15;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="2624" width="900" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="c-87" value='&lt;b&gt;Componente agéntico&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Nodo del grafo LangGraph. Razona con un modelo.&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="30" y="2692" width="628" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c-88" value='&lt;b&gt;Servicio o herramienta determinística&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;API, microservicio del dominio o herramienta del MCP privado.&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="683" y="2692" width="628" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c-89" value='&lt;b&gt;Capacidad del control plane&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Servicio compartido de la plataforma agéntica.&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1336" y="2692" width="628" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c-90" value='&lt;b&gt;Nota de diseño o decisión&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Recomendación nuestra, o punto que falta cerrar.&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1989" y="2692" width="628" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c-91" value='&lt;b&gt;Cita de origen&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;&lt;font style="color: #6C3483;"&gt;Morado: lo fija el lineamiento&lt;/font&gt; · &lt;font style="color: #B85C00;"&gt;naranja: extrapolación nuestra&lt;/font&gt; · &lt;font style="color: #B00020;"&gt;rojo: sin respaldo&lt;/font&gt;. El número es la página del espacio AFGLYP.&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="2642" y="2692" width="628" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e-92" value="HTTPS" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=blockThin;endFill=1;endSize=8;jettySize=auto;labelBackgroundColor=#FFFFFF;fontSize=11;strokeColor=#666666;dashed=0;" edge="1" parent="1" source="c-14" target="c-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-93" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=blockThin;endFill=1;endSize=8;jettySize=auto;labelBackgroundColor=#FFFFFF;fontSize=11;strokeColor=#666666;dashed=0;" edge="1" parent="1" source="c-17" target="c-27">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-94" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=blockThin;endFill=1;endSize=8;jettySize=auto;labelBackgroundColor=#FFFFFF;fontSize=11;strokeColor=#666666;dashed=0;" edge="1" parent="1" source="c-17" target="c-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-95" value="eventos" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=blockThin;endFill=1;endSize=8;jettySize=auto;labelBackgroundColor=#FFFFFF;fontSize=11;strokeColor=#666666;dashed=0;" edge="1" parent="1" source="c-27" target="c-62">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-96" value="eventos" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=blockThin;endFill=1;endSize=8;jettySize=auto;labelBackgroundColor=#FFFFFF;fontSize=11;strokeColor=#666666;dashed=0;" edge="1" parent="1" source="c-28" target="c-62">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-97" value="MCP" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=blockThin;endFill=1;endSize=8;jettySize=auto;labelBackgroundColor=#FFFFFF;fontSize=11;strokeColor=#666666;dashed=1;dashPattern=6 6;" edge="1" parent="1" source="c-18" target="c-52">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-98" value="MCP" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=blockThin;endFill=1;endSize=8;jettySize=auto;labelBackgroundColor=#FFFFFF;fontSize=11;strokeColor=#666666;dashed=1;dashPattern=6 6;" edge="1" parent="1" source="c-18" target="c-54">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="Runtime del gestor · componentes" id="runtime-del-gestor-componentes">
+    <mxGraphModel dx="2000" dy="1200" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="c-1" value="&lt;b&gt;Runtime de un gestor · vista de componentes&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;strokeColor=none;fillColor=none;fontSize=32;" vertex="1" parent="1">
+          <mxGeometry x="0" y="-190" width="3300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c-2" value="C4 · nivel 3 del contenedor de runtime. Todos los componentes y sus librerías están nombrados en «Arquitectura de implementación v1.1» (página 5684887560), salvo donde se indique otra cosa.&lt;br&gt;Los grafos de abajo son los del MVP, con los roles que nombra «Agentic Runtime» (página 5838045207)." style="text;html=1;align=center;verticalAlign=middle;strokeColor=none;fillColor=none;fontSize=15;fontColor=#555555;" vertex="1" parent="1">
+          <mxGeometry x="0" y="-128" width="3300" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="c-3" value="RUNTIME DEL GESTOR · contenedor Python sobre AKS, imagen desde Azure Container Registry" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=6 6;verticalAlign=top;align=left;spacingLeft=12;spacingTop=6;fontSize=14;fontStyle=1;fillColor=none;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="440" y="80" width="1900" height="585" as="geometry" />
+        </mxCell>
+        <mxCell id="c-4" value='&lt;b&gt;Adaptador de API&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;FastAPI + Uvicorn, validación con Pydantic. Valida la solicitud, crea o recupera la sesión e invoca al planeador. Sin lógica de negocio.&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="470" y="140" width="580" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="c-5" value='&lt;b&gt;Event Listener&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;aio-pika. Consumo no bloqueante con backpressure, reintentos controlados, DLQ y procesamiento idempotente.&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1075" y="140" width="580" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="c-6" value='&lt;b&gt;Planeador / Orquestador&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;LangGraph. Grafo de estados con checkpointer: decide herramientas, controla iteraciones y límites y consolida la respuesta.&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1680" y="140" width="580" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="c-7" value='&lt;b&gt;Constructor de prompts&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Plantillas versionadas servidas por Langfuse; los prompts no viven como archivos del proyecto. El motor de plantillas lo deja abierto el lineamiento entre Jinja2 y PromptTemplates de LangChain.&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="470" y="270" width="580" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="c-8" value='&lt;b&gt;Enrutador de tools&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;LangChain tools. Analiza el estado, determina si hace falta herramienta y delega la ejecución al cliente MCP.&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1075" y="270" width="580" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="c-9" value='&lt;b&gt;Role Policy &amp;amp; GuardRails&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Permisos del rol, herramientas permitidas y techo de autonomía vigente, leídos del control plane. Motor: decisión abierta entre Casbin y OPA.&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1680" y="270" width="580" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="c-10" value='&lt;b&gt;Cliente LLM&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;httpx + tenacity contra LiteLLM. Timeouts estrictos y backoff exponencial ante 429 y 5xx, sin bloquear el event loop.&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="470" y="400" width="580" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="c-11" value='&lt;b&gt;Cliente MCP&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;httpx. JSON-RPC sobre HTTP contra el MCP Gateway, con control de headers, auth y timeouts. Fino: transporte y contrato.&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1075" y="400" width="580" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="c-12" value='&lt;b&gt;Manejador de sesión y contexto&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Memoria corta: historial inmediato, variables de contexto e identificadores de correlación.&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1680" y="400" width="580" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="c-13" value='&lt;b&gt;Memory Manager&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;PyMongo contra Cosmos DB con API Mongo, según la arquitectura de implementación v1.1. Ojo: el diseño de datos exige que la escritura pase por un Memory Writer Service con guardrails. Conflicto abierto entre las dos páginas.&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="470" y="530" width="580" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="c-14" value='&lt;b&gt;Reintentos y manejo de errores&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;tenacity como librería transversal del runtime. Hace visible la estrategia de resiliencia y evita reintentos ad-hoc.&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1075" y="530" width="580" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="c-15" value='&lt;b&gt;Telemetría y auditoría&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;OpenTelemetry y OpenLLMetry. Campos que fija la PoC: correlationId, sessionId, userId con hash, agentId, workerId, promptVersion y toolCallId.&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1680" y="530" width="580" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="c-16" value='&lt;b&gt;Azure API Management · AI Gateway&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Autenticación con Entra ID, cuotas, rate limiting y trazabilidad. Punto de entrada obligatorio del tráfico agéntico.&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="30" y="140" width="380" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="c-17" value='&lt;b&gt;Broker de eventos&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Cambios de estado del ciclo, con la llave de correlación del caso y del siniestro padre.&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="30" y="260" width="380" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c-18" value="&lt;b&gt;Identidad propagada&lt;/b&gt;&lt;br&gt;El usuario, el canal, el agente y su versión viajan en cada llamada y quedan en la traza. Sin eso no hay auditoría de punta a punta." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="30" y="365" width="380" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="c-19" value='&lt;b&gt;LiteLLM → Azure AI Foundry&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;LLM Gateway y proveedor gobernado de modelos, con Content Safety y Presidio.&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="2320" y="140" width="950" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c-20" value='&lt;b&gt;APIM · MCP Tool Gateway&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Control de acceso centralizado a los MCP servers, con allow-lists por agente.&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="2320" y="222" width="950" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c-21" value='&lt;b&gt;MCP privado · MCP de conocimiento&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Herramientas privadas del gestor y acceso al conocimiento sobre Azure AI Search.&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="2320" y="304" width="950" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c-22" value='&lt;b&gt;Azure Cosmos DB&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Memoria durable y estados propios del gestor.&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="2320" y="386" width="950" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c-23" value='&lt;b&gt;Langfuse + PostgreSQL Flexible&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Prompts versionados, evaluaciones y golden set del gestor.&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="2320" y="468" width="950" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c-24" value='&lt;b&gt;App Insights · Log Analytics · Monitor&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Traza técnica de corta retención, para diagnóstico de incidentes.&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="2320" y="550" width="950" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="e-25" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=blockThin;endFill=1;endSize=8;jettySize=auto;labelBackgroundColor=#FFFFFF;fontSize=11;strokeColor=#666666;dashed=0;" edge="1" parent="1" source="c-16" target="c-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-26" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=blockThin;endFill=1;endSize=8;jettySize=auto;labelBackgroundColor=#FFFFFF;fontSize=11;strokeColor=#666666;dashed=0;" edge="1" parent="1" source="c-17" target="c-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-27" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=blockThin;endFill=1;endSize=8;jettySize=auto;labelBackgroundColor=#FFFFFF;fontSize=11;strokeColor=#666666;dashed=0;" edge="1" parent="1" source="c-10" target="c-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-28" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=blockThin;endFill=1;endSize=8;jettySize=auto;labelBackgroundColor=#FFFFFF;fontSize=11;strokeColor=#666666;dashed=0;" edge="1" parent="1" source="c-11" target="c-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-29" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=blockThin;endFill=1;endSize=8;jettySize=auto;labelBackgroundColor=#FFFFFF;fontSize=11;strokeColor=#666666;dashed=0;" edge="1" parent="1" source="c-20" target="c-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-30" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=blockThin;endFill=1;endSize=8;jettySize=auto;labelBackgroundColor=#FFFFFF;fontSize=11;strokeColor=#666666;dashed=0;" edge="1" parent="1" source="c-13" target="c-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-31" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=blockThin;endFill=1;endSize=8;jettySize=auto;labelBackgroundColor=#FFFFFF;fontSize=11;strokeColor=#666666;dashed=0;" edge="1" parent="1" source="c-7" target="c-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-32" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=blockThin;endFill=1;endSize=8;jettySize=auto;labelBackgroundColor=#FFFFFF;fontSize=11;strokeColor=#666666;dashed=0;" edge="1" parent="1" source="c-15" target="c-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c-33" value="GRAFO DEL GESTOR SOLICITUD · nodos del mismo StateGraph de LangGraph" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=6 6;verticalAlign=top;align=left;spacingLeft=12;spacingTop=6;fontSize=14;fontStyle=1;fillColor=none;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="30" y="725" width="3240" height="286" as="geometry" />
+        </mxCell>
+        <mxCell id="c-34" value='&lt;b&gt;Entrada&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Adaptador FastAPI por tipo de solicitud&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="836" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c-35" value='&lt;b&gt;Clasificador de documentos&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Qué documento es cada archivo recibido&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="400" y="836" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c-36" value='&lt;b&gt;Enrutador&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Decide qué extractores se activan&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="740" y="836" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c-37" value='&lt;b&gt;Extractor historia clínica&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Modelo multimodal vía LiteLLM&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="806" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c-38" value='&lt;b&gt;Extractor orden&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Modelo multimodal vía LiteLLM&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="886" width="300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c-39" value='&lt;b&gt;Agente request builder&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Arma la solicitud con los campos con respaldo&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="836" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c-40" value='&lt;b&gt;LLM-as-a-judge&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Verifica contrato, respaldo y confianza&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1760" y="836" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c-41" value="¿Contrato&lt;br&gt;y umbral?" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;verticalAlign=middle;align=center;fillColor=#FFE6CC;strokeColor=#D79B00;strokeWidth=2;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="2100" y="811" width="230" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="c-42" value='&lt;b&gt;Publica evento al bus&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Con canal de origen y llave de correlación&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="2380" y="806" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c-43" value='&lt;b&gt;Escala a preradicado&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Motivo, umbral aplicado y confianza obtenida&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="2380" y="906" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c-44" value="&lt;b&gt;El umbral es política, no constante&lt;/b&gt;&lt;br&gt;Se deriva del límite tolerable del error caro que se acuerda con el negocio, por tipo de caso, y se lee del control plane en cada ejecución." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="2710" y="806" width="560" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="e-45" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=blockThin;endFill=1;endSize=8;jettySize=auto;labelBackgroundColor=#FFFFFF;fontSize=11;strokeColor=#666666;dashed=0;" edge="1" parent="1" source="c-34" target="c-35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-46" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=blockThin;endFill=1;endSize=8;jettySize=auto;labelBackgroundColor=#FFFFFF;fontSize=11;strokeColor=#666666;dashed=0;" edge="1" parent="1" source="c-35" target="c-36">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-47" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=blockThin;endFill=1;endSize=8;jettySize=auto;labelBackgroundColor=#FFFFFF;fontSize=11;strokeColor=#666666;dashed=0;" edge="1" parent="1" source="c-36" target="c-37">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-48" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=blockThin;endFill=1;endSize=8;jettySize=auto;labelBackgroundColor=#FFFFFF;fontSize=11;strokeColor=#666666;dashed=0;" edge="1" parent="1" source="c-36" target="c-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-49" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=blockThin;endFill=1;endSize=8;jettySize=auto;labelBackgroundColor=#FFFFFF;fontSize=11;strokeColor=#666666;dashed=0;" edge="1" parent="1" source="c-37" target="c-39">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-50" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=blockThin;endFill=1;endSize=8;jettySize=auto;labelBackgroundColor=#FFFFFF;fontSize=11;strokeColor=#666666;dashed=0;" edge="1" parent="1" source="c-38" target="c-39">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-51" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=blockThin;endFill=1;endSize=8;jettySize=auto;labelBackgroundColor=#FFFFFF;fontSize=11;strokeColor=#666666;dashed=0;" edge="1" parent="1" source="c-39" target="c-40">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-52" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=blockThin;endFill=1;endSize=8;jettySize=auto;labelBackgroundColor=#FFFFFF;fontSize=11;strokeColor=#666666;dashed=0;" edge="1" parent="1" source="c-40" target="c-41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-53" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=blockThin;endFill=1;endSize=8;jettySize=auto;labelBackgroundColor=#FFFFFF;fontSize=11;strokeColor=#666666;dashed=0;" edge="1" parent="1" source="c-41" target="c-42">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-54" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=blockThin;endFill=1;endSize=8;jettySize=auto;labelBackgroundColor=#FFFFFF;fontSize=11;strokeColor=#666666;dashed=0;" edge="1" parent="1" source="c-41" target="c-43">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c-55" value="GRAFO DEL GESTOR EVALUACIÓN · AUTORIZACIÓN SALUD" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=6 6;verticalAlign=top;align=left;spacingLeft=12;spacingTop=6;fontSize=14;fontStyle=1;fillColor=none;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="30" y="1051" width="3240" height="286" as="geometry" />
+        </mxCell>
+        <mxCell id="c-56" value='&lt;b&gt;Entrada&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Adaptador FastAPI por tipo de solicitud&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="1174" width="280" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="c-57" value="¿Solicitud&lt;br&gt;equivalente?" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;verticalAlign=middle;align=center;fillColor=#FFE6CC;strokeColor=#D79B00;strokeWidth=2;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="370" y="1157" width="230" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="c-58" value='&lt;b&gt;Información cliente&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Herramienta determinística del MCP privado&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="630" y="1174" width="290" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="c-59" value='&lt;b&gt;Evaluación de reglas duras&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Determinística, sobre la caché de reglas versionadas&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="950" y="1174" width="300" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="c-60" value='&lt;b&gt;Pertinencia médica&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Recuperación sobre Azure AI Search&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="1174" width="300" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="c-61" value='&lt;b&gt;Componente analítico · modelo experto&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Microservicios del dominio, invocados como herramienta&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1610" y="1174" width="300" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="c-62" value="¿Cumple&lt;br&gt;evaluación?" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;verticalAlign=middle;align=center;fillColor=#FFE6CC;strokeColor=#D79B00;strokeWidth=2;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1940" y="1157" width="230" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="c-63" value='&lt;b&gt;Aprobada&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Publica el evento y el estado al core&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="2210" y="1132" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c-64" value='&lt;b&gt;Escala a evaluación humana&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;El estado nombra lo que el caso es&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="2210" y="1232" width="300" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="c-65" value="&lt;b&gt;Negar es de la persona&lt;/b&gt;&lt;br&gt;Si el agente cree que el caso es candidato a negación, lo señala y escala. La negación es determinística y trazable, nunca probabilística. El posible duplicado también escala, con la evidencia de a cuál se parece; acierto y falsos positivos se miden por separado." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="2540" y="1132" width="730" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="e-66" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=blockThin;endFill=1;endSize=8;jettySize=auto;labelBackgroundColor=#FFFFFF;fontSize=11;strokeColor=#666666;dashed=0;" edge="1" parent="1" source="c-56" target="c-57">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-67" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=blockThin;endFill=1;endSize=8;jettySize=auto;labelBackgroundColor=#FFFFFF;fontSize=11;strokeColor=#666666;dashed=0;" edge="1" parent="1" source="c-57" target="c-58">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-68" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=blockThin;endFill=1;endSize=8;jettySize=auto;labelBackgroundColor=#FFFFFF;fontSize=11;strokeColor=#666666;dashed=0;" edge="1" parent="1" source="c-58" target="c-59">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-69" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=blockThin;endFill=1;endSize=8;jettySize=auto;labelBackgroundColor=#FFFFFF;fontSize=11;strokeColor=#666666;dashed=0;" edge="1" parent="1" source="c-59" target="c-60">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-70" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=blockThin;endFill=1;endSize=8;jettySize=auto;labelBackgroundColor=#FFFFFF;fontSize=11;strokeColor=#666666;dashed=0;" edge="1" parent="1" source="c-60" target="c-61">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-71" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=blockThin;endFill=1;endSize=8;jettySize=auto;labelBackgroundColor=#FFFFFF;fontSize=11;strokeColor=#666666;dashed=0;" edge="1" parent="1" source="c-61" target="c-62">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-72" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=blockThin;endFill=1;endSize=8;jettySize=auto;labelBackgroundColor=#FFFFFF;fontSize=11;strokeColor=#666666;dashed=0;" edge="1" parent="1" source="c-62" target="c-63">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-73" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=blockThin;endFill=1;endSize=8;jettySize=auto;labelBackgroundColor=#FFFFFF;fontSize=11;strokeColor=#666666;dashed=0;" edge="1" parent="1" source="c-62" target="c-64">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c-74" value="CICLO DE AUDITORÍA Y PROMOCIÓN · el mismo en los dos gestores" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=6 6;verticalAlign=top;align=left;spacingLeft=12;spacingTop=6;fontSize=14;fontStyle=1;fillColor=none;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="30" y="1377" width="3240" height="201" as="geometry" />
+        </mxCell>
+        <mxCell id="c-75" value='&lt;b&gt;Agente auditor&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Observa escaladas y correcciones y propone cambios&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="60" y="1458" width="300" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="c-76" value='&lt;b&gt;Versión candidata&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;No toca producción. Prompt o configuración versionada en Langfuse&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="400" y="1458" width="300" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="c-77" value='&lt;b&gt;Compuerta&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Suite contra el golden set del gestor, con criterio de no regresión. Corre en el pipeline, no en el runtime&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="740" y="1458" width="420" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="c-78" value='&lt;b&gt;Promoción registrada&lt;/b&gt;&lt;br&gt;&lt;font style="font-size: 11px;"&gt;Autor, motivo y reversión inmediata. Imagen en ACR y prompt en Langfuse quedan atados a la misma versión&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="1458" width="420" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="c-79" value="&lt;b&gt;El auditor propone; la compuerta decide&lt;/b&gt;&lt;br&gt;Ningún cambio originado en el auditor llega a producción sin resultado de suite adjunto, y el despliegue falla si no viene. El LLM-as-a-judge se calibra contra una muestra revisada por personas expertas, y ese nivel de coincidencia se reporta junto a cualquier métrica que dependa de él." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1660" y="1458" width="1610" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="e-80" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=blockThin;endFill=1;endSize=8;jettySize=auto;labelBackgroundColor=#FFFFFF;fontSize=11;strokeColor=#666666;dashed=0;" edge="1" parent="1" source="c-75" target="c-76">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-81" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=blockThin;endFill=1;endSize=8;jettySize=auto;labelBackgroundColor=#FFFFFF;fontSize=11;strokeColor=#666666;dashed=0;" edge="1" parent="1" source="c-76" target="c-77">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-82" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeWidth=2;endArrow=blockThin;endFill=1;endSize=8;jettySize=auto;labelBackgroundColor=#FFFFFF;fontSize=11;strokeColor=#666666;dashed=0;" edge="1" parent="1" source="c-77" target="c-78">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="Trazabilidad del stack · qué dice el lineamiento" id="trazabilidad-del-stack-qu-dice-el-lineamiento">
+    <mxGraphModel dx="2000" dy="1200" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="c-1" value="&lt;b&gt;Trazabilidad del stack · qué dice el lineamiento&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;strokeColor=none;fillColor=none;fontSize=32;" vertex="1" parent="1">
+          <mxGeometry x="0" y="-190" width="3460" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c-2" value="Cada herramienta del diseño, con la página del espacio AFGLYP «AI First · Gobierno, Lineamientos y Prácticas» que la nombra, la cita textual y la prioridad que el propio lineamiento declara.&lt;br&gt;El número es el id de la página en Confluence. Las últimas filas son las que &lt;b&gt;no&lt;/b&gt; tienen respaldo: se marcan como tales." style="text;html=1;align=center;verticalAlign=middle;strokeColor=none;fillColor=none;fontSize=15;fontColor=#555555;" vertex="1" parent="1">
+          <mxGeometry x="0" y="-128" width="3460" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="c-3" value="HERRAMIENTA" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#333333;strokeColor=#333333;fontColor=#FFFFFF;align=left;verticalAlign=middle;spacingLeft=12;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="480" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="c-4" value="PARA QUÉ EN EL MVP" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#333333;strokeColor=#333333;fontColor=#FFFFFF;align=left;verticalAlign=middle;spacingLeft=12;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="0" width="720" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="c-5" value="PÁGINA DEL LINEAMIENTO · id · versión" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#333333;strokeColor=#333333;fontColor=#FFFFFF;align=left;verticalAlign=middle;spacingLeft=12;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="0" width="720" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="c-6" value="LO QUE DICE, TEXTUAL" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#333333;strokeColor=#333333;fontColor=#FFFFFF;align=left;verticalAlign=middle;spacingLeft=12;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="0" width="1120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="c-7" value="PRIORIDAD DECLARADA" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#333333;strokeColor=#333333;fontColor=#FFFFFF;align=left;verticalAlign=middle;spacingLeft=12;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="0" width="420" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="c-8" value="Azure API Management" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="50" width="480" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-9" value="AI Gateway de entrada, MCP Tool Gateway y publicación de las APIs de los gestores." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="50" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-10" value="Arquitectura de implementación&lt;br&gt;6243680318 · 2026-08-28&lt;br&gt;ADRs de Implementación&lt;br&gt;6244532291 · 2026-08-28" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="50" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-11" value="«Control Plane | AI / A2A / MCP Gateway | Azure API Management (APIM) + Entra ID». El ADR-2026-001 la adopta como capa de API/AI Gateway del control plane." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="50" width="1120" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-12" value="Decisión de arquitectura" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="50" width="420" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-13" value="Microsoft Entra ID" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="135" width="480" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-14" value="Identidad del canal, del agente y de la herramienta; autorización contextual." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="135" width="720" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-15" value="Arquitectura de implementación&lt;br&gt;6243680318 · 2026-08-28" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="135" width="720" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-16" value="«Entra ID es la plataforma de identidades humanas y no humanas. La autenticación se soporta con OAuth2/OIDC/JWT, mientras que service principals y Managed Identity resuelven identidades técnicas»." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="135" width="1120" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-17" value="Definido en el stack" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="135" width="420" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-18" value="LiteLLM" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="199" width="480" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-19" value="LLM Gateway: routing, fallback, límite de tokens y presupuesto por agente." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="199" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-20" value="Arquitectura de implementación&lt;br&gt;6243680318 · 2026-08-28&lt;br&gt;Diseño Datos RAG / Knowledge / Memory&lt;br&gt;5900140571 · 2026-05-11" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="199" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-21" value="«LLM Gateway | LiteLLM | Routing, fallback, límites de tokens y operación multi-modelo». En el stack v0.5: «LiteLLM | Gateway | LLM Gateway (PIL) multi-backend»." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="199" width="1120" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-22" value="Decisión de arquitectura · Recomendado" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="199" width="420" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-23" value="Azure AI Foundry" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="284" width="480" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-24" value="Proveedor de los modelos que usan los nodos del grafo." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="284" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-25" value="Arquitectura de implementación&lt;br&gt;6243680318 · 2026-08-28&lt;br&gt;Arquitectura de implementación v1.1&lt;br&gt;5684887560 · 2026-03-17" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="284" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-26" value="«Modelos y cognitivos | Azure AI Foundry | Proveedor gobernado de modelos y servicios de seguridad y contenido». En v1.1: Foundry «cumple esa función» de LLM Gateway." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="284" width="1120" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-27" value="Definido en el stack" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="284" width="420" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-28" value="Azure AI Content Safety&lt;br&gt;Microsoft Presidio" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="369" width="480" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-29" value="Guardrails de entrada y salida y detección de datos personales, en el gateway." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="369" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-30" value="Arquitectura de implementación&lt;br&gt;6243680318 · 2026-08-28&lt;br&gt;Diseño Datos RAG / Knowledge / Memory&lt;br&gt;5900140571 · 2026-05-11" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="369" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-31" value="«Los controles semánticos y de contenido se resuelven con Azure AI Content Safety y Microsoft Presidio»." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="369" width="1120" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-32" value="&lt;b&gt;Obligatorio&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="369" width="420" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-33" value="Langfuse + PostgreSQL Flexible&lt;br&gt;ClickHouse interno" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="454" width="480" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-34" value="Prompts versionados, evaluaciones y trazas de calidad del gestor." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="454" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-35" value="Arquitectura de implementación&lt;br&gt;6243680318 · 2026-08-28&lt;br&gt;Validación de licenciamiento&lt;br&gt;6266486824 · 2026-09-04" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="454" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-36" value="«Se implementa con Langfuse, apoyado en PostgreSQL Flexible. ClickHouse se usa únicamente como prerrequisito técnico interno de Langfuse y no debe tratarse como una capacidad independiente de observabilidad»." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="454" width="1120" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-37" value="Decisión de arquitectura" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="454" width="420" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-38" value="MLflow" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="539" width="480" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-39" value="Registro de evaluaciones y del LLM-as-a-judge contra el golden set." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="539" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-40" value="Diseño Datos RAG / Knowledge / Memory&lt;br&gt;5900140571 · 2026-05-11&lt;br&gt;Análisis As-Is&lt;br&gt;5821431820 · 2026-04-17" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="539" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-41" value="«Evaluacion | Medir calidad de recuperacion | Eval Engine | MLflow + LLM-as-Judge». En el As-Is: «MLflow encaja como estándar de industria para experiment tracking y model registry»." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="539" width="1120" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-42" value="Recomendado" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="539" width="420" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-43" value="AKS" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="624" width="480" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-44" value="Cómputo del runtime de los dos gestores y de sus MCP privados." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="624" width="720" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-45" value="Arquitectura de implementación&lt;br&gt;6243680318 · 2026-08-28" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="624" width="720" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-46" value="«Agent Runtime | AKS + LangGraph (Python)». Y: «para escenarios de mayor densidad, multiagente o múltiples MCP servers, AKS es el entorno natural»." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="624" width="1120" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-47" value="Decisión de arquitectura" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="624" width="420" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-48" value="Azure Container Apps" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="688" width="480" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-49" value="Alternativa de cómputo si el MVP se reduce a un desplegable por gestor." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="688" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-50" value="Arquitectura de implementación v1.1&lt;br&gt;5684887560 · 2026-03-17&lt;br&gt;Arquitectura de implementación&lt;br&gt;6243680318 · 2026-08-28" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="688" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-51" value="«Se define Azure Container Apps como plataforma de despliegue para las cargas de trabajo del Agente Singular porque ofrece un modelo serverless, administrado y cloud-native». Y en la página de la plataforma: «Para agentes singulares y livianos puede privilegiarse Azure Container Apps»." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="688" width="1120" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-52" value="Definido en el stack" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="688" width="420" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-53" value="LangGraph (Python)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="773" width="480" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-54" value="Grafo de estados de cada gestor: los agentes del dibujo son sus nodos." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="773" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-55" value="Arquitectura de implementación&lt;br&gt;6243680318 · 2026-08-28&lt;br&gt;Arquitectura de implementación v1.1&lt;br&gt;5684887560 · 2026-03-17" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="773" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-56" value="«Se despliega sobre AKS y se construye con LangGraph en Python». En v1.1: «LangGraph para modelar el flujo como un grafo de estados»." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="773" width="1120" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-57" value="Definido en el stack" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="773" width="420" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-58" value="LangChain" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="858" width="480" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-59" value="Herramientas, plantillas y splitters de chunking del conocimiento." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="858" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-60" value="Arquitectura de implementación v1.1&lt;br&gt;5684887560 · 2026-03-17&lt;br&gt;Diseño Datos RAG / Knowledge / Memory&lt;br&gt;5900140571 · 2026-05-11" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="858" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-61" value="«LangChain para herramientas, prompts y abstracciones de LLM». En el diseño de datos, para el chunking: «LangChain splitters (semantic/recursive)»." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="858" width="1120" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-62" value="Definido en el stack" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="858" width="420" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-63" value="FastAPI + Uvicorn + Pydantic" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="943" width="480" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-64" value="Adaptador de API de cada gestor: la «api orquestadora» del dibujo." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="943" width="720" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-65" value="Arquitectura de implementación v1.1&lt;br&gt;5684887560 · 2026-03-17" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="943" width="720" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-66" value="Componente «Adaptador de API (FastAPI)»: «Este componente actúa como la puerta de entrada HTTP al agente, recibiendo solicitudes provenientes del Gateway». Justifica la elección por «Integra validación automática con Pydantic» y «Tiene excelente rendimiento sobre Uvicorn»." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="943" width="1120" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-67" value="Definido en el stack" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="943" width="420" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-68" value="aio-pika" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="1007" width="480" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-69" value="Event Listener que consume los eventos del bus." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="1007" width="720" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-70" value="Arquitectura de implementación v1.1&lt;br&gt;5684887560 · 2026-03-17" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="1007" width="720" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-71" value="Componente «Event Listener (aio-pika async)»: «La elección de aio-pika (RabbitMQ async) se justifica en que: · Permite consumo no bloqueante»." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="1007" width="1120" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-72" value="Definido en el stack" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="1007" width="420" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-73" value="httpx + tenacity" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="1071" width="480" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-74" value="Cliente LLM y cliente MCP, con timeouts y backoff." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="1071" width="720" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-75" value="Arquitectura de implementación v1.1&lt;br&gt;5684887560 · 2026-03-17" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="1071" width="720" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-76" value="«Cliente LLM (httpx + tenacity)… httpx el cual es un cliente HTTP moderno, async… tenacity que sirve para implementar reintentos con backoff exponencial». Y «Cliente MCP (httpx)»." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="1071" width="1120" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-77" value="Definido en el stack" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="1071" width="420" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-78" value="PyMongo" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="1135" width="480" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-79" value="Memory Manager contra Cosmos DB con API Mongo." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="1135" width="720" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-80" value="Arquitectura de implementación v1.1&lt;br&gt;5684887560 · 2026-03-17" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="1135" width="720" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-81" value="Componente «Memory Manager (PyMongo)»: «Consume Cosmos DB API Mongo para memoria larga»." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="1135" width="1120" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-82" value="Definido en el stack" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="1135" width="420" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-83" value="Azure Cosmos DB" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="1199" width="480" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-84" value="Memoria conversacional, checkpoints del grafo y estados propios como el preradicado." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="1199" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-85" value="Diseño Datos RAG / Knowledge / Memory&lt;br&gt;5900140571 · 2026-05-11&lt;br&gt;Arquitectura de implementación&lt;br&gt;6243680318 · 2026-08-28" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="1199" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-86" value="«Operacional | Estado del grafo de agentes, reintentos, resultados tools | … | Cosmos DB (checkpoints LangGraph) | Obligatorio». Y «Memory Layer | Azure Cosmos DB»." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="1199" width="1120" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-87" value="&lt;b&gt;Obligatorio&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="1199" width="420" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-88" value="Casbin u OPA" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="1284" width="480" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-89" value="Motor de políticas del componente Role Policy &amp;amp; GuardRails." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="1284" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-90" value="Arquitectura de implementación v1.1&lt;br&gt;5684887560 · 2026-03-17&lt;br&gt;Agentic Runtime&lt;br&gt;5838045207 · 2026-07-03" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="1284" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-91" value="«Cambio de motor de políticas (Casbin, OPA, etc.)». En Agentic Runtime: «evolución hacia motores de política como Casbin u OPA»." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="1284" width="1120" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-92" value="&lt;b&gt;Abierto en el propio lineamiento&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="1284" width="420" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-93" value="Jinja2 o PromptTemplates" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="1369" width="480" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-94" value="Motor de plantillas del constructor de prompts." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="1369" width="720" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-95" value="Arquitectura de implementación v1.1&lt;br&gt;5684887560 · 2026-03-17" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="1369" width="720" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-96" value="«Aunque aún no se ha decido una tecnología concreta, algunas opciones son» —así, con la errata de la fuente— y lista dos: «Jinja2» y «o PromptTemplates de LangChain»." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="1369" width="1120" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-97" value="&lt;b&gt;Abierto en el propio lineamiento&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="1369" width="420" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-98" value="Azure Document Intelligence" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="1433" width="480" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c-99" value="OCR y extracción estructurada de la historia clínica y de la orden." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="1433" width="720" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c-100" value="Diseño Datos RAG / Knowledge / Memory&lt;br&gt;5900140571 · 2026-05-11" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="1433" width="720" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c-101" value="«Limpieza/Normalizacion (Silver) | OCR, normalizacion, dedup | Document Intelligence, Normalizer | Azure Document Intelligence». En el stack v0.5: «Azure Document Intelligence | Knowledge (Pipeline) | OCR + extraccion estructurada | Integrado con Azure. Soporta PDFs complejos.», con prioridad obligatorio." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="1433" width="1120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c-102" value="&lt;b&gt;Obligatorio&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="1433" width="420" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="c-103" value="Azure AI Search" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="1503" width="480" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-104" value="Índices de pertinencia médica y contexto clínico, con búsqueda híbrida y reranking." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="1503" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-105" value="Diseño Datos RAG / Knowledge / Memory&lt;br&gt;5900140571 · 2026-05-11&lt;br&gt;Arquitectura de implementación&lt;br&gt;6243680318 · 2026-08-28" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="1503" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-106" value="«Azure AI Search | Knowledge / RAG | Vector store + busqueda hibrida + reranking | Estandar corporativo (H1). HNSW + keyword + semantic ranker integrado.», con prioridad obligatorio." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="1503" width="1120" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-107" value="&lt;b&gt;Obligatorio&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="1503" width="420" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-108" value="Azure OpenAI&lt;br&gt;text-embedding-3-large" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="1588" width="480" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-109" value="Embeddings del conocimiento que consulta la pertinencia médica." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="1588" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-110" value="Diseño Datos RAG / Knowledge / Memory&lt;br&gt;5900140571 · 2026-05-11&lt;br&gt;Análisis As-Is&lt;br&gt;5821431820 · 2026-04-17" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="1588" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-111" value="«Azure OpenAI text-embedding-3-large | Knowledge | Generacion de embeddings | 3072 dimensiones, ya en uso (Insuregent). Versionable.», con prioridad obligatorio." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="1588" width="1120" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-112" value="&lt;b&gt;Obligatorio&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="1588" width="420" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-113" value="Azure Container Apps Job" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="1673" width="480" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-114" value="Pipeline de ingesta programada del conocimiento: bronze, silver y gold." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="1673" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-115" value="Diseño Datos RAG / Knowledge / Memory&lt;br&gt;5900140571 · 2026-05-11&lt;br&gt;Análisis As-Is&lt;br&gt;5821431820 · 2026-04-17" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="1673" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-116" value="«Azure Container Apps Job | Knowledge (Pipeline) | Ejecucion programada de ingesta | Patron Insuregent. Serverless, schedule», con prioridad obligatorio." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="1673" width="1120" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-117" value="&lt;b&gt;Obligatorio&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="1673" width="420" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-118" value="Databricks + Unity Catalog" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="1758" width="480" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-119" value="Procesamiento a escala solo si el volumen documental lo justifica." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="1758" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-120" value="Diseño Datos RAG / Knowledge / Memory&lt;br&gt;5900140571 · 2026-05-11&lt;br&gt;Arquitectura de implementación&lt;br&gt;6243680318 · 2026-08-28" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="1758" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-121" value="«Databricks | Data (ETL avanzado) | Procesamiento Silver/Gold a escala», con prioridad «Recomendado (volumenes altos)». Y en v1.1: «Databricks no forma parte del runtime del agente ni de la arquitectura de despliegue del Agente Singular»." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="1758" width="1120" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-122" value="Recomendado solo en volúmenes altos" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="1758" width="420" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-123" value="ADLS Gen2" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="1843" width="480" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-124" value="Data lake medallion y colección documental curada." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="1843" width="720" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-125" value="Diseño Datos RAG / Knowledge / Memory&lt;br&gt;5900140571 · 2026-05-11" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="1843" width="720" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-126" value="«ADLS Gen2 | Data / Knowledge | Data Lake (Bronze/Silver/Gold) + Document Store | Estandar corporativo. Medallion. Cold tier.», con prioridad obligatorio." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="1843" width="1120" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-127" value="&lt;b&gt;Obligatorio&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="1843" width="420" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-128" value="Microsoft Purview&lt;br&gt;o Unity Catalog" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="1907" width="480" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-129" value="Catálogo de los productos de conocimiento del MVP." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="1907" width="720" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-130" value="Diseño Datos RAG / Knowledge / Memory&lt;br&gt;5900140571 · 2026-05-11" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="1907" width="720" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-131" value="«Microsoft Purview / Unity Catalog | Governance | Catalog de datos y conocimiento | Linaje, clasificacion, RBAC, descubrimiento.», con prioridad recomendado." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="1907" width="1120" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-132" value="Recomendado" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="1907" width="420" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-133" value="Azure Redis Cache" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF7EC;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="1971" width="480" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-134" value="Caché de lectura de las reglas duras y de sesión." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF7EC;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="1971" width="720" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-135" value="Diseño Datos RAG / Knowledge / Memory&lt;br&gt;5900140571 · 2026-05-11" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF7EC;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="1971" width="720" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-136" value="«Azure Redis Cache | Memory (Session) | Cache de sesion para velocidad | Reduce latencia en consultas repetidas. TTL nativo.», con prioridad opcional. El uso para reglas de negocio es nuestro." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF7EC;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="1971" width="1120" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-137" value='Opcional · &lt;font style="color: #B85C00;"&gt;&lt;b&gt;Extrapolación nuestra&lt;/b&gt;&lt;/font&gt;' style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF7EC;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="1971" width="420" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-138" value="OpenTelemetry + OpenLLMetry" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="2035" width="480" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-139" value="Traza de punta a punta del gestor, con los campos de auditoría." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="2035" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-140" value="Diseño Datos RAG / Knowledge / Memory&lt;br&gt;5900140571 · 2026-05-11&lt;br&gt;Arquitectura de implementación&lt;br&gt;6243680318 · 2026-08-28" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="2035" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-141" value="«OpenTelemetry + OpenLLMetry | Observability | Trazas E2E vendor-neutral | Estandar industria. Correlacion trace_id.», con prioridad obligatorio y dependencia «Collector + backend (Dynatrace/AppInsights)»." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="2035" width="1120" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-142" value="&lt;b&gt;Obligatorio&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="2035" width="420" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-143" value="Application Insights&lt;br&gt;Log Analytics · Azure Monitor" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="2120" width="480" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-144" value="Backend de la traza técnica de corta retención." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="2120" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-145" value="Arquitectura de implementación&lt;br&gt;6243680318 · 2026-08-28&lt;br&gt;Arquitectura de implementación v1.1&lt;br&gt;5684887560 · 2026-03-17" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="2120" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-146" value="«La observabilidad extremo a extremo se instrumenta con OpenTelemetry y se centraliza en Application Insights, Log Analytics y Azure Monitor»." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="2120" width="1120" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-147" value="Definido en el stack" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="2120" width="420" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-148" value="Azure Container Registry Premium&lt;br&gt;Key Vault · Private Endpoints" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="2205" width="480" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-149" value="Imágenes, secretos, identidad técnica y red privada del dominio de agentes." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="2205" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-150" value="Arquitectura de implementación v1.1&lt;br&gt;5684887560 · 2026-03-17&lt;br&gt;Arquitectura de implementación&lt;br&gt;6243680318 · 2026-08-28" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="2205" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-151" value="«Azure Container Registry Premium para el almacenamiento y distribución de imágenes, Storage Account para soportes auxiliares, Key Vault para manejo seguro de secretos y una red privada apoyada en Private Endpoints»." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="2205" width="1120" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-152" value="Definido en el stack" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="2205" width="420" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-153" value="Azure Static Web App (Angular)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="2290" width="480" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-154" value="Chat conversacional del MVP." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="2290" width="720" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-155" value="Arquitectura de implementación&lt;br&gt;6243680318 · 2026-08-28" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="2290" width="720" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-156" value="«La experiencia conversacional se materializa en una Static Web App basada en Angular SPA, desacoplada del plano agéntico»." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="2290" width="1120" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-157" value="Definido en el stack" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="2290" width="420" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-158" value="Apigee" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="2354" width="480" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-159" value="Domain APIs de negocio de SuraHis, P8, Siniestro Integral y EPS." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="2354" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-160" value="Arquitectura de implementación&lt;br&gt;6243680318 · 2026-08-28&lt;br&gt;ADRs de Implementación&lt;br&gt;6244532291 · 2026-08-28" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="2354" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-161" value="«mantener APIGEE como estándar para APIs de negocio y exposición a aliados». Y: «Ambas capas coexisten con responsabilidades diferenciadas»." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="2354" width="1120" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-162" value="Definido en el stack" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="2354" width="420" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-163" value="Políticas APIM + presupuestos LiteLLM&lt;br&gt;+ Cost Management" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="2439" width="480" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-164" value="Costo por gestor, agente, modelo y entorno." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="2439" width="720" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-165" value="Arquitectura de implementación&lt;br&gt;6243680318 · 2026-08-28" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="2439" width="720" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-166" value="«FinOps | APIM policies + LiteLLM + Cost Management | Enforcement de consumo y análisis de costos»." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="2439" width="1120" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-167" value="Definido en el stack" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="2439" width="420" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-168" value="Lego MCP Server (Java o Python)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="2503" width="480" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-169" value="Base de los MCP privados de los dos gestores." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="2503" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-170" value="Arquitectura de implementación v1.1&lt;br&gt;5684887560 · 2026-03-17&lt;br&gt;Arquitectura de implementación&lt;br&gt;6243680318 · 2026-08-28" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="2503" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-171" value="Define dos legos, «Lego MCP Server en Java» y «Lego MCP Server en Python», este último «para construir servidores MCP (Model-Connector-Provider pattern) en Python». Y: «Los MCP internos del agente se despliegan junto al runtime en AKS»." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="2503" width="1120" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-172" value="Definido en el stack" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="2503" width="420" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-173" value="Separación de suscripciones" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="2588" width="480" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-174" value="El dominio de agentes y el de conocimiento van en suscripciones distintas." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="2588" width="720" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-175" value="[LIN] Separación de Suscripciones&lt;br&gt;6150193162 · 2026-07-28" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="2588" width="720" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-176" value="«Toda solución de IA deberá implementar una separación explícita entre las suscripciones que soportan las capacidades de agentes y aquellas que soportan los activos de información o conocimiento»." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="2588" width="1120" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-177" value="&lt;b&gt;Obligatorio&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F7F7F7;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="2588" width="420" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-178" value="Roles del grafo&lt;br&gt;orchestrator · planner · specialist · reviewer" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="2652" width="480" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-179" value="Nombran los nodos de los dos gestores del MVP." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="2652" width="720" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-180" value="Agentic Runtime&lt;br&gt;5838045207 · 2026-07-03" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="2652" width="720" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-181" value="«Orchestrator… Planner / Router… Specialist Agent… Reviewer / Safety Agent… Human Supervisor». Entre los ejemplos de specialist: «Especialista de extracción estructurada», «Especialista RAG», «Especialista de validación determinística»." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="2652" width="1120" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-182" value="Definido en el stack" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="2652" width="420" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-183" value="Producto de mensajería del bus" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF7EC;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="2716" width="480" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-184" value="Transporte de los eventos del ciclo de la solicitud." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF7EC;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="2716" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-185" value="Arquitectura de Referencia V1.1&lt;br&gt;5666766913 · 2026-04-01&lt;br&gt;Arquitectura de implementación v1.1&lt;br&gt;5684887560 · 2026-03-17" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF7EC;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="2716" width="720" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-186" value="La referencia define el contenedor «Broker / Mensajería» sin nombrar producto. La implementación solo nombra la librería de consumo. En las 40 páginas del espacio no aparece Service Bus, Event Hubs ni Kafka." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF7EC;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="2716" width="1120" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-187" value='&lt;font style="color: #B00020;"&gt;&lt;b&gt;Sin respaldo&lt;/b&gt;&lt;/font&gt;' style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF7EC;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="2716" width="420" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="c-188" value="Almacén de reglas duras versionadas" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF7EC;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="2801" width="480" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-189" value="Sustenta la negación determinística y trazable." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF7EC;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="2801" width="720" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-190" value="PoC Control Plane&lt;br&gt;5957550095 · 2026-06-04" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF7EC;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="2801" width="720" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-191" value="El lineamiento fija el patrón, no el almacén. La restricción es «La matriz no debe quedar embebida como lógica no gobernada en el prompt.» y su implicación, «Debe exponerse como tool determinística, servicio interno o componente MCP.»." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF7EC;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="2801" width="1120" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-192" value='&lt;font style="color: #B85C00;"&gt;&lt;b&gt;Extrapolación nuestra&lt;/b&gt;&lt;/font&gt;' style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF7EC;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="2801" width="420" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-193" value="Almacén de evidencia de retención larga" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF7EC;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="2865" width="480" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-194" value="Guarda sin muestreo lo que sustenta si una decisión estuvo bien." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF7EC;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="2865" width="720" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-195" value="Diseño Datos RAG / Knowledge / Memory&lt;br&gt;5900140571 · 2026-05-11" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF7EC;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="2865" width="720" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-196" value="La herramienta que proponemos, ADLS Gen2, sí está en el lineamiento. Su uso como almacén de evidencia de la torre es recomendación nuestra: el lineamiento no contempla la torre de control." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF7EC;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="2865" width="1120" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-197" value='&lt;font style="color: #B85C00;"&gt;&lt;b&gt;Extrapolación nuestra&lt;/b&gt;&lt;/font&gt;' style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF7EC;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="2865" width="420" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-198" value="Contrato de eventos del negocio&lt;br&gt;y correlación del caso" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF7EC;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="2929" width="480" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-199" value="Las dos capas del MVP de la torre." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF7EC;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="480" y="2929" width="720" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-200" value="—" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF7EC;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="2929" width="720" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-201" value="No hay lineamiento: es el aporte propio de la torre. Las plataformas de observabilidad resuelven la traza técnica, no el vocabulario del negocio ni la ventana de evidencia rezagada." style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF7EC;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1920" y="2929" width="1120" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-202" value='&lt;font style="color: #B85C00;"&gt;&lt;b&gt;Extrapolación nuestra&lt;/b&gt;&lt;/font&gt;' style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF7EC;strokeColor=#999999;align=left;verticalAlign=middle;spacingLeft=12;spacingRight=10;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="3040" y="2929" width="420" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="c-203" value="&lt;b&gt;Cómo se hizo esta verificación&lt;/b&gt;&lt;br&gt;Se recorrieron las 40 páginas del espacio AFGLYP descargadas el 5 de septiembre de 2026, buscando cada herramienta del diseño una por una. Se verificó además que las 77 citas de este documento sean textuales. Las filas con fondo claro son las cuatro que &lt;b&gt;no&lt;/b&gt; se pudieron respaldar del todo: el producto de mensajería del bus, sin tecnología en ninguna página, y tres usos que son extrapolación nuestra sobre herramientas que el lineamiento sí nombra. Ninguna herramienta del diseño quedó sin verificar." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="0" y="3033" width="3460" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram name="Hallazgos de la auditoría" id="hallazgos-de-la-auditor-a">
+    <mxGraphModel dx="2000" dy="1200" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="c-1" value="&lt;b&gt;Hallazgos de la auditoría del stack&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;strokeColor=none;fillColor=none;fontSize=32;" vertex="1" parent="1">
+          <mxGeometry x="0" y="-190" width="3300" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="c-2" value="Qué cambió al contrastar el diseño contra las 40 páginas del lineamiento, qué encontramos en desacuerdo dentro del propio lineamiento, y qué queda sin respaldo.&lt;br&gt;Esto es conversación de trabajo: sirve para cerrar decisiones antes de estimar." style="text;html=1;align=center;verticalAlign=middle;strokeColor=none;fillColor=none;fontSize=15;fontColor=#555555;" vertex="1" parent="1">
+          <mxGeometry x="0" y="-128" width="3300" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="c-3" value="1 · CORRECCIONES QUE ESTA AUDITORÍA INTRODUJO EN EL DISEÑO" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 8;verticalAlign=top;align=left;spacingLeft=18;spacingTop=8;fontSize=19;fontStyle=1;fillColor=#FFF4F4;strokeColor=#B00020;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="0" y="0" width="3300" height="221" as="geometry" />
+        </mxCell>
+        <mxCell id="c-4" value='&lt;b&gt;El motor de extracción documental sí estaba fijado&lt;/b&gt;&lt;br&gt;Antes decíamos que el lineamiento no fijaba motor de OCR y asumíamos extracción con modelos multimodales. Es falso: el stack tecnológico v0.5 declara &lt;b&gt;Azure Document Intelligence&lt;/b&gt; para OCR y extracción estructurada con prioridad obligatorio. Los extractores de historia clínica y de orden se corrigieron: OCR determinístico primero, modelo después sobre el texto ya estructurado.&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Diseño Datos RAG / Knowledge / Memory · 5900140571&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="30" y="46" width="791" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c-5" value='&lt;b&gt;Nombramos productos de bus que el lineamiento no nombra&lt;/b&gt;&lt;br&gt;Nuestra versión anterior decía, con palabras propias, que en Azure la alternativa natural era Service Bus o Event Hubs. Ninguno de los dos aparece en las 40 páginas, ni Kafka. Se eliminó la afirmación y se marcó el producto de mensajería como el único punto del diseño &lt;b&gt;sin respaldo&lt;/b&gt; en el lineamiento.&lt;br&gt;&lt;font style="font-size: 10px; color: #B00020;"&gt;&amp;#9656; Verificado por búsqueda en las 40 páginas del espacio&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="846" y="46" width="791" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c-6" value='&lt;b&gt;Faltaban herramientas obligatorias del pipeline de conocimiento&lt;/b&gt;&lt;br&gt;El diseño ponía Databricks al frente. El lineamiento declara obligatorio &lt;b&gt;Azure Container Apps Job&lt;/b&gt; para la ingesta programada y deja Databricks como recomendado solo en volúmenes altos. Se agregaron además &lt;b&gt;text-embedding-3-large&lt;/b&gt; y el catálogo en &lt;b&gt;Purview o Unity Catalog&lt;/b&gt;, que faltaban.&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Diseño Datos · 5900140571 · Análisis As-Is · 5821431820&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="1662" y="46" width="791" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c-7" value='&lt;b&gt;Faltaban MLflow, OpenLLMetry y los campos de traza&lt;/b&gt;&lt;br&gt;Las evaluaciones con golden set las atribuíamos solo a Langfuse; el lineamiento también nombra &lt;b&gt;MLflow + LLM-as-Judge&lt;/b&gt; como motor de evaluación. La observabilidad es &lt;b&gt;OpenTelemetry + OpenLLMetry&lt;/b&gt;, y la PoC fija los campos exactos de la traza: correlationId, sessionId, userId con hash, agentId, workerId, promptVersion y toolCallId.&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Diseño Datos · 5900140571 · PoC Control Plane · 5957550095&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="2478" y="46" width="791" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c-8" value="2 · DESACUERDOS DENTRO DEL PROPIO LINEAMIENTO, QUE ALGUIEN TIENE QUE ARBITRAR" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 8;verticalAlign=top;align=left;spacingLeft=18;spacingTop=8;fontSize=19;fontStyle=1;fillColor=#FFF8E8;strokeColor=#D6B656;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="0" y="261" width="3300" height="221" as="geometry" />
+        </mxCell>
+        <mxCell id="c-9" value='&lt;b&gt;¿El agente escribe la memoria directo, o por un servicio?&lt;/b&gt;&lt;br&gt;«Arquitectura de implementación v1.1» pone un Memory Manager con PyMongo escribiendo contra Cosmos DB. «Diseño Datos RAG / Knowledge / Memory» dice lo contrario: «Memory Writer Service… Agente NO escribe directo en store», con filtro de inyección y detección de datos personales antes de escribir. El MVP dibuja el Memory Manager de v1.1 y deja el conflicto señalado. Cambia el esfuerzo: un servicio de escritura con guardrails es trabajo adicional.&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; 5684887560 frente a 5900140571&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="30" y="307" width="791" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c-10" value='&lt;b&gt;¿Langfuse o MLflow para las evaluaciones?&lt;/b&gt;&lt;br&gt;El control plane fija Langfuse para prompts, evaluaciones y trazas de calidad. El diseño de datos fija MLflow como &lt;i&gt;eval engine&lt;/i&gt; con LLM-as-Judge, y el As-Is lo posiciona como registro de experimentos. Las dos páginas no se contradicen, pero tampoco reparten el trabajo. Para el golden set del MVP hay que decidir cuál es el registro autoritativo de una corrida.&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; 6243680318 frente a 5900140571 y 5821431820&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="846" y="307" width="791" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c-11" value='&lt;b&gt;¿AKS o Container Apps para el runtime?&lt;/b&gt;&lt;br&gt;«Arquitectura de implementación v1.1» define Container Apps para el agente singular y descarta Web Apps. La página de la plataforma agéntica pone AKS en la tabla del Agent Runtime, y admite Container Apps «para agentes singulares y livianos». El criterio de transición sí es claro y por eso el MVP se dibuja sobre AKS, pero la ratificación no está escrita.&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; 5684887560 frente a 6243680318&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="1662" y="307" width="791" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c-12" value='&lt;b&gt;El gateway del control plane todavía es una propuesta&lt;/b&gt;&lt;br&gt;El ADR-2026-001 que adopta APIM sigue en estado &lt;b&gt;[Propuesto]&lt;/b&gt;: «Preferencia técnica por APIM, pendiente de ratificación estratégica», con decisiones abiertas de modelo operativo, postura multinube y exposición a aliados. Todo el diseño se apoya en él. Si la ratificación cambia, cambia la capa de entrada del MVP.&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; ADRs de Implementación · 6244532291&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="2478" y="307" width="791" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c-13" value="3 · LO QUE EL PROPIO LINEAMIENTO DEJA ABIERTO, Y NOSOTROS NO PODEMOS CERRAR" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 8;verticalAlign=top;align=left;spacingLeft=18;spacingTop=8;fontSize=19;fontStyle=1;fillColor=#F4F8FF;strokeColor=#3A5FCD;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="0" y="522" width="3300" height="221" as="geometry" />
+        </mxCell>
+        <mxCell id="c-14" value='&lt;b&gt;Motor de políticas del guardrail de rol&lt;/b&gt;&lt;br&gt;El lineamiento dice «Casbin, OPA, etc.» y «evolución hacia motores de política como Casbin u OPA». No elige. El MVP necesita uno desde el primer día porque el techo de autonomía se aplica por rol.&lt;br&gt;&lt;font style="font-size: 10px; color: #B85C00;"&gt;&amp;#9656; 5684887560 · 5838045207&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="30" y="568" width="791" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c-15" value='&lt;b&gt;Motor de plantillas de prompt&lt;/b&gt;&lt;br&gt;«Aunque aún no se ha decido una tecnología concreta, algunas opciones son» —textual, con la errata— y lista «Jinja2» y «o PromptTemplates de LangChain». La elección no cambia la arquitectura, pero sí el detalle de construcción.&lt;br&gt;&lt;font style="font-size: 10px; color: #B85C00;"&gt;&amp;#9656; 5684887560&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="846" y="568" width="791" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c-16" value='&lt;b&gt;Habilitación en el marco de IaC&lt;/b&gt;&lt;br&gt;El propio lineamiento advierte que Container Apps «Requiere habilitación específica en el framework de IaC (No existe aún)». LiteLLM y Langfuse son componentes open que se despliegan por cuenta propia, y el análisis de licenciamiento advierte que no se pueden usar las características de LiteLLM Enterprise sin licencia comercial vigente.&lt;br&gt;&lt;font style="font-size: 10px; color: #B85C00;"&gt;&amp;#9656; 5684887560 · Validación de licenciamiento · 6266486824&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="1662" y="568" width="791" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c-17" value='&lt;b&gt;Lo que aporta la torre no tiene lineamiento&lt;/b&gt;&lt;br&gt;El contrato de eventos del negocio, la correlación del caso con su siniestro padre y la ventana de evidencia rezagada no aparecen en ninguna de las 40 páginas. Es aporte propio y así se presenta: recomendación debatible, no cumplimiento de norma.&lt;br&gt;&lt;font style="font-size: 10px; color: #B85C00;"&gt;&amp;#9656; Verificado en las 40 páginas&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="2478" y="568" width="791" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c-18" value="4 · ALINEACIÓN QUE LA AUDITORÍA CONFIRMÓ" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 8;verticalAlign=top;align=left;spacingLeft=18;spacingTop=8;fontSize=19;fontStyle=1;fillColor=#F2FBF1;strokeColor=#82B366;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="0" y="783" width="3300" height="221" as="geometry" />
+        </mxCell>
+        <mxCell id="c-19" value='&lt;b&gt;Los agentes del dibujo son los roles del lineamiento&lt;/b&gt;&lt;br&gt;El MVP no inventó una taxonomía. La api orquestadora es el &lt;i&gt;orchestrator&lt;/i&gt;, el enrutador es el &lt;i&gt;planner / router&lt;/i&gt;, los extractores y la pertinencia médica son &lt;i&gt;specialists&lt;/i&gt; —el lineamiento nombra literalmente «especialista de extracción estructurada», «especialista RAG» y «especialista de validación determinística»—, el LLM-as-a-judge es el &lt;i&gt;reviewer / safety&lt;/i&gt; y la escalada a persona es el &lt;i&gt;human supervisor&lt;/i&gt;.&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Agentic Runtime · 5838045207 · Roles multiagente&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="30" y="829" width="791" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c-20" value='&lt;b&gt;Las restricciones de la PoC coinciden con lo que ya proponíamos&lt;/b&gt;&lt;br&gt;«La matriz no debe quedar embebida como lógica no gobernada en el prompt.», que implica «Debe exponerse como tool determinística, servicio interno o componente MCP.». «Los prompts no deben estar como archivos internos del proyecto.». «El LLM no debe consumirse directamente desde el runtime.». «Toda recomendación de riesgo alto requiere confirmación humana». Son, una por una, las decisiones del MVP.&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; PoC Control Plane · 5957550095 · Restricciones&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="846" y="829" width="791" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c-21" value='&lt;b&gt;El caso de negocio ya está en el inventario del cliente&lt;/b&gt;&lt;br&gt;El Análisis As-Is lista «Autorizaciones EPS» entre los proyectos con arquitectura de IA generativa más robusta en producción, y describe el patrón Insuregent —pipeline como Container Apps Job, medallion, embeddings de 3072 dimensiones y un MCP server con una herramienta por dominio— como el patrón evolucionado a replicar. Conviene mirar qué de eso se reutiliza antes de estimar construcción nueva.&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Análisis As-Is · 5821431820&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="1662" y="829" width="791" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c-22" value='&lt;b&gt;Ninguna herramienta del diseño quedó inventada&lt;/b&gt;&lt;br&gt;Las &lt;b&gt;33 herramientas&lt;/b&gt; que nombra la vista están todas en el lineamiento, cada una con su página y su cita textual. Ninguna es invención nuestra. Lo único sin respaldo no es una herramienta sino una pieza que el lineamiento deja sin tecnología: el producto de mensajería del bus. Tres usos son extrapolación nuestra sobre herramientas que sí están en el stack: Redis para la caché de reglas duras, ADLS Gen2 para la evidencia de retención larga y APIM con PostgreSQL para la api de configuración.&lt;br&gt;&lt;font style="font-size: 10px; color: #6C3483;"&gt;&amp;#9656; Ver la pestaña «Trazabilidad del stack»&lt;/font&gt;' style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;strokeWidth=2;arcSize=8;align=left;verticalAlign=top;spacingLeft=10;spacingTop=6;spacingRight=8;fontSize=12;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="2478" y="829" width="791" height="150" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
