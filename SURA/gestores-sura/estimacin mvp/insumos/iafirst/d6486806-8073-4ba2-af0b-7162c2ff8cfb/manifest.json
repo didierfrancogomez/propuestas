@@ -1,0 +1,1669 @@
+{
+  "generado": "2026-09-05T16:59:20.040Z",
+  "origen": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/6256853011",
+  "espacio": {
+    "clave": "AFGLYP",
+    "nombre": "AI First · Gobierno, Lineamientos y Prácticas"
+  },
+  "totalPaginas": 40,
+  "totalAdjuntos": 133,
+  "paginas": [
+    {
+      "id": "6256853011",
+      "titulo": "[ARQ] AI First: Arquitectura de referencia y lineamientos",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/6256853011",
+      "version": 1,
+      "actualizado": "2026-09-01T20:57:12.363Z",
+      "actualizadoPor": "Daniela Garcia Cataño",
+      "creadoPor": "Daniela Garcia Cataño",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas"
+      ],
+      "archivoMarkdown": "paginas/ARQ-AI-First-Arquitectura-de-referencia-y-lineamientos.md",
+      "archivoHtml": "html-original/ARQ-AI-First-Arquitectura-de-referencia-y-lineamientos.html",
+      "hijos": [
+        "[ARQ] AI First: Arquitectura de referencia",
+        "[LIN] Infraestructura",
+        "Arquitectura Plataforma Agentica"
+      ],
+      "adjuntos": []
+    },
+    {
+      "id": "5624889772",
+      "titulo": "[ARQ] AI First: Arquitectura de referencia",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/5624889772",
+      "version": 8,
+      "actualizado": "2026-09-01T20:57:07.433Z",
+      "actualizadoPor": "Daniela Garcia Cataño",
+      "creadoPor": "Lina Marcela Marín Ochoa",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos"
+      ],
+      "archivoMarkdown": "paginas/ARQ-AI-First-Arquitectura-de-referencia.md",
+      "archivoHtml": "html-original/ARQ-AI-First-Arquitectura-de-referencia.html",
+      "hijos": [
+        "Arquitectura Agentes V1.1."
+      ],
+      "adjuntos": []
+    },
+    {
+      "id": "6150029338",
+      "titulo": "[LIN] Infraestructura",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/6150029338",
+      "version": 1,
+      "actualizado": "2026-07-28T19:25:30.912Z",
+      "actualizadoPor": "Daniela Garcia Cataño",
+      "creadoPor": "Daniela Garcia Cataño",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos"
+      ],
+      "archivoMarkdown": "paginas/LIN-Infraestructura.md",
+      "archivoHtml": "html-original/LIN-Infraestructura.html",
+      "hijos": [
+        "Separación de Suscripciones entre Dominio de Agentes y Dominio de Información/Conocimiento"
+      ],
+      "adjuntos": []
+    },
+    {
+      "id": "5696061457",
+      "titulo": "Arquitectura Plataforma Agentica",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/5696061457",
+      "version": 32,
+      "actualizado": "2026-08-26T16:35:42.628Z",
+      "actualizadoPor": "Daniela Garcia Cataño",
+      "creadoPor": "Helbert Sebastian Cubillos Avila",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos"
+      ],
+      "archivoMarkdown": "paginas/Arquitectura-Plataforma-Agentica.md",
+      "archivoHtml": "html-original/Arquitectura-Plataforma-Agentica.html",
+      "hijos": [
+        "Introducción",
+        "Visión general de la Plataforma Agéntica",
+        "Análisis As-Is",
+        "Blueprint de Capacidades Arquitectura Agéntica",
+        "Mapa de Dominios",
+        "Matriz de Madurez",
+        "Roadmap de Evolución",
+        "Requerimientos no Funcionales",
+        "Roles mínimos y RACIVD",
+        "Modelo de toma de decisiones",
+        "PoC Implementación Capacidades Plataforma Agentica - Control Plane",
+        "Arquitectura de implementación"
+      ],
+      "adjuntos": [
+        {
+          "nombre": "MatrizDecision_v1.2.xlsx",
+          "tipo": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+          "bytes": 32694,
+          "archivo": "recursos/5696061457/MatrizDecision_v1.2.xlsx"
+        },
+        {
+          "nombre": "image-20260416-164430.png",
+          "tipo": "image/png",
+          "bytes": 300967,
+          "archivo": "recursos/5696061457/image-20260416-164430.png"
+        },
+        {
+          "nombre": "MatrizDecision_v1.1.xlsx",
+          "tipo": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+          "bytes": 31668,
+          "archivo": "recursos/5696061457/MatrizDecision_v1.1.xlsx"
+        },
+        {
+          "nombre": "mermaid-diagram-2026-04-14-101917.png",
+          "tipo": "image/png",
+          "bytes": 866598,
+          "archivo": "recursos/5696061457/mermaid-diagram-2026-04-14-101917.png"
+        },
+        {
+          "nombre": "image-20260413-222850.png",
+          "tipo": "image/png",
+          "bytes": 1837904,
+          "archivo": "recursos/5696061457/image-20260413-222850.png"
+        },
+        {
+          "nombre": "Diagrama Componentes IAGW.drawio-20260412-202613.png",
+          "tipo": "image/png",
+          "bytes": 100533,
+          "archivo": "recursos/5696061457/Diagrama Componentes IAGW.drawio-20260412-202613.png"
+        },
+        {
+          "nombre": "image-20260409-223334.png",
+          "tipo": "image/png",
+          "bytes": 3686699,
+          "archivo": "recursos/5696061457/image-20260409-223334.png"
+        },
+        {
+          "nombre": "Matriz_RACIVD_Ciclo_Vida_Iniciativa_v1.2.xlsx",
+          "tipo": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+          "bytes": 32437,
+          "archivo": "recursos/5696061457/Matriz_RACIVD_Ciclo_Vida_Iniciativa_v1.2.xlsx"
+        },
+        {
+          "nombre": "image-20260407-200113.png",
+          "tipo": "image/png",
+          "bytes": 84004,
+          "archivo": "recursos/5696061457/image-20260407-200113.png"
+        },
+        {
+          "nombre": "Matriz_RACIVD_Ciclo_Vida_Iniciativa_v1.1.xlsx",
+          "tipo": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+          "bytes": 33101,
+          "archivo": "recursos/5696061457/Matriz_RACIVD_Ciclo_Vida_Iniciativa_v1.1.xlsx"
+        },
+        {
+          "nombre": "image-20260407-144855.png",
+          "tipo": "image/png",
+          "bytes": 3662463,
+          "archivo": "recursos/5696061457/image-20260407-144855.png"
+        },
+        {
+          "nombre": "image-20260406-150431.png",
+          "tipo": "image/png",
+          "bytes": 58945,
+          "archivo": "recursos/5696061457/image-20260406-150431.png"
+        },
+        {
+          "nombre": "image-20260406-150301.png",
+          "tipo": "image/png",
+          "bytes": 1626386,
+          "archivo": "recursos/5696061457/image-20260406-150301.png"
+        },
+        {
+          "nombre": "image-20260406-145241.png",
+          "tipo": "image/png",
+          "bytes": 751552,
+          "archivo": "recursos/5696061457/image-20260406-145241.png"
+        },
+        {
+          "nombre": "image-20260406-143048.png",
+          "tipo": "image/png",
+          "bytes": 3371788,
+          "archivo": "recursos/5696061457/image-20260406-143048.png"
+        },
+        {
+          "nombre": "image-20260406-142954.png",
+          "tipo": "image/png",
+          "bytes": 182522,
+          "archivo": "recursos/5696061457/image-20260406-142954.png"
+        },
+        {
+          "nombre": "mermaid-diagram-2026-03-31-172044.png",
+          "tipo": "image/png",
+          "bytes": 242962,
+          "archivo": "recursos/5696061457/mermaid-diagram-2026-03-31-172044.png"
+        },
+        {
+          "nombre": "image-20260401-030546.png",
+          "tipo": "image/png",
+          "bytes": 186116,
+          "archivo": "recursos/5696061457/image-20260401-030546.png"
+        },
+        {
+          "nombre": "MatrizDecision_v1.xlsx",
+          "tipo": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+          "bytes": 30551,
+          "archivo": "recursos/5696061457/MatrizDecision_v1.xlsx"
+        },
+        {
+          "nombre": "Matriz_RACIVD_Ciclo_Vida_Iniciativa_v 1.1.xlsx",
+          "tipo": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+          "bytes": 32502,
+          "archivo": "recursos/5696061457/Matriz_RACIVD_Ciclo_Vida_Iniciativa_v 1.1.xlsx"
+        },
+        {
+          "nombre": "Matriz_RACIVD_Ciclo_Vida_Iniciativa_v1.xlsx",
+          "tipo": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+          "bytes": 27979,
+          "archivo": "recursos/5696061457/Matriz_RACIVD_Ciclo_Vida_Iniciativa_v1.xlsx"
+        },
+        {
+          "nombre": "MatrizModeloMadurez.xlsx",
+          "tipo": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+          "bytes": 31461,
+          "archivo": "recursos/5696061457/MatrizModeloMadurez.xlsx"
+        },
+        {
+          "nombre": "ModeloMatrizMadurez.png",
+          "tipo": "image/png",
+          "bytes": 240743,
+          "archivo": "recursos/5696061457/ModeloMatrizMadurez.png"
+        },
+        {
+          "nombre": "image-20260316-223010.png",
+          "tipo": "image/png",
+          "bytes": 223019,
+          "archivo": "recursos/5696061457/image-20260316-223010.png"
+        },
+        {
+          "nombre": "image-20260316-223000.png",
+          "tipo": "image/png",
+          "bytes": 440002,
+          "archivo": "recursos/5696061457/image-20260316-223000.png"
+        },
+        {
+          "nombre": "image-20260316-222948.png",
+          "tipo": "image/png",
+          "bytes": 852187,
+          "archivo": "recursos/5696061457/image-20260316-222948.png"
+        },
+        {
+          "nombre": "att_7_for_5696061457.png",
+          "tipo": "image/png",
+          "bytes": 13722,
+          "archivo": "recursos/5696061457/att_7_for_5696061457.png"
+        },
+        {
+          "nombre": "att_6_for_5696061457.png",
+          "tipo": "image/png",
+          "bytes": 13722,
+          "archivo": "recursos/5696061457/att_6_for_5696061457.png"
+        },
+        {
+          "nombre": "att_4_for_5696061457.png",
+          "tipo": "image/png",
+          "bytes": 13339,
+          "archivo": "recursos/5696061457/att_4_for_5696061457.png"
+        },
+        {
+          "nombre": "att_5_for_5696061457.png",
+          "tipo": "image/png",
+          "bytes": 13722,
+          "archivo": "recursos/5696061457/att_5_for_5696061457.png"
+        },
+        {
+          "nombre": "att_3_for_5696061457.png",
+          "tipo": "image/png",
+          "bytes": 1710906,
+          "archivo": "recursos/5696061457/att_3_for_5696061457.png"
+        },
+        {
+          "nombre": "att_2_for_5696061457.png",
+          "tipo": "image/png",
+          "bytes": 308884,
+          "archivo": "recursos/5696061457/att_2_for_5696061457.png"
+        },
+        {
+          "nombre": "att_1_for_5696061457.png",
+          "tipo": "image/png",
+          "bytes": 245947,
+          "archivo": "recursos/5696061457/att_1_for_5696061457.png"
+        },
+        {
+          "nombre": "att_0_for_5696061457.png",
+          "tipo": "image/png",
+          "bytes": 8850,
+          "archivo": "recursos/5696061457/att_0_for_5696061457.png"
+        }
+      ]
+    },
+    {
+      "id": "5666930707",
+      "titulo": "Arquitectura Agentes V1.1.",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/5666930707",
+      "version": 4,
+      "actualizado": "2026-07-28T19:26:00.195Z",
+      "actualizadoPor": "Daniela Garcia Cataño",
+      "creadoPor": "Diego Fernando Gomez Alvarez",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos",
+        "[ARQ] AI First: Arquitectura de referencia"
+      ],
+      "archivoMarkdown": "paginas/ARQ-AI-First-Arquitectura-de-referencia/Arquitectura-Agentes-V1.1.md",
+      "archivoHtml": "html-original/ARQ-AI-First-Arquitectura-de-referencia/Arquitectura-Agentes-V1.1.html",
+      "hijos": [
+        "Arquitectura de Referencia V1.1.",
+        "Arquitectura de implementación v1.1"
+      ],
+      "adjuntos": []
+    },
+    {
+      "id": "6150193162",
+      "titulo": "Separación de Suscripciones entre Dominio de Agentes y Dominio de Información/Conocimiento",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/6150193162",
+      "version": 1,
+      "actualizado": "2026-07-28T19:30:09.033Z",
+      "actualizadoPor": "Daniela Garcia Cataño",
+      "creadoPor": "Daniela Garcia Cataño",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos",
+        "[LIN] Infraestructura"
+      ],
+      "archivoMarkdown": "paginas/LIN-Infraestructura/Separacion-de-Suscripciones-entre-Dominio-de-Agentes-y-Dominio-de-Informacion-Co.md",
+      "archivoHtml": "html-original/LIN-Infraestructura/Separacion-de-Suscripciones-entre-Dominio-de-Agentes-y-Dominio-de-Informacion-Co.html",
+      "hijos": [],
+      "adjuntos": []
+    },
+    {
+      "id": "5823758365",
+      "titulo": "Introducción",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/5823758365",
+      "version": 1,
+      "actualizado": "2026-04-17T21:31:13.865Z",
+      "actualizadoPor": "Helbert Sebastian Cubillos Avila",
+      "creadoPor": "Helbert Sebastian Cubillos Avila",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos",
+        "Arquitectura Plataforma Agentica"
+      ],
+      "archivoMarkdown": "paginas/Arquitectura-Plataforma-Agentica/Introduccion.md",
+      "archivoHtml": "html-original/Arquitectura-Plataforma-Agentica/Introduccion.html",
+      "hijos": [],
+      "adjuntos": []
+    },
+    {
+      "id": "5823987723",
+      "titulo": "Visión general de la Plataforma Agéntica",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/5823987723",
+      "version": 1,
+      "actualizado": "2026-04-17T21:29:37.355Z",
+      "actualizadoPor": "Helbert Sebastian Cubillos Avila",
+      "creadoPor": "Helbert Sebastian Cubillos Avila",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos",
+        "Arquitectura Plataforma Agentica"
+      ],
+      "archivoMarkdown": "paginas/Arquitectura-Plataforma-Agentica/Vision-general-de-la-Plataforma-Agentica.md",
+      "archivoHtml": "html-original/Arquitectura-Plataforma-Agentica/Vision-general-de-la-Plataforma-Agentica.html",
+      "hijos": [],
+      "adjuntos": []
+    },
+    {
+      "id": "5821431820",
+      "titulo": "Análisis As-Is",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/5821431820",
+      "version": 3,
+      "actualizado": "2026-04-17T20:23:48.871Z",
+      "actualizadoPor": "Helbert Sebastian Cubillos Avila",
+      "creadoPor": "Helbert Sebastian Cubillos Avila",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos",
+        "Arquitectura Plataforma Agentica"
+      ],
+      "archivoMarkdown": "paginas/Arquitectura-Plataforma-Agentica/Analisis-As-Is.md",
+      "archivoHtml": "html-original/Arquitectura-Plataforma-Agentica/Analisis-As-Is.html",
+      "hijos": [],
+      "adjuntos": [
+        {
+          "nombre": "image-20260417-164439.png",
+          "tipo": "image/png",
+          "bytes": 96970,
+          "archivo": "recursos/5821431820/image-20260417-164439.png"
+        },
+        {
+          "nombre": "image-20260417-164417.png",
+          "tipo": "image/png",
+          "bytes": 60524,
+          "archivo": "recursos/5821431820/image-20260417-164417.png"
+        }
+      ]
+    },
+    {
+      "id": "5821300740",
+      "titulo": "Blueprint de Capacidades Arquitectura Agéntica",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/5821300740",
+      "version": 12,
+      "actualizado": "2026-08-27T13:44:21.873Z",
+      "actualizadoPor": "Diego Alexander Corredor Quintero",
+      "creadoPor": "Helbert Sebastian Cubillos Avila",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos",
+        "Arquitectura Plataforma Agentica"
+      ],
+      "archivoMarkdown": "paginas/Arquitectura-Plataforma-Agentica/Blueprint-de-Capacidades-Arquitectura-Agentica.md",
+      "archivoHtml": "html-original/Arquitectura-Plataforma-Agentica/Blueprint-de-Capacidades-Arquitectura-Agentica.html",
+      "hijos": [
+        "External Access, Experience & Development",
+        "External Services",
+        "Enteprise Shared Capabilities",
+        "Agentic Platform"
+      ],
+      "adjuntos": [
+        {
+          "nombre": "ArquitecturaAgenteicaSura-Blueprint Capacidades.png",
+          "tipo": "image/png",
+          "bytes": 677202,
+          "archivo": "recursos/5821300740/ArquitecturaAgenteicaSura-Blueprint Capacidades.png"
+        },
+        {
+          "nombre": "image-20260513-192648.png",
+          "tipo": "image/png",
+          "bytes": 3794681,
+          "archivo": "recursos/5821300740/image-20260513-192648.png"
+        },
+        {
+          "nombre": "image-20260513-190008.png",
+          "tipo": "image/png",
+          "bytes": 3788791,
+          "archivo": "recursos/5821300740/image-20260513-190008.png"
+        },
+        {
+          "nombre": "image-20260513-185948.png",
+          "tipo": "image/png",
+          "bytes": 3788791,
+          "archivo": "recursos/5821300740/image-20260513-185948.png"
+        },
+        {
+          "nombre": "image-20260513-185946.png",
+          "tipo": "image/png",
+          "bytes": 3788791,
+          "archivo": "recursos/5821300740/image-20260513-185946.png"
+        },
+        {
+          "nombre": "catalogo_capacidades_ia.xlsx",
+          "tipo": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+          "bytes": 28728,
+          "archivo": "recursos/5821300740/catalogo_capacidades_ia.xlsx"
+        },
+        {
+          "nombre": "image-20260427-163513.png",
+          "tipo": "image/png",
+          "bytes": 1597657,
+          "archivo": "recursos/5821300740/image-20260427-163513.png"
+        },
+        {
+          "nombre": "image-20260427-163447.png",
+          "tipo": "image/png",
+          "bytes": 662009,
+          "archivo": "recursos/5821300740/image-20260427-163447.png"
+        },
+        {
+          "nombre": "image-20260422-130549.png",
+          "tipo": "image/png",
+          "bytes": 3773660,
+          "archivo": "recursos/5821300740/image-20260422-130549.png"
+        },
+        {
+          "nombre": "image-20260417-171244.png",
+          "tipo": "image/png",
+          "bytes": 3678943,
+          "archivo": "recursos/5821300740/image-20260417-171244.png"
+        },
+        {
+          "nombre": "image-20260417-170959.png",
+          "tipo": "image/png",
+          "bytes": 1626386,
+          "archivo": "recursos/5821300740/image-20260417-170959.png"
+        },
+        {
+          "nombre": "image-20260417-170930.png",
+          "tipo": "image/png",
+          "bytes": 751586,
+          "archivo": "recursos/5821300740/image-20260417-170930.png"
+        }
+      ]
+    },
+    {
+      "id": "5823365128",
+      "titulo": "Mapa de Dominios",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/5823365128",
+      "version": 4,
+      "actualizado": "2026-04-17T20:23:32.215Z",
+      "actualizadoPor": "Helbert Sebastian Cubillos Avila",
+      "creadoPor": "Helbert Sebastian Cubillos Avila",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos",
+        "Arquitectura Plataforma Agentica"
+      ],
+      "archivoMarkdown": "paginas/Arquitectura-Plataforma-Agentica/Mapa-de-Dominios.md",
+      "archivoHtml": "html-original/Arquitectura-Plataforma-Agentica/Mapa-de-Dominios.html",
+      "hijos": [
+        "Diseño Datos RAG / Knowledge / Memory"
+      ],
+      "adjuntos": [
+        {
+          "nombre": "Diagrama Componentes IAGW.drawio-20260412-202613.png",
+          "tipo": "image/png",
+          "bytes": 100533,
+          "archivo": "recursos/5823365128/Diagrama Componentes IAGW.drawio-20260412-202613.png"
+        }
+      ]
+    },
+    {
+      "id": "5823463429",
+      "titulo": "Matriz de Madurez",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/5823463429",
+      "version": 2,
+      "actualizado": "2026-04-17T20:23:23.602Z",
+      "actualizadoPor": "Helbert Sebastian Cubillos Avila",
+      "creadoPor": "Helbert Sebastian Cubillos Avila",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos",
+        "Arquitectura Plataforma Agentica"
+      ],
+      "archivoMarkdown": "paginas/Arquitectura-Plataforma-Agentica/Matriz-de-Madurez.md",
+      "archivoHtml": "html-original/Arquitectura-Plataforma-Agentica/Matriz-de-Madurez.html",
+      "hijos": [],
+      "adjuntos": [
+        {
+          "nombre": "MatrizModeloMadurez.xlsx",
+          "tipo": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+          "bytes": 31461,
+          "archivo": "recursos/5823463429/MatrizModeloMadurez.xlsx"
+        },
+        {
+          "nombre": "ModeloMatrizMadurez.png",
+          "tipo": "image/png",
+          "bytes": 240743,
+          "archivo": "recursos/5823463429/ModeloMatrizMadurez.png"
+        },
+        {
+          "nombre": "image-20260316-223010.png",
+          "tipo": "image/png",
+          "bytes": 223019,
+          "archivo": "recursos/5823463429/image-20260316-223010.png"
+        }
+      ]
+    },
+    {
+      "id": "5823266837",
+      "titulo": "Roadmap de Evolución",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/5823266837",
+      "version": 2,
+      "actualizado": "2026-04-17T20:23:14.210Z",
+      "actualizadoPor": "Helbert Sebastian Cubillos Avila",
+      "creadoPor": "Helbert Sebastian Cubillos Avila",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos",
+        "Arquitectura Plataforma Agentica"
+      ],
+      "archivoMarkdown": "paginas/Arquitectura-Plataforma-Agentica/Roadmap-de-Evolucion.md",
+      "archivoHtml": "html-original/Arquitectura-Plataforma-Agentica/Roadmap-de-Evolucion.html",
+      "hijos": [],
+      "adjuntos": []
+    },
+    {
+      "id": "5822152737",
+      "titulo": "Requerimientos no Funcionales",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/5822152737",
+      "version": 1,
+      "actualizado": "2026-04-17T21:26:55.761Z",
+      "actualizadoPor": "Helbert Sebastian Cubillos Avila",
+      "creadoPor": "Helbert Sebastian Cubillos Avila",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos",
+        "Arquitectura Plataforma Agentica"
+      ],
+      "archivoMarkdown": "paginas/Arquitectura-Plataforma-Agentica/Requerimientos-no-Funcionales.md",
+      "archivoHtml": "html-original/Arquitectura-Plataforma-Agentica/Requerimientos-no-Funcionales.html",
+      "hijos": [],
+      "adjuntos": []
+    },
+    {
+      "id": "5823299591",
+      "titulo": "Roles mínimos y RACIVD",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/5823299591",
+      "version": 3,
+      "actualizado": "2026-04-23T20:36:16.765Z",
+      "actualizadoPor": "Helbert Sebastian Cubillos Avila",
+      "creadoPor": "Helbert Sebastian Cubillos Avila",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos",
+        "Arquitectura Plataforma Agentica"
+      ],
+      "archivoMarkdown": "paginas/Arquitectura-Plataforma-Agentica/Roles-minimos-y-RACIVD.md",
+      "archivoHtml": "html-original/Arquitectura-Plataforma-Agentica/Roles-minimos-y-RACIVD.html",
+      "hijos": [],
+      "adjuntos": [
+        {
+          "nombre": "Matriz_RACIVD_Ciclo_Vida_Iniciativa_v1.4.xlsx",
+          "tipo": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+          "bytes": 33914,
+          "archivo": "recursos/5823299591/Matriz_RACIVD_Ciclo_Vida_Iniciativa_v1.4.xlsx"
+        },
+        {
+          "nombre": "Matriz_RACIVD_Ciclo_Vida_Iniciativa_v1.2.xlsx",
+          "tipo": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+          "bytes": 32437,
+          "archivo": "recursos/5823299591/Matriz_RACIVD_Ciclo_Vida_Iniciativa_v1.2.xlsx"
+        }
+      ]
+    },
+    {
+      "id": "5822087179",
+      "titulo": "Modelo de toma de decisiones",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/5822087179",
+      "version": 4,
+      "actualizado": "2026-05-08T19:30:35.854Z",
+      "actualizadoPor": "Helbert Sebastian Cubillos Avila",
+      "creadoPor": "Helbert Sebastian Cubillos Avila",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos",
+        "Arquitectura Plataforma Agentica"
+      ],
+      "archivoMarkdown": "paginas/Arquitectura-Plataforma-Agentica/Modelo-de-toma-de-decisiones.md",
+      "archivoHtml": "html-original/Arquitectura-Plataforma-Agentica/Modelo-de-toma-de-decisiones.html",
+      "hijos": [],
+      "adjuntos": [
+        {
+          "nombre": "image-20260508-192930.png",
+          "tipo": "image/png",
+          "bytes": 341210,
+          "archivo": "recursos/5822087179/image-20260508-192930.png"
+        },
+        {
+          "nombre": "MatrizDecision_v2.0.xlsx",
+          "tipo": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+          "bytes": 31714,
+          "archivo": "recursos/5822087179/MatrizDecision_v2.0.xlsx"
+        },
+        {
+          "nombre": "image-20260508-004101.png",
+          "tipo": "image/png",
+          "bytes": 4159633,
+          "archivo": "recursos/5822087179/image-20260508-004101.png"
+        },
+        {
+          "nombre": "image-20260508-003933.png",
+          "tipo": "image/png",
+          "bytes": 4159633,
+          "archivo": "recursos/5822087179/image-20260508-003933.png"
+        },
+        {
+          "nombre": "MatrizDecision_v1.2.xlsx",
+          "tipo": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+          "bytes": 32694,
+          "archivo": "recursos/5822087179/MatrizDecision_v1.2.xlsx"
+        },
+        {
+          "nombre": "image-20260416-164430.png",
+          "tipo": "image/png",
+          "bytes": 300967,
+          "archivo": "recursos/5822087179/image-20260416-164430.png"
+        },
+        {
+          "nombre": "mermaid-diagram-2026-04-14-101917.png",
+          "tipo": "image/png",
+          "bytes": 866598,
+          "archivo": "recursos/5822087179/mermaid-diagram-2026-04-14-101917.png"
+        }
+      ]
+    },
+    {
+      "id": "5957550095",
+      "titulo": "PoC Implementación Capacidades Plataforma Agentica - Control Plane",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/5957550095",
+      "version": 4,
+      "actualizado": "2026-06-04T14:34:03.416Z",
+      "actualizadoPor": "Diego Alexander Corredor Quintero",
+      "creadoPor": "Diego Alexander Corredor Quintero",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos",
+        "Arquitectura Plataforma Agentica"
+      ],
+      "archivoMarkdown": "paginas/Arquitectura-Plataforma-Agentica/PoC-Implementacion-Capacidades-Plataforma-Agentica-Control-Plane.md",
+      "archivoHtml": "html-original/Arquitectura-Plataforma-Agentica/PoC-Implementacion-Capacidades-Plataforma-Agentica-Control-Plane.html",
+      "hijos": [
+        "Modelo de auditoría de decisiones Agentica PoC"
+      ],
+      "adjuntos": [
+        {
+          "nombre": "secuecia-poc-modelo-decision_ia.png",
+          "tipo": "image/png",
+          "bytes": 1926927,
+          "archivo": "recursos/5957550095/secuecia-poc-modelo-decision_ia.png"
+        },
+        {
+          "nombre": "secuecia-poc-modelo-decicion_ia.png",
+          "tipo": "image/png",
+          "bytes": 1081446,
+          "archivo": "recursos/5957550095/secuecia-poc-modelo-decicion_ia.png"
+        },
+        {
+          "nombre": "Collage_Prototipo_PoC.png",
+          "tipo": "image/png",
+          "bytes": 1507344,
+          "archivo": "recursos/5957550095/Collage_Prototipo_PoC.png"
+        },
+        {
+          "nombre": "02_crear_nueva_evaluacion.png",
+          "tipo": "image/png",
+          "bytes": 408966,
+          "archivo": "recursos/5957550095/02_crear_nueva_evaluacion.png"
+        },
+        {
+          "nombre": "01_autenticacion.png",
+          "tipo": "image/png",
+          "bytes": 366925,
+          "archivo": "recursos/5957550095/01_autenticacion.png"
+        },
+        {
+          "nombre": "image-20260603-194509.png",
+          "tipo": "image/png",
+          "bytes": 2753968,
+          "archivo": "recursos/5957550095/image-20260603-194509.png"
+        }
+      ]
+    },
+    {
+      "id": "6243680318",
+      "titulo": "Arquitectura de implementación",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/6243680318",
+      "version": 3,
+      "actualizado": "2026-08-28T20:46:31.906Z",
+      "actualizadoPor": "Diego Fernando Gomez Alvarez",
+      "creadoPor": "Diego Fernando Gomez Alvarez",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos",
+        "Arquitectura Plataforma Agentica"
+      ],
+      "archivoMarkdown": "paginas/Arquitectura-Plataforma-Agentica/Arquitectura-de-implementacion.md",
+      "archivoHtml": "html-original/Arquitectura-Plataforma-Agentica/Arquitectura-de-implementacion.html",
+      "hijos": [
+        "Analisis del uso de APIM para el control plane",
+        "ADRs de Implementación",
+        "Análisis de la validación de la pila tecnológica del control plane a nivel del licencimiento"
+      ],
+      "adjuntos": [
+        {
+          "nombre": "image-20260828-204557.png",
+          "tipo": "image/png",
+          "bytes": 2653579,
+          "archivo": "recursos/6243680318/image-20260828-204557.png"
+        }
+      ]
+    },
+    {
+      "id": "5666766913",
+      "titulo": "Arquitectura de Referencia V1.1.",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/5666766913",
+      "version": 7,
+      "actualizado": "2026-04-01T20:47:55.588Z",
+      "actualizadoPor": "Nataly Leal",
+      "creadoPor": "Diego Fernando Gomez Alvarez",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos",
+        "[ARQ] AI First: Arquitectura de referencia",
+        "Arquitectura Agentes V1.1."
+      ],
+      "archivoMarkdown": "paginas/ARQ-AI-First-Arquitectura-de-referencia/Arquitectura-Agentes-V1.1/Arquitectura-de-Referencia-V1.1.md",
+      "archivoHtml": "html-original/ARQ-AI-First-Arquitectura-de-referencia/Arquitectura-Agentes-V1.1/Arquitectura-de-Referencia-V1.1.html",
+      "hijos": [],
+      "adjuntos": [
+        {
+          "nombre": "image-20260312-144143.png",
+          "tipo": "image/png",
+          "bytes": 483369,
+          "archivo": "recursos/5666766913/image-20260312-144143.png"
+        },
+        {
+          "nombre": "image-20260312-143922.png",
+          "tipo": "image/png",
+          "bytes": 4044543,
+          "archivo": "recursos/5666766913/image-20260312-143922.png"
+        },
+        {
+          "nombre": "image-20260312-143323.png",
+          "tipo": "image/png",
+          "bytes": 3061382,
+          "archivo": "recursos/5666766913/image-20260312-143323.png"
+        },
+        {
+          "nombre": "image-20260312-143042.png",
+          "tipo": "image/png",
+          "bytes": 336596,
+          "archivo": "recursos/5666766913/image-20260312-143042.png"
+        },
+        {
+          "nombre": "image-20260312-142658.png",
+          "tipo": "image/png",
+          "bytes": 526749,
+          "archivo": "recursos/5666766913/image-20260312-142658.png"
+        },
+        {
+          "nombre": "image-20260312-142523.png",
+          "tipo": "image/png",
+          "bytes": 352296,
+          "archivo": "recursos/5666766913/image-20260312-142523.png"
+        },
+        {
+          "nombre": "image-20260312-142426.png",
+          "tipo": "image/png",
+          "bytes": 90317,
+          "archivo": "recursos/5666766913/image-20260312-142426.png"
+        },
+        {
+          "nombre": "image-20260312-142339.png",
+          "tipo": "image/png",
+          "bytes": 285899,
+          "archivo": "recursos/5666766913/image-20260312-142339.png"
+        },
+        {
+          "nombre": "image-20260312-142244.png",
+          "tipo": "image/png",
+          "bytes": 31729,
+          "archivo": "recursos/5666766913/image-20260312-142244.png"
+        },
+        {
+          "nombre": "image-20260312-141844.png",
+          "tipo": "image/png",
+          "bytes": 1600281,
+          "archivo": "recursos/5666766913/image-20260312-141844.png"
+        },
+        {
+          "nombre": "image-20260312-141754.png",
+          "tipo": "image/png",
+          "bytes": 3440709,
+          "archivo": "recursos/5666766913/image-20260312-141754.png"
+        },
+        {
+          "nombre": "image-20260312-141725.png",
+          "tipo": "image/png",
+          "bytes": 3461611,
+          "archivo": "recursos/5666766913/image-20260312-141725.png"
+        },
+        {
+          "nombre": "image-20260312-140927.png",
+          "tipo": "image/png",
+          "bytes": 65008,
+          "archivo": "recursos/5666766913/image-20260312-140927.png"
+        },
+        {
+          "nombre": "image-20260312-140817.png",
+          "tipo": "image/png",
+          "bytes": 89249,
+          "archivo": "recursos/5666766913/image-20260312-140817.png"
+        },
+        {
+          "nombre": "image-20260312-140706.png",
+          "tipo": "image/png",
+          "bytes": 28978,
+          "archivo": "recursos/5666766913/image-20260312-140706.png"
+        },
+        {
+          "nombre": "image-20260312-061043.png",
+          "tipo": "image/png",
+          "bytes": 87143,
+          "archivo": "recursos/5666766913/image-20260312-061043.png"
+        },
+        {
+          "nombre": "Decisión 1.png",
+          "tipo": "image/png",
+          "bytes": 140883,
+          "archivo": "recursos/5666766913/Decisión 1.png"
+        }
+      ]
+    },
+    {
+      "id": "5684887560",
+      "titulo": "Arquitectura de implementación v1.1",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/5684887560",
+      "version": 4,
+      "actualizado": "2026-03-17T00:40:52.988Z",
+      "actualizadoPor": "Nataly Leal",
+      "creadoPor": "Diego Fernando Gomez Alvarez",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos",
+        "[ARQ] AI First: Arquitectura de referencia",
+        "Arquitectura Agentes V1.1."
+      ],
+      "archivoMarkdown": "paginas/ARQ-AI-First-Arquitectura-de-referencia/Arquitectura-Agentes-V1.1/Arquitectura-de-implementacion-v1.1.md",
+      "archivoHtml": "html-original/ARQ-AI-First-Arquitectura-de-referencia/Arquitectura-Agentes-V1.1/Arquitectura-de-implementacion-v1.1.html",
+      "hijos": [],
+      "adjuntos": [
+        {
+          "nombre": "image-20260312-153908.png",
+          "tipo": "image/png",
+          "bytes": 1686876,
+          "archivo": "recursos/5684887560/image-20260312-153908.png"
+        },
+        {
+          "nombre": "image-20260312-153819.png",
+          "tipo": "image/png",
+          "bytes": 75114,
+          "archivo": "recursos/5684887560/image-20260312-153819.png"
+        },
+        {
+          "nombre": "image-20260312-152327.png",
+          "tipo": "image/png",
+          "bytes": 2470021,
+          "archivo": "recursos/5684887560/image-20260312-152327.png"
+        }
+      ]
+    },
+    {
+      "id": "5826379873",
+      "titulo": "External Access, Experience & Development",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/5826379873",
+      "version": 3,
+      "actualizado": "2026-04-20T23:58:00.927Z",
+      "actualizadoPor": "Diego Alexander Corredor Quintero",
+      "creadoPor": "Helbert Sebastian Cubillos Avila",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos",
+        "Arquitectura Plataforma Agentica",
+        "Blueprint de Capacidades Arquitectura Agéntica"
+      ],
+      "archivoMarkdown": "paginas/Arquitectura-Plataforma-Agentica/Blueprint-de-Capacidades-Arquitectura-Agentica/External-Access-Experience-Development.md",
+      "archivoHtml": "html-original/Arquitectura-Plataforma-Agentica/Blueprint-de-Capacidades-Arquitectura-Agentica/External-Access-Experience-Development.html",
+      "hijos": [],
+      "adjuntos": [
+        {
+          "nombre": "image-20260420-235028.png",
+          "tipo": "image/png",
+          "bytes": 134592,
+          "archivo": "recursos/5826379873/image-20260420-235028.png"
+        },
+        {
+          "nombre": "image-20260420-234909.png",
+          "tipo": "image/png",
+          "bytes": 127386,
+          "archivo": "recursos/5826379873/image-20260420-234909.png"
+        },
+        {
+          "nombre": "image-20260420-234615.png",
+          "tipo": "image/png",
+          "bytes": 141955,
+          "archivo": "recursos/5826379873/image-20260420-234615.png"
+        },
+        {
+          "nombre": "image-20260420-233849.png",
+          "tipo": "image/png",
+          "bytes": 116117,
+          "archivo": "recursos/5826379873/image-20260420-233849.png"
+        },
+        {
+          "nombre": "image-20260420-231000.png",
+          "tipo": "image/png",
+          "bytes": 127491,
+          "archivo": "recursos/5826379873/image-20260420-231000.png"
+        },
+        {
+          "nombre": "image-20260420-230728.png",
+          "tipo": "image/png",
+          "bytes": 141955,
+          "archivo": "recursos/5826379873/image-20260420-230728.png"
+        },
+        {
+          "nombre": "image-20260420-230706.png",
+          "tipo": "image/png",
+          "bytes": 120323,
+          "archivo": "recursos/5826379873/image-20260420-230706.png"
+        },
+        {
+          "nombre": "image-20260420-225855.png",
+          "tipo": "image/png",
+          "bytes": 116117,
+          "archivo": "recursos/5826379873/image-20260420-225855.png"
+        }
+      ]
+    },
+    {
+      "id": "5827854338",
+      "titulo": "External Services",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/5827854338",
+      "version": 2,
+      "actualizado": "2026-04-22T12:56:33.446Z",
+      "actualizadoPor": "Diego Alexander Corredor Quintero",
+      "creadoPor": "Helbert Sebastian Cubillos Avila",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos",
+        "Arquitectura Plataforma Agentica",
+        "Blueprint de Capacidades Arquitectura Agéntica"
+      ],
+      "archivoMarkdown": "paginas/Arquitectura-Plataforma-Agentica/Blueprint-de-Capacidades-Arquitectura-Agentica/External-Services.md",
+      "archivoHtml": "html-original/Arquitectura-Plataforma-Agentica/Blueprint-de-Capacidades-Arquitectura-Agentica/External-Services.html",
+      "hijos": [],
+      "adjuntos": [
+        {
+          "nombre": "image-20260422-125411.png",
+          "tipo": "image/png",
+          "bytes": 301587,
+          "archivo": "recursos/5827854338/image-20260422-125411.png"
+        }
+      ]
+    },
+    {
+      "id": "5826805797",
+      "titulo": "Enteprise Shared Capabilities",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/5826805797",
+      "version": 2,
+      "actualizado": "2026-04-22T13:00:06.546Z",
+      "actualizadoPor": "Diego Alexander Corredor Quintero",
+      "creadoPor": "Helbert Sebastian Cubillos Avila",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos",
+        "Arquitectura Plataforma Agentica",
+        "Blueprint de Capacidades Arquitectura Agéntica"
+      ],
+      "archivoMarkdown": "paginas/Arquitectura-Plataforma-Agentica/Blueprint-de-Capacidades-Arquitectura-Agentica/Enteprise-Shared-Capabilities.md",
+      "archivoHtml": "html-original/Arquitectura-Plataforma-Agentica/Blueprint-de-Capacidades-Arquitectura-Agentica/Enteprise-Shared-Capabilities.html",
+      "hijos": [],
+      "adjuntos": [
+        {
+          "nombre": "image-20260422-125938.png",
+          "tipo": "image/png",
+          "bytes": 415189,
+          "archivo": "recursos/5826805797/image-20260422-125938.png"
+        },
+        {
+          "nombre": "image-20260422-125921.png",
+          "tipo": "image/png",
+          "bytes": 436806,
+          "archivo": "recursos/5826805797/image-20260422-125921.png"
+        },
+        {
+          "nombre": "image-20260422-125906.png",
+          "tipo": "image/png",
+          "bytes": 143533,
+          "archivo": "recursos/5826805797/image-20260422-125906.png"
+        }
+      ]
+    },
+    {
+      "id": "5827067919",
+      "titulo": "Agentic Platform",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/5827067919",
+      "version": 7,
+      "actualizado": "2026-04-22T13:00:26.519Z",
+      "actualizadoPor": "Diego Alexander Corredor Quintero",
+      "creadoPor": "Helbert Sebastian Cubillos Avila",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos",
+        "Arquitectura Plataforma Agentica",
+        "Blueprint de Capacidades Arquitectura Agéntica"
+      ],
+      "archivoMarkdown": "paginas/Arquitectura-Plataforma-Agentica/Blueprint-de-Capacidades-Arquitectura-Agentica/Agentic-Platform.md",
+      "archivoHtml": "html-original/Arquitectura-Plataforma-Agentica/Blueprint-de-Capacidades-Arquitectura-Agentica/Agentic-Platform.html",
+      "hijos": [
+        "Control  Plane",
+        "Domain Layer"
+      ],
+      "adjuntos": [
+        {
+          "nombre": "image-20260421-174515.png",
+          "tipo": "image/png",
+          "bytes": 1192549,
+          "archivo": "recursos/5827067919/image-20260421-174515.png"
+        },
+        {
+          "nombre": "image-20260421-174048.png",
+          "tipo": "image/png",
+          "bytes": 342217,
+          "archivo": "recursos/5827067919/image-20260421-174048.png"
+        }
+      ]
+    },
+    {
+      "id": "5900140571",
+      "titulo": "Diseño Datos RAG / Knowledge / Memory",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/5900140571",
+      "version": 2,
+      "actualizado": "2026-05-11T14:53:12.798Z",
+      "actualizadoPor": "Junior Millan Perez",
+      "creadoPor": "Junior Millan Perez",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos",
+        "Arquitectura Plataforma Agentica",
+        "Mapa de Dominios"
+      ],
+      "archivoMarkdown": "paginas/Arquitectura-Plataforma-Agentica/Mapa-de-Dominios/Diseno-Datos-RAG-Knowledge-Memory.md",
+      "archivoHtml": "html-original/Arquitectura-Plataforma-Agentica/Mapa-de-Dominios/Diseno-Datos-RAG-Knowledge-Memory.html",
+      "hijos": [],
+      "adjuntos": []
+    },
+    {
+      "id": "6076301318",
+      "titulo": "Modelo de auditoría de decisiones Agentica PoC",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/6076301318",
+      "version": 3,
+      "actualizado": "2026-07-03T14:36:08.049Z",
+      "actualizadoPor": "Johan Sebastian Murcia Prieto",
+      "creadoPor": "Johan Sebastian Murcia Prieto",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos",
+        "Arquitectura Plataforma Agentica",
+        "PoC Implementación Capacidades Plataforma Agentica - Control Plane"
+      ],
+      "archivoMarkdown": "paginas/Arquitectura-Plataforma-Agentica/PoC-Implementacion-Capacidades-Plataforma-Agentica-Control-Plane/Modelo-de-auditoria-de-decisiones-Agentica-PoC.md",
+      "archivoHtml": "html-original/Arquitectura-Plataforma-Agentica/PoC-Implementacion-Capacidades-Plataforma-Agentica-Control-Plane/Modelo-de-auditoria-de-decisiones-Agentica-PoC.html",
+      "hijos": [],
+      "adjuntos": []
+    },
+    {
+      "id": "6244007968",
+      "titulo": "Analisis del uso de APIM para el control plane",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/6244007968",
+      "version": 2,
+      "actualizado": "2026-08-28T20:17:46.998Z",
+      "actualizadoPor": "Diego Fernando Gomez Alvarez",
+      "creadoPor": "Diego Fernando Gomez Alvarez",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos",
+        "Arquitectura Plataforma Agentica",
+        "Arquitectura de implementación"
+      ],
+      "archivoMarkdown": "paginas/Arquitectura-Plataforma-Agentica/Arquitectura-de-implementacion/Analisis-del-uso-de-APIM-para-el-control-plane.md",
+      "archivoHtml": "html-original/Arquitectura-Plataforma-Agentica/Arquitectura-de-implementacion/Analisis-del-uso-de-APIM-para-el-control-plane.html",
+      "hijos": [],
+      "adjuntos": []
+    },
+    {
+      "id": "6244532291",
+      "titulo": "ADRs de Implementación",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/6244532291",
+      "version": 2,
+      "actualizado": "2026-08-28T20:37:38.369Z",
+      "actualizadoPor": "Diego Fernando Gomez Alvarez",
+      "creadoPor": "Diego Fernando Gomez Alvarez",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos",
+        "Arquitectura Plataforma Agentica",
+        "Arquitectura de implementación"
+      ],
+      "archivoMarkdown": "paginas/Arquitectura-Plataforma-Agentica/Arquitectura-de-implementacion/ADRs-de-Implementacion.md",
+      "archivoHtml": "html-original/Arquitectura-Plataforma-Agentica/Arquitectura-de-implementacion/ADRs-de-Implementacion.html",
+      "hijos": [],
+      "adjuntos": []
+    },
+    {
+      "id": "6266486824",
+      "titulo": "Análisis de la validación de la pila tecnológica del control plane a nivel del licencimiento",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/6266486824",
+      "version": 4,
+      "actualizado": "2026-09-04T19:04:44.284Z",
+      "actualizadoPor": "Víctor Daniel Martínez Olier",
+      "creadoPor": "Víctor Daniel Martínez Olier",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos",
+        "Arquitectura Plataforma Agentica",
+        "Arquitectura de implementación"
+      ],
+      "archivoMarkdown": "paginas/Arquitectura-Plataforma-Agentica/Arquitectura-de-implementacion/Analisis-de-la-validacion-de-la-pila-tecnologica-del-control-plane-a-nivel-del-l.md",
+      "archivoHtml": "html-original/Arquitectura-Plataforma-Agentica/Arquitectura-de-implementacion/Analisis-de-la-validacion-de-la-pila-tecnologica-del-control-plane-a-nivel-del-l.html",
+      "hijos": [],
+      "adjuntos": []
+    },
+    {
+      "id": "5831819273",
+      "titulo": "Control  Plane",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/5831819273",
+      "version": 5,
+      "actualizado": "2026-04-29T19:01:08.406Z",
+      "actualizadoPor": "Diego Alexander Corredor Quintero",
+      "creadoPor": "Helbert Sebastian Cubillos Avila",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos",
+        "Arquitectura Plataforma Agentica",
+        "Blueprint de Capacidades Arquitectura Agéntica",
+        "Agentic Platform"
+      ],
+      "archivoMarkdown": "paginas/Arquitectura-Plataforma-Agentica/Blueprint-de-Capacidades-Arquitectura-Agentica/Agentic-Platform/Control-Plane.md",
+      "archivoHtml": "html-original/Arquitectura-Plataforma-Agentica/Blueprint-de-Capacidades-Arquitectura-Agentica/Agentic-Platform/Control-Plane.html",
+      "hijos": [
+        "AI Gateway",
+        "AI/LLM Lifecycle Management",
+        "AI Security Enforcement",
+        "FinOps"
+      ],
+      "adjuntos": [
+        {
+          "nombre": "image-20260421-211717.png",
+          "tipo": "image/png",
+          "bytes": 553772,
+          "archivo": "recursos/5831819273/image-20260421-211717.png"
+        },
+        {
+          "nombre": "image-20260420-223316.png",
+          "tipo": "image/png",
+          "bytes": 712910,
+          "archivo": "recursos/5831819273/image-20260420-223316.png"
+        }
+      ]
+    },
+    {
+      "id": "5834932230",
+      "titulo": "Domain Layer",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/5834932230",
+      "version": 3,
+      "actualizado": "2026-05-27T21:59:40.862Z",
+      "actualizadoPor": "Diego Alexander Corredor Quintero",
+      "creadoPor": "Helbert Sebastian Cubillos Avila",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos",
+        "Arquitectura Plataforma Agentica",
+        "Blueprint de Capacidades Arquitectura Agéntica",
+        "Agentic Platform"
+      ],
+      "archivoMarkdown": "paginas/Arquitectura-Plataforma-Agentica/Blueprint-de-Capacidades-Arquitectura-Agentica/Agentic-Platform/Domain-Layer.md",
+      "archivoHtml": "html-original/Arquitectura-Plataforma-Agentica/Blueprint-de-Capacidades-Arquitectura-Agentica/Agentic-Platform/Domain-Layer.html",
+      "hijos": [
+        "Agentic Runtime"
+      ],
+      "adjuntos": [
+        {
+          "nombre": "ArquitecturaAgenteicaSura-Blueprint Capacidades.drawio.png",
+          "tipo": "image/png",
+          "bytes": 381239,
+          "archivo": "recursos/5834932230/ArquitecturaAgenteicaSura-Blueprint Capacidades.drawio.png"
+        },
+        {
+          "nombre": "image-20260421-174515.png",
+          "tipo": "image/png",
+          "bytes": 1192549,
+          "archivo": "recursos/5834932230/image-20260421-174515.png"
+        }
+      ]
+    },
+    {
+      "id": "5836242994",
+      "titulo": "AI Gateway",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/5836242994",
+      "version": 6,
+      "actualizado": "2026-04-23T08:06:15.297Z",
+      "actualizadoPor": "Helbert Sebastian Cubillos Avila",
+      "creadoPor": "Helbert Sebastian Cubillos Avila",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos",
+        "Arquitectura Plataforma Agentica",
+        "Blueprint de Capacidades Arquitectura Agéntica",
+        "Agentic Platform",
+        "Control  Plane"
+      ],
+      "archivoMarkdown": "paginas/Arquitectura-Plataforma-Agentica/Blueprint-de-Capacidades-Arquitectura-Agentica/Agentic-Platform/Control-Plane/AI-Gateway.md",
+      "archivoHtml": "html-original/Arquitectura-Plataforma-Agentica/Blueprint-de-Capacidades-Arquitectura-Agentica/Agentic-Platform/Control-Plane/AI-Gateway.html",
+      "hijos": [],
+      "adjuntos": [
+        {
+          "nombre": "image-20260423-054544.png",
+          "tipo": "image/png",
+          "bytes": 375712,
+          "archivo": "recursos/5836242994/image-20260423-054544.png"
+        },
+        {
+          "nombre": "image-20260423-051510.png",
+          "tipo": "image/png",
+          "bytes": 113042,
+          "archivo": "recursos/5836242994/image-20260423-051510.png"
+        },
+        {
+          "nombre": "image-20260423-044043.png",
+          "tipo": "image/png",
+          "bytes": 424397,
+          "archivo": "recursos/5836242994/image-20260423-044043.png"
+        },
+        {
+          "nombre": "image-20260423-043945.png",
+          "tipo": "image/png",
+          "bytes": 416612,
+          "archivo": "recursos/5836242994/image-20260423-043945.png"
+        },
+        {
+          "nombre": "image-20260423-043853.png",
+          "tipo": "image/png",
+          "bytes": 395757,
+          "archivo": "recursos/5836242994/image-20260423-043853.png"
+        },
+        {
+          "nombre": "image-20260423-042429.png",
+          "tipo": "image/png",
+          "bytes": 358784,
+          "archivo": "recursos/5836242994/image-20260423-042429.png"
+        },
+        {
+          "nombre": "image-20260422-203734.png",
+          "tipo": "image/png",
+          "bytes": 109112,
+          "archivo": "recursos/5836242994/image-20260422-203734.png"
+        },
+        {
+          "nombre": "image-20260422-153834.png",
+          "tipo": "image/png",
+          "bytes": 712412,
+          "archivo": "recursos/5836242994/image-20260422-153834.png"
+        }
+      ]
+    },
+    {
+      "id": "5839847429",
+      "titulo": "AI/LLM Lifecycle Management",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/5839847429",
+      "version": 2,
+      "actualizado": "2026-04-23T13:02:49.973Z",
+      "actualizadoPor": "Diego Alexander Corredor Quintero",
+      "creadoPor": "Diego Alexander Corredor Quintero",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos",
+        "Arquitectura Plataforma Agentica",
+        "Blueprint de Capacidades Arquitectura Agéntica",
+        "Agentic Platform",
+        "Control  Plane"
+      ],
+      "archivoMarkdown": "paginas/Arquitectura-Plataforma-Agentica/Blueprint-de-Capacidades-Arquitectura-Agentica/Agentic-Platform/Control-Plane/AI-LLM-Lifecycle-Management.md",
+      "archivoHtml": "html-original/Arquitectura-Plataforma-Agentica/Blueprint-de-Capacidades-Arquitectura-Agentica/Agentic-Platform/Control-Plane/AI-LLM-Lifecycle-Management.html",
+      "hijos": [],
+      "adjuntos": [
+        {
+          "nombre": "image-20260423-002256.png",
+          "tipo": "image/png",
+          "bytes": 147419,
+          "archivo": "recursos/5839847429/image-20260423-002256.png"
+        }
+      ]
+    },
+    {
+      "id": "5843943433",
+      "titulo": "AI Security Enforcement",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/5843943433",
+      "version": 2,
+      "actualizado": "2026-04-27T14:20:38.320Z",
+      "actualizadoPor": "Diego Alexander Corredor Quintero",
+      "creadoPor": "Diego Alexander Corredor Quintero",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos",
+        "Arquitectura Plataforma Agentica",
+        "Blueprint de Capacidades Arquitectura Agéntica",
+        "Agentic Platform",
+        "Control  Plane"
+      ],
+      "archivoMarkdown": "paginas/Arquitectura-Plataforma-Agentica/Blueprint-de-Capacidades-Arquitectura-Agentica/Agentic-Platform/Control-Plane/AI-Security-Enforcement.md",
+      "archivoHtml": "html-original/Arquitectura-Plataforma-Agentica/Blueprint-de-Capacidades-Arquitectura-Agentica/Agentic-Platform/Control-Plane/AI-Security-Enforcement.html",
+      "hijos": [],
+      "adjuntos": [
+        {
+          "nombre": "image-20260423-125525.png",
+          "tipo": "image/png",
+          "bytes": 134325,
+          "archivo": "recursos/5843943433/image-20260423-125525.png"
+        }
+      ]
+    },
+    {
+      "id": "5843681287",
+      "titulo": "FinOps",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/5843681287",
+      "version": 1,
+      "actualizado": "2026-04-23T12:58:15.072Z",
+      "actualizadoPor": "Diego Alexander Corredor Quintero",
+      "creadoPor": "Diego Alexander Corredor Quintero",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos",
+        "Arquitectura Plataforma Agentica",
+        "Blueprint de Capacidades Arquitectura Agéntica",
+        "Agentic Platform",
+        "Control  Plane"
+      ],
+      "archivoMarkdown": "paginas/Arquitectura-Plataforma-Agentica/Blueprint-de-Capacidades-Arquitectura-Agentica/Agentic-Platform/Control-Plane/FinOps.md",
+      "archivoHtml": "html-original/Arquitectura-Plataforma-Agentica/Blueprint-de-Capacidades-Arquitectura-Agentica/Agentic-Platform/Control-Plane/FinOps.html",
+      "hijos": [],
+      "adjuntos": [
+        {
+          "nombre": "image-20260423-125437.png",
+          "tipo": "image/png",
+          "bytes": 51179,
+          "archivo": "recursos/5843681287/image-20260423-125437.png"
+        }
+      ]
+    },
+    {
+      "id": "5838045207",
+      "titulo": "Agentic Runtime",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/5838045207",
+      "version": 6,
+      "actualizado": "2026-07-03T21:53:04.055Z",
+      "actualizadoPor": "Helbert Sebastian Cubillos Avila",
+      "creadoPor": "Diego Alexander Corredor Quintero",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos",
+        "Arquitectura Plataforma Agentica",
+        "Blueprint de Capacidades Arquitectura Agéntica",
+        "Agentic Platform",
+        "Domain Layer"
+      ],
+      "archivoMarkdown": "paginas/Arquitectura-Plataforma-Agentica/Blueprint-de-Capacidades-Arquitectura-Agentica/Agentic-Platform/Domain-Layer/Agentic-Runtime.md",
+      "archivoHtml": "html-original/Arquitectura-Plataforma-Agentica/Blueprint-de-Capacidades-Arquitectura-Agentica/Agentic-Platform/Domain-Layer/Agentic-Runtime.html",
+      "hijos": [],
+      "adjuntos": [
+        {
+          "nombre": "agent-blueprint-cli-archetype-v2.zip",
+          "tipo": "application/zip",
+          "bytes": 212206,
+          "archivo": "recursos/5838045207/agent-blueprint-cli-archetype-v2.zip"
+        },
+        {
+          "nombre": "04_event_driven_v2.zip",
+          "tipo": "application/zip",
+          "bytes": 39159,
+          "archivo": "recursos/5838045207/04_event_driven_v2.zip"
+        },
+        {
+          "nombre": "03_planner_executor_reviewer_v2.zip",
+          "tipo": "application/zip",
+          "bytes": 39831,
+          "archivo": "recursos/5838045207/03_planner_executor_reviewer_v2.zip"
+        },
+        {
+          "nombre": "02_orchestrator_worker_v2.zip",
+          "tipo": "application/zip",
+          "bytes": 38131,
+          "archivo": "recursos/5838045207/02_orchestrator_worker_v2.zip"
+        },
+        {
+          "nombre": "01_singular_agent_v2.zip",
+          "tipo": "application/zip",
+          "bytes": 35677,
+          "archivo": "recursos/5838045207/01_singular_agent_v2.zip"
+        },
+        {
+          "nombre": "04_event_driven.zip",
+          "tipo": "application/zip",
+          "bytes": 27497,
+          "archivo": "recursos/5838045207/04_event_driven.zip"
+        },
+        {
+          "nombre": "03_planner_executor_reviewer.zip",
+          "tipo": "application/zip",
+          "bytes": 29802,
+          "archivo": "recursos/5838045207/03_planner_executor_reviewer.zip"
+        },
+        {
+          "nombre": "02_orchestrator_worker.zip",
+          "tipo": "application/zip",
+          "bytes": 31148,
+          "archivo": "recursos/5838045207/02_orchestrator_worker.zip"
+        },
+        {
+          "nombre": "01_singular_agent.zip",
+          "tipo": "application/zip",
+          "bytes": 26785,
+          "archivo": "recursos/5838045207/01_singular_agent.zip"
+        }
+      ]
+    },
+    {
+      "id": "6232735751",
+      "titulo": "Arquitectura de Implementacion Multimodal V1.0",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/6232735751",
+      "version": 1,
+      "actualizado": "2026-08-26T13:39:56.634Z",
+      "actualizadoPor": "Junior Millan Perez",
+      "creadoPor": "Junior Millan Perez",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos",
+        "Arquitectura Referencia [Multimodal - Voz - Multiagente]",
+        "Arquitectura de Referencia Multimodal V1.0"
+      ],
+      "archivoMarkdown": "paginas/Arquitectura-Referencia-Multimodal-Voz-Multiagente/Arquitectura-de-Referencia-Multimodal-V1.0/Arquitectura-de-Implementacion-Multimodal-V1.0.md",
+      "archivoHtml": "html-original/Arquitectura-Referencia-Multimodal-Voz-Multiagente/Arquitectura-de-Referencia-Multimodal-V1.0/Arquitectura-de-Implementacion-Multimodal-V1.0.html",
+      "hijos": [],
+      "adjuntos": []
+    },
+    {
+      "id": "6094422066",
+      "titulo": "Arquitectura de Referencia Multimodal V1.0",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/6094422066",
+      "version": 4,
+      "actualizado": "2026-08-06T13:38:27.559Z",
+      "actualizadoPor": "Junior Millan Perez",
+      "creadoPor": "Yimi Alejandro Herrera Bustamante",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos",
+        "Arquitectura Referencia [Multimodal - Voz - Multiagente]"
+      ],
+      "archivoMarkdown": "paginas/Arquitectura-Referencia-Multimodal-Voz-Multiagente/Arquitectura-de-Referencia-Multimodal-V1.0.md",
+      "archivoHtml": "html-original/Arquitectura-Referencia-Multimodal-Voz-Multiagente/Arquitectura-de-Referencia-Multimodal-V1.0.html",
+      "hijos": [
+        "Arquitectura de Implementacion Multimodal V1.0"
+      ],
+      "adjuntos": []
+    },
+    {
+      "id": "6150357003",
+      "titulo": "Arquitectura de Referencia Voz V1.0",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/6150357003",
+      "version": 2,
+      "actualizado": "2026-08-06T13:37:42.134Z",
+      "actualizadoPor": "Junior Millan Perez",
+      "creadoPor": "Junior Millan Perez",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos",
+        "Arquitectura Referencia [Multimodal - Voz - Multiagente]"
+      ],
+      "archivoMarkdown": "paginas/Arquitectura-Referencia-Multimodal-Voz-Multiagente/Arquitectura-de-Referencia-Voz-V1.0.md",
+      "archivoHtml": "html-original/Arquitectura-Referencia-Multimodal-Voz-Multiagente/Arquitectura-de-Referencia-Voz-V1.0.html",
+      "hijos": [],
+      "adjuntos": [
+        {
+          "nombre": "image-20260728-152832.png",
+          "tipo": "image/png",
+          "bytes": 48718,
+          "archivo": "recursos/6150357003/image-20260728-152832.png"
+        },
+        {
+          "nombre": "image-20260728-152804.png",
+          "tipo": "image/png",
+          "bytes": 49971,
+          "archivo": "recursos/6150357003/image-20260728-152804.png"
+        },
+        {
+          "nombre": "image-20260728-150636.png",
+          "tipo": "image/png",
+          "bytes": 36742,
+          "archivo": "recursos/6150357003/image-20260728-150636.png"
+        },
+        {
+          "nombre": "image-20260728-150617.png",
+          "tipo": "image/png",
+          "bytes": 33121,
+          "archivo": "recursos/6150357003/image-20260728-150617.png"
+        },
+        {
+          "nombre": "image-20260728-150534.png",
+          "tipo": "image/png",
+          "bytes": 63802,
+          "archivo": "recursos/6150357003/image-20260728-150534.png"
+        }
+      ]
+    },
+    {
+      "id": "6150258698",
+      "titulo": "Arquitectura de Referencia  Multiagente V1.0",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AFGLYP/pages/6150258698",
+      "version": 2,
+      "actualizado": "2026-08-06T13:37:56.935Z",
+      "actualizadoPor": "Junior Millan Perez",
+      "creadoPor": "Junior Millan Perez",
+      "etiquetas": [],
+      "ruta": [
+        "AI First · Gobierno, Lineamientos y Prácticas",
+        "[ARQ] AI First: Arquitectura de referencia y lineamientos",
+        "Arquitectura Referencia [Multimodal - Voz - Multiagente]"
+      ],
+      "archivoMarkdown": "paginas/Arquitectura-Referencia-Multimodal-Voz-Multiagente/Arquitectura-de-Referencia-Multiagente-V1.0.md",
+      "archivoHtml": "html-original/Arquitectura-Referencia-Multimodal-Voz-Multiagente/Arquitectura-de-Referencia-Multiagente-V1.0.html",
+      "hijos": [],
+      "adjuntos": [
+        {
+          "nombre": "image-20260728-153106.png",
+          "tipo": "image/png",
+          "bytes": 78695,
+          "archivo": "recursos/6150258698/image-20260728-153106.png"
+        },
+        {
+          "nombre": "image-20260728-153029.png",
+          "tipo": "image/png",
+          "bytes": 70984,
+          "archivo": "recursos/6150258698/image-20260728-153029.png"
+        }
+      ]
+    }
+  ]
+}
