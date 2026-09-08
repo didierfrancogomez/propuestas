@@ -345,11 +345,11 @@
     <span class="goal-label">Qué resuelve</span>
     <p>Cómo buscar y verificar el talento que implementa el MVP de gestores, con criterios que se puedan usar en una entrevista y no solo en una descripción de cargo.</p>
   </div>
-  <p>El dimensionamiento son <strong>siete integrantes más un arquitecto parcial</strong>, en trece sprints, para 637 días hábiles de esfuerzo. Este documento traduce esa conformación a perfiles concretos: qué tiene que saber cada uno, qué se le puede pedir que aprenda, y qué preguntas separan a alguien que ya lo hizo de alguien que leyó sobre el tema.</p>
+  <p>El dimensionamiento son <strong>siete integrantes más un arquitecto parcial</strong>, en trece sprints, para 659 días hábiles de esfuerzo. Este documento traduce esa conformación a perfiles concretos: qué tiene que saber cada uno, qué se le puede pedir que aprenda, y qué preguntas separan a alguien que ya lo hizo de alguien que leyó sobre el tema.</p>
   <p>Los seis roles están redactados en el <strong>formato de requisición de personal</strong>, con los mismos campos que usa selección, de modo que cada ficha se pueda abrir como búsqueda sin traducción intermedia. Lo que agregamos al formato es la tabla de <em>por qué se pide cada conocimiento</em> al cierre de cada ficha, la matriz de cobertura y la guía de entrevista: eso es lo que evita que la búsqueda se resuelva por palabras clave del currículo.</p>
   <div class="keypoint">
     <span class="keypoint-label">La confusión que hay que evitar al buscar, y que aquí es distinta</span>
-    <p>Este sí es un proyecto con agentes, pero <strong>solo una quinta parte del esfuerzo lo es</strong>. De los 637 días, 124 son agénticos, 128 son el andamiaje que los hace gobernables y 385 son integración con el core, gestión documental, eventos, reglas de asignación y front. La proporción bajó al entrar el Gestor de Coordinación, que no aporta un solo día agéntico. Si la búsqueda se publica entera como «ingeniero de IA», vamos a llenar el equipo de perfiles que no pueden con el 60% del trabajo. Y si se publica entera como integración, vamos a construir agentes que nadie sabe si aciertan. Hay que abrir las dos búsquedas, y son distintas.</p>
+    <p>Este sí es un proyecto con agentes, pero <strong>solo una quinta parte del esfuerzo lo es</strong>. De los 659 días, 124 son agénticos, 138 son el andamiaje que los hace gobernables y 397 son integración con el core, gestión documental, eventos, reglas de coordinación y front. La proporción bajó al entrar el Gestor de Coordinación, que no aporta un solo día agéntico. Si la búsqueda se publica entera como «ingeniero de IA», vamos a llenar el equipo de perfiles que no pueden con el 60% del trabajo. Y si se publica entera como integración, vamos a construir agentes que nadie sabe si aciertan. Hay que abrir las dos búsquedas, y son distintas.</p>
   </div>
 
   <h2 id="roles">Los seis roles</h2>
@@ -359,7 +359,7 @@
     <tbody>
       <tr><th>Runtime agéntico</th><td>2</td><td>100%. Uno desde el sprint 2, otro desde el 4</td><td>Los grafos de Solicitud y de Evaluación: clasificador, enrutador, request builder, LLM-as-a-judge, extractores, pertinencia médica y duplicidad. Y la medición de su acierto.</td><td>Ingeniero de software con experiencia real construyendo aplicaciones sobre modelos de lenguaje en producción. No es científico de datos ni ingeniero de aprendizaje automático.</td></tr>
       <tr><th>Integración y dominio</th><td>2</td><td>100%, sprints 1 a 13</td><td>Integración con SuraHis, gestión documental en P8, Siniestro Integral, reglas duras versionadas y el modelo padre-hijo de la solicitud.</td><td>Backend senior de integración empresarial, con experiencia en sistemas transaccionales y APIs de core. El cliente lo reconocería como su perfil de backend de dominio.</td></tr>
-      <tr><th>Reglas de negocio y asignación</th><td>1</td><td>100%, sprints 7 a 13</td><td>El Gestor de Coordinación en su nivel 1: motor de reglas de asignación versionadas, ranking de la red por cinco criterios con pesos configurables, mapeo contra convenio y tarifa, y bandeja de trabajo humano.</td><td>Backend senior con experiencia en motores de reglas y en sistemas de decisión configurables. No es un perfil de IA: aquí no razona ningún modelo.</td></tr>
+      <tr><th>Reglas de negocio y coordinación</th><td>1</td><td>100%, sprints 7 a 13</td><td>El Gestor de Coordinación en su nivel 1: el modelo experto «Coordinador autorización», la decisión de proveedor sugerido con sus pasos de evaluar y sugerir, las dos bandejas del diseño, y el golden set del coordinador que la bandeja alimenta.</td><td>Backend senior con experiencia en motores de reglas y en sistemas de decisión configurables, y con criterio para medir un componente contra casos conocidos. No es un perfil de IA: aquí no razona ningún modelo.</td></tr>
       <tr><th>Plataforma de eventos y datos</th><td>1</td><td>100%, sprints 1 a 9</td><td>Contrato de eventos, ingesta idempotente con ventana tardía, correlación por siniestro padre y los dos horizontes de retención. Es la torre en su alcance de MVP.</td><td>Ingeniero de plataforma, de datos o de confiabilidad, con experiencia en arquitecturas dirigidas por eventos. No es un backend de aplicación clásico.</td></tr>
       <tr><th>Front de aplicaciones de datos</th><td>1</td><td>100%, sprints 2 a 9</td><td>El web component único en Angular, embebido en Portal Proveedor y en SVP, con carga de documentos, variantes por rol y vista de estado.</td><td>Front senior en Angular con experiencia en componentes embebibles y formularios complejos, no en sitios de contenido.</td></tr>
       <tr><th>Arquitecto o líder técnico</th><td>1</td><td>20% hasta el sprint 5, 10% después</td><td>Cerrar el esquema de eventos, el contrato de las API del core, los techos de autonomía y el criterio de medición del acierto. Revisar lo que no falla de forma ruidosa.</td><td>Arquitecto de soluciones con producción encima en sistemas dirigidos por eventos y con criterio para evaluar sistemas con IA.</td></tr>
@@ -443,7 +443,7 @@
         <thead><tr><th>Conocimiento</th><th>Nivel</th><th>Por qué en este proyecto</th></tr></thead>
         <tbody>
       <tr><th>Marcos de orquestación de agentes</th><td>Imprescindible, con producción encima</td><td>Los dos gestores son grafos de estados con varios nodos. Quien solo ha encadenado llamadas a un modelo no ha resuelto control de iteraciones, límites ni ramas.</td></tr>
-      <tr><th>Evaluación de sistemas no deterministas</th><td>Imprescindible, y es el conocimiento escaso</td><td>Sin golden set y sin compuerta no se puede promover una versión con criterio. Son 128 días del MVP que dependen de este conocimiento.</td></tr>
+      <tr><th>Evaluación de sistemas no deterministas</th><td>Imprescindible, y es el conocimiento escaso</td><td>Sin golden set y sin compuerta no se puede promover una versión con criterio. Son 138 días del MVP que dependen de este conocimiento.</td></tr>
       <tr><th>Prompts como artefacto versionado</th><td>Imprescindible</td><td>El lineamiento prohíbe que los prompts vivan como archivos del proyecto. La versión usada tiene que quedar en la traza de cada decisión.</td></tr>
       <tr><th>Extracción estructurada sobre documentos</th><td>Imprescindible</td><td>Orden médica e historia clínica son la entrada de todo el flujo. Un campo extraído mal se propaga hasta la autorización.</td></tr>
       <tr><th>Consumo de modelos por gateway</th><td>Deseable, se forma rápido</td><td>Lo específico del gateway de la organización se aprende en el arranque si la persona entiende por qué no se llama al proveedor directo.</td></tr>
@@ -518,7 +518,7 @@
       <p>Rigor y atención al detalle, Análisis de información, Proactividad, Comunicación efectiva y asertiva, Trabajo en equipo, Orientación al logro.</p>
 
       <h4>Caracterización del cliente o el proyecto</h4>
-      <p>Es el rol más grande del MVP: 385 de los 637 días son integración determinística. También es el que sostiene el riesgo más alto, porque casi todo depende de que el core exponga sus API a tiempo y eso no lo controlamos. Buscamos a alguien que trate el contrato de integración como el primer entregable y no como documentación posterior, y que construya contra un simulador sin esperar a que la dependencia llegue. Hay una trampa concreta en este proyecto: el agente no debe absorber la lógica transaccional, y la tentación de resolver en el gestor lo que le corresponde al core aparece cada vez que el core se demora. Quien esté aquí tiene que saber sostener esa frontera.</p>
+      <p>Es el rol más grande del MVP: 397 de los 659 días son integración determinística. También es el que sostiene el riesgo más alto, porque casi todo depende de que el core exponga sus API a tiempo y eso no lo controlamos. Buscamos a alguien que trate el contrato de integración como el primer entregable y no como documentación posterior, y que construya contra un simulador sin esperar a que la dependencia llegue. Hay una trampa concreta en este proyecto: el agente no debe absorber la lógica transaccional, y la tentación de resolver en el gestor lo que le corresponde al core aparece cada vez que el core se demora. Quien esté aquí tiene que saber sostener esa frontera.</p>
 
       <h4>Por qué se pide cada conocimiento</h4>
       <div class="tbl-wide">
@@ -540,7 +540,7 @@
 
   <div class="prop rol" id="p3">
     <div class="prop-head">
-      <span class="prop-code">3</span><span class="prop-title">Ingeniero de reglas de negocio y asignación de prestador</span>
+      <span class="prop-code">3</span><span class="prop-title">Ingeniero de reglas de negocio y coordinación de proveedor</span>
       <div class="prop-chips"><span class="badge b-esf">1 puesto · 100%</span><span class="badge b-when">Sprints 7 a 13</span></div>
     </div>
     <div class="prop-body">
@@ -566,7 +566,7 @@
 
       <h4>Responsabilidades del rol</h4>
       <ul>
-        <li>Construir el motor de reglas de asignación con los tres casos de negocio ya escritos: producto modular con direccionamiento automático, póliza donde el cliente elige y se valida convenio, y el caso sin prestador sugerido.</li>
+        <li>Construir el modelo experto «Coordinador autorización» con los tres casos de negocio ya escritos: producto modular con direccionamiento automático, póliza donde el cliente elige y se valida convenio, y el caso sin prestador sugerido.</li>
         <li>Implementar las dos reglas de prioridad del acta: el prestador que radica atiende si tiene el servicio contratado, y el que sugiere el asegurado gana sobre el que propone el ordenamiento.</li>
         <li>Construir el ranking de la red por quejas, satisfacción, disponibilidad de citas, suficiencia y tarifa, dejando los pesos como configuración administrada y no como código.</li>
         <li>Dejar las reglas versionadas con vigencia y autor, fuera del código y expuestas como herramienta, nunca embebidas en lógica de aplicación.</li>
@@ -601,7 +601,7 @@
       <p>Análisis de información, Rigor y atención al detalle, Pensamiento crítico, Comunicación efectiva y asertiva, Trabajo en equipo, Orientación al logro.</p>
 
       <h4>Caracterización del cliente o el proyecto</h4>
-      <p>Es el rol con menos diseño detallado por delante, y hay que decirlo en la entrevista: el propio equipo del cliente registra que este es «uno de los gestores menos profundizados técnicamente». Los 112 días se estimaron desde el dibujo y desde las reglas escritas, no desde un diseño cerrado. Buscamos a alguien que sepa levantar una regla de negocio conversando con quien la opera, y que resista la tentación de resolverla con código: aquí la regla tiene que quedar consultable y versionada, porque de ella cuelga la explicación de una glosa o de una queja. La segunda cosa que hay que sostener es la frontera con el core: la bandeja de convenios y el consecutivo de la autorización siguen siendo de SuraHis, y el gestor no los absorbe.</p>
+      <p>Es el rol con menos diseño detallado por delante, y hay que decirlo en la entrevista: el propio equipo del cliente registra que este es «uno de los gestores menos profundizados técnicamente». Los 134 días se estimaron sobre el diseño que la arquitectura general de gestores ya tiene para este gestor, pero ese diseño deja piezas sin definir. Buscamos a alguien que sepa levantar una regla de negocio conversando con quien la opera, y que resista la tentación de resolverla con código: aquí la regla tiene que quedar consultable y versionada, porque de ella cuelga la explicación de una glosa o de una queja. La segunda cosa que hay que sostener es la frontera con el core: la bandeja de convenios y el consecutivo de la autorización siguen siendo de SuraHis, y el gestor no los absorbe.</p>
 
       <h4>Por qué se pide cada conocimiento</h4>
       <div class="tbl-wide">
@@ -612,7 +612,7 @@
       <tr><th>Decisión con criterios en conflicto</th><td>Imprescindible</td><td>Los cinco criterios del ranking se contradicen entre sí: el mejor calificado puede ser el más caro o el que no tiene agenda. Resolver ese empate es el corazón del frente.</td></tr>
       <tr><th>Configuración administrada</th><td>Imprescindible</td><td>El negocio va a mover los pesos, y no puede depender de un despliegue para hacerlo. Si los pesos quedan en el código, el gestor nace obsoleto.</td></tr>
       <tr><th>Trazabilidad de la decisión</th><td>Imprescindible</td><td>Es lo único que después permite responder por qué se asignó ese prestador. La capa que lo mide es capa 3 de la torre y no está en el MVP, pero el registro sí.</td></tr>
-      <tr><th>Levantamiento de regla de negocio</th><td>Imprescindible, y es lo que más se subestima</td><td>Tres de los veintitrés requisitos de este gestor quedaron sin tallar por estar mal redactados. Quien esté aquí tiene que poder cerrarlos hablando con el negocio.</td></tr>
+      <tr><th>Levantamiento de regla de negocio</th><td>Imprescindible, y es lo que más se subestima</td><td>Seis de los treinta requisitos de este gestor quedaron sin tallar: tres por estar mal redactados y tres porque el diseño los nombra sin definirlos —la re-coordinación, los estados de respuesta del prestador y dos modelos expertos sin nombre—. Quien esté aquí tiene que poder cerrarlos hablando con el negocio.</td></tr>
       <tr><th>Catálogos de red y convenios</th><td>Deseable</td><td>El modelo de datos se aprende. Lo que no se aprende es el criterio para no duplicar en el gestor un maestro que es del core.</td></tr>
       <tr><th>Bandejas de trabajo humano</th><td>Deseable</td><td>El patrón es conocido. Lo que importa es que la bandeja llegue con el motivo y los descartados, no solo con el caso.</td></tr>
         </tbody>
@@ -851,7 +851,7 @@
         <thead><tr><th>Conocimiento</th><th>Nivel</th><th>Por qué en este proyecto</th></tr></thead>
         <tbody>
       <tr><th>Diseño de contratos y esquemas de evento</th><td>Imprescindible</td><td>Es lo primero que se cierra y lo más costoso de revertir. Determina el trabajo de los otros cuatro roles y de los equipos de cada gestor.</td></tr>
-      <tr><th>Evaluación de sistemas con IA</th><td>Imprescindible, y es el conocimiento escaso</td><td>Qué medir, con qué fórmula y cuándo un agente puede decidir solo. De esto dependen los 128 días de capacidad habilitadora.</td></tr>
+      <tr><th>Evaluación de sistemas con IA</th><td>Imprescindible, y es el conocimiento escaso</td><td>Qué medir, con qué fórmula y cuándo un agente puede decidir solo. De esto dependen los 138 días de capacidad habilitadora.</td></tr>
       <tr><th>Revisión crítica de implementación</th><td>Imprescindible</td><td>Idempotencia, orden y el comportamiento del agente en el borde del umbral se pueden implementar de forma que parezca correcta y esté mal.</td></tr>
       <tr><th>Gobierno en sector regulado</th><td>Deseable</td><td>Trazabilidad reconstruible y supervisión proporcional a la autonomía, sostenidas frente a un auditor.</td></tr>
       <tr><th>Integración con core</th><td>Deseable</td><td>La dependencia más crítica del MVP. Ayuda a negociar el contrato en los términos correctos desde el primer sprint.</td></tr>
@@ -889,7 +889,7 @@
 
   <h2 id="escaso">El conocimiento escaso, y cómo lo cubrimos</h2>
   <p>De los once conocimientos de la matriz, nueve se consiguen en el mercado con una búsqueda normal. Dos no.</p>
-  <p>El primero es <strong>evaluación de sistemas con IA</strong>, entendida como saber qué medir y contra qué evidencia. Es el mismo perfil escaso que ya identificamos para la torre de control, y aquí pesa más: son 128 días de capacidad habilitadora que dependen de ese criterio. Todavía no existe como cargo y se confunde con tres cosas distintas.</p>
+  <p>El primero es <strong>evaluación de sistemas con IA</strong>, entendida como saber qué medir y contra qué evidencia. Es el mismo perfil escaso que ya identificamos para la torre de control, y aquí pesa más: son 138 días de capacidad habilitadora que dependen de ese criterio. Todavía no existe como cargo y se confunde con tres cosas distintas.</p>
   <div class="tbl-wide">
   <table class="tbl">
     <thead><tr><th>Lo que suele aparecer en el mercado</th><th>Por qué no es lo que necesitamos</th></tr></thead>
@@ -947,7 +947,7 @@
       <tr><th>Dependencia del arquitecto</th><td>El único conocimiento escaso está en una persona parcial.</td><td>Exigir catálogo de métricas con fórmula y criterios de ascenso escritos antes del sprint 5.</td></tr>
       <tr><th>Front sin respaldo</th><td>Un solo puesto sostiene la puerta de entrada del MVP. Si rota, no hay quién continúe.</td><td>Documentar el componente y su contrato de embebido desde el sprint 3, y verificar con la pregunta del componente embebido antes de asignar.</td></tr>
       <tr><th>Dedicación parcial encubierta</th><td>Las personas figuran a tiempo completo pero atienden otros frentes.</td><td>El compromiso de trece sprints asume dedicación real. Si no la hay, se recalcula el calendario antes de comprometerlo.</td></tr>
-      <tr><th>Reglas y asignación entra sin diseño cerrado</th><td>La persona llega en el sprint 7 a un frente de 112 días que el propio cliente registra como el menos profundizado técnicamente, y tres de sus requisitos siguen sin poder tallarse.</td><td>Arrancar el levantamiento de reglas en el sprint 5 con los integrantes de integración, y llevar a la entrevista las preguntas de criterios en conflicto y de decisión explicable.</td></tr>
+      <tr><th>Coordinación entra con el diseño a medio cerrar</th><td>La persona llega en el sprint 7 a un frente de 134 días que el propio cliente registra como el menos profundizado técnicamente, y seis de sus requisitos siguen sin poder tallarse.</td><td>Arrancar el levantamiento de reglas en el sprint 5 con los integrantes de integración, y llevar a la entrevista las preguntas de criterios en conflicto y de decisión explicable.</td></tr>
       <tr><th>Rotación a mitad de proyecto</th><td>La integración con el core y el contrato de eventos concentran decisiones que solo dos personas conocen.</td><td>Registros de decisión cortos desde el sprint 1, y revisión cruzada entre los dos integrantes de integración.</td></tr>
       <tr><th>Arrancar los dos runtime a la vez</th><td>Los dos integrantes agénticos entran en el sprint 2 sin que exista todavía la integración con el core contra la que probar.</td><td>Escalonar: el primero desde el sprint 2 con Solicitud, el segundo desde el 4 con Evaluación, que es cuando ya hay contra qué construir.</td></tr>
     </tbody>
