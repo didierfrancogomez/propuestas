@@ -303,10 +303,11 @@
   <a href="#equipo" class="nav-strong">El equipo propuesto</a>
   <a href="#base" class="nav-sub">El equipo base</a>
   <a href="#interaccion" class="nav-sub">Equipos con los que se interactúa</a>
-  <a href="#frentes" class="nav-strong">Los tres frentes</a>
+  <a href="#frentes" class="nav-strong">Los cuatro frentes</a>
   <a href="#f1" class="nav-sub">1 · Gestor de Solicitud</a>
   <a href="#f2" class="nav-sub">2 · Gestor de Evaluación</a>
   <a href="#f3" class="nav-sub">3 · Torre, capas 1 y 2</a>
+  <a href="#f4" class="nav-sub">4 · Gestor de Coordinación</a>
   <a href="#recorrido">El recorrido completo</a>
   <a href="#agentico" class="nav-strong">Cuánto es capacidad agéntica</a>
   <a href="#arranque">Cómo arranca</a>
@@ -333,21 +334,22 @@
   
   <div class="cover-page">
     <h1>MVP de gestores: dimensionamiento</h1>
-    <p class="subtitle">Cuánto toma implementar el Gestor de Solicitud, el Gestor de Evaluación y las dos primeras capas de la torre de control, con qué equipo, y de qué depende ese número.</p>
+    <p class="subtitle">Cuánto toma implementar el Gestor de Solicitud, el Gestor de Evaluación, el Gestor de Coordinación y las dos primeras capas de la torre de control, con qué equipo, y de qué depende ese número.</p>
     <div class="cover-meta">
       <p>SURA Colombia · Transformación prestación y reclamaciones, MVP de autorizaciones de salud</p>
       <p>Elaborado por Tech and Solve para SURA · Septiembre de 2026</p>
-      <p>Se apoya en la estimación por requisitos que el equipo ya tiene: los 76 requisitos del MVP tallados uno por uno con la escala de la propia hoja. Aquí se traduce ese tallaje a equipo y a sprints, y se declara qué lo sostiene.</p>
+      <p>Se apoya en la estimación por requisitos que el equipo ya tiene: los 94 requisitos del MVP tallados uno por uno con la escala de la propia hoja. Aquí se traduce ese tallaje a equipo y a sprints, y se declara qué lo sostiene.</p>
     </div>
   </div>
 
   <h2 id="objetivo">Objetivo</h2>
   <div class="goal">
     <span class="goal-label">Qué queremos que quede acordado</span>
-    <p>Con qué equipo y en cuántos sprints se implementan los tres frentes agénticos del MVP, qué otros frentes tienen que avanzar en paralelo para que ese número se sostenga, y qué decisiones pendientes lo pueden mover.</p>
+    <p>Con qué equipo y en cuántos sprints se implementan los cuatro frentes de gestores del MVP, qué otros frentes tienen que avanzar en paralelo para que ese número se sostenga, y qué decisiones pendientes lo pueden mover.</p>
   </div>
-  <p>El tallaje de los tres frentes suma <strong>319 días hábiles</strong>: 138 el Gestor de Evaluación, 97 las dos primeras capas de la torre y 84 el Gestor de Solicitud. Nuestra conclusión, en una frase: con <strong>seis integrantes y un arquitecto parcial</strong> el recorrido completo del MVP cabe en <strong>once sprints</strong> si los frentes se solapan, y el Gestor de Solicitud puede estar en producción al sexto.</p>
-  <p>La advertencia que acompaña a ese número, y que conviene leer antes que el número: <strong>los tres frentes no son el MVP completo</strong>. Faltan 206 días de plataforma habilitadora, Siniestro Integral y canales, que no son opcionales sino precondición. El total del MVP es de 525 días hábiles.</p>
+  <p>El tallaje de los cuatro frentes suma <strong>431 días hábiles</strong>: 138 el Gestor de Evaluación, 112 el Gestor de Coordinación, 97 las dos primeras capas de la torre y 84 el Gestor de Solicitud. Nuestra conclusión, en una frase: con <strong>siete integrantes y un arquitecto parcial</strong> el recorrido completo del MVP cabe en <strong>trece sprints</strong> si los frentes se solapan, y el Gestor de Solicitud puede estar en producción al sexto.</p>
+  <p>La advertencia que acompaña a ese número, y que conviene leer antes que el número: <strong>los cuatro frentes no son el MVP completo</strong>. Faltan 206 días de plataforma habilitadora, Siniestro Integral y canales, que no son opcionales sino precondición. El total del MVP es de 637 días hábiles.</p>
+  <p>Lo que cambia respecto de la conversación anterior es que el <strong>Gestor de Coordinación entra al alcance</strong>. Estaba encapsulado en el core por la decisión del 3 de agosto de 2026, y traerlo de vuelta como componente propio agrega 112 días y 18 requisitos. Es la mitad de lo que suma el Gestor de Evaluación, y no trae un solo día de capacidad agéntica: en su nivel 1 decide con reglas duras.</p>
 
   <h2 id="supuestos">Supuestos declarados</h2>
   <p>Todo lo que sigue depende de estos siete supuestos. Si alguno no se cumple, el número cambia, y lo decimos en la última sección.</p>
@@ -355,11 +357,11 @@
   <table class="tbl">
     <thead><tr><th>Supuesto</th><th>Detalle</th></tr></thead>
     <tbody>
-      <tr><th>Escala de tallas</th><td>La del propio equipo, tal como está parametrizada en la hoja de seguimiento: <strong>S 2 · M 5 · L 10 · XL 20 días hábiles</strong>. Cada uno de los 76 requisitos del MVP está tallado individualmente, y la suma es trazable fila por fila.</td></tr>
+      <tr><th>Escala de tallas</th><td>La del propio equipo, tal como está parametrizada en la hoja de seguimiento: <strong>S 2 · M 5 · L 10 · XL 20 días hábiles</strong>. Cada uno de los 94 requisitos del MVP está tallado individualmente, y la suma es trazable fila por fila.</td></tr>
       <tr><th>Sprint</th><td><strong>Diez días hábiles</strong>, que es lo que fija la propia hoja: «1 sprint = 10 días hábiles, estándar SuraHis». Si la capacidad real por sprint es menor, la duración se estira de forma proporcional.</td></tr>
-      <tr><th>Margen de incertidumbre</th><td>Los números de este documento van <strong>sin margen</strong>, por decisión del equipo. La regla de declarar un 30% en fase de estructuración sigue vigente y se aplica aguas abajo, en la hoja de costos, donde ya está parametrizada. Si se aplica, los 525 días se leen como 683.</td></tr>
-      <tr><th>Dedicación</th><td>Los seis integrantes del equipo base, a tiempo completo sobre esta iniciativa. Una dedicación parcial no reduce el esfuerzo: solo alarga el calendario y agrega costo de cambio de contexto.</td></tr>
-      <tr><th>Alcance</th><td>Lo que está dibujado en la vista de arquitectura del MVP y en la vista de tecnología, decidido <strong>requisito por requisito</strong> y no por épica. Quedan fuera Coordinación, Prestación, Finalización, Asignación, NEXO, AVA, la interoperabilidad de autorizaciones y las capas 3 a 5 de la torre.</td></tr>
+      <tr><th>Margen de incertidumbre</th><td>Los números de este documento van <strong>sin margen</strong>, por decisión del equipo. La regla de declarar un 30% en fase de estructuración sigue vigente y se aplica aguas abajo, en la hoja de costos, donde ya está parametrizada. Si se aplica, los 637 días se leen como 828.</td></tr>
+      <tr><th>Dedicación</th><td>Los siete integrantes del equipo base, a tiempo completo sobre esta iniciativa. Una dedicación parcial no reduce el esfuerzo: solo alarga el calendario y agrega costo de cambio de contexto.</td></tr>
+      <tr><th>Alcance</th><td>Lo que está dibujado en la vista de arquitectura del MVP y en la vista de tecnología, decidido <strong>requisito por requisito</strong> y no por épica. El Gestor de Coordinación entra solo en su <strong>nivel 1 determinístico</strong>: reglas duras, ranking de la red y bandeja de trabajo humano. Quedan fuera Prestación, Finalización, Asignación, NEXO, AVA, la interoperabilidad de autorizaciones, las capas 3 a 5 de la torre, y los niveles 2 y 3 de Coordinación —el asistente explicativo con modelo y el componente conversacional que confirma el prestador con el cliente—.</td></tr>
       <tr><th>Tecnología del front</th><td><strong>Angular sobre Azure Static Web App</strong>, que es lo que fija el lineamiento AI First de la organización y lo que el equipo confirmó. El tallaje del front está calculado sobre esa decisión.</td></tr>
       <tr><th>Plazos de terceros</th><td>No estimamos trabajo de otros equipos. Cuando un frente depende del core, de canales o del dueño del bus de eventos, lo declaramos como dependencia y el plazo lo pone su dueño.</td></tr>
     </tbody>
@@ -367,12 +369,12 @@
   </div>
 
   <h2 id="origen">De dónde sale el número</h2>
-  <p>No es una estimación de arriba hacia abajo. Sale del seguimiento de requerimientos del propio equipo, en su hoja de estimación por requisitos: <strong>183 requisitos</strong> en total, de los cuales <strong>76 pertenecen al MVP</strong> y están tallados uno por uno. Cada cifra de este documento se puede reconstruir filtrando esa hoja.</p>
-  <p>Dos cosas que conviene saber de esa base. La primera: <strong>21 de esos 76 requisitos los agregamos nosotros</strong>, porque estaban dibujados en la arquitectura del MVP y no tenían requisito en la hoja: la api orquestadora de cada gestor, el clasificador de documentos, el enrutador, el request builder, el LLM-as-a-judge, la escalada a preradicado, el golden set, la compuerta de promoción, el umbral como configuración y la traza de la decisión. Sin ellos el MVP no se puede construir, y sin tallarlos el número quedaba corto.</p>
-  <p>La segunda: <strong>11 requisitos quedaron sin tallar</strong> porque no se podían estimar como estaban redactados. No los escondimos en un promedio: están marcados en la hoja y listados al final de este documento, porque son lo que puede mover el número.</p>
+  <p>No es una estimación de arriba hacia abajo. Sale del seguimiento de requerimientos del propio equipo, en su hoja de estimación por requisitos: <strong>192 requisitos</strong> en total, de los cuales <strong>94 pertenecen al MVP</strong> y están tallados uno por uno. Cada cifra de este documento se puede reconstruir filtrando esa hoja.</p>
+  <p>Dos cosas que conviene saber de esa base. La primera: <strong>30 de esos 94 requisitos los agregamos nosotros</strong>, porque estaban dibujados en la arquitectura del MVP y no tenían requisito en la hoja: la api orquestadora de cada gestor, el clasificador de documentos, el enrutador, el request builder, el LLM-as-a-judge, la escalada a preradicado, el golden set, la compuerta de promoción, el umbral como configuración y la traza de la decisión. Del Gestor de Coordinación se agregaron nueve más: su api orquestadora, la traza de por qué se eligió ese prestador, el evento de prestador asignado, la notificación al cliente, el registro del cambio de prestador, las reglas versionadas, los pesos del ranking como configuración, la lectura del catálogo de red y convenios, y su namespace propio. Sin ellos el MVP no se puede construir, y sin tallarlos el número quedaba corto.</p>
+  <p>La segunda: <strong>14 requisitos quedaron sin tallar</strong> porque no se podían estimar como estaban redactados. No los escondimos en un promedio: están marcados en la hoja y listados al final de este documento, porque son lo que puede mover el número.</p>
 
   <h2 id="alcance">Qué se dimensiona y qué queda aparte</h2>
-  <p>El encargo pide los tres frentes agénticos. Los damos, y damos también los otros tres del MVP, porque un número que omite 206 días de precondición no se puede llevar a una mesa de decisión.</p>
+  <p>El encargo pide los frentes de gestores. Los damos, y damos también los otros tres del MVP, porque un número que omite 206 días de precondición no se puede llevar a una mesa de decisión.</p>
   <div class="tbl-wide">
   <table class="tbl">
     <thead><tr><th>Frente</th><th>Requisitos</th><th>Días hábiles</th><th>Sprints de un frente</th><th>En este dimensionamiento</th></tr></thead>
@@ -380,31 +382,33 @@
       <tr><th>Gestor de Evaluación</th><td>19</td><td>138</td><td>13,8</td><td>Sí</td></tr>
       <tr><th>Torre de control, capas 1 y 2</th><td>13</td><td>97</td><td>9,7</td><td>Sí</td></tr>
       <tr><th>Gestor de Solicitud</th><td>13</td><td>84</td><td>8,4</td><td>Sí</td></tr>
-      <tr><th>Subtotal de los tres frentes</th><td>45</td><td>319</td><td>31,9</td><td></td></tr>
-      <tr><th>Plataforma habilitadora</th><td>15</td><td>111</td><td>11,1</td><td>Va aparte. Condiciona a los tres</td></tr>
+      <tr><th>Gestor de Coordinación, nivel 1</th><td>18</td><td>112</td><td>11,2</td><td>Sí. Entra en esta versión</td></tr>
+      <tr><th>Subtotal de los cuatro frentes</th><td>63</td><td>431</td><td>43,1</td><td></td></tr>
+      <tr><th>Plataforma habilitadora</th><td>15</td><td>111</td><td>11,1</td><td>Va aparte. Condiciona a los cuatro</td></tr>
       <tr><th>Siniestro Integral</th><td>7</td><td>52</td><td>5,2</td><td>Va aparte. Precondición de Solicitud</td></tr>
       <tr><th>Canales, Portal Proveedor y SVP</th><td>9</td><td>43</td><td>4,3</td><td>Va aparte. Tiene equipo propio</td></tr>
-      <tr><th>Total del MVP</th><td>76</td><td>525</td><td>52,5</td><td></td></tr>
+      <tr><th>Total del MVP</th><td>94</td><td>637</td><td>63,7</td><td></td></tr>
     </tbody>
   </table>
   </div>
   <div class="keypoint">
-    <span class="keypoint-label">Por qué no se puede leer solo el subtotal de los tres</span>
-    <p>Los 206 días que quedan aparte no son accesorios. La plataforma habilitadora es el contrato de eventos, la arquitectura dirigida por eventos y el ciclo de mejora de los agentes, y es camino crítico para los tres frentes. Siniestro Integral es por donde entra la solicitud antes de llegar al Gestor de Solicitud. Y los canales son la puerta. Si esos tres no avanzan en paralelo, los 319 días de los gestores no se pueden ejecutar aunque el equipo esté disponible.</p>
+    <span class="keypoint-label">Por qué no se puede leer solo el subtotal de los cuatro</span>
+    <p>Los 206 días que quedan aparte no son accesorios. La plataforma habilitadora es el contrato de eventos, la arquitectura dirigida por eventos y el ciclo de mejora de los agentes, y es camino crítico para los cuatro frentes. Siniestro Integral es por donde entra la solicitud antes de llegar al Gestor de Solicitud. Y los canales son la puerta. Si esos tres no avanzan en paralelo, los 431 días de los gestores no se pueden ejecutar aunque el equipo esté disponible.</p>
   </div>
 
   <h2 id="equipo">El equipo propuesto</h2>
-  <p><strong>Seis integrantes con el acompañamiento parcial de un arquitecto o líder técnico.</strong> Los describimos por los conocimientos que aporta cada uno y no por un cargo, porque lo que hace falta es la combinación, y una misma persona puede traerla con distintos títulos.</p>
-  <p>La aritmética es transparente: 525 días de esfuerzo repartidos entre seis integrantes dan 87,5 días por persona, que son 8,75 sprints de ocupación pura. Proponemos <strong>once sprints</strong> de calendario, lo que deja cerca de un 20% de holgura para ceremonias, arranque, y el hecho de que no todo se puede paralelizar. Ese margen no es el 30% de incertidumbre: es la diferencia entre esfuerzo y calendario.</p>
+  <p><strong>Siete integrantes con el acompañamiento parcial de un arquitecto o líder técnico.</strong> Los describimos por los conocimientos que aporta cada uno y no por un cargo, porque lo que hace falta es la combinación, y una misma persona puede traerla con distintos títulos.</p>
+  <p>La aritmética es transparente: 637 días de esfuerzo repartidos entre siete integrantes dan 91 días por persona, que son 9,1 sprints de ocupación pura. Proponemos <strong>trece sprints</strong> de calendario, lo que deja cerca de un 30% de holgura. Es más holgura que la que declaramos antes, y la razón es concreta: el Gestor de Coordinación no puede empezar antes de que Evaluación autorice, así que su trabajo no se puede paralelizar contra los demás y el calendario se estira más que el esfuerzo. Ese margen no es el 30% de incertidumbre: es la diferencia entre esfuerzo y calendario.</p>
 
-  <h3 id="base">El equipo base, seis integrantes</h3>
+  <h3 id="base">El equipo base, siete integrantes</h3>
   <div class="tbl-wide">
   <table class="tbl">
     <thead><tr><th>Integrante</th><th>Conocimientos que aporta</th><th>Dedicación</th><th>Dónde es crítico</th></tr></thead>
     <tbody>
       <tr><th>2 integrantes con conocimientos en runtime agéntico</th><td>Grafos de estados con LangGraph en Python, diseño y versionamiento de prompts, herramientas expuestas por MCP, y medición de acierto de un agente contra un conjunto de casos conocidos.</td><td>Completa. Uno desde el sprint 2, el otro desde el sprint 4</td><td>Los 124 días agénticos del MVP, concentrados en Evaluación y Solicitud.</td></tr>
       <tr><th>2 integrantes con conocimientos en integración y dominio</th><td>Integración con el core sobre API, mensajería y eventos, gestión documental, motores de reglas versionadas y modelo de datos padre-hijo.</td><td>Completa, sprints 1 a 11</td><td>Sprints 1 a 4: Siniestro Integral y el contrato con el core es lo que después no se cambia sin reprocesar.</td></tr>
-      <tr><th>1 integrante con conocimientos en plataforma de eventos y datos</th><td>Arquitecturas dirigidas por eventos, idempotencia y deduplicación, ventana para evidencia rezagada, correlación por llave y dos horizontes de retención.</td><td>Completa, sprints 1 a 9</td><td>Las capas 1 y 2 de la torre, y el contrato de eventos del que dependen los tres frentes.</td></tr>
+      <tr><th>1 integrante con conocimientos en reglas de negocio y asignación</th><td>Motores de reglas versionadas con vigencia y autor, ordenamiento por criterios múltiples con pesos configurables, integración con catálogos de red, convenio y tarifa, y bandejas de trabajo humano.</td><td>Completa, sprints 7 a 13</td><td>Los 112 días del Gestor de Coordinación. Es el frente con menos diseño detallado hecho, y el que más depende de leer bien la regla del negocio.</td></tr>
+      <tr><th>1 integrante con conocimientos en plataforma de eventos y datos</th><td>Arquitecturas dirigidas por eventos, idempotencia y deduplicación, ventana para evidencia rezagada, correlación por llave y dos horizontes de retención.</td><td>Completa, sprints 1 a 9</td><td>Las capas 1 y 2 de la torre, y el contrato de eventos del que dependen los cuatro frentes.</td></tr>
       <tr><th>1 integrante con conocimientos en aplicaciones de datos</th><td>Angular, componentes web embebibles en varios contenedores, formularios con carga de documentos y vistas de estado.</td><td>Completa, sprints 2 a 9</td><td>El web component único: es el que se embebe en Portal Proveedor y en SVP, y su rediseño tardío se paga en los dos.</td></tr>
       <tr><th>Acompañamiento: arquitecto o líder técnico</th><td>Cerrar el esquema de eventos y la llave de correlación, el contrato de autonomía de cada agente, y el criterio de medición del acierto. Revisar lo que no falla de forma ruidosa.</td><td>Parcial. Un día por semana hasta el sprint 5, medio día después</td><td>Los primeros dos sprints: ahí se decide lo irreversible.</td></tr>
     </tbody>
@@ -430,7 +434,7 @@
     <p>El Gestor de Evaluación consulta al core coberturas, vigencias, convenios y exclusiones, y consulta el histórico para detectar duplicidad. Son 138 días de trabajo que no se pueden probar de verdad sin esas API. La forma de no quedar bloqueados es la misma que en la torre: acordar el contrato en el sprint 1 y construir contra un simulador mientras el core llega.</p>
   </div>
 
-  <h2 id="frentes">Los tres frentes, uno por uno</h2>
+  <h2 id="frentes">Los cuatro frentes, uno por uno</h2>
   <p>Cada frente se presenta igual: cuántos días trae del tallaje, en qué sprints transcurre, qué queda funcionando y qué no incluye. Los rangos de sprint indican en qué ventana ocurre el trabajo, no cuánto ocupa a una persona, y se solapan donde el trabajo lo permite.</p>
 
   <div class="prop" id="f1">
@@ -531,6 +535,40 @@
     </div>
   </div>
 
+  <div class="prop" id="f4">
+    <div class="prop-head">
+      <span class="prop-code">4</span><span class="prop-title">Gestor de Coordinación · asignación de prestador</span>
+      <div class="prop-chips"><span class="badge b-esf">112 días · 18 requisitos</span><span class="badge b-when">Sprints 8 a 13</span></div>
+    </div>
+    <div class="prop-body">
+      <div class="prop-value">
+        <span class="prop-value-label">Qué se logra</span>
+        <p>Que una autorización aprobada salga con prestador asignado y con el registro de por qué se eligió ese y no otro. Hoy esa decisión se resuelve dentro del core y no deja rastro consultable: no se puede explicar una glosa, ni una queja, ni medir si la red que se asigna es la que conviene. El gestor la saca a la luz sin quitarle al core el consecutivo ni la bandeja de convenios.</p>
+      </div>
+      <h4>Qué se construye</h4>
+      <ul>
+        <li>El motor de reglas de asignación, con los tres casos de negocio que el equipo ya tiene escritos: producto modular con direccionamiento automático, póliza clásica donde el cliente elige y se valida convenio, y el caso sin prestador sugerido. Es la pieza más grande del frente, 20 días.</li>
+        <li>Las dos reglas de prioridad del acta: el prestador que radica la solicitud atiende si tiene el servicio contratado, y el que sugiere el asegurado gana sobre el que propone el ordenamiento.</li>
+        <li>El ranking de la red por quejas, satisfacción, disponibilidad de citas, suficiencia y tarifa, con los <strong>pesos como configuración y no como código</strong>, administrados por la API de configuraciones del plano de control.</li>
+        <li>El mapeo de la autorización contra el convenio y la tarifa del prestador asignado, que es lo que reduce glosa y acelera el pago.</li>
+        <li>La bandeja de trabajo humano para lo que ni las reglas ni el ranking resuelven, con el motivo y los candidatos descartados escritos.</li>
+        <li>La escalada a Convenios cuando no hay red contratada en la ciudad. El gestor no negocia red: entrega el caso a la bandeja del core.</li>
+        <li>Las reglas versionadas con vigencia y autor, y la traza de la decisión de asignación. Son el aporte que justifica sacarlo del core.</li>
+      </ul>
+      <h4>De qué depende</h4>
+      <p>De recibir una autorización ya aprobada, así que va detrás del Gestor de Evaluación. De que el core exponga por API el catálogo de red, la vigencia del convenio y la tarifa. Y de los criterios del ranking: <strong>los cinco tienen dueños distintos</strong> —quejas en Medallia, satisfacción, agenda de citas, suficiencia de red y tarifa—, y habilitar los que hoy no estén expuestos no está en estos 112 días; ese plazo lo declara su dueño.</p>
+      <h4>Qué no incluye</h4>
+      <ul>
+        <li><strong>El nivel 2 y el nivel 3.</strong> El asistente explicativo con modelo para casos no estructurados, y el componente conversacional que confirma el prestador con el cliente antes de cerrar. El propio requisito del equipo los declara fuera del arranque. Lo que sí queda es la costura: el motor detrás de una interfaz, para que el nivel 2 no obligue a rehacerlo.</li>
+        <li>La bandeja de convenios y el consecutivo de la autorización, que siguen siendo del core.</li>
+        <li>La integración con prestadores externos con retroalimentación de estados, que es de la épica de Interoperabilidad y quedó en alerta por no estar acotada.</li>
+        <li>La habilitación de las fuentes de dato del ranking que hoy no estén expuestas por API.</li>
+      </ul>
+      <h4>Lo que todavía no puede hacer</h4>
+      <p>Saber si asignó bien. Eso se ve en la glosa y en la queja, y medirlo es capa 3 de la torre, fuera de este MVP. Lo que sí queda desde el primer día es el registro que después permite medirlo.</p>
+    </div>
+  </div>
+
   <h2 id="recorrido">El recorrido completo, en una tabla</h2>
   <div class="tbl-wide">
   <table class="tbl">
@@ -543,18 +581,19 @@
       <tr><th>Gestor de Solicitud</th><td>84</td><td>2 a 6</td><td>Radicación con documentos que arma la solicitud sola, o escala a preradicado con su motivo.</td></tr>
       <tr><th>Torre, capas 1 y 2</th><td>97</td><td>3 a 9</td><td>Vista única del caso bajo su siniestro padre, con contrato de eventos versionado y dos horizontes de retención.</td></tr>
       <tr><th>Gestor de Evaluación</th><td>138</td><td>5 a 11</td><td>Autorización automática de nivel 1 con sustento, y escalada con análisis hecho para todo lo demás.</td></tr>
-      <tr><th>Endurecimiento y pruebas</th><td>—</td><td>11</td><td>Pruebas de punta a punta, documentación operativa y paso a producción.</td></tr>
-      <tr><th>Total</th><td>525</td><td>11</td><td>6 integrantes más el arquitecto parcial, con cerca de 20% de holgura de calendario.</td></tr>
+      <tr><th>Gestor de Coordinación</th><td>112</td><td>8 a 13</td><td>Autorización aprobada que sale con prestador asignado, con la regla aplicada y los candidatos descartados registrados.</td></tr>
+      <tr><th>Endurecimiento y pruebas</th><td>—</td><td>13</td><td>Pruebas de punta a punta, documentación operativa y paso a producción.</td></tr>
+      <tr><th>Total</th><td>637</td><td>13</td><td>7 integrantes más el arquitecto parcial, con cerca de 30% de holgura de calendario.</td></tr>
     </tbody>
   </table>
   </div>
   <div class="keypoint">
-    <span class="keypoint-label">Once sprints, o mediados de 2027: la diferencia está en una decisión</span>
-    <p>Los once sprints suponen que el Gestor de Evaluación arranca en el sprint 5, contra un simulador, sin esperar a que Solicitud esté en producción. El cronograma que el equipo tiene hoy lo secuencia de otra forma: Evaluación empieza cuando Solicitud ya opera, y con eso el cierre se corre a mediados de 2027. Las dos lecturas son legítimas; la diferencia no es de esfuerzo sino de apetito de riesgo, y conviene decidirla explícitamente y no por omisión.</p>
+    <span class="keypoint-label">Trece sprints, o bien entrado 2028: la diferencia está en dos decisiones</span>
+    <p>Los trece sprints suponen dos cosas: que el Gestor de Evaluación arranca en el sprint 5 contra un simulador, sin esperar a que Solicitud esté en producción, y que Coordinación arranca en el 8 contra el output simulado de Evaluación. El cronograma que el equipo tiene hoy secuencia de otra forma: cada gestor empieza cuando el anterior ya opera, y con eso el cierre se corre bien entrado 2028. Las dos lecturas son legítimas; la diferencia no es de esfuerzo sino de apetito de riesgo, y conviene decidirla explícitamente y no por omisión.</p>
   </div>
   <div class="keypoint">
     <span class="keypoint-label">El criterio de corte, si hubiera que parar</span>
-    <p>El corte natural es al cerrar el Gestor de Solicitud con sus canales y Siniestro Integral, cerca del sprint 6. Con eso hay radicación digital funcionando de punta a punta y solicitudes que llegan armadas al core, que es valor real para el prestador y para la operación. El Gestor de Evaluación multiplica ese valor, pero lo entregado antes no queda a medias.</p>
+    <p>Hay dos cortes limpios, y conviene tenerlos identificados antes de arrancar. El primero es al cerrar el Gestor de Solicitud con sus canales y Siniestro Integral, cerca del sprint 6: hay radicación digital de punta a punta y solicitudes que llegan armadas al core. El segundo es al cerrar el Gestor de Evaluación, cerca del sprint 11: hay autorización automática de nivel 1 con sustento. El Gestor de Coordinación es el frente más fácil de posponer sin dejar nada a medias, porque hasta que exista la asignación la sigue resolviendo el core como lo hace hoy. Es también el que menos diseño detallado tiene, así que posponerlo compra tiempo de análisis.</p>
   </div>
 
   <h2 id="agentico">Cuánto de esto es capacidad agéntica</h2>
@@ -563,16 +602,16 @@
   <table class="tbl">
     <thead><tr><th>Tipo de capacidad</th><th>Requisitos</th><th>Días</th><th>% del MVP</th><th>Qué es</th></tr></thead>
     <tbody>
-      <tr><th>Agéntica</th><td>16</td><td>124</td><td>23,6%</td><td>Construye o define el comportamiento de algo que razona con un modelo: clasificador, enrutador, request builder, LLM-as-a-judge, extractores, pertinencia médica, duplicidad y auditor.</td></tr>
-      <tr><th>Habilitadora</th><td>16</td><td>106</td><td>20,2%</td><td>No razona, pero sin ella no hay autonomía gobernada: golden set, compuerta de promoción, umbrales y techos, traza de la decisión y calibración del juez.</td></tr>
-      <tr><th>Determinística</th><td>44</td><td>295</td><td>56,2%</td><td>Reglas duras, integraciones con el core, gestión documental, front y contrato de eventos.</td></tr>
+      <tr><th>Agéntica</th><td>16</td><td>124</td><td>19,5%</td><td>Construye o define el comportamiento de algo que razona con un modelo: clasificador, enrutador, request builder, LLM-as-a-judge, extractores, pertinencia médica, duplicidad y auditor.</td></tr>
+      <tr><th>Habilitadora</th><td>20</td><td>128</td><td>20,1%</td><td>No razona, pero sin ella no hay autonomía gobernada: golden set, compuerta de promoción, umbrales y techos, traza de la decisión y calibración del juez.</td></tr>
+      <tr><th>Determinística</th><td>58</td><td>385</td><td>60,4%</td><td>Reglas duras, integraciones con el core, gestión documental, front y contrato de eventos.</td></tr>
     </tbody>
   </table>
   </div>
-  <p>Dónde está esa capacidad agéntica, por frente: <strong>Evaluación 77 días</strong> de sus 138, <strong>Solicitud 32</strong> de sus 84, <strong>la torre 10</strong> de sus 97 —el agente auditor, que vive dentro de los gestores— y <strong>canales 5</strong>. La torre, en su alcance de MVP, es puro determinismo.</p>
+  <p>Dónde está esa capacidad agéntica, por frente: <strong>Evaluación 77 días</strong> de sus 138, <strong>Solicitud 32</strong> de sus 84, <strong>la torre 10</strong> de sus 97 —el agente auditor, que vive dentro de los gestores— y <strong>canales 5</strong>. La torre y el Gestor de Coordinación, en su alcance de MVP, son puro determinismo: <strong>Coordinación aporta 0 de sus 112 días</strong> a la columna agéntica.</p>
   <div class="keypoint">
     <span class="keypoint-label">La conclusión que cambia cómo se conforma el equipo</span>
-    <p>Menos de una cuarta parte del esfuerzo es agéntico. Casi el 57% es integración: core, eventos, documentos, front. Es un proyecto de integración con agentes dentro, no un proyecto de agentes. Un equipo conformado solo con perfiles de IA no va a poder ejecutarlo, y uno conformado solo con perfiles de integración va a construir agentes que nadie sabe si aciertan.</p>
+    <p>Menos de una quinta parte del esfuerzo es agéntico, y la proporción bajó al entrar Coordinación: era 23,6% y ahora es 19,5%, porque los 112 días que entraron son todos de reglas y de integración. El 60% del MVP es integración: core, eventos, documentos, front, catálogos de red. Es un proyecto de integración con agentes dentro, no un proyecto de agentes. Un equipo conformado solo con perfiles de IA no va a poder ejecutarlo, y uno conformado solo con perfiles de integración va a construir agentes que nadie sabe si aciertan.</p>
   </div>
 
   <h2 id="arranque">Cómo arranca</h2>
@@ -590,32 +629,34 @@
   </div>
 
   <h2 id="riesgos">Qué puede mover el número</h2>
-  <p>Once requisitos del MVP no se pudieron tallar. Están marcados en la hoja con su duda escrita, y son la lista honesta de lo que puede mover este dimensionamiento.</p>
+  <p>Catorce requisitos del MVP no se pudieron tallar. Están marcados en la hoja con su duda escrita, y son la lista honesta de lo que puede mover este dimensionamiento.</p>
   <div class="tbl-wide">
   <table class="tbl">
     <thead><tr><th>Condición</th><th>Efecto en el dimensionamiento</th></tr></thead>
     <tbody>
+      <tr><th>El Gestor de Coordinación es el frente con menos diseño hecho</th><td>Es la alerta más grande de esta versión, y viene del propio requisito del equipo: es «uno de los gestores menos profundizados técnicamente, no se ha hecho zoom todavía». Los 112 días se construyeron desde el dibujo y desde las reglas escritas, no desde un diseño detallado. Un taller de dos días sobre este gestor vale más que cualquier ajuste de talla.</td></tr>
+      <tr><th>Las cinco fuentes del ranking de prestadores</th><td>Quejas de Medallia, satisfacción, disponibilidad de citas, suficiencia de red y tarifa tienen dueños distintos, y la talla cubre consumirlas, no habilitarlas. Si alguna no está expuesta por API, aparece una habilitación que no está en estos 112 días y cuyo plazo declara su dueño.</td></tr>
       <tr><th>El motor de extracción documental sin decidir</th><td>Es la alerta más costosa. El requisito del equipo dice que un modelo multimodal interpreta los documentos directamente; el stack de la organización declara Azure Document Intelligence obligatorio para OCR y extracción estructurada. Son dos construcciones distintas y ninguna está en los 84 días de Solicitud. Cerrarlo sube ese frente.</td></tr>
       <tr><th>El nivel de autonomía de cada agente sin definir</th><td>El propio requisito dice que está pendiente antes de poder dimensionar. Determina con qué sistemas se conecta cada agente y si escribe o solo recomienda. Afecta a Evaluación y a la torre.</td></tr>
-      <tr><th>El producto de mensajería del bus</th><td>El lineamiento define el contenedor pero no nombra tecnología, y en las cuarenta páginas revisadas no aparece ninguna. La tecnología y el plazo los declara su dueño; si no existe, aparece una habilitación que no está en estos 525 días.</td></tr>
+      <tr><th>El producto de mensajería del bus</th><td>El lineamiento define el contenedor pero no nombra tecnología, y en las cuarenta páginas revisadas no aparece ninguna. La tecnología y el plazo los declara su dueño; si no existe, aparece una habilitación que no está en estos 637 días.</td></tr>
       <tr><th>El core no expone sus API a tiempo</th><td>Con simulador, no mueve el número. Sin simulador, bloquea 138 días de Evaluación y 84 de Solicitud aunque el equipo esté disponible.</td></tr>
       <tr><th>Los canales exceden su propia ventana</th><td>El Gestor de Solicitud queda construido pero sin puerta de entrada. Su estimación es del equipo de canales y no estaba confirmada al cierre de la estructuración.</td></tr>
-      <tr><th>Dedicación parcial de cualquiera de los seis</th><td>No reduce el esfuerzo. Alarga el calendario de forma proporcional y agrega costo de cambio de contexto.</td></tr>
+      <tr><th>Dedicación parcial de cualquiera de los siete</th><td>No reduce el esfuerzo. Alarga el calendario de forma proporcional y agrega costo de cambio de contexto.</td></tr>
       <tr><th>El esquema de eventos no se acuerda en el arranque</th><td>Cada sprint que pasa sin acuerdo agrega migración a lo ya construido. Es la dependencia más crítica y la más barata de resolver.</td></tr>
-      <tr><th>Se aplica el margen del 30%</th><td>Los 525 días se leen como 683, y los once sprints como catorce. La regla del equipo lo exige al presentar a patrocinadores; este documento lo declara y no lo incluye.</td></tr>
-      <tr><th>Los funcionales y los técnicos se cuentan una sola vez</th><td>La hoja talla por separado el requisito funcional y el técnico, y así se respetó. Cinco pares describen la misma capacidad. Si el equipo decide contarlos una vez, el total baja hasta 32 días.</td></tr>
-      <tr><th>La escala se corrige</th><td>La tabla de tallaje dice S = 2 días y la nota de al lado dice 3. Se usó la tabla, que es la que alimenta la fórmula. Si se confirman los 3 días, el total sube 15.</td></tr>
+      <tr><th>Se aplica el margen del 30%</th><td>Los 637 días se leen como 828, y los trece sprints como diecisiete. La regla del equipo lo exige al presentar a patrocinadores; este documento lo declara y no lo incluye.</td></tr>
+      <tr><th>Los funcionales y los técnicos se cuentan una sola vez</th><td>La hoja talla por separado el requisito funcional y el técnico, y así se respetó. Siete pares describen la misma capacidad, dos de ellos en Coordinación. Si el equipo decide contarlos una vez, el total baja hasta 47 días.</td></tr>
+      <tr><th>La escala se corrige</th><td>La tabla de tallaje dice S = 2 días y la nota de al lado dice 3. Se usó la tabla, que es la que alimenta la fórmula. Si se confirman los 3 días, el total sube 21.</td></tr>
     </tbody>
   </table>
   </div>
   <div class="keypoint">
     <span class="keypoint-label">Nuestra recomendación de arranque</span>
-    <p>Arrancar con los dos integrantes de integración y el de plataforma de eventos, sumar el front y el primer runtime agéntico en el sprint 2, y comprometerse a cerrar en el primer sprint tres cosas: el esquema de eventos, el contrato de las API del core y el límite tolerable del error caro. Con eso, al final del sexto sprint hay radicación digital en producción y una base que no habrá que rehacer. El Gestor de Evaluación se decide después, con evidencia y con el motor de extracción ya resuelto.</p>
+    <p>Arrancar con los dos integrantes de integración y el de plataforma de eventos, sumar el front y el primer runtime agéntico en el sprint 2, incorporar el perfil de reglas de negocio en el 7, y comprometerse a cerrar en el primer sprint tres cosas: el esquema de eventos, el contrato de las API del core y el límite tolerable del error caro. Del Gestor de Coordinación conviene cerrar antes del sprint 6 qué criterios del ranking están realmente disponibles, porque es lo único que puede mover sus 112 días. Con eso, al final del sexto sprint hay radicación digital en producción y una base que no habrá que rehacer. El Gestor de Evaluación se decide después, con evidencia y con el motor de extracción ya resuelto.</p>
   </div>
 
   <h2 id="referencias">Referencias</h2>
   <ul>
-    <li>Seguimiento de requerimientos de Gestores 2026, hoja de estimación por requisitos. De ahí salen los 183 requisitos, los 76 del MVP con su talla, la escala de tallas y el filtro de capacidad agéntica. Cada cifra de este documento es trazable a una fila.</li>
+    <li>Seguimiento de requerimientos de Gestores 2026, hoja de estimación por requisitos. De ahí salen los 192 requisitos, los 94 del MVP con su talla, la escala de tallas y el filtro de capacidad agéntica. Cada cifra de este documento es trazable a una fila.</li>
     <li>Vista de arquitectura del MVP de Gestores y vista de tecnología del MVP, que definen el alcance requisito por requisito.</li>
     <li>Lineamientos AI First de la organización, espacio de gobierno, lineamientos y prácticas: arquitectura de referencia y de implementación de agentes, y el stack tecnológico del dominio de datos y conocimiento. De ahí salen Angular sobre Static Web App, LangGraph en Python y Azure Document Intelligence.</li>
     <li>Acta de estimación de costo y releases del 21 de agosto de 2026, de donde vienen la escala de tallas, la talla mínima del Gestor de Solicitud y el mínimo de un sprint para Siniestro Integral.</li>
