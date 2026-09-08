@@ -302,12 +302,13 @@
 <nav class="doc-nav">
   <div class="doc-nav-title">Contenido</div>
   <a href="#proposito" class="nav-strong">Para qué es este documento</a>
-  <a href="#roles" class="nav-strong">Los cinco roles</a>
+  <a href="#roles" class="nav-strong">Los seis roles</a>
   <a href="#p1" class="nav-sub">1 · Runtime agéntico</a>
   <a href="#p2" class="nav-sub">2 · Integración y dominio</a>
-  <a href="#p3" class="nav-sub">3 · Plataforma de eventos</a>
-  <a href="#p4" class="nav-sub">4 · Front de datos, Angular</a>
-  <a href="#p5" class="nav-sub">5 · Arquitecto, parcial</a>
+  <a href="#p3" class="nav-sub">3 · Reglas y asignación</a>
+  <a href="#p4" class="nav-sub">4 · Plataforma de eventos</a>
+  <a href="#p5" class="nav-sub">5 · Front de datos, Angular</a>
+  <a href="#p6" class="nav-sub">6 · Arquitecto, parcial</a>
   <a href="#matriz">Matriz de cobertura</a>
   <a href="#escaso">El conocimiento escaso</a>
   <a href="#entrevista">Cómo verificarlo en entrevista</a>
@@ -344,20 +345,21 @@
     <span class="goal-label">Qué resuelve</span>
     <p>Cómo buscar y verificar el talento que implementa el MVP de gestores, con criterios que se puedan usar en una entrevista y no solo en una descripción de cargo.</p>
   </div>
-  <p>El dimensionamiento son <strong>seis integrantes más un arquitecto parcial</strong>, en once sprints, para 525 días hábiles de esfuerzo. Este documento traduce esa conformación a perfiles concretos: qué tiene que saber cada uno, qué se le puede pedir que aprenda, y qué preguntas separan a alguien que ya lo hizo de alguien que leyó sobre el tema.</p>
-  <p>Los cinco roles están redactados en el <strong>formato de requisición de personal</strong>, con los mismos campos que usa selección, de modo que cada ficha se pueda abrir como búsqueda sin traducción intermedia. Lo que agregamos al formato es la tabla de <em>por qué se pide cada conocimiento</em> al cierre de cada ficha, la matriz de cobertura y la guía de entrevista: eso es lo que evita que la búsqueda se resuelva por palabras clave del currículo.</p>
+  <p>El dimensionamiento son <strong>siete integrantes más un arquitecto parcial</strong>, en trece sprints, para 637 días hábiles de esfuerzo. Este documento traduce esa conformación a perfiles concretos: qué tiene que saber cada uno, qué se le puede pedir que aprenda, y qué preguntas separan a alguien que ya lo hizo de alguien que leyó sobre el tema.</p>
+  <p>Los seis roles están redactados en el <strong>formato de requisición de personal</strong>, con los mismos campos que usa selección, de modo que cada ficha se pueda abrir como búsqueda sin traducción intermedia. Lo que agregamos al formato es la tabla de <em>por qué se pide cada conocimiento</em> al cierre de cada ficha, la matriz de cobertura y la guía de entrevista: eso es lo que evita que la búsqueda se resuelva por palabras clave del currículo.</p>
   <div class="keypoint">
     <span class="keypoint-label">La confusión que hay que evitar al buscar, y que aquí es distinta</span>
-    <p>Este sí es un proyecto con agentes, pero <strong>solo una cuarta parte del esfuerzo lo es</strong>. De los 525 días, 124 son agénticos, 106 son el andamiaje que los hace gobernables y 295 son integración con el core, gestión documental, eventos y front. Si la búsqueda se publica entera como «ingeniero de IA», vamos a llenar el equipo de perfiles que no pueden con el 57% del trabajo. Y si se publica entera como integración, vamos a construir agentes que nadie sabe si aciertan. Hay que abrir las dos búsquedas, y son distintas.</p>
+    <p>Este sí es un proyecto con agentes, pero <strong>solo una quinta parte del esfuerzo lo es</strong>. De los 637 días, 124 son agénticos, 128 son el andamiaje que los hace gobernables y 385 son integración con el core, gestión documental, eventos, reglas de asignación y front. La proporción bajó al entrar el Gestor de Coordinación, que no aporta un solo día agéntico. Si la búsqueda se publica entera como «ingeniero de IA», vamos a llenar el equipo de perfiles que no pueden con el 60% del trabajo. Y si se publica entera como integración, vamos a construir agentes que nadie sabe si aciertan. Hay que abrir las dos búsquedas, y son distintas.</p>
   </div>
 
-  <h2 id="roles">Los cinco roles</h2>
+  <h2 id="roles">Los seis roles</h2>
   <div class="tbl-wide">
   <table class="tbl">
     <thead><tr><th>Rol</th><th>Cantidad</th><th>Asignación</th><th>Responsabilidad en el proyecto</th><th>Perfil equivalente en el mercado</th></tr></thead>
     <tbody>
       <tr><th>Runtime agéntico</th><td>2</td><td>100%. Uno desde el sprint 2, otro desde el 4</td><td>Los grafos de Solicitud y de Evaluación: clasificador, enrutador, request builder, LLM-as-a-judge, extractores, pertinencia médica y duplicidad. Y la medición de su acierto.</td><td>Ingeniero de software con experiencia real construyendo aplicaciones sobre modelos de lenguaje en producción. No es científico de datos ni ingeniero de aprendizaje automático.</td></tr>
-      <tr><th>Integración y dominio</th><td>2</td><td>100%, sprints 1 a 11</td><td>Integración con SuraHis, gestión documental en P8, Siniestro Integral, reglas duras versionadas y el modelo padre-hijo de la solicitud.</td><td>Backend senior de integración empresarial, con experiencia en sistemas transaccionales y APIs de core. El cliente lo reconocería como su perfil de backend de dominio.</td></tr>
+      <tr><th>Integración y dominio</th><td>2</td><td>100%, sprints 1 a 13</td><td>Integración con SuraHis, gestión documental en P8, Siniestro Integral, reglas duras versionadas y el modelo padre-hijo de la solicitud.</td><td>Backend senior de integración empresarial, con experiencia en sistemas transaccionales y APIs de core. El cliente lo reconocería como su perfil de backend de dominio.</td></tr>
+      <tr><th>Reglas de negocio y asignación</th><td>1</td><td>100%, sprints 7 a 13</td><td>El Gestor de Coordinación en su nivel 1: motor de reglas de asignación versionadas, ranking de la red por cinco criterios con pesos configurables, mapeo contra convenio y tarifa, y bandeja de trabajo humano.</td><td>Backend senior con experiencia en motores de reglas y en sistemas de decisión configurables. No es un perfil de IA: aquí no razona ningún modelo.</td></tr>
       <tr><th>Plataforma de eventos y datos</th><td>1</td><td>100%, sprints 1 a 9</td><td>Contrato de eventos, ingesta idempotente con ventana tardía, correlación por siniestro padre y los dos horizontes de retención. Es la torre en su alcance de MVP.</td><td>Ingeniero de plataforma, de datos o de confiabilidad, con experiencia en arquitecturas dirigidas por eventos. No es un backend de aplicación clásico.</td></tr>
       <tr><th>Front de aplicaciones de datos</th><td>1</td><td>100%, sprints 2 a 9</td><td>El web component único en Angular, embebido en Portal Proveedor y en SVP, con carga de documentos, variantes por rol y vista de estado.</td><td>Front senior en Angular con experiencia en componentes embebibles y formularios complejos, no en sitios de contenido.</td></tr>
       <tr><th>Arquitecto o líder técnico</th><td>1</td><td>20% hasta el sprint 5, 10% después</td><td>Cerrar el esquema de eventos, el contrato de las API del core, los techos de autonomía y el criterio de medición del acierto. Revisar lo que no falla de forma ruidosa.</td><td>Arquitecto de soluciones con producción encima en sistemas dirigidos por eventos y con criterio para evaluar sistemas con IA.</td></tr>
@@ -365,8 +367,8 @@
   </table>
   </div>
   <div class="keypoint">
-    <span class="keypoint-label">Cómo leer las cinco fichas que siguen</span>
-    <p>Cada rol está escrito en el formato de requisición que usa selección, para que se pueda abrir la búsqueda sin reescribirlo. Los cuatro roles de ejecución van como <strong>S3</strong>, el senior de la escala de Tech and Solve. Lo que queda marcado como por definir es lo que depende de la cuenta: quién solicita y el porcentaje de negociación aprobado, más el nivel del arquitecto si la escala lo ubica por encima de S3. Lo técnico sí está cerrado, y cada ficha termina con la tabla de <em>por qué se pide cada conocimiento</em>, que es lo que permite sostener el criterio en la entrevista.</p>
+    <span class="keypoint-label">Cómo leer las seis fichas que siguen</span>
+    <p>Cada rol está escrito en el formato de requisición que usa selección, para que se pueda abrir la búsqueda sin reescribirlo. Los cinco roles de ejecución van como <strong>S3</strong>, el senior de la escala de Tech and Solve. Lo que queda marcado como por definir es lo que depende de la cuenta: quién solicita y el porcentaje de negociación aprobado, más el nivel del arquitecto si la escala lo ubica por encima de S3. Lo técnico sí está cerrado, y cada ficha termina con la tabla de <em>por qué se pide cada conocimiento</em>, que es lo que permite sostener el criterio en la entrevista.</p>
   </div>
 
   <div class="prop rol" id="p1">
@@ -387,7 +389,7 @@
           <tr><th>Cantidad de puestos</th><td>2</td></tr>
           <tr><th>Tipo de solicitud</th><td>Nuevo, por arranque de proyecto</td></tr>
           <tr><th>Nivel de cargo</th><td>S3, senior</td></tr>
-          <tr><th>Duración de proyecto</th><td>11 sprints. El sprint del proyecto es de diez días hábiles, según el estándar que el propio equipo fijó.</td></tr>
+          <tr><th>Duración de proyecto</th><td>13 sprints. El sprint del proyecto es de diez días hábiles, según el estándar que el propio equipo fijó.</td></tr>
           <tr><th>Porcentaje de negociación aprobado</th><td>Por definir</td></tr>
           <tr><th>Asignación</th><td>100%. Uno desde el sprint 2, el segundo desde el sprint 4</td></tr>
           <tr><th>¿Sector financiero o seguros?</th><td>Sí. Salud y seguros, con datos clínicos.</td></tr>
@@ -441,7 +443,7 @@
         <thead><tr><th>Conocimiento</th><th>Nivel</th><th>Por qué en este proyecto</th></tr></thead>
         <tbody>
       <tr><th>Marcos de orquestación de agentes</th><td>Imprescindible, con producción encima</td><td>Los dos gestores son grafos de estados con varios nodos. Quien solo ha encadenado llamadas a un modelo no ha resuelto control de iteraciones, límites ni ramas.</td></tr>
-      <tr><th>Evaluación de sistemas no deterministas</th><td>Imprescindible, y es el conocimiento escaso</td><td>Sin golden set y sin compuerta no se puede promover una versión con criterio. Son 106 días del MVP que dependen de este conocimiento.</td></tr>
+      <tr><th>Evaluación de sistemas no deterministas</th><td>Imprescindible, y es el conocimiento escaso</td><td>Sin golden set y sin compuerta no se puede promover una versión con criterio. Son 128 días del MVP que dependen de este conocimiento.</td></tr>
       <tr><th>Prompts como artefacto versionado</th><td>Imprescindible</td><td>El lineamiento prohíbe que los prompts vivan como archivos del proyecto. La versión usada tiene que quedar en la traza de cada decisión.</td></tr>
       <tr><th>Extracción estructurada sobre documentos</th><td>Imprescindible</td><td>Orden médica e historia clínica son la entrada de todo el flujo. Un campo extraído mal se propaga hasta la autorización.</td></tr>
       <tr><th>Consumo de modelos por gateway</th><td>Deseable, se forma rápido</td><td>Lo específico del gateway de la organización se aprende en el arranque si la persona entiende por qué no se llama al proveedor directo.</td></tr>
@@ -455,7 +457,7 @@
   <div class="prop rol" id="p2">
     <div class="prop-head">
       <span class="prop-code">2</span><span class="prop-title">Ingeniero de integración con el core y dominio de autorizaciones</span>
-      <div class="prop-chips"><span class="badge b-esf">2 puestos · 100%</span><span class="badge b-when">Sprints 1 a 11</span></div>
+      <div class="prop-chips"><span class="badge b-esf">2 puestos · 100%</span><span class="badge b-when">Sprints 1 a 13</span></div>
     </div>
     <div class="prop-body">
 
@@ -470,7 +472,7 @@
           <tr><th>Cantidad de puestos</th><td>2</td></tr>
           <tr><th>Tipo de solicitud</th><td>Nuevo, por arranque de proyecto</td></tr>
           <tr><th>Nivel de cargo</th><td>S3, senior</td></tr>
-          <tr><th>Duración de proyecto</th><td>11 sprints. El sprint del proyecto es de diez días hábiles, según el estándar que el propio equipo fijó.</td></tr>
+          <tr><th>Duración de proyecto</th><td>13 sprints. El sprint del proyecto es de diez días hábiles, según el estándar que el propio equipo fijó.</td></tr>
           <tr><th>Porcentaje de negociación aprobado</th><td>Por definir</td></tr>
           <tr><th>Asignación</th><td>100%, desde el sprint 1</td></tr>
           <tr><th>¿Sector financiero o seguros?</th><td>Sí. Salud y seguros, con datos clínicos.</td></tr>
@@ -516,7 +518,7 @@
       <p>Rigor y atención al detalle, Análisis de información, Proactividad, Comunicación efectiva y asertiva, Trabajo en equipo, Orientación al logro.</p>
 
       <h4>Caracterización del cliente o el proyecto</h4>
-      <p>Es el rol más grande del MVP: 295 de los 525 días son integración determinística. También es el que sostiene el riesgo más alto, porque casi todo depende de que el core exponga sus API a tiempo y eso no lo controlamos. Buscamos a alguien que trate el contrato de integración como el primer entregable y no como documentación posterior, y que construya contra un simulador sin esperar a que la dependencia llegue. Hay una trampa concreta en este proyecto: el agente no debe absorber la lógica transaccional, y la tentación de resolver en el gestor lo que le corresponde al core aparece cada vez que el core se demora. Quien esté aquí tiene que saber sostener esa frontera.</p>
+      <p>Es el rol más grande del MVP: 385 de los 637 días son integración determinística. También es el que sostiene el riesgo más alto, porque casi todo depende de que el core exponga sus API a tiempo y eso no lo controlamos. Buscamos a alguien que trate el contrato de integración como el primer entregable y no como documentación posterior, y que construya contra un simulador sin esperar a que la dependencia llegue. Hay una trampa concreta en este proyecto: el agente no debe absorber la lógica transaccional, y la tentación de resolver en el gestor lo que le corresponde al core aparece cada vez que el core se demora. Quien esté aquí tiene que saber sostener esa frontera.</p>
 
       <h4>Por qué se pide cada conocimiento</h4>
       <div class="tbl-wide">
@@ -524,7 +526,7 @@
         <thead><tr><th>Conocimiento</th><th>Nivel</th><th>Por qué en este proyecto</th></tr></thead>
         <tbody>
       <tr><th>Integración con core transaccional</th><td>Imprescindible</td><td>El Gestor de Evaluación no puede probarse de verdad sin las API de coberturas, vigencias y exclusiones. Son 138 días colgando de esa integración.</td></tr>
-      <tr><th>Contratos de API con versionamiento</th><td>Imprescindible</td><td>Es lo primero que se cierra y lo más caro de revertir. Determina el trabajo de los otros cuatro roles.</td></tr>
+      <tr><th>Contratos de API con versionamiento</th><td>Imprescindible</td><td>Es lo primero que se cierra y lo más caro de revertir. Determina el trabajo de los otros cinco roles.</td></tr>
       <tr><th>Comando frente a evento</th><td>Imprescindible</td><td>El equipo ya distingue los dos, y quien tiene autoridad sobre la entidad es quien emite. Confundirlos rompe la trazabilidad de la torre.</td></tr>
       <tr><th>Modelo padre-hijo y estados propios</th><td>Imprescindible</td><td>La solicitud es el padre y cada servicio tiene estado propio. El preradicado no existe en el core y hay que correlacionarlo.</td></tr>
       <tr><th>Reglas versionadas con vigencia</th><td>Imprescindible</td><td>Es lo único sobre lo que se puede sustentar una negación. Sin versión y sin autor, una negación no se puede defender ante una reclamación.</td></tr>
@@ -538,7 +540,90 @@
 
   <div class="prop rol" id="p3">
     <div class="prop-head">
-      <span class="prop-code">3</span><span class="prop-title">Ingeniero de plataforma de eventos y datos</span>
+      <span class="prop-code">3</span><span class="prop-title">Ingeniero de reglas de negocio y asignación de prestador</span>
+      <div class="prop-chips"><span class="badge b-esf">1 puesto · 100%</span><span class="badge b-when">Sprints 7 a 13</span></div>
+    </div>
+    <div class="prop-body">
+
+      <div class="tbl-wide">
+      <table class="tbl tbl-req">
+        <tbody>
+          <tr><th>Cliente</th><td>SURA · proyecto Gestores, MVP de autorizaciones de salud</td></tr>
+          <tr><th>Solicitado por</th><td>Por definir, liderazgo de la cuenta</td></tr>
+          <tr><th>Modalidad</th><td>Remoto</td></tr>
+          <tr><th>Tipo de ubicación</th><td>Nacional</td></tr>
+          <tr><th>Nivel de inglés</th><td>Lectura técnica. No se requiere conversacional.</td></tr>
+          <tr><th>Cantidad de puestos</th><td>1</td></tr>
+          <tr><th>Tipo de solicitud</th><td>Nuevo, por ampliación de alcance al Gestor de Coordinación</td></tr>
+          <tr><th>Nivel de cargo</th><td>S3, senior</td></tr>
+          <tr><th>Duración de proyecto</th><td>13 sprints. El sprint del proyecto es de diez días hábiles, según el estándar que el propio equipo fijó.</td></tr>
+          <tr><th>Porcentaje de negociación aprobado</th><td>Por definir</td></tr>
+          <tr><th>Asignación</th><td>100%, desde el sprint 7</td></tr>
+          <tr><th>¿Sector financiero o seguros?</th><td>Sí. Salud y seguros, con red de prestadores y convenios.</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h4>Responsabilidades del rol</h4>
+      <ul>
+        <li>Construir el motor de reglas de asignación con los tres casos de negocio ya escritos: producto modular con direccionamiento automático, póliza donde el cliente elige y se valida convenio, y el caso sin prestador sugerido.</li>
+        <li>Implementar las dos reglas de prioridad del acta: el prestador que radica atiende si tiene el servicio contratado, y el que sugiere el asegurado gana sobre el que propone el ordenamiento.</li>
+        <li>Construir el ranking de la red por quejas, satisfacción, disponibilidad de citas, suficiencia y tarifa, dejando los pesos como configuración administrada y no como código.</li>
+        <li>Dejar las reglas versionadas con vigencia y autor, fuera del código y expuestas como herramienta, nunca embebidas en lógica de aplicación.</li>
+        <li>Registrar la traza de cada asignación: prestador elegido, criterio aplicado, candidatos descartados y peso vigente en el momento de decidir.</li>
+        <li>Implementar el mapeo de la autorización contra el convenio y la tarifa del prestador asignado, que es lo que reduce glosa.</li>
+        <li>Construir la bandeja de trabajo humano para lo que las reglas no resuelven, y la escalada a Convenios cuando no hay red contratada en la ciudad.</li>
+        <li>Publicar el evento de prestador asignado con la llave de correlación del caso y del siniestro padre.</li>
+        <li>Dejar el motor detrás de una interfaz, para que el nivel 2 —asistente explicativo con modelo— no obligue a rehacerlo.</li>
+      </ul>
+
+      <h4>Skills</h4>
+      <ul>
+        <li>Motores de reglas de negocio, con reglas versionadas, vigencia y autor</li>
+        <li>Sistemas de decisión con criterios múltiples en conflicto, y pesos configurables en caliente</li>
+        <li>Diseño de configuración administrada, separada del despliegue del código</li>
+        <li>Integración con catálogos maestros: red contratada, convenios, tarifas</li>
+        <li>Bandejas de trabajo humano, con asignación, reasignación y motivo</li>
+        <li>Trazabilidad de decisiones para sustentar una reclamación posterior</li>
+        <li>Java o Python sobre contenedores, según el estándar del ecosistema</li>
+        <li>Arquitecturas dirigidas por eventos, para publicar el cambio de asignación</li>
+        <li>Pruebas automatizadas sobre tablas de decisión y casos de frontera</li>
+      </ul>
+
+      <h4>Negociables</h4>
+      <ul>
+        <li>Experiencia en salud, aseguramiento o banca</li>
+        <li>Haber trabajado con red de prestadores, convenios o tarifas</li>
+        <li>Ingeniería de sistemas, informática o afines</li>
+      </ul>
+
+      <h4>Habilidades blandas</h4>
+      <p>Análisis de información, Rigor y atención al detalle, Pensamiento crítico, Comunicación efectiva y asertiva, Trabajo en equipo, Orientación al logro.</p>
+
+      <h4>Caracterización del cliente o el proyecto</h4>
+      <p>Es el rol con menos diseño detallado por delante, y hay que decirlo en la entrevista: el propio equipo del cliente registra que este es «uno de los gestores menos profundizados técnicamente». Los 112 días se estimaron desde el dibujo y desde las reglas escritas, no desde un diseño cerrado. Buscamos a alguien que sepa levantar una regla de negocio conversando con quien la opera, y que resista la tentación de resolverla con código: aquí la regla tiene que quedar consultable y versionada, porque de ella cuelga la explicación de una glosa o de una queja. La segunda cosa que hay que sostener es la frontera con el core: la bandeja de convenios y el consecutivo de la autorización siguen siendo de SuraHis, y el gestor no los absorbe.</p>
+
+      <h4>Por qué se pide cada conocimiento</h4>
+      <div class="tbl-wide">
+      <table class="tbl">
+        <thead><tr><th>Conocimiento</th><th>Nivel</th><th>Por qué en este proyecto</th></tr></thead>
+        <tbody>
+      <tr><th>Motores de reglas versionadas</th><td>Imprescindible</td><td>Es la razón por la que el gestor sale del core. Sin versión y sin autor, la asignación no se puede explicar ni auditar, y volvemos a donde estábamos.</td></tr>
+      <tr><th>Decisión con criterios en conflicto</th><td>Imprescindible</td><td>Los cinco criterios del ranking se contradicen entre sí: el mejor calificado puede ser el más caro o el que no tiene agenda. Resolver ese empate es el corazón del frente.</td></tr>
+      <tr><th>Configuración administrada</th><td>Imprescindible</td><td>El negocio va a mover los pesos, y no puede depender de un despliegue para hacerlo. Si los pesos quedan en el código, el gestor nace obsoleto.</td></tr>
+      <tr><th>Trazabilidad de la decisión</th><td>Imprescindible</td><td>Es lo único que después permite responder por qué se asignó ese prestador. La capa que lo mide es capa 3 de la torre y no está en el MVP, pero el registro sí.</td></tr>
+      <tr><th>Levantamiento de regla de negocio</th><td>Imprescindible, y es lo que más se subestima</td><td>Tres de los catorce requisitos de este gestor quedaron sin tallar por estar mal redactados. Quien esté aquí tiene que poder cerrarlos hablando con el negocio.</td></tr>
+      <tr><th>Catálogos de red y convenios</th><td>Deseable</td><td>El modelo de datos se aprende. Lo que no se aprende es el criterio para no duplicar en el gestor un maestro que es del core.</td></tr>
+      <tr><th>Bandejas de trabajo humano</th><td>Deseable</td><td>El patrón es conocido. Lo que importa es que la bandeja llegue con el motivo y los descartados, no solo con el caso.</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="prop rol" id="p4">
+    <div class="prop-head">
+      <span class="prop-code">4</span><span class="prop-title">Ingeniero de plataforma de eventos y datos</span>
       <div class="prop-chips"><span class="badge b-esf">1 puesto · 100%</span><span class="badge b-when">Sprints 1 a 9</span></div>
     </div>
     <div class="prop-body">
@@ -554,7 +639,7 @@
           <tr><th>Cantidad de puestos</th><td>1</td></tr>
           <tr><th>Tipo de solicitud</th><td>Nuevo, por arranque de proyecto</td></tr>
           <tr><th>Nivel de cargo</th><td>S3, senior</td></tr>
-          <tr><th>Duración de proyecto</th><td>11 sprints. El sprint del proyecto es de diez días hábiles, según el estándar que el propio equipo fijó.</td></tr>
+          <tr><th>Duración de proyecto</th><td>13 sprints. El sprint del proyecto es de diez días hábiles, según el estándar que el propio equipo fijó.</td></tr>
           <tr><th>Porcentaje de negociación aprobado</th><td>Por definir</td></tr>
           <tr><th>Asignación</th><td>100%, desde el sprint 1</td></tr>
           <tr><th>¿Sector financiero o seguros?</th><td>Sí. Salud y seguros, con datos clínicos.</td></tr>
@@ -619,9 +704,9 @@
     </div>
   </div>
 
-  <div class="prop rol" id="p4">
+  <div class="prop rol" id="p5">
     <div class="prop-head">
-      <span class="prop-code">4</span><span class="prop-title">Ingeniero de front de aplicaciones de datos, Angular</span>
+      <span class="prop-code">5</span><span class="prop-title">Ingeniero de front de aplicaciones de datos, Angular</span>
       <div class="prop-chips"><span class="badge b-esf">1 puesto · 100%</span><span class="badge b-when">Sprints 2 a 9</span></div>
     </div>
     <div class="prop-body">
@@ -637,7 +722,7 @@
           <tr><th>Cantidad de puestos</th><td>1</td></tr>
           <tr><th>Tipo de solicitud</th><td>Nuevo, por arranque de proyecto</td></tr>
           <tr><th>Nivel de cargo</th><td>S3, senior</td></tr>
-          <tr><th>Duración de proyecto</th><td>11 sprints. El sprint del proyecto es de diez días hábiles, según el estándar que el propio equipo fijó.</td></tr>
+          <tr><th>Duración de proyecto</th><td>13 sprints. El sprint del proyecto es de diez días hábiles, según el estándar que el propio equipo fijó.</td></tr>
           <tr><th>Porcentaje de negociación aprobado</th><td>Por definir</td></tr>
           <tr><th>Asignación</th><td>100%, desde el sprint 2</td></tr>
           <tr><th>¿Sector financiero o seguros?</th><td>Sí. Salud y seguros, con datos clínicos.</td></tr>
@@ -699,10 +784,10 @@
     </div>
   </div>
 
-  <div class="prop rol" id="p5">
+  <div class="prop rol" id="p6">
     <div class="prop-head">
-      <span class="prop-code">5</span><span class="prop-title">Arquitecto o líder técnico, asignación parcial</span>
-      <div class="prop-chips"><span class="badge b-esf">1 puesto · 20% y luego 10%</span><span class="badge b-when">Sprints 1 a 11</span></div>
+      <span class="prop-code">6</span><span class="prop-title">Arquitecto o líder técnico, asignación parcial</span>
+      <div class="prop-chips"><span class="badge b-esf">1 puesto · 20% y luego 10%</span><span class="badge b-when">Sprints 1 a 13</span></div>
     </div>
     <div class="prop-body">
 
@@ -717,7 +802,7 @@
           <tr><th>Cantidad de puestos</th><td>1</td></tr>
           <tr><th>Tipo de solicitud</th><td>Nuevo, por arranque de proyecto</td></tr>
           <tr><th>Nivel de cargo</th><td>S3 o superior, por definir según la escala</td></tr>
-          <tr><th>Duración de proyecto</th><td>11 sprints. El sprint del proyecto es de diez días hábiles, según el estándar que el propio equipo fijó.</td></tr>
+          <tr><th>Duración de proyecto</th><td>13 sprints. El sprint del proyecto es de diez días hábiles, según el estándar que el propio equipo fijó.</td></tr>
           <tr><th>Porcentaje de negociación aprobado</th><td>Por definir</td></tr>
           <tr><th>Asignación</th><td>20% hasta el sprint 5, 10% del sprint 6 en adelante</td></tr>
           <tr><th>¿Sector financiero o seguros?</th><td>Sí. Salud y seguros, con datos clínicos.</td></tr>
@@ -766,7 +851,7 @@
         <thead><tr><th>Conocimiento</th><th>Nivel</th><th>Por qué en este proyecto</th></tr></thead>
         <tbody>
       <tr><th>Diseño de contratos y esquemas de evento</th><td>Imprescindible</td><td>Es lo primero que se cierra y lo más costoso de revertir. Determina el trabajo de los otros cuatro roles y de los equipos de cada gestor.</td></tr>
-      <tr><th>Evaluación de sistemas con IA</th><td>Imprescindible, y es el conocimiento escaso</td><td>Qué medir, con qué fórmula y cuándo un agente puede decidir solo. De esto dependen los 106 días de capacidad habilitadora.</td></tr>
+      <tr><th>Evaluación de sistemas con IA</th><td>Imprescindible, y es el conocimiento escaso</td><td>Qué medir, con qué fórmula y cuándo un agente puede decidir solo. De esto dependen los 128 días de capacidad habilitadora.</td></tr>
       <tr><th>Revisión crítica de implementación</th><td>Imprescindible</td><td>Idempotencia, orden y el comportamiento del agente en el borde del umbral se pueden implementar de forma que parezca correcta y esté mal.</td></tr>
       <tr><th>Gobierno en sector regulado</th><td>Deseable</td><td>Trazabilidad reconstruible y supervisión proporcional a la autonomía, sostenidas frente a un auditor.</td></tr>
       <tr><th>Integración con core</th><td>Deseable</td><td>La dependencia más crítica del MVP. Ayuda a negociar el contrato en los términos correctos desde el primer sprint.</td></tr>
@@ -779,30 +864,32 @@
   <h2 id="matriz">Matriz de cobertura, y dónde hay un solo punto de falla</h2>
   <div class="tbl-wide">
   <table class="tbl">
-    <thead><tr><th>Conocimiento</th><th>Runtime agéntico</th><th>Integración</th><th>Plataforma</th><th>Front</th><th>Arquitecto</th></tr></thead>
+    <thead><tr><th>Conocimiento</th><th>Runtime agéntico</th><th>Integración</th><th>Reglas y red</th><th>Plataforma</th><th>Front</th><th>Arquitecto</th></tr></thead>
     <tbody>
-      <tr><th>Orquestación de agentes</th><td>Principal</td><td>—</td><td>—</td><td>—</td><td>Revisa</td></tr>
-      <tr><th>Evaluación de sistemas con IA</th><td>Apoya</td><td>—</td><td>—</td><td>—</td><td>Único</td></tr>
-      <tr><th>Prompts versionados</th><td>Principal</td><td>—</td><td>—</td><td>—</td><td>Define</td></tr>
-      <tr><th>Integración con el core</th><td>Apoya</td><td>Principal</td><td>—</td><td>—</td><td>Define</td></tr>
-      <tr><th>Reglas versionadas y trazables</th><td>Apoya</td><td>Principal</td><td>—</td><td>—</td><td>Revisa</td></tr>
-      <tr><th>Eventos e idempotencia</th><td>—</td><td>Apoya</td><td>Principal</td><td>—</td><td>Revisa</td></tr>
-      <tr><th>Datos con llegada tardía</th><td>—</td><td>—</td><td>Principal</td><td>—</td><td>Revisa</td></tr>
-      <tr><th>Retención y cardinalidad</th><td>—</td><td>—</td><td>Principal</td><td>—</td><td>Define</td></tr>
-      <tr><th>Componentes embebibles</th><td>—</td><td>—</td><td>—</td><td>Único</td><td>—</td></tr>
-      <tr><th>Datos clínicos y filtrado</th><td>Apoya</td><td>Apoya</td><td>Apoya</td><td>Principal</td><td>Revisa</td></tr>
+      <tr><th>Orquestación de agentes</th><td>Principal</td><td>—</td><td>—</td><td>—</td><td>—</td><td>Revisa</td></tr>
+      <tr><th>Evaluación de sistemas con IA</th><td>Apoya</td><td>—</td><td>—</td><td>—</td><td>—</td><td>Único</td></tr>
+      <tr><th>Prompts versionados</th><td>Principal</td><td>—</td><td>—</td><td>—</td><td>—</td><td>Define</td></tr>
+      <tr><th>Integración con el core</th><td>Apoya</td><td>Principal</td><td>Apoya</td><td>—</td><td>—</td><td>Define</td></tr>
+      <tr><th>Reglas versionadas y trazables</th><td>Apoya</td><td>Principal</td><td>Principal</td><td>—</td><td>—</td><td>Revisa</td></tr>
+      <tr><th>Eventos e idempotencia</th><td>—</td><td>Apoya</td><td>Apoya</td><td>Principal</td><td>—</td><td>Revisa</td></tr>
+      <tr><th>Datos con llegada tardía</th><td>—</td><td>—</td><td>—</td><td>Principal</td><td>—</td><td>Revisa</td></tr>
+      <tr><th>Retención y cardinalidad</th><td>—</td><td>—</td><td>—</td><td>Principal</td><td>—</td><td>Define</td></tr>
+      <tr><th>Componentes embebibles</th><td>—</td><td>—</td><td>—</td><td>—</td><td>Único</td><td>—</td></tr>
+      <tr><th>Ordenamiento por criterios múltiples</th><td>—</td><td>Apoya</td><td>Principal</td><td>—</td><td>—</td><td>Revisa</td></tr>
+      <tr><th>Datos clínicos y filtrado</th><td>Apoya</td><td>Apoya</td><td>Apoya</td><td>Apoya</td><td>Principal</td><td>Revisa</td></tr>
     </tbody>
   </table>
   </div>
   <div class="keypoint">
-    <span class="keypoint-label">Los dos puntos de falla reales</span>
+    <span class="keypoint-label">Los tres puntos de falla reales</span>
     <p>El primero es el de siempre: <strong>la evaluación de sistemas con IA depende de una sola persona, y es parcial</strong>. Si el arquitecto se cae en los primeros dos sprints, el equipo va a construir agentes que funcionan y que nadie puede defender. La mitigación no es contratar un segundo arquitecto: es exigir que su salida quede escrita como catálogo de métricas con fórmula y criterios de ascenso, antes del cierre del sprint 5.</p>
     <p>El segundo es nuevo respecto de la torre: <strong>el front es un solo puesto y no tiene respaldo</strong>. El web component embebido es la puerta de entrada de todo el MVP, y si esa persona rota a mitad de proyecto no hay nadie que continúe. Aquí la mitigación sí es de diseño: exigir que el componente y su contrato de embebido queden documentados desde el sprint 3, y que el segundo integrante de integración pueda sostenerlo un sprint si hace falta.</p>
+    <p>El tercero aparece con el Gestor de Coordinación: <strong>reglas y asignación también es un solo puesto, y entra tarde</strong>, en el sprint 7. Es el frente con menos diseño detallado y el que más depende de levantar bien la regla con el negocio, así que una rotación ahí no se recupera leyendo código. La mitigación es doble: que el levantamiento de las reglas empiece antes de que la persona entre, en el sprint 5 y con los dos integrantes de integración, y que las reglas queden versionadas y consultables desde la primera que se escriba, no al final.</p>
   </div>
 
   <h2 id="escaso">El conocimiento escaso, y cómo lo cubrimos</h2>
-  <p>De los diez conocimientos de la matriz, ocho se consiguen en el mercado con una búsqueda normal. Dos no.</p>
-  <p>El primero es <strong>evaluación de sistemas con IA</strong>, entendida como saber qué medir y contra qué evidencia. Es el mismo perfil escaso que ya identificamos para la torre de control, y aquí pesa más: son 106 días de capacidad habilitadora que dependen de ese criterio. Todavía no existe como cargo y se confunde con tres cosas distintas.</p>
+  <p>De los once conocimientos de la matriz, nueve se consiguen en el mercado con una búsqueda normal. Dos no.</p>
+  <p>El primero es <strong>evaluación de sistemas con IA</strong>, entendida como saber qué medir y contra qué evidencia. Es el mismo perfil escaso que ya identificamos para la torre de control, y aquí pesa más: son 128 días de capacidad habilitadora que dependen de ese criterio. Todavía no existe como cargo y se confunde con tres cosas distintas.</p>
   <div class="tbl-wide">
   <table class="tbl">
     <thead><tr><th>Lo que suele aparecer en el mercado</th><th>Por qué no es lo que necesitamos</th></tr></thead>
@@ -827,6 +914,8 @@
       <tr><th>Comportamiento no determinista</th><td>El mismo caso da dos resultados distintos en dos corridas. ¿Es un defecto?</td><td>Sí: distingue variabilidad esperada de defecto y propone medir consistencia sobre varias corridas. Alerta: lo trata siempre como error a corregir.</td></tr>
       <tr><th>Extracción documental</th><td>El modelo extrae un campo con alta confianza y está mal. ¿Cómo lo detectas antes de que llegue al core?</td><td>Sí: valida contra esquema, cruza con otra fuente y no confía en la confianza declarada. Alerta: sube el umbral y sigue.</td></tr>
       <tr><th>Frontera del agente</th><td>El core se demora en exponer una regla y el negocio presiona. ¿La implementas en el agente?</td><td>Sí: la expone como herramienta determinística versionada y declara la deuda. Alerta: la mete en el prompt para salir del paso.</td></tr>
+      <tr><th>Criterios en conflicto</th><td>Tienes cinco criterios para ordenar prestadores y el negocio los cambia cada mes. ¿Dónde viven los pesos y cómo sabes cuál aplicó ayer?</td><td>Sí: los pesos viven como configuración versionada fuera del código, y la decisión guarda el peso vigente en ese momento. Alerta: los deja en el código, o en una tabla sin versión ni fecha.</td></tr>
+      <tr><th>Decisión explicable</th><td>Asignaste un prestador y el cliente reclama por qué no le tocó otro. ¿Qué le muestras?</td><td>Sí: guarda los candidatos descartados y el criterio que los descartó, no solo el resultado. Alerta: solo tiene el prestador final y reconstruye el porqué a mano.</td></tr>
       <tr><th>Idempotencia real</th><td>Cuéntame de una vez que un consumidor procesó el mismo evento dos veces en producción. ¿Cómo se dieron cuenta y qué cambiaron?</td><td>Sí: describe la clave de deduplicación y por qué la eligió. Alerta: responde que eso lo resuelve la garantía de entrega del bus.</td></tr>
       <tr><th>Datos con llegada tardía</th><td>¿Cómo modelarías un caso que se cierra operativamente pero puede recibir evidencia semanas después sin reabrirse?</td><td>Sí: separa estado operativo de estado analítico y menciona ventanas y reproceso. Alerta: propone reabrir el registro.</td></tr>
       <tr><th>Contrato con un core</th><td>Tu proyecto depende de una API que el otro equipo aún no expone. ¿Qué haces en el sprint 1?</td><td>Sí: acuerda el contrato y construye contra un simulador. Alerta: espera, o consume la base de datos del otro sistema.</td></tr>
@@ -840,11 +929,11 @@
   <div class="grid grid-2">
     <div class="card">
       <div class="card-title">Se forma en el arranque</div>
-      <div class="card-body">El gateway de modelos y la herramienta de prompts de la organización · el bus y la nube específicos · el dominio de autorizaciones de salud, con acompañamiento del negocio · P8 y las particularidades de Siniestro Integral · las herramientas internas de despliegue.</div>
+      <div class="card-body">El gateway de modelos y la herramienta de prompts de la organización · el bus y la nube específicos · el dominio de autorizaciones de salud, con acompañamiento del negocio · P8 y las particularidades de Siniestro Integral · el catálogo de red, convenios y tarifas · las herramientas internas de despliegue.</div>
     </div>
     <div class="card">
       <div class="card-title">No se forma en el proyecto</div>
-      <div class="card-body">El criterio para medir un sistema que no es determinista · el reflejo de diseñar bajo desorden y duplicidad, que viene de haber sufrido producción · la sensibilidad para tratar datos clínicos · y el juicio para revisar código que parece correcto. Estos cuatro se contratan, no se enseñan en once sprints.</div>
+      <div class="card-body">El criterio para medir un sistema que no es determinista · el reflejo de diseñar bajo desorden y duplicidad, que viene de haber sufrido producción · la sensibilidad para tratar datos clínicos · y el juicio para revisar código que parece correcto. Estos cuatro se contratan, no se enseñan en trece sprints.</div>
     </div>
   </div>
 
@@ -853,11 +942,12 @@
   <table class="tbl">
     <thead><tr><th>Riesgo</th><th>Cómo se manifiesta</th><th>Mitigación</th></tr></thead>
     <tbody>
-      <tr><th>Publicar todo como búsqueda de IA</th><td>Llegan perfiles de modelos y de ciencia de datos para el 57% del proyecto que es integración con el core.</td><td>Abrir dos búsquedas distintas: runtime agéntico e integración empresarial. Son perfiles que no compiten entre sí.</td></tr>
+      <tr><th>Publicar todo como búsqueda de IA</th><td>Llegan perfiles de modelos y de ciencia de datos para el 60% del proyecto que es integración con el core y con reglas de asignación.</td><td>Abrir dos búsquedas distintas: runtime agéntico e integración empresarial. Son perfiles que no compiten entre sí.</td></tr>
       <tr><th>Publicar todo como integración</th><td>Se llena el equipo de backend sólido y los agentes quedan sin quién los mida. Funcionan en demo y nadie puede defenderlos ante una glosa.</td><td>Reservar los dos puestos de runtime agéntico y verificarlos con las preguntas de medición y de promoción de versión.</td></tr>
       <tr><th>Dependencia del arquitecto</th><td>El único conocimiento escaso está en una persona parcial.</td><td>Exigir catálogo de métricas con fórmula y criterios de ascenso escritos antes del sprint 5.</td></tr>
       <tr><th>Front sin respaldo</th><td>Un solo puesto sostiene la puerta de entrada del MVP. Si rota, no hay quién continúe.</td><td>Documentar el componente y su contrato de embebido desde el sprint 3, y verificar con la pregunta del componente embebido antes de asignar.</td></tr>
-      <tr><th>Dedicación parcial encubierta</th><td>Las personas figuran a tiempo completo pero atienden otros frentes.</td><td>El compromiso de once sprints asume dedicación real. Si no la hay, se recalcula el calendario antes de comprometerlo.</td></tr>
+      <tr><th>Dedicación parcial encubierta</th><td>Las personas figuran a tiempo completo pero atienden otros frentes.</td><td>El compromiso de trece sprints asume dedicación real. Si no la hay, se recalcula el calendario antes de comprometerlo.</td></tr>
+      <tr><th>Reglas y asignación entra sin diseño cerrado</th><td>La persona llega en el sprint 7 a un frente de 112 días que el propio cliente registra como el menos profundizado técnicamente, y tres de sus requisitos siguen sin poder tallarse.</td><td>Arrancar el levantamiento de reglas en el sprint 5 con los integrantes de integración, y llevar a la entrevista las preguntas de criterios en conflicto y de decisión explicable.</td></tr>
       <tr><th>Rotación a mitad de proyecto</th><td>La integración con el core y el contrato de eventos concentran decisiones que solo dos personas conocen.</td><td>Registros de decisión cortos desde el sprint 1, y revisión cruzada entre los dos integrantes de integración.</td></tr>
       <tr><th>Arrancar los dos runtime a la vez</th><td>Los dos integrantes agénticos entran en el sprint 2 sin que exista todavía la integración con el core contra la que probar.</td><td>Escalonar: el primero desde el sprint 2 con Solicitud, el segundo desde el 4 con Evaluación, que es cuando ya hay contra qué construir.</td></tr>
     </tbody>
