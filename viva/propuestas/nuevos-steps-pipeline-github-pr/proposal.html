@@ -315,6 +315,19 @@
     #evolucion, #esfuerzo{break-before:page;page-break-before:always;margin-top:0;}
   }
 </style>
+<style>
+  .actors{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:12px 0 4px;}
+  .actor-chip{border:1px solid var(--accent);border-radius:999px;padding:4px 12px;font-weight:600;color:var(--violet);background:var(--violet-light);}
+  .actor-arrow{color:var(--accent);font-weight:600;}
+  .step-actor .step-dot{font-size:.8em;}
+  .step-sub{padding-bottom:10px;}
+  .step-sub .step-dot{width:12px;height:12px;left:11px;top:8px;}
+  .step-sub:not(:last-child)::after{top:20px;bottom:-8px;}
+  .step-actor:not(:last-child)::after{bottom:-8px;}
+  .step-sub .step-desc{margin-top:0;}
+  .step-loop .step-dot{background:var(--amber);}
+  .step-loop .step-desc{color:var(--amber);font-style:italic;}
+</style>
 </head>
 <body>
 <div class="page">
@@ -330,7 +343,7 @@
     </div>
     <div class="eyebrow">Propuesta de mejora de la integración continua</div>
     <h1>Nuevos pasos para el pipeline de PR</h1>
-    <p class="subtitle">Cómo funciona hoy el pipeline de cada pull request de Generic API, y cómo debería funcionar para que el revisor reciba PRs ya verificados.</p>
+    <p class="subtitle">Cómo funciona hoy el pipeline de cada pull request de Generic API, y cómo debería funcionar para que el aprobador reciba PRs ya verificados.</p>
     <div class="cover-meta">Viva Aerobus<br>Proyecto Generic API<br><strong>Estado actual, pipeline propuesto y plazo</strong></div>
     <div class="cover-confidential">Documento confidencial. Elaborado por Tech and Solve para Viva Aerobus.</div>
   </div>
@@ -339,7 +352,7 @@
     <div class="toc-title">Contenido</div>
     <ol>
       <li><a href="#estado">Estado actual</a></li>
-      <li><a href="#evolucion">Propuesta: el flujo de un PR abierto</a></li>
+      <li><a href="#evolucion">Propuesta: de la task al merge</a></li>
       <li><a href="#esfuerzo">Tiempo y esfuerzo</a></li>
       <li><a href="#siguiente">Siguiente paso</a></li>
     </ol>
@@ -387,9 +400,13 @@
     </div>
   </div>
 
-  <h2 id="evolucion">2. Propuesta: el flujo de un PR abierto</h2>
+  <h2 id="evolucion">2. Propuesta: de la task al merge</h2>
 
-  <p>Este es el flujo que recorrería cada PR antes de llegar al revisor. Cada paso indica qué se logra y si <strong>corrige</strong> solo, <strong>bloquea</strong> el merge hasta que alguien resuelva o solo <strong>informa</strong>.</p>
+  <p>La propuesta cubre el recorrido completo de una actividad, desde que el analista deja lista la task en Jira hasta el merge. Primero, qué hace el pipeline en cada PR; después, qué hace cada actor.</p>
+
+  <h3>Qué hace el pipeline en cada PR</h3>
+
+  <p>En cada push, el PR recorre estos pasos antes de llegar al aprobador. Cada paso indica qué se logra y si <strong>corrige</strong> solo, <strong>bloquea</strong> el merge hasta que alguien resuelva o solo <strong>informa</strong>.</p>
 
   <div class="stepper">
     <div class="step step-edge">
@@ -403,7 +420,7 @@
       <div class="step-label">Objetivo</div>
       <p class="step-desc">Que el código del PR cumpla el estilo Ezy del equipo sin intervención manual.</p>
       <div class="step-label">Beneficio</div>
-      <p class="step-desc">Los PRs dejan de devolverse por formato en todo lo que cubre el perfil Ezy, y el revisor dedica su tiempo a la lógica.</p>
+      <p class="step-desc">Los PRs dejan de devolverse por formato en todo lo que cubre el perfil Ezy, y el aprobador dedica su tiempo a la lógica.</p>
     </div>
     <div class="step">
       <div class="step-dot">2</div>
@@ -451,7 +468,7 @@
       <div class="step-label">Objetivo</div>
       <p class="step-desc">Que el PR llegue con su ticket, con el objetivo y la matriz de pruebas del ticket traídos desde Jira, y con la plantilla completa y coherente con los impactos detectados.</p>
       <div class="step-label">Beneficio</div>
-      <p class="step-desc">El autor no copia nada desde Jira: el PR tiene todo el contexto, con Jira como única fuente. El revisor y Copilot (paso 8) comparan el cambio contra lo pedido, y las declaraciones de cumplimiento y las release notes quedan listas.</p>
+      <p class="step-desc">El autor no copia nada desde Jira: el PR tiene todo el contexto, con Jira como única fuente. El aprobador y Copilot (paso 8) comparan el cambio contra lo pedido, y las declaraciones de cumplimiento y las release notes quedan listas.</p>
     </div>
     <div class="step">
       <div class="step-dot">8</div>
@@ -459,13 +476,13 @@
       <div class="step-label">Objetivo</div>
       <p class="step-desc">Revisar que las pruebas del PR estén alineadas con el objetivo y los criterios de aceptación del ticket que el paso 7 dejó en el PR, siguiendo instrucciones de revisión propias del equipo, además de la lógica del cambio.</p>
       <div class="step-label">Beneficio</div>
-      <p class="step-desc">El revisor sabe si lo probado corresponde a lo pedido sin cruzar a mano el ticket con el código, y los escenarios sin cubrir aparecen como comentarios en el PR.</p>
+      <p class="step-desc">El aprobador sabe si lo probado corresponde a lo pedido sin cruzar a mano el ticket con el código, y los escenarios sin cubrir aparecen como comentarios en el PR.</p>
     </div>
     <div class="step">
       <div class="step-dot">9</div>
-      <div class="step-title">Aprobación de un revisor <span class="tag tag-fail">Bloquea</span></div>
+      <div class="step-title">Aprobación del PR <span class="tag tag-fail">Bloquea</span></div>
       <div class="step-label">Objetivo</div>
-      <p class="step-desc">Que una persona valide el diseño y las reglas de negocio antes del merge.</p>
+      <p class="step-desc">Que el aprobador valide el diseño y las reglas de negocio antes del merge.</p>
       <div class="step-label">Beneficio</div>
       <p class="step-desc">La revisión humana se concentra en lo que exige criterio, con el resumen de los pasos 1 a 8 a la vista.</p>
     </div>
@@ -478,7 +495,7 @@
 
   <p class="diagram-caption">Los pasos 6, 7 y 8 no dependen de la compilación: corren uno tras otro, en paralelo a los pasos 2 a 5. Los pasos 6 y 7 tardan segundos, así que el autor ve primero lo más rápido. Los bloqueos aplican a todos los PRs, salvo las excepciones que autoricen los administradores del repo.</p>
 
-  <h3>Lo que ve el revisor</h3>
+  <h3>Lo que ve el aprobador</h3>
 
   <div class="pr-mock">
     <div class="pr-mock-head">Resumen del pipeline &middot; ejemplo</div>
@@ -498,15 +515,103 @@
   </div>
   <p class="diagram-caption">Ejemplo ilustrativo; no corresponde a un PR real.</p>
 
-  <h3>Qué gana cada rol</h3>
+  <h3>Quién hace qué: de la task al merge</h3>
+
+  <div class="actors">
+    <span class="actor-chip">Analista de la task</span><span class="actor-arrow">&rarr;</span>
+    <span class="actor-chip">Desarrollador</span><span class="actor-arrow">&rarr;</span>
+    <span class="actor-chip">PR (pipeline)</span><span class="actor-arrow">&rarr;</span>
+    <span class="actor-chip">Aprobador</span>
+  </div>
+  <p class="diagram-caption">Si el pipeline bloquea o el aprobador pide cambios, la actividad vuelve al desarrollador.</p>
+
+  <div class="stepper">
+    <div class="step step-edge step-actor">
+      <div class="step-dot">AN</div>
+      <div class="step-title">Analista de la task</div>
+      <p class="step-desc">Deja la actividad lista para desarrollar, en Jira.</p>
+    </div>
+    <div class="step step-sub">
+      <div class="step-dot"></div>
+      <p class="step-desc">Redacta el objetivo y los criterios de aceptación de la task.</p>
+    </div>
+    <div class="step step-sub">
+      <div class="step-dot"></div>
+      <p class="step-desc">Arma la matriz de pruebas en la task: por cada caso, la entrada, el resultado esperado con valores precisos, los datos de prueba y si es automatizado o manual.</p>
+    </div>
+    <div class="step step-sub">
+      <div class="step-dot"></div>
+      <p class="step-desc">Marca la task como lista para desarrollo (<code>TestCaseReady</code>) cuando la matriz está completa. La matriz vive solo en la task.</p>
+    </div>
+    <div class="step step-edge step-actor">
+      <div class="step-dot">DE</div>
+      <div class="step-title">Desarrollador</div>
+      <p class="step-desc">Lleva la actividad hasta el PR.</p>
+    </div>
+    <div class="step step-sub">
+      <div class="step-dot"></div>
+      <p class="step-desc">Toma una task lista y crea la rama con su clave: <code>feature/API-NNNN/...</code></p>
+    </div>
+    <div class="step step-sub">
+      <div class="step-dot"></div>
+      <p class="step-desc">Implementa el cambio y sus pruebas unitarias.</p>
+    </div>
+    <div class="step step-sub">
+      <div class="step-dot"></div>
+      <p class="step-desc">Agrega a la colección de Postman los casos automatizados de la matriz, con aserciones sobre el resultado esperado.</p>
+    </div>
+    <div class="step step-sub">
+      <div class="step-dot"></div>
+      <p class="step-desc">Abre el PR y completa la plantilla: impacto del release, PCI, privacidad y release notes.</p>
+    </div>
+    <div class="step step-edge step-actor">
+      <div class="step-dot">PR</div>
+      <div class="step-title">PR (pipeline)</div>
+      <p class="step-desc">Verifica y completa el PR en cada push, sin intervención de nadie.</p>
+    </div>
+    <div class="step step-sub">
+      <div class="step-dot"></div>
+      <p class="step-desc">Ejecuta los pasos 1 a 8 del pipeline, que se detallan arriba: formatea, compila, prueba, analiza, ejecuta las pruebas de servicios, identifica impactos de PCI, trae el objetivo y la matriz desde Jira y pide la revisión de Copilot.</p>
+    </div>
+    <div class="step step-sub">
+      <div class="step-dot"></div>
+      <p class="step-desc">Publica el resumen en el PR, adjunta la evidencia en Jira y asigna al aprobador.</p>
+    </div>
+    <div class="step step-sub step-loop">
+      <div class="step-dot"></div>
+      <p class="step-desc">Si un paso bloquea, el desarrollador corrige y hace push, y el pipeline vuelve a correr.</p>
+    </div>
+    <div class="step step-edge step-actor">
+      <div class="step-dot">AP</div>
+      <div class="step-title">Aprobador</div>
+      <p class="step-desc">Decide con toda la información a la vista.</p>
+    </div>
+    <div class="step step-sub">
+      <div class="step-dot"></div>
+      <p class="step-desc">Revisa el diseño y las reglas de negocio con el resumen, la evidencia y los comentarios de Copilot.</p>
+    </div>
+    <div class="step step-sub">
+      <div class="step-dot"></div>
+      <p class="step-desc">Si el PR toca pagos, la aprobación la da el responsable de PCI.</p>
+    </div>
+    <div class="step step-sub step-loop">
+      <div class="step-dot"></div>
+      <p class="step-desc">Aprueba o pide cambios. Si pide cambios, el PR vuelve al desarrollador.</p>
+    </div>
+    <div class="step step-edge">
+      <div class="step-dot">&#10003;</div>
+      <div class="step-title">Merge a master</div>
+      <p class="step-desc">Con la aprobación y los pasos que bloquean en verde, se habilita el merge. QA solo ejecuta los casos manuales de la matriz.</p>
+    </div>
+  </div>
 
   <table class="scenario-table">
-    <thead><tr><th>Rol</th><th>Qué cambia</th></tr></thead>
+    <thead><tr><th>Actor</th><th>Qué hace</th><th>Qué deja de hacer</th></tr></thead>
     <tbody>
-      <tr><th>Autor</th><td>No corrige formato a mano ni arma evidencias. Sabe en minutos qué le falta, sin esperar una ronda de revisión.</td></tr>
-      <tr><th>Revisor</th><td>Recibe un PR formateado, con las pruebas en verde, el Quality Gate aprobado y la evidencia adjunta. Revisa diseño y negocio.</td></tr>
-      <tr><th>QA</th><td>Recibe los casos automatizados ya ejecutados y solo ejecuta los manuales.</td></tr>
-      <tr><th>Responsable de PCI</th><td>Todo cambio en las rutas de pagos acordadas pasa por su aprobación, sin depender de que alguien lo avise.</td></tr>
+      <tr><th>Analista de la task</th><td>Deja en la task el objetivo, los criterios de aceptación y una matriz con resultados esperados precisos.</td><td>Mantener la matriz en dos lugares.</td></tr>
+      <tr><th>Desarrollador</th><td>Implementa, escribe las pruebas unitarias y los casos de Postman, y abre el PR.</td><td>Formatear a mano, copiar el ticket al PR, armar evidencias y esperar una ronda de revisión para saber qué le falta.</td></tr>
+      <tr><th>PR (pipeline)</th><td>Formatea, verifica, completa el contexto del PR y publica el resumen y la evidencia.</td><td>&mdash;</td></tr>
+      <tr><th>Aprobador</th><td>Revisa diseño y negocio. En pagos, aprueba el responsable de PCI.</td><td>Revisar formato, comprobar a mano que compile o que las pruebas pasen, y cruzar el ticket con el código.</td></tr>
     </tbody>
   </table>
 
@@ -547,6 +652,7 @@
 
   <h3>Condiciones</h3>
   <ul>
+    <li>El analista deja en la task el objetivo, los criterios de aceptación y la matriz con resultados esperados precisos antes de marcarla como lista para desarrollo.</li>
     <li>El equipo escribe en la colección de Postman los casos de cada ticket, con aserciones sobre los resultados de negocio, y sigue la convención que se acuerde para asociarlos al ticket. Hoy el 89&nbsp;% de los requests de la colección solo verifica que la respuesta sea 200 y <code>SUCCESS</code>, así que el valor del paso 5 depende de esta práctica.</li>
     <li>Los costos de operación quedan a cargo de Viva Aerobus: minutos de GitHub Actions (en repos privados, los runners Windows consumen el doble), licencias de Copilot y, si se usa, la máquina del agente.</li>
   </ul>
