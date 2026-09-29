@@ -386,6 +386,15 @@
     footer{font-size:11px;}
   }
 </style>
+<style>
+  .tag-fail{background:#FDECEC;color:#B42318;}
+  .pr-mock{border:1px solid var(--border);border-radius:8px;margin:12px 0 4px;overflow:hidden;page-break-inside:avoid;}
+  .pr-mock-head{background:var(--violet-light);color:var(--violet);font-weight:600;padding:8px 12px;}
+  .pr-mock .scenario-table{margin:0;}
+  .pr-mock .scenario-table tbody th{width:28%;padding-left:12px;}
+  .pr-mock .scenario-table td:nth-child(2){width:1%;white-space:nowrap;}
+  .pr-mock-foot{padding:8px 12px;color:#B42318;font-weight:600;border-top:1px solid var(--border);}
+</style>
 </head>
 <body>
 <div class="page">
@@ -401,8 +410,8 @@
     </div>
     <div class="eyebrow">Propuesta de mejora de la integración continua</div>
     <h1>Nuevos steps para el pipeline de PR</h1>
-    <p class="subtitle">Cómo funciona hoy el pipeline de cada pull request de Generic API y qué aporta.</p>
-    <div class="cover-meta">Viva Aerobus<br>Proyecto Generic API<br><strong>Parte 1 &mdash; Estado actual</strong></div>
+    <p class="subtitle">Cómo funciona hoy el pipeline de cada pull request de Generic API, y cómo debería funcionar para que el revisor reciba PRs ya verificados.</p>
+    <div class="cover-meta">Viva Aerobus<br>Proyecto Generic API<br><strong>Estado actual y pipeline propuesto</strong></div>
     <div class="cover-confidential">Documento confidencial. Elaborado por Tech and Solve para Viva Aerobus.</div>
   </div>
 
@@ -413,7 +422,7 @@
       <li><a href="#estado">Estado actual</a></li>
       <li><a href="#que-hace">Qué hace el pipeline, paso a paso</a></li>
       <li><a href="#gana">Qué gana el equipo hoy</a></li>
-      <li><a href="#evolucion">Propuesta de evolución del pipeline</a></li>
+      <li><a href="#evolucion">Propuesta: el pipeline de PR objetivo</a></li>
       <li><a href="#fuera">Lo que queda fuera de la propuesta</a></li>
     </ol>
   </div>
@@ -489,73 +498,116 @@
     </tbody>
   </table>
 
-  <h2 id="evolucion">5. Propuesta de evolución del pipeline</h2>
+  <h2 id="evolucion">5. Propuesta: el pipeline de PR objetivo</h2>
 
-  <table class="scenario-table">
-    <thead><tr><th>Mejora</th><th>Situación actual</th><th>Cambio</th><th>Qué se gana</th></tr></thead>
-    <tbody>
-      <tr><th>1. Ejecutar las pruebas unitarias</th><td>Las 682 pruebas NUnit del repo no se ejecutan.</td><td>Paso <code>dotnet test</code> entre <code>sonarscanner begin</code> y <code>end</code>, con reporte de cobertura hacia SonarQube.</td><td>Una prueba rota pone el PR en rojo, y SonarQube empieza a medir cobertura.</td></tr>
-      <tr><th>2. Bloquear el merge si no compila</th><td>El check «Build» es informativo.</td><td>Marcar «Build» como check obligatorio en el ruleset de <code>master</code>.</td><td>Ningún PR que no compile, o con pruebas fallidas (después de la mejora 1), llega a <code>master</code>.</td></tr>
-      <tr><th>3. Bloquear el merge si no pasa el Quality Gate</th><td>El check «SonarQube» es informativo.</td><td>Marcar «SonarQube Code Analysis» como check obligatorio en el mismo ruleset.</td><td>El umbral de calidad deja de depender del criterio de quien aprueba.</td></tr>
-      <tr><th>4. Revisión obligatoria en rutas sensibles</th><td>El ruleset exige code owners, pero no existe el archivo <code>CODEOWNERS</code>, así que la regla no tiene efecto: cualquier persona con permiso de escritura aprueba cualquier PR, incluidos los de pagos.</td><td>Crear <code>CODEOWNERS</code> y asignar un responsable a las rutas de pagos: <code>Concepts/Payment</code>, <code>Concepts/AccountStoredPayments</code>, <code>Integration/VivaCashPaymentService</code> y <code>Configuration/Parts/Payment</code>.</td><td>Un PR que toque pagos no se mergea sin la aprobación del responsable de PCI.</td></tr>
-      <tr><th>5. Detección automática de impacto</th><td>El impacto lo declara el autor a mano en la plantilla.</td><td>Etiquetar el PR según las rutas que cambia (<code>actions/labeler</code>): <code>impacto-pci</code> (rutas de pagos), <code>impacto-api</code> (<code>Controllers</code>, <code>Infrastructure/Swagger</code>) e <code>impacto-admin-portal</code> (<code>VivaAerobus.AdminPortal</code>, <code>Concepts/Admin/ConfigPart</code>). Se agrega un comentario que indica qué archivos lo activaron.</td><td>El impacto se identifica por los archivos tocados, no por memoria.</td></tr>
-      <tr><th>6. Validación de la plantilla de PR</th><td>Nada verifica la plantilla: un PR puede mergearse sin las casillas de PCI y privacidad ni las release notes.</td><td>Paso que lee la descripción del PR y falla si:<br>&bull; falta marcar las casillas de PCI o de privacidad (se exigen en todo PR);<br>&bull; las release notes faltan o conservan el texto de ejemplo;<br>&bull; hay una etiqueta de impacto (mejoras 5 y 7) y el bloque «Release impact and required actions» sigue en <code>&lt;none&gt;</code>.<br>El check se marca como obligatorio en el ruleset.</td><td>La plantilla llega completa y coherente con lo que tocó el PR.</td></tr>
-      <tr><th>7. Detección de cambios que rompen la API</th><td>El breaking change lo declara el autor.</td><td>Generar el OpenAPI del PR y compararlo con el de <code>master</code> (<code>oasdiff</code>). Marcar el PR si se quita un endpoint, se renombra un campo o un parámetro pasa a ser obligatorio.</td><td>Precisión que las rutas no dan: tocar un controller no siempre rompe el contrato.</td></tr>
-      <tr><th>8. Matriz de pruebas ejecutada por el pipeline</th><td>La matriz se escribe y se evidencia a mano en Jira. Marcar un caso como «Automated» no se verifica.</td><td>Versionar la matriz del ticket en el PR, asociar cada caso «Automated» a una prueba NUnit o a un request de Postman, ejecutarlos en el pipeline y publicar un reporte caso por caso. Detalle abajo.</td><td>La evidencia sale de una ejecución reproducible, no de capturas; lo marcado como automatizado queda comprobado.</td></tr>
-    </tbody>
-  </table>
-
-  <table class="cynefin-table">
-    <tbody>
-      <tr><th>Orden</th><td>1 &rarr; 2 &rarr; 3: las pruebas van primero, para que el bloqueo por compilación también las cubra y el Quality Gate se evalúe con cobertura. Luego 4 &rarr; 5 &rarr; 6, porque la validación de la plantilla depende de las etiquetas. La 7 es independiente. La 8 va al final: necesita la 1 y es la de mayor esfuerzo.</td></tr>
-      <tr><th>Dónde se cambia</th><td>Las mejoras 1, 4, 5, 6, 7 y 8 son archivos del repo y entran por PR; la 8 además requiere secrets y acceso de red al ambiente de pruebas. Las mejoras 2 y 3, y hacer obligatorios los checks de 6 y 7, se configuran en el ruleset y requieren permisos de administrador.</td></tr>
-      <tr><th>Antes de activar</th><td>Confirmar que las 682 pruebas pasan hoy en el runner, y revisar las condiciones del Quality Gate, en particular el umbral de cobertura sobre código nuevo, para no bloquear PRs desde el primer día.</td></tr>
-      <tr><th>Costo en tiempo</th><td>El tiempo de ejecución de las pruebas se suma a los ~7 minutos actuales; se mide en la primera corrida. Las mejoras 5 y 6 tardan segundos. La 8 suma el arranque de la API y la corrida de newman, solo para los casos del ticket.</td></tr>
-    </tbody>
-  </table>
-
-
-  <h3>Detalle de la mejora 8: matriz de pruebas automatizada</h3>
-
-  <p>Caso de referencia: <strong>API-1795</strong> (<em>SearchJourney TUA Difference</em>), con 8 casos en su matriz y una subtask de evidencias.</p>
-
-  <table class="scenario-table">
-    <thead><tr><th>Aspecto</th><th>Hoy</th><th>Con la mejora</th></tr></thead>
-    <tbody>
-      <tr><th>Dónde vive la matriz</th><td>En la descripción del ticket y, repetida, en la subtask de evidencias. Las dos versiones pueden diferir: en API-1795, el caso 1 espera <code>-129.09</code> en la subtask y <code>0.00</code> en el ticket.</td><td>Un archivo por ticket en el repo (por ejemplo, <code>tests/matrix/API-1795.yml</code>), revisado en el mismo PR que el código.</td></tr>
-      <tr><th>Qué dice cada caso</th><td>Tipo, descripción, resultado esperado, ejecución (Automated/Manual), si actualiza Postman y datos de prueba.</td><td>Lo mismo, más la referencia a la prueba que lo cubre: nombre del test NUnit o request de Postman.</td></tr>
-      <tr><th>Cómo se ejecuta</th><td>A mano, contra VB-Test. En API-1795, los casos 1 a 4 figuran como «Automated» con Postman actualizado, pero la colección del repo no tiene ninguna aserción sobre <code>tuaDifference</code>.</td><td>El pipeline corre los tests NUnit del ticket y levanta la API compilada del PR para correr newman sobre sus requests.</td></tr>
-      <tr><th>Evidencia</th><td>Archivos <code>TC1.md</code>&hellip;<code>TC8.md</code> y capturas adjuntados a mano.</td><td>Reporte generado con el resultado, request y response por caso, publicado en el PR y adjuntado a la subtask de Jira.</td></tr>
-      <tr><th>Qué bloquea</th><td>Nada. En TeamCity, newman corre con <code>--suppress-exit-code</code>, así que un fallo nunca detiene el proceso.</td><td>Un caso «Automated» sin prueba asociada o con prueba fallida pone el check en rojo. Los casos «Manual» se listan como pendientes y no bloquean.</td></tr>
-    </tbody>
-  </table>
+  <p>El pipeline propuesto no suma pasos sueltos. Corrige solo lo que no necesita criterio humano y responde, antes de que llegue el revisor, las cuatro preguntas que hoy el revisor responde a mano en cada PR.</p>
 
   <div class="diagram-wrap">
-    <div class="diagram-name">Figura 3. La matriz ejecutada por el pipeline</div>
-    <svg width="100%" viewBox="0 0 680 230" role="img" xmlns="http://www.w3.org/2000/svg"><title>Matriz de pruebas ejecutada por el pipeline</title><desc>La matriz del ticket se versiona en el PR. El pipeline la lee, ejecuta las pruebas NUnit y levanta la API del PR para correr newman por caso, y genera un reporte caso por caso que se publica como comentario en el PR y como evidencia en Jira. Los casos manuales quedan listados como pendientes. Un caso automatizado sin prueba asociada o con prueba fallida pone el check en rojo.</desc><defs><marker id="a8" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M0,0.8 L7,4 L0,7.2 Z" fill="#5300DF"/></marker></defs><rect x="10" y="26" width="120" height="58" rx="6" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1.2"/><text x="70.0" y="52.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">Matriz del ticket</text><text x="70.0" y="66.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">versionada en el PR</text><line x1="132" y1="55.0" x2="143" y2="55.0" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a8)"/><rect x="146" y="26" width="120" height="58" rx="6" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1.2"/><text x="206.0" y="52.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">Pipeline lee</text><text x="206.0" y="66.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">la matriz</text><line x1="268" y1="55.0" x2="279" y2="55.0" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a8)"/><rect x="282" y="26" width="120" height="58" rx="6" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1.2"/><text x="342.0" y="52.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">Pruebas NUnit</text><text x="342.0" y="66.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">por caso</text><line x1="404" y1="55.0" x2="415" y2="55.0" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a8)"/><rect x="418" y="26" width="120" height="58" rx="6" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1.2"/><text x="478.0" y="52.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">API del PR +</text><text x="478.0" y="66.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">newman por caso</text><line x1="540" y1="55.0" x2="551" y2="55.0" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a8)"/><rect x="554" y="26" width="116" height="58" rx="6" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1.2"/><text x="612.0" y="52.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">Reporte</text><text x="612.0" y="66.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">caso por caso</text><line x1="612" y1="86" x2="612" y2="110" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a8)"/><rect x="554" y="114" width="116" height="40" rx="6" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1.2"/><text x="612.0" y="138.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">Comentario en PR</text><line x1="612" y1="156" x2="612" y2="176" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a8)"/><rect x="554" y="180" width="116" height="40" rx="6" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1.2"/><text x="612.0" y="204.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">Evidencia en Jira</text><rect x="186" y="130" width="256" height="50" rx="6" fill="#FBF0DC" stroke="#B9720A" stroke-width="1.2"/><text x="314.0" y="152.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#B9720A">Casos «Manual»: quedan listados</text><text x="314.0" y="166.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#B9720A">como pendientes de evidencia humana</text><text x="10" y="114" font-size="8.4" fill="#8A8998">Caso «Automated» sin</text><text x="10" y="128" font-size="8.4" fill="#8A8998">prueba asociada, o con</text><text x="10" y="142" font-size="8.4" fill="#8A8998">prueba fallida: check</text><text x="10" y="156" font-size="8.4" fill="#8A8998">en rojo.</text></svg>
+    <div class="diagram-name">Figura 3. El pipeline de PR propuesto</div>
+    <svg width="100%" viewBox="0 0 680 292" role="img" xmlns="http://www.w3.org/2000/svg"><title>Pipeline de PR propuesto</title><desc>Al abrir o actualizar un PR, la etapa 0 aplica el estilo Ezy y, si cambia algo, lo sube en un commit automatico y el pipeline vuelve a correr. Luego corren en paralelo la etapa 1, que valida que el PR este listo para revision, y la etapa 2, que compila, prueba y evalua el Quality Gate y deja la API compilada. Con ese resultado corren la etapa 3, que compara el contrato OpenAPI con master, y la etapa 4, que ejecuta los casos de la matriz del ticket. Todas alimentan un comentario resumen. El merge exige las etapas 1 a 4 en verde y la aprobacion del responsable.</desc><defs><marker id="a4" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M0,0.8 L7,4 L0,7.2 Z" fill="#5300DF"/></marker></defs><rect x="6" y="120" width="66" height="56" rx="6" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1.2"/><text x="39.0" y="140.0" text-anchor="middle" font-size="9.6" font-weight="600" fill="#280265">PR</text><text x="39.0" y="155.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">abierto o</text><text x="39.0" y="167.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">actualizado</text><rect x="90" y="112" width="104" height="72" rx="6" fill="#EBEBFF" stroke="#5300DF" stroke-width="1.2"/><text x="142.0" y="140.0" text-anchor="middle" font-size="9.6" font-weight="600" fill="#280265">0 · Estilo Ezy</text><text x="142.0" y="155.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">se aplica solo</text><text x="142.0" y="167.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">commit automático</text><rect x="216" y="18" width="150" height="76" rx="6" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1.2"/><text x="291.0" y="42.0" text-anchor="middle" font-size="9.6" font-weight="600" fill="#280265">1 · ¿Listo para revisión?</text><text x="291.0" y="57.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">ticket · impacto</text><text x="291.0" y="69.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">plantilla · revisor</text><text x="291.0" y="81.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">segundos</text><rect x="216" y="190" width="150" height="92" rx="6" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1.2"/><text x="291.0" y="216.0" text-anchor="middle" font-size="9.6" font-weight="600" fill="#280265">2 · ¿Cumple el estándar?</text><text x="291.0" y="231.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">compila · pruebas</text><text x="291.0" y="243.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">cobertura</text><text x="291.0" y="255.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">Quality Gate</text><text x="291.0" y="267.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">deja la API compilada</text><rect x="388" y="130" width="138" height="66" rx="6" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1.2"/><text x="457.0" y="155.0" text-anchor="middle" font-size="9.6" font-weight="600" fill="#280265">3 · ¿Cambió el contrato?</text><text x="457.0" y="170.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">OpenAPI del PR</text><text x="457.0" y="182.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">contra el de master</text><rect x="388" y="214" width="138" height="66" rx="6" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1.2"/><text x="457.0" y="239.0" text-anchor="middle" font-size="9.6" font-weight="600" fill="#280265">4 · ¿Cumple el ticket?</text><text x="457.0" y="254.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">casos de la matriz</text><text x="457.0" y="266.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">ejecutados con newman</text><rect x="546" y="40" width="128" height="56" rx="6" fill="#EBEBFF" stroke="#5300DF" stroke-width="1.2"/><text x="610.0" y="60.0" text-anchor="middle" font-size="9.6" font-weight="600" fill="#280265">Resumen en el PR</text><text x="610.0" y="75.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">un comentario</text><text x="610.0" y="87.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">se actualiza en cada push</text><rect x="546" y="190" width="128" height="70" rx="6" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1.2"/><text x="610.0" y="211.0" text-anchor="middle" font-size="9.6" font-weight="600" fill="#280265">Merge</text><text x="610.0" y="226.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">etapas 1–4 en verde</text><text x="610.0" y="238.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">+ aprobación</text><text x="610.0" y="250.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">del responsable</text><polyline points="72,148 88,148" fill="none" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a4)"/><polyline points="194,148 205,148 205,56 214,56" fill="none" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a4)"/><polyline points="205,148 205,236 214,236" fill="none" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a4)"/><polyline points="366,236 377,236 377,163 386,163" fill="none" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a4)"/><polyline points="377,236 377,247 386,247" fill="none" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a4)"/><polyline points="366,56 544,56" fill="none" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a4)"/><polyline points="526,247 536,247 536,163" fill="none" stroke="#5300DF" stroke-width="1.3"/><polyline points="526,163 536,163 536,84 544,84" fill="none" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a4)"/><polyline points="610,96 610,188" fill="none" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a4)"/><text x="92" y="202" font-size="8" fill="#5B5A66">Si corrige algo, el</text><text x="92" y="213" font-size="8" fill="#5B5A66">pipeline vuelve a</text><text x="92" y="224" font-size="8" fill="#5B5A66">correr sobre el</text><text x="92" y="235" font-size="8" fill="#5B5A66">commit nuevo.</text></svg>
+    <div class="diagram-caption">La etapa 0 corrige; las etapas 1 a 4 verifican y son obligatorias para mergear.</div>
   </div>
 
-  <table class="cynefin-table">
+  <h3>Principios de diseño</h3>
+  <ul>
+    <li><strong>Lo que se puede corregir solo, se corrige.</strong> Solo bloquea lo que exige una decisión humana. Un PR no vuelve al autor por formato.</li>
+    <li><strong>Una pregunta por etapa.</strong> El nombre del check dice qué se validó, no qué herramienta corrió.</li>
+    <li><strong>Lo barato primero.</strong> Lo que tarda segundos corre en paralelo al build y avisa antes.</li>
+    <li><strong>Se compila una sola vez.</strong> La API que compila la etapa 2 es la que prueban las etapas 3 y 4.</li>
+    <li><strong>Lo que se valida, bloquea.</strong> Cada etapa es un check obligatorio en el ruleset de <code>master</code>.</li>
+    <li><strong>Un solo lugar para leer el resultado.</strong> Un comentario resumen en el PR, actualizado en cada push.</li>
+  </ul>
+
+  <h3>Corrige, verifica, informa</h3>
+
+  <table class="scenario-table">
+    <thead><tr><th>El pipeline&hellip;</th><th>Qué hace</th><th>Ejemplos</th></tr></thead>
     <tbody>
-      <tr><th>Qué ya existe</th><td>La colección de Postman del repo (271 requests, 269 con tests), sus ambientes (incluido uno local), el proyecto NUnit y la convención de ramas <code>feature/API-NNNN/...</code>, de la que el pipeline obtiene la clave del ticket.</td></tr>
-      <tr><th>Qué hay que construir</th><td>El formato del archivo de matriz, el paso que la lee y ejecuta cada caso, el arranque de la API dentro del runner y el generador del reporte.</td></tr>
-      <tr><th>Requisitos</th><td>Acceso de red desde el runner a los servicios de prueba (dotREZ y demás integraciones), o un runner propio dentro de esa red. Credenciales del ambiente como secrets. Un token de Jira con permiso solo para adjuntar evidencia, si se publica allí.</td></tr>
-      <tr><th>Datos de prueba</th><td>Los casos de cambio de vuelo modifican los PNRs que usan. Para que la corrida sea repetible, cada caso debe crear su reserva o usar PNRs que se regeneren.</td></tr>
+      <tr><th>Corrige</th><td>Aplica el cambio en el PR sin intervención de nadie.</td><td>Estilo Ezy en las líneas del PR (commit automático) &middot; etiquetas de impacto &middot; asignación del revisor por <code>CODEOWNERS</code>.</td></tr>
+      <tr><th>Verifica</th><td>Bloquea el merge hasta que se resuelva, porque requiere una decisión.</td><td>Compilación &middot; pruebas &middot; Quality Gate &middot; plantilla completa &middot; contrato declarado &middot; casos automatizados de la matriz.</td></tr>
+      <tr><th>Informa</th><td>Deja el dato donde se decide, sin bloquear.</td><td>Resumen en el PR &middot; cambios de contrato compatibles &middot; casos manuales pendientes &middot; evidencia en Jira.</td></tr>
     </tbody>
   </table>
+
+  <h3>Las etapas</h3>
+
+  <table class="scenario-table">
+    <thead><tr><th>Etapa</th><th>Qué valida</th><th>Bloquea el merge si</th></tr></thead>
+    <tbody>
+      <tr><th>0 · Estilo Ezy</th><td>Corre <code>jb cleanupcode</code> con el perfil <strong>Ezy</strong> del <code>.sln.DotSettings</code>, con el mismo criterio que usa el coder: cambia solo las líneas que toca el PR y deja intacto el resto. Si hay diferencias, sube un commit automático a la rama y el pipeline vuelve a correr sobre él.</td><td>No bloquea: corrige. Solo avisa, con el diff sugerido, si no puede subir el commit (por ejemplo, un PR desde un fork).</td></tr>
+      <tr><th>1 · ¿Listo para revisión?</th><td>&bull; La rama o el título tienen la clave del ticket (<code>API-NNNN</code>).<br>&bull; El impacto se detecta por las rutas tocadas y se etiqueta: <code>impacto-pci</code> (pagos), <code>impacto-api</code> (controllers y Swagger), <code>impacto-admin-portal</code>.<br>&bull; La plantilla está completa: casillas de PCI y privacidad, release notes reales y bloque de impacto si hay etiqueta.<br>&bull; <code>CODEOWNERS</code> asigna al responsable de cada ruta sensible.</td><td>Falta el ticket, o la plantilla está incompleta o no coincide con el impacto detectado.</td></tr>
+      <tr><th>2 · ¿Cumple el estándar?</th><td>&bull; La solución compila.<br>&bull; Las 682 pruebas unitarias pasan y se mide la cobertura.<br>&bull; El Quality Gate de SonarQube, ya con cobertura.</td><td>No compila, falla una prueba o el Quality Gate no pasa.</td></tr>
+      <tr><th>3 · ¿Cambió el contrato?</th><td>Genera el OpenAPI de la API compilada y lo compara con el de <code>master</code> (<code>oasdiff</code>). Lista los endpoints y campos que cambian.</td><td>Hay un cambio que rompe compatibilidad y el PR no lo declara en la plantilla.</td></tr>
+      <tr><th>4 · ¿Cumple el ticket?</th><td>Levanta la API compilada y ejecuta con newman los casos «Automated» de la matriz del ticket, versionada en el PR. Adjunta la evidencia a la subtask de Jira. Los casos «Manual» se listan como pendientes.</td><td>Un caso «Automated» falla o no tiene prueba asociada.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Lo que ve el revisor</h3>
+
+  <div class="pr-mock">
+    <div class="pr-mock-head">Resumen del pipeline &middot; PR #2478 &middot; API-1795</div>
+    <table class="scenario-table">
+      <tbody>
+        <tr><th>0 · Estilo Ezy</th><td><span class="tag tag-ok">Aplicado</span></td><td>Commit automático con el ajuste de estilo en las líneas del PR.</td></tr>
+        <tr><th>1 · ¿Listo para revisión?</th><td><span class="tag tag-ok">OK</span></td><td>Ticket API-1795 &middot; etiqueta <code>impacto-api</code> &middot; plantilla completa &middot; revisor asignado</td></tr>
+        <tr><th>2 · ¿Cumple el estándar?</th><td><span class="tag tag-fail">Bloquea</span></td><td>Compila, pero el Quality Gate de SonarQube no se aprobó.</td></tr>
+        <tr><th>3 · ¿Cambió el contrato?</th><td><span class="tag tag-warn">Aviso</span></td><td>Campo nuevo <code>tuaDifference</code> en <code>POST /v1/booking/searchJourneys</code>. No rompe compatibilidad.</td></tr>
+        <tr><th>4 · ¿Cumple el ticket?</th><td><span class="tag tag-warn">Pendiente</span></td><td>Casos 1&ndash;4 automatizados: en verde. Casos 5&ndash;8 manuales: pendientes de evidencia.</td></tr>
+      </tbody>
+    </table>
+    <div class="pr-mock-foot">Merge bloqueado hasta que la etapa 2 pase.</div>
+  </div>
+  <p class="diagram-caption">Ejemplo ilustrativo con los datos reales de API-1795. Las etapas 0, 1, 3 y 4 son simuladas. La etapa 2 refleja lo que sí ocurrió: el PR #2478 compiló y se mergeó con el Quality Gate en rojo.</p>
+
+  <h3>Por qué: lo que muestra un PR real</h3>
+
+  <table class="scenario-table">
+    <thead><tr><th>Hecho en API-1795 / PR #2478</th><th>Etapa que lo resuelve</th></tr></thead>
+    <tbody>
+      <tr><th>El PR se mergeó con el Quality Gate de SonarQube en rojo.</th><td>Etapa 2, obligatoria para mergear.</td></tr>
+      <tr><th>Los casos 1 a 4 figuran como «Automated», pero la colección de Postman del repo no tiene aserciones sobre <code>tuaDifference</code> y no hay ninguna ejecución rastreable.</th><td>Etapa 4: un caso «Automated» sin prueba pone el check en rojo.</td></tr>
+      <tr><th>La matriz está en el ticket y en la subtask con valores distintos: el caso 1 espera <code>0.00</code> en uno y <code>-129.09</code> en el otro.</th><td>Etapa 4: una sola matriz, versionada y revisada en el PR.</td></tr>
+      <tr><th>El estilo Ezy se aplica en local con el coder o lo pide el revisor en una ronda de revisión.</th><td>Etapa 0: el estilo se aplica solo en un commit automático. Ningún PR vuelve por formato.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Qué gana cada rol</h3>
+
+  <table class="scenario-table">
+    <thead><tr><th>Rol</th><th>Qué cambia</th></tr></thead>
+    <tbody>
+      <tr><th>Autor</th><td>No corrige formato a mano ni arma evidencias. Sabe en minutos qué le falta, sin esperar una ronda de revisión.</td></tr>
+      <tr><th>Revisor</th><td>Recibe un PR que compila, pasa las pruebas, cumple el estilo y el contrato, y trae evidencia. Revisa diseño y negocio, no formato.</td></tr>
+      <tr><th>QA</th><td>Recibe los casos automatizados ya ejecutados y solo ejecuta los manuales.</td></tr>
+      <tr><th>Responsable de PCI y líder técnico</th><td>Todo cambio en pagos pasa por su aprobación, y los cambios de contrato se ven antes del merge.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Hoja de ruta</h3>
+
+  <table class="scenario-table">
+    <thead><tr><th>Fase</th><th>Qué se activa</th><th>Requisitos</th><th>Valor inmediato</th></tr></thead>
+    <tbody>
+      <tr><th>1 · Guardarraíles</th><td>Etapa 0 (estilo automático), etapa 2 completa (pruebas y cobertura), checks obligatorios, <code>CODEOWNERS</code> y acciones actualizadas.</td><td>Confirmar que las 682 pruebas pasan en el runner. Definir el umbral de cobertura del Quality Gate. Permisos de administrador del repo. Una GitHub App para el commit automático: los commits hechos con el token por defecto no vuelven a disparar el pipeline.</td><td>Ya no llega a <code>master</code> código que no compila, no pasa las pruebas o tiene el Quality Gate en rojo, y ningún PR vuelve por formato.</td></tr>
+      <tr><th>2 · Listo para revisión</th><td>Etapa 1.</td><td>Acordar las rutas sensibles y sus responsables.</td><td>Los PRs llegan completos y a quien corresponde revisarlos.</td></tr>
+      <tr><th>3 · Contrato</th><td>Etapa 3.</td><td>Generar el OpenAPI desde el build; Swagger ya está configurado.</td><td>Los cambios que rompen la API se ven antes del merge.</td></tr>
+      <tr><th>4 · Criterios del ticket</th><td>Etapa 4.</td><td>Acceso de red a los servicios de prueba o un runner propio, secrets del ambiente, PNRs que se puedan regenerar y el formato del archivo de matriz.</td><td>Evidencia reproducible en lugar de capturas.</td></tr>
+    </tbody>
+  </table>
+
+  <p>La fase 1 es la de mayor valor por esfuerzo: usa herramientas que ya existen (NUnit, SonarQube, el perfil Ezy del coder y el ruleset) y cierra el caso del PR #2478. La fase 4 es la de mayor esfuerzo, porque depende de la red y de los datos de prueba.</p>
 
   <h2 id="fuera">6. Lo que queda fuera de la propuesta</h2>
 
   <table class="scenario-table">
     <thead><tr><th>Tema</th><th>Por qué queda fuera</th><th>Cómo se cubre</th></tr></thead>
     <tbody>
-      <tr><th>Veracidad de lo declarado</th><td>El pipeline verifica que las casillas estén marcadas, no que lo afirmado sea cierto.</td><td>Criterio del revisor. En pagos, el responsable de PCI (mejora 4).</td></tr>
-      <tr><th>Detección de impacto en privacidad</th><td>Los datos personales están repartidos por el código; no se detectan de forma fiable por ruta.</td><td>Casilla obligatoria en todo PR (mejora 6) y revisión humana. A futuro, una alerta orientativa sobre el diff.</td></tr>
+      <tr><th>Veracidad de lo declarado</th><td>El pipeline verifica que las casillas estén marcadas, no que lo afirmado sea cierto.</td><td>Criterio del revisor. En pagos, el responsable de PCI asignado por <code>CODEOWNERS</code>.</td></tr>
+      <tr><th>Impacto en privacidad</th><td>Los datos personales están repartidos por el código; no se detectan de forma fiable por ruta.</td><td>Casilla obligatoria en todo PR (etapa 1) y revisión humana.</td></tr>
       <tr><th>Impacto en rendimiento</th><td>No se puede deducir de los archivos tocados.</td><td>Sigue siendo una declaración del autor en la plantilla.</td></tr>
-      <tr><th>Rutas sensibles nuevas</th><td>La lista de rutas de <code>CODEOWNERS</code> y del etiquetado se mantiene a mano.</td><td>Actualizarla cuando se agregue un proveedor de pago o una carpeta sensible fuera de las listadas.</td></tr>
-      <tr><th>Casos manuales de la matriz</th><td>Algunos casos dependen de datos difíciles de reproducir, como reservas multipasajero o con TUA sin pagar.</td><td>Quedan como «Manual» y el reporte de la mejora 8 los lista como pendientes. Se automatizan a medida que haya datos de prueba reproducibles.</td></tr>
-      <tr><th>Definición del resultado esperado</th><td>El pipeline comprueba lo que la matriz dice, no si la matriz es correcta.</td><td>Revisión de la matriz por negocio y QA en el mismo PR, como hoy en los comentarios del ticket.</td></tr>
-      <tr><th>Acciones en versiones antiguas</th><td><code>actions/checkout@v2</code> y <code>actions/setup-java@v1</code> corren sobre versiones de Node sin soporte. No es un step nuevo, sino mantenimiento del workflow.</td><td>Actualizarlas a su versión vigente en el mismo PR de la mejora 1, antes de que GitHub retire esos runtimes.</td></tr>
+      <tr><th>Rutas sensibles nuevas</th><td>La lista de rutas de <code>CODEOWNERS</code> y del etiquetado se mantiene a mano.</td><td>Actualizarla cuando aparezca un proveedor de pago o una carpeta sensible nueva.</td></tr>
+      <tr><th>Casos manuales de la matriz</th><td>Algunos dependen de datos difíciles de reproducir, como reservas multipasajero o con TUA sin pagar.</td><td>La etapa 4 los lista como pendientes. Se automatizan a medida que haya datos reproducibles.</td></tr>
+      <tr><th>Definición del resultado esperado</th><td>El pipeline comprueba lo que dice la matriz, no si la matriz es correcta.</td><td>Revisión de la matriz por negocio y QA en el mismo PR.</td></tr>
     </tbody>
   </table>
 
