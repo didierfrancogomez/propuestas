@@ -412,6 +412,10 @@
   .stepper-compact .step-dot{width:18px;height:18px;top:4px;}
   .stepper-compact .step-title{padding-top:2px;font-size:1em;}
 </style>
+<style>
+  .step-label{font-weight:600;color:var(--accent);font-size:.8em;text-transform:uppercase;letter-spacing:.05em;margin-top:6px;}
+  .step-label + .step-desc{margin-top:1px;}
+</style>
 </head>
 <body>
 <div class="page">
@@ -495,56 +499,74 @@
     <div class="step">
       <div class="step-dot">1</div>
       <div class="step-title">Aplicar formateo de código <span class="tag tag-fix">Corrige</span></div>
-      <p class="step-desc">El código queda con el estilo Ezy del equipo sin que nadie lo haga a mano. Solo se ajustan las líneas que toca el PR, y el revisor ya no devuelve un PR por formato.</p>
-      <div class="step-tool"><code>jb cleanupcode</code> con el perfil Ezy del <code>.sln.DotSettings</code>, el mismo criterio que usa el coder. Si hay cambios, los sube en un commit automático.</div>
+      <div class="step-label">Objetivo</div>
+      <p class="step-desc">Que el código del PR cumpla el estilo Ezy del equipo sin intervención manual.</p>
+      <div class="step-label">Beneficio</div>
+      <p class="step-desc">Ningún PR se devuelve por formato, y el revisor dedica su tiempo a la lógica.</p>
     </div>
     <div class="step">
       <div class="step-dot">2</div>
       <div class="step-title">Compilar la solución <span class="tag tag-fail">Bloquea</span></div>
-      <p class="step-desc">Un PR que no compila no puede mergearse. Hoy este check ya existe, pero es informativo: pasa a ser obligatorio en el ruleset de <code>master</code>.</p>
-      <div class="step-tool">Job <strong>Build</strong> actual (<code>dotnet build</code>), marcado como check obligatorio. La API compilada se reutiliza en los pasos 3 a 5.</div>
+      <div class="step-label">Objetivo</div>
+      <p class="step-desc">Garantizar que la solución compila antes de cualquier otra validación.</p>
+      <div class="step-label">Beneficio</div>
+      <p class="step-desc">A <code>master</code> nunca llega código que no compila.</p>
     </div>
     <div class="step">
       <div class="step-dot">3</div>
       <div class="step-title">Ejecutar pruebas unitarias <span class="tag tag-fail">Bloquea</span></div>
-      <p class="step-desc">Ningún cambio rompe un comportamiento ya cubierto: las 682 pruebas del repo corren en cada push y se mide la cobertura del código nuevo.</p>
-      <div class="step-tool"><code>dotnet test</code> sobre el proyecto NUnit, con reporte de cobertura para SonarQube.</div>
+      <div class="step-label">Objetivo</div>
+      <p class="step-desc">Confirmar que el cambio no rompe comportamientos ya cubiertos por las pruebas y conocer la cobertura del código nuevo.</p>
+      <div class="step-label">Beneficio</div>
+      <p class="step-desc">Las regresiones se detectan en el PR, en minutos, y no en QA o en producción.</p>
     </div>
     <div class="step">
       <div class="step-dot">4</div>
       <div class="step-title">Ejecutar análisis de SonarQube <span class="tag tag-fail">Bloquea</span></div>
-      <p class="step-desc">Los bugs, vulnerabilidades y duplicaciones se detectan antes de la revisión, y el Quality Gate, ya con cobertura, decide si el PR puede mergearse.</p>
-      <div class="step-tool">Scanner de SonarQube, que ya existe. Lo nuevo es que el Quality Gate es obligatorio para mergear.</div>
+      <div class="step-label">Objetivo</div>
+      <p class="step-desc">Detectar bugs, vulnerabilidades y duplicación en el código nuevo, con el Quality Gate como criterio de merge.</p>
+      <div class="step-label">Beneficio</div>
+      <p class="step-desc">El umbral de calidad deja de depender del criterio de quien aprueba.</p>
     </div>
     <div class="step">
       <div class="step-dot">5</div>
       <div class="step-title">Ejecutar pruebas de servicios <span class="tag tag-fail">Bloquea</span></div>
-      <p class="step-desc">Los casos de prueba del ticket se ejecutan contra la API del propio PR. La evidencia se genera sola y se adjunta a Jira, y lo que la matriz marca como «Automated» queda comprobado.</p>
-      <div class="step-tool">newman con los requests de la colección de Postman asociados al ticket. Los casos «Manual» quedan listados como pendientes.</div>
+      <div class="step-label">Objetivo</div>
+      <p class="step-desc">Comprobar que la API del PR cumple los casos de prueba definidos en el ticket.</p>
+      <div class="step-label">Beneficio</div>
+      <p class="step-desc">La evidencia se genera sola y es reproducible, y QA solo ejecuta los casos manuales.</p>
     </div>
     <div class="step">
       <div class="step-dot">6</div>
       <div class="step-title">Identificar impactos de PCI <span class="tag tag-fix">Corrige</span></div>
-      <p class="step-desc">Si el PR toca pagos, se etiqueta, se indica qué archivos lo activaron y se exige la aprobación del responsable de PCI.</p>
-      <div class="step-tool">Etiquetado por rutas (<code>Concepts/Payment</code>, <code>AccountStoredPayments</code>, <code>VivaCashPaymentService</code>, <code>Configuration/Parts/Payment</code>) y <code>CODEOWNERS</code>.</div>
+      <div class="step-label">Objetivo</div>
+      <p class="step-desc">Identificar si el PR toca el flujo de pagos.</p>
+      <div class="step-label">Beneficio</div>
+      <p class="step-desc">Ningún cambio en pagos llega a <code>master</code> sin la aprobación del responsable de PCI.</p>
     </div>
     <div class="step">
       <div class="step-dot">7</div>
       <div class="step-title">Validar estructura del PR <span class="tag tag-fail">Bloquea</span></div>
-      <p class="step-desc">El PR llega con la clave del ticket y la plantilla completa (PCI, privacidad y release notes), coherente con los impactos detectados en el paso 6.</p>
-      <div class="step-tool">Lectura de la rama, el título y la descripción del PR.</div>
+      <div class="step-label">Objetivo</div>
+      <p class="step-desc">Que el PR llegue con su ticket y la plantilla completa y coherente con los impactos detectados.</p>
+      <div class="step-label">Beneficio</div>
+      <p class="step-desc">El revisor tiene todo el contexto, y las declaraciones de cumplimiento y las release notes quedan listas.</p>
     </div>
     <div class="step">
       <div class="step-dot">8</div>
       <div class="step-title">Revisión de Copilot <span class="tag tag-warn">Informa</span></div>
-      <p class="step-desc">Copilot deja sugerencias sobre un PR ya formateado y verificado, así que sus comentarios se concentran en la lógica y no en el formato. El revisor las ve junto al resumen.</p>
-      <div class="step-tool">Gestionada por GitHub; ya está activa en el repo.</div>
+      <div class="step-label">Objetivo</div>
+      <p class="step-desc">Sumar una revisión automática de la lógica del cambio.</p>
+      <div class="step-label">Beneficio</div>
+      <p class="step-desc">El revisor humano parte de sugerencias ya hechas sobre un PR limpio.</p>
     </div>
     <div class="step">
       <div class="step-dot">9</div>
       <div class="step-title">Aprobación de un revisor <span class="tag tag-fail">Bloquea</span></div>
-      <p class="step-desc">El revisor aprueba con el resumen de los pasos 1 a 8 a la vista, y revisa diseño y negocio porque lo demás ya viene verificado. Si el paso 6 detectó impacto en pagos, la aprobación del responsable de PCI es obligatoria.</p>
-      <div class="step-tool">Ruleset de <code>master</code>: 1 aprobación, más la de code owners gracias al archivo <code>CODEOWNERS</code>.</div>
+      <div class="step-label">Objetivo</div>
+      <p class="step-desc">Que una persona valide el diseño y las reglas de negocio antes del merge.</p>
+      <div class="step-label">Beneficio</div>
+      <p class="step-desc">La revisión humana se concentra en lo que exige criterio, con el resumen de los pasos 1 a 8 a la vista.</p>
     </div>
     <div class="step step-edge">
       <div class="step-dot">&#10003;</div>
