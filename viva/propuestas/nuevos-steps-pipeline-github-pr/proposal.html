@@ -395,6 +395,23 @@
   .pr-mock .scenario-table td:nth-child(2){width:1%;white-space:nowrap;}
   .pr-mock-foot{padding:8px 12px;color:#B42318;font-weight:600;border-top:1px solid var(--border);}
 </style>
+<style>
+  .tag-fix{background:var(--violet-light);color:var(--violet);}
+  .stepper{margin:16px 0 8px;}
+  .step{position:relative;padding:0 0 20px 50px;page-break-inside:avoid;}
+  .step:not(:last-child)::after{content:'';position:absolute;left:16px;top:36px;bottom:2px;width:2px;background:var(--border);}
+  .step-dot{position:absolute;left:0;top:0;width:34px;height:34px;border-radius:50%;background:var(--accent);color:#FFFFFF;font-weight:600;display:flex;align-items:center;justify-content:center;font-size:1em;}
+  .step-edge .step-dot{background:var(--violet-light);color:var(--violet);border:2px solid var(--accent);font-size:.85em;}
+  .step-title{font-weight:600;color:var(--violet);font-size:1.1em;line-height:1.3;padding-top:6px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .step-desc{color:var(--text);margin:4px 0 0;}
+  .step-tool{color:var(--text-3);font-size:.88em;margin-top:3px;}
+</style>
+<style>
+  .stepper-compact .step{padding-bottom:14px;padding-left:34px;}
+  .stepper-compact .step:not(:last-child)::after{left:8px;top:22px;}
+  .stepper-compact .step-dot{width:18px;height:18px;top:4px;}
+  .stepper-compact .step-title{padding-top:2px;font-size:1em;}
+</style>
 </head>
 <body>
 <div class="page">
@@ -418,129 +435,125 @@
   <div class="toc">
     <div class="toc-title">Contenido</div>
     <ol>
-      <li><a href="#resumen">Resumen</a></li>
       <li><a href="#estado">Estado actual</a></li>
-      <li><a href="#que-hace">Qué hace el pipeline, paso a paso</a></li>
-      <li><a href="#gana">Qué gana el equipo hoy</a></li>
-      <li><a href="#evolucion">Propuesta: el pipeline de PR objetivo</a></li>
-      <li><a href="#fuera">Lo que queda fuera de la propuesta</a></li>
+      <li><a href="#evolucion">Propuesta: el flujo de un PR abierto</a></li>
     </ol>
   </div>
 
-  <h2 id="resumen">1. Resumen</h2>
+  <h2 id="estado">1. Estado actual</h2>
 
-  <table class="cynefin-table">
-    <tbody>
-      <tr><th>Qué es</th><td>Un workflow de GitHub Actions en el propio repo (<code>.github/workflows/build.yml</code>). Es el único del repo y no depende de otros repos.</td></tr>
-      <tr><th>Cuándo corre</th><td>En cada PR (al abrirse, al recibir commits y al reabrirse), en cada push a <code>master</code> y en cada tag <code>vivaaerobus-prod-*</code>.</td></tr>
-      <tr><th>Qué valida</th><td>Que la solución compile y que el código nuevo pase el Quality Gate de SonarQube.</td></tr>
-      <tr><th>Qué no valida</th><td>No ejecuta pruebas y no bloquea el merge. Ambas cosas se abordan en la sección 5.</td></tr>
-    </tbody>
-  </table>
+  <p>Este es el recorrido que hace hoy un PR hasta llegar a <code>master</code>.</p>
 
-  <h2 id="estado">2. Estado actual</h2>
-
-  <div class="kpis">
-    <div class="kpi"><div class="kpi-value">1.227</div><div class="kpi-label">ejecuciones en PRs</div></div>
-    <div class="kpi"><div class="kpi-value">84 %</div><div class="kpi-label">exitosas (últimas 100)</div></div>
-    <div class="kpi"><div class="kpi-value">6,8 min</div><div class="kpi-label">mediana (p90: 9,6 min)</div></div>
-    <div class="kpi"><div class="kpi-value">0</div><div class="kpi-label">pruebas ejecutadas</div></div>
+  <div class="stepper">
+    <div class="step step-edge">
+      <div class="step-dot">PR</div>
+      <div class="step-title">Se abre o se actualiza un pull request</div>
+      <p class="step-desc">El autor completa la plantilla del PR: impacto del release, PCI, privacidad y release notes. Nadie valida su contenido.</p>
+      <div class="step-tool">Plantilla <code>.github/pull_request_template.md</code>.</div>
+    </div>
+    <div class="step">
+      <div class="step-dot">1</div>
+      <div class="step-title">Compilar la solución <span class="tag tag-warn">No bloquea</span></div>
+      <p class="step-desc">Cada push compila la solución en una máquina limpia, con una mediana de 6,8 minutos. No ejecuta las 682 pruebas unitarias del repo. Si falla, el check queda en rojo, pero el merge sigue permitido.</p>
+      <div class="step-tool">Job <strong>Build</strong> de GitHub Actions en <code>windows-latest</code> (<code>dotnet build</code>).</div>
+    </div>
+    <div class="step">
+      <div class="step-dot">2</div>
+      <div class="step-title">Analizar con SonarQube <span class="tag tag-warn">No bloquea</span></div>
+      <p class="step-desc">SonarQube revisa el código nuevo y publica el Quality Gate y un comentario en el PR. Como no se ejecutan pruebas, no mide cobertura.</p>
+      <div class="step-tool"><code>dotnet-sonarscanner</code> dentro del mismo job; el resultado llega como el check «SonarQube Code Analysis».</div>
+    </div>
+    <div class="step">
+      <div class="step-dot">3</div>
+      <div class="step-title">Revisión de Copilot <span class="tag tag-warn">No bloquea</span></div>
+      <p class="step-desc">GitHub deja sugerencias automáticas en el PR.</p>
+      <div class="step-tool">Gestionada por GitHub; no vive en el repo.</div>
+    </div>
+    <div class="step">
+      <div class="step-dot">4</div>
+      <div class="step-title">Aprobación de un revisor <span class="tag tag-fail">Bloquea</span></div>
+      <p class="step-desc">El ruleset de <code>master</code> exige 1 aprobación. La regla de code owners no tiene efecto, porque el repo no tiene archivo <code>CODEOWNERS</code>: cualquier persona con permiso de escritura puede aprobar, incluso cambios en pagos.</p>
+      <div class="step-tool">Ruleset de <code>master</code>.</div>
+    </div>
+    <div class="step step-edge">
+      <div class="step-dot">&#10003;</div>
+      <div class="step-title">Merge a master</div>
+      <p class="step-desc">Basta con la aprobación, aunque la compilación o el Quality Gate estén en rojo. El PR #2478 se mergeó con el Quality Gate en rojo.</p>
+    </div>
   </div>
 
-  <div class="diagram-wrap">
-    <div class="diagram-name">Figura 1. Recorrido actual de un PR</div>
-    <svg width="100%" viewBox="0 0 680 180" role="img" xmlns="http://www.w3.org/2000/svg"><title>Recorrido actual de un PR en Generic API</title><desc>Al abrir o actualizar un PR, GitHub Actions ejecuta el job Build, que compila la solucion y envia el analisis a SonarQube, que publica su Quality Gate en el PR. Luego un revisor aprueba y se hace merge a master. Los checks de Build y SonarQube se ven en el PR pero no son obligatorios para el merge.</desc><defs><marker id="a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M0,0.8 L7,4 L0,7.2 Z" fill="#5300DF"/></marker><marker id="w" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M0,0.8 L7,4 L0,7.2 Z" fill="#B9720A"/></marker></defs><rect x="10" y="28" width="116" height="56" rx="6" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1.2"/><text x="68.0" y="53.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">PR abierto</text><text x="68.0" y="67.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">o actualizado</text><line x1="128" y1="56.0" x2="143" y2="56.0" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a)"/><rect x="146" y="28" width="116" height="56" rx="6" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1.2"/><text x="204.0" y="53.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">GitHub Actions</text><text x="204.0" y="67.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">job Build</text><line x1="264" y1="56.0" x2="279" y2="56.0" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a)"/><rect x="282" y="28" width="116" height="56" rx="6" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1.2"/><text x="340.0" y="53.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">Compilación</text><text x="340.0" y="67.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">de la solución</text><line x1="400" y1="56.0" x2="415" y2="56.0" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a)"/><rect x="418" y="28" width="116" height="56" rx="6" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1.2"/><text x="476.0" y="53.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">SonarQube</text><text x="476.0" y="67.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">Quality Gate</text><line x1="536" y1="56.0" x2="551" y2="56.0" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a)"/><rect x="554" y="28" width="116" height="56" rx="6" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1.2"/><text x="612.0" y="53.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">Revisión humana</text><text x="612.0" y="67.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">1 aprobación</text><polyline points="154,94 154,102 526,102 526,94" fill="none" stroke="#B9720A" stroke-width="1.3"/><text x="340.0" y="118" text-anchor="middle" font-size="8.6" fill="#B9720A">Checks «Build» y «SonarQube Code Analysis»: visibles en el PR, pero no obligatorios para mergear</text><line x1="612.0" y1="86" x2="612.0" y2="124" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a)"/><rect x="554" y="128" width="116" height="40" rx="6" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1.2"/><text x="612.0" y="152.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">Merge a master</text><text x="10" y="146" font-size="8.4" fill="#8A8998">Cada push al PR repite el recorrido (evento</text><text x="10" y="160" font-size="8.4" fill="#8A8998">synchronize). Mediana: 6,8 minutos por ejecución.</text></svg>
-    <div class="diagram-caption">El pipeline informa; el merge depende solo de la aprobación.</div>
+  <h2 id="evolucion">2. Propuesta: el flujo de un PR abierto</h2>
+
+  <p>Este es el flujo que recorrería cada PR antes de llegar al revisor. Cada paso indica qué se logra y si <strong>corrige</strong> solo o <strong>bloquea</strong> el merge hasta que alguien resuelva.</p>
+
+  <div class="stepper">
+    <div class="step step-edge">
+      <div class="step-dot">PR</div>
+      <div class="step-title">Se abre o se actualiza un pull request</div>
+      <p class="step-desc">Cada push al PR dispara el flujo completo.</p>
+    </div>
+    <div class="step">
+      <div class="step-dot">1</div>
+      <div class="step-title">Aplicar formateo de código <span class="tag tag-fix">Corrige</span></div>
+      <p class="step-desc">El código queda con el estilo Ezy del equipo sin que nadie lo haga a mano. Solo se ajustan las líneas que toca el PR, y el revisor ya no devuelve un PR por formato.</p>
+      <div class="step-tool"><code>jb cleanupcode</code> con el perfil Ezy del <code>.sln.DotSettings</code>, el mismo criterio que usa el coder. Si hay cambios, los sube en un commit automático.</div>
+    </div>
+    <div class="step">
+      <div class="step-dot">2</div>
+      <div class="step-title">Compilar la solución <span class="tag tag-fail">Bloquea</span></div>
+      <p class="step-desc">Un PR que no compila no puede mergearse. Hoy este check ya existe, pero es informativo: pasa a ser obligatorio en el ruleset de <code>master</code>.</p>
+      <div class="step-tool">Job <strong>Build</strong> actual (<code>dotnet build</code>), marcado como check obligatorio. La API compilada se reutiliza en los pasos 3 a 5.</div>
+    </div>
+    <div class="step">
+      <div class="step-dot">3</div>
+      <div class="step-title">Ejecutar pruebas unitarias <span class="tag tag-fail">Bloquea</span></div>
+      <p class="step-desc">Ningún cambio rompe un comportamiento ya cubierto: las 682 pruebas del repo corren en cada push y se mide la cobertura del código nuevo.</p>
+      <div class="step-tool"><code>dotnet test</code> sobre el proyecto NUnit, con reporte de cobertura para SonarQube.</div>
+    </div>
+    <div class="step">
+      <div class="step-dot">4</div>
+      <div class="step-title">Ejecutar análisis de SonarQube <span class="tag tag-fail">Bloquea</span></div>
+      <p class="step-desc">Los bugs, vulnerabilidades y duplicaciones se detectan antes de la revisión, y el Quality Gate, ya con cobertura, decide si el PR puede mergearse.</p>
+      <div class="step-tool">Scanner de SonarQube, que ya existe. Lo nuevo es que el Quality Gate es obligatorio para mergear.</div>
+    </div>
+    <div class="step">
+      <div class="step-dot">5</div>
+      <div class="step-title">Ejecutar pruebas de servicios <span class="tag tag-fail">Bloquea</span></div>
+      <p class="step-desc">Los casos de prueba del ticket se ejecutan contra la API del propio PR. La evidencia se genera sola y se adjunta a Jira, y lo que la matriz marca como «Automated» queda comprobado.</p>
+      <div class="step-tool">newman con los requests de la colección de Postman asociados al ticket. Los casos «Manual» quedan listados como pendientes.</div>
+    </div>
+    <div class="step">
+      <div class="step-dot">6</div>
+      <div class="step-title">Identificar impactos de PCI <span class="tag tag-fix">Corrige</span></div>
+      <p class="step-desc">Si el PR toca pagos, se etiqueta, se indica qué archivos lo activaron y se exige la aprobación del responsable de PCI.</p>
+      <div class="step-tool">Etiquetado por rutas (<code>Concepts/Payment</code>, <code>AccountStoredPayments</code>, <code>VivaCashPaymentService</code>, <code>Configuration/Parts/Payment</code>) y <code>CODEOWNERS</code>.</div>
+    </div>
+    <div class="step">
+      <div class="step-dot">7</div>
+      <div class="step-title">Validar estructura del PR <span class="tag tag-fail">Bloquea</span></div>
+      <p class="step-desc">El PR llega con la clave del ticket y la plantilla completa (PCI, privacidad y release notes), coherente con los impactos detectados en el paso 6.</p>
+      <div class="step-tool">Lectura de la rama, el título y la descripción del PR.</div>
+    </div>
+    <div class="step">
+      <div class="step-dot">8</div>
+      <div class="step-title">Revisión de Copilot <span class="tag tag-warn">Informa</span></div>
+      <p class="step-desc">Copilot deja sugerencias sobre un PR ya formateado y verificado, así que sus comentarios se concentran en la lógica y no en el formato. El revisor las ve junto al resumen.</p>
+      <div class="step-tool">Gestionada por GitHub; ya está activa en el repo.</div>
+    </div>
+    <div class="step">
+      <div class="step-dot">9</div>
+      <div class="step-title">Aprobación de un revisor <span class="tag tag-fail">Bloquea</span></div>
+      <p class="step-desc">El revisor aprueba con el resumen de los pasos 1 a 8 a la vista, y revisa diseño y negocio porque lo demás ya viene verificado. Si el paso 6 detectó impacto en pagos, la aprobación del responsable de PCI es obligatoria.</p>
+      <div class="step-tool">Ruleset de <code>master</code>: 1 aprobación, más la de code owners gracias al archivo <code>CODEOWNERS</code>.</div>
+    </div>
+    <div class="step step-edge">
+      <div class="step-dot">&#10003;</div>
+      <div class="step-title">Merge a master</div>
+      <p class="step-desc">Solo es posible si el paso 9 aprobó y todos los pasos que bloquean están en verde.</p>
+    </div>
   </div>
 
-  <table class="scenario-table">
-    <thead><tr><th>Elemento</th><th>Qué hace</th><th>¿Bloquea el merge?</th></tr></thead>
-    <tbody>
-      <tr><th>Check «Build»</th><td>Resultado de la compilación.</td><td><span class="tag tag-warn">No</span></td></tr>
-      <tr><th>Check «SonarQube»</th><td>Quality Gate, más un comentario del bot en el PR.</td><td><span class="tag tag-warn">No</span></td></tr>
-      <tr><th>Revisión de Copilot</th><td>La gestiona GitHub; no vive en el repo.</td><td><span class="tag tag-warn">No</span></td></tr>
-      <tr><th>Ruleset de <code>master</code></th><td>Exige PR con 1 aprobación y code owners; impide borrar la rama.</td><td><span class="tag tag-ok">Sí</span></td></tr>
-      <tr><th>Plantilla de PR</th><td>Pide impacto del release, PCI, privacidad y release notes.</td><td><span class="tag tag-warn">No</span></td></tr>
-    </tbody>
-  </table>
-
-  <h2 id="que-hace">3. Qué hace el pipeline, paso a paso</h2>
-
-  <p>Un solo job, <strong>Build</strong>, en <code>windows-latest</code>. Los secrets (SonarQube y NuGet privado) están en GitHub, no en el repo.</p>
-
-  <div class="diagram-wrap">
-    <div class="diagram-name">Figura 2. Los pasos del job Build</div>
-    <svg width="100%" viewBox="0 0 680 166" role="img" xmlns="http://www.w3.org/2000/svg"><title>Pasos del job Build</title><desc>Seis pasos en secuencia sobre windows-latest: rutas largas en git, JDK 17, checkout con historial completo, cache de SonarQube, instalacion del scanner y build con analisis. El ultimo paso ejecuta sonarscanner begin, dotnet build de la solucion y sonarscanner end. No hay paso de pruebas.</desc><defs><marker id="a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M0,0.8 L7,4 L0,7.2 Z" fill="#5300DF"/></marker><marker id="w" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M0,0.8 L7,4 L0,7.2 Z" fill="#B9720A"/></marker></defs><rect x="10" y="24" width="100" height="52" rx="6" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1.2"/><text x="60.0" y="47.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">Rutas largas</text><text x="60.0" y="61.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">en git</text><line x1="111" y1="50" x2="122" y2="50" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a)"/><rect x="124" y="24" width="100" height="52" rx="6" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1.2"/><text x="174.0" y="47.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">JDK 17</text><text x="174.0" y="61.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">para el scanner</text><line x1="225" y1="50" x2="236" y2="50" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a)"/><rect x="238" y="24" width="100" height="52" rx="6" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1.2"/><text x="288.0" y="47.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">Checkout</text><text x="288.0" y="61.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">historial completo</text><line x1="339" y1="50" x2="350" y2="50" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a)"/><rect x="352" y="24" width="100" height="52" rx="6" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1.2"/><text x="402.0" y="47.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">Caché</text><text x="402.0" y="61.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">de SonarQube</text><line x1="453" y1="50" x2="464" y2="50" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a)"/><rect x="466" y="24" width="100" height="52" rx="6" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1.2"/><text x="516.0" y="47.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">Instalar</text><text x="516.0" y="61.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">scanner (si falta)</text><line x1="567" y1="50" x2="578" y2="50" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a)"/><rect x="580" y="24" width="100" height="52" rx="6" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1.2"/><text x="630.0" y="47.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">Build</text><text x="630.0" y="61.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">y análisis</text><polyline points="630.0,80 630.0,96" fill="none" stroke="#5300DF" stroke-width="1.3"/><polyline points="402.0,96 630.0,96" fill="none" stroke="#5300DF" stroke-width="1.3"/><line x1="402.0" y1="96" x2="402.0" y2="110" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a)"/><rect x="352" y="112" width="100" height="44" rx="6" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1.2"/><text x="402.0" y="131.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">sonarscanner</text><text x="402.0" y="145.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">begin</text><line x1="453" y1="134" x2="464" y2="134" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a)"/><rect x="466" y="112" width="100" height="44" rx="6" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1.2"/><text x="516.0" y="131.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">dotnet build</text><text x="516.0" y="145.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">.sln</text><line x1="567" y1="134" x2="578" y2="134" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a)"/><rect x="580" y="112" width="100" height="44" rx="6" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1.2"/><text x="630.0" y="131.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">sonarscanner</text><text x="630.0" y="145.0" text-anchor="middle" font-size="9.4" font-weight="600" fill="#280265">end</text><text x="10" y="126" font-size="8.4" fill="#8A8998">El paso final concentra el trabajo:</text><text x="10" y="140" font-size="8.4" fill="#8A8998">abre el análisis, compila y lo envía.</text><text x="10" y="154" font-size="8.4" fill="#B9720A">No hay paso de pruebas.</text></svg>
-  </div>
-
-  <table class="scenario-table">
-    <thead><tr><th>Paso</th><th>Qué hace y por qué</th></tr></thead>
-    <tbody>
-      <tr><th>1. Rutas largas</th><td>Habilita rutas de más de 260 caracteres en Windows.</td></tr>
-      <tr><th>2. JDK 17</th><td>Java, requerido por el scanner de SonarQube.</td></tr>
-      <tr><th>3. Checkout</th><td>Historial completo, para que SonarQube distinga el código nuevo.</td></tr>
-      <tr><th>4&ndash;5. Scanner</th><td>Instala <code>dotnet-sonarscanner</code> y lo guarda en caché.</td></tr>
-      <tr><th>6. Build y análisis</th><td><code>begin</code> &rarr; <code>dotnet build</code> de la solución &rarr; <code>end</code>. En PRs se registra como análisis de PR; en <code>master</code>, como línea base; en tags, como <code>version/&lt;n&gt;</code>.</td></tr>
-    </tbody>
-  </table>
-
-  <h2 id="gana">4. Qué gana el equipo hoy</h2>
-
-  <table class="scenario-table">
-    <thead><tr><th>Beneficio</th><th>Cómo se logra</th></tr></thead>
-    <tbody>
-      <tr><th>Nada llega a revisión sin compilar</th><td>Cada push compila la solución en una máquina limpia.</td></tr>
-      <tr><th>Revisión estática automática</th><td>SonarQube detecta bugs, vulnerabilidades, code smells y duplicación en el código nuevo.</td></tr>
-      <tr><th>Resultado visible en el PR</th><td>Checks y comentario del bot, donde autor y revisor ya están.</td></tr>
-      <tr><th>Historial de calidad</th><td><code>master</code> como línea base y cada release registrado como versión.</td></tr>
-      <tr><th>Sin infraestructura propia</th><td>Runners de GitHub; la configuración se versiona con el código.</td></tr>
-      <tr><th>Feedback rápido</th><td>Unos 7 minutos por ejecución.</td></tr>
-    </tbody>
-  </table>
-
-  <h2 id="evolucion">5. Propuesta: el pipeline de PR objetivo</h2>
-
-  <p>El pipeline propuesto no suma pasos sueltos. Corrige solo lo que no necesita criterio humano y responde, antes de que llegue el revisor, las cuatro preguntas que hoy el revisor responde a mano en cada PR.</p>
-
-  <div class="diagram-wrap">
-    <div class="diagram-name">Figura 3. El pipeline de PR propuesto</div>
-    <svg width="100%" viewBox="0 0 680 292" role="img" xmlns="http://www.w3.org/2000/svg"><title>Pipeline de PR propuesto</title><desc>Al abrir o actualizar un PR, la etapa 0 aplica el estilo Ezy y, si cambia algo, lo sube en un commit automatico y el pipeline vuelve a correr. Luego corren en paralelo la etapa 1, que valida que el PR este listo para revision, y la etapa 2, que compila, prueba y evalua el Quality Gate y deja la API compilada. Con ese resultado corren la etapa 3, que compara el contrato OpenAPI con master, y la etapa 4, que ejecuta los casos de la matriz del ticket. Todas alimentan un comentario resumen. El merge exige las etapas 1 a 4 en verde y la aprobacion del responsable.</desc><defs><marker id="a4" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M0,0.8 L7,4 L0,7.2 Z" fill="#5300DF"/></marker></defs><rect x="6" y="120" width="66" height="56" rx="6" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1.2"/><text x="39.0" y="140.0" text-anchor="middle" font-size="9.6" font-weight="600" fill="#280265">PR</text><text x="39.0" y="155.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">abierto o</text><text x="39.0" y="167.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">actualizado</text><rect x="90" y="112" width="104" height="72" rx="6" fill="#EBEBFF" stroke="#5300DF" stroke-width="1.2"/><text x="142.0" y="140.0" text-anchor="middle" font-size="9.6" font-weight="600" fill="#280265">0 · Estilo Ezy</text><text x="142.0" y="155.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">se aplica solo</text><text x="142.0" y="167.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">commit automático</text><rect x="216" y="18" width="150" height="76" rx="6" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1.2"/><text x="291.0" y="42.0" text-anchor="middle" font-size="9.6" font-weight="600" fill="#280265">1 · ¿Listo para revisión?</text><text x="291.0" y="57.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">ticket · impacto</text><text x="291.0" y="69.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">plantilla · revisor</text><text x="291.0" y="81.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">segundos</text><rect x="216" y="190" width="150" height="92" rx="6" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1.2"/><text x="291.0" y="216.0" text-anchor="middle" font-size="9.6" font-weight="600" fill="#280265">2 · ¿Cumple el estándar?</text><text x="291.0" y="231.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">compila · pruebas</text><text x="291.0" y="243.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">cobertura</text><text x="291.0" y="255.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">Quality Gate</text><text x="291.0" y="267.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">deja la API compilada</text><rect x="388" y="130" width="138" height="66" rx="6" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1.2"/><text x="457.0" y="155.0" text-anchor="middle" font-size="9.6" font-weight="600" fill="#280265">3 · ¿Cambió el contrato?</text><text x="457.0" y="170.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">OpenAPI del PR</text><text x="457.0" y="182.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">contra el de master</text><rect x="388" y="214" width="138" height="66" rx="6" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1.2"/><text x="457.0" y="239.0" text-anchor="middle" font-size="9.6" font-weight="600" fill="#280265">4 · ¿Cumple el ticket?</text><text x="457.0" y="254.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">casos de la matriz</text><text x="457.0" y="266.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">ejecutados con newman</text><rect x="546" y="40" width="128" height="56" rx="6" fill="#EBEBFF" stroke="#5300DF" stroke-width="1.2"/><text x="610.0" y="60.0" text-anchor="middle" font-size="9.6" font-weight="600" fill="#280265">Resumen en el PR</text><text x="610.0" y="75.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">un comentario</text><text x="610.0" y="87.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">se actualiza en cada push</text><rect x="546" y="190" width="128" height="70" rx="6" fill="#FFFFFF" stroke="#DCD8EC" stroke-width="1.2"/><text x="610.0" y="211.0" text-anchor="middle" font-size="9.6" font-weight="600" fill="#280265">Merge</text><text x="610.0" y="226.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">etapas 1–4 en verde</text><text x="610.0" y="238.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">+ aprobación</text><text x="610.0" y="250.0" text-anchor="middle" font-size="8.4" fill="#5B5A66">del responsable</text><polyline points="72,148 88,148" fill="none" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a4)"/><polyline points="194,148 205,148 205,56 214,56" fill="none" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a4)"/><polyline points="205,148 205,236 214,236" fill="none" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a4)"/><polyline points="366,236 377,236 377,163 386,163" fill="none" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a4)"/><polyline points="377,236 377,247 386,247" fill="none" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a4)"/><polyline points="366,56 544,56" fill="none" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a4)"/><polyline points="526,247 536,247 536,163" fill="none" stroke="#5300DF" stroke-width="1.3"/><polyline points="526,163 536,163 536,84 544,84" fill="none" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a4)"/><polyline points="610,96 610,188" fill="none" stroke="#5300DF" stroke-width="1.3" marker-end="url(#a4)"/><text x="92" y="202" font-size="8" fill="#5B5A66">Si corrige algo, el</text><text x="92" y="213" font-size="8" fill="#5B5A66">pipeline vuelve a</text><text x="92" y="224" font-size="8" fill="#5B5A66">correr sobre el</text><text x="92" y="235" font-size="8" fill="#5B5A66">commit nuevo.</text></svg>
-    <div class="diagram-caption">La etapa 0 corrige; las etapas 1 a 4 verifican y son obligatorias para mergear.</div>
-  </div>
-
-  <h3>Principios de diseño</h3>
-  <ul>
-    <li><strong>Lo que se puede corregir solo, se corrige.</strong> Solo bloquea lo que exige una decisión humana. Un PR no vuelve al autor por formato.</li>
-    <li><strong>Una pregunta por etapa.</strong> El nombre del check dice qué se validó, no qué herramienta corrió.</li>
-    <li><strong>Lo barato primero.</strong> Lo que tarda segundos corre en paralelo al build y avisa antes.</li>
-    <li><strong>Se compila una sola vez.</strong> La API que compila la etapa 2 es la que prueban las etapas 3 y 4.</li>
-    <li><strong>Lo que se valida, bloquea.</strong> Cada etapa es un check obligatorio en el ruleset de <code>master</code>.</li>
-    <li><strong>Un solo lugar para leer el resultado.</strong> Un comentario resumen en el PR, actualizado en cada push.</li>
-  </ul>
-
-  <h3>Corrige, verifica, informa</h3>
-
-  <table class="scenario-table">
-    <thead><tr><th>El pipeline&hellip;</th><th>Qué hace</th><th>Ejemplos</th></tr></thead>
-    <tbody>
-      <tr><th>Corrige</th><td>Aplica el cambio en el PR sin intervención de nadie.</td><td>Estilo Ezy en las líneas del PR (commit automático) &middot; etiquetas de impacto &middot; asignación del revisor por <code>CODEOWNERS</code>.</td></tr>
-      <tr><th>Verifica</th><td>Bloquea el merge hasta que se resuelva, porque requiere una decisión.</td><td>Compilación &middot; pruebas &middot; Quality Gate &middot; plantilla completa &middot; contrato declarado &middot; casos automatizados de la matriz.</td></tr>
-      <tr><th>Informa</th><td>Deja el dato donde se decide, sin bloquear.</td><td>Resumen en el PR &middot; cambios de contrato compatibles &middot; casos manuales pendientes &middot; evidencia en Jira.</td></tr>
-    </tbody>
-  </table>
-
-  <h3>Las etapas</h3>
-
-  <table class="scenario-table">
-    <thead><tr><th>Etapa</th><th>Qué valida</th><th>Bloquea el merge si</th></tr></thead>
-    <tbody>
-      <tr><th>0 · Estilo Ezy</th><td>Corre <code>jb cleanupcode</code> con el perfil <strong>Ezy</strong> del <code>.sln.DotSettings</code>, con el mismo criterio que usa el coder: cambia solo las líneas que toca el PR y deja intacto el resto. Si hay diferencias, sube un commit automático a la rama y el pipeline vuelve a correr sobre él.</td><td>No bloquea: corrige. Solo avisa, con el diff sugerido, si no puede subir el commit (por ejemplo, un PR desde un fork).</td></tr>
-      <tr><th>1 · ¿Listo para revisión?</th><td>&bull; La rama o el título tienen la clave del ticket (<code>API-NNNN</code>).<br>&bull; El impacto se detecta por las rutas tocadas y se etiqueta: <code>impacto-pci</code> (pagos), <code>impacto-api</code> (controllers y Swagger), <code>impacto-admin-portal</code>.<br>&bull; La plantilla está completa: casillas de PCI y privacidad, release notes reales y bloque de impacto si hay etiqueta.<br>&bull; <code>CODEOWNERS</code> asigna al responsable de cada ruta sensible.</td><td>Falta el ticket, o la plantilla está incompleta o no coincide con el impacto detectado.</td></tr>
-      <tr><th>2 · ¿Cumple el estándar?</th><td>&bull; La solución compila.<br>&bull; Las 682 pruebas unitarias pasan y se mide la cobertura.<br>&bull; El Quality Gate de SonarQube, ya con cobertura.</td><td>No compila, falla una prueba o el Quality Gate no pasa.</td></tr>
-      <tr><th>3 · ¿Cambió el contrato?</th><td>Genera el OpenAPI de la API compilada y lo compara con el de <code>master</code> (<code>oasdiff</code>). Lista los endpoints y campos que cambian.</td><td>Hay un cambio que rompe compatibilidad y el PR no lo declara en la plantilla.</td></tr>
-      <tr><th>4 · ¿Cumple el ticket?</th><td>Levanta la API compilada y ejecuta con newman los casos «Automated» de la matriz del ticket, versionada en el PR. Adjunta la evidencia a la subtask de Jira. Los casos «Manual» se listan como pendientes.</td><td>Un caso «Automated» falla o no tiene prueba asociada.</td></tr>
-    </tbody>
-  </table>
+  <p class="diagram-caption">Los pasos 6, 7 y 8 no dependen de la compilación, así que corren en paralelo a los pasos 2 a 5. Los pasos 6 y 7 tardan segundos: el autor ve primero lo más rápido.</p>
 
   <h3>Lo que ve el revisor</h3>
 
@@ -548,28 +561,19 @@
     <div class="pr-mock-head">Resumen del pipeline &middot; PR #2478 &middot; API-1795</div>
     <table class="scenario-table">
       <tbody>
-        <tr><th>0 · Estilo Ezy</th><td><span class="tag tag-ok">Aplicado</span></td><td>Commit automático con el ajuste de estilo en las líneas del PR.</td></tr>
-        <tr><th>1 · ¿Listo para revisión?</th><td><span class="tag tag-ok">OK</span></td><td>Ticket API-1795 &middot; etiqueta <code>impacto-api</code> &middot; plantilla completa &middot; revisor asignado</td></tr>
-        <tr><th>2 · ¿Cumple el estándar?</th><td><span class="tag tag-fail">Bloquea</span></td><td>Compila, pero el Quality Gate de SonarQube no se aprobó.</td></tr>
-        <tr><th>3 · ¿Cambió el contrato?</th><td><span class="tag tag-warn">Aviso</span></td><td>Campo nuevo <code>tuaDifference</code> en <code>POST /v1/booking/searchJourneys</code>. No rompe compatibilidad.</td></tr>
-        <tr><th>4 · ¿Cumple el ticket?</th><td><span class="tag tag-warn">Pendiente</span></td><td>Casos 1&ndash;4 automatizados: en verde. Casos 5&ndash;8 manuales: pendientes de evidencia.</td></tr>
+        <tr><th>1 · Formateo de código</th><td><span class="tag tag-fix">Aplicado</span></td><td>Commit automático con el ajuste de estilo en las líneas del PR.</td></tr>
+        <tr><th>2 · Compilación</th><td><span class="tag tag-ok">OK</span></td><td>La solución compila.</td></tr>
+        <tr><th>3 · Pruebas unitarias</th><td><span class="tag tag-ok">OK</span></td><td>Pruebas en verde; cobertura del código nuevo reportada a SonarQube.</td></tr>
+        <tr><th>4 · SonarQube</th><td><span class="tag tag-fail">Bloquea</span></td><td>El Quality Gate no se aprobó.</td></tr>
+        <tr><th>5 · Pruebas de servicios</th><td><span class="tag tag-warn">Pendiente</span></td><td>Casos 1&ndash;4 automatizados: en verde. Casos 5&ndash;8 manuales: pendientes de evidencia.</td></tr>
+        <tr><th>6 · Impactos de PCI</th><td><span class="tag tag-ok">Sin impacto</span></td><td>El PR no toca rutas de pagos.</td></tr>
+        <tr><th>7 · Estructura del PR</th><td><span class="tag tag-ok">OK</span></td><td>Ticket API-1795 &middot; plantilla completa.</td></tr>
+        <tr><th>8 · Revisión de Copilot</th><td><span class="tag tag-warn">Informa</span></td><td>Sugerencias publicadas en el PR.</td></tr>
       </tbody>
     </table>
-    <div class="pr-mock-foot">Merge bloqueado hasta que la etapa 2 pase.</div>
+    <div class="pr-mock-foot">Merge bloqueado hasta que el paso 4 pase.</div>
   </div>
-  <p class="diagram-caption">Ejemplo ilustrativo con los datos reales de API-1795. Las etapas 0, 1, 3 y 4 son simuladas. La etapa 2 refleja lo que sí ocurrió: el PR #2478 compiló y se mergeó con el Quality Gate en rojo.</p>
-
-  <h3>Por qué: lo que muestra un PR real</h3>
-
-  <table class="scenario-table">
-    <thead><tr><th>Hecho en API-1795 / PR #2478</th><th>Etapa que lo resuelve</th></tr></thead>
-    <tbody>
-      <tr><th>El PR se mergeó con el Quality Gate de SonarQube en rojo.</th><td>Etapa 2, obligatoria para mergear.</td></tr>
-      <tr><th>Los casos 1 a 4 figuran como «Automated», pero la colección de Postman del repo no tiene aserciones sobre <code>tuaDifference</code> y no hay ninguna ejecución rastreable.</th><td>Etapa 4: un caso «Automated» sin prueba pone el check en rojo.</td></tr>
-      <tr><th>La matriz está en el ticket y en la subtask con valores distintos: el caso 1 espera <code>0.00</code> en uno y <code>-129.09</code> en el otro.</th><td>Etapa 4: una sola matriz, versionada y revisada en el PR.</td></tr>
-      <tr><th>El estilo Ezy se aplica en local con el coder o lo pide el revisor en una ronda de revisión.</th><td>Etapa 0: el estilo se aplica solo en un commit automático. Ningún PR vuelve por formato.</td></tr>
-    </tbody>
-  </table>
+  <p class="diagram-caption">Ejemplo ilustrativo con los datos de API-1795. Los pasos 2, 4 y 6 reflejan el PR real: compiló, se mergeó con el Quality Gate en rojo y solo tocó archivos de <code>Concepts/_Shared</code>. Los demás pasos son simulados.</p>
 
   <h3>Qué gana cada rol</h3>
 
@@ -577,37 +581,9 @@
     <thead><tr><th>Rol</th><th>Qué cambia</th></tr></thead>
     <tbody>
       <tr><th>Autor</th><td>No corrige formato a mano ni arma evidencias. Sabe en minutos qué le falta, sin esperar una ronda de revisión.</td></tr>
-      <tr><th>Revisor</th><td>Recibe un PR que compila, pasa las pruebas, cumple el estilo y el contrato, y trae evidencia. Revisa diseño y negocio, no formato.</td></tr>
+      <tr><th>Revisor</th><td>Recibe un PR formateado, con las pruebas en verde, el Quality Gate aprobado y la evidencia adjunta. Revisa diseño y negocio.</td></tr>
       <tr><th>QA</th><td>Recibe los casos automatizados ya ejecutados y solo ejecuta los manuales.</td></tr>
-      <tr><th>Responsable de PCI y líder técnico</th><td>Todo cambio en pagos pasa por su aprobación, y los cambios de contrato se ven antes del merge.</td></tr>
-    </tbody>
-  </table>
-
-  <h3>Hoja de ruta</h3>
-
-  <table class="scenario-table">
-    <thead><tr><th>Fase</th><th>Qué se activa</th><th>Requisitos</th><th>Valor inmediato</th></tr></thead>
-    <tbody>
-      <tr><th>1 · Guardarraíles</th><td>Etapa 0 (estilo automático), etapa 2 completa (pruebas y cobertura), checks obligatorios, <code>CODEOWNERS</code> y acciones actualizadas.</td><td>Confirmar que las 682 pruebas pasan en el runner. Definir el umbral de cobertura del Quality Gate. Permisos de administrador del repo. Una GitHub App para el commit automático: los commits hechos con el token por defecto no vuelven a disparar el pipeline.</td><td>Ya no llega a <code>master</code> código que no compila, no pasa las pruebas o tiene el Quality Gate en rojo, y ningún PR vuelve por formato.</td></tr>
-      <tr><th>2 · Listo para revisión</th><td>Etapa 1.</td><td>Acordar las rutas sensibles y sus responsables.</td><td>Los PRs llegan completos y a quien corresponde revisarlos.</td></tr>
-      <tr><th>3 · Contrato</th><td>Etapa 3.</td><td>Generar el OpenAPI desde el build; Swagger ya está configurado.</td><td>Los cambios que rompen la API se ven antes del merge.</td></tr>
-      <tr><th>4 · Criterios del ticket</th><td>Etapa 4.</td><td>Acceso de red a los servicios de prueba o un runner propio, secrets del ambiente, PNRs que se puedan regenerar y el formato del archivo de matriz.</td><td>Evidencia reproducible en lugar de capturas.</td></tr>
-    </tbody>
-  </table>
-
-  <p>La fase 1 es la de mayor valor por esfuerzo: usa herramientas que ya existen (NUnit, SonarQube, el perfil Ezy del coder y el ruleset) y cierra el caso del PR #2478. La fase 4 es la de mayor esfuerzo, porque depende de la red y de los datos de prueba.</p>
-
-  <h2 id="fuera">6. Lo que queda fuera de la propuesta</h2>
-
-  <table class="scenario-table">
-    <thead><tr><th>Tema</th><th>Por qué queda fuera</th><th>Cómo se cubre</th></tr></thead>
-    <tbody>
-      <tr><th>Veracidad de lo declarado</th><td>El pipeline verifica que las casillas estén marcadas, no que lo afirmado sea cierto.</td><td>Criterio del revisor. En pagos, el responsable de PCI asignado por <code>CODEOWNERS</code>.</td></tr>
-      <tr><th>Impacto en privacidad</th><td>Los datos personales están repartidos por el código; no se detectan de forma fiable por ruta.</td><td>Casilla obligatoria en todo PR (etapa 1) y revisión humana.</td></tr>
-      <tr><th>Impacto en rendimiento</th><td>No se puede deducir de los archivos tocados.</td><td>Sigue siendo una declaración del autor en la plantilla.</td></tr>
-      <tr><th>Rutas sensibles nuevas</th><td>La lista de rutas de <code>CODEOWNERS</code> y del etiquetado se mantiene a mano.</td><td>Actualizarla cuando aparezca un proveedor de pago o una carpeta sensible nueva.</td></tr>
-      <tr><th>Casos manuales de la matriz</th><td>Algunos dependen de datos difíciles de reproducir, como reservas multipasajero o con TUA sin pagar.</td><td>La etapa 4 los lista como pendientes. Se automatizan a medida que haya datos reproducibles.</td></tr>
-      <tr><th>Definición del resultado esperado</th><td>El pipeline comprueba lo que dice la matriz, no si la matriz es correcta.</td><td>Revisión de la matriz por negocio y QA en el mismo PR.</td></tr>
+      <tr><th>Responsable de PCI</th><td>Todo cambio en pagos pasa por su aprobación, sin depender de que alguien lo avise.</td></tr>
     </tbody>
   </table>
 
