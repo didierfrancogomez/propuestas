@@ -354,7 +354,7 @@
   .tag-ok{background:var(--violet-light);color:var(--accent);}
   .tag-warn{background:var(--amber-bg);color:var(--amber);}
   code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9.5px;background:var(--violet-light);color:var(--violet);padding:0 4px;border-radius:3px;}
-  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0 16px;page-break-inside:avoid;}
+  .kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:12px 0 16px;page-break-inside:avoid;}
   .kpi{border:1px solid var(--border);border-radius:8px;padding:10px 12px;}
   .kpi-value{font-weight:600;font-size:17px;color:var(--violet);line-height:1.2;}
   .kpi-label{font-size:9px;color:var(--text-2);line-height:1.4;margin-top:3px;}
@@ -441,6 +441,7 @@
     <ol>
       <li><a href="#estado">Estado actual</a></li>
       <li><a href="#evolucion">Propuesta: el flujo de un PR abierto</a></li>
+      <li><a href="#esfuerzo">Tiempo y esfuerzo</a></li>
     </ol>
   </div>
 
@@ -546,19 +547,19 @@
     </div>
     <div class="step">
       <div class="step-dot">7</div>
-      <div class="step-title">Validar estructura del PR <span class="tag tag-fail">Bloquea</span></div>
+      <div class="step-title">Validar estructura del PR <span class="tag tag-fix">Corrige</span> <span class="tag tag-fail">Bloquea</span></div>
       <div class="step-label">Objetivo</div>
-      <p class="step-desc">Que el PR llegue con su ticket y la plantilla completa y coherente con los impactos detectados.</p>
+      <p class="step-desc">Que el PR llegue con su ticket, con el objetivo y la matriz de pruebas del ticket traídos desde Jira, y con la plantilla completa y coherente con los impactos detectados.</p>
       <div class="step-label">Beneficio</div>
-      <p class="step-desc">El revisor tiene todo el contexto, y las declaraciones de cumplimiento y las release notes quedan listas.</p>
+      <p class="step-desc">El autor no copia nada desde Jira: el PR tiene todo el contexto, con Jira como única fuente. El revisor y Copilot (paso 8) comparan el cambio contra lo pedido, y las declaraciones de cumplimiento y las release notes quedan listas.</p>
     </div>
     <div class="step">
       <div class="step-dot">8</div>
       <div class="step-title">Revisión de Copilot <span class="tag tag-warn">Informa</span></div>
       <div class="step-label">Objetivo</div>
-      <p class="step-desc">Sumar una revisión automática de la lógica del cambio.</p>
+      <p class="step-desc">Revisar que las pruebas del PR estén alineadas con el objetivo y los criterios de aceptación del ticket que el paso 7 dejó en el PR, siguiendo instrucciones de revisión propias del equipo, además de la lógica del cambio.</p>
       <div class="step-label">Beneficio</div>
-      <p class="step-desc">El revisor humano parte de sugerencias ya hechas sobre un PR limpio.</p>
+      <p class="step-desc">El revisor sabe si lo probado corresponde a lo pedido sin cruzar a mano el ticket con el código, y los escenarios sin cubrir aparecen como comentarios en el PR.</p>
     </div>
     <div class="step">
       <div class="step-dot">9</div>
@@ -589,8 +590,8 @@
         <tr><th>4 · SonarQube</th><td><span class="tag tag-fail">Bloquea</span></td><td>El Quality Gate no se aprobó.</td></tr>
         <tr><th>5 · Pruebas de servicios</th><td><span class="tag tag-warn">Pendiente</span></td><td>Casos 1&ndash;4 automatizados: en verde. Casos 5&ndash;8 manuales: pendientes de evidencia.</td></tr>
         <tr><th>6 · Impactos de PCI</th><td><span class="tag tag-ok">Sin impacto</span></td><td>El PR no toca rutas de pagos.</td></tr>
-        <tr><th>7 · Estructura del PR</th><td><span class="tag tag-ok">OK</span></td><td>Ticket API-1795 &middot; plantilla completa.</td></tr>
-        <tr><th>8 · Revisión de Copilot</th><td><span class="tag tag-warn">Informa</span></td><td>Sugerencias publicadas en el PR.</td></tr>
+        <tr><th>7 · Estructura del PR</th><td><span class="tag tag-ok">OK</span></td><td>Ticket API-1795 &middot; objetivo y matriz copiados desde Jira &middot; plantilla completa.</td></tr>
+        <tr><th>8 · Revisión de Copilot</th><td><span class="tag tag-warn">Informa</span></td><td>Sugiere una prueba para el caso de reserva multipasajero (caso 5 de la matriz), que no tiene prueba asociada.</td></tr>
       </tbody>
     </table>
     <div class="pr-mock-foot">Merge bloqueado hasta que el paso 4 pase.</div>
@@ -608,6 +609,41 @@
       <tr><th>Responsable de PCI</th><td>Todo cambio en pagos pasa por su aprobación, sin depender de que alguien lo avise.</td></tr>
     </tbody>
   </table>
+
+  <h2 id="esfuerzo">3. Tiempo y esfuerzo</h2>
+
+  <p>Estimación para <strong>un ingeniero DevOps a tiempo completo</strong>, en semanas, como proyecto llave en mano: se entrega el flujo completo de la sección 2 funcionando en el repo. Incluye la incorporación del ingeniero al cliente, la gestión de sus accesos y, si las pruebas de servicios lo requieren, la instalación y configuración del agente del pipeline en una máquina dentro de la red de pruebas.</p>
+
+  <div class="kpis">
+    <div class="kpi"><div class="kpi-value">8 semanas</div><div class="kpi-label">de calendario, desde que hay accesos</div></div>
+    <div class="kpi"><div class="kpi-value">1</div><div class="kpi-label">ingeniero DevOps</div></div>
+  </div>
+
+  <h3>Accesos que necesita el ingeniero</h3>
+
+  <table class="scenario-table">
+    <thead><tr><th>Acceso</th><th>Para qué</th><th>Se necesita en</th></tr></thead>
+    <tbody>
+      <tr><th>Usuario en la organización de GitHub, con rol de administrador del repo Generic API</th><td>Configurar el pipeline: workflows, secrets, ruleset de <code>master</code>, <code>CODEOWNERS</code> y la GitHub App del commit automático.</td><td>Semana 1</td></tr>
+      <tr><th>Administrador del proyecto en SonarQube</th><td>Ajustar el Quality Gate y el umbral de cobertura.</td><td>Semana 2</td></tr>
+      <tr><th>Acceso al ambiente de pruebas de la API y de sus dependencias (dotREZ y demás integraciones), para el ingeniero y para el pipeline</th><td>Levantar la API y ejecutar las pruebas de servicios, primero desde el entorno del ingeniero y luego desde el pipeline, con un runner dentro de esa red o con la red habilitada para el pipeline.</td><td>Semana 2 para el ingeniero; semana 5 para el pipeline</td></tr>
+      <tr><th>Máquina dentro de la red de pruebas, solo si el pipeline no puede llegar a esa red</th><td>Instalar y configurar en ella el agente del pipeline que ejecuta las pruebas de servicios.</td><td>Semana 5</td></tr>
+      <tr><th>Credenciales del ambiente de pruebas</th><td>Configurarlas como secrets del pipeline.</td><td>Semana 5</td></tr>
+      <tr><th>Usuario y token de Jira en el proyecto API</th><td>Traer el objetivo y la matriz del ticket al PR (paso 7) y adjuntar la evidencia en la subtask (paso 5).</td><td>Semana 2</td></tr>
+      <tr><th>PNRs de prueba que se puedan regenerar</th><td>Que las pruebas de servicios sean repetibles.</td><td>Semana 5</td></tr>
+      <tr><th>Responsable de PCI y de las rutas de pagos</th><td>Definir quién aprueba los cambios en pagos.</td><td>Semana 2</td></tr>
+    </tbody>
+  </table>
+
+  <p>Las solicitudes de acceso se envían antes del inicio (semana 0). El calendario de 8 semanas empieza cuando está el acceso de la semana 1. Si un acceso llega después de la semana indicada, la demora se suma al calendario.</p>
+
+  <h3>Fuera de alcance</h3>
+  <ul>
+    <li>Escribir los casos de Postman de cada ticket: siguen siendo parte del desarrollo de cada historia.</li>
+    <li>Corregir pruebas unitarias existentes que ya fallen hoy. Se reportan en la incorporación y se acuerdan aparte.</li>
+    <li>Proveer la máquina para el agente del pipeline y operarla después del traspaso (parches, monitoreo y respaldo).</li>
+    <li>Cambios en TeamCity o en el proceso de despliegue.</li>
+  </ul>
 
   <p class="caveat-list" style="color:var(--text-2);font-size:10.5px">Fuente: repo <code>EzyWebwerkstaden/VivaAerobus.Generic.Api</code> y API de GitHub, al 28 de septiembre de 2026. Métricas de las últimas 100 ejecuciones en PRs (31 mar &ndash; 8 sep 2026).</p>
 
