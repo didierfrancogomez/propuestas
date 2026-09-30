@@ -341,6 +341,14 @@
   .scenario-table.allow-break{page-break-inside:auto;break-inside:auto;}
   .scenario-table.allow-break tr{page-break-inside:avoid;break-inside:avoid;}
 </style>
+<style>
+  .tag-ai{background:var(--violet);color:#FFFFFF;}
+</style>
+<style>
+  @media print{
+    .glossary th, .glossary td{padding-top:4px;padding-bottom:4px;}
+  }
+</style>
 </head>
 <body>
 <div class="page">
@@ -357,7 +365,7 @@
     <div class="eyebrow">Propuesta de mejora del pipeline de PR</div>
     <h1>PRs verificados antes de la revisión</h1>
     <p class="subtitle">Un pipeline que corrige el formato, verifica cada PR y trae el contexto del ticket, para que el aprobador dedique su tiempo solo a lo que exige criterio.</p>
-    <div class="cover-meta">Viva Aerobus<br>Proyecto Generic API<br><strong>9 semanas &middot; 1 ingeniero DevOps &middot; llave en mano</strong></div>
+    <div class="cover-meta">Viva Aerobus<br>Proyecto Generic API<br><strong>10 semanas &middot; 1 ingeniero DevOps &middot; llave en mano</strong></div>
     <div class="cover-confidential">Documento confidencial. Elaborado por Tech and Solve para Viva Aerobus.</div>
   </div>
 
@@ -379,10 +387,10 @@
 
   <div class="exec">
     <div class="exec-row"><div class="exec-k">El problema</div><div class="exec-v">Hoy el pipeline de PR compila y analiza el código, pero no ejecuta pruebas, no bloquea nada y los hallazgos de SonarQube no se atienden: un PR se puede mergear con la compilación o el Quality Gate en rojo, y cualquier persona con permiso de escritura puede aprobar cambios en pagos. El aprobador verifica a mano formato, pruebas y cumplimiento.</div></div>
-    <div class="exec-row"><div class="exec-k">La propuesta</div><div class="exec-v">Un flujo de 9 pasos en cada PR que corrige solo el formato; verifica compilación, pruebas, calidad, servicios, impacto en pagos y estructura del PR; y entrega al aprobador un resumen único con la evidencia. SonarQube pasa a ser una herramienta real de apoyo para que cada desarrollador programe con buenas prácticas, y el equipo recibe lineamientos para automatizar sus pruebas de servicios con aserciones repetibles.</div></div>
+    <div class="exec-row"><div class="exec-k">La propuesta</div><div class="exec-v">Un flujo de 9 pasos en cada PR que corrige solo el formato; verifica compilación, pruebas, calidad, servicios, impacto en pagos y estructura del PR; y entrega al aprobador un resumen único con la evidencia. SonarQube pasa a ser una herramienta real de apoyo para que cada desarrollador programe con buenas prácticas, y el equipo recibe lineamientos para automatizar sus pruebas de servicios con aserciones repetibles. Una revisión con IA valida, caso por caso, si las pruebas cubren los escenarios de la task.</div></div>
     <div class="exec-row"><div class="exec-k">El resultado</div><div class="exec-v">El aprobador revisa diseño y negocio, no formato. Lo que llega a <code>master</code> pasó los controles obligatorios, y cada cambio en pagos queda aprobado por el responsable de PCI. Se mide con los indicadores de la sección 5.</div></div>
-    <div class="exec-row"><div class="exec-k">Plazo</div><div class="exec-v">9 semanas con un ingeniero DevOps, llave en mano, con activación gradual para no frenar al equipo.</div></div>
-    <div class="exec-row"><div class="exec-k">Qué necesitamos</div><div class="exec-v">Los accesos de la sección 6 desde la semana 0; un ambiente de pruebas al que llegue el pipeline y donde las pruebas puedan preparar sus propios datos; un responsable de PCI; que el equipo pueda corregir los hallazgos de SonarQube en el código nuevo, y que el analista deje en cada task la matriz de pruebas con resultados esperados precisos.</div></div>
+    <div class="exec-row"><div class="exec-k">Plazo</div><div class="exec-v">10 semanas con un ingeniero DevOps, llave en mano, con activación gradual para no frenar al equipo.</div></div>
+    <div class="exec-row"><div class="exec-k">Qué necesitamos</div><div class="exec-v">Los accesos de la sección 6 desde la semana 0; un ambiente de pruebas al que llegue el pipeline y donde las pruebas puedan preparar sus propios datos; un responsable de PCI; un proveedor de IA aprobado; que el equipo pueda corregir los hallazgos de SonarQube en el código nuevo, y que el analista deje en cada task la matriz de pruebas con resultados esperados precisos.</div></div>
   </div>
 
   <h2 id="estado">2. Estado actual</h2>
@@ -495,15 +503,15 @@
       <div class="step-label">Objetivo</div>
       <p class="step-desc">Que el PR llegue con su ticket, con el objetivo y la matriz de pruebas del ticket traídos desde Jira, y con la plantilla completa y coherente con los impactos detectados.</p>
       <div class="step-label">Beneficio</div>
-      <p class="step-desc">El autor no copia nada desde Jira: el PR tiene todo el contexto, con Jira como única fuente. El aprobador y Copilot (paso 8) comparan el cambio contra lo pedido, y las declaraciones de cumplimiento y las release notes quedan listas.</p>
+      <p class="step-desc">El autor no copia nada desde Jira: el PR tiene todo el contexto, con Jira como única fuente. El aprobador y la revisión con IA (paso 8) comparan el cambio contra lo pedido, y las declaraciones de cumplimiento y las release notes quedan listas.</p>
     </div>
     <div class="step">
       <div class="step-dot">8</div>
-      <div class="step-title">Revisión de Copilot <span class="tag tag-warn">Informa</span></div>
+      <div class="step-title">Revisión con IA <span class="tag tag-warn">Informa</span> <span class="tag tag-ai">IA</span></div>
       <div class="step-label">Objetivo</div>
-      <p class="step-desc">Revisar que las pruebas del PR estén alineadas con el objetivo y los criterios de aceptación del ticket que el paso 7 dejó en el PR, siguiendo instrucciones de revisión propias del equipo, además de la lógica del cambio.</p>
+      <p class="step-desc">Validar, caso por caso, si las pruebas automatizadas cubren los escenarios de la task que el paso 7 dejó en el PR, y revisar la lógica del cambio.</p>
       <div class="step-label">Beneficio</div>
-      <p class="step-desc">El aprobador recibe una primera lectura de si lo probado corresponde a lo pedido, sin cruzar a mano el ticket con el código, y los escenarios que Copilot ve sin cubrir aparecen como comentarios en el PR. Son sugerencias: la decisión sigue siendo del aprobador.</p>
+      <p class="step-desc">El aprobador ve qué casos quedaron cubiertos, cuáles solo en parte y cuáles sin prueba, incluidas las pruebas que existen pero no verifican el resultado esperado. Son sugerencias: la decisión sigue siendo del aprobador.</p>
     </div>
     <div class="step">
       <div class="step-dot">9</div>
@@ -535,7 +543,7 @@
         <tr><th>5 · Pruebas de servicios</th><td><span class="tag tag-ok">OK</span></td><td>Casos automatizados del ticket: en verde. Dos casos manuales quedan pendientes para QA; no bloquean.</td></tr>
         <tr><th>6 · Cambios en pagos (PCI)</th><td><span class="tag tag-ok">Sin impacto</span></td><td>El PR no toca rutas de pagos.</td></tr>
         <tr><th>7 · Estructura del PR</th><td><span class="tag tag-ok">OK</span></td><td>Ticket identificado &middot; objetivo y matriz copiados desde Jira &middot; plantilla completa.</td></tr>
-        <tr><th>8 · Revisión de Copilot</th><td><span class="tag tag-warn">Informa</span></td><td>Sugiere una prueba para un escenario del ticket que no está cubierto: una reserva con varios pasajeros.</td></tr>
+        <tr><th>8 · Revisión con IA</th><td><span class="tag tag-warn">Informa</span></td><td>Casos 1 a 3 cubiertos. Caso 4 parcial: su prueba pasa, pero no verifica el valor esperado. Los casos manuales quedan para QA.</td></tr>
       </tbody>
     </table>
     <div class="pr-mock-foot">Merge bloqueado hasta que el paso 4 pase.</div>
@@ -602,7 +610,7 @@
     </div>
     <div class="step step-sub">
       <div class="step-dot"></div>
-      <p class="step-desc">Ejecuta los pasos 1 a 8 del pipeline, que se detallan arriba: formatea, compila, prueba, analiza, ejecuta las pruebas de servicios, detecta cambios en pagos (PCI), trae el objetivo y la matriz desde Jira y pide la revisión de Copilot.</p>
+      <p class="step-desc">Ejecuta los pasos 1 a 8 del pipeline, que se detallan arriba: formatea, compila, prueba, analiza, ejecuta las pruebas de servicios, detecta cambios en pagos (PCI), trae el objetivo y la matriz desde Jira y ejecuta la revisión con IA.</p>
     </div>
     <div class="step step-sub">
       <div class="step-dot"></div>
@@ -619,7 +627,7 @@
     </div>
     <div class="step step-sub">
       <div class="step-dot"></div>
-      <p class="step-desc">Revisa el diseño y las reglas de negocio con el resumen, la evidencia y los comentarios de Copilot.</p>
+      <p class="step-desc">Revisa el diseño y las reglas de negocio con el resumen, la evidencia y la validación de cobertura de la revisión con IA.</p>
     </div>
     <div class="step step-sub">
       <div class="step-dot"></div>
@@ -667,7 +675,7 @@
 
   <h2 id="activacion">4. Cómo se activa sin frenar al equipo</h2>
 
-  <p>Los pasos nuevos se activan de forma gradual dentro de las 9 semanas. Los que pueden generar fricción avisan primero y bloquean después, cuando el equipo ya sabe qué revisan y los umbrales están ajustados.</p>
+  <p>Los pasos nuevos se activan de forma gradual dentro de las 10 semanas. Los que pueden generar fricción avisan primero y bloquean después, cuando el equipo ya sabe qué revisan y los umbrales están ajustados.</p>
 
   <table class="scenario-table allow-break">
     <thead><tr><th>Paso</th><th>Al activarse</th><th>Después</th></tr></thead>
@@ -679,7 +687,7 @@
       <tr><th>5 · Pruebas de servicios</th><td><span class="tag tag-warn">Avisa</span></td><td><span class="tag tag-fail">Bloquea</span> cuando el equipo tenga los casos de sus tickets en la colección. Lo decide Viva Aerobus. Solo bloquea si una prueba falla: si el ambiente de pruebas no está disponible, avisa y no frena el merge.</td></tr>
       <tr><th>6 · Cambios en pagos (PCI)</th><td><span class="tag tag-fix">Corrige</span></td><td><span class="tag tag-fix">Corrige</span></td></tr>
       <tr><th>7 · Estructura del PR</th><td><span class="tag tag-fix">Corrige</span> y <span class="tag tag-warn">avisa</span> durante una semana.</td><td><span class="tag tag-fix">Corrige</span> y <span class="tag tag-fail">bloquea</span></td></tr>
-      <tr><th>8 · Revisión de Copilot</th><td><span class="tag tag-warn">Informa</span></td><td><span class="tag tag-warn">Informa</span></td></tr>
+      <tr><th>8 · Revisión con IA</th><td><span class="tag tag-warn">Informa</span></td><td><span class="tag tag-warn">Informa</span>, con su veredicto calibrado contra el del aprobador. No pasa a bloquear, porque la IA puede equivocarse.</td></tr>
       <tr><th>9 · Aprobación del PR</th><td><span class="tag tag-fail">Bloquea</span>, como hoy.</td><td><span class="tag tag-fail">Bloquea</span></td></tr>
     </tbody>
   </table>
@@ -699,6 +707,7 @@
       <tr><th>Cambios en rutas de pagos aprobados por el responsable de PCI</th><td>Que el control de PCI se cumple.</td><td>100&nbsp;%</td></tr>
       <tr><th>Correcciones y bloqueos del pipeline por PR</th><td>Lo que la automatización detectó o corrigió antes de la revisión: formato, compilación, pruebas y análisis.</td><td>Se informa</td></tr>
       <tr><th>Casos «Automated» de la matriz que se ejecutan en el pipeline</th><td>Cuánto de la verificación funcional ya es automática. Crece a medida que el equipo aplica los lineamientos.</td><td>Se informa por ticket</td></tr>
+      <tr><th>Coincidencia entre el veredicto de la IA y el del aprobador</th><td>Qué tan confiable es la revisión con IA.</td><td>Se informa</td></tr>
       <tr><th>Tiempo del pipeline por push</th><td>Cuánto espera el equipo por la verificación, comparado con la mediana actual de 6,8 minutos.</td><td>Se informa</td></tr>
     </tbody>
   </table>
@@ -710,7 +719,7 @@
   <p>Proyecto llave en mano, a cargo de <strong>un ingeniero DevOps a tiempo completo</strong>.</p>
 
   <div class="kpis">
-    <div class="kpi"><div class="kpi-value">9 semanas</div><div class="kpi-label">de calendario, desde que hay accesos</div></div>
+    <div class="kpi"><div class="kpi-value">10 semanas</div><div class="kpi-label">de calendario, desde que hay accesos</div></div>
     <div class="kpi"><div class="kpi-value">1</div><div class="kpi-label">ingeniero DevOps</div></div>
   </div>
 
@@ -718,6 +727,7 @@
   <ul>
     <li>Los 9 pasos del flujo de la sección 3, configurados en el repo.</li>
     <li>La activación gradual de la sección 4.</li>
+    <li>La revisión con IA del paso 8, con su calibración y el tratamiento de datos acordado.</li>
     <li>Los lineamientos para automatizar las pruebas de servicios con aserciones repetibles, con una plantilla, un flujo de ejemplo resuelto y una sesión de trabajo con el equipo.</li>
     <li>La medición de la línea base y el reporte de los indicadores de la sección 5.</li>
     <li>La instalación y configuración del agente del pipeline (runner) en una máquina de la red de pruebas, si las pruebas de servicios lo requieren.</li>
@@ -732,20 +742,21 @@
     <thead><tr><th>Acceso</th><th>Para qué</th><th>Se necesita en</th></tr></thead>
     <tbody>
       <tr><th>Usuario en la organización de GitHub, con rol de administrador del repo Generic API</th><td>Configurar el pipeline: workflows, secrets, ruleset de <code>master</code> y <code>CODEOWNERS</code>.</td><td>Semana 1</td></tr>
-      <tr><th>Owner de la organización de GitHub</th><td>Instalar la GitHub App del commit automático y habilitar la revisión automática de Copilot en el repo, con sus licencias.</td><td>Semana 1</td></tr>
+      <tr><th>Owner de la organización de GitHub</th><td>Instalar la GitHub App del commit automático.</td><td>Semana 1</td></tr>
       <tr><th>Permiso para administrar Quality Gates en SonarQube</th><td>Ajustar con el equipo las reglas y las condiciones del Quality Gate, incluido el umbral de cobertura.</td><td>Semana 2</td></tr>
       <tr><th>Acceso al ambiente de pruebas de la API y de sus dependencias (dotREZ y demás integraciones), para el ingeniero y para el pipeline</th><td>Levantar la API y ejecutar las pruebas de servicios, primero desde el entorno del ingeniero y luego desde el pipeline.</td><td>Semana 2 para el ingeniero; semana 3 para el pipeline</td></tr>
       <tr><th>Máquina dentro de la red de pruebas, solo si el pipeline no puede llegar a esa red</th><td>Instalar y configurar en ella el agente del pipeline que ejecuta las pruebas de servicios.</td><td>Semana 3</td></tr>
       <tr><th>Credenciales del ambiente de pruebas</th><td>Configurarlas como secrets del pipeline.</td><td>Semana 3</td></tr>
       <tr><th>Usuario de Jira para el ingeniero y una cuenta de servicio con token para el pipeline, en el proyecto API</th><td>Traer el objetivo y la matriz del ticket al PR (paso 7) y adjuntar la evidencia en la subtask (paso 5). Con la cuenta de servicio, el pipeline no depende de una persona.</td><td>Semana 2</td></tr>
+      <tr><th>Cuenta de servicio del proveedor de IA aprobado</th><td>Ejecutar la revisión con IA desde el pipeline, con el tratamiento de datos acordado.</td><td>Semana 4</td></tr>
       <tr><th>Datos base del ambiente de pruebas: usuarios y medios de pago de prueba</th><td>Que las pruebas puedan crear sus propias reservas (PNR) mediante los servicios y sean repetibles.</td><td>Semana 3</td></tr>
       <tr><th>Responsable de PCI y de las rutas de pagos, con usuario de GitHub y permiso de escritura en el repo (o un equipo de GitHub)</th><td>Definir quién aprueba los cambios en pagos.</td><td>Semana 2</td></tr>
     </tbody>
   </table>
 
-  <p>Las solicitudes de acceso se envían antes del inicio (semana 0). El calendario de 9 semanas empieza cuando está el acceso de la semana 1. Si un acceso llega después de la semana indicada, la demora se suma al calendario.</p>
+  <p>Las solicitudes de acceso se envían antes del inicio (semana 0). El calendario de 10 semanas empieza cuando está el acceso de la semana 1. Si un acceso llega después de la semana indicada, la demora se suma al calendario.</p>
 
-  <h3>Supuesto principal: el ambiente de pruebas</h3>
+  <h3>Supuesto: el ambiente de pruebas</h3>
 
   <p>El paso 5 depende de un ambiente que no controlamos. Por eso la propuesta lo declara como supuesto y lo verifica temprano, antes de comprometer el resto del trabajo en ese paso.</p>
 
@@ -758,10 +769,22 @@
     </tbody>
   </table>
 
+  <h3>Supuesto: el proveedor de IA</h3>
+
+  <table class="scenario-table">
+    <tbody>
+      <tr><th>Supuesto</th><td>Viva Aerobus aprueba, a más tardar en la semana 4, un proveedor de IA y qué información del PR y del ticket se le puede enviar. El pipeline excluye los datos sensibles: PNR, nombres de pasajeros y datos de pago.</td></tr>
+      <tr><th>Cómo se verifica</th><td>Con la aprobación por escrito del proveedor y de la política de datos, en la semana 4.</td></tr>
+      <tr><th>Si no se cumple</th><td>El paso 8 sale del alcance comprometido y se ajustan el alcance y el precio. El resto del flujo no depende de la IA.</td></tr>
+      <tr><th>Límite conocido</th><td>La IA puede equivocarse. Por eso informa y no bloquea, y su veredicto se calibra contra el del aprobador.</td></tr>
+    </tbody>
+  </table>
+
   <h3>Criterios de aceptación</h3>
   <ul>
     <li>Los pasos 1 a 4 y 6 a 9 funcionan en el repo, y los que bloquean están configurados como obligatorios en el ruleset de <code>master</code>.</li>
     <li>El paso 5 corre en cada PR en modo aviso, con los lineamientos aplicados en el flujo de ejemplo, si se cumple el supuesto del ambiente de pruebas.</li>
+    <li>El paso 8 corre en cada PR en modo informativo, con un reporte de calibración contra el criterio del aprobador en los 10 PRs de aceptación, si se cumple el supuesto del proveedor de IA.</li>
     <li>El flujo corre sin intervención manual en 10 PRs reales consecutivos del equipo.</li>
     <li>La línea base y el reporte de los indicadores de la sección 5 están entregados.</li>
     <li>Los lineamientos y la guía de operación están entregados, y las sesiones con el equipo, realizadas.</li>
@@ -772,7 +795,7 @@
     <li>Viva Aerobus acuerda con los responsables del repositorio que el equipo pueda corregir, en el código nuevo de cada PR, los hallazgos que reporta SonarQube. Sin ese acuerdo, el paso 4 queda solo como aviso.</li>
     <li>El analista deja en la task el objetivo, los criterios de aceptación y la matriz con resultados esperados precisos antes de marcarla como lista para desarrollo.</li>
     <li>El equipo escribe los casos de cada ticket en la colección de Postman siguiendo los lineamientos. El valor del paso 5 depende de esta práctica.</li>
-    <li>Los costos de operación quedan a cargo de Viva Aerobus: minutos de GitHub Actions (en repos privados, los runners Windows consumen el doble), licencias de Copilot y, si se usa, la máquina del agente.</li>
+    <li>Los costos de operación quedan a cargo de Viva Aerobus: minutos de GitHub Actions (en repos privados, los runners Windows consumen el doble), el consumo del proveedor de IA y, si se usa, la máquina del agente.</li>
   </ul>
 
   <h3>Fuera de alcance</h3>
@@ -785,13 +808,13 @@
 
   <h2 id="siguiente">7. Siguiente paso</h2>
 
-  <p>Aprobar el alcance y el plazo, y enviar durante la semana 0 las solicitudes de acceso de la sección 6. El calendario de 9 semanas empieza cuando esté disponible el acceso de la semana 1.</p>
+  <p>Aprobar el alcance y el plazo, y enviar durante la semana 0 las solicitudes de acceso de la sección 6. El calendario de 10 semanas empieza cuando esté disponible el acceso de la semana 1.</p>
 
   <p class="caveat-list" style="color:var(--text-2);font-size:10.5px">Fuente: repo <code>EzyWebwerkstaden/VivaAerobus.Generic.Api</code> y API de GitHub, consultados el 28 y 29 de septiembre de 2026: configuración del pipeline y del ruleset, últimas 100 ejecuciones del pipeline en PRs (31 mar &ndash; 8 sep 2026) y la colección de Postman del repo.</p>
 
   <h2 id="anexo">Anexo: términos usados</h2>
 
-  <table class="scenario-table">
+  <table class="scenario-table glossary">
     <thead><tr><th>Término</th><th>Qué significa</th></tr></thead>
     <tbody>
       <tr><th>PR (pull request)</th><td>Solicitud para incorporar un cambio de código a la rama principal. Es donde el cambio se revisa y se aprueba.</td></tr>
@@ -807,6 +830,8 @@
       <tr><th>Cobertura</th><td>Porcentaje del código que ejecutan las pruebas.</td></tr>
       <tr><th>Postman</th><td>La herramienta donde el equipo define las pruebas de los servicios de la API. El pipeline las ejecuta sin interfaz.</td></tr>
       <tr><th>Aserción</th><td>Una comprobación dentro de una prueba, por ejemplo que un campo tenga el valor esperado.</td></tr>
+      <tr><th>IA (modelo de lenguaje)</th><td>Modelo que interpreta texto y código. En este flujo valida si las pruebas cubren los escenarios de la task y revisa la lógica del cambio. Informa; no bloquea.</td></tr>
+      <tr><th>Calibración</th><td>Comparar los resultados de la IA con el criterio del aprobador en PRs reales, para saber cuánto confiar en ellos.</td></tr>
       <tr><th>Perfil Ezy</th><td>Las reglas de formato de código del equipo, definidas en la solución.</td></tr>
       <tr><th>Agente del pipeline (runner)</th><td>La máquina que ejecuta los pasos del pipeline.</td></tr>
       <tr><th>Secrets</th><td>Credenciales guardadas de forma segura en GitHub para que el pipeline las use.</td></tr>
