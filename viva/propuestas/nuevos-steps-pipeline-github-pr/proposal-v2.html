@@ -349,6 +349,25 @@
     .glossary th, .glossary td{padding-top:4px;padding-bottom:4px;}
   }
 </style>
+<style>
+  .fcard{border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin:10px 0;page-break-inside:avoid;break-inside:avoid;}
+  .fcard-title{display:flex;align-items:center;gap:10px;font-weight:600;color:var(--violet);font-size:1.05em;margin-bottom:8px;}
+  .fcard-num{flex:none;width:24px;height:24px;border-radius:50%;background:var(--accent);color:#FFFFFF;display:inline-flex;align-items:center;justify-content:center;font-size:.8em;}
+  .fcard-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .fcard-grid p{margin:0;}
+  .fcard-label{font-weight:600;font-size:.76em;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px;}
+  .fcard-see .fcard-label{color:var(--amber);}
+  .fcard-do .fcard-label{color:var(--accent);}
+  .fcard-gain .fcard-label{color:var(--violet);}
+  @media (max-width:640px){.fcard-grid{grid-template-columns:1fr;}}
+</style>
+<style>
+  @media print{
+    .fcard{margin:6px 0;padding:8px 12px;}
+    .fcard-title{margin-bottom:5px;}
+    .fcard-grid{gap:12px;}
+  }
+</style>
 </head>
 <body>
 <div class="page">
@@ -365,14 +384,14 @@
     <div class="eyebrow">Propuesta de mejora del pipeline de PR</div>
     <h1>PRs verificados antes de la revisión</h1>
     <p class="subtitle">Un pipeline que corrige el formato, verifica cada PR y trae el contexto del ticket, para que el aprobador dedique su tiempo solo a lo que exige criterio.</p>
-    <div class="cover-meta">Viva Aerobus<br>Proyecto Generic API<br><strong>10 semanas &middot; 1 ingeniero DevOps &middot; llave en mano</strong></div>
+    <div class="cover-meta">Viva Aerobus<br>Proyecto Generic API<br><strong>11 semanas &middot; 1 ingeniero DevOps &middot; llave en mano</strong></div>
     <div class="cover-confidential">Documento confidencial. Elaborado por Tech and Solve para Viva Aerobus.</div>
   </div>
 
   <div class="toc">
     <div class="toc-title">Contenido</div>
     <ol>
-      <li><a href="#resumen">Resumen ejecutivo</a></li>
+      <li><a href="#resumen">Lo que vemos, qué proponemos y qué gana</a></li>
       <li><a href="#estado">Estado actual</a></li>
       <li><a href="#evolucion">Propuesta: de la task al merge</a></li>
       <li><a href="#activacion">Cómo se activa sin frenar al equipo</a></li>
@@ -383,15 +402,83 @@
     <div style="margin:6px 0 0 18px"><a href="#anexo" style="color:var(--text);text-decoration:none">Anexo: términos usados</a></div>
   </div>
 
-  <h2 id="resumen">1. Resumen ejecutivo</h2>
+  <h2 id="resumen">1. Lo que vemos, qué proponemos y qué gana</h2>
+
+  <p>Revisamos el pipeline de PR de Generic API, su configuración en GitHub y la forma en que el equipo lleva una task hasta el merge. Estos son los puntos que vemos, la mejora que proponemos para cada uno y lo que gana Viva Aerobus con ella.</p>
+
+  <div class="fcard">
+    <div class="fcard-title"><span class="fcard-num">1</span>Los controles no bloquean el merge</div>
+    <div class="fcard-grid">
+      <div class="fcard-see"><div class="fcard-label">Lo que vemos</div><p>El pipeline compila y analiza, pero ningún check es obligatorio: un PR se puede mergear con la compilación o el Quality Gate en rojo. Solo la aprobación es obligatoria.</p></div>
+      <div class="fcard-do"><div class="fcard-label">Qué proponemos</div><p>Volver obligatorios la compilación, las pruebas unitarias y el Quality Gate, con una activación gradual para no frenar al equipo (pasos 2 a 4).</p></div>
+      <div class="fcard-gain"><div class="fcard-label">Qué gana Viva Aerobus</div><p>A <code>master</code> solo llega código que pasó los controles obligatorios, salvo las excepciones que autoricen los administradores del repo.</p></div>
+    </div>
+  </div>
+  <div class="fcard">
+    <div class="fcard-title"><span class="fcard-num">2</span>Las pruebas unitarias no se ejecutan</div>
+    <div class="fcard-grid">
+      <div class="fcard-see"><div class="fcard-label">Lo que vemos</div><p>El repo tiene un proyecto de pruebas NUnit, pero el pipeline no lo ejecuta ni mide cobertura.</p></div>
+      <div class="fcard-do"><div class="fcard-label">Qué proponemos</div><p>Ejecutar las pruebas en cada push y reportar la cobertura del código nuevo (paso 3).</p></div>
+      <div class="fcard-gain"><div class="fcard-label">Qué gana Viva Aerobus</div><p>Las regresiones que cubren las pruebas se detectan en el PR, en minutos, y no en QA o en producción.</p></div>
+    </div>
+  </div>
+  <div class="fcard">
+    <div class="fcard-title"><span class="fcard-num">3</span>SonarQube corre, pero no se usa</div>
+    <div class="fcard-grid">
+      <div class="fcard-see"><div class="fcard-label">Lo que vemos</div><p>El análisis publica su Quality Gate en cada PR, pero las reglas actuales del proyecto no permiten ajustar el código para resolver lo que reporta, así que sus hallazgos no se atienden.</p></div>
+      <div class="fcard-do"><div class="fcard-label">Qué proponemos</div><p>Activar SonarQube como herramienta de apoyo para cada desarrollador: acordar que el equipo corrija los hallazgos del código nuevo, ajustar las reglas con el equipo y dar una sesión de uso (paso 4).</p></div>
+      <div class="fcard-gain"><div class="fcard-label">Qué gana Viva Aerobus</div><p>Cada desarrollador recibe en su propio PR lo que SonarQube detecta y lo corrige antes de la revisión, sin depender de un revisor central.</p></div>
+    </div>
+  </div>
+  <div class="fcard">
+    <div class="fcard-title"><span class="fcard-num">4</span>El formato se corrige a mano</div>
+    <div class="fcard-grid">
+      <div class="fcard-see"><div class="fcard-label">Lo que vemos</div><p>El estilo del equipo, definido en el perfil Ezy, se aplica a mano: depende de cada desarrollador y de que el revisor lo note.</p></div>
+      <div class="fcard-do"><div class="fcard-label">Qué proponemos</div><p>Aplicar el perfil Ezy automáticamente en las líneas que toca cada PR (paso 1).</p></div>
+      <div class="fcard-gain"><div class="fcard-label">Qué gana Viva Aerobus</div><p>Los PRs dejan de devolverse por formato en todo lo que cubre el perfil, y el aprobador dedica su tiempo a la lógica.</p></div>
+    </div>
+  </div>
+  <div class="fcard">
+    <div class="fcard-title"><span class="fcard-num">5</span>Las pruebas de servicios no corren en el PR</div>
+    <div class="fcard-grid">
+      <div class="fcard-see"><div class="fcard-label">Lo que vemos</div><p>La colección de Postman no corre en el pipeline de PR, y la evidencia de las pruebas de cada task se arma a mano.</p></div>
+      <div class="fcard-do"><div class="fcard-label">Qué proponemos</div><p>Ejecutar los casos de cada task contra la API del propio PR (paso 5), con lineamientos para que el equipo escriba pruebas con aserciones que verifiquen el resultado y se puedan repetir.</p></div>
+      <div class="fcard-gain"><div class="fcard-label">Qué gana Viva Aerobus</div><p>La evidencia se genera sola y es reproducible, y QA solo ejecuta los casos manuales.</p></div>
+    </div>
+  </div>
+  <div class="fcard">
+    <div class="fcard-title"><span class="fcard-num">6</span>Cualquier persona puede aprobar cambios en pagos</div>
+    <div class="fcard-grid">
+      <div class="fcard-see"><div class="fcard-label">Lo que vemos</div><p>El ruleset exige la aprobación de code owners, pero el repo no tiene archivo <code>CODEOWNERS</code>: la regla no tiene efecto, y cualquier persona con permiso de escritura aprueba cambios en el código sujeto a PCI.</p></div>
+      <div class="fcard-do"><div class="fcard-label">Qué proponemos</div><p>Detectar cuándo un PR toca las rutas de pagos y exigir la aprobación del responsable de PCI (pasos 6 y 9).</p></div>
+      <div class="fcard-gain"><div class="fcard-label">Qué gana Viva Aerobus</div><p>Todo cambio en las rutas de pagos acordadas queda identificado y aprobado por su responsable.</p></div>
+    </div>
+  </div>
+  <div class="fcard">
+    <div class="fcard-title"><span class="fcard-num">7</span>El PR no trae el contexto de la task</div>
+    <div class="fcard-grid">
+      <div class="fcard-see"><div class="fcard-label">Lo que vemos</div><p>La plantilla del PR se completa a mano y ningún control la valida. El objetivo y la matriz de pruebas viven solo en Jira.</p></div>
+      <div class="fcard-do"><div class="fcard-label">Qué proponemos</div><p>Traer al PR el objetivo y la matriz desde Jira, y validar que la plantilla esté completa y sea coherente con los cambios detectados (paso 7).</p></div>
+      <div class="fcard-gain"><div class="fcard-label">Qué gana Viva Aerobus</div><p>El aprobador tiene todo el contexto en el PR, y las declaraciones de cumplimiento y las release notes quedan listas.</p></div>
+    </div>
+  </div>
+  <div class="fcard">
+    <div class="fcard-title"><span class="fcard-num">8</span>Copilot está habilitado, pero no revisa</div>
+    <div class="fcard-grid">
+      <div class="fcard-see"><div class="fcard-label">Lo que vemos</div><p>La revisión de Copilot está habilitada en el repo, pero no revisa los PRs de forma automática. Nadie verifica si las pruebas cubren lo que pide la task.</p></div>
+      <div class="fcard-do"><div class="fcard-label">Qué proponemos</div><p>Una revisión con IA en cada PR que valide, caso por caso, si las pruebas cubren los escenarios de la task y revise la lógica del cambio (paso 8). Reemplaza la revisión de Copilot.</p></div>
+      <div class="fcard-gain"><div class="fcard-label">Qué gana Viva Aerobus</div><p>El aprobador ve qué casos quedaron cubiertos, cuáles solo en parte y cuáles sin prueba, incluidas las pruebas que existen pero no verifican el resultado esperado.</p></div>
+    </div>
+  </div>
+
+  <p>En conjunto, el aprobador recibe PRs ya verificados y dedica su tiempo a lo que exige criterio: el diseño y las reglas de negocio.</p>
 
   <div class="exec">
-    <div class="exec-row"><div class="exec-k">El problema</div><div class="exec-v">Hoy el pipeline de PR compila y analiza el código, pero no ejecuta pruebas, no bloquea nada y los hallazgos de SonarQube no se atienden: un PR se puede mergear con la compilación o el Quality Gate en rojo, y cualquier persona con permiso de escritura puede aprobar cambios en pagos. El aprobador verifica a mano formato, pruebas y cumplimiento.</div></div>
-    <div class="exec-row"><div class="exec-k">La propuesta</div><div class="exec-v">Un flujo de 9 pasos en cada PR que corrige solo el formato; verifica compilación, pruebas, calidad, servicios, impacto en pagos y estructura del PR; y entrega al aprobador un resumen único con la evidencia. SonarQube pasa a ser una herramienta real de apoyo para que cada desarrollador programe con buenas prácticas, y el equipo recibe lineamientos para automatizar sus pruebas de servicios con aserciones repetibles. Una revisión con IA valida, caso por caso, si las pruebas cubren los escenarios de la task.</div></div>
-    <div class="exec-row"><div class="exec-k">El resultado</div><div class="exec-v">El aprobador revisa diseño y negocio, no formato. Lo que llega a <code>master</code> pasó los controles obligatorios, y cada cambio en pagos queda aprobado por el responsable de PCI. Se mide con los indicadores de la sección 5.</div></div>
-    <div class="exec-row"><div class="exec-k">Plazo</div><div class="exec-v">10 semanas con un ingeniero DevOps, llave en mano, con activación gradual para no frenar al equipo.</div></div>
+    <div class="exec-row"><div class="exec-k">Plazo</div><div class="exec-v">11 semanas con un ingeniero DevOps, llave en mano, con activación gradual para no frenar al equipo.</div></div>
     <div class="exec-row"><div class="exec-k">Qué necesitamos</div><div class="exec-v">Los accesos de la sección 6 desde la semana 0; un ambiente de pruebas al que llegue el pipeline y donde las pruebas puedan preparar sus propios datos; un responsable de PCI; un proveedor de IA aprobado; que el equipo pueda corregir los hallazgos de SonarQube en el código nuevo, y que el analista deje en cada task la matriz de pruebas con resultados esperados precisos.</div></div>
   </div>
+
+  <p>Las secciones siguientes dan el detalle: cómo funciona hoy un PR (sección 2), cómo funcionaría con la propuesta (3), cómo se activa (4), cómo se mide (5) y el plazo, el alcance y las condiciones (6).</p>
 
   <h2 id="estado">2. Estado actual</h2>
 
@@ -437,7 +524,7 @@
 
   <h2 id="evolucion">3. Propuesta: de la task al merge</h2>
 
-  <p>La propuesta cubre el recorrido completo de una actividad, desde que el analista deja lista la task en Jira hasta el merge. Primero, qué hace el pipeline en cada PR; después, qué hace cada actor.</p>
+  <p>La propuesta cubre el recorrido completo de una actividad, desde que el analista deja lista la task en Jira hasta el merge. Primero, qué hace el pipeline en cada PR; después, qué hace cada actor y los lineamientos para las pruebas de servicios.</p>
 
   <h3>Qué hace el pipeline en cada PR</h3>
 
@@ -528,7 +615,7 @@
     </div>
   </div>
 
-  <p class="diagram-caption">Los pasos 6, 7 y 8 no dependen de la compilación: corren uno tras otro, en paralelo a los pasos 2 a 5. Los pasos 6 y 7 tardan segundos, así que el autor ve primero lo más rápido. Los bloqueos aplican a todos los PRs, salvo las excepciones que autoricen los administradores del repo. La sección 4 explica cómo se activan sin frenar al equipo.</p>
+  <p class="diagram-caption">Los pasos 6, 7 y 8 no dependen de la compilación: corren uno tras otro, en paralelo a los pasos 2 a 5. Los pasos 6 y 7 tardan segundos, así que el autor ve primero lo más rápido. Los bloqueos aplican a todos los PRs, salvo las excepciones que autoricen los administradores del repo. La sección 4 explica cómo se activan sin frenar al equipo. La revisión con IA del paso 8 reemplaza la revisión de Copilot, que hoy no se usa.</p>
 
   <h3>Lo que ve el aprobador</h3>
 
@@ -543,7 +630,7 @@
         <tr><th>5 · Pruebas de servicios</th><td><span class="tag tag-ok">OK</span></td><td>Casos automatizados del ticket: en verde. Dos casos manuales quedan pendientes para QA; no bloquean.</td></tr>
         <tr><th>6 · Cambios en pagos (PCI)</th><td><span class="tag tag-ok">Sin impacto</span></td><td>El PR no toca rutas de pagos.</td></tr>
         <tr><th>7 · Estructura del PR</th><td><span class="tag tag-ok">OK</span></td><td>Ticket identificado &middot; objetivo y matriz copiados desde Jira &middot; plantilla completa.</td></tr>
-        <tr><th>8 · Revisión con IA</th><td><span class="tag tag-warn">Informa</span></td><td>Casos 1 a 3 cubiertos. Caso 4 parcial: su prueba pasa, pero no verifica el valor esperado. Los casos manuales quedan para QA.</td></tr>
+        <tr><th>8 · Revisión con IA</th><td><span class="tag tag-warn">Informa</span></td><td>Casos 1 a 3 cubiertos. Caso 4 parcial: su prueba existe, pero no verifica el valor esperado. Los casos manuales quedan para QA.</td></tr>
       </tbody>
     </table>
     <div class="pr-mock-foot">Merge bloqueado hasta que el paso 4 pase.</div>
@@ -662,7 +749,7 @@
   <table class="scenario-table">
     <thead><tr><th>Lineamiento</th><th>Qué asegura</th></tr></thead>
     <tbody>
-      <tr><th>Aserciones sobre el resultado de negocio</th><td>Que la prueba falle si el valor devuelto no es el esperado, no solo si el servicio responde con error. Hoy el 89&nbsp;% de los requests de la colección solo verifica que la respuesta sea 200 y <code>SUCCESS</code>.</td></tr>
+      <tr><th>Aserciones sobre el resultado de negocio</th><td>Que la prueba falle si el valor devuelto no es el esperado, no solo si el servicio responde con error.</td></tr>
       <tr><th>Validación del esquema de la respuesta</th><td>Que se detecte un cambio en los tipos o en los campos obligatorios, aunque el valor parezca correcto.</td></tr>
       <tr><th>Valores esperados tomados de la matriz</th><td>Que cada caso de la task se ejecute con su entrada y su resultado esperado, y que el reporte diga qué caso pasó o falló.</td></tr>
       <tr><th>Datos de prueba que la propia prueba prepara mediante llamadas a los servicios, en cada corrida</th><td>Que la prueba no dependa de reservas que otra prueba modificó antes, y que varias corridas puedan ejecutarse a la vez sin pisarse.</td></tr>
@@ -675,7 +762,7 @@
 
   <h2 id="activacion">4. Cómo se activa sin frenar al equipo</h2>
 
-  <p>Los pasos nuevos se activan de forma gradual dentro de las 10 semanas. Los que pueden generar fricción avisan primero y bloquean después, cuando el equipo ya sabe qué revisan y los umbrales están ajustados.</p>
+  <p>Los pasos nuevos se activan de forma gradual dentro de las 11 semanas. Los que pueden generar fricción avisan primero y bloquean después, cuando el equipo ya sabe qué revisan y los umbrales están ajustados.</p>
 
   <table class="scenario-table allow-break">
     <thead><tr><th>Paso</th><th>Al activarse</th><th>Después</th></tr></thead>
@@ -702,7 +789,7 @@
   <table class="scenario-table allow-break">
     <thead><tr><th>Indicador</th><th>Qué muestra</th><th>Meta</th></tr></thead>
     <tbody>
-      <tr><th>PRs en los que corrió el flujo completo</th><td>Que ningún PR queda sin verificar.</td><td>100&nbsp;%</td></tr>
+      <tr><th>PRs en los que corrió el flujo completo</th><td>Que ningún PR queda sin verificar.</td><td>100&nbsp;%, salvo indisponibilidad del ambiente de pruebas o del proveedor de IA</td></tr>
       <tr><th>PRs mergeados con todos los checks obligatorios en verde</th><td>Que los controles se respetan.</td><td>100&nbsp;%, salvo excepciones autorizadas</td></tr>
       <tr><th>Cambios en rutas de pagos aprobados por el responsable de PCI</th><td>Que el control de PCI se cumple.</td><td>100&nbsp;%</td></tr>
       <tr><th>Correcciones y bloqueos del pipeline por PR</th><td>Lo que la automatización detectó o corrigió antes de la revisión: formato, compilación, pruebas y análisis.</td><td>Se informa</td></tr>
@@ -719,7 +806,7 @@
   <p>Proyecto llave en mano, a cargo de <strong>un ingeniero DevOps a tiempo completo</strong>.</p>
 
   <div class="kpis">
-    <div class="kpi"><div class="kpi-value">10 semanas</div><div class="kpi-label">de calendario, desde que hay accesos</div></div>
+    <div class="kpi"><div class="kpi-value">11 semanas</div><div class="kpi-label">de calendario, desde que hay accesos</div></div>
     <div class="kpi"><div class="kpi-value">1</div><div class="kpi-label">ingeniero DevOps</div></div>
   </div>
 
@@ -728,6 +815,7 @@
     <li>Los 9 pasos del flujo de la sección 3, configurados en el repo.</li>
     <li>La activación gradual de la sección 4.</li>
     <li>La revisión con IA del paso 8, con su calibración y el tratamiento de datos acordado.</li>
+    <li>El resumen del pipeline en cada PR, actualizado en cada push.</li>
     <li>Los lineamientos para automatizar las pruebas de servicios con aserciones repetibles, con una plantilla, un flujo de ejemplo resuelto y una sesión de trabajo con el equipo.</li>
     <li>La medición de la línea base y el reporte de los indicadores de la sección 5.</li>
     <li>La instalación y configuración del agente del pipeline (runner) en una máquina de la red de pruebas, si las pruebas de servicios lo requieren.</li>
@@ -754,7 +842,7 @@
     </tbody>
   </table>
 
-  <p>Las solicitudes de acceso se envían antes del inicio (semana 0). El calendario de 10 semanas empieza cuando está el acceso de la semana 1. Si un acceso llega después de la semana indicada, la demora se suma al calendario.</p>
+  <p>Las solicitudes de acceso se envían antes del inicio (semana 0). El calendario de 11 semanas empieza cuando está el acceso de la semana 1. Si un acceso llega después de la semana indicada, la demora se suma al calendario; si supera dos semanas, se revisa con Viva Aerobus el esfuerzo del proyecto.</p>
 
   <h3>Supuesto: el ambiente de pruebas</h3>
 
@@ -785,7 +873,7 @@
     <li>Los pasos 1 a 4 y 6 a 9 funcionan en el repo, y los que bloquean están configurados como obligatorios en el ruleset de <code>master</code>.</li>
     <li>El paso 5 corre en cada PR en modo aviso, con los lineamientos aplicados en el flujo de ejemplo, si se cumple el supuesto del ambiente de pruebas.</li>
     <li>El paso 8 corre en cada PR en modo informativo, con un reporte de calibración contra el criterio del aprobador en los 10 PRs de aceptación, si se cumple el supuesto del proveedor de IA.</li>
-    <li>El flujo corre sin intervención manual en 10 PRs reales consecutivos del equipo.</li>
+    <li>El flujo corre sin intervención del ingeniero en 10 PRs reales consecutivos del equipo o, si en las últimas dos semanas del proyecto hay menos de 10, en todos los PRs de ese periodo.</li>
     <li>La línea base y el reporte de los indicadores de la sección 5 están entregados.</li>
     <li>Los lineamientos y la guía de operación están entregados, y las sesiones con el equipo, realizadas.</li>
   </ul>
@@ -804,11 +892,12 @@
     <li>Corregir pruebas unitarias existentes que ya fallen hoy. Se reportan en la incorporación y se acuerdan aparte.</li>
     <li>Proveer la máquina para el agente del pipeline y operarla después del traspaso (parches, monitoreo y respaldo).</li>
     <li>Cambios en TeamCity o en el proceso de despliegue.</li>
+    <li>El soporte y el mantenimiento del pipeline después del traspaso. Se pueden acordar aparte.</li>
   </ul>
 
   <h2 id="siguiente">7. Siguiente paso</h2>
 
-  <p>Aprobar el alcance y el plazo, y enviar durante la semana 0 las solicitudes de acceso de la sección 6. El calendario de 10 semanas empieza cuando esté disponible el acceso de la semana 1.</p>
+  <p>Aprobar el alcance y el plazo, y enviar durante la semana 0 las solicitudes de acceso de la sección 6. El calendario de 11 semanas empieza cuando esté disponible el acceso de la semana 1.</p>
 
   <p class="caveat-list" style="color:var(--text-2);font-size:10.5px">Fuente: repo <code>EzyWebwerkstaden/VivaAerobus.Generic.Api</code> y API de GitHub, consultados el 28 y 29 de septiembre de 2026: configuración del pipeline y del ruleset, últimas 100 ejecuciones del pipeline en PRs (31 mar &ndash; 8 sep 2026) y la colección de Postman del repo.</p>
 
@@ -817,6 +906,7 @@
   <table class="scenario-table glossary">
     <thead><tr><th>Término</th><th>Qué significa</th></tr></thead>
     <tbody>
+      <tr><th>Task o ticket</th><td>La tarea o historia registrada en Jira, con su objetivo, sus criterios de aceptación y su matriz de pruebas. En este documento, los dos términos se usan como sinónimos.</td></tr>
       <tr><th>PR (pull request)</th><td>Solicitud para incorporar un cambio de código a la rama principal. Es donde el cambio se revisa y se aprueba.</td></tr>
       <tr><th>Merge</th><td>Incorporar el cambio del PR a la rama principal.</td></tr>
       <tr><th><code>master</code></th><td>La rama principal del repo, desde donde se despliega.</td></tr>
