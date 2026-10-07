@@ -5,3 +5,5 @@ inicialmente solo considerar las de estatu Segumiento Mes columna D fila = Final
 Como conocer el tiempo real invertido: Sumando Seguimiento Mes columna H (Registrado meses previos) + Seguimiento Mes columna I (Registrado Agosto26)
 
 La acertividad en la estimacion se puede conocer entre Seguimiento Mes columan G (Original Estimate) vs el tiempo total registrado (Seguimiento mes: H+I)
+
+los tiempos en esta tabla están en horas. 
