@@ -1,0 +1,953 @@
+{
+ "lectura": "2026-10-09",
+ "corte_esperas_abiertas": "2026-10-08",
+ "fuentes": {
+  "jira": "https://vivaaerobus.atlassian.net (proyecto API, solo lectura)",
+  "github": "EzyWebwerkstaden/VivaAerobus.Generic.Api (solo lectura)"
+ },
+ "prs_septiembre": [
+  {
+   "pr": 2483,
+   "tarea": "API-1853",
+   "abierto": "2026-09-01",
+   "primera_revision": "2026-09-03",
+   "espera_primera_revision_habiles": 1.7,
+   "solicitudes_de_cambio": 0,
+   "primera_aprobacion": "2026-09-03",
+   "espera_hasta_aprobacion_habiles": 1.7,
+   "merge": "2026-09-03",
+   "espera_hasta_merge_habiles": 2.0,
+   "sonar": {
+    "estado": "rojo",
+    "issues_nuevos": 1
+   }
+  },
+  {
+   "pr": 2484,
+   "tarea": "API-1738",
+   "abierto": "2026-09-02",
+   "primera_revision": "2026-09-02",
+   "espera_primera_revision_habiles": 0.5,
+   "solicitudes_de_cambio": 3,
+   "primera_aprobacion": "2026-09-07",
+   "espera_hasta_aprobacion_habiles": 3.3,
+   "merge": "2026-09-07",
+   "espera_hasta_merge_habiles": 3.4,
+   "sonar": {
+    "estado": "rojo",
+    "issues_nuevos": 1
+   }
+  },
+  {
+   "pr": 2487,
+   "tarea": "API-1851",
+   "abierto": "2026-09-03",
+   "primera_revision": "2026-09-09",
+   "espera_primera_revision_habiles": 3.6,
+   "solicitudes_de_cambio": 1,
+   "primera_aprobacion": "2026-09-09",
+   "espera_hasta_aprobacion_habiles": 4.0,
+   "merge": "2026-09-09",
+   "espera_hasta_merge_habiles": 4.0,
+   "sonar": {
+    "estado": "rojo",
+    "issues_nuevos": 1
+   }
+  },
+  {
+   "pr": 2488,
+   "tarea": "API-1839",
+   "abierto": "2026-09-04",
+   "primera_revision": "2026-09-11",
+   "espera_primera_revision_habiles": 4.6,
+   "solicitudes_de_cambio": 1,
+   "primera_aprobacion": "2026-09-16",
+   "espera_hasta_aprobacion_habiles": 7.7,
+   "merge": "2026-09-17",
+   "espera_hasta_merge_habiles": 8.7,
+   "sonar": {
+    "estado": "rojo",
+    "issues_nuevos": 3
+   }
+  },
+  {
+   "pr": 2491,
+   "tarea": "API-1834",
+   "abierto": "2026-09-08",
+   "primera_revision": "2026-09-11",
+   "espera_primera_revision_habiles": 2.9,
+   "solicitudes_de_cambio": 1,
+   "primera_aprobacion": "2026-09-14",
+   "espera_hasta_aprobacion_habiles": 4.0,
+   "merge": "2026-09-14",
+   "espera_hasta_merge_habiles": 4.1,
+   "sonar": {
+    "estado": "verde",
+    "issues_nuevos": 0
+   }
+  },
+  {
+   "pr": 2493,
+   "tarea": "API-1867",
+   "abierto": "2026-09-08",
+   "primera_revision": "2026-09-10",
+   "espera_primera_revision_habiles": 2.0,
+   "solicitudes_de_cambio": 3,
+   "primera_aprobacion": "2026-09-14",
+   "espera_hasta_aprobacion_habiles": 4.0,
+   "merge": "2026-09-14",
+   "espera_hasta_merge_habiles": 4.0,
+   "sonar": {
+    "estado": "rojo",
+    "issues_nuevos": 2
+   }
+  },
+  {
+   "pr": 2494,
+   "tarea": "API-1872",
+   "abierto": "2026-09-09",
+   "primera_revision": "2026-09-10",
+   "espera_primera_revision_habiles": 1.1,
+   "solicitudes_de_cambio": 3,
+   "primera_aprobacion": "2026-09-15",
+   "espera_hasta_aprobacion_habiles": 3.8,
+   "merge": "2026-09-15",
+   "espera_hasta_merge_habiles": 4.0,
+   "sonar": {
+    "estado": "verde",
+    "issues_nuevos": 0
+   }
+  },
+  {
+   "pr": 2497,
+   "tarea": "API-1877",
+   "abierto": "2026-09-10",
+   "primera_revision": "2026-09-17",
+   "espera_primera_revision_habiles": 4.7,
+   "solicitudes_de_cambio": 0,
+   "primera_aprobacion": "2026-09-17",
+   "espera_hasta_aprobacion_habiles": 4.7,
+   "merge": "2026-09-17",
+   "espera_hasta_merge_habiles": 4.9,
+   "sonar": {
+    "estado": "verde",
+    "issues_nuevos": 0
+   }
+  },
+  {
+   "pr": 2499,
+   "tarea": "API-1871",
+   "abierto": "2026-09-14",
+   "primera_revision": "2026-09-16",
+   "espera_primera_revision_habiles": 1.7,
+   "solicitudes_de_cambio": 1,
+   "primera_aprobacion": "2026-09-16",
+   "espera_hasta_aprobacion_habiles": 2.1,
+   "merge": "2026-09-16",
+   "espera_hasta_merge_habiles": 2.1,
+   "sonar": {
+    "estado": "verde",
+    "issues_nuevos": 0
+   }
+  },
+  {
+   "pr": 2502,
+   "tarea": "API-1858",
+   "abierto": "2026-09-15",
+   "primera_revision": "2026-09-16",
+   "espera_primera_revision_habiles": 0.6,
+   "solicitudes_de_cambio": 1,
+   "primera_aprobacion": "2026-09-18",
+   "espera_hasta_aprobacion_habiles": 2.3,
+   "merge": "2026-09-21",
+   "espera_hasta_merge_habiles": 3.7,
+   "sonar": {
+    "estado": "verde",
+    "issues_nuevos": 0
+   }
+  },
+  {
+   "pr": 2504,
+   "tarea": "API-1854",
+   "abierto": "2026-09-16",
+   "primera_revision": "2026-09-28",
+   "espera_primera_revision_habiles": 7.9,
+   "solicitudes_de_cambio": 1,
+   "primera_aprobacion": null,
+   "espera_hasta_aprobacion_habiles": null,
+   "merge": null,
+   "espera_hasta_merge_habiles": null,
+   "sonar": {
+    "estado": "rojo",
+    "issues_nuevos": 2
+   }
+  },
+  {
+   "pr": 2505,
+   "tarea": "API-1834",
+   "abierto": "2026-09-17",
+   "primera_revision": "2026-09-18",
+   "espera_primera_revision_habiles": 0.8,
+   "solicitudes_de_cambio": 1,
+   "primera_aprobacion": "2026-09-18",
+   "espera_hasta_aprobacion_habiles": 1.0,
+   "merge": "2026-09-18",
+   "espera_hasta_merge_habiles": 1.0,
+   "sonar": {
+    "estado": "verde",
+    "issues_nuevos": 0
+   }
+  },
+  {
+   "pr": 2506,
+   "tarea": "API-1859",
+   "abierto": "2026-09-18",
+   "primera_revision": "2026-09-21",
+   "espera_primera_revision_habiles": 1.4,
+   "solicitudes_de_cambio": 1,
+   "primera_aprobacion": "2026-09-22",
+   "espera_hasta_aprobacion_habiles": 2.4,
+   "merge": "2026-09-22",
+   "espera_hasta_merge_habiles": 2.8,
+   "sonar": {
+    "estado": "rojo",
+    "issues_nuevos": 2
+   }
+  },
+  {
+   "pr": 2508,
+   "tarea": "API-1822",
+   "abierto": "2026-09-18",
+   "primera_revision": "2026-09-28",
+   "espera_primera_revision_habiles": 5.6,
+   "solicitudes_de_cambio": 2,
+   "primera_aprobacion": "2026-09-29",
+   "espera_hasta_aprobacion_habiles": 6.6,
+   "merge": "2026-09-29",
+   "espera_hasta_merge_habiles": 6.6,
+   "sonar": {
+    "estado": "verde",
+    "issues_nuevos": 0
+   }
+  },
+  {
+   "pr": 2509,
+   "tarea": "API-1693",
+   "abierto": "2026-09-22",
+   "primera_revision": "2026-09-23",
+   "espera_primera_revision_habiles": 1.2,
+   "solicitudes_de_cambio": 1,
+   "primera_aprobacion": "2026-09-28",
+   "espera_hasta_aprobacion_habiles": 4.0,
+   "merge": "2026-09-28",
+   "espera_hasta_merge_habiles": 4.1,
+   "sonar": {
+    "estado": "rojo",
+    "issues_nuevos": 2
+   }
+  },
+  {
+   "pr": 2510,
+   "tarea": "API-1908",
+   "abierto": "2026-09-23",
+   "primera_revision": "2026-09-24",
+   "espera_primera_revision_habiles": 0.8,
+   "solicitudes_de_cambio": 0,
+   "primera_aprobacion": "2026-09-24",
+   "espera_hasta_aprobacion_habiles": 0.8,
+   "merge": "2026-09-28",
+   "espera_hasta_merge_habiles": 2.8,
+   "sonar": {
+    "estado": "verde",
+    "issues_nuevos": 0
+   }
+  },
+  {
+   "pr": 2511,
+   "tarea": "API-1832",
+   "abierto": "2026-09-23",
+   "primera_revision": "2026-09-28",
+   "espera_primera_revision_habiles": 2.7,
+   "solicitudes_de_cambio": 3,
+   "primera_aprobacion": "2026-09-30",
+   "espera_hasta_aprobacion_habiles": 4.7,
+   "merge": "2026-09-30",
+   "espera_hasta_merge_habiles": 4.7,
+   "sonar": {
+    "estado": "verde",
+    "issues_nuevos": 0
+   }
+  },
+  {
+   "pr": 2512,
+   "tarea": "API-1901",
+   "abierto": "2026-09-23",
+   "primera_revision": "2026-09-24",
+   "espera_primera_revision_habiles": 0.6,
+   "solicitudes_de_cambio": 1,
+   "primera_aprobacion": "2026-09-28",
+   "espera_hasta_aprobacion_habiles": 2.2,
+   "merge": "2026-09-28",
+   "espera_hasta_merge_habiles": 2.6,
+   "sonar": {
+    "estado": "verde",
+    "issues_nuevos": 0
+   }
+  },
+  {
+   "pr": 2514,
+   "tarea": "API-1682",
+   "abierto": "2026-09-24",
+   "primera_revision": "2026-09-28",
+   "espera_primera_revision_habiles": 1.7,
+   "solicitudes_de_cambio": 0,
+   "primera_aprobacion": "2026-09-28",
+   "espera_hasta_aprobacion_habiles": 1.7,
+   "merge": "2026-09-28",
+   "espera_hasta_merge_habiles": 1.7,
+   "sonar": {
+    "estado": "verde",
+    "issues_nuevos": 0
+   }
+  },
+  {
+   "pr": 2516,
+   "tarea": "API-1764",
+   "abierto": "2026-09-28",
+   "primera_revision": "2026-09-28",
+   "espera_primera_revision_habiles": 0.5,
+   "solicitudes_de_cambio": 1,
+   "primera_aprobacion": "2026-09-29",
+   "espera_hasta_aprobacion_habiles": 1.1,
+   "merge": "2026-09-29",
+   "espera_hasta_merge_habiles": 1.4,
+   "sonar": {
+    "estado": "rojo",
+    "issues_nuevos": 1
+   }
+  }
+ ],
+ "resumen_prs": {
+  "abiertos": 20,
+  "mergeados": 19,
+  "revisados": 20,
+  "mediana_primera_revision_habiles": 1.7,
+  "primera_revision_en_2_habiles_o_menos": 13,
+  "solicitudes_de_cambio": 25,
+  "solicitudes_por_pr": 1.25,
+  "aprobados_sin_solicitudes": 4,
+  "con_aprobacion": 19,
+  "mediana_hasta_aprobacion_habiles": 3.3,
+  "max_hasta_aprobacion_habiles": 7.7,
+  "mediana_hasta_merge_habiles": 3.7,
+  "mergeados_con_sonar_rojo": 8,
+  "issues_en_mergeados_con_sonar_rojo": 13,
+  "resenas_y_comentarios_de_terceros_revisados": 127,
+  "menciones_de_sonar_por_terceros": 0
+ },
+ "esperas_de_revision": [
+  {
+   "tarea": "API-724",
+   "pr": 2209,
+   "desde": "2025-11-25",
+   "hasta": null,
+   "habiles": 227.0,
+   "corridos": 317.0,
+   "corte": "2026-10-08",
+   "detalle": "PR abierto el 25 nov 2025; sin ninguna reseña al corte"
+  },
+  {
+   "tarea": "API-1663",
+   "pr": 2421,
+   "desde": "2026-06-30",
+   "hasta": "2026-09-16",
+   "habiles": 55.9,
+   "corridos": 77.9,
+   "detalle": "Jira: In review (30 jun) → primera acción del revisor (16 sep)"
+  },
+  {
+   "tarea": "API-1693",
+   "pr": 2428,
+   "desde": "2026-07-07",
+   "hasta": "2026-09-21",
+   "habiles": 53.8,
+   "corridos": 75.8,
+   "detalle": "Jira: In review (7 jul) → primera acción del revisor (21 sep)"
+  },
+  {
+   "tarea": "API-1529",
+   "pr": 2387,
+   "desde": "2026-08-03",
+   "hasta": "2026-09-17",
+   "habiles": 33.0,
+   "corridos": 45.0,
+   "detalle": "Jira: In review (3 ago) → primera acción del revisor (17 sep)"
+  }
+ ],
+ "impacto_rama_base": [
+  {
+   "tarea": "API-1663",
+   "pr": 2421,
+   "pedido": "please update branch with the latest master",
+   "donde": "comentario de Jira",
+   "fecha": "2026-09-16",
+   "devoluciones_siguientes": 2,
+   "h_desarrollador": 20.0,
+   "h_revisores": 13.5,
+   "ejecutadas": 60,
+   "estimadas": 20
+  },
+  {
+   "tarea": "API-1693",
+   "pr": 2428,
+   "pedido": "Rebase on top of current master",
+   "donde": "revisión del PR #2428",
+   "fecha": "2026-09-21",
+   "devoluciones_siguientes": 2,
+   "h_desarrollador": 6.0,
+   "h_revisores": 8.0,
+   "ejecutadas": 45,
+   "estimadas": 20
+  }
+ ],
+ "reestimaciones": {
+  "API-1663": {
+   "cambios": [
+    {
+     "fecha": "2026-09-17",
+     "rol": "desarrollador asignado",
+     "de_h": 20.0,
+     "a_h": 50.5
+    },
+    {
+     "fecha": "2026-09-21",
+     "rol": "desarrollador asignado",
+     "de_h": 50.5,
+     "a_h": 58.5
+    },
+    {
+     "fecha": "2026-09-23",
+     "rol": "desarrollador asignado",
+     "de_h": 58.5,
+     "a_h": 62.5
+    }
+   ],
+   "cambios_visibles_en_jira": 100,
+   "cambios_totales_en_jira": 136
+  },
+  "API-1738": {
+   "cambios": [
+    {
+     "fecha": "2026-08-24",
+     "rol": "otra persona",
+     "de_h": 32.0,
+     "a_h": 0.0
+    },
+    {
+     "fecha": "2026-09-02",
+     "rol": "desarrollador asignado",
+     "de_h": 0.0,
+     "a_h": 56.0
+    },
+    {
+     "fecha": "2026-09-02",
+     "rol": "desarrollador asignado",
+     "de_h": 56.0,
+     "a_h": 40.0
+    },
+    {
+     "fecha": "2026-09-03",
+     "rol": "desarrollador asignado",
+     "de_h": 40.0,
+     "a_h": 56.0
+    },
+    {
+     "fecha": "2026-09-04",
+     "rol": "desarrollador asignado",
+     "de_h": 56.0,
+     "a_h": 64.0
+    }
+   ],
+   "cambios_visibles_en_jira": 100,
+   "cambios_totales_en_jira": 143
+  },
+  "API-1764": {
+   "cambios": [
+    {
+     "fecha": "2026-08-18",
+     "rol": "otra persona",
+     "de_h": null,
+     "a_h": 20.0
+    },
+    {
+     "fecha": "2026-09-28",
+     "rol": "desarrollador asignado",
+     "de_h": 20.0,
+     "a_h": 24.0
+    }
+   ],
+   "cambios_visibles_en_jira": 88,
+   "cambios_totales_en_jira": 88
+  },
+  "API-1832": {
+   "cambios": [
+    {
+     "fecha": "2026-09-23",
+     "rol": "desarrollador asignado",
+     "de_h": 32.0,
+     "a_h": 36.0
+    },
+    {
+     "fecha": "2026-09-23",
+     "rol": "desarrollador asignado",
+     "de_h": 36.0,
+     "a_h": 32.0
+    },
+    {
+     "fecha": "2026-09-23",
+     "rol": "desarrollador asignado",
+     "de_h": 32.0,
+     "a_h": 36.0
+    },
+    {
+     "fecha": "2026-09-28",
+     "rol": "desarrollador asignado",
+     "de_h": 36.0,
+     "a_h": 40.0
+    },
+    {
+     "fecha": "2026-09-29",
+     "rol": "desarrollador asignado",
+     "de_h": 40.0,
+     "a_h": 44.0
+    }
+   ],
+   "cambios_visibles_en_jira": 100,
+   "cambios_totales_en_jira": 143
+  },
+  "API-1834": {
+   "cambios": [
+    {
+     "fecha": "2026-08-24",
+     "rol": "otra persona",
+     "de_h": null,
+     "a_h": 30.0
+    },
+    {
+     "fecha": "2026-09-07",
+     "rol": "desarrollador asignado",
+     "de_h": 30.0,
+     "a_h": 38.0
+    },
+    {
+     "fecha": "2026-09-16",
+     "rol": "desarrollador asignado",
+     "de_h": 38.0,
+     "a_h": 63.0
+    },
+    {
+     "fecha": "2026-09-16",
+     "rol": "desarrollador asignado",
+     "de_h": 63.0,
+     "a_h": 59.0
+    },
+    {
+     "fecha": "2026-09-18",
+     "rol": "desarrollador asignado",
+     "de_h": 59.0,
+     "a_h": 63.0
+    }
+   ],
+   "cambios_visibles_en_jira": 100,
+   "cambios_totales_en_jira": 109
+  },
+  "API-1867": {
+   "cambios": [
+    {
+     "fecha": "2026-09-03",
+     "rol": "otra persona",
+     "de_h": null,
+     "a_h": 8.0
+    },
+    {
+     "fecha": "2026-09-08",
+     "rol": "desarrollador asignado",
+     "de_h": 8.0,
+     "a_h": 24.0
+    },
+    {
+     "fecha": "2026-09-08",
+     "rol": "desarrollador asignado",
+     "de_h": 24.0,
+     "a_h": 32.0
+    }
+   ],
+   "cambios_visibles_en_jira": 66,
+   "cambios_totales_en_jira": 66
+  },
+  "API-1908": {
+   "cambios": [
+    {
+     "fecha": "2026-09-22",
+     "rol": "otra persona",
+     "de_h": null,
+     "a_h": 6.0
+    },
+    {
+     "fecha": "2026-09-24",
+     "rol": "desarrollador asignado",
+     "de_h": 6.0,
+     "a_h": 22.0
+    }
+   ],
+   "cambios_visibles_en_jira": 73,
+   "cambios_totales_en_jira": 73
+  }
+ },
+ "etiquetas_de_prueba": {
+  "API-724": [
+   "Luis",
+   "TestCaseReady"
+  ],
+  "API-1427": [
+   "Gabriel",
+   "TestCaseReady",
+   "TestComplete"
+  ],
+  "API-1529": [
+   "Eric",
+   "Luis",
+   "TestCaseReady",
+   "TestComplete"
+  ],
+  "API-1663": [
+   "Daniel",
+   "TestCaseReady",
+   "TestComplete"
+  ],
+  "API-1682": [
+   "Gabriel",
+   "TestCasesReady",
+   "TestComplete"
+  ],
+  "API-1693": [
+   "Gabriel",
+   "TestCaseReady",
+   "TestComplete"
+  ],
+  "API-1696": [
+   "Gabriel",
+   "TestCaseReady",
+   "TestComplete"
+  ],
+  "API-1738": [
+   "Daniel",
+   "TestCaseReady",
+   "TestComplete"
+  ],
+  "API-1764": [
+   "Daniel",
+   "TestCaseReady",
+   "TestComplete"
+  ],
+  "API-1822": [
+   "Gabriel",
+   "TestCaseReady",
+   "TestComplete"
+  ],
+  "API-1832": [
+   "Daniel",
+   "Operational",
+   "TestCaseReady",
+   "TestComplete"
+  ],
+  "API-1834": [
+   "Daniel",
+   "TestCaseReady",
+   "TestComplete"
+  ],
+  "API-1839": [
+   "Luis",
+   "TestCaseReady",
+   "TestComplete"
+  ],
+  "API-1851": [
+   "Gabriel",
+   "TestCasesReady",
+   "TestComplete"
+  ],
+  "API-1854": [
+   "Luis",
+   "TestCasesReady",
+   "TestComplete"
+  ],
+  "API-1858": [
+   "Daniel",
+   "TestCaseReady",
+   "TestComplete"
+  ],
+  "API-1859": [
+   "API_next_release",
+   "Gabriel",
+   "TestCaseReady",
+   "TestComplete"
+  ],
+  "API-1860": [
+   "TestCaseReady",
+   "TestComplete",
+   "Wieliński"
+  ],
+  "API-1867": [
+   "Gabriel",
+   "TestCasesReady",
+   "TestComplete"
+  ],
+  "API-1871": [
+   "Gabriel",
+   "TestCasesReady",
+   "TestComplete"
+  ],
+  "API-1872": [
+   "Gabriel",
+   "Operational",
+   "TestCaseReady",
+   "TestComplete"
+  ],
+  "API-1877": [
+   "Luis",
+   "TestCaseReady",
+   "TestComplete"
+  ],
+  "API-1901": [
+   "Gabriel",
+   "TestCasesReady",
+   "TestComplete"
+  ],
+  "API-1908": [
+   "Luis",
+   "TestCasesReady",
+   "TestComplete"
+  ],
+  "API-1920": [
+   "Daniel",
+   "TestCaseReady",
+   "TestComplete"
+  ],
+  "API-1925": [
+   "Gabriel",
+   "TestCasesReady",
+   "TestComplete"
+  ]
+ },
+ "abiertas_al_9_oct": {
+  "API-724": "En curso",
+  "API-1529": "En curso",
+  "API-1696": "En revisión",
+  "API-1854": "En revisión",
+  "API-1925": "En revisión",
+  "API-1920": "UAT"
+ },
+ "preguntas_de_negocio": [
+  {
+   "pr": 2421,
+   "tarea": "API-1663",
+   "fecha": "2026-09-17",
+   "cita": "Is this how VB wants it?"
+  },
+  {
+   "pr": 2484,
+   "tarea": "API-1738",
+   "fecha": "2026-09-02",
+   "cita": "Please confirm with VB if DisplayPassengers rule should be validated only in the Manage and Checkin flows"
+  },
+  {
+   "pr": 2494,
+   "tarea": "API-1872",
+   "fecha": "2026-09-10",
+   "cita": "please double check with VB if we really need to have 3 separate flags"
+  },
+  {
+   "pr": 2504,
+   "tarea": "API-1854",
+   "fecha": "2026-09-28",
+   "cita": "Did you consult with VB that those changes needs to happened right after deployment?"
+  },
+  {
+   "pr": 2511,
+   "tarea": "API-1832",
+   "fecha": "2026-09-28",
+   "cita": "Was this confirmed with VB?"
+  },
+  {
+   "pr": 2516,
+   "tarea": "API-1764",
+   "fecha": "2026-09-28",
+   "cita": "Should coupon notifications only be returned for the Booking flow?",
+   "respuesta_del_equipo": "Confirmed with VB, good call. (29 sep)"
+  }
+ ],
+ "api_1860": {
+  "pr": 2500,
+  "abierto_por": "revisor",
+  "etiqueta_jira": "Wieliński",
+  "merge": "2026-09-17"
+ },
+ "estimacion_inicial_fijada_por_otra_persona": [
+  "API-1764",
+  "API-1834",
+  "API-1867",
+  "API-1908"
+ ],
+ "evidencia_de_pruebas_manuales": {
+  "subtarea": "API-1870",
+  "padre": "API-1738",
+  "titulo": "Test Cases, execution and evidences",
+  "casos_de_prueba": "TC01 a TC12",
+  "capturas_postman": 24,
+  "coleccion_postman": 1,
+  "fuente": "Jira, adjuntos de la subtarea (lectura del 9 oct 2026)"
+ },
+ "estandarizacion": {
+  "descripcion_del_pr": [
+   {
+    "pr": 2499,
+    "tarea": "API-1871",
+    "fecha": "2026-09-16",
+    "pedido": "The PR description appears overly detailed for the scope of this change"
+   },
+   {
+    "pr": 2506,
+    "tarea": "API-1859",
+    "fecha": "2026-09-22",
+    "pedido": "please update the PR description"
+   },
+   {
+    "pr": 2516,
+    "tarea": "API-1764",
+    "fecha": "2026-09-28",
+    "pedido": "please simplify the PR description"
+   },
+   {
+    "pr": 2508,
+    "tarea": "API-1822",
+    "fecha": "2026-09-29",
+    "pedido": "you need to fix the release notes. This isn't a breaking change"
+   }
+  ],
+  "evidencia_de_pruebas": [
+   {
+    "pr": 2428,
+    "tarea": "API-1693",
+    "fecha": "2026-09-21",
+    "pedido": "Describe evidence in English not in Spanish!"
+   },
+   {
+    "pr": 2509,
+    "tarea": "API-1693",
+    "fecha": "2026-09-23",
+    "pedido": "cluttered with a lot of files without any explanation"
+   },
+   {
+    "pr": 2512,
+    "tarea": "API-1901",
+    "fecha": "2026-09-24",
+    "pedido": "please provide proper testing evidence"
+   }
+  ]
+ },
+ "notas_de_proceso": {
+  "formato_de_evidencia": {
+   "pasaron_a_uat": {
+    "API-1738": "2026-09-07",
+    "API-1867": "2026-09-14",
+    "API-1834": "2026-09-18"
+   },
+   "menciones_de_revisores_antes_del_21_sep": [
+    {
+     "pr": 2484,
+     "fecha": "2026-09-03"
+    },
+    {
+     "pr": 2484,
+     "fecha": "2026-09-04"
+    },
+    {
+     "pr": 2493,
+     "fecha": "2026-09-11"
+    }
+   ],
+   "pedidos": [
+    {
+     "pr": 2428,
+     "tarea": "API-1693",
+     "fecha": "2026-09-21",
+     "pedido": "Describe evidence in English not in Spanish! … use actual requests and responses not logs from Datadog"
+    },
+    {
+     "pr": 2509,
+     "tarea": "API-1693",
+     "fecha": "2026-09-23",
+     "pedido": "cluttered with a lot of files without any explanation"
+    },
+    {
+     "pr": 2512,
+     "tarea": "API-1901",
+     "fecha": "2026-09-24",
+     "pedido": "please provide proper testing evidence, including screenshots"
+    }
+   ]
+  },
+  "pedidos_mecanicos": [
+   {
+    "pr": 2467,
+    "tarea": "API-1427",
+    "fecha": "2026-09-07",
+    "pedido": "Name does not match rules for private fields."
+   },
+   {
+    "pr": 2494,
+    "tarea": "API-1872",
+    "fecha": "2026-09-10",
+    "pedido": "Please rename GetBinDetailsByBin method and all binDetailsByBin variables everywhere to just GetBinDetails and binDetails."
+   },
+   {
+    "pr": 2487,
+    "tarea": "API-1851",
+    "fecha": "2026-09-09",
+    "pedido": "Please rename CreateNftTicketTravelParams.cs to something more aligned with the class it contains"
+   },
+   {
+    "pr": 2516,
+    "tarea": "API-1764",
+    "fecha": "2026-09-28",
+    "pedido": "Remove the unused journeyKey parameter"
+   }
+  ],
+  "alcance_de_pruebas": [
+   {
+    "pr": 2467,
+    "tarea": "API-1427",
+    "fecha": "2026-08-26",
+    "pedido": "Please add test case when flight number was changed more than one"
+   },
+   {
+    "pr": 2467,
+    "tarea": "API-1427",
+    "fecha": "2026-09-04",
+    "pedido": "Please follow in the tests, the BDD pattern. Establish -> When -> Tests"
+   },
+   {
+    "pr": 2493,
+    "tarea": "API-1867",
+    "fecha": "2026-09-11",
+    "pedido": "Please add test case for selecting connecting flight … once as Regular and once as Points"
+   },
+   {
+    "pr": 2488,
+    "tarea": "API-1839",
+    "fecha": "2026-09-11",
+    "pedido": "please fix the unit tests. I know we don't write them, but let's at least try not to break them"
+   }
+  ]
+ }
+}
