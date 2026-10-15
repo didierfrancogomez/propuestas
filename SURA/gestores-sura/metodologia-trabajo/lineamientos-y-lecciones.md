@@ -38,7 +38,8 @@ Las fotos del equipo salen de `~/Documents/GitHub/techandsolve/personas/<persona
 - **El front, la API orquestadora, la integración con el core y las plataformas los lideran los
   equipos de SURA.** Los agentes se integran sobre eso.
 - **No se habla de tiempos del proyecto.** Ni días, ni sprints totales, ni calendario. El
-  orden de incrementos es «un orden, no un calendario».
+  orden de incrementos es «un orden, no un calendario». El equipo tech propuso una nota de «7
+  sprints» en la lámina del sprint y se retiró (15-oct-2026).
 
 ### Composición del equipo
 
@@ -47,8 +48,8 @@ Las fotos del equipo salen de `~/Documents/GitHub/techandsolve/personas/<persona
 | Raúl A. De Villa C. · Co-Founder | Acompaña los hitos clave con mirada crítica de negocio y de solución | Puntual |
 | Alexandra Acosta · Gerente de Éxito del Cliente | La experiencia y los estándares de toda la compañía | Puntual |
 | Jorge Andrés Gómez Velásquez · Líder del Éxito del Cliente | Punto de contacto con SURA: lo acordado, con calidad y a tiempo | Puntual |
-| Didier Fabián Franco Gómez · Líder de Comunidad | Arquitecto: marca el rumbo técnico, lo alinea con la arquitectura de SURA y revisa | Parcial |
-| Desarrollador A y Desarrollador B | Construyen los sistemas agénticos | Completa |
+| Didier Fabián Franco Gómez · Líder de Comunidad | Arquitecto Líder: marca el rumbo técnico, lo alinea con la arquitectura de SURA y revisa | Parcial |
+| Juan Gabriel Colorado y Gian Valdiris · Desarrolladores IA | Construyen los sistemas agénticos | Completa |
 
 - **El arquitecto no implementa historias.** Define con el equipo prácticas, arquetipos,
   componentes y lineamientos; se alinea con el equipo de arquitectura de SURA; revisa.
@@ -94,7 +95,7 @@ qué sale → hacia dónde → la IA → por qué nosotros.**
 
 | # | Lámina | Para qué está |
 |---|---|---|
-| 1 | Portada: MVP de Gestores | Proyecto, dos secciones y el equipo de liderazgo |
+| 1 | Portada: MVP de Gestores: Innovación para SURA | Método de trabajo y propuesta de valor en una línea |
 | 2 | Equipo Tech and Solve | Quién construye y quién acompaña |
 | 3 | Equipo de trabajo propuesto: modelo Tech and Solve y SURA | Roles y dedicación de cada lado |
 | 4 | Diez etapas | **El mapa.** Cuándo necesitamos a SURA y cuándo no |
@@ -113,7 +114,7 @@ qué sale → hacia dónde → la IA → por qué nosotros.**
 | 17 | No es un IDE con IA | En qué se diferencia |
 | 18 | Nuestra IA potencia cada etapa | Dónde actúa |
 | 19 | Calidad, performance y seguridad que se verifican | Qué garantiza |
-| 20 | Por qué el equipo de Tech and Solve es la mejor opción | Cierre |
+| 20 | Tech and Solve: más que tecnología, resultados sostenibles para SURA | Cierre en cinco ejes |
 
 **Las diez etapas son la columna vertebral.** Al cliente le gustan porque dejan claro en qué
 momentos se le necesita y en cuáles no. Las demás láminas siguen sus zonas en orden.

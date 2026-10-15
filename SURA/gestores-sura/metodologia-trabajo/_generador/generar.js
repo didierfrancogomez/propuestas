@@ -119,17 +119,9 @@ pres.addSection({ title: "Portada" });
 {
   const s = violetSlide("Portada");
   logoBox(s, 0.8, 0.7);
-  T(s, "PROPUESTA PARA SURA", 0.8, 2.45, 8, 0.35, { fontSize: 13, bold: true, color: C.background2, charSpacing: 3 });
-  s.addText("MVP de Gestores", { x: 0.8, y: 2.85, w: 11, h: 1.05, fontSize: 50, bold: true, color: C.background1, fontFace: "+mj-lt", valign: "top", margin: 0, isTextBox: true });
-  [["1", "Equipo Tech and Solve"], ["2", "IA de Tech and Solve"]].forEach(([n, t], i) => {
-    const y = 4.2 + i * 0.65;
-    s.addShape(pres.ShapeType.ellipse, { x: 0.8, y, w: 0.46, h: 0.46, fill: { color: C.background1 }, line: { color: C.background1, width: 0 } });
-    T(s, n, 0.8, y, 0.46, 0.46, { align: "center", valign: "middle", bold: true, fontSize: 14, color: C.text2 });
-    T(s, t, 1.45, y - 0.04, 9, 0.54, { valign: "middle", bold: true, fontSize: 20, color: C.background1 });
-  });
-  [["raul", "Raúl A. De Villa C.", "Co-Founder · Director de soluciones digitales para seguros"], ["alexandra", "Alexandra Acosta", "Gerente de Éxito del Cliente"], ["jorge", "Jorge Andrés Gómez Velásquez", "Líder del Éxito del Cliente"], ["didier", "Didier Fabián Franco Gómez", "Líder de Comunidad · Arquitecto de la propuesta"]].forEach(([k, n, r], i) => {
-    personCard(s, 8.05, 0.55 + i * 1.36, 4.48, 1.22, { img: IMG(k), name: n, role: r });
-  });
+  T(s, "MÉTODO DE TRABAJO DE TECH AND SOLVE PARA SURA", 0.8, 2.45, 8, 0.35, { fontSize: 13, bold: true, color: C.background2, charSpacing: 3 });
+  s.addText("MVP de Gestores:\ninnovación para SURA", { x: 0.8, y: 2.85, w: 11.5, h: 1.75, fontSize: 44, bold: true, color: C.background1, fontFace: "+mj-lt", valign: "top", margin: 0, isTextBox: true });
+  T(s, "Un equipo multidisciplinario dedicado al éxito de SURA,\ncon IA generativa propia que acelera resultados medibles", 0.8, 4.85, 11.5, 0.9, { fontSize: 20, bold: true, color: C.background1 });
   s.addShape(pres.ShapeType.line, { x: 0.8, y: 6.2, w: 11.73, h: 0, line: { color: C.background2, width: 0.75, transparency: 60 } });
   T(s, "SURA Colombia · Transformación prestación y reclamaciones\nMVP de autorizaciones de salud", 0.8, 6.32, 6.5, 0.6, { fontSize: 11, color: C.background2 });
   T(s, "Tech and Solve · Octubre de 2026\nDocumento confidencial", 7.3, 6.32, 5.23, 0.6, { fontSize: 11, color: C.background2, align: "right" });
@@ -140,18 +132,20 @@ pres.addSection({ title: "Portada" });
 pres.addSection({ title: SEC1 });
 {
   const s = pres.addSlide({ masterName: "TITULO", sectionTitle: SEC1 });
+  s.hidden = true; // oculta en la presentación, como la dejó el equipo tech
   s.addShape(pres.ShapeType.rect, { x: 8.6, y: 0, w: 4.733, h: 7.5, fill: { color: C.text2 }, line: { color: C.text2, width: 0 } });
   s.addImage({ data: LOGO, x: 0.8, y: 0.7, w: 1.9, h: 0.995 });
   s.addText("Equipo Tech and Solve", { x: 0.8, y: 2.35, w: 7.4, h: 1.7, fontSize: 40, bold: true, color: C.text2, fontFace: "+mj-lt", valign: "top", margin: 0, isTextBox: true });
-  T(s, "Dos desarrolladores construyen los sistemas agénticos del MVP de gestores, con un arquitecto que define el cómo y lo revisa, por sprints y potenciados por la IA generativa propia de Tech and Solve.", 0.8, 4.2, 7.2, 1.5, { fontSize: 19, color: C.accent6 });
+  T(s, "Un equipo ágil y experto que potencia el MVP con IA generativa para garantizar resultados medibles:", 0.8, 3.3, 7.4, 0.85, { fontSize: 17, bold: true, color: C.text2 });
+  T(s, "Dos desarrolladores construyen los sistemas agénticos del MVP de gestores, con un arquitecto que define el cómo y lo revisa, por sprints y potenciados por la IA generativa propia de Tech and Solve, y con el respaldo de un equipo directivo que apoya de forma transversal el éxito de la implementación.", 0.8, 4.2, 7.4, 1.95, { fontSize: 16, color: C.accent6 });
   T(s, "Tech and Solve · SURA, MVP de gestores de autorizaciones de salud\nOctubre de 2026 · Sugerencia de trabajo, debatible y ajustable", 0.8, 6.3, 7.4, 0.7, { fontSize: 13, color: C.accent6 });
   const team = [
     { img: IMG("raul"), name: "Raúl A. De Villa C.", role: "Co-Founder · Acompaña los hitos clave con una mirada crítica de negocio y de solución.", h: 0.86 },
     { img: IMG("alexandra"), name: "Alexandra Acosta", role: "Gerente de Éxito del Cliente · Pone al servicio de SURA la experiencia y los estándares de toda la compañía.", h: 0.86 },
     { img: IMG("jorge"), name: "Jorge Andrés Gómez Velásquez", role: "Líder del Éxito del Cliente · Punto de contacto con SURA: lo acordado, con calidad y a tiempo.", h: 0.86 },
-    { img: IMG("didier"), name: "Didier Fabián Franco Gómez", role: "Arquitecto · parcial. Marca el rumbo técnico con el equipo, lo alinea con la arquitectura de SURA y asegura que cada historia lo cumpla.", h: 1.42 },
-    { initial: "A", name: "Desarrollador A", role: "Construye los sistemas agénticos desde un backlog compartido", h: 0.78 },
-    { initial: "B", name: "Desarrollador B", role: "Construye los sistemas agénticos desde un backlog compartido", h: 0.78 },
+    { img: IMG("didier"), name: "Didier Fabián Franco Gómez", role: "Arquitecto Líder. Marca el rumbo técnico con el equipo, lo alinea con la arquitectura de SURA y asegura que cada historia lo cumpla.", h: 1.42 },
+    { img: IMG("juan"), name: "Juan Gabriel Colorado", role: "Desarrollador IA · Construye los sistemas agénticos desde un backlog compartido", h: 0.78 },
+    { img: IMG("gian"), name: "Gian Valdiris", role: "Desarrollador IA · Construye los sistemas agénticos desde un backlog compartido", h: 0.78 },
   ];
   let ty = 0.55;
   team.forEach((o) => { personCard(s, 8.95, ty, 3.95, o.h, Object.assign({ d: 0.62, nfs: 11.5, rfs: 9.5 }, o)); ty += o.h + 0.1; });
@@ -165,7 +159,7 @@ pres.addSection({ title: SEC1 });
   const lw = 7.9;
   // Acompañamiento puntual
   card(s, M, 1.62, lw, 1.5, { fill: { color: C.background2 }, line: { color: C.background2, width: 0 } });
-  T(s, "LIDERAZGO QUE ACOMPAÑA · DEDICACIÓN PUNTUAL", M + 0.25, 1.7, lw - 0.5, 0.25, { fontSize: 9.5, bold: true, color: C.text2, charSpacing: 1 });
+  T(s, "LIDERAZGO QUE ACOMPAÑA", M + 0.25, 1.7, lw - 0.5, 0.25, { fontSize: 9.5, bold: true, color: C.text2, charSpacing: 1 });
   const mw = (lw - 0.5 - 0.3) / 3;
   [["raul", "Raúl A. De Villa C.", "Co-Founder", "Acompaña los hitos clave con una mirada crítica de negocio y de solución."], ["alexandra", "Alexandra Acosta", "Gerente de Éxito del Cliente", "Pone al servicio de SURA la experiencia y los estándares de toda la compañía."], ["jorge", "Jorge A. Gómez Velásquez", "Líder del Éxito del Cliente", "Punto de contacto con SURA: lo acordado, con calidad y a tiempo."]].forEach(([k, n, r, d], i) => {
     const x = M + 0.25 + i * (mw + 0.15), y = 2.0;
@@ -176,13 +170,16 @@ pres.addSection({ title: SEC1 });
   // Arquitecto
   card(s, M, 3.22, lw, 1.0);
   personCard(s, M + 0.2, 3.36, 0.72, 0.72, { light: true, img: IMG("didier"), name: "", d: 0.72 });
-  T(s, [{ text: "Didier Fabián Franco Gómez", options: { bold: true, color: C.text2, fontSize: 13 } }, { text: "  · Arquitecto, parcial", options: { bold: true, color: C.accent2, fontSize: 11 } }], M + 1.08, 3.28, lw - 1.25, 0.32, {});
+  T(s, [{ text: "Didier Fabián Franco Gómez", options: { bold: true, color: C.text2, fontSize: 13 } }, { text: "  · Arquitecto Líder", options: { bold: true, color: C.accent2, fontSize: 11 } }], M + 1.08, 3.28, lw - 1.25, 0.32, {});
   T(s, "Marca el rumbo técnico: define con el equipo prácticas, arquetipos y componentes, los alinea con la arquitectura de SURA y asegura que cada historia los cumpla.", M + 1.08, 3.6, lw - 1.25, 0.58, { fontSize: 11 });
   // Desarrolladores
   card(s, M, 4.32, lw, 2.13);
-  dot(s, M + 0.22, 4.44, 0.42, "A", { fontSize: 12 });
-  dot(s, M + 0.72, 4.44, 0.42, "B", { fontSize: 12 });
-  T(s, "Desarrolladores · dedicación completa", M + 1.3, 4.44, 5, 0.42, { fontSize: 15, bold: true, color: C.text2, valign: "middle" });
+  T(s, [{ text: "Desarrolladores", options: { bold: true, color: C.text2, fontSize: 15, breakLine: true } }, { text: "Dedicación completa", options: { bold: true, color: C.accent2, fontSize: 9 } }], M + 0.22, 4.4, 2.0, 0.55, { valign: "middle" });
+  [["juan", "Juan Gabriel Colorado"], ["gian", "Gian Valdiris"]].forEach(([k, n], i) => {
+    const x = M + 2.45 + i * 2.65, y = 4.4;
+    personCard(s, x, y, 0.52, 0.52, { light: true, img: IMG(k), name: "", d: 0.5 });
+    T(s, [{ text: n, options: { bold: true, color: C.text2, fontSize: 10, breakLine: true } }, { text: "Desarrollador IA", options: { bold: true, color: C.accent2, fontSize: 8.5 } }], x + 0.58, y - 0.02, 2.0, 0.56, { valign: "middle" });
+  });
   const sw = (lw - 0.44 - 0.24) / 3;
   [["1 · Refinan", "Bajan cada historia a diseño técnico con el arquetipo, junto al arquitecto."], ["2 · Estiman", "Ponen los puntos de cada historia y la parten si pasa de 13."], ["3 · Implementan", "Construyen la solución con las prácticas del equipo y la dejan lista para revisión."]].forEach(([t, b], i) => {
     const x = M + 0.22 + i * (sw + 0.12);
@@ -382,9 +379,9 @@ pres.addSection({ title: SEC1 });
   const cw = 2.9, cg = 0.167;
   cards.forEach(([t, b, col], i) => {
     const x = M + i * (cw + cg);
-    card(s, x, 4.6, cw, 1.75);
+    card(s, x, 4.6, cw, 1.52);
     T(s, t, x + 0.2, 4.72, cw - 0.4, 0.4, { fontSize: 14, bold: true, color: col });
-    T(s, b, x + 0.2, 5.12, cw - 0.4, 1.2, { fontSize: 13 });
+    T(s, b, x + 0.2, 5.1, cw - 0.4, 1.0, { fontSize: 13 });
   });
   source(s, [{ text: "Adaptación propia de la " }, link("Guía de Scrum 2020", "https://scrumguides.org/scrum-guide.html"), { text: " (scrumguides.org), práctica de industria y no norma: de ella tomamos el sprint de duración fija y sus eventos. A diferencia de la guía, el Product Owner no asiste a la planning ni a la retro." }]);
 }
@@ -504,12 +501,10 @@ pres.addSection({ title: SEC2 });
   chipRow(s, ["Anthropic"], M + 0.3, 5.8, 2, { cw: 0.09, h: 0.4, fs: 12, fill: C.accent6, color: C.background1 });
   T(s, "Según la complejidad de cada tarea · siempre con autorización de SURA", M + 1.75, 5.8, lw - 2.1, 0.4, { fontSize: 12, color: C.accent6, valign: "middle" });
   const rx = 8.8, rw = 3.93;
-  card(s, rx, 1.75, rw, 1.2, { fill: { color: C.background2 }, line: { color: C.background2, width: 0 } });
-  T(s, "El modelo lo pone el proveedor. Lo que hace que funcione bien es nuestro.", rx + 0.25, 1.75, rw - 0.5, 1.2, { fontSize: 15, bold: true, color: C.text2, valign: "middle" });
   [["Ya opera en proyectos de clientes", "No es un piloto: es como trabajamos hoy."], ["Madurez medida", "Medimos su madurez con métricas de equipo y la mejoramos con evidencia."], ["Uso responsable", "Cada desarrollador se forma en buenos principios y en proteger los datos del cliente."]].forEach(([t, d], i) => {
-    const y = 3.1 + i * 1.13;
-    card(s, rx, y, rw, 1.0);
-    T(s, [{ text: t, options: { bold: true, color: C.text2, breakLine: true } }, { text: d, options: { color: C.accent6 } }], rx + 0.2, y + 0.05, rw - 0.4, 0.9, { fontSize: 12, valign: "middle" });
+    const y = 1.75 + i * 1.625;
+    card(s, rx, y, rw, 1.45);
+    T(s, [{ text: t, options: { bold: true, color: C.text2, breakLine: true } }, { text: d, options: { color: C.accent6 } }], rx + 0.2, y + 0.05, rw - 0.4, 1.35, { fontSize: 13, valign: "middle" });
   });
 }
 
@@ -575,19 +570,20 @@ pres.addSection({ title: SEC2 });
 
 // ================= 21 · por qué Tech and Solve =================
 {
-  const s = newSlide(SEC2, "Por qué el equipo de Tech and Solve es la mejor opción",
+  const s = newSlide(SEC2, "Tech and Solve: más que tecnología, resultados sostenibles para SURA",
     "Cierre de la propuesta. Resume las dos secciones: la dinámica de trabajo con SURA y la IA de Tech and Solve. El argumento más fuerte es que ya conocemos la arquitectura de gestores por el trabajo previo con SURA.");
   s.addShape(pres.ShapeType.roundRect, { x: M, y: 1.75, w: 3.7, h: 4.7, rectRadius: 0.1, fill: { color: C.text2 }, line: { color: C.text2, width: 0 } });
-  T(s, "Expertos en construir sistemas agénticos, y en construirlos con IA.", M + 0.3, 2.2, 3.1, 2.0, { fontSize: 22, bold: true, color: C.background1, fontFace: "+mj-lt" });
-  T(s, "Conocemos la arquitectura de gestores, trabajamos por sprints con SURA y construimos con una IA propia que acelera sin perder control.", M + 0.3, 4.3, 3.1, 1.9, { fontSize: 14, color: C.background2 });
-  const why = [["Expertos en sistemas agénticos", "Ya trabajamos con SURA en la arquitectura de gestores, la torre de control y la acertividad de los agentes."], ["IA propia de Tech and Solve", "Conocimiento, proceso y controles propios, de uso exclusivo de nuestro equipo tech."], ["Más rápido, sin perder control", "Nuestra IA potencia cada etapa del proceso y una persona valida cada paso."], ["Garantías que se verifican", "Calidad, performance y seguridad que ya operan, llevadas a los agentes de SURA."], ["Equipo enfocado y con dirección", "Un arquitecto que define, se alinea con el equipo de arquitectura de SURA y revisa, y dos desarrolladores que implementan."], ["Sobre el diseño de SURA", "SURA define las historias, prioriza y ve funcionando lo construido en cada demo."]];
+  T(s, "Un equipo que combina visión de negocio, excelencia técnica e IA generativa propia para acelerar resultados medibles y sostenibles.", M + 0.3, 2.0, 3.1, 2.3, { fontSize: 17, bold: true, color: C.background1, fontFace: "+mj-lt" });
+  T(s, "Conocemos la arquitectura de gestores, trabajamos por sprints con SURA y construimos con una IA propia que acelera sin perder control.", M + 0.3, 4.4, 3.1, 1.8, { fontSize: 14, color: C.background2 });
+  const why = [["Capacidades distintivas", "Expertos en sistemas agénticos y arquitectura de gestores."], ["IA: procesos medibles", "IA propia que acelera cada sprint con validación humana."], ["Equipo: estructura flexible", "Equipo ágil con arquitecto y desarrolladores dedicados."], ["Talento consultivo", "Experiencia previa con SURA, mirada crítica de negocio y acompañamiento cercano."], ["Medición integral", "Garantías verificables en calidad, performance y seguridad."]];
   const gx = M + 3.9, cw = (12.1 - 3.9 - 0.2) / 2, ch = 1.45;
   why.forEach(([t, d], i) => {
-    const x = gx + (i % 2) * (cw + 0.2), y = 1.75 + Math.floor(i / 2) * (ch + 0.175);
-    card(s, x, y, cw, ch);
+    const wide = i === 4;
+    const x = gx + (wide ? 0 : (i % 2) * (cw + 0.2)), y = 1.75 + Math.floor(i / 2) * (ch + 0.175), w = wide ? 2 * cw + 0.2 : cw;
+    card(s, x, y, w, ch);
     dot(s, x + 0.2, y + 0.18, 0.42, String(i + 1), { fontSize: 12 });
-    T(s, t, x + 0.75, y + 0.15, cw - 0.9, 0.48, { fontSize: 14, bold: true, color: C.text2, valign: "middle" });
-    T(s, d, x + 0.2, y + 0.7, cw - 0.4, ch - 0.75, { fontSize: 12 });
+    T(s, t, x + 0.75, y + 0.15, w - 0.9, 0.48, { fontSize: 14, bold: true, color: C.text2, valign: "middle" });
+    T(s, d, x + 0.2, y + 0.7, w - 0.4, ch - 0.75, { fontSize: 12 });
   });
 }
 
