@@ -108,10 +108,16 @@ def stepcard(w, num, title, desc, fill=False):
 
 # Paquetes (decisión de Didier, 15 oct 2026): promedio de 51 puntos por persona → base 51 × 3, luego 51 × 4 y 51 × 5.
 PP_PROM = 51
-PK_MIN = 3 * PP_PROM
+# Regla (19 oct 2026): para los puntos del paquete solo cuentan 3 de las 4 semanas del mes; la última se va en revisión
+# y certificación en UAT, y lo que se empiece ahí no alcanza a certificarse en el mes. 51 × 3/4 = 38,25 → 38 (hacia abajo).
+SEM_DEV, SEM_MES = 3, 4
+# Decisión de Didier (19 oct 2026): el Inicial es lo que se completó en septiembre (117 puntos trabajados en el mes
+# en las tareas terminadas) = 39 por persona; los demás suman una persona. Concuerda con 3 de 4 semanas (153 × 3/4 ≈ 115).
+PP_PAQ = 39
+PK_MIN = 3 * PP_PAQ
 
 # =============================================================== 1 PROMESA
-three = [("1", "Se compra un paquete de puntos al mes", "Tres paquetes: 153, 204 o 255 puntos al mes."),
+three = [("1", "Se compra un paquete de puntos al mes", "Tres paquetes: 117, 156 o 195 puntos al mes."),
          ("2", "Cada actividad cuesta los puntos de su tamaño", "1, 2, 3, 5 u 8 (Fibonacci), acordados antes de empezar. Máximo 8 puntos por actividad; lo mayor se divide."),
          ("3", "Se paga solo la tarea finalizada", "Entregada con PR aprobado y sin defectos pendientes. No se paga por horas, personas ni intentos de revisión.")]
 def persona(x, y, s=1.0):
@@ -178,27 +184,38 @@ add("El cambio · quién se encarga de qué",
     "Propuesta de Tech and Solve.", top=176)
 
 # =============================================================== 2 CÓMO FUNCIONA (contenido que estaba en la portada)
+# Rediseño visual (19 oct 2026): tres pasos a la izquierda y los paquetes como escalera a la derecha.
+fib = ''.join(f'<span style="display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;'
+              f'border:2px solid var(--blue-accent);color:var(--blue-accent);font-weight:700;font-size:15px;margin-right:6px">{n}</span>' for n in (1, 2, 3, 5, 8))
+pasos3 = [("Se compra un paquete de puntos al mes", "Viva Aerobus elige cuántos puntos necesita; no contrata personas ni horas.", ""),
+          ("Cada actividad cuesta los puntos de su tamaño", "Escala Fibonacci, acordada antes de empezar; máximo 8 puntos por actividad.", f'<div style="margin-top:8px">{fib}</div>'),
+          ("Se paga la actividad finalizada", "Certificada en UAT (Ready for prod), sin defectos pendientes. No se paga por intentos de revisión.", "")]
+col_pasos = ''.join(
+    f'<div style="display:flex;gap:16px;align-items:flex-start;padding:14px 0;{"border-bottom:1px solid #DCD8EC" if i < 2 else ""}">'
+    f'<span style="flex:0 0 44px;height:44px;border-radius:50%;background-color:var(--blue-accent);color:var(--black);font-weight:700;font-size:20px;display:flex;align-items:center;justify-content:center">{i + 1}</span>'
+    f'<div><div style="font-size:20px;font-weight:700;line-height:1.2">{t}</div><div style="font-size:15px;line-height:1.4;margin-top:4px;color:var(--lighter-violet)">{d}</div>{x}</div></div>'
+    for i, (t, d, x) in enumerate(pasos3))
+escalones = [("Inicial", "paquete base", PK_MIN, 230, True), ("Ampliado", "para meses de más carga", 4 * PP_PAQ, 300, False),
+             ("Avanzado", "para la mayor carga", 5 * PP_PAQ, 370, False)]
+escalera = ''.join(
+    f'<div style="flex:1;height:{h}px;border-radius:16px 16px 6px 6px;padding:16px 18px;display:flex;flex-direction:column;justify-content:flex-end;'
+    f'{"background-color:var(--blue-accent);color:var(--black)" if dest else "background-color:var(--darker-gray)"}">'
+    + (f'<span style="align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:999px;background:#fff;color:#5300DF;margin-bottom:auto">Para empezar</span>' if dest else '')
+    + f'<div style="font-size:21px;font-weight:700">{nom}</div><div style="font-size:13px;{"" if dest else "color:var(--lighter-violet)"}">{uso}</div>'
+    f'<div style="font-size:54px;font-weight:700;line-height:1;margin-top:6px;{"" if dest else "color:var(--blue-accent)"}">{pts}</div>'
+    f'<div style="font-size:14px">puntos al mes</div></div>'
+    for nom, uso, pts, h, dest in escalones)
 add("Cómo funciona",
     f"Pago por actividades {hl('terminadas')}, no por FTE",
-    '<div class="lead" style="width:920px">Viva Aerobus compra puntos cada mes. Cada actividad cuesta los puntos de su tamaño '
-    'y se paga cuando la tarea queda finalizada, en Ready for prod.</div>'
-    '<div class="row" style="margin-top:18px">' +
-    ''.join(
-        f'<div class="card" style="flex:1;display:flex;flex-direction:column;gap:8px;min-height:150px;padding:16px 22px">'
-        f'<div class="num" style="font-size:44px;color:var(--blue-accent)">{n}</div>'
-        f'<div style="font-size:21px;font-weight:700;line-height:1.2">{t}</div>'
-        f'<div class="t16 sub">{d}</div></div>' for n, t, d in three) + '</div>'
-    '<div style="font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--lighter-violet);margin:22px 0 10px">Los tres paquetes que ofrecemos</div>'
-    '<div class="row">' + ''.join(
-        f'<div class="card" style="flex:1;padding:16px 22px;{"background-color:var(--blue-accent);color:var(--black)" if dest else ""}">'
-        f'<div style="font-size:22px;font-weight:700;line-height:1.2">{nom}</div>'
-        f'<div style="font-size:14px;{"" if dest else "color:var(--lighter-violet)"}">{uso}</div>'
-        f'<div style="display:flex;align-items:baseline;gap:10px;margin-top:4px"><span style="font-size:52px;font-weight:700;line-height:1;{"" if dest else "color:var(--blue-accent)"}">{pts}</span>'
-        f'<span style="font-size:16px">puntos al mes</span></div></div>'
-        for nom, uso, pts, dest in [("Inicial", "paquete base", PK_MIN, True),
-                                    ("Ampliado", "para meses de más carga", 4 * PP_PROM, False),
-                                    ("Avanzado", "para la mayor carga", 5 * PP_PROM, False)]) + '</div>',
-    "Propuesta de Tech and Solve.")
+    '<div style="display:flex;gap:40px;align-items:stretch">'
+    f'<div style="flex:0 0 500px;padding-top:24px">{col_pasos}</div>'
+    '<div style="flex:1;display:flex;flex-direction:column">'
+    '<div style="font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--lighter-violet);margin-bottom:8px">Los tres paquetes que ofrecemos</div>'
+    f'<div style="display:flex;gap:14px;align-items:flex-end">{escalera}</div>'
+    '<div style="margin-top:14px;background-color:var(--darker-gray);border-radius:12px;padding:12px 16px;font-size:14.5px;line-height:1.4">'
+    '<b>El paquete Inicial cubre el trabajo entregado en septiembre:</b> las actividades que quedaron en Ready for prod y Finalizado.</div>'
+    '</div></div>',
+    "Propuesta de Tech and Solve. Septiembre de 2026: F1 informe de seguimiento (actividades en Ready for prod y Finalizado).")
 
 # =============================================================== MODELO DE TRABAJO (pedido de Didier, 15 oct 2026)
 # Actores Viva Aerobus y Tech and Solve; seis pasos alternados por carril y la regla del feedback.
@@ -207,9 +224,9 @@ RH, RG = 134, 22                              # alto de carril y separación ent
 pasos = [("V", "Entrega la actividad", "Describe lo que necesita desarrollar."),
          ("T", "Valida y estima", "Revisa el alcance y si es implementable; entrega los puntos."),
          ("V", "Prioriza", "Ordena las actividades y elige cuáles entran en su paquete."),
-         ("T", "Implementa", "Desarrolla y prueba cada actividad priorizada."),
-         ("V", "Certifica", "La prueba en su proceso (UAT) y aprueba o da feedback."),
-         ("T", "Valida el feedback", "Revisa si está dentro del alcance acordado.")]
+         ("T", "Implementa y entrega", "Desarrolla, prueba y entrega en el ambiente de UAT."),
+         ("V", "Certifica", "La prueba en UAT: la aprueba o pide una corrección o un cambio de alcance."),
+         ("T", "Valida el feedback", "Revisa si es una corrección o un cambio de alcance.")]
 
 
 def xcol(i):
@@ -244,15 +261,17 @@ for i in range(5):
 H2 = 2 * RH + RG
 svg_fl = f'<svg width="1164" height="{H2}" viewBox="0 0 1164 {H2}" style="position:absolute;left:0;top:0;pointer-events:none">{"".join(flechas)}</svg>'
 rama = [("Si es un cambio de alcance", "No entra en la actividad: se registra como una actividad nueva, con su propia estimación en puntos, y Tech and Solve la cobra."),
-        ("Si está dentro del alcance", "Tech and Solve la ajusta, sin cambiar sus puntos, hasta que pase las pruebas de UAT.")]
+        ("Si es una corrección (dentro del alcance)", "Tech and Solve la ajusta, sin cambiar sus puntos, hasta que pase las pruebas de UAT.")]
 ramas = ''.join(
-    f'<div class="card" style="flex:1;padding:14px 18px"><div style="font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--lighter-violet)">Después del paso 6</div>'
+    f'<div class="card" style="flex:1;padding:10px 18px"><div style="font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--lighter-violet)">Después del paso 6</div>'
     f'<div style="font-size:18px;font-weight:700;margin-top:2px">{t}</div><div class="t16" style="margin-top:4px">{d}</div></div>'
     for t, d in rama)
 add("Modelo de trabajo",
     f"Modelo de trabajo: Viva Aerobus prioriza y certifica; Tech and Solve {hl('estima, construye y ajusta')}",
     f'<div style="position:relative;height:{H2}px">{carriles}{svg_fl}{tarjetas}</div>'
-    f'<div class="row" style="margin-top:16px">{ramas}</div>',
+    f'<div class="row" style="margin-top:10px">{ramas}</div>'
+    '<div style="margin-top:10px;background-color:var(--blue-accent);color:var(--black);border-radius:12px;padding:12px 18px;font-size:15.5px;line-height:1.4">'
+    '<b>Tech and Solve entrega cada actividad en UAT</b> y corrige ahí todo el feedback, hasta dejarla lista para que Viva Aerobus la certifique.</div>',
     "Propuesta de Tech and Solve. Se paga la actividad certificada en UAT (Ready for prod).")
 
 # =============================================================== 2 EJEMPLO SEPTIEMBRE
@@ -348,8 +367,9 @@ def tabla_tareas(filas, total=False):
 # Regla (15 oct 2026): cada paquete = personas enteras × capacidad real por persona, para que subir o bajar de paquete
 # sea solo sumar o quitar una persona. Capacidad real por persona = capacidad del equipo en septiembre / 3.
 PPP = round(CAPAC_REAL / 3)
-PK3 = [("Inicial", 3 * PPP), ("Ampliado", 4 * PPP), ("Avanzado", 5 * PPP)]   # 51 × 3, × 4 y × 5 (personas solo internas)
-assert PPP == PP_PROM == 51 and [v for _, v in PK3] == [153, 204, 255]
+PPP_PAQ = CAPAC // 3   # puntos por persona del paquete: lo completado en septiembre (117) entre 3
+PK3 = [("Inicial", 3 * PPP_PAQ), ("Ampliado", 4 * PPP_PAQ), ("Avanzado", 5 * PPP_PAQ)]   # personas solo internas
+assert PPP == PP_PROM == 51 and PPP_PAQ == PP_PAQ == 39 and CAPAC == 117 and [v for _, v in PK3] == [117, 156, 195]
 K7 = 1.1
 bars7 = []
 for i, (n, v) in enumerate(PK3):
@@ -359,11 +379,11 @@ for i, (n, v) in enumerate(PK3):
     bars7.append(f'<rect x="0" y="{y}" width="300" height="64" rx="10" fill="#282E3F"/>')
     bars7.append(f'<rect x="8" y="{y+8}" width="{v*K7:.0f}" height="28" rx="6" fill="{fill}"/>')
     bars7.append(f'<text x="18" y="{y+28}" font-size="15" font-weight="700" fill="#000000">{n} · {v}</text>')
-    cap = {3 * PPP: "51 × 3 · la capacidad de hoy", 4 * PPP: "51 × 4 · una persona más", 5 * PPP: "51 × 5 · dos personas más"}[v]
+    cap = {3 * PPP_PAQ: "39 × 3 · el equipo de hoy", 4 * PPP_PAQ: "39 × 4 · una persona más", 5 * PPP_PAQ: "39 × 5 · dos personas más"}[v]
     bars7.append(f'<text x="10" y="{y+54}" font-size="13" font-weight="{700 if v == CAPAC_REAL else 400}" fill="#FFFFFF">{cap}</text>')
 svg7b = ('<svg width="250" height="210" viewBox="0 0 300 252">'
          + ''.join(bars7) +
-         f'<text x="2" y="16" font-size="13" font-weight="600" fill="#FFFFFF">Capacidad hoy: {CAPAC_REAL} puntos al mes</text></svg>')
+         f'<text x="2" y="16" font-size="13" font-weight="600" fill="#FFFFFF">Paquetes con 3 semanas de desarrollo</text></svg>')
 # =============================================================== CONDICIONES DEL SERVICIO (pedido de Didier, 15 oct 2026)
 # Última lámina para el cliente; las internas van después. Fuentes: pedido del 15 oct (3 días hasta UAT, pruebas unitarias
 # sin límite, accesos) y condiciones de `instrucciones.md` (v1) y `REGLAS.md` §4.
@@ -412,7 +432,7 @@ add("Términos y condiciones", f"Términos y condiciones: {hl('cambios de paquet
     "Propuesta de Tech and Solve.")
 
 # Lámina interna 1: las tareas terminadas en septiembre y sus puntos.
-add("Ejemplo real · septiembre de 2026", f"Las tareas terminadas en septiembre suman {hl(str(SEPT_PTS) + ' puntos')}",
+add("Ejemplo real · septiembre de 2026", f"En septiembre se trabajaron {hl(str(CAPAC) + ' puntos')} en las tareas terminadas",
     # Alerta pedida por Didier (15 oct 2026): lámina de uso interno, no se muestra al cliente.
     '<div style="background:#B9720A;color:#fff;border-radius:8px;padding:8px 16px;margin-bottom:12px;font-size:15px;font-weight:700;letter-spacing:.02em">'
     'USO INTERNO · Esta lámina no se debe mostrar al cliente.</div>'
@@ -421,20 +441,20 @@ add("Ejemplo real · septiembre de 2026", f"Las tareas terminadas en septiembre 
     f'<div style="flex:1">{tabla_tareas(fila9[10:], total=True)}'
     '<div style="font-size:12px;margin-top:2px;color:var(--lighter-violet)">(8+…): más de 30 h de trabajo: bloques de 30 h (8 puntos) más el resto con su tamaño. Septiembre: las horas del mes con la misma escala.</div></div>'
     '<div style="flex:0 0 250px">'
-    f'<div class="card" style="padding:14px 16px"><div style="font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--lighter-violet)">Cerrado en septiembre</div>'
-    f'<div style="font-size:34px;font-weight:700;color:var(--blue-accent);line-height:1.1">{SEPT_PTS} pts</div>'
-    f'<div style="font-size:13px;line-height:1.35">{len(fila9)} tareas, {SEPT_H} h. Incluye {SEPT_H - sum(H_SEP.values())} h de meses anteriores: es lo que se pagaría, no la capacidad.</div></div>'
-    f'<div class="card" style="margin-top:10px;padding:14px 16px"><div style="font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--lighter-violet)">Trabajado en septiembre</div>'
+    f'<div class="card" style="padding:14px 16px;border:2px solid var(--blue-accent)"><div style="font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--lighter-violet)">Trabajado en septiembre</div>'
     f'<div style="font-size:34px;font-weight:700;color:var(--blue-accent);line-height:1.1">{CAPAC} pts</div>'
-    f'<div style="font-size:13px;line-height:1.35">{sum(H_SEP.values())} h de estas tareas. La capacidad del equipo está en la lámina siguiente.</div></div>'
+    f'<div style="font-size:13px;line-height:1.35">Las {sum(H_SEP.values())} h que el equipo reportó en septiembre en estas {len(fila9)} tareas (columna «Septiembre»).</div></div>'
+    f'<div class="card" style="margin-top:10px;padding:14px 16px"><div style="font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--lighter-violet)">Valor completo de estas tareas</div>'
+    f'<div style="font-size:26px;font-weight:700;line-height:1.1">{SEPT_PTS} pts</div>'
+    f'<div style="font-size:13px;line-height:1.35">{SEPT_H} h en total: {SEPT_H - sum(H_SEP.values())} h se trabajaron en meses anteriores. No es lo producido en septiembre.</div></div>'
     '</div></div>',
     "Septiembre de 2026 · F1 informe de septiembre: tareas del equipo en «Finalizada» o «Ready for prod» y sus horas reales. Puntos = horas reales del equipo + 30 %, máx. 30 h de trabajo por parte. No incluye API-1860, implementada por un revisor.", top=172)
 
 # Lámina interna 2 (pedido de Didier, 15 oct 2026): la medición de la capacidad del equipo.
 arrow_svg = ('<svg width="30" height="24" viewBox="0 0 30 24" style="flex:0 0 30px;align-self:center"><path d="M2,12 H22 M14,4 L24,12 L14,20" fill="none" stroke="#22D0FF" stroke-width="3"/></svg>')
-flujo_cap = [(f"{sum(H_SEP.values()) + H_OTRAS} h", "reportadas por el equipo en septiembre"),
+flujo_cap = [(f"{sum(H_SEP.values()) + H_OTRAS} h", "reportadas en septiembre; nada de meses anteriores"),
              (f"{CAPAC} + {sum(P_OTRAS.values())} pts", f"{sum(H_SEP.values())} h en 19 tareas terminadas + {H_OTRAS} h en otras 7"),
-             (f"{CAPAC_REAL} pts", "capacidad del equipo de tres personas al mes"),
+             (f"{CAPAC_REAL} pts", "de esfuerzo dedicado en septiembre: la capacidad del equipo"),
              (f"{PPP} pts", "por persona en promedio")]
 row_cap = arrow_svg.join(
     f'<div class="card" style="flex:1;padding:12px 16px"><div class="num" style="font-size:30px;color:var(--blue-accent)">{b_}</div>'
@@ -451,18 +471,46 @@ tab_pers = ('<table style="border-spacing:0 3px"><thead><tr><th style="padding:2
                       f'<td {tdc} align="right">{CAPR_PP[d] - CAP_PP[d]}</td><td {tdc} align="right"><b style="color:var(--blue-accent)">{CAPR_PP[d]}</b></td></tr>'
                       for i, d in enumerate(("Daniel", "Gabriel", "Luis")))
             + f'<tr><td {tdc}><b>Equipo</b></td><td {tdc} align="right"><b>{sum(HPERS.values())} h</b></td><td {tdc} align="right">{CAPAC}</td><td {tdc} align="right">{sum(P_OTRAS.values())}</td><td {tdc} align="right"><b style="color:var(--blue-accent)">{CAPAC_REAL}</b></td></tr></tbody></table>')
-add("Capacidad del equipo · septiembre de 2026", f"La capacidad del equipo en septiembre fue de {hl(str(CAPAC_REAL) + ' puntos')}",
+# Lámina «La capacidad del equipo en septiembre fue de 153 puntos…» retirada por pedido de Didier (19 oct 2026); sus cálculos siguen arriba y los usa la lámina del paquete.
+# add("Capacidad del equipo · septiembre de 2026", f"La capacidad del equipo en septiembre fue de {hl(str(CAPAC_REAL) + ' puntos')} de esfuerzo dedicado",
+#     '<div style="background:#B9720A;color:#fff;border-radius:8px;padding:8px 16px;margin-bottom:12px;font-size:15px;font-weight:700;letter-spacing:.02em">'
+#     'USO INTERNO · Esta lámina no se debe mostrar al cliente.</div>'
+#     f'<div style="display:flex;gap:10px">{row_cap}</div>'
+#     '<div class="row" style="gap:18px;align-items:flex-start;margin-top:14px">'
+#     '<div style="flex:1;min-width:0"><div style="font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:2px;color:var(--lighter-violet)">Horas de sept. en otras tareas</div>'
+#     f'{tab_otras}</div>'
+#     '<div style="flex:1.2;min-width:0"><div style="font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:2px;color:var(--lighter-violet)">Capacidad por integrante (puntos)</div>'
+#     f'{tab_pers}</div>'
+#     '</div>',
+#     "Septiembre de 2026 · F1 informe de septiembre, columna «Registrado Septiembre26» (horas del mes). Cada tarea pasa sus horas del mes por la escala Fibonacci (+30 %, bloques de 30 h). No cuentan las horas de meses anteriores. API-1860 entra con sus 8 h (la implementó un revisor, pero las horas son del equipo).", top=172)
+
+# Lámina interna 3 (pedido de Didier, 19 oct 2026): de la capacidad al paquete, con 3 semanas de desarrollo.
+sem = ''.join(
+    f'<div style="flex:1;border-radius:12px;padding:14px 16px;{"background-color:var(--blue-accent);color:var(--black)" if i < SEM_DEV else "border:2px dashed #5B5A66"}">'
+    f'<div style="font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase">Semana {i + 1}</div>'
+    + (f'<div style="font-size:20px;font-weight:700;margin-top:4px">Desarrollo</div><div style="font-size:14px;margin-top:4px">Cuenta para los puntos del paquete.</div>' if i < SEM_DEV else
+       f'<div style="font-size:20px;font-weight:700;margin-top:4px">Revisión y certificación</div><div style="font-size:13px;line-height:1.3;margin-top:4px">Lo que se entrega esta semana no alcanza a pasar la revisión del PR (máx. 3 días hábiles) ni la certificación en UAT: no se cobra en el mes.</div>')
+    + '</div>' for i in range(SEM_MES))
+calc = [(f"{CAPAC_REAL} pts", "esfuerzo del mes (4 semanas, 524 h)"),
+        (f"≈ {round(CAPAC_REAL * SEM_DEV / SEM_MES)} pts", "si solo cuentan 3 semanas de desarrollo"),
+        (f"{CAPAC} pts", "completados en septiembre (Finalizada o Ready for prod)"),
+        (f"{3 * PPP_PAQ} pts", f"paquete base: {PPP_PAQ} × 3 personas")]
+row_calc = arrow_svg.join(
+    f'<div class="card" style="flex:1;padding:12px 16px"><div class="num" style="font-size:28px;color:var(--blue-accent)">{b_}</div>'
+    f'<div style="font-size:14px;margin-top:4px;color:var(--lighter-violet)">{d_}</div></div>' for b_, d_ in calc)
+paq_tab = ''.join(
+    f'<div class="card" style="flex:1;padding:14px 18px;{"border:2px solid var(--blue-accent)" if i == 0 else ""}">'
+    f'<div style="font-size:20px;font-weight:700">{n}</div><div style="font-size:14px;color:var(--lighter-violet)">{k} personas × {PPP_PAQ} puntos</div>'
+    f'<div style="display:flex;align-items:baseline;gap:8px;margin-top:4px"><span style="font-size:38px;font-weight:700;line-height:1;color:var(--blue-accent)">{v}</span><span style="font-size:15px">puntos a entregar en el mes</span></div></div>'
+    for i, ((n, v), k) in enumerate(zip(PK3, (3, 4, 5))))
+add("Del esfuerzo al paquete", f"El paquete base es de {hl(str(3 * PPP_PAQ) + ' puntos')}: lo que se completó en septiembre",
     '<div style="background:#B9720A;color:#fff;border-radius:8px;padding:8px 16px;margin-bottom:12px;font-size:15px;font-weight:700;letter-spacing:.02em">'
     'USO INTERNO · Esta lámina no se debe mostrar al cliente.</div>'
-    f'<div style="display:flex;gap:10px">{row_cap}</div>'
-    '<div class="row" style="gap:18px;align-items:flex-start;margin-top:14px">'
-    '<div style="flex:1;min-width:0"><div style="font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:2px;color:var(--lighter-violet)">Horas de sept. en otras tareas</div>'
-    f'{tab_otras}</div>'
-    '<div style="flex:1.2;min-width:0"><div style="font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:2px;color:var(--lighter-violet)">Capacidad por integrante (puntos)</div>'
-    f'{tab_pers}</div>'
-    '<div style="flex:0 0 250px"><div style="font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px;color:var(--lighter-violet)">Paquetes y capacidad</div>'
-    f'{svg7b}</div></div>',
-    "Septiembre de 2026 · F1 informe de septiembre, columna «Registrado Septiembre26» (horas del mes). Cada tarea pasa sus horas del mes por la escala Fibonacci (+30 %, bloques de 30 h). No cuentan las horas de meses anteriores. API-1860 entra con sus 8 h (la implementó un revisor, pero las horas son del equipo).", top=172)
+    f'<div style="display:flex;gap:12px">{sem}</div>'
+    f'<div style="display:flex;gap:10px;margin-top:10px">{row_calc}</div>'
+    '<div style="font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin:10px 0 6px;color:var(--lighter-violet)">Puntos a proporcionar en el mes</div>'
+    f'<div class="row" style="gap:14px">{paq_tab}</div>',
+    f"Septiembre de 2026 (F1): {sum(H_SEP.values()) + H_OTRAS} h reportadas = {CAPAC_REAL} pts de esfuerzo; {sum(H_SEP.values())} h en las 19 tareas terminadas = {CAPAC} pts completados.", top=172)
 
 # =============================================================== 2 HOY
 cw, gap = 178, 14
