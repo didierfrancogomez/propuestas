@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PUI Viva Resumen</title>
+<style>
+:root{--bg:#fff;--fg:#1d1b26;--mut:#6b6880;--line:#e3e1ea;--acc:#5b2bd6;--box:#f6f4fb;--warn:#b4580a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15131c;--fg:#ecebf2;--mut:#a09db3;--line:#2e2b3a;--acc:#a98bff;--box:#1e1b28;--warn:#f0a35a}}
+:root[data-theme="dark"]{--bg:#15131c;--fg:#ecebf2;--mut:#a09db3;--line:#2e2b3a;--acc:#a98bff;--box:#1e1b28;--warn:#f0a35a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,sans-serif}
+main{max-width:860px;margin:0 auto;padding:28px 16px 48px}
+h1{font-size:22px;margin:0 0 4px}h2{font-size:15px;color:var(--acc);margin:26px 0 8px;text-transform:uppercase;letter-spacing:.04em}
+p,li{margin:4px 0}.mut{color:var(--mut);font-size:13px}
+ul{padding-left:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.card{background:var(--box);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.flow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:13px}
+.n{background:var(--box);border:1px solid var(--line);border-radius:6px;padding:6px 9px}
+.n b{color:var(--acc)}.a{color:var(--mut)}
+ol li b{color:var(--warn)}
+</style>
+</head>
+<body><main>
+<h1>Integración PUI ↔ Viva (AWS + Navitaire)</h1>
+<p class="mut">Resumen del documento "Diseño Técnico PUI AWS Navitaire" v1.0 (14 sep 2026). Es un borrador para cotizar.</p>
+
+<h2>De qué trata</h2>
+<p>Viva debe exponer APIs para que la <b>PUI</b> le envíe casos identificados por CURP. Viva busca esa CURP en <b>Navitaire</b>, donde está guardada como <i>Travel Document</i>, y reporta las coincidencias a la PUI en 3 fases: datos básicos, histórico de hasta 12 años y búsqueda continua hasta que el caso se desactive. Todo se construye en AWS y es serverless.</p>
+
+<div class="grid">
+<div class="card"><b>PUI</b>: la Plataforma Única de Identidad del gobierno de México, vinculada a la búsqueda de personas desaparecidas. Las instituciones obligadas reciben CURPs y deben reportar a la autoridad cualquier rastro que encuentren, como vuelos y reservas.</div>
+<div class="card"><b>Navitaire</b>: el PSS (Passenger Service System) de Amadeus, que usan aerolíneas low-cost como Viva. Ahí viven las reservas, los pasajeros, los segmentos y los documentos de viaje. Aquí se usará solo vía API, sin ODS ni RaaS.</div>
+</div>
+
+<h2>Diseño propuesto</h2>
+<div class="flow">
+<span class="n"><b>PUI</b></span><span class="a">→</span>
+<span class="n">WAF + API Gateway<br><span class="mut">JWT Cognito + scopes</span></span><span class="a">→</span>
+<span class="n">Lambda API<br><span class="mut">activar / prueba / desactivar</span></span><span class="a">→</span>
+<span class="n">DynamoDB<br><span class="mut">casos, matches, cursores</span></span><span class="a">+</span>
+<span class="n">SQS</span><span class="a">→</span>
+<span class="n">Lambda Workers<br><span class="mut">fases 1, 2 y 3</span></span><span class="a">⇄</span>
+<span class="n"><b>Navitaire API</b><br><span class="mut">adaptador</span></span>
+</div>
+<div class="flow" style="margin-top:8px">
+<span class="n">EventBridge<br><span class="mut">cron de la fase 3</span></span><span class="a">→</span>
+<span class="n">SQS notif. + DLQ</span><span class="a">→</span>
+<span class="n">Lambda Notifier</span><span class="a">→</span>
+<span class="n"><b>PUI</b><br><span class="mut">/notificar-coincidencia, /busqueda-finalizada, /reportes</span></span>
+</div>
+<p class="mut" style="margin-top:8px">Transversal: KMS (CURP cifrada + hash), Secrets Manager, CloudWatch/CloudTrail, IaC (CDK o Terraform) y CI/CD. Se sugiere Step Functions para orquestar la fase 1, la fase 2 y el cierre con /busqueda-finalizada.</p>
+
+<h2>Dudas abiertas para estimar</h2>
+<ol>
+<li><b>Navitaire:</b> ¿la API (New Skies / dotREZ) permite buscar por número de Travel Document? ¿Con qué endpoint y versión? Si no lo permite, se cae el diseño.</li>
+<li><b>Navitaire:</b> ¿qué código de tipo de documento corresponde a CURP? ¿Se captura la CURP hoy en las reservas? Sin captura no habrá coincidencias.</li>
+<li><b>Navitaire:</b> ¿hay 12 años de histórico disponibles por API? ¿Qué rate limits, sesiones y costo por llamada tiene?</li>
+<li><b>Fase 3:</b> ¿existe una búsqueda incremental o eventos? Si no, hay que hacer polling por cada caso activo, lo que afecta volumen y costo.</li>
+<li><b>PUI:</b> ¿hay un contrato oficial (OpenAPI/manual), un sandbox, credenciales y una IP fija? ¿Exigen la ruta literal /login?</li>
+<li><b>Datos:</b> falta la matriz de campos permitidos para enviar a la PUI (aprobación de Legal) y la regla para reportar múltiples coincidencias.</li>
+<li><b>Volumen:</b> ¿cuántos casos activos se esperan y qué SLA de respuesta exige la PUI?</li>
+<li><b>Entorno:</b> ¿cuentas AWS y VPC existentes, qué herramienta de IaC y CI/CD, qué lenguaje, y cuántos ambientes (dev/qa/prod)?</li>
+<li><b>Alcance del proveedor:</b> ¿quién ejecuta el pentest y DAST? ¿Incluye soporte post-producción u operación?</li>
+</ol>
+
+<h2>Orden de magnitud (preliminar)</h2>
+<p>Equipo de unos 3–4 personas (arquitecto/líder, 2 backend, QA) durante <b>10–14 semanas</b>. El rango depende sobre todo de las dudas 1, 3 y 4 sobre Navitaire. Se recomienda un <b>spike de 2 semanas</b> sobre la API de Navitaire antes de cerrar la cifra.</p>
+</main></body>
+</html>

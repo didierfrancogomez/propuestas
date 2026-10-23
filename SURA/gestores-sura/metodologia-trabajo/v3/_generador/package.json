@@ -1,0 +1,11 @@
+{
+  "name": "generador-presentacion-equipo-sura",
+  "private": true,
+  "description": "Genera el .pptx de la presentación del equipo para SURA a partir del contenido del HTML.",
+  "scripts": {
+    "generar": "node generar.js"
+  },
+  "dependencies": {
+    "pptxgenjs": "4.0.1"
+  }
+}
