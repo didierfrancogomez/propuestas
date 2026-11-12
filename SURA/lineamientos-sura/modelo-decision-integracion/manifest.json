@@ -1,0 +1,442 @@
+{
+  "generado": "2026-11-12T15:55:20.239562Z",
+  "origen": "https://segurosti.atlassian.net/wiki/spaces/AR/pages/3443097604",
+  "espacio": {
+    "clave": "AR",
+    "nombre": "01) Dominio Transformación Tecnológica"
+  },
+  "nota": "Descargado vía Atlassian MCP. HTML limpio generado desde el cuerpo de la página; Markdown convertido desde ese HTML.",
+  "totalPaginas": 2,
+  "totalAdjuntos": 52,
+  "paginas": [
+    {
+      "id": "3443097604",
+      "titulo": "Modelo de decisión y casos de uso de integración",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AR/pages/3443097604",
+      "version": 51,
+      "actualizado": "2026-09-01T13:23:38.863Z",
+      "actualizadoPor": "Víctor Daniel Martínez Olier",
+      "estado": null,
+      "padre": null,
+      "archivoMarkdown": "paginas/Modelo-de-decision-y-casos-de-uso-de-integracion.md",
+      "archivoHtml": "html-original/Modelo-de-decision-y-casos-de-uso-de-integracion.html",
+      "imagenesReferenciadas": [],
+      "diagramasMermaid": [
+        "recursos/3443097604/mermaid-01.mmd",
+        "recursos/3443097604/mermaid-02.mmd",
+        "recursos/3443097604/mermaid-03.mmd",
+        "recursos/3443097604/mermaid-04.mmd",
+        "recursos/3443097604/mermaid-05.mmd"
+      ],
+      "adjuntos": [
+        {
+          "id": "att3442606149",
+          "archivo": "image-20231211-151541.png",
+          "tipo": "image/png",
+          "bytes": 93792,
+          "rutaLocal": "recursos/3443097604/image-20231211-151541.png"
+        },
+        {
+          "id": "att3442901022",
+          "archivo": "image-20231211-150623.png",
+          "tipo": "image/png",
+          "bytes": 32637,
+          "rutaLocal": "recursos/3443097604/image-20231211-150623.png"
+        },
+        {
+          "id": "att3622666267",
+          "archivo": "image-20240320-220735.png",
+          "tipo": "image/png",
+          "bytes": 53392,
+          "rutaLocal": "recursos/3443097604/image-20240320-220735.png"
+        },
+        {
+          "id": "att3625386048",
+          "archivo": "Animation2.gif",
+          "tipo": "image/gif",
+          "bytes": 75966,
+          "rutaLocal": "recursos/3443097604/Animation2.gif"
+        },
+        {
+          "id": "att3625680927",
+          "archivo": "Animation.gif",
+          "tipo": "image/gif",
+          "bytes": 101883,
+          "rutaLocal": "recursos/3443097604/Animation.gif"
+        },
+        {
+          "id": "att3626139672",
+          "archivo": "Modelo Fase2.png",
+          "tipo": "image/png",
+          "bytes": 38408,
+          "rutaLocal": "recursos/3443097604/Modelo Fase2.png"
+        },
+        {
+          "id": "att3639607364",
+          "archivo": "AnimationV2.gif",
+          "tipo": "image/gif",
+          "bytes": 23586,
+          "rutaLocal": "recursos/3443097604/AnimationV2.gif"
+        },
+        {
+          "id": "att3640033309",
+          "archivo": "Modelo Fase1.png",
+          "tipo": "image/png",
+          "bytes": 19024,
+          "rutaLocal": "recursos/3443097604/Modelo Fase1.png"
+        },
+        {
+          "id": "att3640524861",
+          "archivo": "AnimationV.gif",
+          "tipo": "image/gif",
+          "bytes": 19940,
+          "rutaLocal": "recursos/3443097604/AnimationV.gif"
+        },
+        {
+          "id": "att3642490940",
+          "archivo": "image-20240402-205743.png",
+          "tipo": "image/png",
+          "bytes": 19741,
+          "rutaLocal": "recursos/3443097604/image-20240402-205743.png"
+        },
+        {
+          "id": "att3642851460",
+          "archivo": "image-20240402-211951.png",
+          "tipo": "image/png",
+          "bytes": 39749,
+          "rutaLocal": "recursos/3443097604/image-20240402-211951.png"
+        },
+        {
+          "id": "att3642884154",
+          "archivo": "image-20240402-205612.png",
+          "tipo": "image/png",
+          "bytes": 18426,
+          "rutaLocal": "recursos/3443097604/image-20240402-205612.png"
+        },
+        {
+          "id": "att3652550660",
+          "archivo": "image-20240405-212155.png",
+          "tipo": "image/png",
+          "bytes": 25583,
+          "rutaLocal": "recursos/3443097604/image-20240405-212155.png"
+        },
+        {
+          "id": "att3653959708",
+          "archivo": "image-20240408-155111.png",
+          "tipo": "image/png",
+          "bytes": 99044,
+          "rutaLocal": "recursos/3443097604/image-20240408-155111.png"
+        },
+        {
+          "id": "att3655335991",
+          "archivo": "image-20240409-172124.png",
+          "tipo": "image/png",
+          "bytes": 33600,
+          "rutaLocal": "recursos/3443097604/image-20240409-172124.png"
+        },
+        {
+          "id": "att3655925790",
+          "archivo": "image-20240409-173324.png",
+          "tipo": "image/png",
+          "bytes": 87299,
+          "rutaLocal": "recursos/3443097604/image-20240409-173324.png"
+        },
+        {
+          "id": "att3656089653",
+          "archivo": "image-20240409-173827.png",
+          "tipo": "image/png",
+          "bytes": 24935,
+          "rutaLocal": "recursos/3443097604/image-20240409-173827.png"
+        },
+        {
+          "id": "att3656351777",
+          "archivo": "image-20240409-171908.png",
+          "tipo": "image/png",
+          "bytes": 59192,
+          "rutaLocal": "recursos/3443097604/image-20240409-171908.png"
+        },
+        {
+          "id": "att4049797126",
+          "archivo": "image-20240917-214304.png",
+          "tipo": "image/png",
+          "bytes": 14672,
+          "rutaLocal": "recursos/3443097604/image-20240917-214304.png"
+        },
+        {
+          "id": "att5161779358",
+          "archivo": "Modelo_decisión_integración-Detallado.pdf",
+          "tipo": "application/pdf",
+          "bytes": 80003,
+          "rutaLocal": "recursos/3443097604/Modelo_decisión_integración-Detallado.pdf"
+        },
+        {
+          "id": "att5747277978",
+          "archivo": "como-abordar.svg",
+          "tipo": "image/svg+xml",
+          "bytes": 18453,
+          "rutaLocal": "recursos/3443097604/como-abordar.svg"
+        },
+        {
+          "id": "att5749538841",
+          "archivo": "como-abordar.png",
+          "tipo": "image/png",
+          "bytes": 93239,
+          "rutaLocal": "recursos/3443097604/como-abordar.png"
+        },
+        {
+          "id": "att5752029239",
+          "archivo": "modelo-general.png",
+          "tipo": "image/png",
+          "bytes": 469116,
+          "rutaLocal": "recursos/3443097604/modelo-general.png"
+        },
+        {
+          "id": "att5753176081",
+          "archivo": "enfoque.png",
+          "tipo": "image/png",
+          "bytes": 82779,
+          "rutaLocal": "recursos/3443097604/enfoque.png"
+        },
+        {
+          "id": "att5753372673",
+          "archivo": "integraciones.png",
+          "tipo": "image/png",
+          "bytes": 25438,
+          "rutaLocal": "recursos/3443097604/integraciones.png"
+        },
+        {
+          "id": "att5756026889",
+          "archivo": "modelo-aplicacion.png",
+          "tipo": "image/png",
+          "bytes": 496905,
+          "rutaLocal": "recursos/3443097604/modelo-aplicacion.png"
+        }
+      ]
+    },
+    {
+      "id": "3701276684",
+      "titulo": "Casos de uso integración de aplicaciones",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AR/pages/3701276684",
+      "version": 15,
+      "actualizado": "2025-12-02T23:14:43.436Z",
+      "actualizadoPor": "Víctor Daniel Martínez Olier",
+      "estado": null,
+      "padre": "3443097604",
+      "archivoMarkdown": "paginas/Modelo-de-decision-y-casos-de-uso-de-integracion/Casos-de-uso-integracion-de-aplicaciones.md",
+      "archivoHtml": "html-original/Modelo-de-decision-y-casos-de-uso-de-integracion/Casos-de-uso-integracion-de-aplicaciones.html",
+      "imagenesReferenciadas": [
+        "image-20240425-220955.png",
+        "image-20240425-221044.png",
+        "image-20240516-110814.png",
+        "image-20240516-111113.png",
+        "image-20240516-112001.png",
+        "image-20240516-112021.png",
+        "image-20240516-112306.png",
+        "image-20240516-112329.png",
+        "image-20240516-112657.png",
+        "image-20240516-112721.png",
+        "image-20240516-113013.png",
+        "image-20240516-113034.png",
+        "image-20240516-113240.png",
+        "image-20240516-113314.png",
+        "image-20240516-113513.png",
+        "image-20240516-113533.png",
+        "image-20240516-113730.png",
+        "image-20240516-113746.png",
+        "image-20240516-113944.png",
+        "image-20240516-114001.png",
+        "image-20240429-142937.png",
+        "image-20240429-143233.png",
+        "image-20240516-115858.png",
+        "image-20240516-115929.png",
+        "image-20240516-113513.png",
+        "image-20251202-154022.png"
+      ],
+      "diagramasMermaid": [],
+      "adjuntos": [
+        {
+          "id": "att3700654115",
+          "archivo": "image-20240425-221044.png",
+          "tipo": "image/png",
+          "bytes": 50606,
+          "rutaLocal": "recursos/3701276684/image-20240425-221044.png"
+        },
+        {
+          "id": "att3700981772",
+          "archivo": "image-20240425-220955.png",
+          "tipo": "image/png",
+          "bytes": 63168,
+          "rutaLocal": "recursos/3701276684/image-20240425-220955.png"
+        },
+        {
+          "id": "att3704094753",
+          "archivo": "image-20240429-143233.png",
+          "tipo": "image/png",
+          "bytes": 12274,
+          "rutaLocal": "recursos/3701276684/image-20240429-143233.png"
+        },
+        {
+          "id": "att3704422404",
+          "archivo": "image-20240429-142937.png",
+          "tipo": "image/png",
+          "bytes": 8448,
+          "rutaLocal": "recursos/3701276684/image-20240429-142937.png"
+        },
+        {
+          "id": "att3743842362",
+          "archivo": "image-20240516-111113.png",
+          "tipo": "image/png",
+          "bytes": 22458,
+          "rutaLocal": "recursos/3701276684/image-20240516-111113.png"
+        },
+        {
+          "id": "att3743940649",
+          "archivo": "image-20240516-112329.png",
+          "tipo": "image/png",
+          "bytes": 22678,
+          "rutaLocal": "recursos/3701276684/image-20240516-112329.png"
+        },
+        {
+          "id": "att3743940659",
+          "archivo": "image-20240516-114001.png",
+          "tipo": "image/png",
+          "bytes": 12512,
+          "rutaLocal": "recursos/3701276684/image-20240516-114001.png"
+        },
+        {
+          "id": "att3744038950",
+          "archivo": "image-20240516-113314.png",
+          "tipo": "image/png",
+          "bytes": 10875,
+          "rutaLocal": "recursos/3701276684/image-20240516-113314.png"
+        },
+        {
+          "id": "att3744301073",
+          "archivo": "image-20240516-113240.png",
+          "tipo": "image/png",
+          "bytes": 10543,
+          "rutaLocal": "recursos/3701276684/image-20240516-113240.png"
+        },
+        {
+          "id": "att3744333833",
+          "archivo": "image-20240516-110700.png",
+          "tipo": "image/png",
+          "bytes": 9269,
+          "rutaLocal": "recursos/3701276684/image-20240516-110700.png"
+        },
+        {
+          "id": "att3744333844",
+          "archivo": "image-20240516-112021.png",
+          "tipo": "image/png",
+          "bytes": 29753,
+          "rutaLocal": "recursos/3701276684/image-20240516-112021.png"
+        },
+        {
+          "id": "att3744333852",
+          "archivo": "image-20240516-113730.png",
+          "tipo": "image/png",
+          "bytes": 8558,
+          "rutaLocal": "recursos/3701276684/image-20240516-113730.png"
+        },
+        {
+          "id": "att3744333861",
+          "archivo": "image-20240516-113944.png",
+          "tipo": "image/png",
+          "bytes": 8003,
+          "rutaLocal": "recursos/3701276684/image-20240516-113944.png"
+        },
+        {
+          "id": "att3744399366",
+          "archivo": "image-20240516-110814.png",
+          "tipo": "image/png",
+          "bytes": 20669,
+          "rutaLocal": "recursos/3701276684/image-20240516-110814.png"
+        },
+        {
+          "id": "att3744399385",
+          "archivo": "image-20240516-113533.png",
+          "tipo": "image/png",
+          "bytes": 15036,
+          "rutaLocal": "recursos/3701276684/image-20240516-113533.png"
+        },
+        {
+          "id": "att3744432136",
+          "archivo": "image-20240516-112721.png",
+          "tipo": "image/png",
+          "bytes": 27147,
+          "rutaLocal": "recursos/3701276684/image-20240516-112721.png"
+        },
+        {
+          "id": "att3744432143",
+          "archivo": "image-20240516-113013.png",
+          "tipo": "image/png",
+          "bytes": 8928,
+          "rutaLocal": "recursos/3701276684/image-20240516-113013.png"
+        },
+        {
+          "id": "att3744497672",
+          "archivo": "image-20240516-112306.png",
+          "tipo": "image/png",
+          "bytes": 16669,
+          "rutaLocal": "recursos/3701276684/image-20240516-112306.png"
+        },
+        {
+          "id": "att3744497682",
+          "archivo": "image-20240516-115858.png",
+          "tipo": "image/png",
+          "bytes": 17535,
+          "rutaLocal": "recursos/3701276684/image-20240516-115858.png"
+        },
+        {
+          "id": "att3744497688",
+          "archivo": "image-20240516-115929.png",
+          "tipo": "image/png",
+          "bytes": 12927,
+          "rutaLocal": "recursos/3701276684/image-20240516-115929.png"
+        },
+        {
+          "id": "att3744530438",
+          "archivo": "image-20240516-112001.png",
+          "tipo": "image/png",
+          "bytes": 26265,
+          "rutaLocal": "recursos/3701276684/image-20240516-112001.png"
+        },
+        {
+          "id": "att3744530448",
+          "archivo": "image-20240516-113034.png",
+          "tipo": "image/png",
+          "bytes": 13236,
+          "rutaLocal": "recursos/3701276684/image-20240516-113034.png"
+        },
+        {
+          "id": "att3744530457",
+          "archivo": "image-20240516-113746.png",
+          "tipo": "image/png",
+          "bytes": 12906,
+          "rutaLocal": "recursos/3701276684/image-20240516-113746.png"
+        },
+        {
+          "id": "att3744595971",
+          "archivo": "image-20240516-112657.png",
+          "tipo": "image/png",
+          "bytes": 19750,
+          "rutaLocal": "recursos/3701276684/image-20240516-112657.png"
+        },
+        {
+          "id": "att3744628737",
+          "archivo": "image-20240516-113513.png",
+          "tipo": "image/png",
+          "bytes": 11198,
+          "rutaLocal": "recursos/3701276684/image-20240516-113513.png"
+        },
+        {
+          "id": "att5174624972",
+          "archivo": "image-20251202-154022.png",
+          "tipo": "image/png",
+          "bytes": 342119,
+          "rutaLocal": "recursos/3701276684/image-20251202-154022.png"
+        }
+      ]
+    }
+  ]
+}

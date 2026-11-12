@@ -1,0 +1,14 @@
+---
+config:
+  htmlLabels: false
+---
+flowchart LR
+    AA((Inicio))
+    AA --> CRLI{{"`¿Cómo resuelvo la integración?`"}}
+    CRLI --> TVFDI{{"`**1. ¿Tiene varias fuentes o destinos de información?**`"}}
+    TVFDI --> IEFDE["`Identifique un escenario de fuente y destino específicos`"]
+    IEFDE --> MDG["`**2. Modelo de decisión general**`"]
+    MDG --> TI{{"`**3. Tipo de integración**`"}}
+    TI -->|"`Aplicacón`"| ME["`Modelos específicos`"]
+    TI -->|"`Datos`"| ME
+    ME --> ZZ(((FIN)))

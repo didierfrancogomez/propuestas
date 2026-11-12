@@ -1,0 +1,48 @@
+flowchart TB
+    AA((Inicio))
+    SL{{Sistemas legacy sin posibilidad de desarrollo}}
+    RI{{Replicar información}}
+    ISE{{Integración con sistemas externos}}
+    MIAD{{Minimizar impacto de acceso a la información}}
+    CIRA{{Consolidar información para reportes o análisis}}
+    IEGL{{Información enviada en grandes lotes}}
+    EBFS{{Escenario con baja frecuencia de sincronización}}
+    ADH{{Acceso a datos historicos}}
+    EI{{Escalabillidad de la integración}}
+    LI{{Limpieza de información}}
+    DP{{Diversidad de protocolos}}
+    RAMI{{Recurrencia de acceso a la misma información}}
+    VC{{Validaciones complejas}}
+    IA[Integración de aplicaciones]
+    ID[Integración de datos]
+    ZZ(((FIN)))
+
+    AA --> SL
+    SL -- Sí --> ID
+    SL -- No --> RI
+    RI -- Sí --> ID
+    RI -- No --> ISE
+    ISE -- Sí --> IA
+    ISE -- No --> MIAD
+    MIAD -- Sí --> IA
+    MIAD -- No --> CIRA
+    CIRA -- Sí --> ID
+    CIRA -- No --> IEGL
+    IEGL -- Sí --> ID
+    IEGL -- No --> EBFS
+    EBFS -- Sí --> IA
+    EBFS -- No --> ADH
+    ADH -- Sí --> ID
+    ADH -- No --> EI
+    EI -- Sí --> IA
+    EI -- No --> LI
+    LI -- Sí --> ID
+    LI -- No --> DP
+    DP -- Sí --> IA
+    DP -- No --> RAMI
+    RAMI -- Sí --> IA
+    RAMI -- No --> VC
+    VC -- Sí --> ID
+    VC -- No --> IA
+    IA --> ZZ
+    ID --> ZZ

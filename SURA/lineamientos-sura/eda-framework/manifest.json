@@ -1,0 +1,657 @@
+{
+  "generado": "2026-11-12T15:55:20.071698Z",
+  "origen": "https://segurosti.atlassian.net/wiki/spaces/AR/pages/4588863512",
+  "espacio": {
+    "clave": "AR",
+    "nombre": "01) Dominio Transformación Tecnológica"
+  },
+  "nota": "Descargado vía Atlassian MCP. HTML limpio generado desde el cuerpo de la página; Markdown convertido desde ese HTML.",
+  "totalPaginas": 5,
+  "totalAdjuntos": 78,
+  "paginas": [
+    {
+      "id": "4588863512",
+      "titulo": "Marco de trabajo para arquitecturas dirigidas por eventos (EDA Framework)",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AR/pages/4588863512",
+      "version": 40,
+      "actualizado": "2026-08-05T13:55:42.277Z",
+      "actualizadoPor": "Víctor Daniel Martínez Olier",
+      "estado": "En progreso",
+      "padre": null,
+      "archivoMarkdown": "paginas/Marco-de-trabajo-para-arquitecturas-dirigidas-por-eventos-EDA-Framework.md",
+      "archivoHtml": "html-original/Marco-de-trabajo-para-arquitecturas-dirigidas-por-eventos-EDA-Framework.html",
+      "imagenesReferenciadas": [
+        "eda_3-Framework EDA.svg",
+        "eda_3-Framework EDA-2.svg",
+        "eda_3-Framework EDA-3.svg",
+        "eda_3-Framework EDA-4.svg"
+      ],
+      "diagramasMermaid": [],
+      "adjuntos": [
+        {
+          "id": "att4615766033",
+          "archivo": "image-20250402-144049.png",
+          "tipo": "image/png",
+          "bytes": 23691,
+          "rutaLocal": "recursos/4588863512/image-20250402-144049.png"
+        },
+        {
+          "id": "att4616552452",
+          "archivo": "image-20250402-172119.png",
+          "tipo": "image/png",
+          "bytes": 249745,
+          "rutaLocal": "recursos/4588863512/image-20250402-172119.png"
+        },
+        {
+          "id": "att4616617985",
+          "archivo": "image-20250402-171803.png",
+          "tipo": "image/png",
+          "bytes": 245785,
+          "rutaLocal": "recursos/4588863512/image-20250402-171803.png"
+        },
+        {
+          "id": "att4616650771",
+          "archivo": "image-20250402-172020.png",
+          "tipo": "image/png",
+          "bytes": 249745,
+          "rutaLocal": "recursos/4588863512/image-20250402-172020.png"
+        },
+        {
+          "id": "att4616749057",
+          "archivo": "image-20250402-172243.png",
+          "tipo": "image/png",
+          "bytes": 240088,
+          "rutaLocal": "recursos/4588863512/image-20250402-172243.png"
+        },
+        {
+          "id": "att4616814593",
+          "archivo": "image-20250402-172301.png",
+          "tipo": "image/png",
+          "bytes": 247551,
+          "rutaLocal": "recursos/4588863512/image-20250402-172301.png"
+        },
+        {
+          "id": "att4616847362",
+          "archivo": "image-20250402-172357.png",
+          "tipo": "image/png",
+          "bytes": 247551,
+          "rutaLocal": "recursos/4588863512/image-20250402-172357.png"
+        },
+        {
+          "id": "att4616847368",
+          "archivo": "image-20250402-172745.png",
+          "tipo": "image/png",
+          "bytes": 168516,
+          "rutaLocal": "recursos/4588863512/image-20250402-172745.png"
+        },
+        {
+          "id": "att4616912898",
+          "archivo": "image-20250402-172457.png",
+          "tipo": "image/png",
+          "bytes": 249143,
+          "rutaLocal": "recursos/4588863512/image-20250402-172457.png"
+        },
+        {
+          "id": "att4618846211",
+          "archivo": "image-20250403-115633.png",
+          "tipo": "image/png",
+          "bytes": 262099,
+          "rutaLocal": "recursos/4588863512/image-20250403-115633.png"
+        },
+        {
+          "id": "att4634148989",
+          "archivo": "image-20250410-172128.png",
+          "tipo": "image/png",
+          "bytes": 23241,
+          "rutaLocal": "recursos/4588863512/image-20250410-172128.png"
+        },
+        {
+          "id": "att4634181720",
+          "archivo": "image-20250410-171408.png",
+          "tipo": "image/png",
+          "bytes": 23241,
+          "rutaLocal": "recursos/4588863512/image-20250410-171408.png"
+        },
+        {
+          "id": "att4636114969",
+          "archivo": "image-20250411-150052.png",
+          "tipo": "image/png",
+          "bytes": 61015,
+          "rutaLocal": "recursos/4588863512/image-20250411-150052.png"
+        },
+        {
+          "id": "att4649713719",
+          "archivo": "Untitled-1-20250416-141846.png",
+          "tipo": "image/png",
+          "bytes": 128432,
+          "rutaLocal": "recursos/4588863512/Untitled-1-20250416-141846.png"
+        },
+        {
+          "id": "att4649975887",
+          "archivo": "Untitled-20250416-141802.png",
+          "tipo": "image/png",
+          "bytes": 39594,
+          "rutaLocal": "recursos/4588863512/Untitled-20250416-141802.png"
+        },
+        {
+          "id": "att4650795034",
+          "archivo": "Untitled-20250416-141908.png",
+          "tipo": "image/png",
+          "bytes": 128432,
+          "rutaLocal": "recursos/4588863512/Untitled-20250416-141908.png"
+        },
+        {
+          "id": "att4673732710",
+          "archivo": "Untitled-20250425-213745.png",
+          "tipo": "image/png",
+          "bytes": 228139,
+          "rutaLocal": "recursos/4588863512/Untitled-20250425-213745.png"
+        },
+        {
+          "id": "att4673798283",
+          "archivo": "Untitled-20250425-212617.png",
+          "tipo": "image/png",
+          "bytes": 38018,
+          "rutaLocal": "recursos/4588863512/Untitled-20250425-212617.png"
+        },
+        {
+          "id": "att4673798290",
+          "archivo": "Untitled-1-20250425-213118.png",
+          "tipo": "image/png",
+          "bytes": 39714,
+          "rutaLocal": "recursos/4588863512/Untitled-1-20250425-213118.png"
+        },
+        {
+          "id": "att4674093207",
+          "archivo": "Untitled-20250425-213649.png",
+          "tipo": "image/png",
+          "bytes": 228139,
+          "rutaLocal": "recursos/4588863512/Untitled-20250425-213649.png"
+        },
+        {
+          "id": "att4674322552",
+          "archivo": "Untitled-20250425-213914.png",
+          "tipo": "image/png",
+          "bytes": 125580,
+          "rutaLocal": "recursos/4588863512/Untitled-20250425-213914.png"
+        },
+        {
+          "id": "att5176262797",
+          "archivo": "image-20251202-165644.png",
+          "tipo": "image/png",
+          "bytes": 370948,
+          "rutaLocal": "recursos/4588863512/image-20251202-165644.png"
+        },
+        {
+          "id": "att5176360976",
+          "archivo": "image-20251202-170127.png",
+          "tipo": "image/png",
+          "bytes": 368300,
+          "rutaLocal": "recursos/4588863512/image-20251202-170127.png"
+        },
+        {
+          "id": "att5257297954",
+          "archivo": "eda_3-Framework EDA-2.svg",
+          "tipo": "image/svg+xml",
+          "bytes": 28608,
+          "rutaLocal": "recursos/4588863512/eda_3-Framework EDA-2.svg"
+        },
+        {
+          "id": "att5257330728",
+          "archivo": "eda_3-Framework EDA-3.svg",
+          "tipo": "image/svg+xml",
+          "bytes": 25034,
+          "rutaLocal": "recursos/4588863512/eda_3-Framework EDA-3.svg"
+        },
+        {
+          "id": "att5257396231",
+          "archivo": "eda_3-Framework EDA.svg",
+          "tipo": "image/svg+xml",
+          "bytes": 7733,
+          "rutaLocal": "recursos/4588863512/eda_3-Framework EDA.svg"
+        },
+        {
+          "id": "att5257887756",
+          "archivo": "eda_3-Framework EDA-4.svg",
+          "tipo": "image/svg+xml",
+          "bytes": 13158,
+          "rutaLocal": "recursos/4588863512/eda_3-Framework EDA-4.svg"
+        }
+      ]
+    },
+    {
+      "id": "4614586440",
+      "titulo": "Arquitectura fundacional para aplicaciones dirigidas por eventos",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AR/pages/4614586440",
+      "version": 27,
+      "actualizado": "2026-11-10T19:24:10.996Z",
+      "actualizadoPor": "Víctor Daniel Martínez Olier",
+      "estado": null,
+      "padre": "4588863512",
+      "archivoMarkdown": "paginas/Marco-de-trabajo-para-arquitecturas-dirigidas-por-eventos-EDA-Framework/Arquitectura-fundacional-para-aplicaciones-dirigidas-por-eventos.md",
+      "archivoHtml": "html-original/Marco-de-trabajo-para-arquitecturas-dirigidas-por-eventos-EDA-Framework/Arquitectura-fundacional-para-aplicaciones-dirigidas-por-eventos.html",
+      "imagenesReferenciadas": [
+        "eda_3-Arquitectura fundacional-banner.svg",
+        "eda_3-Arquitectura fundacional.svg",
+        "eda_3-Arquitectura fundacional-2.svg"
+      ],
+      "diagramasMermaid": [],
+      "adjuntos": [
+        {
+          "id": "att4617732102",
+          "archivo": "image-20250402-214437.png",
+          "tipo": "image/png",
+          "bytes": 171225,
+          "rutaLocal": "recursos/4614586440/image-20250402-214437.png"
+        },
+        {
+          "id": "att4649484419",
+          "archivo": "Untitled-20250416-165250.png",
+          "tipo": "image/png",
+          "bytes": 139298,
+          "rutaLocal": "recursos/4614586440/Untitled-20250416-165250.png"
+        },
+        {
+          "id": "att4650893351",
+          "archivo": "Untitled-20250416-152744.png",
+          "tipo": "image/png",
+          "bytes": 132661,
+          "rutaLocal": "recursos/4614586440/Untitled-20250416-152744.png"
+        },
+        {
+          "id": "att4650958912",
+          "archivo": "Untitled-20250416-164157.png",
+          "tipo": "image/png",
+          "bytes": 138559,
+          "rutaLocal": "recursos/4614586440/Untitled-20250416-164157.png"
+        },
+        {
+          "id": "att4650958918",
+          "archivo": "Untitled-20250416-164309.png",
+          "tipo": "image/png",
+          "bytes": 138559,
+          "rutaLocal": "recursos/4614586440/Untitled-20250416-164309.png"
+        },
+        {
+          "id": "att4650991686",
+          "archivo": "Untitled-20250416-164245.png",
+          "tipo": "image/png",
+          "bytes": 138559,
+          "rutaLocal": "recursos/4614586440/Untitled-20250416-164245.png"
+        },
+        {
+          "id": "att4673765493",
+          "archivo": "Untitled-20250425-224533.png",
+          "tipo": "image/png",
+          "bytes": 188386,
+          "rutaLocal": "recursos/4614586440/Untitled-20250425-224533.png"
+        },
+        {
+          "id": "att4673798310",
+          "archivo": "Untitled-20250425-215447.png",
+          "tipo": "image/png",
+          "bytes": 165339,
+          "rutaLocal": "recursos/4614586440/Untitled-20250425-215447.png"
+        },
+        {
+          "id": "att4673863808",
+          "archivo": "Untitled-20250425-222156.png",
+          "tipo": "image/png",
+          "bytes": 175547,
+          "rutaLocal": "recursos/4614586440/Untitled-20250425-222156.png"
+        },
+        {
+          "id": "att4673863815",
+          "archivo": "Untitled-20250425-223206.png",
+          "tipo": "image/png",
+          "bytes": 182369,
+          "rutaLocal": "recursos/4614586440/Untitled-20250425-223206.png"
+        },
+        {
+          "id": "att4674158698",
+          "archivo": "Untitled-20250425-215403.png",
+          "tipo": "image/png",
+          "bytes": 165339,
+          "rutaLocal": "recursos/4614586440/Untitled-20250425-215403.png"
+        },
+        {
+          "id": "att5245763609",
+          "archivo": "image-20251218-212503.png",
+          "tipo": "image/png",
+          "bytes": 336782,
+          "rutaLocal": "recursos/4614586440/image-20251218-212503.png"
+        },
+        {
+          "id": "att5245894708",
+          "archivo": "image-20251218-212447.png",
+          "tipo": "image/png",
+          "bytes": 336782,
+          "rutaLocal": "recursos/4614586440/image-20251218-212447.png"
+        },
+        {
+          "id": "att5250056196",
+          "archivo": "eda_3-Arquitectura fundacional.svg",
+          "tipo": "image/svg+xml",
+          "bytes": 82587,
+          "rutaLocal": "recursos/4614586440/eda_3-Arquitectura fundacional.svg"
+        },
+        {
+          "id": "att5251203073",
+          "archivo": "eda_3-Arquitectura fundacional-2.svg",
+          "tipo": "image/svg+xml",
+          "bytes": 68678,
+          "rutaLocal": "recursos/4614586440/eda_3-Arquitectura fundacional-2.svg"
+        },
+        {
+          "id": "att5258575894",
+          "archivo": "eda_3-Arquitectura fundacional-banner.svg",
+          "tipo": "image/svg+xml",
+          "bytes": 29771,
+          "rutaLocal": "recursos/4614586440/eda_3-Arquitectura fundacional-banner.svg"
+        },
+        {
+          "id": "att6176374791",
+          "archivo": "image-20260805-135040.png",
+          "tipo": "image/png",
+          "bytes": 387752,
+          "rutaLocal": "recursos/4614586440/image-20260805-135040.png"
+        }
+      ]
+    },
+    {
+      "id": "4741071017",
+      "titulo": "POC: EDA Framework v1.0",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AR/pages/4741071017",
+      "version": 13,
+      "actualizado": "2026-08-05T13:52:11.066Z",
+      "actualizadoPor": "Víctor Daniel Martínez Olier",
+      "estado": "En progreso",
+      "padre": "4614586440",
+      "archivoMarkdown": "paginas/Marco-de-trabajo-para-arquitecturas-dirigidas-por-eventos-EDA-Framework/Arquitectura-fundacional-para-aplicaciones-dirigidas-por-eventos/POC-EDA-Framework-v1-0.md",
+      "archivoHtml": "html-original/Marco-de-trabajo-para-arquitecturas-dirigidas-por-eventos-EDA-Framework/Arquitectura-fundacional-para-aplicaciones-dirigidas-por-eventos/POC-EDA-Framework-v1-0.html",
+      "imagenesReferenciadas": [
+        "image-20260805-135130.png",
+        "image-20250526-181104.png",
+        "image-20250526-181620.png"
+      ],
+      "diagramasMermaid": [],
+      "adjuntos": [
+        {
+          "id": "att4740972699",
+          "archivo": "image-20250526-181104.png",
+          "tipo": "image/png",
+          "bytes": 176741,
+          "rutaLocal": "recursos/4741071017/image-20250526-181104.png"
+        },
+        {
+          "id": "att4740972712",
+          "archivo": "image-20250526-181620.png",
+          "tipo": "image/png",
+          "bytes": 74787,
+          "rutaLocal": "recursos/4741071017/image-20250526-181620.png"
+        },
+        {
+          "id": "att6176899074",
+          "archivo": "image-20260805-135130.png",
+          "tipo": "image/png",
+          "bytes": 387752,
+          "rutaLocal": "recursos/4741071017/image-20260805-135130.png"
+        }
+      ]
+    },
+    {
+      "id": "4614553659",
+      "titulo": "Arquitectura para aplicaciones transaccionales funcionales dirigidas por eventos",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AR/pages/4614553659",
+      "version": 50,
+      "actualizado": "2026-11-10T19:23:59.226Z",
+      "actualizadoPor": "Víctor Daniel Martínez Olier",
+      "estado": "En progreso",
+      "padre": "4588863512",
+      "archivoMarkdown": "paginas/Marco-de-trabajo-para-arquitecturas-dirigidas-por-eventos-EDA-Framework/Arquitectura-para-aplicaciones-transaccionales-funcionales-dirigidas-por-eventos.md",
+      "archivoHtml": "html-original/Marco-de-trabajo-para-arquitecturas-dirigidas-por-eventos-EDA-Framework/Arquitectura-para-aplicaciones-transaccionales-funcionales-dirigidas-por-eventos.html",
+      "imagenesReferenciadas": [
+        "eda_3-Arquitectura aplicaciones-banner.svg",
+        "eda_3-Arquitectura aplicaciones-2.svg",
+        "eda_3-Arquitectura aplicaciones-3.svg",
+        "eda_3-Arquitectura aplicaciones.svg",
+        "eda_3-Arquitectura aplicaciones-4.svg"
+      ],
+      "diagramasMermaid": [],
+      "adjuntos": [
+        {
+          "id": "att4617699337",
+          "archivo": "image-20250402-220101.png",
+          "tipo": "image/png",
+          "bytes": 161409,
+          "rutaLocal": "recursos/4614553659/image-20250402-220101.png"
+        },
+        {
+          "id": "att4673732771",
+          "archivo": "Untitled-1-20250425-230015.png",
+          "tipo": "image/png",
+          "bytes": 297901,
+          "rutaLocal": "recursos/4614553659/Untitled-1-20250425-230015.png"
+        },
+        {
+          "id": "att4673863869",
+          "archivo": "Untitled-20250425-225826.png",
+          "tipo": "image/png",
+          "bytes": 143616,
+          "rutaLocal": "recursos/4614553659/Untitled-20250425-225826.png"
+        },
+        {
+          "id": "att4674355310",
+          "archivo": "Untitled-20250425-225934.png",
+          "tipo": "image/png",
+          "bytes": 350336,
+          "rutaLocal": "recursos/4614553659/Untitled-20250425-225934.png"
+        },
+        {
+          "id": "att5172068538",
+          "archivo": "image-20251127-173149.png",
+          "tipo": "image/png",
+          "bytes": 129217,
+          "rutaLocal": "recursos/4614553659/image-20251127-173149.png"
+        },
+        {
+          "id": "att5172068604",
+          "archivo": "image-20251127-195649.png",
+          "tipo": "image/png",
+          "bytes": 151486,
+          "rutaLocal": "recursos/4614553659/image-20251127-195649.png"
+        },
+        {
+          "id": "att5172068610",
+          "archivo": "image-20251127-195654.png",
+          "tipo": "image/png",
+          "bytes": 151486,
+          "rutaLocal": "recursos/4614553659/image-20251127-195654.png"
+        },
+        {
+          "id": "att5172265035",
+          "archivo": "image-20251127-151635.png",
+          "tipo": "image/png",
+          "bytes": 117987,
+          "rutaLocal": "recursos/4614553659/image-20251127-151635.png"
+        },
+        {
+          "id": "att5172658220",
+          "archivo": "image-20251127-152457.png",
+          "tipo": "image/png",
+          "bytes": 129020,
+          "rutaLocal": "recursos/4614553659/image-20251127-152457.png"
+        },
+        {
+          "id": "att5172658289",
+          "archivo": "image-20251127-161453.png",
+          "tipo": "image/png",
+          "bytes": 138792,
+          "rutaLocal": "recursos/4614553659/image-20251127-161453.png"
+        },
+        {
+          "id": "att5172658400",
+          "archivo": "image-20251127-171800.png",
+          "tipo": "image/png",
+          "bytes": 142110,
+          "rutaLocal": "recursos/4614553659/image-20251127-171800.png"
+        },
+        {
+          "id": "att5172822018",
+          "archivo": "image-20251127-151742.png",
+          "tipo": "image/png",
+          "bytes": 118651,
+          "rutaLocal": "recursos/4614553659/image-20251127-151742.png"
+        },
+        {
+          "id": "att5173215545",
+          "archivo": "image-20251128-194001.png",
+          "tipo": "image/png",
+          "bytes": 707540,
+          "rutaLocal": "recursos/4614553659/image-20251128-194001.png"
+        },
+        {
+          "id": "att5174886734",
+          "archivo": "image-20251201-190541.png",
+          "tipo": "image/png",
+          "bytes": 349481,
+          "rutaLocal": "recursos/4614553659/image-20251201-190541.png"
+        },
+        {
+          "id": "att5175214428",
+          "archivo": "image-20251201-191644.png",
+          "tipo": "image/png",
+          "bytes": 342119,
+          "rutaLocal": "recursos/4614553659/image-20251201-191644.png"
+        },
+        {
+          "id": "att5175345369",
+          "archivo": "image-20251201-191710.png",
+          "tipo": "image/png",
+          "bytes": 342119,
+          "rutaLocal": "recursos/4614553659/image-20251201-191710.png"
+        },
+        {
+          "id": "att5175443523",
+          "archivo": "image-20251201-190533.png",
+          "tipo": "image/png",
+          "bytes": 349481,
+          "rutaLocal": "recursos/4614553659/image-20251201-190533.png"
+        },
+        {
+          "id": "att5175443530",
+          "archivo": "image-20251201-191853.png",
+          "tipo": "image/png",
+          "bytes": 726858,
+          "rutaLocal": "recursos/4614553659/image-20251201-191853.png"
+        },
+        {
+          "id": "att5175738370",
+          "archivo": "image-20251201-191801.png",
+          "tipo": "image/png",
+          "bytes": 325062,
+          "rutaLocal": "recursos/4614553659/image-20251201-191801.png"
+        },
+        {
+          "id": "att5175738376",
+          "archivo": "image-20251201-191907.png",
+          "tipo": "image/png",
+          "bytes": 726858,
+          "rutaLocal": "recursos/4614553659/image-20251201-191907.png"
+        },
+        {
+          "id": "att5245829167",
+          "archivo": "image-20251218-210122.png",
+          "tipo": "image/png",
+          "bytes": 492566,
+          "rutaLocal": "recursos/4614553659/image-20251218-210122.png"
+        },
+        {
+          "id": "att5246025783",
+          "archivo": "image-20251218-204459.png",
+          "tipo": "image/png",
+          "bytes": 431648,
+          "rutaLocal": "recursos/4614553659/image-20251218-204459.png"
+        },
+        {
+          "id": "att5246484574",
+          "archivo": "image-20251218-210132.png",
+          "tipo": "image/png",
+          "bytes": 492566,
+          "rutaLocal": "recursos/4614553659/image-20251218-210132.png"
+        },
+        {
+          "id": "att5246746724",
+          "archivo": "image-20251218-211634.png",
+          "tipo": "image/png",
+          "bytes": 776504,
+          "rutaLocal": "recursos/4614553659/image-20251218-211634.png"
+        },
+        {
+          "id": "att5247041590",
+          "archivo": "image-20251218-204946.png",
+          "tipo": "image/png",
+          "bytes": 356532,
+          "rutaLocal": "recursos/4614553659/image-20251218-204946.png"
+        },
+        {
+          "id": "att5247270965",
+          "archivo": "image-20251218-204222.png",
+          "tipo": "image/png",
+          "bytes": 431187,
+          "rutaLocal": "recursos/4614553659/image-20251218-204222.png"
+        },
+        {
+          "id": "att5249663015",
+          "archivo": "eda_3-Arquitectura aplicaciones-4.svg",
+          "tipo": "image/svg+xml",
+          "bytes": 68252,
+          "rutaLocal": "recursos/4614553659/eda_3-Arquitectura aplicaciones-4.svg"
+        },
+        {
+          "id": "att5249826834",
+          "archivo": "eda_3-Arquitectura aplicaciones.svg",
+          "tipo": "image/svg+xml",
+          "bytes": 143664,
+          "rutaLocal": "recursos/4614553659/eda_3-Arquitectura aplicaciones.svg"
+        },
+        {
+          "id": "att5250121765",
+          "archivo": "eda_3-Arquitectura aplicaciones-3.svg",
+          "tipo": "image/svg+xml",
+          "bytes": 93669,
+          "rutaLocal": "recursos/4614553659/eda_3-Arquitectura aplicaciones-3.svg"
+        },
+        {
+          "id": "att5251203082",
+          "archivo": "eda_3-Arquitectura aplicaciones-2.svg",
+          "tipo": "image/svg+xml",
+          "bytes": 66594,
+          "rutaLocal": "recursos/4614553659/eda_3-Arquitectura aplicaciones-2.svg"
+        },
+        {
+          "id": "att5258510340",
+          "archivo": "eda_3-Arquitectura aplicaciones-banner.svg",
+          "tipo": "image/svg+xml",
+          "bytes": 43585,
+          "rutaLocal": "recursos/4614553659/eda_3-Arquitectura aplicaciones-banner.svg"
+        }
+      ]
+    },
+    {
+      "id": "5251366915",
+      "titulo": "EDA Framework: Glosario y definiciones generales",
+      "url": "https://segurosti.atlassian.net/wiki/spaces/AR/pages/5251366915",
+      "version": 8,
+      "actualizado": "2026-08-05T13:58:50.442Z",
+      "actualizadoPor": "Víctor Daniel Martínez Olier",
+      "estado": "En progreso",
+      "padre": "4588863512",
+      "archivoMarkdown": "paginas/Marco-de-trabajo-para-arquitecturas-dirigidas-por-eventos-EDA-Framework/EDA-Framework-Glosario-y-definiciones-generales.md",
+      "archivoHtml": "html-original/Marco-de-trabajo-para-arquitecturas-dirigidas-por-eventos-EDA-Framework/EDA-Framework-Glosario-y-definiciones-generales.html",
+      "imagenesReferenciadas": [],
+      "diagramasMermaid": [],
+      "adjuntos": []
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+---
+config:
+  htmlLabels: false
+---
+flowchart LR
+    AA((Inicio))
+    AI{{Actualización de información}}
+    TM{{Tamaño del mensaje}}
+    EM{{Envíos masivos}}
+    PS{{Proceso secuencial}}
+    CS{{Comunicación sincrónica}}
+    CE{{Componentes externos}}
+    TO{{Transformación u orquestación}}
+    CA{{Comunicación asíncrona}}
+    CHE{{Comandos, hechos, o eventos}}
+    ACK{{Requiere respuesta o ACK}}
+    CD{{Conciencia del destinatario}}
+    TDI{{Trazabilidad, durabilidad, e inmutabilidad}}
+    TMA{{Tamaño del mensaje asíncrono}}
+    E3E4[Escenario 3 o 4]
+    E2[Escenario 2]
+    E8E9[Escenario 8 o 9]
+    E18[Escenario 18]
+    E11E12E13[Escenario 11, 12 o 13]
+    E1[Escenario 1]
+    ZZ(((FIN)))
+    AA --> AI
+    AI -- Sí --> TM
+    AI -- No --> CA
+    TM -- Sí --> CA
+    TM -- No --> EM
+    TM -- Sí --> CA
+    TM -- No --> EM
+    EM -- Sí --> CA
+    EM -- No --> PS
+    PS -- Sí --> CS
+    PS -- No --> CA
+    CS -- Sí --> CE
+    CS -- No --> CA
+    CE -- Sí --> E8E9
+    CE -- No --> TO
+    TO -- Sí --> E3E4
+    TO -- No --> E2
+    CA -- Sí --> CHE
+    CHE -- Sí, son comandos --> TMA
+    CHE -- No, son hechos --> ACK
+    ACK -- Sí --> TMA
+    ACK -- No --> CD
+    CD -- Sí --> TMA
+    CD -- No --> TDI
+    TDI -- Sí --> E18
+    TDI -- No --> TMA
+    TMA -- Sí --> E11E12E13
+    TMA -- No --> E1
+    E3E4 --> ZZ
+    E2 --> ZZ
+    E8E9 --> ZZ
+    E18 --> ZZ
+    E11E12E13 --> ZZ
+    E1 --> ZZ

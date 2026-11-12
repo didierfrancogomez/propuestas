@@ -1,0 +1,19 @@
+---
+config:
+  htmlLabels: false
+---
+flowchart LR
+    MG["`Modelo de decisión general`"]
+    IA["`Integración de aplicaciones`"]
+    ID["`Integración de datos`"]
+    IP["`Integración de procesos`"]
+    MG --> IA
+    MG --> ID
+    MG --> IP
+    MEIA@{ shape: comment, label: "Modelo específico (aplicaciones)" }
+    MEID@{ shape: comment, label: "Modelo específico (datos)" }
+    IA ~~~ MEIA
+    ID ~~~ MEID
+    CU@{ shape: docs, label: "Casos de uso" }
+    MEIA --> CU
+    MEID --> CU

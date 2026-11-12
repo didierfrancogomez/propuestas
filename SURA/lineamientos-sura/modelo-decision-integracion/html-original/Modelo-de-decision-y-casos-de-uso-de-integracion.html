@@ -1,0 +1,169 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><title>Modelo de decisión y casos de uso de integración</title><style>body{font-family:-apple-system,Segoe UI,sans-serif;max-width:960px;margin:2rem auto;padding:0 1rem;line-height:1.5;color:#172b4d}img{max-width:100%}table{border-collapse:collapse}td,th{border:1px solid #ccc;padding:4px 8px;vertical-align:top}blockquote{border-left:4px solid #0052cc;background:#f4f5f7;margin:1rem 0;padding:.5rem 1rem}code{background:#f4f5f7;padding:1px 4px}</style><script type='module'>import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.esm.min.mjs';mermaid.initialize({startOnLoad:true});</script></head><body><h1>Modelo de decisión y casos de uso de integración</h1><p><small>Original: <a href="https://segurosti.atlassian.net/wiki/spaces/AR/pages/3443097604">https://segurosti.atlassian.net/wiki/spaces/AR/pages/3443097604</a> · versión 51 · 2026-09-01 · Víctor Daniel Martínez Olier</small></p><h1>Introducción</h1><p>Cuando hablamos de integración aparece una variedad de alternativas o caminos por los cuales se puede resolver un escenario determinado, a su vez, existen diferentes niveles y enfoques para abordar los temas desde integración. Este documento pretende consolidar las alternativas que comúnmente se presentan en la compañía y ofrecer un modelo que permita escoger el camino más apropiado a tu necesidad.</p><h1>Cómo abordar el modelo de decisión</h1><blockquote><p><strong>ℹ️ Nota</strong></p><p>Para ejecutar el modelo, se deben contar inicialmente con los siguientes insumos:</p><ul><li><p>Diagrama de solución con integraciones o relaciones.</p></li><li><p>Dimensionamiento o entendimiento de cada par origen con destino.</p></li></ul></blockquote><p>Normalmente una solución tiene multiples puntos de integración, fuentes, destinos e integraciones que permiten el intercambio de información entre estos. Las integraciones pueden unidireccionales o bidireccionales. Gráficamente puede verse algo como esto:</p><pre class="mermaid" data-svg="../recursos/3443097604/mermaid-01.svg">---
+config:
+  htmlLabels: false
+---
+flowchart LR
+    F1["`Fuente 1`"] --&gt; I1["`Integración 1`"]
+    I1 --&gt; D1["`Destino 1`"]
+    F1 --&gt; I2["`Integración 2`"]
+    I2 --&gt; D2["`Destino 2`"]
+    style F1 fill:lightgreen
+    style I1 fill:yellow
+    style I2 fill:yellow
+    style D1 fill:lightgreen
+    style D2 fill:lightgreen</pre><p>Es importante acotar que el resultado del modelo es una casuística de integración entre 2 componentes por lo tanto siga los siguientes pasos:</p><ol><li><p><strong>Pares fuentes con destinos de información: </strong>Para iniciar el recorrido del modelo, es necesario tener claras las fuentes y destinos de la integración, esto permite conocer si son varias fuentes/destinos y la forma como se debe abordar la integración.</p></li><li><p><strong>Modelo de decisión general: </strong>Posterior a conocer la fuente y destino de la información, es necesario recorrer el modelo de decisión general, esto con el fin de identificar si la integración es de datos o de aplicaciones.</p></li><li><p><strong>Tipo de integración: </strong>Al finalizar el flujo del modelo de decisión general, se debe tener claro el tipo de integración, para este caso si es de datos o de aplicación.</p></li></ol><pre class="mermaid" data-svg="../recursos/3443097604/mermaid-02.svg">---
+config:
+  htmlLabels: false
+---
+flowchart LR
+    AA((Inicio))
+    AA --&gt; CRLI{{"`¿Cómo resuelvo la integración?`"}}
+    CRLI --&gt; TVFDI{{"`**1. ¿Tiene varias fuentes o destinos de información?**`"}}
+    TVFDI --&gt; IEFDE["`Identifique un escenario de fuente y destino específicos`"]
+    IEFDE --&gt; MDG["`**2. Modelo de decisión general**`"]
+    MDG --&gt; TI{{"`**3. Tipo de integración**`"}}
+    TI --&gt;|"`Aplicacón`"| ME["`Modelos específicos`"]
+    TI --&gt;|"`Datos`"| ME
+    ME --&gt; ZZ(((FIN)))</pre><h1>Enfoque</h1><p>Dado que en integración tenemos varias aproximaciones <em>(datos, aplicación, y procesos)</em>, el modelo de decisión consta de un modelo general que te permite aterrizar inicialmente cual aproximación es la que se ajusta de mejor forma a tu escenario, luego de eso existen modelos más específicos por cada aproximación y finalmente unos casos de uso que te ayudan a aterrizar el escenario y la implementación tecnológica que aplica en la compañía.</p><pre class="mermaid" data-svg="../recursos/3443097604/mermaid-03.svg">---
+config:
+  htmlLabels: false
+---
+flowchart LR
+    MG["`Modelo de decisión general`"]
+    IA["`Integración de aplicaciones`"]
+    ID["`Integración de datos`"]
+    IP["`Integración de procesos`"]
+    MG --&gt; IA
+    MG --&gt; ID
+    MG --&gt; IP
+    MEIA@{ shape: comment, label: "Modelo específico (aplicaciones)" }
+    MEID@{ shape: comment, label: "Modelo específico (datos)" }
+    IA ~~~ MEIA
+    ID ~~~ MEID
+    CU@{ shape: docs, label: "Casos de uso" }
+    MEIA --&gt; CU
+    MEID --&gt; CU</pre><pre data-breakout="wide" data-breakout-width="1800"><code>---
+config:
+  htmlLabels: false
+---
+flowchart LR
+    MG["`Modelo de decisión general`"]
+    IA["`Integración de aplicaciones`"]
+    ID["`Integración de datos`"]
+    IP["`Integración de procesos`"]
+    MG --&gt; IA
+    MG --&gt; ID
+    MG --&gt; IP
+    MEIA@{ shape: comment, label: "Modelo específico (aplicaciones)" }
+    MEID@{ shape: comment, label: "Modelo específico (datos)" }
+    IA ~~~ MEIA
+    ID ~~~ MEID
+    CU@{ shape: docs, label: "Casos de uso" }
+    MEIA --&gt; CU
+    MEID --&gt; CU</code></pre><h2>Modelo de decisión general</h2><p>Este modelo general brinda un punto de partida de por donde deberías enfocar tus esfuerzos; se muestran una serie de criterios o elementos que se encuentran ordenados de acuerdo a su relevancia e impacto en la decisión y que se deben ir resolviendo en el respectivo orden, <em><strong>si algún criterio NO aplica se debe proceder al siguiente</strong></em>.</p><blockquote><p><strong>⚠️ Advertencia</strong></p><p>Tenga en cuenta que normalmente un criterio determina de entrada por donde deberías enfocar la aproximación. La aproximación general <strong>NO </strong>es un absolutismo y en algunos casos específicos debes considerar la combinación de varios criterios.</p></blockquote><pre class="mermaid" data-svg="../recursos/3443097604/mermaid-04.svg">flowchart TB
+    AA((Inicio))
+    SL{{Sistemas legacy sin posibilidad de desarrollo}}
+    RI{{Replicar información}}
+    ISE{{Integración con sistemas externos}}
+    MIAD{{Minimizar impacto de acceso a la información}}
+    CIRA{{Consolidar información para reportes o análisis}}
+    IEGL{{Información enviada en grandes lotes}}
+    EBFS{{Escenario con baja frecuencia de sincronización}}
+    ADH{{Acceso a datos historicos}}
+    EI{{Escalabillidad de la integración}}
+    LI{{Limpieza de información}}
+    DP{{Diversidad de protocolos}}
+    RAMI{{Recurrencia de acceso a la misma información}}
+    VC{{Validaciones complejas}}
+    IA[Integración de aplicaciones]
+    ID[Integración de datos]
+    ZZ(((FIN)))
+
+    AA --&gt; SL
+    SL -- Sí --&gt; ID
+    SL -- No --&gt; RI
+    RI -- Sí --&gt; ID
+    RI -- No --&gt; ISE
+    ISE -- Sí --&gt; IA
+    ISE -- No --&gt; MIAD
+    MIAD -- Sí --&gt; IA
+    MIAD -- No --&gt; CIRA
+    CIRA -- Sí --&gt; ID
+    CIRA -- No --&gt; IEGL
+    IEGL -- Sí --&gt; ID
+    IEGL -- No --&gt; EBFS
+    EBFS -- Sí --&gt; IA
+    EBFS -- No --&gt; ADH
+    ADH -- Sí --&gt; ID
+    ADH -- No --&gt; EI
+    EI -- Sí --&gt; IA
+    EI -- No --&gt; LI
+    LI -- Sí --&gt; ID
+    LI -- No --&gt; DP
+    DP -- Sí --&gt; IA
+    DP -- No --&gt; RAMI
+    RAMI -- Sí --&gt; IA
+    RAMI -- No --&gt; VC
+    VC -- Sí --&gt; ID
+    VC -- No --&gt; IA
+    IA --&gt; ZZ
+    ID --&gt; ZZ</pre><h2>Modelos específicos</h2><p>Una vez seleccionado el enfoque general, cada aproximación, aplicación o datos, tendrá una serie de alternativas que son resueltas por cada uno de los modelos particulares:</p><ul><li><p>Integración de datos: </p><ul><li><p><a href="https://segurosti.atlassian.net/wiki/spaces/AR/pages/369459206">https://segurosti.atlassian.net/wiki/spaces/AR/pages/369459206</a> </p></li><li><p><a href="https://segurosti.atlassian.net/wiki/spaces/AR/pages/2449440829">https://segurosti.atlassian.net/wiki/spaces/AR/pages/2449440829</a> </p></li></ul></li><li><p>Integración de aplicaciones: </p><ul><li><p><a href="https://segurosti.atlassian.net/wiki/spaces/AR/pages/1360724091">https://segurosti.atlassian.net/wiki/spaces/AR/pages/1360724091</a> </p></li></ul></li></ul><h3>Modelo de decisión de integración de aplicaciones</h3><p>Este modelo busca la toma de decisiones bajo criterios funcionales/no funcionales, donde dependiendo de una serie de patrones de decisión, se entregarán escenarios de integración acordes a dichos criterios.</p><p><strong>Insumos del modelo de decisión de aplicaciones:</strong></p><ul><li><p>Número de transacciones</p></li><li><p>Volumen transacciones</p></li><li><p>Formato de la información(HL7, FHIR, JSON, XML, Etc)</p></li><li><p>Frecuencia de actualización</p></li><li><p>Tiempo de respuesta</p></li></ul><p><strong>Modelo de decisión:</strong></p><p>A continuación se presenta el modelo de integración, el primer cuestionamiento es el de <strong>actualización de información</strong>.</p><h4>Actualización de información</h4><p>¿Es necesario que los datos se actualicen en el momento en los componentes destino?: </p><ul><li><p>Sí:</p><ul><li><p>Siga con el cuestionamiento del <strong>tamaño del mensaje</strong>.</p></li></ul></li><li><p>No:</p><ul><li><p>Siga con el cuestionamiento de <strong>comunicación asíncrona</strong>.</p></li></ul></li></ul><blockquote><p><strong>ℹ️ Nota</strong></p><p>El objetivo de esta pregunta es determinar el grado de urgencia con que los datos deben estar disponibles en los componentes destino, lo cual influye en la Arquitectura y los métodos de integración que se utilizarán.</p></blockquote><h4>Tamaño del mensaje</h4><p>¿El tamaño del mensaje es considerable? (&gt; 2MiB):</p><ul><li><p>Sí:</p><ul><li><p>Siga con el cuestionamiento de <strong>comunicación asíncrona</strong>.</p></li></ul></li><li><p>No:</p><ul><li><p>Siga con el cuestionamiento de <strong>envíos masivos</strong>.</p></li></ul></li></ul><blockquote><p><strong>ℹ️ Nota</strong></p><p>El objetivo de esta pregunta es identificar si el tamaño del mensaje es un factor que debe ser considerado en el diseño de la integración, con esto evitar problemas de rendimiento o errores durante el proceso de intercambio de datos.</p></blockquote><h4>Envíos masivos</h4><p>¿La información se enviará de forma masiva? (&gt; 1000 reg/min):</p><ul><li><p>Sí:</p><ul><li><p>Siga con el cuestionamiento de <strong>comunicación asíncrona</strong>.</p></li></ul></li><li><p>No:</p><ul><li><p>Siga con el cuestionamiento de <strong>proceso secuencial</strong>.</p></li></ul></li></ul><blockquote><p><strong>ℹ️ Nota</strong></p><p>El objetivo de esta pregunta es identificar si la cantidad de datos transmitidos podría superar la capacidad sugerida, lo que influiría en las decisiones de diseño y en las herramientas de integración que se deben utilizar.</p></blockquote><h4>Proceso secuencial</h4><p>¿La integración es parte de un proceso secuencial?:</p><ul><li><p>Sí:</p><ul><li><p>Siga con el cuestionamiento de <strong>comunicación sincrónica</strong>.</p></li></ul></li><li><p>No:</p><ul><li><p>Siga con el cuestionamiento de <strong>comunicación asíncrona</strong>.</p></li></ul></li></ul><blockquote><p><strong>ℹ️ Nota</strong></p><p>El propósito de esta pregunta es entender si la integración requiere coordinación estricta entre las puntas de integración, lo que puede implicar la necesidad de mecanismos de control de flujo, transacciones distribuidas o la gestión de dependencias entre diferentes etapas.</p></blockquote><h4>Comunicación sincrónica</h4><p>¿La comunicación debe ser sincrónica?:</p><ul><li><p>Sí:</p><ul><li><p>Siga con el paso de <strong>componentes externos</strong>.</p></li></ul></li><li><p>No:</p><ul><li><p>Siga con el paso de <strong>comunicación asíncrona</strong>.</p></li></ul></li></ul><blockquote><p><strong>ℹ️ Nota</strong></p><p>El objetivo de esta pregunta es identificar si la integración necesita operar de manera simultánea y coordinada, lo que puede afectar aspectos como la latencia y la disponibilidad.</p></blockquote><h4>Componentes externos</h4><p>¿Alguno de los componentes es externo a la compañía, Sura?:</p><ul><li><p>Sí:</p><ul><li><p>Escenario 8: <a href="../html-original/Modelo-de-decision-y-casos-de-uso-de-integracion/Casos-de-uso-integracion-de-aplicaciones.html">Casos de uso integración de aplicaciones</a> .</p></li><li><p>Escenario 9: <a href="../html-original/Modelo-de-decision-y-casos-de-uso-de-integracion/Casos-de-uso-integracion-de-aplicaciones.html">Casos de uso integración de aplicaciones</a> .</p></li></ul></li><li><p>No:</p><ul><li><p>Siga con el paso de <strong>transformación u orquestación</strong>.</p></li></ul></li></ul><blockquote><p><strong>ℹ️ Nota</strong></p><p>Una vez identificado el tipo de comunicación, es crucial determinar si es necesario desarrollar servicios destinados a ser utilizados por terceros. Si es así, estos servicios deben cumplir con ciertos requisitos mínimos antes de ser expuestos. Para ello, se puede utilizar una lista de verificación conocida como → Checklist APIficable, a continuación se presentan los escenarios aplicables → Casos de uso/Escenarios 8 y 9</p></blockquote><h4>Transformación u orquestación</h4><p>¿Se requiere transformación u orquestación con otros componentes?:</p><ul><li><p>Sí:</p><ul><li><p>Escenario 3: <a href="../html-original/Modelo-de-decision-y-casos-de-uso-de-integracion/Casos-de-uso-integracion-de-aplicaciones.html">Casos de uso integración de aplicaciones</a> .</p></li><li><p>Escenario 4: <a href="../html-original/Modelo-de-decision-y-casos-de-uso-de-integracion/Casos-de-uso-integracion-de-aplicaciones.html">Casos de uso integración de aplicaciones</a> .</p></li></ul></li><li><p>No:</p><ul><li><p>Escenario 2: <a href="../html-original/Modelo-de-decision-y-casos-de-uso-de-integracion/Casos-de-uso-integracion-de-aplicaciones.html">Casos de uso integración de aplicaciones</a> .</p></li></ul></li></ul><blockquote><p><strong>ℹ️ Nota</strong></p><p>Para continuidad de servicios internos, se evaluará si es necesario realizar transformaciones o necesidad específica de un orquestador para integrarse con otros componentes internos de la compañía, para este caso es necesario el uso del APImanager de la compañía, en este caso →  Apigee  ahora se presentan los escenarios aplicables→ Casos de uso/Escenarios 2/3 y 4</p></blockquote><h4>Comunicación asíncrona</h4><p>¿La comunicación puede ser asíncrona?:</p><ul><li><p>Sí:</p><ul><li><p>Siga con el cuestionamiento de <strong>comandos, hechos, o eventos</strong>.</p></li></ul></li><li><p>No:</p><ul><li><p>Siga con el cuestionamiento de <strong>comunicación sincrónica</strong>.</p></li></ul></li></ul><blockquote><p><strong>ℹ️ Nota</strong></p><p>El propósito de esta pregunta es identificar si la integración puede operar sin depender de una respuesta inmediata, lo que permite mayor flexibilidad en el diseño y reduce la presión sobre los recursos de procesamiento en tiempo real. La comunicación asíncrona es ideal cuando los procesos pueden tolerar demoras o cuando se desea evitar bloqueos en el flujo de trabajo.</p></blockquote><h4>Comandos, hechos, o eventos</h4><p>¿Son comandos/acciones o sólo hechos/eventos?:</p><ul><li><p>Sí, son comandos:</p><ul><li><p>Siga con el cuestionamiento de <strong>tramaño del mensaje asíncrono</strong>.</p></li></ul></li><li><p>No, son sólo hechos:</p><ul><li><p>Siga con el cuestionamiento de requiere respuesta o ACK.</p></li></ul></li></ul><blockquote><p><strong>ℹ️ Nota</strong></p><p>¿La integración va a comunicar comandos, operaciones, acciones; o sólo son, hechos, notificaciones o cambios de estado?</p></blockquote><h4>Requiere respuesta o ACK</h4><p>¿El modelo de comunicación requiere una respuesta?:</p><ul><li><p>Sí:</p><ul><li><p>Siga con el cuestionamiento de <strong>tramaño del mensaje asíncrono</strong>.</p></li></ul></li><li><p>No:</p><ul><li><p>Siga con el cuestionamiento de <strong>conciencia del destinatario</strong>.</p></li></ul></li></ul><blockquote><p><strong>ℹ️ Nota</strong></p><p>Validar si la integración requiere una respuesta, por ejemplo un mensaje de devuelta, mensaje de confirmación de recibido.</p></blockquote><h4>Conciencia del destinatario</h4><p>¿El emisor/publicador tiene, o requiere, conocimiento/conciencia del destinatario, incluso futuros?:</p><ul><li><p>Sí:</p><ul><li><p>Siga con el cuestionamiento de <strong>tramaño del mensaje asíncrono</strong>.</p></li></ul></li><li><p>No:</p><ul><li><p>Siga con el cuestionamiento de <strong>trazabilidad, durabilidad, e inmutabilidad</strong>.</p></li></ul></li></ul><blockquote><p><strong>ℹ️ Nota</strong></p><p>El emisor tiene conciencia o conocimiento de la existencia, características, capacidades del destinatario, o es irrelevante la existencia del receptor. Por ejemplo, el esquema del mensaje debe estar formateado teniendo conciencia del destinatario, o los eventos deben emitirse a una velocidad según las capacidades del receptor.</p></blockquote><h4>Trazabilidad, durabilidad, e inmutabilidad</h4><p>¿Requiere reproducibilidad, trazabilidad, durabilidad, o inmutabilidad?:</p><ul><li><p>Sí:</p><ul><li><p>Escenario 18: <a href="../html-original/Modelo-de-decision-y-casos-de-uso-de-integracion/Casos-de-uso-integracion-de-aplicaciones.html">Casos de uso integración de aplicaciones</a> .</p></li></ul></li><li><p>No:</p><ul><li><p>Siga con el paso de <strong>tamaño del mensaje asíncrono</strong>.</p></li></ul></li></ul><blockquote><p><strong>ℹ️ Nota</strong></p><p>¿El caso de uso de integración requiere alguna, o varias, de las siguientes características?:</p><p>Reproducibilidad de eventos: Se requiere capacidad de recrear, repetir, o reconstruir la secuencia de sucesos/hechos/eventos, sin tener que volver a involucrar al emisor/productor de los eventos. Por ejemplo, para volver a procesar eventos históricos para reconstruir el estado del sistema, resignificar/darles nuevos significados a los eventos del pasado, auditar, depurar o alimentar nuevos consumidores.</p><p>Durabilidad: Los eventos al ser leídos, no son descartados/eliminados, perduran, sin importar cuántas veces sean leídos.</p><p>Inmutabilidad: Los eventos al ser emitidos no cambian, cualquier modificación se hace mediante nuevos eventos compensatorios.</p><p>Trazabilidad funcional: Capacidad de seguimiento de los eventos/sucesos/hechos funcionales ocurridos.</p></blockquote><h4>Tamaño del mensaje asíncrono</h4><p>¿El tamaño del mensaje asíncrono es considerable? (&gt; 2MB):</p><ul><li><p>Sí:</p><ul><li><p>Escenario 11: <a href="../html-original/Modelo-de-decision-y-casos-de-uso-de-integracion/Casos-de-uso-integracion-de-aplicaciones.html">Casos de uso integración de aplicaciones</a> .</p></li><li><p>Escenario 12: <a href="../html-original/Modelo-de-decision-y-casos-de-uso-de-integracion/Casos-de-uso-integracion-de-aplicaciones.html">Casos de uso integración de aplicaciones</a> .</p></li><li><p>Escenario 13: <a href="../html-original/Modelo-de-decision-y-casos-de-uso-de-integracion/Casos-de-uso-integracion-de-aplicaciones.html">Casos de uso integración de aplicaciones</a> .</p></li></ul></li><li><p>No:</p><ul><li><p>Escenario 1: <a href="../html-original/Modelo-de-decision-y-casos-de-uso-de-integracion/Casos-de-uso-integracion-de-aplicaciones.html">Casos de uso integración de aplicaciones</a> .</p></li></ul></li></ul><blockquote><p><strong>ℹ️ Nota</strong></p><p>Teniendo claro que la comunicación será de forma asíncrona, ahora es necesario conocer el tamaño del mensaje.</p></blockquote><pre class="mermaid" data-svg="../recursos/3443097604/mermaid-05.svg">---
+config:
+  htmlLabels: false
+---
+flowchart LR
+    AA((Inicio))
+    AI{{Actualización de información}}
+    TM{{Tamaño del mensaje}}
+    EM{{Envíos masivos}}
+    PS{{Proceso secuencial}}
+    CS{{Comunicación sincrónica}}
+    CE{{Componentes externos}}
+    TO{{Transformación u orquestación}}
+    CA{{Comunicación asíncrona}}
+    CHE{{Comandos, hechos, o eventos}}
+    ACK{{Requiere respuesta o ACK}}
+    CD{{Conciencia del destinatario}}
+    TDI{{Trazabilidad, durabilidad, e inmutabilidad}}
+    TMA{{Tamaño del mensaje asíncrono}}
+    E3E4[Escenario 3 o 4]
+    E2[Escenario 2]
+    E8E9[Escenario 8 o 9]
+    E18[Escenario 18]
+    E11E12E13[Escenario 11, 12 o 13]
+    E1[Escenario 1]
+    ZZ(((FIN)))
+    AA --&gt; AI
+    AI -- Sí --&gt; TM
+    AI -- No --&gt; CA
+    TM -- Sí --&gt; CA
+    TM -- No --&gt; EM
+    TM -- Sí --&gt; CA
+    TM -- No --&gt; EM
+    EM -- Sí --&gt; CA
+    EM -- No --&gt; PS
+    PS -- Sí --&gt; CS
+    PS -- No --&gt; CA
+    CS -- Sí --&gt; CE
+    CS -- No --&gt; CA
+    CE -- Sí --&gt; E8E9
+    CE -- No --&gt; TO
+    TO -- Sí --&gt; E3E4
+    TO -- No --&gt; E2
+    CA -- Sí --&gt; CHE
+    CHE -- Sí, son comandos --&gt; TMA
+    CHE -- No, son hechos --&gt; ACK
+    ACK -- Sí --&gt; TMA
+    ACK -- No --&gt; CD
+    CD -- Sí --&gt; TMA
+    CD -- No --&gt; TDI
+    TDI -- Sí --&gt; E18
+    TDI -- No --&gt; TMA
+    TMA -- Sí --&gt; E11E12E13
+    TMA -- No --&gt; E1
+    E3E4 --&gt; ZZ
+    E2 --&gt; ZZ
+    E8E9 --&gt; ZZ
+    E18 --&gt; ZZ
+    E11E12E13 --&gt; ZZ
+    E1 --&gt; ZZ</pre><blockquote><p><strong>ℹ️ Nota</strong></p><p>En algunos puntos del modelo de decisión anterior se hace uso de algunos términos y conceptos en el contexto de las arquitecturas dirigidas por eventos que tienen un significado que se debe tener claro para poder realizar un cuestionamiento adecuado, estos los puede encontrar en una página dedicada a definir estos términos y conceptos: <a href="https://segurosti.atlassian.net/wiki/spaces/AR/pages/5251366915">EDA Framework: Glosario y definiciones generales</a> .</p></blockquote><h3>Casos de uso o escenarios</h3><p>Los casos de uso determinan escenarios comunes que son muy estándares en la industria o que son de uso regular en la compañía, para los cuales ya se tiene identificado una forma de resolverlo, algunas particularidades y la implementación tecnológica que lo resuelve:</p><p><a href="../html-original/Modelo-de-decision-y-casos-de-uso-de-integracion/Casos-de-uso-integracion-de-aplicaciones.html">Casos de uso integración de aplicaciones</a></p><p>La estructura de los casos de uso es la siguiente:</p><ul><li><p><em><strong>Descripción:</strong></em> descripción general del caso</p></li><li><p><em><strong>Enfoque:</strong></em> Aplicación o datos</p></li><li><p><em><strong>Tipo: </strong></em>Sincrono o Asíncrono</p></li><li><p><em><strong>Diagrama necesidad:</strong></em> planteamiento de la necesidad a resolver</p></li><li><p><em><strong>Diagrama solución:</strong></em> como se plantea resolver la necesidad</p></li><li><p><em><strong>Flujo principal:</strong></em> explicación del paso a paso normal del escenario</p></li><li><p><em><strong>Flujos alternos:</strong></em> variaciones que puede tener el escenario </p></li><li><p><em><strong>Notas, restricciones o lineamientos: </strong></em>elementos adicionales a tener en cuenta</p></li><li><p><em><strong>Stack tecnológico: </strong></em>implementación tecnológica oficial para SURA y que debe tenerse en cuenta a la hora de implementar el escenario</p></li></ul><blockquote><p><strong>📝 Nota</strong></p><p>Se agregaran nuevos casos en la medida en la que se vayan mapeando desde los diferentes dominios o a media que la forma de implementarlos o el stack tecnológico presenten cambios. </p></blockquote><h3>Tenga en cuenta</h3><blockquote><p><strong>⚠️ Advertencia</strong></p><p>Esta es una primera aproximación a los modelos de decisión y casos de uso que va a ir evolucionando. Consulte constantemente para estar al tanto de las actualizaciones.</p><p><em><strong>Cualquier sugerencia o recomendación remitirla al equipo de Arquitectura Técnica</strong></em></p></blockquote></body></html>

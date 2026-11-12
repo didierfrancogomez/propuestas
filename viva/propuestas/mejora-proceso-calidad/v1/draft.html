@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Control de calidad · Generic API</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dark-violet: #280265;
+    --lighter-violet: #EBEBFF;
+    --black: #000000;
+    --white: #FFFFFF;
+    --violet-accent: #5300DF;
+    --blue-accent: #22D0FF;
+    --darker-gray: #282E3F;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body { font-family: 'Poppins', sans-serif; overflow: hidden; }
+  .viewport { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; }
+  .stage { width: 1280px; height: 720px; position: relative; transform-origin: center center; flex: none; }
+  section.slide { position: absolute; inset: 0; padding: 56px 72px 48px; display: none; flex-direction: column; overflow: hidden; }
+  section.slide.active { display: flex; }
+  .logo { width: 170px; height: auto; }
+  .logo-top { position: absolute; top: 44px; right: 72px; width: 150px; }
+  .watermark { position: absolute; right: -90px; bottom: -110px; width: 520px; opacity: 0.08; pointer-events: none; }
+  .kicker { font-size: 15px; font-weight: 500; letter-spacing: 0.04em; margin-bottom: 14px; }
+  h1 { font-size: 60px; font-weight: 700; line-height: 1.08; letter-spacing: -0.01em; }
+  h2 { font-size: 44px; font-weight: 700; line-height: 1.12; max-width: 960px; }
+  .sub { font-size: 21px; font-weight: 400; line-height: 1.45; margin-top: 18px; max-width: 900px; opacity: 0.9; }
+  .grid { display: grid; gap: 18px; margin-top: 30px; }
+  .g3 { grid-template-columns: repeat(3, 1fr); }
+  .g2 { grid-template-columns: repeat(2, 1fr); }
+  .card { border-radius: 14px; padding: 22px 24px; }
+  .num { font-size: 46px; font-weight: 700; line-height: 1; }
+  .num small { font-size: 22px; font-weight: 600; }
+  .card h3 { font-size: 19px; font-weight: 600; line-height: 1.3; margin: 10px 0 6px; }
+  .card p, .card li { font-size: 14.5px; font-weight: 300; line-height: 1.5; opacity: 0.92; }
+  .card ul { list-style: none; }
+  .card li { padding-left: 16px; position: relative; margin-top: 6px; }
+  .card li::before { content: "–"; position: absolute; left: 0; }
+  .source { position: absolute; left: 72px; bottom: 26px; font-size: 12.5px; font-weight: 300; opacity: 0.78; max-width: 1000px; }
+  .pager { position: absolute; right: 72px; bottom: 24px; font-size: 13px; font-weight: 500; opacity: 0.78; }
+  code { font-family: 'Poppins', sans-serif; font-weight: 600; }
+
+  /* Slide 3: arquitectura */
+  .arch { display: grid; grid-template-columns: 1fr 1.15fr 1fr; gap: 18px; align-items: stretch; margin-top: 30px; }
+  .arch .card { margin: 0; }
+  .arch .center { border: 2px solid var(--blue-accent); }
+  .arrow { display: flex; align-items: center; justify-content: center; }
+  .tag { display: inline-block; font-size: 12.5px; font-weight: 600; letter-spacing: 0.04em; padding: 3px 10px; border-radius: 99px; border: 1px solid currentColor; }
+  .tools { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .tools span { font-size: 13px; font-weight: 500; padding: 5px 11px; border-radius: 8px; }
+  .cmd { margin-top: 14px; font-size: 15px; font-weight: 600; padding: 10px 14px; border-radius: 8px; }
+
+  .proof { margin-top: 18px; border-radius: 12px; padding: 14px 20px; font-size: 15px; font-weight: 300; line-height: 1.5; }
+  .proof b { font-weight: 600; }
+
+  .prs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .pr { font-size: 14px; font-weight: 600; padding: 5px 11px; border-radius: 8px; text-decoration: none; }
+  .pr:hover, .rules a:hover { text-decoration: underline; }
+  .pr:focus-visible, .rules a:focus-visible { outline: 2px solid var(--white); outline-offset: 2px; }
+  .rules a { font-weight: 600; text-decoration: none; }
+  .rules li { margin-top: 8px; }
+
+  .decision { font-size: 14.5px; font-weight: 300; line-height: 1.5; margin: 4px 0 6px; }
+  .decision b { font-weight: 600; }
+  .note { margin-top: 12px; font-size: 14px; font-weight: 300; line-height: 1.5; opacity: 0.9; }
+
+  .deliv .card { padding: 18px 16px; }
+  .deliv .card h3 { font-size: 16.5px; }
+  .deliv .card p { font-size: 13.5px; }
+
+  .pre .card { padding: 18px 20px; }
+  .pre .card h3 { margin-top: 8px; font-size: 17px; }
+  .pre .card li { font-size: 13px; line-height: 1.45; margin-top: 5px; }
+  .pre .card li b { font-weight: 600; }
+
+  .reuse { border: 2px solid var(--blue-accent); }
+  .reuse h3 { font-size: 24px; font-weight: 700; margin: 10px 0 6px; }
+  .reuse p { font-size: 15px; }
+  .reuse b { font-weight: 600; }
+
+  .sonar-help { margin-top: 16px; border-radius: 14px; padding: 16px 20px; display: grid; grid-template-columns: auto 1fr 1fr 1fr 1.3fr; gap: 18px; align-items: start; }
+  .sonar-help div { display: flex; flex-direction: column; gap: 4px; font-size: 13.5px; font-weight: 300; line-height: 1.45; }
+  .sonar-help b { font-size: 15px; font-weight: 700; }
+  .sonar-help .sh-title { justify-content: center; align-self: center; }
+
+  .internal-badge { align-self: flex-start; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; padding: 6px 14px; border-radius: 8px; border: 1px solid var(--white); margin-bottom: 18px; }
+  .card ul li b { font-weight: 600; }
+
+  .flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 12px; align-items: stretch; margin-top: 28px; }
+  .flow .card h3 { font-size: 19px; margin-top: 12px; }
+  .flow .card p { font-size: 15px; }
+  .flow .card b { font-weight: 600; }
+  .arrow-sep { display: flex; align-items: center; font-size: 28px; font-weight: 300; }
+
+  .owner { display: grid; grid-template-columns: 1fr auto 1.6fr; gap: 14px; align-items: stretch; margin-top: 22px; }
+  .owner > .card h3 { font-size: 21px; margin: 10px 0 6px; }
+  .owner-projects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .owner-projects .card { padding: 18px 18px; }
+  .owner-projects .card h3 { font-size: 17px; margin: 8px 0 6px; }
+  .owner-projects .card p { font-size: 13.5px; }
+
+  /* Slide 4: pasos del pipeline */
+  .steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-top: 34px; }
+  .step { border-radius: 14px; padding: 20px 18px 18px; display: flex; flex-direction: column; }
+  .step .n { font-size: 15px; font-weight: 700; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid currentColor; }
+  .step h3 { font-size: 17px; font-weight: 600; line-height: 1.3; margin: 14px 0 8px; }
+  .step p { font-size: 13.5px; font-weight: 300; line-height: 1.5; opacity: 0.92; flex: 1; }
+  .step .tag { margin-top: 14px; align-self: flex-start; }
+  .gate { margin-top: 22px; border-radius: 14px; padding: 18px 24px; display: flex; gap: 28px; align-items: center; }
+  .gate b { font-weight: 700; }
+  .gate .rule { font-size: 15px; font-weight: 400; line-height: 1.5; }
+
+  /* Slide 6 */
+  .phases { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 26px; }
+  .req li { font-size: 14px; }
+
+  .nav { position: fixed; bottom: 14px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 5; }
+  .nav button { font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 500; border: 1px solid var(--lighter-violet); background: var(--dark-violet); color: var(--white); border-radius: 8px; padding: 6px 14px; cursor: pointer; }
+  .nav button:focus-visible { outline: 2px solid var(--white); outline-offset: 2px; }
+
+  @media print {
+    @page { size: 1280px 720px; margin: 0; }
+    body { overflow: visible; }
+    .viewport { position: static; display: block; }
+    .stage { transform: none !important; height: auto; }
+    section.slide { display: flex !important; position: relative; width: 1280px; height: 720px; page-break-after: always; break-after: page; }
+    .nav { display: none; }
+  }
+</style>
+</head>
+<body style="background-color: var(--black)">
+<div class="viewport">
+<div class="stage" id="stage">
+
+<!-- 1 · Portada -->
+<section class="slide active" style="background-color: var(--dark-violet); color: var(--white)">
+  <img class="watermark" src="{{ISOTIPO_LIGHTER_VIOLET}}" alt="">
+  <img class="logo" src="{{LOGO_WHITE}}" alt="Tech and Solve">
+  <div style="margin-top: auto; margin-bottom: auto;">
+    <div class="kicker" style="color: var(--blue-accent)">VIVA AEROBUS · GENERIC API · PROPUESTA</div>
+    <h1>Control de calidad automático<br>y propio para el código de Viva</h1>
+  </div>
+  <div class="source">Tech and Solve para Viva Aerobus · Octubre de 2026 · Documento confidencial</div>
+  <div class="pager">1 / 12</div>
+</section>
+
+<!-- 2 · Estado actual -->
+<section class="slide" style="background-color: var(--dark-violet); color: var(--white)">
+  <img class="logo-top" src="{{LOGO_WHITE}}" alt="Tech and Solve">
+  <div class="kicker" style="color: var(--blue-accent)">ESTADO ACTUAL</div>
+  <h2>El equipo de desarrollo de Generic API no tiene acceso a la herramienta de calidad</h2>
+  <div class="grid g3" style="margin-top: 26px;">
+    <div class="card" style="background-color: var(--darker-gray); color: var(--white)">
+      <span class="tag" style="color: var(--lighter-violet)">DÓNDE ESTÁ</span>
+      <h3>En la infraestructura de un tercero</h3>
+      <p>La herramienta de calidad, SonarQube, vive en <b>sonarqube.ezyflight.se</b>: un dominio de Ezy, administrado por Ezy. Cada cambio de código enlaza ahí (por ejemplo, <a href="https://github.com/EzyWebwerkstaden/VivaAerobus.Generic.Api/pull/2511" target="_blank" rel="noopener" style="color: var(--blue-accent)">#2511</a>).</p>
+    </div>
+    <div class="card" style="background-color: var(--darker-gray); color: var(--white)">
+      <span class="tag" style="color: var(--lighter-violet)">QUÉ VE EL EQUIPO</span>
+      <h3>Solo un semáforo y un número</h3>
+      <p>El equipo de desarrollo de Generic API no tiene acceso: ve si el cambio pasó el filtro de calidad y cuántos problemas tiene, pero no cuáles ni dónde están.</p>
+    </div>
+    <div class="card" style="background-color: var(--darker-gray); color: var(--white); border: 2px solid var(--blue-accent);">
+      <span class="tag" style="color: var(--blue-accent)">QUÉ IMPLICA</span>
+      <h3>Se desaprovecha la herramienta</h3>
+      <p>Lo que no se ve, no se corrige. Y cualquier cambio de reglas o de accesos depende de pedírselo a un tercero.</p>
+    </div>
+  </div>
+  <div class="proof" style="background-color: var(--black); color: var(--white); margin-top: 18px;">
+    <span style="color: var(--blue-accent); font-weight: 700;">Además,</span> la revisión automática actual de Generic API <b>no ejecuta las pruebas unitarias</b> ni <b>bloquea</b>: un cambio con problemas detectados puede llegar igual a la rama principal.
+  </div>
+  <div class="pager">2 / 12</div>
+</section>
+
+<!-- 3 · Lo que cuesta hoy -->
+<section class="slide" style="background-color: var(--dark-violet); color: var(--white)">
+  <img class="logo-top" src="{{LOGO_WHITE}}" alt="Tech and Solve">
+  <div class="kicker" style="color: var(--blue-accent)">LO QUE ESTO CUESTA HOY · SEPTIEMBRE 2026</div>
+  <h2>Problemas que llegan a la rama principal y retrabajo en cada revisión</h2>
+  <div class="grid g3">
+    <div class="card" style="background-color: var(--darker-gray); color: var(--white)">
+      <div class="num" style="color: var(--blue-accent)">9 <small>de 20</small></div>
+      <h3>cambios llegaron a la rama principal con problemas señalados</h3>
+      <p>20 problemas nuevos detectados por la herramienta, y en sus revisiones no se mencionó.</p>
+    </div>
+    <div class="card" style="background-color: var(--darker-gray); color: var(--white)">
+      <div class="num" style="color: var(--blue-accent)">0 <small>%</small></div>
+      <h3>del código nuevo con pruebas unitarias medidas</h3>
+      <p>La revisión automática no ejecuta las pruebas unitarias, así que no se mide qué parte del código nuevo está probada.</p>
+    </div>
+    <div class="card" style="background-color: var(--darker-gray); color: var(--white)">
+      <div class="num" style="color: var(--blue-accent)">46 <small>%</small></div>
+      <h3>de los cambios comentados, por estilo o convenciones</h3>
+      <p>12 de 26. Y 7 de 26 (27 %), por errores funcionales que una prueba unitaria detecta antes.</p>
+    </div>
+  </div>
+  <div class="card" style="background-color: var(--darker-gray); color: var(--white); margin-top: 18px;">
+    <h3 style="margin-top: 0;">Revisión manual de lo que una máquina ya detecta</h3>
+    <p>Cinco tipos de comentario de los revisores los detecta una regla automática. Cada uno es tiempo de revisión y un ciclo más de corrección.</p>
+  </div>
+  <div class="source">Fuente: cambios de código (PRs) de Generic API de septiembre de 2026 y sus revisiones en GitHub, consulta del 8 oct 2026. Enlaces a cada uno en el anexo (slide 10).</div>
+  <div class="pager">3 / 12</div>
+</section>
+
+<!-- 4 · El propósito -->
+<section class="slide" style="background-color: var(--dark-violet); color: var(--white)">
+  <img class="logo-top" src="{{LOGO_WHITE}}" alt="Tech and Solve">
+  <div class="kicker" style="color: var(--blue-accent)">EL PROPÓSITO</div>
+  <h2>Viva, dueña de cómo se mide la calidad de todos sus proyectos</h2>
+  <p class="sub" style="font-size: 18px; margin-top: 10px;">Las reglas de calidad dependen del lenguaje de programación, no del proyecto. Viva las define una vez y se aplican a todos sus proyectos.</p>
+  <div class="owner">
+    <div class="card" style="background-color: var(--black); color: var(--white); border: 2px solid var(--blue-accent);">
+      <span class="tag" style="color: var(--blue-accent)">DEFINE VIVA</span>
+      <h3>Las reglas de calidad de Viva</h3>
+      <p>Un conjunto de reglas por lenguaje y un mismo filtro de calidad, aprobados por Viva.</p>
+    </div>
+    <div class="arrow-sep" style="color: var(--lighter-violet)">→</div>
+    <div class="owner-projects">
+      <div class="card" style="background-color: var(--darker-gray); color: var(--white); border: 2px solid var(--lighter-violet);">
+        <span class="tag" style="color: var(--lighter-violet)">PRIMERO</span>
+        <h3>Generic API</h3>
+        <p>Donde se configura y se prueba en este servicio.</p>
+      </div>
+      <div class="card" style="background-color: var(--darker-gray); color: var(--white)">
+        <h3 style="margin-top: 0;">Otros proyectos .NET de Viva</h3>
+        <p>Usan las mismas reglas, sin redefinirlas.</p>
+      </div>
+      <div class="card" style="background-color: var(--darker-gray); color: var(--white)">
+        <h3 style="margin-top: 0;">Proyectos en otros lenguajes</h3>
+        <p>Se suman con las reglas de su lenguaje, bajo el mismo criterio.</p>
+      </div>
+    </div>
+  </div>
+  <div class="proof" style="background-color: var(--black); color: var(--white); margin-top: 18px;">
+    <span style="color: var(--blue-accent); font-weight: 700;">Hoy</span> las reglas las define y administra un tercero. <span style="color: var(--blue-accent); font-weight: 700;">Con la propuesta</span>, Viva es la dueña del criterio de calidad de toda su organización.
+  </div>
+  <div class="pager">4 / 12</div>
+</section>
+
+<!-- 5 · Propuesta paso 1: herramienta de calidad de Viva -->
+<section class="slide" style="background-color: var(--dark-violet); color: var(--white)">
+  <img class="logo-top" src="{{LOGO_WHITE}}" alt="Tech and Solve">
+  <div class="kicker" style="color: var(--blue-accent)">LA PROPUESTA · PASO 1</div>
+  <h2>Una herramienta de calidad de Viva, sin depender de un tercero</h2>
+  <p class="sub" style="font-size: 18px; margin-top: 10px;">Viva tiene su propio SonarQube, con acceso para los equipos que Viva decida.</p>
+  <div class="grid" style="grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 22px;">
+    <div class="card" style="background-color: var(--darker-gray); color: var(--white)">
+      <h3 style="margin-top: 0;">Propiedad</h3>
+      <p>El historial de calidad del código de Viva queda en manos de Viva.</p>
+    </div>
+    <div class="card" style="background-color: var(--darker-gray); color: var(--white)">
+      <h3 style="margin-top: 0;">Accesos</h3>
+      <p>Viva da y quita accesos cuando lo necesita. Los equipos con acceso ven cada problema y dónde está.</p>
+    </div>
+    <div class="card" style="background-color: var(--darker-gray); color: var(--white)">
+      <h3 style="margin-top: 0;">Reglas</h3>
+      <p>Viva define y ajusta las reglas y el filtro de calidad para todos sus proyectos, sin pedir permiso a nadie.</p>
+    </div>
+    <div class="card" style="background-color: var(--darker-gray); color: var(--white)">
+      <h3 style="margin-top: 0;">Continuidad</h3>
+      <p>Si cambia un proveedor, el control de calidad y su historial se quedan.</p>
+    </div>
+  </div>
+  <div class="grid g2" style="margin-top: 16px;">
+    <div class="card" style="background-color: var(--black); color: var(--white)">
+      <span class="tag" style="color: var(--blue-accent)">OPCIÓN A</span>
+      <h3>En la nube: SonarQube Cloud</h3>
+      <p>Servicio administrado por SonarSource, bajo una organización de Viva. Sin servidores que mantener.</p>
+    </div>
+    <div class="card" style="background-color: var(--black); color: var(--white)">
+      <span class="tag" style="color: var(--blue-accent)">OPCIÓN B</span>
+      <h3>En infraestructura propia</h3>
+      <p>En servidores y dominio de Viva, con una edición que revise cambios de código (Developer o superior). Viva la opera.</p>
+    </div>
+  </div>
+  <p class="note">En ambas partimos de las reglas con las que trabaja hoy el equipo de Generic API. La configuración está <b>incluida en el servicio</b> (slide 12).</p>
+  <div class="pager">5 / 12</div>
+</section>
+
+<!-- 6 · Propuesta paso 2: revisión automática de cada cambio -->
+<section class="slide" style="background-color: var(--dark-violet); color: var(--white)">
+  <img class="logo-top" src="{{LOGO_WHITE}}" alt="Tech and Solve">
+  <div class="kicker" style="color: var(--blue-accent)">LA PROPUESTA · PASO 2</div>
+  <h2>Cada cambio se revisa solo antes de que lo vea una persona</h2>
+  <div class="flow">
+    <div class="card" style="background-color: var(--darker-gray); color: var(--white)">
+      <div class="num" style="color: var(--blue-accent); font-size: 34px;">1</div>
+      <h3>El desarrollador sube su cambio</h3>
+      <p>Propone su cambio de código para integrarlo a la rama principal.</p>
+    </div>
+    <div class="arrow-sep" style="color: var(--lighter-violet)">→</div>
+    <div class="card" style="background-color: var(--darker-gray); color: var(--white)">
+      <div class="num" style="color: var(--blue-accent); font-size: 34px;">2</div>
+      <h3>La revisión automática lo analiza</h3>
+      <p>Compila el código, ejecuta las pruebas unitarias, mide qué parte del código nuevo recorren y lo analiza con la herramienta de calidad de Viva.</p>
+    </div>
+    <div class="arrow-sep" style="color: var(--lighter-violet)">→</div>
+    <div class="card" style="background-color: var(--darker-gray); color: var(--white); border: 2px solid var(--blue-accent);">
+      <div class="num" style="color: var(--blue-accent); font-size: 34px;">3</div>
+      <h3>El resultado queda en el cambio</h3>
+      <p><b>Si cumple</b>, pasa a la revisión de una persona. <b>Si no cumple</b>, queda bloqueado con el detalle de qué corregir.</p>
+    </div>
+  </div>
+  <div class="proof" style="background-color: var(--black); color: var(--white); margin-top: 20px;">
+    <span style="color: var(--blue-accent); font-weight: 700;">El resultado:</span> la máquina revisa lo repetitivo y las personas dedican su tiempo a diseño y negocio.
+  </div>
+  <div class="pager">6 / 12</div>
+</section>
+
+<!-- 7 · El filtro de calidad -->
+<section class="slide" style="background-color: var(--dark-violet); color: var(--white)">
+  <img class="logo-top" src="{{LOGO_WHITE}}" alt="Tech and Solve">
+  <div class="kicker" style="color: var(--blue-accent)">LA PROPUESTA · EL FILTRO DE CALIDAD</div>
+  <h2>Un filtro automático que bloquea lo que no cumple</h2>
+  <div class="steps" style="grid-template-columns: repeat(4, 1fr);">
+    <div class="step" style="background-color: var(--darker-gray); color: var(--white)">
+      <div class="n">1</div>
+      <h3>Compilar</h3>
+      <p><b>¿El código compila?</b> Si no, el cambio se detiene.</p>
+      <span class="tag" style="color: var(--blue-accent)">BLOQUEA</span>
+    </div>
+    <div class="step" style="background-color: var(--darker-gray); color: var(--white)">
+      <div class="n">2</div>
+      <h3>Pruebas unitarias</h3>
+      <p><b>¿Pasan todas las pruebas unitarias?</b> Una prueba unitaria rota detiene el cambio.</p>
+      <span class="tag" style="color: var(--blue-accent)">BLOQUEA</span>
+    </div>
+    <div class="step" style="background-color: var(--darker-gray); color: var(--white)">
+      <div class="n">3</div>
+      <h3>Análisis</h3>
+      <p><b>¿Qué problemas nuevos hay?</b> El detalle queda en el cambio, con el enlace a cada problema.</p>
+      <span class="tag" style="color: var(--lighter-violet)">INFORMA</span>
+    </div>
+    <div class="step" style="background-color: var(--darker-gray); color: var(--white)">
+      <div class="n">4</div>
+      <h3>Filtro de calidad</h3>
+      <p><b>¿Cumple el estándar de Viva?</b> Si no, el cambio no se puede integrar.</p>
+      <span class="tag" style="color: var(--blue-accent)">BLOQUEA</span>
+    </div>
+  </div>
+  <div class="gate" style="background-color: var(--black); color: var(--white)">
+    <div style="font-size: 17px; font-weight: 700; min-width: 210px; color: var(--blue-accent)">Qué exige<br>el filtro</div>
+    <div class="rule"><b>Pruebas unitarias que recorran al menos el 80 % del código nuevo</b> · ningún defecto ni vulnerabilidad nueva · problemas de mantenimiento dentro del límite acordado · poco código duplicado (≤ 3 %).<br><span style="opacity: 0.85; font-weight: 300;">Solo se exige al código nuevo de cada cambio: el código existente no frena el trabajo.</span></div>
+  </div>
+  <div class="pager">7 / 12</div>
+</section>
+
+<!-- 8 · Beneficios -->
+<section class="slide" style="background-color: var(--dark-violet); color: var(--white)">
+  <img class="logo-top" src="{{LOGO_WHITE}}" alt="Tech and Solve">
+  <div class="kicker" style="color: var(--blue-accent)">BENEFICIOS</div>
+  <h2>Menos retrabajo, menos riesgo, más control</h2>
+  <div class="grid g3">
+    <div class="card" style="background-color: var(--darker-gray); color: var(--white)">
+      <h3 style="margin-top: 0;">Viva Aerobus</h3>
+      <ul>
+        <li>Ningún cambio llega a la rama principal sin pasar el filtro de calidad.</li>
+        <li>Cada cambio nuevo llega con pruebas unitarias que se ejecutan siempre.</li>
+        <li>Los problemas dejan de acumularse: se controla lo nuevo sin frenar por lo existente.</li>
+      </ul>
+    </div>
+    <div class="card" style="background-color: var(--darker-gray); color: var(--white)">
+      <h3 style="margin-top: 0;">Revisores</h3>
+      <ul>
+        <li>Dejan de corregir a mano lo que una máquina detecta.</li>
+        <li>Dedican su tiempo a diseño y negocio.</li>
+        <li>Un solo criterio de calidad, igual para todos los cambios.</li>
+      </ul>
+    </div>
+    <div class="card" style="background-color: var(--darker-gray); color: var(--white)">
+      <h3 style="margin-top: 0;">Equipo de desarrollo</h3>
+      <ul>
+        <li>Ve cada problema y dónde está, desde el propio cambio.</li>
+        <li>Sabe si su cambio cumple antes de que lo revise una persona.</li>
+        <li>Menos devoluciones y menos idas y vueltas por cambio.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="grid" style="grid-template-columns: 1fr; margin-top: 18px;">
+    <div class="card reuse" style="background-color: var(--black); color: var(--white)">
+      <span class="tag" style="color: var(--blue-accent)">SIN DEPENDENCIA DE TERCEROS</span>
+      <h3>De una herramienta de un tercero a una propia</h3>
+      <p>Viva deja de depender de Ezy para <b>cambiar reglas o dar accesos</b>, y sus reglas de calidad, definidas por lenguaje, se aplican a <b>todos los proyectos de Viva</b>, no solo a Generic API.</p>
+    </div>
+  </div>
+  <div class="pager">8 / 12</div>
+</section>
+
+<!-- 9 · Por qué ahora -->
+<section class="slide" style="background-color: var(--dark-violet); color: var(--white)">
+  <img class="logo-top" src="{{LOGO_WHITE}}" alt="Tech and Solve">
+  <div class="kicker" style="color: var(--blue-accent)">POR QUÉ AHORA</div>
+  <h2>La herramienta ya existe: falta que sea de Viva y que se use</h2>
+  <p class="sub" style="font-size: 18px;">SonarQube ya revisa cada cambio de Generic API, pero hoy no es obligatorio atender su resultado. Hacerlo propio y obligatorio convierte ese dato en un control.</p>
+  <div class="grid g3" style="margin-top: 26px;">
+    <div class="card" style="background-color: var(--darker-gray); color: var(--white)">
+      <h3 style="margin-top: 0;">Se apoya en lo que ya existe</h3>
+      <p>La herramienta de calidad, las pruebas unitarias del proyecto y la revisión automática de GitHub. Se suma al flujo de trabajo actual.</p>
+    </div>
+    <div class="card" style="background-color: var(--darker-gray); color: var(--white)">
+      <h3 style="margin-top: 0;">Un criterio objetivo</h3>
+      <p>El mismo estándar para todos los cambios y todos los revisores, verificado por una máquina.</p>
+    </div>
+    <div class="card" style="background-color: var(--darker-gray); color: var(--white)">
+      <h3 style="margin-top: 0;">Inversión acotada</h3>
+      <p>1 mes, llave en mano, y la herramienta queda lista para otros proyectos de Viva.</p>
+    </div>
+  </div>
+  <div class="grid g2" style="margin-top: 18px;">
+    <div class="card" style="background-color: var(--black); color: var(--white)">
+      <span class="tag" style="color: var(--lighter-violet)">HOY</span>
+      <div class="num" style="margin-top: 12px;">9 <small>de 20</small></div>
+      <p style="margin-top: 8px;">cambios de septiembre llegaron a la rama principal con problemas señalados, sin pruebas unitarias medidas.</p>
+    </div>
+    <div class="card" style="background-color: var(--black); color: var(--white)">
+      <span class="tag" style="color: var(--blue-accent)">CON EL CONTROL</span>
+      <div class="num" style="margin-top: 12px; color: var(--blue-accent)">0</div>
+      <p style="margin-top: 8px;">cambios llegan a la rama principal sin pasar las pruebas unitarias y el filtro de calidad.</p>
+    </div>
+  </div>
+  <div class="pager">9 / 12</div>
+</section>
+
+<!-- 10 · Anexo: PRs de respaldo -->
+<section class="slide" style="background-color: var(--dark-violet); color: var(--white)">
+  <img class="logo-top" src="{{LOGO_WHITE}}" alt="Tech and Solve">
+  <div class="kicker" style="color: var(--blue-accent)">ANEXO · EVIDENCIA</div>
+  <h2>Los cambios de código que respaldan estas cifras</h2>
+  <div class="grid g2" style="margin-top: 24px;">
+    <div class="card" style="background-color: var(--darker-gray); color: var(--white)">
+      <h3 style="margin-top: 0;">9 de 20 · Mergeados con el Quality Gate en rojo</h3>
+      <div class="prs">
+        <a class="pr" href="https://github.com/EzyWebwerkstaden/VivaAerobus.Generic.Api/pull/2421" target="_blank" rel="noopener" style="background-color: var(--dark-violet); color: var(--blue-accent)">#2421</a>
+        <a class="pr" href="https://github.com/EzyWebwerkstaden/VivaAerobus.Generic.Api/pull/2467" target="_blank" rel="noopener" style="background-color: var(--dark-violet); color: var(--blue-accent)">#2467</a>
+        <a class="pr" href="https://github.com/EzyWebwerkstaden/VivaAerobus.Generic.Api/pull/2484" target="_blank" rel="noopener" style="background-color: var(--dark-violet); color: var(--blue-accent)">#2484</a>
+        <a class="pr" href="https://github.com/EzyWebwerkstaden/VivaAerobus.Generic.Api/pull/2487" target="_blank" rel="noopener" style="background-color: var(--dark-violet); color: var(--blue-accent)">#2487</a>
+        <a class="pr" href="https://github.com/EzyWebwerkstaden/VivaAerobus.Generic.Api/pull/2488" target="_blank" rel="noopener" style="background-color: var(--dark-violet); color: var(--blue-accent)">#2488</a>
+        <a class="pr" href="https://github.com/EzyWebwerkstaden/VivaAerobus.Generic.Api/pull/2493" target="_blank" rel="noopener" style="background-color: var(--dark-violet); color: var(--blue-accent)">#2493</a>
+        <a class="pr" href="https://github.com/EzyWebwerkstaden/VivaAerobus.Generic.Api/pull/2506" target="_blank" rel="noopener" style="background-color: var(--dark-violet); color: var(--blue-accent)">#2506</a>
+        <a class="pr" href="https://github.com/EzyWebwerkstaden/VivaAerobus.Generic.Api/pull/2509" target="_blank" rel="noopener" style="background-color: var(--dark-violet); color: var(--blue-accent)">#2509</a>
+        <a class="pr" href="https://github.com/EzyWebwerkstaden/VivaAerobus.Generic.Api/pull/2516" target="_blank" rel="noopener" style="background-color: var(--dark-violet); color: var(--blue-accent)">#2516</a>
+      </div>
+    </div>
+    <div class="card" style="background-color: var(--darker-gray); color: var(--white)">
+      <h3 style="margin-top: 0;">12 de 26 · Comentarios de estilo o convenciones</h3>
+      <div class="prs">
+        <a class="pr" href="https://github.com/EzyWebwerkstaden/VivaAerobus.Generic.Api/pull/2421" target="_blank" rel="noopener" style="background-color: var(--dark-violet); color: var(--blue-accent)">#2421</a>
+        <a class="pr" href="https://github.com/EzyWebwerkstaden/VivaAerobus.Generic.Api/pull/2467" target="_blank" rel="noopener" style="background-color: var(--dark-violet); color: var(--blue-accent)">#2467</a>
+        <a class="pr" href="https://github.com/EzyWebwerkstaden/VivaAerobus.Generic.Api/pull/2478" target="_blank" rel="noopener" style="background-color: var(--dark-violet); color: var(--blue-accent)">#2478</a>
+        <a class="pr" href="https://github.com/EzyWebwerkstaden/VivaAerobus.Generic.Api/pull/2484" target="_blank" rel="noopener" style="background-color: var(--dark-violet); color: var(--blue-accent)">#2484</a>
+        <a class="pr" href="https://github.com/EzyWebwerkstaden/VivaAerobus.Generic.Api/pull/2487" target="_blank" rel="noopener" style="background-color: var(--dark-violet); color: var(--blue-accent)">#2487</a>
+        <a class="pr" href="https://github.com/EzyWebwerkstaden/VivaAerobus.Generic.Api/pull/2488" target="_blank" rel="noopener" style="background-color: var(--dark-violet); color: var(--blue-accent)">#2488</a>
+        <a class="pr" href="https://github.com/EzyWebwerkstaden/VivaAerobus.Generic.Api/pull/2494" target="_blank" rel="noopener" style="background-color: var(--dark-violet); color: var(--blue-accent)">#2494</a>
+        <a class="pr" href="https://github.com/EzyWebwerkstaden/VivaAerobus.Generic.Api/pull/2499" target="_blank" rel="noopener" style="background-color: var(--dark-violet); color: var(--blue-accent)">#2499</a>
+        <a class="pr" href="https://github.com/EzyWebwerkstaden/VivaAerobus.Generic.Api/pull/2504" target="_blank" rel="noopener" style="background-color: var(--dark-violet); color: var(--blue-accent)">#2504</a>
+        <a class="pr" href="https://github.com/EzyWebwerkstaden/VivaAerobus.Generic.Api/pull/2508" target="_blank" rel="noopener" style="background-color: var(--dark-violet); color: var(--blue-accent)">#2508</a>
+        <a class="pr" href="https://github.com/EzyWebwerkstaden/VivaAerobus.Generic.Api/pull/2511" target="_blank" rel="noopener" style="background-color: var(--dark-violet); color: var(--blue-accent)">#2511</a>
+        <a class="pr" href="https://github.com/EzyWebwerkstaden/VivaAerobus.Generic.Api/pull/2516" target="_blank" rel="noopener" style="background-color: var(--dark-violet); color: var(--blue-accent)">#2516</a>
+      </div>
+    </div>
+    <div class="card" style="background-color: var(--darker-gray); color: var(--white)">
+      <h3 style="margin-top: 0;">7 de 26 · Error funcional o escenario no cubierto</h3>
+      <div class="prs">
+        <a class="pr" href="https://github.com/EzyWebwerkstaden/VivaAerobus.Generic.Api/pull/2421" target="_blank" rel="noopener" style="background-color: var(--dark-violet); color: var(--blue-accent)">#2421</a>
+        <a class="pr" href="https://github.com/EzyWebwerkstaden/VivaAerobus.Generic.Api/pull/2491" target="_blank" rel="noopener" style="background-color: var(--dark-violet); color: var(--blue-accent)">#2491</a>
+        <a class="pr" href="https://github.com/EzyWebwerkstaden/VivaAerobus.Generic.Api/pull/2493" target="_blank" rel="noopener" style="background-color: var(--dark-violet); color: var(--blue-accent)">#2493</a>
+        <a class="pr" href="https://github.com/EzyWebwerkstaden/VivaAerobus.Generic.Api/pull/2502" target="_blank" rel="noopener" style="background-color: var(--dark-violet); color: var(--blue-accent)">#2502</a>
+        <a class="pr" href="https://github.com/EzyWebwerkstaden/VivaAerobus.Generic.Api/pull/2504" target="_blank" rel="noopener" style="background-color: var(--dark-violet); color: var(--blue-accent)">#2504</a>
+        <a class="pr" href="https://github.com/EzyWebwerkstaden/VivaAerobus.Generic.Api/pull/2505" target="_blank" rel="noopener" style="background-color: var(--dark-violet); color: var(--blue-accent)">#2505</a>
+        <a class="pr" href="https://github.com/EzyWebwerkstaden/VivaAerobus.Generic.Api/pull/2511" target="_blank" rel="noopener" style="background-color: var(--dark-violet); color: var(--blue-accent)">#2511</a>
+      </div>
+    </div>
+    <div class="card" style="background-color: var(--darker-gray); color: var(--white)">
+      <h3 style="margin-top: 0;">Comentarios que detecta una regla automática</h3>
+      <ul class="rules">
+        <li><a href="https://github.com/EzyWebwerkstaden/VivaAerobus.Generic.Api/pull/2387" target="_blank" rel="noopener" style="color: var(--blue-accent)">#2387</a> · capturar <code>Exception</code> (revisión del 6 may) · Sonar S2221</li>
+        <li><a href="https://github.com/EzyWebwerkstaden/VivaAerobus.Generic.Api/pull/2516" target="_blank" rel="noopener" style="color: var(--blue-accent)">#2516</a> · parámetro sin uso · Sonar S1172</li>
+        <li><a href="https://github.com/EzyWebwerkstaden/VivaAerobus.Generic.Api/pull/2467" target="_blank" rel="noopener" style="color: var(--blue-accent)">#2467</a> · métodos idénticos · Sonar S4144; nombre de campo · .editorconfig</li>
+        <li><a href="https://github.com/EzyWebwerkstaden/VivaAerobus.Generic.Api/pull/2494" target="_blank" rel="noopener" style="color: var(--blue-accent)">#2494</a> · <code>Array.Empty</code> · analizador .NET CA1825</li>
+      </ul>
+    </div>
+  </div>
+  <div class="source">PRs de Generic API de septiembre de 2026 en GitHub (EzyWebwerkstaden/VivaAerobus.Generic.Api), consulta del 8 oct 2026. Ningún revisor menciona Sonar en las revisiones ni en los comentarios de los 28 PRs del periodo. Un PR puede estar en varios grupos.</div>
+  <div class="pager">10 / 12</div>
+</section>
+
+<!-- 11 · Precondiciones -->
+<section class="slide" style="background-color: var(--dark-violet); color: var(--white)">
+  <img class="logo-top" src="{{LOGO_WHITE}}" alt="Tech and Solve">
+  <div class="kicker" style="color: var(--blue-accent)">PRECONDICIONES</div>
+  <h2>Lo que necesitamos para empezar</h2>
+  <div class="proof" style="background-color: var(--black); color: var(--white); margin-top: 18px;">
+    <span style="color: var(--blue-accent); font-weight: 700;">Decisión de Viva:</span> dónde vive su herramienta de calidad, <b>en la nube (SonarQube Cloud)</b> o <b>en infraestructura propia</b> (slide 5).
+  </div>
+  <div class="grid g3 pre" style="margin-top: 14px;">
+    <div class="card" style="background-color: var(--darker-gray); color: var(--white)">
+      <span class="tag" style="color: var(--lighter-violet)">SONAR</span>
+      <h3>Punto de partida y destino</h3>
+      <ul>
+        <li><b>Acceso al SonarQube de Ezy</b> (sonarqube.ezyflight.se) para descargar el perfil de reglas y el Quality Gate con los que trabaja hoy el equipo de Generic API: son el punto de partida.</li>
+        <li>Según la decisión: la organización de Viva en SonarQube Cloud, o el servidor, el dominio y la licencia (Developer o superior) del Sonar propio.</li>
+        <li>Un usuario administrador en el Sonar de Viva para configurar reglas, Quality Gate y el token del pipeline.</li>
+      </ul>
+    </div>
+    <div class="card" style="background-color: var(--darker-gray); color: var(--white)">
+      <span class="tag" style="color: var(--lighter-violet)">REPOSITORIO Y PIPELINE</span>
+      <h3>GitHub</h3>
+      <ul>
+        <li>Permisos de administración en el repositorio para crear workflows de GitHub Actions y sus secretos.</li>
+        <li>Permiso para hacer obligatorios los checks del ruleset de <code>master</code>.</li>
+        <li>Runner <code>ubuntu-latest</code> para el job de calidad (hoy usa <code>windows-latest</code>, que no ejecuta contenedores Linux).</li>
+      </ul>
+    </div>
+    <div class="card" style="background-color: var(--darker-gray); color: var(--white)">
+      <span class="tag" style="color: var(--lighter-violet)">EQUIPO Y PROCESO</span>
+      <h3>Acuerdos</h3>
+      <ul>
+        <li>Permiso para corregir los hallazgos de Sonar y escribir pruebas unitarias dentro de cada task.</li>
+        <li>Acuerdo de Viva y Ezy: un cambio que no pasa el filtro de calidad no se integra, y quién puede autorizar una excepción.</li>
+        <li>Un responsable de Viva, dueño de las reglas de calidad y del filtro para todos sus proyectos.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="pager">11 / 12</div>
+</section>
+
+<!-- 12 · Tiempo, costo y entregables del servicio llave en mano -->
+<section class="slide" style="background-color: var(--dark-violet); color: var(--white)">
+  <img class="logo-top" src="{{LOGO_WHITE}}" alt="Tech and Solve">
+  <div class="kicker" style="color: var(--blue-accent)">LA INVERSIÓN · SERVICIO LLAVE EN MANO</div>
+  <h2>1 mes, llave en mano</h2>
+  <div class="grid g2" style="margin-top: 22px;">
+    <div class="card" style="background-color: var(--black); color: var(--white)">
+      <span class="tag" style="color: var(--blue-accent)">TIEMPO APROXIMADO DE IMPLEMENTACIÓN</span>
+      <div class="num" style="margin-top: 12px;">1 <small>mes</small></div>
+      <p style="margin-top: 8px;">Desde que se cumplen las precondiciones de la slide 11.</p>
+    </div>
+    <div class="card" style="background-color: var(--black); color: var(--white)">
+      <span class="tag" style="color: var(--blue-accent)">COSTO</span>
+      <div class="num" style="margin-top: 12px;">xxx</div>
+      <p style="margin-top: 8px;">Incluye los cinco entregables, aplicados a Generic API.</p>
+    </div>
+  </div>
+  <div class="grid deliv" style="grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 14px;">
+    <div class="card" style="background-color: var(--darker-gray); color: var(--white)">
+      <div class="num" style="color: var(--blue-accent); font-size: 30px;">1</div>
+      <h3>Herramienta de calidad de Viva</h3>
+      <p>SonarQube de Viva, en la nube o propio, con las reglas y el filtro de calidad (cobertura ≥ 80 % del código nuevo) configurados.</p>
+    </div>
+    <div class="card" style="background-color: var(--darker-gray); color: var(--white)">
+      <div class="num" style="color: var(--blue-accent); font-size: 30px;">2</div>
+      <h3>Imagen Docker de calidad</h3>
+      <p>El paquete con las herramientas que usa la revisión automática.</p>
+    </div>
+    <div class="card" style="background-color: var(--darker-gray); color: var(--white)">
+      <div class="num" style="color: var(--blue-accent); font-size: 30px;">3</div>
+      <h3>Revisión automática de cada cambio</h3>
+      <p>Compila, ejecuta las pruebas unitarias y analiza cada cambio de Generic API con la herramienta de Viva.</p>
+    </div>
+    <div class="card" style="background-color: var(--darker-gray); color: var(--white)">
+      <div class="num" style="color: var(--blue-accent); font-size: 30px;">4</div>
+      <h3>Bloqueo automático</h3>
+      <p>En Generic API, un cambio que no pasa las pruebas unitarias o el filtro de calidad no se puede integrar.</p>
+    </div>
+    <div class="card" style="background-color: var(--darker-gray); color: var(--white)">
+      <div class="num" style="color: var(--blue-accent); font-size: 30px;">5</div>
+      <h3>Lineamiento de pruebas unitarias</h3>
+      <p>Cómo escribir pruebas unitarias que comprueben resultados.</p>
+    </div>
+  </div>
+  <p class="note" style="margin-top: 14px;"><b>Alcance:</b> el servicio se aplica a <b>Generic API</b>. Sumar otros proyectos de Viva a las mismas reglas se cotiza aparte.</p>
+  <div class="pager">12 / 12</div>
+</section>
+
+<!-- INTERNO-INICIO · Equipo de trabajo (uso interno de Tech and Solve) -->
+<section class="slide" data-internal="true" style="background-color: var(--dark-violet); color: var(--white)">
+  <img class="logo-top" src="{{LOGO_WHITE}}" alt="Tech and Solve">
+  <div class="internal-badge" style="background-color: var(--black); color: var(--white)">USO INTERNO DE TECH AND SOLVE · NO MOSTRAR AL CLIENTE</div>
+  <div class="kicker" style="color: var(--blue-accent)">EQUIPO DE TRABAJO</div>
+  <h2>Un ingeniero DevOps<br>a tiempo completo durante 1 mes</h2>
+  <div class="grid" style="grid-template-columns: 1fr 2fr; gap: 18px; margin-top: 24px;">
+    <div class="card" style="background-color: var(--black); color: var(--white)">
+      <span class="tag" style="color: var(--blue-accent)">EQUIPO</span>
+      <div class="num" style="margin-top: 14px;">1 <small>ingeniero DevOps</small></div>
+      <p style="margin-top: 12px;">Dedicación: tiempo completo.</p>
+      <p>Duración: 1 mes, desde que se cumplen las precondiciones.</p>
+    </div>
+    <div class="card" style="background-color: var(--darker-gray); color: var(--white)">
+      <span class="tag" style="color: var(--lighter-violet)">RESPONSABLE DE LOS CINCO ENTREGABLES</span>
+      <ul style="margin-top: 6px;">
+        <li><b>Sonar de Viva:</b> instalar o configurar la instancia, migrar el perfil de reglas desde el Sonar de Ezy y crear el Quality Gate con cobertura ≥ 80 % del código nuevo.</li>
+        <li><b>Imagen Docker:</b> construirla, versionarla y publicarla en el registro del repositorio.</li>
+        <li><b>Pipeline:</b> configurar GitHub Actions con compilación, pruebas unitarias, cobertura y análisis apuntando al Sonar de Viva.</li>
+        <li><b>Bloqueo automático:</b> hacer obligatorios los checks en el ruleset de <code>master</code> y verificar que un PR en rojo no se pueda mergear.</li>
+        <li><b>Lineamiento de pruebas unitarias:</b> redactarlo con ejemplos sobre Generic API y la checklist del revisor.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="pager">Interno</div>
+</section>
+<!-- INTERNO-FIN -->
+
+</div>
+</div>
+
+<div class="nav">
+  <button type="button" id="prev" aria-label="Diapositiva anterior">←</button>
+  <button type="button" id="next" aria-label="Diapositiva siguiente">→</button>
+</div>
+
+<script>
+  (function () {
+    var slides = Array.prototype.slice.call(document.querySelectorAll('section.slide'));
+    var stage = document.getElementById('stage');
+    var i = 0;
+    function show(n) {
+      i = Math.max(0, Math.min(slides.length - 1, n));
+      slides.forEach(function (s, k) { s.classList.toggle('active', k === i); });
+      try { history.replaceState(null, '', '#' + (i + 1)); } catch (e) {}
+    }
+    function fit() {
+      var s = Math.min(window.innerWidth / 1280, window.innerHeight / 720);
+      stage.style.transform = 'scale(' + s + ')';
+    }
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { show(i + 1); e.preventDefault(); }
+      if (e.key === 'ArrowLeft' || e.key === 'PageUp') { show(i - 1); e.preventDefault(); }
+      if (e.key === 'Home') show(0);
+      if (e.key === 'End') show(slides.length - 1);
+    });
+    document.getElementById('prev').addEventListener('click', function () { show(i - 1); });
+    document.getElementById('next').addEventListener('click', function () { show(i + 1); });
+    window.addEventListener('resize', fit);
+    var h = parseInt((location.hash || '').slice(1), 10);
+    show(isNaN(h) ? 0 : h - 1);
+    fit();
+  })();
+</script>
+</body>
+</html>
