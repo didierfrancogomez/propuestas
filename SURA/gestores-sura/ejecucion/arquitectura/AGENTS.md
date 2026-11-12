@@ -17,10 +17,7 @@ core* (`vkSiqqhCaptGzxPIeG1_`). Pestañas que repiten el Gestor Evaluación: *De
 Evaluación (Release 1)* (`d2`) y *Gestor Evaluación Release final* (`p70LqHCaPi_F7LSYZtux`).
 Revisar también *Vista general*, *Juez*, *Dónde vive la IA*, *Duplicados* y *Glosario*.
 
-*canales con core* es hoy una **copia exacta** de *Detalle: Gestor Solicitud* más dos notas propias
-en el margen izquierdo (`lCf-iueePdCvOuLlOe5z-5` e `lCf-iueePdCvOuLlOe5z-2`). La forma más segura de
-sincronizarla es editar el detalle y copiar su `<root>` completo a *canales con core*, y luego volver
-a agregar esas dos notas.
+*canales con core* (v6_5) **ya no es una copia** del detalle: muestra solo **canal, ACL, API Siniestro integral, Siniestro integral, cores, Torre y leyenda**, sin el Gestor Solicitud ni el orquestador de integración (dos notas en cursiva remiten al detalle). Cuando cambie algo de esos componentes compartidos en el detalle, hay que aplicarlo **a mano** también aquí (regla de oro); no copiar el `<root>` completo.
 
 Para encontrar todas las apariciones antes y después del cambio:
 
@@ -28,7 +25,7 @@ Para encontrar todas las apariciones antes y después del cambio:
 python3 -I - <<'PY'
 import xml.etree.ElementTree as ET, re, html
 PAT = re.compile(r'TEXTO_A_BUSCAR', re.I)   # p. ej. r'blob|no procesable'
-t = ET.parse('Arquitectura_Gestores_SURA_v6_4.drawio').getroot()
+t = ET.parse('Arquitectura_Gestores_SURA_v6_5.drawio').getroot()
 for d in t.iter('diagram'):
     for c in d.iter('mxCell'):
         v = html.unescape(re.sub('<[^>]+>', ' ', c.get('value') or ''))
@@ -41,13 +38,16 @@ PY
 | Archivo | Rol | ¿Se edita? |
 |---|---|---|
 | `context.md` | Fuente de verdad: reglas de negocio, contratos, decisiones, preguntas abiertas, inconsistencias, guía de estilo y bitácora | Sí, en **cada** cambio |
-| `Arquitectura_Gestores_SURA_v6_4.drawio` | Diagrama vigente | Sí |
+| `Arquitectura_Gestores_SURA_v6_5.drawio` | Diagrama vigente (con la capa API) | Sí |
+| `Arquitectura_Gestores_SURA_v6_4.drawio` | Versión anterior, sin capa API | **No** (histórico) |
 | `Arquitectura_Gestores_SURA_v6_3.drawio` | Versión anterior (subida a `main` en `dc117f0`) | **No** (histórico) |
 | `Arquitectura_Gestores_SURA_v6_2.drawio` | Versión anterior | **No** (histórico) |
 | `resources/Arquitectura-Gestores consolidado.drawio` | Insumo de referencia | **No** (solo lectura, regla de oro de `propuestas/CLAUDE.md`) |
 | `resources/Cronograma implementación.xlsx` | Insumo de planeación: backlog de HU por épica (pestañas *Backlog General*, *HUs propuestas*, *Sprint 3Q4*). Resumen del Gestor Solicitud en `context.md` §3.3b | **No** (solo lectura; leer con un script en el scratchpad, sin guardar de vuelta) |
 
 ## Antes de cualquier cambio
+
+0. **Leer el estado actual del archivo, no el que se recuerda.** El usuario también edita el `.drawio` a mano en draw.io (mueve cajas, crea o borra conectores). Antes de calcular posiciones o rutas, volver a leer las geometrías y renderizar; nunca reaplicar coordenadas viejas.
 
 1. Leer `context.md` completo, en especial §3–§7 (reglas, preguntas abiertas e inconsistencias) y §9 (estilo).
 2. Respetar la **precedencia**: por ahora mandan las reglas de *Detalle: Gestor Solicitud* y *Detalle: Gestor Evaluación (Release 1)*. El diagrama es la **arquitectura completa**: el cronograma ordena la implementación, pero no recorta componentes.
@@ -83,20 +83,22 @@ Si el pedido es ambiguo o contradice una regla vigente, preguntar antes de dibuj
 - **Ojo con las comillas del atributo `value`:** al reescribir un valor que contiene `"`, `xml.sax.saxutils.quoteattr` lo deja entre comillas simples (`value='…'`). Una regex `value="[^"]*"` no lo encuentra y **falla en silencio**. Usar `value=("[^"]*"|'[^']*')` y verificar siempre que el texto nuevo quedó escrito: comparar antes y después, o buscar el texto después de guardar.
 - Antes de editar, renderizar la página para ubicar el espacio libre:
   ```bash
-  /Applications/draw.io.app/Contents/MacOS/draw.io -x -f png -p <n_pagina_1_based> -s 0.5 -o <scratchpad>/pagina.png Arquitectura_Gestores_SURA_v6_4.drawio
+  /Applications/draw.io.app/Contents/MacOS/draw.io -x -f png -p <n_pagina_1_based> -s 0.5 -o <scratchpad>/pagina.png Arquitectura_Gestores_SURA_v6_5.drawio
   ```
 
 ## Verificación antes de entregar
 
-1. El XML parsea (`python3 -c "import xml.etree.ElementTree as ET; ET.parse('Arquitectura_Gestores_SURA_v6_4.drawio')"`).
+1. El XML parsea (`python3 -c "import xml.etree.ElementTree as ET; ET.parse('Arquitectura_Gestores_SURA_v6_5.drawio')"`).
 2. No hay ids duplicados en la página y todo conector tiene `source`/`target` existentes.
 3. Se renderizó la página tocada con el comando de arriba y se revisó la imagen: sin textos desbordados, sin solapes, sin conectores cruzando cajas.
 4. `context.md` y **todas** las pestañas dicen lo mismo (flujo, contratos, números ①②③, nombres); la búsqueda entre pestañas no devuelve textos viejos.
 5. La bitácora tiene la entrada del cambio.
+7. **La leyenda sigue siendo cierta** (`context.md` §9.7): sólido = definido, punteado = pendiente, línea sólida = comando, discontinua = consulta, punteada fina azul = destino. Si se usa un estilo nuevo, se agrega a la leyenda de todas las pestañas.
+6. **Cada elemento es del tipo correcto** (`context.md` §9.5 n.º 14): las decisiones son rombos, lo pendiente es punteado con ⏳, cada salida de una decisión tiene etiqueta y llega a su destino real, y los nombres dicen exactamente lo que pasa (por ejemplo, "Documento no procesado").
 
 ## Si el usuario abre una versión nueva
 
-Cuando se cree `v6_5` (u otra), copiar la vigente, actualizar en este archivo y en `context.md` cuál es el diagrama vigente, y dejar la anterior como histórico. Las reglas no se reinician: se arrastran en `context.md`.
+Cuando se cree `v6_6` (u otra), copiar la vigente, actualizar en este archivo y en `context.md` cuál es el diagrama vigente, y dejar la anterior como histórico. Las reglas no se reinician: se arrastran en `context.md`.
 
 ## Git
 
