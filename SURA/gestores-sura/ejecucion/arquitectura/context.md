@@ -21,7 +21,7 @@
 
 | # | Página | Estado en este contexto |
 |---|---|---|
-| 1 | Vista general | Pendiente de levantar |
+| 1 | Vista general | **Rehecha 2026-11-12** con 7 capas y los componentes de los detalles (§9.6) |
 | 2 | **Detalle: Gestor Solicitud** | Levantada (§3) |
 | 3 | canales con core | Alineada con *Detalle: Gestor Solicitud* (2026-11-12) |
 | 4 | Page-11 | Borrador sin nombre, pendiente |
@@ -46,8 +46,8 @@
 | **Siniestro integral** | Proceso de negocio del core que recibe la solicitud | Crea el siniestro padre, encola el comando al gestor y consume el resultado. **Administra los estados del proceso general** y los actualiza con el detalle de la respuesta de cada gestor. Es dueño del **Gestor documental de autorizaciones**. |
 | **Gestor documental de autorizaciones** | Componente de Siniestro integral (Blob, acceso por `apiG`) | Repositorio de los documentos de la solicitud: los canales y el siniestro integral **publican**; el Gestor Solicitud **consulta en línea (síncrono)**, sin copiar a un almacenamiento propio. |
 | **Orquestador de integración** | Capa de mensajería entre el core y los gestores | Recibe **mensajes HTTP** (vía Apigee), **responde de inmediato que los recibió (ACK)** y los **encola** (topic → cola). Aplica **seguridad** y **trazabilidad** a cada mensaje. Decide si el mensaje va a la cola del gestor o a una persona, y devuelve los resultados al core por topics. |
-| **Gestor Solicitud** | Microservicio agéntico (Azure Container Apps · LangGraph) | Recibe documentos, los clasifica, extrae datos con IA, los valida con un juez y devuelve un resultado. |
-| **Gestor Evaluación** | Microservicio agéntico (Azure Container Apps · LangGraph) | Arma el contexto del caso, evalúa pertinencia médica, valida con un juez y recomienda aprobar o rechazar. |
+| **Gestor Solicitud** | Microservicio agéntico (AKS · LangGraph) | Recibe documentos, los clasifica, extrae datos con IA, los valida con un juez y devuelve un resultado. |
+| **Gestor Evaluación** | Microservicio agéntico (AKS · LangGraph) | Arma el contexto del caso, evalúa pertinencia médica, valida con un juez y recomienda aprobar o rechazar. |
 | **Plataforma agéntica – Runtime agéntico** | AKS + orquestador/agente | Dónde corre el agente de cada gestor. |
 | **Plataforma agéntica – Control plane** | LLM Gateway (Azure OpenAI o Gemini, por decidir) | Único acceso a modelos. |
 | **Core ADR** | Core de autorizaciones | Ejecuta reglas duras, decide la autorización final, escala a bandeja Konecta. |
@@ -106,7 +106,7 @@ Se usa la terminología de `propuestas/CLAUDE.md`: **core** (o SuraHis), **LLM G
 | RN-SOL-08 | Si falta algo **o** el juez no aprueba → *requiere revisión*; si no → *solicitud lista*. |
 | RN-SOL-09 | Con resultado válido, el core complementa, valida y **crea el radicado**. |
 | RN-SOL-10 | Con resultado no procesado, se escala a HITL: se crea el radicado y se envía a **bandeja Konecta**. |
-| RN-SOL-11 | El gestor registra su **auditoría propia** en MongoDB (qué hizo cada paso, qué decidió el juez y con qué evidencia); solo registra. |
+| RN-SOL-11 | El gestor registra su **auditoría propia** en Cosmos DB (qué hizo cada paso, qué decidió el juez y con qué evidencia); solo registra. |
 | RN-SOL-12 | Envía su trazabilidad al Kafka interno de la Torre de control (RN-TRV-15): `solicitud.recibida`, `documentos.validados`, `documentos.leídos`, `resultado.enviado`. |
 | RN-SOL-13 | El **siniestro padre se crea primero**, siempre; la validación inicial ocurre **después**, de forma asíncrona tras la `queue nueva solicitud`. Toda solicitud deja traza aunque luego se rechace. |
 | RN-SOL-14 | El orquestador del siniestro integral **retorna al canal el id de trazabilidad** (id del siniestro padre) al recibir la solicitud. |
@@ -178,7 +178,7 @@ Fuente: `resources/Cronograma implementación.xlsx`, pestañas *Backlog General*
    - a. *¿Qué pedir?* — el catálogo local dice, según el servicio (CUPS), qué historial, en qué ventana y qué cláusulas.
    - b. *Una sola llamada al core* — paciente + CUPS + lista de datos que necesita.
    - c. *El core responde* — historial relevante + datos del afiliado + plan y cláusulas que aplican.
-   - d. *Expediente del caso* — MongoDB, vida corta; lo reutilizan los pasos siguientes sin volver a llamar.
+   - d. *Expediente del caso* — Cosmos DB, vida corta; lo reutilizan los pasos siguientes sin volver a llamar.
    - El contexto agrupa: **Cobertura**, **Coherencia** e **información de pertinencia** (protocolos, políticas y cláusulas filtrados por el plan del afiliado).
 4. **3. Pertinencia médica** (agente): usa el expediente + protocolos; solo vuelve al core si le falta algo puntual.
 5. **Juez:** ¿la evidencia sostiene la recomendación? → `¿concepto aprobado?`
@@ -194,12 +194,12 @@ Fuente: `resources/Cronograma implementación.xlsx`, pestañas *Backlog General*
 | RN-EVA-02 | El gestor **recomienda**; la aprobación final y las reglas duras viven en el core. |
 | RN-EVA-03 | El contexto se arma con **una sola consulta al core**; el agente solo vuelve a llamar si falta algo puntual. |
 | RN-EVA-04 | Qué datos pedir lo define el **catálogo local por servicio (CUPS)**: historial, ventana de tiempo y cláusulas. |
-| RN-EVA-05 | El expediente del caso vive en MongoDB con **vida corta** y se reutiliza dentro de la evaluación. |
+| RN-EVA-05 | El expediente del caso vive en Cosmos DB con **vida corta** y se reutiliza dentro de la evaluación. |
 | RN-EVA-06 | El contexto cubre tres dimensiones: **cobertura**, **coherencia** y **pertinencia**. |
 | RN-EVA-07 | Toda recomendación pasa por el **juez** antes de salir. |
 | RN-EVA-08 | Toda respuesta (aprobada o rechazada) indica si **requiere HITL** y a qué nivel. |
 | RN-EVA-09 | Si el orquestador no puede encolar, el comando va al **topic de contingencia**. |
-| RN-EVA-10 | Auditoría propia en MongoDB: expediente usado, regla aplicada, evidencia, nota del juez, nivel recomendado. |
+| RN-EVA-10 | Auditoría propia en Cosmos DB: expediente usado, regla aplicada, evidencia, nota del juez, nivel recomendado. |
 | RN-EVA-11 | Envía su trazabilidad al Kafka interno de la Torre de control (RN-TRV-15): `evaluación.iniciada`, `duplicada`, `recomendación.enviada`, `escalada.N3/N4`, `decisión.humana` (ver I-03). |
 | RN-EVA-12 | El nivel de revisión humana es una **recomendación**: el core puede reasignarlo. |
 
@@ -233,12 +233,14 @@ pertinencia: <criticidad>
 | RN-TRV-11 | **Siniestro integral administra los estados del proceso general.** Cada respuesta de un gestor llega a Siniestro integral, que marca el estado con su detalle. Ningún gestor cambia estados por su cuenta. |
 | RN-TRV-12 | Los **canales** son el front del usuario final: **consultan el estado** en Siniestro integral (vía Apigee) y **notifican** al usuario, por ejemplo la causa de un archivo rechazado para que lo reemplace. Los gestores nunca notifican directamente al usuario. |
 | RN-TRV-10 | Los **MCP Gateway** se dibujan en cada gestor como el camino para que sus agentes consulten sistemas SURA como tools. |
-| RN-TRV-04 | Cada gestor es un microservicio en **Azure Container Apps + LangGraph** que **escala según su cola**. |
-| RN-TRV-05 | Cada gestor tiene **juez propio**, **auditoría propia** (MongoDB) y envía su trazabilidad a la **Torre de control** (RN-TRV-15). |
+| RN-TRV-04 | Cada gestor es un microservicio en **AKS + LangGraph** que **escala según su cola**. |
+| RN-TRV-05 | Cada gestor tiene **juez propio**, **auditoría propia** (Cosmos DB) y envía su trazabilidad a la **Torre de control** (RN-TRV-15). |
 | RN-TRV-06 | Cuando el resultado no es confiable, la decisión pasa a una persona (**HITL**); la IA no cierra casos dudosos. |
 | RN-TRV-07 | El **orquestador de integración** es la única entrada de mensajes entre el core y los gestores: recibe **HTTP** y **encola**. Nadie escribe directo en las colas de otro dominio. |
 | RN-TRV-08 | Los servicios del orquestador **responden de inmediato que recibieron el mensaje (ACK)** y lo procesan después en la cola. El emisor no espera el resultado del gestor en la misma llamada: el resultado llega después, como otro mensaje. |
 | RN-TRV-09 | La **trazabilidad del orquestador** registra tres momentos de cada mensaje: **1. Recibido** (llegó por HTTP y se respondió el ACK de inmediato), **2. Procesado** (pasó la seguridad y quedó registrado) y **3. Encolado** (quedó en el topic, camino a la cola del destino). Esa trazabilidad va a la Torre de control. *(Por precisar: qué controles de seguridad agrega a los de Apigee y qué id usa para trazar; se presume el id del siniestro padre.)* |
+| RN-TRV-16 | **Comandos siempre por RabbitMQ; trazabilidad siempre por Kafka.** Todo lo que le pide trabajo a otro componente viaja como mensaje en una cola RabbitMQ, a través del orquestador de integración. Todo lo que informa qué pasó va al Kafka interno de la Torre de control. No se mezclan. |
+| RN-TRV-17 | **Plataforma:** los gestores y el runtime agéntico corren en **AKS** (no en Azure Container Apps), y escalan según su cola (KEDA). La base de datos es **Cosmos DB** (no MongoDB): auditoría propia de cada gestor, expediente del caso, catálogos, rúbricas y estado. |
 | RN-TRV-15 | La **Torre de control** es transversal y tiene su propio **Kafka interno**. **Todos los componentes** le envían la trazabilidad de su proceso interno al gestionar la solicitud. Ningún componente depende de otro para reportar lo suyo. |
 
 ---
@@ -249,6 +251,7 @@ pertinencia: <criticidad>
 |---|---|---|---|
 | P-01 | ¿Validamos y rechazamos **antes** o **después** de crear el siniestro padre? | Gestor Solicitud, `Validación inicial` (punteada) | **Cerrada 2026-11-12:** después, como en *canales con core* (RN-SOL-13..16) |
 | P-05 | ¿Se incorpora el **Gestor documental de autorizaciones** (publicar / consultar en Blob, vía Apigee) que aparece en *canales con core*, incluida la lectura del gestor desde ese repositorio? | canales con core | **Cerrada 2026-11-12:** sí; es componente de Siniestro integral (RN-SOL-17, 18) |
+| P-07 | El *Core publica en Kafka* cuando cambia una regla de duplicidad (pestaña *Duplicados por servicio*). Ese mensaje no es un comando ni trazabilidad, así que RN-TRV-16 no dice por dónde va. ¿Va por RabbitMQ, se resuelve con la exportación diaria, o se admite Kafka para eventos de datos? | Duplicados por servicio | **Pospuesta** (decisión 2026-11-12: no se trabaja por ahora) |
 | P-06 | ¿Qué pasa cuando la validación inicial del documento falla (seguridad o acceso)? Por definir: destino de la solicitud (rechazo, HITL/Konecta o reenvío del canal), estado del siniestro padre y aviso al canal. | Gestor Solicitud: caja ⏳ *Documento no válido* | Abierta, **dibujada como pendiente** |
 | P-02 | ¿Cómo maneja el core el `requiere HITL` de las respuestas del gestor de evaluación? | Gestor Evaluación, Core ADR | Abierta: se define con el equipo del core |
 | P-03 | ¿Qué hace el core con un archivo **no procesable**? En el diagrama no tiene conector de salida. | Gestor Solicitud | **Cerrada 2026-11-12:** responde *requiere revisión humana: fallo en la validación de archivos de entrada* por el Apigee de salida (RN-SOL-20) |
@@ -260,6 +263,12 @@ pertinencia: <criticidad>
 |---|---|---|
 | I-01 | La tabla de entrada/salida dice "API POST /solicitudes → cola q.recepcion" y "API del Core (vía MCP Gateway)", pero el flujo dibujado entra y sale por **Apigee → orquestador → topics**. | **Gestor Solicitud: corregida 2026-11-12** (RN-SOL-21, 22) en *Detalle* y *canales con core*. **Gestor Evaluación: corregida 2026-11-12** (RN-TRV-13, 14) en *Detalle R1* y *Release final*, filas ④, ⑤ y ⑤b. Las filas ⑥ y ⑥b (paso a personas, decisión humana) quedan para I-03/P-02 |
 | I-08 | La pestaña borrador *Page-11* tiene 3 cajas "API de solicitudes", que contradicen RN-SOL-21 (no hay API de entrada). | Page-11 · abierta, por confirmar si esa pestaña sigue vigente |
+| I-10 | El **Glosario** aún describe el modelo anterior: "Core SURA (SuraHist) · dirige el proceso, decide qué gestor activar", "API Gateway · Azure API Management" (en los detalles es **Apigee**), y no menciona Siniestro integral, el orquestador de integración ni el gestor documental. | Glosario · **cerrada 2026-11-12** |
+| I-11 | **Entrada del Gestor Evaluación:** el diagrama dice "id solicitud + datos extraídos" en el mensaje. El backlog dice que recibe el evento con el **id del siniestro padre** (fila 82) y que **lee** los datos extraídos que dejó el Gestor Solicitud **en Siniestro integral** (fila 79). | Evaluación · abierta |
+| I-12 | **Orden de la evaluación:** el diagrama dice que el core aplica reglas duras primero y solo invoca al gestor si no autoriza (RN-EVA-01). El backlog dice que el gestor ejecuta **duplicidad → reglas duras → pertinencia** (fila 87) y combina reglas del core con reglas propias (fila 80). El paso de duplicados se borró del diagrama (I-02). | Evaluación · abierta |
+| I-13 | **Quién cambia el estado:** el backlog dice que el gestor deja la autorización aprobada en estado "pendiente o lista para coordinación" en el core SuraHis (fila 89). Eso choca con RN-TRV-11 (Siniestro integral administra los estados) y con RN-EVA-02 (el gestor recomienda, el core decide). | Evaluación · abierta |
+| I-14 | **Contrato de salida de Evaluación incompleto:** el diagrama tiene aprobado/rechazado + requireHumanInTheLoop + reason + level (N1/N2/N3, ver I-03). El backlog además pide etiqueta y clasificación del resultado (completo, parcial o nulo), criterios cumplidos, limitaciones y motivo de envío a bandeja (fila 75), y una respuesta explícita cuando falta información (fila 95). | Evaluación · abierta |
+| I-15 | **Contratos sin esquema:** ningún gestor tiene definido su JSON de entrada y salida campo por campo. En Solicitud faltan el esquema de campos por tipo documental (fila 61, Analítica), el umbral de confianza "lista vs. requiere revisión" (Sprint 3Q4 #5) y los datos mínimos de la presolicitud (Sprint 3Q4 #2). | Ambos · abierta |
 | I-09 | El **MCP Gateway** aparece en *Servicios compartidos* del Gestor Solicitud, pero ningún paso del gestor lo usa. | **Cerrada 2026-11-12:** se mantiene dibujado (RN-TRV-10) y ya tiene uso: el homologador de códigos lo consulta (RN-SOL-23) |
 | I-02 | El paso **2. Duplicados** ya no está dibujado, pero se menciona en el título, en el expediente ("lo usan Duplicados (2)"), en la auditoría y en los eventos Kafka. | Evaluación |
 | I-03 | Niveles de revisión: la respuesta usa **N1/N2/N3** (auxiliar, médico, especialista); notas, eventos y tabla usan **N3/N4**. | Evaluación |
@@ -318,7 +327,7 @@ Estilo identificado en las páginas de detalle de la v6_3. Todo elemento nuevo d
 | **Resultado OK** | ✔ salida exitosa (300×64) | `rounded=1;fillColor=#e8f5e3;strokeColor=#43a047;strokeWidth=2;fontSize=13` |
 | **Resultado a revisión** | ⚠ salida que va a persona | `fillColor=#fde9cc;strokeColor=#d79b00;strokeWidth=2` |
 | **Resultado error** | ⚠ falla técnica | `fillColor=#fdeaea;strokeColor=#d9534f;strokeWidth=2` |
-| **Persistencia propia / modelos** | Auditoría MongoDB, grupo de modelos, catálogo, expediente | `rounded=1;fillColor=#f4edfa;strokeColor=#8e5cc4;strokeWidth=2;fontSize=13` |
+| **Persistencia propia / modelos** | Auditoría Cosmos DB, grupo de modelos, catálogo, expediente | `rounded=1;fillColor=#f4edfa;strokeColor=#8e5cc4;strokeWidth=2;fontSize=13` |
 | **Eventos Kafka** | Banda de eventos hacia la torre de control | `rounded=1;fillColor=#fdf0db;strokeColor=#e08a1e;strokeWidth=2;fontSize=13` |
 | **Llamada al core** | Pasos que consultan al core | `fillColor=#fdf0db` o `#fde9cc` con `strokeColor=#d79b00;strokeWidth=2` |
 | **Píldora** | `→ IA` (usa modelo), `→ MCP` (consulta al core) | `rounded=1;arcSize=50;html=1;fillColor=#e1f5fe;strokeColor=#0288d1;fontColor=#0277bd;fontSize=10;fontStyle=1;fontFamily=Helvetica;strokeWidth=1.5;` (58×18) |
@@ -354,6 +363,20 @@ Las entradas y salidas del gestor se numeran con círculos (① ② ③ ③b ⚠
 2. **Franjas de arriba a abajo** según el recorrido: Canales → proceso del core → Orquestador de integración → **Microservicio** → Plataforma agéntica (control plane). Core ADR, Core Salud y Konecta a la derecha.
 3. Dentro del microservicio: secciones **A., B., …** de izquierda a derecha; resultados al final del flujo; abajo, **auditoría propia** (morado) y **eventos Kafka** (naranja); a la derecha, *Servicios compartidos (fuera del microservicio)*.
 4. Pie: **tabla de entrada/salida** a la izquierda y **nota de diseño** a la derecha.
+
+### 9.6 Capas de la Vista general
+
+La *Vista general* es el resumen de toda la arquitectura. Usa capas horizontales con la etiqueta vertical a la izquierda y solo componentes que existen en las páginas de detalle:
+
+1. **Canales:** SVP · AVA · Portal prestador · Apigee. Radican, consultan el estado y notifican.
+2. **Siniestro integral:** orquestador (id de trazabilidad) → siniestro padre → validación inicial → encola el comando · cola de resultados → actualiza el estado → radica o escala · gestor documental de autorizaciones. Dirige el proceso y sus estados.
+3. **Orquestador de integración:** recibe HTTP → ACK → procesa (seguridad, trazabilidad) → decide → encola → cola del destino · topic de contingencia · trazabilidad del mensaje.
+4. **Gestores (microservicios):** una tarjeta por gestor (Entra · Hace · Responde · Auditoría · píldoras) y, debajo, la **plataforma agéntica compartida**: runtime agéntico, LLM Gateway (obligatorio), MCP Gateway y Document Intelligence.
+5. **Cores:** Core ADR · Core Salud Voluntarios (GlobalWeb) · Konecta.
+6. **Torre de control (transversal):** Kafka interno → flujo end to end → tablero + copiloto → pide acciones al core.
+7. **Cómo se lee:** tabla *Auditoría de cada gestor vs Torre de control* y *Contrato igual para todos los gestores*.
+
+Si cambia una regla que afecta un componente, la Vista general se actualiza en el mismo cambio (regla de oro).
 
 ### 9.5 Buenas prácticas identificadas
 
@@ -395,6 +418,9 @@ Las entradas y salidas del gestor se numeran con círculos (① ② ③ ③b ⚠
 | 2026-11-12 | D-04 (uso del tipo documental que marca el prestador) se declara fuera del alcance de este diagrama. | D-04 | Ninguna |
 | 2026-11-12 | El **Gestor documental de autorizaciones** se dibuja **dentro** del contenedor Siniestro integral (antes estaba al lado, con prefijo en el nombre). Siniestro integral se ensancha a 2320. La caja queda de 310 × 193, arriba a la derecha, con título "Gestor documental de autorizaciones". El conector "consulta documentos (síncrona)" se reencamina por el borde para no cruzarla. | Dominios §2.1 (sin cambio de regla, solo visual) | *Detalle: Gestor Solicitud* y *canales con core* |
 | 2026-11-12 | El título de las páginas del Gestor Solicitud pasa de "Microservicio GESTOR SOLICITUD — por dentro" a **"Proceso end to end del Gestor de Solicitud"**, con un subtítulo que narra el recorrido completo del canal al estado final. | §9.4 | *Detalle: Gestor Solicitud* y *canales con core* |
+| 2026-11-12 | Decisiones de plataforma: **AKS** en lugar de Azure Container Apps y **Cosmos DB** en lugar de MongoDB. Regla de mensajería: **comandos siempre por RabbitMQ, trazabilidad siempre por Kafka**. | RN-TRV-04, RN-TRV-05, RN-SOL-11, RN-EVA-05, RN-EVA-10 (texto); RN-TRV-16, RN-TRV-17 nuevas; P-07 | Las 4 pestañas de gestores (títulos de contenedor y auditoría/expediente), Vista general (nota de gestores, runtime, contrato, auditorías, subtítulo), Juez (catálogo de rúbricas, veredicto → trazabilidad a la Torre de control), Dónde vive la IA (título, AKS, Cosmos DB con su ícono), Duplicados (catálogo en Cosmos DB con su ícono), Glosario (filas de runtime, estado, auditoría, catálogo y regla RabbitMQ/Kafka) |
+| 2026-11-12 | **Glosario alineado (I-10).** Cambios por fila: C1 consumidores (canales SVP · AVA · Portal prestador, Konecta, tablero de la Torre; consultan estado y notifican). API Gateway → **Apigee** (y apiG del gestor documental). LLM Gateway **obligatorio**. MCP Gateway con ejemplos de uso. Domain APIs → Core ADR, Core Salud / GlobalWeb, tabla de homologación. "Coordinador y perfil de proceso" → **Proceso general y estados = Siniestro integral**. "Core SURA (SuraHist) dirige el proceso" → **Cores SURA**: Core ADR y Core Salud aplican reglas, autorizan y radican. Object storage → **gestor documental de Siniestro integral**, sin copias en los gestores. Filas nuevas: **Orquestador de integración** (C3) y **Homologador de códigos** (C4). | I-10 | Glosario |
+| 2026-11-12 | **Vista general rehecha.** Las capas anteriores (Canales · Core SURA dirige el proceso · Gestores · Eventos · Torre de control · Cómo se lee) y sus componentes (Proveedor/Cliente, API Management, CORE SURA SuraHist) ya no correspondían. Quedan 7 capas con los componentes de los detalles: Canales · Siniestro integral · Orquestador de integración · Gestores + plataforma agéntica compartida · Cores · Torre de control · Cómo se lee. Se conservan la tabla *Auditoría vs Torre de control* y el *Contrato*, cuyo punto 4 ahora dice que el gestor envía su trazabilidad a la Torre de control. Se abre I-10 (Glosario desalineado). | §9.6; I-10 | Vista general |
 | 2026-11-12 | El contenedor del orquestador vuelve a llamarse solo **"Orquestador de integración"**. Adentro se dibuja la caja **Trazabilidad del mensaje**: 1. Recibido (HTTP · ACK inmediato) → 2. Procesado (seguridad · registro) → 3. Encolado (topic → cola del destino). En *Release final* el orquestador crece a 360 de alto para que la caja no cruce un conector. | RN-TRV-09; §9.2, §9.5 | Detalle Solicitud, canales con core, Detalle Evaluación R1, Evaluación Release final |
 | 2026-11-12 | Nueva **Torre de control transversal con Kafka interno**: todos los componentes le envían su trazabilidad. Se agrega el contenedor "Torre de control · transversal" (Kafka interno → flujo end to end → tablero + copiloto) y la píldora `→ Torre de control` en canales, Siniestro integral, orquestador (caja de trazabilidad), Core ADR, Core Salud y CORE SURA. Las bandas "Publica eventos en Kafka" de los gestores pasan a "Envía su trazabilidad a la Torre de control (Kafka interno)". La leyenda de píldoras se completa en los subtítulos. | RN-TRV-15; RN-TRV-05, RN-SOL-12, RN-EVA-11; dominio §2.1; §9.2, §9.5 | Detalle Solicitud y canales con core (5 píldoras cada una), Detalle Evaluación R1 (2), Evaluación Release final (3); *Vista general* (banda KAFKA → "KAFKA interno de la Torre de control"); *Glosario* (filas C5 Events y C1 Torre de Control) |
 | 2026-11-12 | I-01 resuelta para el Gestor Evaluación, y la entrada y salida pasan a ser reglas de **todos** los gestores. Los textos ya coinciden con lo dibujado. | RN-TRV-13, 14; I-01 | *Detalle: Gestor Evaluación (R1)* y *Gestor Evaluación Release final*: subtítulo, tabla (④ ⑤ ⑤b), "cola q.evaluacion (RabbitMQ)", conectores "publica respuesta", "⑤ recomendación" y "⑤b duplicada" con "· JSON/HTTP". *Vista general*: "Contrato igual para todos los gestores" (pasos 1 y 3), las 5 tarjetas "Se activa: mensaje en su cola RabbitMQ (orquestador de integración)", conector "activa (orquestador)". *Glosario*: filas C4 "Microservicio gestor" y "Gestor (módulo)" | *Detalle: Gestor Solicitud* y *canales con core*: subtítulo, tabla de entrada/salida, etiqueta "Cola del gestor (RabbitMQ)", conectores ③/③b/⚠ con "· JSON/HTTP" |
