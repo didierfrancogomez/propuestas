@@ -43,7 +43,7 @@
         <mxCell id="c13" parent="c12" style="rounded=1;arcSize=50;html=1;fillColor=none;strokeColor=#43a047;fontColor=#2e7d32;fontSize=11;fontStyle=1;fontFamily=Georgia;" value="FASE 1 · SE CONSTRUYE" vertex="1">
           <mxGeometry height="22" width="340" x="10" y="42" as="geometry" />
         </mxCell>
-        <mxCell id="c14" parent="c12" style="label;whiteSpace=wrap;html=1;rounded=1;arcSize=20;fillColor=#e7f0fa;strokeColor=#0288d1;fontColor=#1a1a1a;fontSize=11;fontFamily=Georgia;align=left;verticalAlign=middle;image=https://icons.diagrams.net/assets/sap/1/SAP_SE_RabbitMQ.svg;imageWidth=22;imageHeight=22;imageAlign=left;imageVerticalAlign=middle;spacingLeft=32;" value="&lt;b&gt;Se activa&lt;/b&gt;: su API + su cola RabbitMQ" vertex="1">
+        <mxCell id="c14" parent="c12" style="label;whiteSpace=wrap;html=1;rounded=1;arcSize=20;fillColor=#e7f0fa;strokeColor=#0288d1;fontColor=#1a1a1a;fontSize=11;fontFamily=Georgia;align=left;verticalAlign=middle;image=https://icons.diagrams.net/assets/sap/1/SAP_SE_RabbitMQ.svg;imageWidth=22;imageHeight=22;imageAlign=left;imageVerticalAlign=middle;spacingLeft=32;" value="&lt;b&gt;Se activa&lt;/b&gt;: mensaje en su cola RabbitMQ (orquestador de integración)" vertex="1">
           <mxGeometry height="44" width="340" x="10" y="74" as="geometry" />
         </mxCell>
         <mxCell id="c15" parent="c12" style="label;whiteSpace=wrap;html=1;rounded=1;arcSize=20;fillColor=#fff7d6;strokeColor=#d6b656;fontColor=#1a1a1a;fontSize=11;fontFamily=Georgia;align=left;verticalAlign=middle;image=https://icons.diagrams.net/icon-cache1/User_Interface-2834/dicument-730.svg;imageWidth=22;imageHeight=22;imageAlign=left;imageVerticalAlign=middle;spacingLeft=32;" value="&lt;b&gt;Config&lt;/b&gt;: qué documentos buscar por tipo de solicitud" vertex="1">
@@ -64,7 +64,7 @@
         <mxCell id="c20" parent="c19" style="rounded=1;arcSize=50;html=1;fillColor=none;strokeColor=#43a047;fontColor=#2e7d32;fontSize=11;fontStyle=1;fontFamily=Georgia;" value="FASE 1 · SE CONSTRUYE" vertex="1">
           <mxGeometry height="22" width="340" x="10" y="42" as="geometry" />
         </mxCell>
-        <mxCell id="c21" parent="c19" style="label;whiteSpace=wrap;html=1;rounded=1;arcSize=20;fillColor=#e7f0fa;strokeColor=#0288d1;fontColor=#1a1a1a;fontSize=11;fontFamily=Georgia;align=left;verticalAlign=middle;image=https://icons.diagrams.net/assets/sap/1/SAP_SE_RabbitMQ.svg;imageWidth=22;imageHeight=22;imageAlign=left;imageVerticalAlign=middle;spacingLeft=32;" value="&lt;b&gt;Se activa&lt;/b&gt;: su API + su cola RabbitMQ" vertex="1">
+        <mxCell id="c21" parent="c19" style="label;whiteSpace=wrap;html=1;rounded=1;arcSize=20;fillColor=#e7f0fa;strokeColor=#0288d1;fontColor=#1a1a1a;fontSize=11;fontFamily=Georgia;align=left;verticalAlign=middle;image=https://icons.diagrams.net/assets/sap/1/SAP_SE_RabbitMQ.svg;imageWidth=22;imageHeight=22;imageAlign=left;imageVerticalAlign=middle;spacingLeft=32;" value="&lt;b&gt;Se activa&lt;/b&gt;: mensaje en su cola RabbitMQ (orquestador de integración)" vertex="1">
           <mxGeometry height="44" width="340" x="10" y="74" as="geometry" />
         </mxCell>
         <mxCell id="c22" parent="c19" style="label;whiteSpace=wrap;html=1;rounded=1;arcSize=20;fillColor=#fff7d6;strokeColor=#d6b656;fontColor=#1a1a1a;fontSize=11;fontFamily=Georgia;align=left;verticalAlign=middle;image=https://icons.diagrams.net/icon-cache1/User_Interface-2834/dicument-730.svg;imageWidth=22;imageHeight=22;imageAlign=left;imageVerticalAlign=middle;spacingLeft=32;" value="&lt;b&gt;Config&lt;/b&gt;: reglas de duplicidad, umbrales y enrutamiento N3 / N4" vertex="1">
@@ -85,7 +85,7 @@
         <mxCell id="c27" parent="c26" style="rounded=1;arcSize=50;html=1;fillColor=none;strokeColor=#8a8a8a;fontColor=#5f5f5f;fontSize=11;fontStyle=1;fontFamily=Georgia;" value="POR DEFINIR" vertex="1">
           <mxGeometry height="22" width="340" x="10" y="42" as="geometry" />
         </mxCell>
-        <mxCell id="c28" parent="c26" style="label;whiteSpace=wrap;html=1;rounded=1;arcSize=20;fillColor=#e7f0fa;strokeColor=#0288d1;fontColor=#1a1a1a;fontSize=11;fontFamily=Georgia;align=left;verticalAlign=middle;image=https://icons.diagrams.net/assets/sap/1/SAP_SE_RabbitMQ.svg;imageWidth=22;imageHeight=22;imageAlign=left;imageVerticalAlign=middle;spacingLeft=32;" value="&lt;b&gt;Se activa&lt;/b&gt;: su API + su cola RabbitMQ" vertex="1">
+        <mxCell id="c28" parent="c26" style="label;whiteSpace=wrap;html=1;rounded=1;arcSize=20;fillColor=#e7f0fa;strokeColor=#0288d1;fontColor=#1a1a1a;fontSize=11;fontFamily=Georgia;align=left;verticalAlign=middle;image=https://icons.diagrams.net/assets/sap/1/SAP_SE_RabbitMQ.svg;imageWidth=22;imageHeight=22;imageAlign=left;imageVerticalAlign=middle;spacingLeft=32;" value="&lt;b&gt;Se activa&lt;/b&gt;: mensaje en su cola RabbitMQ (orquestador de integración)" vertex="1">
           <mxGeometry height="44" width="340" x="10" y="74" as="geometry" />
         </mxCell>
         <mxCell id="c29" parent="c26" style="label;whiteSpace=wrap;html=1;rounded=1;arcSize=20;fillColor=#fff7d6;strokeColor=#d6b656;fontColor=#1a1a1a;fontSize=11;fontFamily=Georgia;align=left;verticalAlign=middle;image=https://icons.diagrams.net/icon-cache1/User_Interface-2834/dicument-730.svg;imageWidth=22;imageHeight=22;imageAlign=left;imageVerticalAlign=middle;spacingLeft=32;" value="&lt;b&gt;Config&lt;/b&gt;: reglas de coordinación" vertex="1">
@@ -106,7 +106,7 @@
         <mxCell id="c34" parent="c33" style="rounded=1;arcSize=50;html=1;fillColor=none;strokeColor=#8a8a8a;fontColor=#5f5f5f;fontSize=11;fontStyle=1;fontFamily=Georgia;" value="POR DEFINIR" vertex="1">
           <mxGeometry height="22" width="340" x="10" y="42" as="geometry" />
         </mxCell>
-        <mxCell id="c35" parent="c33" style="label;whiteSpace=wrap;html=1;rounded=1;arcSize=20;fillColor=#e7f0fa;strokeColor=#0288d1;fontColor=#1a1a1a;fontSize=11;fontFamily=Georgia;align=left;verticalAlign=middle;image=https://icons.diagrams.net/assets/sap/1/SAP_SE_RabbitMQ.svg;imageWidth=22;imageHeight=22;imageAlign=left;imageVerticalAlign=middle;spacingLeft=32;" value="&lt;b&gt;Se activa&lt;/b&gt;: su API + su cola RabbitMQ" vertex="1">
+        <mxCell id="c35" parent="c33" style="label;whiteSpace=wrap;html=1;rounded=1;arcSize=20;fillColor=#e7f0fa;strokeColor=#0288d1;fontColor=#1a1a1a;fontSize=11;fontFamily=Georgia;align=left;verticalAlign=middle;image=https://icons.diagrams.net/assets/sap/1/SAP_SE_RabbitMQ.svg;imageWidth=22;imageHeight=22;imageAlign=left;imageVerticalAlign=middle;spacingLeft=32;" value="&lt;b&gt;Se activa&lt;/b&gt;: mensaje en su cola RabbitMQ (orquestador de integración)" vertex="1">
           <mxGeometry height="44" width="340" x="10" y="74" as="geometry" />
         </mxCell>
         <mxCell id="c36" parent="c33" style="label;whiteSpace=wrap;html=1;rounded=1;arcSize=20;fillColor=#fff7d6;strokeColor=#d6b656;fontColor=#1a1a1a;fontSize=11;fontFamily=Georgia;align=left;verticalAlign=middle;image=https://icons.diagrams.net/icon-cache1/User_Interface-2834/dicument-730.svg;imageWidth=22;imageHeight=22;imageAlign=left;imageVerticalAlign=middle;spacingLeft=32;" value="&lt;b&gt;Config&lt;/b&gt;: qué evidencia pedir" vertex="1">
@@ -127,7 +127,7 @@
         <mxCell id="c41" parent="c40" style="rounded=1;arcSize=50;html=1;fillColor=none;strokeColor=#8a8a8a;fontColor=#5f5f5f;fontSize=11;fontStyle=1;fontFamily=Georgia;" value="POR DEFINIR" vertex="1">
           <mxGeometry height="22" width="340" x="10" y="42" as="geometry" />
         </mxCell>
-        <mxCell id="c42" parent="c40" style="label;whiteSpace=wrap;html=1;rounded=1;arcSize=20;fillColor=#e7f0fa;strokeColor=#0288d1;fontColor=#1a1a1a;fontSize=11;fontFamily=Georgia;align=left;verticalAlign=middle;image=https://icons.diagrams.net/assets/sap/1/SAP_SE_RabbitMQ.svg;imageWidth=22;imageHeight=22;imageAlign=left;imageVerticalAlign=middle;spacingLeft=32;" value="&lt;b&gt;Se activa&lt;/b&gt;: su API + su cola RabbitMQ" vertex="1">
+        <mxCell id="c42" parent="c40" style="label;whiteSpace=wrap;html=1;rounded=1;arcSize=20;fillColor=#e7f0fa;strokeColor=#0288d1;fontColor=#1a1a1a;fontSize=11;fontFamily=Georgia;align=left;verticalAlign=middle;image=https://icons.diagrams.net/assets/sap/1/SAP_SE_RabbitMQ.svg;imageWidth=22;imageHeight=22;imageAlign=left;imageVerticalAlign=middle;spacingLeft=32;" value="&lt;b&gt;Se activa&lt;/b&gt;: mensaje en su cola RabbitMQ (orquestador de integración)" vertex="1">
           <mxGeometry height="44" width="340" x="10" y="74" as="geometry" />
         </mxCell>
         <mxCell id="c43" parent="c40" style="label;whiteSpace=wrap;html=1;rounded=1;arcSize=20;fillColor=#fff7d6;strokeColor=#d6b656;fontColor=#1a1a1a;fontSize=11;fontFamily=Georgia;align=left;verticalAlign=middle;image=https://icons.diagrams.net/icon-cache1/User_Interface-2834/dicument-730.svg;imageWidth=22;imageHeight=22;imageAlign=left;imageVerticalAlign=middle;spacingLeft=32;" value="&lt;b&gt;Config&lt;/b&gt;: qué cerrar y a quién avisar" vertex="1">
@@ -142,7 +142,7 @@
         <mxCell id="c46" parent="c40" style="label;whiteSpace=wrap;html=1;rounded=1;arcSize=20;fillColor=#ede3f7;strokeColor=#8e5cc4;fontColor=#1a1a1a;fontSize=11;fontFamily=Georgia;align=left;verticalAlign=middle;image=data:image/svg+xml,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTIiIGZpbGw9IiMxM2FhNTIiLz48cGF0aCBkPSJNMzIgNmM2IDEwIDE0IDE4IDE0IDMwIDAgOS02IDE1LTEyIDE3bC0xIDZoLTJsLTEtNmMtNi0yLTEyLTgtMTItMTcgMC0xMiA4LTIwIDE0LTMweiIgZmlsbD0iI2ZmZmZmZiIvPjxwYXRoIGQ9Ik0zMiAxMnY0NiIgc3Ryb2tlPSIjMTNhYTUyIiBzdHJva2Utd2lkdGg9IjIiLz48L3N2Zz4=;imageWidth=22;imageHeight=22;imageAlign=left;imageVerticalAlign=middle;spacingLeft=32;" value="&lt;b&gt;Auditoría propia&lt;/b&gt;: qué hizo y por qué" vertex="1">
           <mxGeometry height="44" width="340" x="10" y="298" as="geometry" />
         </mxCell>
-        <mxCell id="c47" edge="1" parent="1" source="c9" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#d79b00;strokeWidth=2;dashed=0;fontColor=#9a6500;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=0.06315789473684211;exitY=1;exitDx=0;exitDy=0;entryX=0.333;entryY=0;entryDx=0;entryDy=0;" target="c12" value="activa (API → cola)">
+        <mxCell id="c47" edge="1" parent="1" source="c9" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#d79b00;strokeWidth=2;dashed=0;fontColor=#9a6500;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=0.06315789473684211;exitY=1;exitDx=0;exitDy=0;entryX=0.333;entryY=0;entryDx=0;entryDy=0;" target="c12" value="activa (orquestador)">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="c48" edge="1" parent="1" source="c12" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#43a047;strokeWidth=2;dashed=0;fontColor=#2e7d32;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=0.667;exitY=0;exitDx=0;exitDy=0;entryX=0.12631578947368421;entryY=1;entryDx=0;entryDy=0;" target="c9" value="devuelve resultado">
@@ -178,7 +178,7 @@
         <mxCell id="c58" parent="1" style="swimlane;horizontal=0;startSize=46;html=1;fillColor=#f7f7f7;swimlaneFillColor=#fcfcfc;strokeColor=#e08a1e;fontColor=#1a1a1a;fontStyle=1;fontSize=14;fontFamily=Georgia;" value="4. EVENTOS" vertex="1">
           <mxGeometry height="110" width="2060" x="80" y="870" as="geometry" />
         </mxCell>
-        <mxCell id="c59" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdf0db;strokeColor=#e08a1e;fontColor=#1a1a1a;fontSize=13;fontFamily=Georgia;strokeWidth=2;" value="&lt;b&gt;KAFKA · bus principal de eventos&lt;/b&gt; — cada gestor publica solo mientras está activo: &lt;i&gt;solicitud.recibida · documentos.leídos · solicitud.creada · evaluación.completada · escalada · autorizada · finalizada&lt;/i&gt;" vertex="1">
+        <mxCell id="c59" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdf0db;strokeColor=#e08a1e;fontColor=#1a1a1a;fontSize=13;fontFamily=Georgia;strokeWidth=2;" value="&lt;b&gt;KAFKA interno de la Torre de control&lt;/b&gt; — todos los componentes (canales, Siniestro integral, orquestador de integración, gestores y core) le envían la trazabilidad de su proceso: &lt;i&gt;solicitud.recibida · documentos.leídos · solicitud.creada · evaluación.completada · escalada · autorizada · finalizada&lt;/i&gt;" vertex="1">
           <mxGeometry height="60" width="1900" x="180" y="895" as="geometry" />
         </mxCell>
         <mxCell id="c60" edge="1" parent="1" source="c12" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#e08a1e;strokeWidth=2;dashed=0;fontColor=#b35c00;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.09473684210526316;entryY=0;entryDx=0;entryDy=0;" target="c59" value="publica">
@@ -231,7 +231,7 @@
         <mxCell id="c74" parent="1" style="text;html=1;whiteSpace=wrap;fontSize=12;align=left;verticalAlign=top;fontColor=#1a1a1a;" value="&lt;table border=&quot;1&quot; cellpadding=&quot;4&quot; style=&quot;border-collapse:collapse;width:100%;font-size:12px&quot;&gt;&lt;tr&gt;&lt;th style=&quot;background:#dae8fc&quot;&gt;&lt;/th&gt;&lt;th style=&quot;background:#dae8fc&quot;&gt;Auditoría de cada gestor&lt;/th&gt;&lt;th style=&quot;background:#dae8fc&quot;&gt;Torre de Control&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;¿Qué es?&lt;/td&gt;&lt;td&gt;Registro propio de un microservicio&lt;/td&gt;&lt;td&gt;Componente transversal de toda la operación&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;¿Qué guarda?&lt;/td&gt;&lt;td&gt;Qué hizo cada agente, qué decidió y con qué evidencia&lt;/td&gt;&lt;td&gt;El recorrido completo de cada autorización&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;¿Puede actuar?&lt;/td&gt;&lt;td&gt;No: solo registra y se consulta&lt;/td&gt;&lt;td&gt;Sí: pide acciones al Core&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" vertex="1">
           <mxGeometry height="200" width="1000" x="180" y="1255" as="geometry" />
         </mxCell>
-        <mxCell id="c75" parent="1" style="text;html=1;whiteSpace=wrap;fontColor=#1a1a1a;fontSize=12;fontFamily=Georgia;align=left;verticalAlign=top;fillColor=#f7f7f7;strokeColor=#0288d1;rounded=1;spacing=10;" value="&lt;b&gt;Contrato igual para todos los gestores&lt;/b&gt;&lt;br&gt;1. El Core lo &lt;b&gt;activa&lt;/b&gt; por su API (el mensaje queda en su cola RabbitMQ).&lt;br&gt;2. El gestor &lt;b&gt;trabaja&lt;/b&gt; según su configuración.&lt;br&gt;3. &lt;b&gt;Devuelve&lt;/b&gt; el resultado al Core.&lt;br&gt;4. Guarda su &lt;b&gt;auditoría&lt;/b&gt; y publica su &lt;b&gt;evento&lt;/b&gt; en Kafka.&lt;br&gt;&lt;br&gt;&lt;b&gt;Dónde corre&lt;/b&gt;: cada gestor es una app en &lt;b&gt;Azure Container Apps&lt;/b&gt; (plan dedicado, red privada), que escala según los mensajes de su cola." vertex="1">
+        <mxCell id="c75" parent="1" style="text;html=1;whiteSpace=wrap;fontColor=#1a1a1a;fontSize=12;fontFamily=Georgia;align=left;verticalAlign=top;fillColor=#f7f7f7;strokeColor=#0288d1;rounded=1;spacing=10;" value="&lt;b&gt;Contrato igual para todos los gestores&lt;/b&gt;&lt;br&gt;1. El &lt;b&gt;orquestador de integración&lt;/b&gt; lo &lt;b&gt;activa&lt;/b&gt; con un mensaje en su cola RabbitMQ.&lt;br&gt;2. El gestor &lt;b&gt;trabaja&lt;/b&gt; según su configuración.&lt;br&gt;3. &lt;b&gt;Devuelve&lt;/b&gt; el resultado como JSON por HTTP al orquestador de integración, que lo encola hacia quien lo consume.&lt;br&gt;4. Guarda su &lt;b&gt;auditoría&lt;/b&gt; y publica su &lt;b&gt;evento&lt;/b&gt; en Kafka.&lt;br&gt;&lt;br&gt;&lt;b&gt;Dónde corre&lt;/b&gt;: cada gestor es una app en &lt;b&gt;Azure Container Apps&lt;/b&gt; (plan dedicado, red privada), que escala según los mensajes de su cola." vertex="1">
           <mxGeometry height="210" width="870" x="1210" y="1255" as="geometry" />
         </mxCell>
       </root>
@@ -282,12 +282,12 @@
           <mxGeometry height="52" width="155" x="219" y="223" as="geometry" />
         </mxCell>
         <mxCell id="zaHUmAEQrHUE2_hIX2zZ-9" parent="1" style="swimlane;startSize=34;html=1;rounded=1;arcSize=2;fillColor=#eef2f7;swimlaneFillColor=#f7fafc;strokeColor=#0288d1;strokeWidth=3;dashed=1;fontColor=#1a1a1a;fontStyle=1;fontSize=15;fontFamily=Helvetica;" value="Siniestro integral" vertex="1">
-          <mxGeometry height="480" width="2045" x="85" y="-559" as="geometry" />
+          <mxGeometry height="480" width="2320" x="85" y="-559" as="geometry" />
         </mxCell>
         <mxCell id="zaHUmAEQrHUE2_hIX2zZ-7" parent="zaHUmAEQrHUE2_hIX2zZ-9" style="text;html=1;whiteSpace=wrap;fontColor=#1a1a1a;fontSize=12;fontFamily=Helvetica;align=center;verticalAlign=middle;fillColor=#f7f7f7;strokeColor=#43a047;rounded=1;spacing=10;" value="Crear siniestro padre" vertex="1">
-          <mxGeometry height="52" width="155" x="360" y="75.63" as="geometry" />
+          <mxGeometry height="52" width="155" x="310" y="75.63" as="geometry" />
         </mxCell>
-        <mxCell id="zaHUmAEQrHUE2_hIX2zZ-10" parent="zaHUmAEQrHUE2_hIX2zZ-9" style="text;html=1;whiteSpace=wrap;fontColor=#1a1a1a;fontSize=12;fontFamily=Helvetica;align=center;verticalAlign=middle;fillColor=#f7f7f7;strokeColor=#43a047;rounded=1;spacing=10;" value="Entra solicitud" vertex="1">
+        <mxCell id="zaHUmAEQrHUE2_hIX2zZ-10" parent="zaHUmAEQrHUE2_hIX2zZ-9" style="text;html=1;whiteSpace=wrap;fontColor=#1a1a1a;fontSize=12;fontFamily=Helvetica;align=center;verticalAlign=middle;fillColor=#f7f7f7;strokeColor=#43a047;rounded=1;spacing=10;" value="Orquestador" vertex="1">
           <mxGeometry height="52" width="155" x="114" y="75.63000000000001" as="geometry" />
         </mxCell>
         <mxCell id="zaHUmAEQrHUE2_hIX2zZ-15" edge="1" parent="zaHUmAEQrHUE2_hIX2zZ-9" source="zaHUmAEQrHUE2_hIX2zZ-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;strokeColor=#333333;fontFamily=Helvetica;" target="zaHUmAEQrHUE2_hIX2zZ-7">
@@ -297,10 +297,10 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="zaHUmAEQrHUE2_hIX2zZ-16" parent="zaHUmAEQrHUE2_hIX2zZ-9" style="text;html=1;whiteSpace=wrap;fontColor=#1a1a1a;fontSize=12;fontFamily=Helvetica;align=center;verticalAlign=middle;fillColor=#f7f7f7;strokeColor=#43a047;rounded=1;spacing=10;" value="Encolar comando para gestor" vertex="1">
-          <mxGeometry height="52" width="155" x="804" y="75.63" as="geometry" />
+          <mxGeometry height="52" width="155" x="852" y="185" as="geometry" />
         </mxCell>
-        <mxCell id="zaHUmAEQrHUE2_hIX2zZ-42" parent="zaHUmAEQrHUE2_hIX2zZ-9" style="text;html=1;whiteSpace=wrap;fontColor=#1a1a1a;fontSize=12;fontFamily=Helvetica;align=center;verticalAlign=middle;fillColor=#f7f7f7;strokeColor=#43a047;rounded=1;spacing=10;dashed=1;" value="Validación inicial de la solicitud" vertex="1">
-          <mxGeometry height="52" width="222" x="549" y="75.63" as="geometry" />
+        <mxCell id="zaHUmAEQrHUE2_hIX2zZ-42" parent="zaHUmAEQrHUE2_hIX2zZ-9" style="text;html=1;whiteSpace=wrap;fontColor=#1a1a1a;fontSize=12;fontFamily=Helvetica;align=center;verticalAlign=middle;fillColor=#f7f7f7;strokeColor=#43a047;rounded=1;spacing=10;dashed=1;" value="Validación inicial del documento&lt;br&gt;seguridad&lt;br&gt;acceso al documento" vertex="1">
+          <mxGeometry height="52" width="222" x="590" y="75.63" as="geometry" />
         </mxCell>
         <mxCell id="ytV_XLnlDMq7iq_pSiFO-12" edge="1" parent="zaHUmAEQrHUE2_hIX2zZ-9" source="ytV_XLnlDMq7iq_pSiFO-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;strokeColor=#333333;fontColor=#1a1a1a;" target="ytV_XLnlDMq7iq_pSiFO-10" value="Cuando no se proce">
           <mxGeometry relative="1" as="geometry" />
@@ -329,7 +329,7 @@
         <mxCell id="zaHUmAEQrHUE2_hIX2zZ-52" parent="zaHUmAEQrHUE2_hIX2zZ-44" style="image;aspect=fixed;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;labelBackgroundColor=none;image=https://app.diagrams.net/img/lib/azure2/integration/AI_Gateway.svg;" value="&lt;b&gt;LLM Gateway&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;modelo por decidir:&lt;br&gt;Azure OpenAI o Gemini&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot; color=&quot;#0277bd&quot;&gt;C3&lt;/font&gt;" vertex="1">
           <mxGeometry height="48" width="48" x="115" y="68" as="geometry" />
         </mxCell>
-        <mxCell id="c1" parent="1" style="text;html=1;whiteSpace=wrap;fontColor=#1a1a1a;fontSize=20;fontFamily=Helvetica;align=left;verticalAlign=top;" value="&lt;b&gt;Microservicio GESTOR SOLICITUD — por dentro&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:13px&quot; color=&quot;#555555&quot;&gt;El Core SURA lo activa (①) · todo lo de la caja punteada es del microservicio · sale &lt;b&gt;siempre&lt;/b&gt; hacia el Core con uno de 3 resultados (③ · ③b · ⚠) · no habla con otros gestores · píldoras: &lt;b&gt;→ IA&lt;/b&gt; = usa el modelo vía LLM Gateway&lt;/font&gt;" vertex="1">
+        <mxCell id="c1" parent="1" style="text;html=1;whiteSpace=wrap;fontColor=#1a1a1a;fontSize=20;fontFamily=Helvetica;align=left;verticalAlign=top;" value='&lt;b&gt;Proceso end to end del Gestor de Solicitud&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:13px" color="#555555"&gt;Del canal al estado final: el prestador radica en el &lt;b&gt;canal&lt;/b&gt; → &lt;b&gt;Siniestro integral&lt;/b&gt; crea el siniestro padre, guarda los documentos en su gestor documental y valida → el &lt;b&gt;orquestador de integración&lt;/b&gt; deja un mensaje en la cola RabbitMQ del gestor (①) → el &lt;b&gt;Gestor Solicitud&lt;/b&gt; consulta los documentos, extrae, homologa y valida con su juez → responde &lt;b&gt;siempre&lt;/b&gt; con un JSON por HTTP al orquestador, con uno de 3 resultados (③ · ③b · ⚠) → &lt;b&gt;Siniestro integral&lt;/b&gt; marca el estado y radica o escala a revisión humana → el &lt;b&gt;canal&lt;/b&gt; consulta el estado y notifica al usuario · todo lo de la caja punteada GESTOR SOLICITUD es del microservicio · no habla con otros gestores · píldoras: &lt;b&gt;→ IA&lt;/b&gt; = usa el modelo vía LLM Gateway · &lt;b&gt;→ MCP&lt;/b&gt; = consulta sistemas SURA vía MCP Gateway · &lt;b&gt;→ Torre de control&lt;/b&gt; = envía su trazabilidad al Kafka interno de la Torre de control&lt;/font&gt;' vertex="1">
           <mxGeometry height="60" width="2050" x="85" y="-872" as="geometry" />
         </mxCell>
         <mxCell id="c3" parent="1" style="swimlane;startSize=34;html=1;rounded=1;arcSize=2;fillColor=#eef2f7;swimlaneFillColor=#f7fafc;strokeColor=#0288d1;strokeWidth=3;dashed=1;fontColor=#1a1a1a;fontStyle=1;fontSize=15;fontFamily=Helvetica;" value="GESTOR SOLICITUD · Azure Container Apps · LangGraph · escala según su cola" vertex="1">
@@ -353,31 +353,25 @@
         <mxCell id="c4" parent="c3" style="text;html=1;whiteSpace=wrap;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;align=left;verticalAlign=top;" value="&lt;font color=&quot;#0277bd&quot;&gt;&lt;b&gt;A. RECEPCIÓN DEL DOCUMENTO&lt;/b&gt;&lt;/font&gt;" vertex="1">
           <mxGeometry height="22" width="600" x="31" y="72" as="geometry" />
         </mxCell>
-        <mxCell id="c7" parent="c3" style="image;aspect=fixed;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;labelBackgroundColor=none;image=https://app.diagrams.net/img/lib/azure2/storage/Storage_Accounts.svg;" value="&lt;b&gt;Blob de entrada&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;temporal · se borra solo&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot; color=&quot;#0277bd&quot;&gt;C6&lt;/font&gt;" vertex="1">
-          <mxGeometry height="52" width="52" x="667.5" y="358" as="geometry" />
-        </mxCell>
-        <mxCell id="c13" edge="1" parent="c3" source="c6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7a8496;strokeWidth=2;dashed=0;fontColor=#4f5868;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;" target="c7" value="guarda">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="c14" edge="1" parent="c3" source="c7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7a8496;strokeWidth=2;dashed=0;fontColor=#4f5868;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;fontFamily=Helvetica;" target="c6" value="">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
+        
+        
+        
         <mxCell id="c11" edge="1" parent="c3" source="c6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#d79b00;strokeWidth=2;dashed=0;fontColor=#9a6500;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=0.5;exitY=0;exitDx=0;exitDy=0;fontFamily=Helvetica;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="zaHUmAEQrHUE2_hIX2zZ-32" value="① Integración">
           <mxGeometry relative="1" x="-0.5403" y="-2" as="geometry">
             <mxPoint as="offset" />
             <mxPoint x="505.5" y="256.00000000000045" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="zaHUmAEQrHUE2_hIX2zZ-32" parent="c3" style="image;aspect=fixed;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;labelBackgroundColor=none;image=https://icons.diagrams.net/assets/sap/1/SAP_SE_RabbitMQ.svg;" value="Cola del gestor" vertex="1">
+        <mxCell id="zaHUmAEQrHUE2_hIX2zZ-32" parent="c3" style="image;aspect=fixed;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;labelBackgroundColor=none;image=https://icons.diagrams.net/assets/sap/1/SAP_SE_RabbitMQ.svg;" value="Cola del gestor (RabbitMQ)" vertex="1">
           <mxGeometry height="46" width="46" x="171.5" y="122" as="geometry" />
         </mxCell>
         <mxCell id="c52" parent="c3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f4edfa;strokeColor=#8e5cc4;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;strokeWidth=2;" value="&lt;b&gt;Auditoría propia del Gestor Solicitud&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;MongoDB · qué hizo cada paso, qué decidió el juez y con qué evidencia · solo registra&lt;/font&gt;" vertex="1">
           <mxGeometry height="74" width="760" x="57.5" y="902" as="geometry" />
         </mxCell>
-        <mxCell id="c53" parent="c3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdf0db;strokeColor=#e08a1e;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;strokeWidth=2;" value="&lt;b&gt;Publica eventos en Kafka&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;solicitud.recibida · documentos.validados · documentos.leídos · resultado.enviado → los escucha la Torre de Control&lt;/font&gt;" vertex="1">
+        <mxCell id="c53" parent="c3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdf0db;strokeColor=#e08a1e;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;strokeWidth=2;" value='&lt;b&gt;Envía su trazabilidad a la Torre de control (Kafka interno)&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:11px"&gt;solicitud.recibida · documentos.validados · documentos.leídos · resultado.enviado&lt;/font&gt;' vertex="1">
           <mxGeometry height="74" width="1128.5" x="888.5" y="898" as="geometry" />
         </mxCell>
-        <mxCell id="c10" parent="c3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdeaea;strokeColor=#d9534f;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;strokeWidth=2;" value="&lt;b&gt;⚠ Archivo no procesable&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;dañado o protegido con clave&lt;/font&gt;" vertex="1">
+        <mxCell id="c10" parent="c3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdeaea;strokeColor=#d9534f;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;strokeWidth=2;" value='&lt;b&gt;⚠ Archivo no procesable&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:11px"&gt;dañado o protegido con clave · responde &lt;b&gt;requiere revisión humana&lt;/b&gt; con la &lt;b&gt;causa detallada&lt;/b&gt;&lt;/font&gt;' vertex="1">
           <mxGeometry height="60" width="300" x="848.5" y="474" as="geometry" />
         </mxCell>
         <mxCell id="c17" edge="1" parent="c3" source="c6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#d9534f;strokeWidth=2;dashed=0;fontColor=#c0392b;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontFamily=Helvetica;" target="c10" value="falla 2 veces">
@@ -386,10 +380,10 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="c28" parent="c3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e3;strokeColor=#43a047;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;strokeWidth=2;" value="&lt;b&gt;✔ Solicitud lista&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;datos extraídos + confianza + evidencia + nota del juez&lt;/font&gt;" vertex="1">
-          <mxGeometry height="64" width="300" x="1336.5" y="534" as="geometry" />
+          <mxGeometry height="64" width="300" x="1506.5" y="534" as="geometry" />
         </mxCell>
         <mxCell id="c29" parent="c3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fde9cc;strokeColor=#d79b00;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;strokeWidth=2;" value="&lt;b&gt;⚠ Requiere revisión&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;faltan datos o el juez no aprobó · dice qué revisar&lt;/font&gt;" vertex="1">
-          <mxGeometry height="64" width="300" x="1354.5" y="753" as="geometry" />
+          <mxGeometry height="64" width="300" x="1524.5" y="753" as="geometry" />
         </mxCell>
         <mxCell id="c18" parent="1" style="text;html=1;whiteSpace=wrap;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;align=left;verticalAlign=top;" value="&lt;font color=&quot;#0277bd&quot;&gt;&lt;b&gt;B. EXTRACCIÓN CON IA + JUEZ&lt;/b&gt;&lt;/font&gt;" vertex="1">
           <mxGeometry height="22" width="600" x="84" y="1099" as="geometry" />
@@ -413,16 +407,16 @@
           <mxGeometry height="44" width="44" x="692" y="1322" as="geometry" />
         </mxCell>
         <mxCell id="c25" parent="1" style="image;aspect=fixed;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;labelBackgroundColor=none;image=https://app.diagrams.net/img/lib/azure2/compute/Function_Apps.svg;" value="&lt;b&gt;Validador de salida&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;código: campos, CUPS,&lt;br&gt;paciente, cruce con OCR&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot; color=&quot;#0277bd&quot;&gt;C4 · sin IA&lt;/font&gt;" vertex="1">
-          <mxGeometry height="52" width="52" x="878" y="1208" as="geometry" />
+          <mxGeometry height="52" width="52" x="1048.0" y="1208" as="geometry" />
         </mxCell>
         <mxCell id="c26" parent="1" style="image;aspect=fixed;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;labelBackgroundColor=none;image=https://app.diagrams.net/img/lib/azure2/ai_machine_learning/Content_Safety.svg;" value="&lt;b&gt;⚖ Juez del microservicio&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;¿clasificó y extrajo bien?&lt;br&gt;rúbrica propia · modelo pequeño&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot; color=&quot;#0277bd&quot;&gt;C7 · Evals&lt;/font&gt;" vertex="1">
-          <mxGeometry height="52" width="52" x="1058" y="1208" as="geometry" />
+          <mxGeometry height="52" width="52" x="1228.0" y="1208" as="geometry" />
         </mxCell>
         <mxCell id="c27" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff7d6;strokeColor=#d6b656;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;" value="&lt;b&gt;¿Falta algo o el juez no aprueba?&lt;/b&gt;" vertex="1">
-          <mxGeometry height="104" width="190" x="1199" y="1182" as="geometry" />
+          <mxGeometry height="104" width="190" x="1369.0" y="1182" as="geometry" />
         </mxCell>
         <mxCell id="c30" parent="1" style="rounded=1;arcSize=50;html=1;fillColor=#e1f5fe;strokeColor=#0288d1;fontColor=#0277bd;fontSize=10;fontStyle=1;fontFamily=Helvetica;strokeWidth=1.5;" value="→ IA" vertex="1">
-          <mxGeometry height="18" width="58" x="996" y="1188" as="geometry" />
+          <mxGeometry height="18" width="58" x="1166.0" y="1188" as="geometry" />
         </mxCell>
         <mxCell id="c31" edge="1" parent="1" source="c6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#43a047;strokeWidth=2;dashed=0;fontColor=#2e7d32;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Helvetica;" target="c19" value="② OK → cola interna">
           <mxGeometry relative="1" x="0.1948" as="geometry">
@@ -457,7 +451,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="c37" edge="1" parent="1" source="c22" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7a8496;strokeWidth=2;dashed=0;fontColor=#4f5868;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;" target="c25" value="">
+        <mxCell id="c37" edge="1" parent="1" source="c22" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7a8496;strokeWidth=2;dashed=0;fontColor=#4f5868;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;" target="ctx-d01-hom" value="">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="809" y="1154" />
@@ -465,10 +459,10 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="c38" edge="1" parent="1" source="c23" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7a8496;strokeWidth=2;dashed=0;fontColor=#4f5868;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;" target="c25" value="">
+        <mxCell id="c38" edge="1" parent="1" source="c23" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7a8496;strokeWidth=2;dashed=0;fontColor=#4f5868;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;" target="ctx-d01-hom" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="c39" edge="1" parent="1" source="c24" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7a8496;strokeWidth=2;dashed=0;fontColor=#4f5868;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;" target="c25" value="">
+        <mxCell id="c39" edge="1" parent="1" source="c24" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7a8496;strokeWidth=2;dashed=0;fontColor=#4f5868;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;" target="ctx-d01-hom" value="">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="809" y="1344" />
@@ -488,7 +482,7 @@
         <mxCell id="c43" edge="1" parent="1" source="c27" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#d79b00;strokeWidth=2;dashed=0;fontColor=#9a6500;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;" target="c29" value="Sí">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="1294" y="1314" />
+              <mxPoint x="1464.0" y="1314" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -504,17 +498,17 @@
             <mxPoint x="1855.31" y="1476.94" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="c49" edge="1" parent="1" source="c28" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#43a047;strokeWidth=2;dashed=0;fontColor=#2e7d32;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=0.5;exitY=0;exitDx=0;exitDy=0;fontFamily=Helvetica;entryX=0.869;entryY=0.513;entryDx=0;entryDy=0;entryPerimeter=0;" target="Lh_LipG6mI4UALLsRQrJ-23" value="③ resultado">
+        <mxCell id="c49" edge="1" parent="1" source="c28" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#43a047;strokeWidth=2;dashed=0;fontColor=#2e7d32;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=0.5;exitY=0;exitDx=0;exitDy=0;fontFamily=Helvetica;entryX=0.869;entryY=0.513;entryDx=0;entryDy=0;entryPerimeter=0;" target="Lh_LipG6mI4UALLsRQrJ-23" value="③ resultado · JSON/HTTP">
           <mxGeometry relative="1" x="-0.6608" as="geometry">
             <mxPoint x="1566.94" y="91.06" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="c50" edge="1" parent="1" source="c29" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#d79b00;strokeWidth=2;dashed=0;fontColor=#9a6500;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.908;entryY=0.919;entryDx=0;entryDy=0;fontFamily=Helvetica;entryPerimeter=0;" target="Lh_LipG6mI4UALLsRQrJ-23" value="③b requiere revisión">
-          <mxGeometry relative="1" x="-0.0002" as="geometry">
+        <mxCell id="c50" edge="1" parent="1" source="c29" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#d79b00;strokeWidth=2;dashed=0;fontColor=#9a6500;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.908;entryY=0.919;entryDx=0;entryDy=0;fontFamily=Helvetica;entryPerimeter=0;" target="Lh_LipG6mI4UALLsRQrJ-23" value="③b requiere revisión · JSON/HTTP">
+          <mxGeometry x="0.55" relative="1" as="geometry">
             <mxPoint x="1894.5" y="413" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="c54" parent="1" style="text;html=1;whiteSpace=wrap;fontSize=12;align=left;verticalAlign=top;fontColor=#1a1a1a;fontFamily=Helvetica;" value="&lt;table border=&quot;1&quot; cellpadding=&quot;4&quot; style=&quot;border-collapse:collapse;width:100%;font-size:12px&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th style=&quot;background:#dae8fc&quot;&gt;Entrada / salida&lt;/th&gt;&lt;th style=&quot;background:#dae8fc&quot;&gt;Por dónde&lt;/th&gt;&lt;th style=&quot;background:#dae8fc&quot;&gt;Qué viaja&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;① Entrada: el Core lo activa&lt;/td&gt;&lt;td&gt;API POST /solicitudes → cola q.recepcion&lt;/td&gt;&lt;td&gt;id solicitud, documentos (orden + HC), tipo de solicitud, consumidor&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;② Paso interno&lt;/td&gt;&lt;td&gt;cola interna q.extraccion&lt;/td&gt;&lt;td&gt;id solicitud, páginas válidas en Blob&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;③ Salida: solicitud lista&lt;/td&gt;&lt;td&gt;API del Core (vía MCP Gateway)&lt;/td&gt;&lt;td&gt;datos extraídos, confianza por campo, evidencia, nota del juez&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;③b Salida: requiere revisión&lt;/td&gt;&lt;td&gt;API del Core&lt;/td&gt;&lt;td&gt;qué falta o qué no aprobó el juez · el Core asigna a una persona&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;⚠ Salida: archivo no procesable&lt;/td&gt;&lt;td&gt;API del Core&lt;/td&gt;&lt;td&gt;motivo: dañado o con clave&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" vertex="1">
+        <mxCell id="c54" parent="1" style="text;html=1;whiteSpace=wrap;fontSize=12;align=left;verticalAlign=top;fontColor=#1a1a1a;fontFamily=Helvetica;" value='&lt;table border="1" cellpadding="4" style="border-collapse:collapse;width:100%;font-size:12px"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th style="background:#dae8fc"&gt;Entrada / salida&lt;/th&gt;&lt;th style="background:#dae8fc"&gt;Por dónde&lt;/th&gt;&lt;th style="background:#dae8fc"&gt;Qué viaja&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;① Entrada: el orquestador de integración lo activa&lt;/td&gt;&lt;td&gt;mensaje en la cola RabbitMQ del gestor (orquestador de integración → topic de gestor de solicitudes → cola del gestor)&lt;/td&gt;&lt;td&gt;id del siniestro padre (trazabilidad), id solicitud, referencias a los documentos en el gestor documental (orden + HC), tipo de solicitud, consumidor · un mensaje por solicitud&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;② Paso interno&lt;/td&gt;&lt;td&gt;cola interna q.extraccion&lt;/td&gt;&lt;td&gt;id solicitud, páginas válidas (leídas en línea del gestor documental de Siniestro integral)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;③ Salida: solicitud lista&lt;/td&gt;&lt;td&gt;JSON por HTTP al orquestador de integración (vía Apigee) → topic → cola que lee Siniestro integral&lt;/td&gt;&lt;td&gt;datos extraídos, confianza por campo, evidencia, nota del juez&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;③b Salida: requiere revisión&lt;/td&gt;&lt;td&gt;igual que ③&lt;/td&gt;&lt;td&gt;qué falta o qué no aprobó el juez · el Core asigna a una persona&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;⚠ Salida: archivo no procesable&lt;/td&gt;&lt;td&gt;igual que ③&lt;/td&gt;&lt;td&gt;respuesta &lt;b&gt;requiere revisión humana&lt;/b&gt; · motivo: fallo en la validación de archivos de entrada (dañado o con clave)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;' vertex="1">
           <mxGeometry height="230" width="1180" x="74.5" y="1940" as="geometry" />
         </mxCell>
         <mxCell id="c55" parent="1" style="text;html=1;whiteSpace=wrap;fontColor=#1a1a1a;fontSize=12;fontFamily=Helvetica;align=left;verticalAlign=top;fillColor=#f7f7f7;strokeColor=#43a047;rounded=1;spacing=10;" value="&lt;b&gt;⚖ Cómo funciona el juez del microservicio (muy barato)&lt;/b&gt;&lt;br&gt;&lt;b&gt;1. Chequeos con código&lt;/b&gt; (gratis): campos, formatos, cruce OCR vs extracción, coherencia orden ↔ HC.&lt;br&gt;&lt;b&gt;2. Modelo pequeño&lt;/b&gt; (GPT-5 nano o equivalente) solo con el resultado + fragmentos de evidencia, nunca el documento completo; la rúbrica fija se cachea.&lt;br&gt;&lt;b&gt;3. Escala&lt;/b&gt; a un modelo mayor solo si duda (≈ 5–10 % de los casos).&lt;br&gt;&lt;b&gt;Rúbrica propia&lt;/b&gt; por microservicio y por escenario (tipo de solicitud), versionada y configurable · costo ≈ US$ 0,0001 por solicitud." vertex="1">
@@ -600,8 +594,8 @@
         <mxCell id="4Fsea1YIcO0AwUq-nQY1-1" edge="1" parent="1" source="zaHUmAEQrHUE2_hIX2zZ-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.556;entryY=0.025;entryDx=0;entryDy=0;entryPerimeter=0;defaultLabelBackgroundColor=page;" target="zaHUmAEQrHUE2_hIX2zZ-11">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="4Fsea1YIcO0AwUq-nQY1-2" parent="1" style="shape=wedgeCallout;whiteSpace=wrap;html=1;" value="con negocio:&lt;br&gt;validamos y rechazamos antes de crear siniestro padre o despues?" vertex="1">
-          <mxGeometry height="80" width="120" x="736" y="-612" as="geometry" />
+        <mxCell id="4Fsea1YIcO0AwUq-nQY1-2" parent="1" style="shape=wedgeCallout;whiteSpace=wrap;html=1;" value="retorna id de trazabilidad&lt;br&gt;(siniestro padre)" vertex="1">
+          <mxGeometry height="80" width="120" x="-30" y="-590" as="geometry" />
         </mxCell>
         <mxCell id="4Fsea1YIcO0AwUq-nQY1-14" edge="1" parent="1" source="4Fsea1YIcO0AwUq-nQY1-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;strokeColor=#333333;" target="NWgMAMCgAVp7x2f7SOvF-11">
           <mxGeometry relative="1" as="geometry" />
@@ -614,7 +608,143 @@
             </Array>
           </mxGeometry>
         </mxCell>
-      </root>
+      <mxCell id="ctx-p01-q" parent="zaHUmAEQrHUE2_hIX2zZ-9" style="image;aspect=fixed;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;labelBackgroundColor=none;image=https://icons.diagrams.net/assets/sap/1/SAP_SE_RabbitMQ.svg;" value="&lt;b&gt;queue nueva solicitud&lt;/b&gt;" vertex="1">
+          <mxGeometry height="46" width="46" x="505" y="78.63" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-p01-e1" edge="1" parent="zaHUmAEQrHUE2_hIX2zZ-9" source="zaHUmAEQrHUE2_hIX2zZ-7" target="ctx-p01-q" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;strokeColor=#333333;fontFamily=Helvetica;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-p01-e2" edge="1" parent="zaHUmAEQrHUE2_hIX2zZ-9" source="ctx-p01-q" target="zaHUmAEQrHUE2_hIX2zZ-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;strokeColor=#333333;fontFamily=Helvetica;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="ctx-p01-c2" parent="1" style="shape=wedgeCallout;whiteSpace=wrap;html=1;" value="id del siniestro padre" vertex="1">
+          <mxGeometry height="80" width="120" x="-60" y="-80" as="geometry" />
+        </mxCell>
+      <mxCell id="ctx-p05-apig" parent="1" style="sketch=0;html=1;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;align=center;fontSize=11;fontStyle=0;fontColor=#1a1a1a;aspect=fixed;pointerEvents=1;shape=mxgraph.gcp3.apigee;fillColor=#4285f4;labelPerimeter=1;fontFamily=Helvetica;" value="apiG" vertex="1">
+          <mxGeometry height="48.74" width="50" x="2300" y="-722" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-p05-gd" parent="zaHUmAEQrHUE2_hIX2zZ-9" style="swimlane;startSize=34;html=1;rounded=1;arcSize=2;fillColor=#eef2f7;swimlaneFillColor=#f7fafc;strokeColor=#0288d1;strokeWidth=3;dashed=1;fontColor=#1a1a1a;fontStyle=1;fontSize=15;fontFamily=Helvetica;" value="Gestor documental de autorizaciones" vertex="1">
+          <mxGeometry height="193.37" width="310" x="1995" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-p05-pub" parent="ctx-p05-gd" style="text;html=1;whiteSpace=wrap;fontColor=#1a1a1a;fontSize=12;fontFamily=Helvetica;align=center;verticalAlign=middle;fillColor=#f7f7f7;strokeColor=#43a047;rounded=1;spacing=10;" value="publicar" vertex="1">
+          <mxGeometry height="52" width="160" x="20" y="50.01" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-p05-blob" parent="ctx-p05-gd" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.storage_blob;labelPerimeter=1;" value="" vertex="1">
+          <mxGeometry height="45" width="50" x="235" y="83.01" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-p05-con" parent="ctx-p05-gd" style="text;html=1;whiteSpace=wrap;fontColor=#1a1a1a;fontSize=12;fontFamily=Helvetica;align=center;verticalAlign=middle;fillColor=#f7f7f7;strokeColor=#43a047;rounded=1;spacing=10;" value="consultar" vertex="1">
+          <mxGeometry height="52" width="160" x="20" y="115.01" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-p05-e1" edge="1" parent="ctx-p05-gd" source="ctx-p05-pub" target="ctx-p05-blob" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;defaultLabelBackgroundColor=page;strokeColor=#333333;fontColor=#1a1a1a;fontFamily=Helvetica;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" value="">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="ctx-p05-e2" edge="1" parent="ctx-p05-gd" source="ctx-p05-blob" target="ctx-p05-con" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;defaultLabelBackgroundColor=page;strokeColor=#333333;fontColor=#1a1a1a;fontFamily=Helvetica;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" value="">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="ctx-p05-e3" edge="1" parent="1" source="ctx-p05-apig" target="ctx-p05-gd" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;defaultLabelBackgroundColor=page;strokeColor=#333333;fontColor=#1a1a1a;fontFamily=Helvetica;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" value="">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="ctx-p05-e4" edge="1" parent="1" source="zaHUmAEQrHUE2_hIX2zZ-2" target="ctx-p05-apig" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;defaultLabelBackgroundColor=page;strokeColor=#333333;fontColor=#1a1a1a;fontFamily=Helvetica;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" value="publica documentos">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="ctx-p05-e5" edge="1" parent="1" source="zaHUmAEQrHUE2_hIX2zZ-9" target="ctx-p05-apig" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;defaultLabelBackgroundColor=page;strokeColor=#333333;fontColor=#1a1a1a;fontFamily=Helvetica;exitX=1;exitY=0.1;exitDx=0;exitDy=0;entryX=0.3;entryY=1;entryDx=0;entryDy=0;" value="publica">
+          <mxGeometry relative="1" as="geometry"></mxGeometry>
+        </mxCell>
+        <mxCell id="ctx-p05-e6" edge="1" parent="1" source="c6" target="ctx-p05-apig" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;defaultLabelBackgroundColor=page;strokeColor=#333333;fontColor=#1a1a1a;fontFamily=Helvetica;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.7;entryY=1;entryDx=0;entryDy=0;" value="consulta documentos (síncrona)">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="2424" y="776.5" /><mxPoint x="2424" y="-630" /><mxPoint x="2335" y="-630" /></Array></mxGeometry>
+        </mxCell>
+          <mxCell id="ctx-p06-ok" parent="zaHUmAEQrHUE2_hIX2zZ-9" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e3;strokeColor=#43a047;strokeWidth=2;fontColor=#1a1a1a;fontSize=12;fontFamily=Helvetica;" value="&lt;b&gt;✔ Documento válido&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;sigue al encolamiento&lt;/font&gt;" vertex="1">
+          <mxGeometry height="52" width="155" x="852" y="75.63" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-p06-ko" parent="zaHUmAEQrHUE2_hIX2zZ-9" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fde9cc;strokeColor=#d79b00;strokeWidth=2;dashed=1;fontColor=#1a1a1a;fontSize=12;fontFamily=Helvetica;" value="&lt;b&gt;⏳ Documento no válido&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;flujo pendiente de definir&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="222" x="590" y="181" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-p06-e1" edge="1" parent="zaHUmAEQrHUE2_hIX2zZ-9" source="zaHUmAEQrHUE2_hIX2zZ-42" target="ctx-p06-ok" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;defaultLabelBackgroundColor=page;fontFamily=Helvetica;endArrow=block;strokeColor=#43a047;strokeWidth=2;fontColor=#43a047;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" value="Sí">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-p06-e2" edge="1" parent="zaHUmAEQrHUE2_hIX2zZ-9" source="zaHUmAEQrHUE2_hIX2zZ-42" target="ctx-p06-ko" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;defaultLabelBackgroundColor=page;fontFamily=Helvetica;endArrow=block;strokeColor=#d79b00;strokeWidth=2;dashed=1;fontColor=#d79b00;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-p06-e3" edge="1" parent="zaHUmAEQrHUE2_hIX2zZ-9" source="ctx-p06-ok" target="zaHUmAEQrHUE2_hIX2zZ-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;defaultLabelBackgroundColor=page;fontFamily=Helvetica;endArrow=block;strokeColor=#333333;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+          <mxCell id="ctx-p03-e1" edge="1" parent="1" source="c10" target="Lh_LipG6mI4UALLsRQrJ-23" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#d79b00;strokeWidth=2;dashed=0;fontColor=#9a6500;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.2;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Helvetica;" value="⚠ requiere revisión humana · JSON/HTTP">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+          <mxCell id="ctx-d01-hom" parent="1" style="image;aspect=fixed;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;labelBackgroundColor=none;image=https://app.diagrams.net/img/lib/azure2/ai_machine_learning/AI_Foundry.svg;" value='&lt;b&gt;Homologador de códigos&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:11px"&gt;códigos extraídos&lt;br&gt;→ códigos SURA&lt;/font&gt;&lt;br&gt;&lt;font style="font-size:10px" color="#0277bd"&gt;C4 · agente&lt;/font&gt;' vertex="1">
+          <mxGeometry height="52" width="52" x="878" y="1208" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-d01-hom-pill" parent="1" style="rounded=1;arcSize=50;html=1;fillColor=#e1f5fe;strokeColor=#0288d1;fontColor=#0277bd;fontSize=10;fontStyle=1;fontFamily=Helvetica;strokeWidth=1.5;" value="→ MCP" vertex="1">
+          <mxGeometry height="18" width="58" x="936" y="1176" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-d01-hom-e1" edge="1" parent="1" source="ctx-d01-hom" target="c25" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7a8496;strokeWidth=2;dashed=0;fontColor=#4f5868;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-d01-hom-e2" edge="1" parent="1" source="ctx-d01-hom" target="c46" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0288d1;strokeWidth=2;dashed=1;fontColor=#0277bd;fontSize=11;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontFamily=Helvetica;" value="consulta tabla de homologación">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="904" y="1160" /><mxPoint x="1994.0" y="1160" /></Array></mxGeometry>
+        </mxCell>
+          <mxCell id="ctx-d03-estado" parent="zaHUmAEQrHUE2_hIX2zZ-9" style="text;html=1;whiteSpace=wrap;fontColor=#1a1a1a;fontSize=12;fontFamily=Helvetica;align=center;verticalAlign=middle;fillColor=#f7f7f7;strokeColor=#43a047;rounded=1;spacing=10;" value='&lt;b&gt;Actualiza el estado de la solicitud&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:11px"&gt;con el detalle de la respuesta del gestor&lt;/font&gt;' vertex="1">
+          <mxGeometry height="60" width="240" x="1406" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-d03-estado-e1" edge="1" parent="zaHUmAEQrHUE2_hIX2zZ-9" source="ytV_XLnlDMq7iq_pSiFO-8" target="ctx-d03-estado" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;defaultLabelBackgroundColor=page;strokeColor=#333333;fontColor=#1a1a1a;fontFamily=Helvetica;endArrow=block;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" value="marca">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-d03-estado-e2" edge="1" parent="1" source="zaHUmAEQrHUE2_hIX2zZ-2" target="ctx-d03-estado" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;defaultLabelBackgroundColor=page;strokeColor=#333333;fontColor=#1a1a1a;fontFamily=Helvetica;endArrow=block;dashed=1;strokeColor=#d79b00;fontColor=#9a6500;strokeWidth=2;exitX=0.73;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=block;startFill=1;" value="consulta el estado (vía Apigee) y notifica al usuario">
+          <mxGeometry relative="1" x="-0.45" as="geometry" />
+        </mxCell>
+          <mxCell id="ctx-trz-d1" parent="zaHUmAEQrHUE2_hIX2zZ-17" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f4edfa;strokeColor=#8e5cc4;strokeWidth=2;fontColor=#1a1a1a;fontSize=12;fontFamily=Helvetica;verticalAlign=top;align=center;spacingTop=4;" value="&lt;b&gt;Trazabilidad del mensaje&lt;/b&gt;" vertex="1">
+          <mxGeometry height="95" width="420" x="1000" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-trz-d1-s0" parent="ctx-trz-d1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#8e5cc4;fontColor=#1a1a1a;fontSize=11;fontFamily=Helvetica;align=center;verticalAlign=middle;" value='&lt;b&gt;1. Recibido&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:10px"&gt;HTTP · responde ACK de inmediato&lt;/font&gt;' vertex="1">
+          <mxGeometry height="44" width="122" x="12" y="38" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-trz-d1-s1" parent="ctx-trz-d1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#8e5cc4;fontColor=#1a1a1a;fontSize=11;fontFamily=Helvetica;align=center;verticalAlign=middle;" value='&lt;b&gt;2. Procesado&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:10px"&gt;seguridad · registro de trazabilidad&lt;/font&gt;' vertex="1">
+          <mxGeometry height="44" width="122" x="148" y="38" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-trz-d1-e1" edge="1" parent="ctx-trz-d1" source="ctx-trz-d1-s0" target="ctx-trz-d1-s1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7a8496;strokeWidth=2;endArrow=block;endFill=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-trz-d1-s2" parent="ctx-trz-d1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#8e5cc4;fontColor=#1a1a1a;fontSize=11;fontFamily=Helvetica;align=center;verticalAlign=middle;" value='&lt;b&gt;3. Encolado&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:10px"&gt;topic → cola del destino&lt;/font&gt;' vertex="1">
+          <mxGeometry height="44" width="122" x="284" y="38" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-trz-d1-e2" edge="1" parent="ctx-trz-d1" source="ctx-trz-d1-s1" target="ctx-trz-d1-s2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7a8496;strokeWidth=2;endArrow=block;endFill=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+          <mxCell id="ctx-tc-d1-torre" parent="1" style="swimlane;startSize=34;html=1;rounded=1;arcSize=2;fillColor=#eef2f7;swimlaneFillColor=#f7fafc;strokeColor=#0288d1;strokeWidth=3;dashed=1;fontColor=#1a1a1a;fontStyle=1;fontSize=15;fontFamily=Helvetica;" value="Torre de control · transversal" vertex="1">
+          <mxGeometry height="300" width="1022" x="2433" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-tc-d1-torre-k" parent="ctx-tc-d1-torre" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdf0db;strokeColor=#e08a1e;strokeWidth=2;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;" value='&lt;b&gt;Kafka interno de la Torre de control&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:11px"&gt;recibe la trazabilidad de todos los componentes: canales · Siniestro integral · orquestador de integración · gestores · cores&lt;/font&gt;' vertex="1">
+          <mxGeometry height="74" width="962" x="30" y="56" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-tc-d1-torre-v" parent="ctx-tc-d1-torre" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f4edfa;strokeColor=#8e5cc4;strokeWidth=2;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;" value='&lt;b&gt;Ve el flujo end to end&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:11px"&gt;arma el recorrido de cada solicitud con la trazabilidad recibida&lt;/font&gt;' vertex="1">
+          <mxGeometry height="74" width="440" x="30" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-tc-d1-torre-t" parent="ctx-tc-d1-torre" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f4edfa;strokeColor=#8e5cc4;strokeWidth=2;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;" value='&lt;b&gt;Tablero + copiloto&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:11px"&gt;estado, tiempos y cuellos de botella · puede pedir acciones al core&lt;/font&gt;' vertex="1">
+          <mxGeometry height="74" width="440" x="552" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-tc-d1-torre-e1" edge="1" parent="ctx-tc-d1-torre" source="ctx-tc-d1-torre-k" target="ctx-tc-d1-torre-v" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7a8496;strokeWidth=2;endArrow=block;endFill=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-tc-d1-torre-e2" edge="1" parent="ctx-tc-d1-torre" source="ctx-tc-d1-torre-v" target="ctx-tc-d1-torre-t" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7a8496;strokeWidth=2;endArrow=block;endFill=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-tc-d1-p-X2zZ-2" parent="zaHUmAEQrHUE2_hIX2zZ-2" style="rounded=1;arcSize=50;html=1;fillColor=#fdf0db;strokeColor=#e08a1e;fontColor=#b35c00;fontSize=10;fontStyle=1;fontFamily=Helvetica;strokeWidth=1.5;" value="→ Torre de control" vertex="1">
+          <mxGeometry height="18" width="125" x="1925.0" y="6" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-tc-d1-p-X2zZ-9" parent="zaHUmAEQrHUE2_hIX2zZ-9" style="rounded=1;arcSize=50;html=1;fillColor=#fdf0db;strokeColor=#e08a1e;fontColor=#b35c00;fontSize=10;fontStyle=1;fontFamily=Helvetica;strokeWidth=1.5;" value="→ Torre de control" vertex="1">
+          <mxGeometry height="18" width="125" x="2185.0" y="8" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-tc-d1-p-OvF-13" parent="NWgMAMCgAVp7x2f7SOvF-13" style="rounded=1;arcSize=50;html=1;fillColor=#fdf0db;strokeColor=#e08a1e;fontColor=#b35c00;fontSize=10;fontStyle=1;fontFamily=Helvetica;strokeWidth=1.5;" value="→ Torre de control" vertex="1">
+          <mxGeometry height="18" width="125" x="887.0" y="8" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-tc-d1-p-SOvF-2" parent="NWgMAMCgAVp7x2f7SOvF-2" style="rounded=1;arcSize=50;html=1;fillColor=#fdf0db;strokeColor=#e08a1e;fontColor=#b35c00;fontSize=10;fontStyle=1;fontFamily=Helvetica;strokeWidth=1.5;" value="→ Torre de control" vertex="1">
+          <mxGeometry height="18" width="125" x="887.0" y="8" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-tc-d1-p-trz" parent="ctx-trz-d1" style="rounded=1;arcSize=50;html=1;fillColor=#fdf0db;strokeColor=#e08a1e;fontColor=#b35c00;fontSize=10;fontStyle=1;fontFamily=Helvetica;strokeWidth=1.5;" value="→ Torre de control" vertex="1">
+          <mxGeometry height="18" width="125" x="292" y="4" as="geometry" />
+        </mxCell>
+          </root>
     </mxGraphModel>
   </diagram>
   <diagram name="canales con core" id="vkSiqqhCaptGzxPIeG1_">
@@ -662,7 +792,7 @@
           <mxGeometry height="52" width="155" x="219" y="223" as="geometry" />
         </mxCell>
         <mxCell id="4C8p2419GL-tcQHq8wRN-14" parent="4C8p2419GL-tcQHq8wRN-1" style="swimlane;startSize=34;html=1;rounded=1;arcSize=2;fillColor=#eef2f7;swimlaneFillColor=#f7fafc;strokeColor=#0288d1;strokeWidth=3;dashed=1;fontColor=#1a1a1a;fontStyle=1;fontSize=15;fontFamily=Helvetica;" value="Siniestro integral" vertex="1">
-          <mxGeometry height="761" width="2045" x="79" y="-862" as="geometry" />
+          <mxGeometry height="761" width="2320" x="79" y="-862" as="geometry" />
         </mxCell>
         <mxCell id="lCf-iueePdCvOuLlOe5z-14" edge="1" parent="4C8p2419GL-tcQHq8wRN-14" source="4C8p2419GL-tcQHq8wRN-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;defaultLabelBackgroundColor=page;" target="Thst5Bmg4C5o5Ix50Ob--12">
           <mxGeometry relative="1" as="geometry" />
@@ -671,15 +801,11 @@
           <mxGeometry height="52" width="155" x="73" y="219.37" as="geometry" />
         </mxCell>
         <mxCell id="4C8p2419GL-tcQHq8wRN-18" parent="4C8p2419GL-tcQHq8wRN-14" style="text;html=1;whiteSpace=wrap;fontColor=#1a1a1a;fontSize=12;fontFamily=Helvetica;align=center;verticalAlign=middle;fillColor=#f7f7f7;strokeColor=#43a047;rounded=1;spacing=10;" value="Encolar comando para gestor" vertex="1">
-          <mxGeometry height="52" width="155" x="812" y="216.37" as="geometry" />
+          <mxGeometry height="52" width="155" x="812" y="420" as="geometry" />
         </mxCell>
-        <mxCell id="lCf-iueePdCvOuLlOe5z-3" edge="1" parent="4C8p2419GL-tcQHq8wRN-14" source="4C8p2419GL-tcQHq8wRN-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;" target="4C8p2419GL-tcQHq8wRN-18">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="lCf-iueePdCvOuLlOe5z-4" edge="1" parent="4C8p2419GL-tcQHq8wRN-14" source="4C8p2419GL-tcQHq8wRN-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;strokeColor=#333333;" target="4C8p2419GL-tcQHq8wRN-18">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="4C8p2419GL-tcQHq8wRN-19" parent="4C8p2419GL-tcQHq8wRN-14" style="text;html=1;whiteSpace=wrap;fontColor=#1a1a1a;fontSize=12;fontFamily=Helvetica;align=center;verticalAlign=middle;fillColor=#f7f7f7;strokeColor=#43a047;rounded=1;spacing=10;dashed=1;" value="validacion inicial del documento&lt;br&gt;seguridad&lt;br&gt;acceso al documento" vertex="1">
+        
+        
+        <mxCell id="4C8p2419GL-tcQHq8wRN-19" parent="4C8p2419GL-tcQHq8wRN-14" style="text;html=1;whiteSpace=wrap;fontColor=#1a1a1a;fontSize=12;fontFamily=Helvetica;align=center;verticalAlign=middle;fillColor=#f7f7f7;strokeColor=#43a047;rounded=1;spacing=10;dashed=1;" value="Validación inicial del documento&lt;br&gt;seguridad&lt;br&gt;acceso al documento" vertex="1">
           <mxGeometry height="52" width="222" x="483" y="216.37" as="geometry" />
         </mxCell>
         <mxCell id="4C8p2419GL-tcQHq8wRN-20" edge="1" parent="4C8p2419GL-tcQHq8wRN-14" source="4C8p2419GL-tcQHq8wRN-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;strokeColor=#333333;fontColor=#1a1a1a;" target="4C8p2419GL-tcQHq8wRN-23" value="Cuando no se proce">
@@ -712,7 +838,7 @@
         <mxCell id="Thst5Bmg4C5o5Ix50Ob--49" edge="1" parent="4C8p2419GL-tcQHq8wRN-14" source="Thst5Bmg4C5o5Ix50Ob--48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;defaultLabelBackgroundColor=page;strokeColor=#333333;" target="4C8p2419GL-tcQHq8wRN-15">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="Thst5Bmg4C5o5Ix50Ob--48" parent="4C8p2419GL-tcQHq8wRN-14" style="text;html=1;whiteSpace=wrap;fontColor=#1a1a1a;fontSize=12;fontFamily=Helvetica;align=center;verticalAlign=middle;fillColor=#f7f7f7;strokeColor=#43a047;rounded=1;spacing=10;" value="orquestador" vertex="1">
+        <mxCell id="Thst5Bmg4C5o5Ix50Ob--48" parent="4C8p2419GL-tcQHq8wRN-14" style="text;html=1;whiteSpace=wrap;fontColor=#1a1a1a;fontSize=12;fontFamily=Helvetica;align=center;verticalAlign=middle;fillColor=#f7f7f7;strokeColor=#43a047;rounded=1;spacing=10;" value="Orquestador" vertex="1">
           <mxGeometry height="52" width="155" x="73" y="71" as="geometry" />
         </mxCell>
         <mxCell id="4C8p2419GL-tcQHq8wRN-27" parent="4C8p2419GL-tcQHq8wRN-1" style="swimlane;startSize=34;html=1;rounded=1;arcSize=2;fillColor=#eef2f7;swimlaneFillColor=#f7fafc;strokeColor=#0288d1;strokeWidth=3;dashed=1;fontColor=#1a1a1a;fontStyle=1;fontSize=15;fontFamily=Helvetica;" value="Plataforma agéntica - Control plane" vertex="1">
@@ -721,7 +847,7 @@
         <mxCell id="4C8p2419GL-tcQHq8wRN-28" parent="4C8p2419GL-tcQHq8wRN-27" style="image;aspect=fixed;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;labelBackgroundColor=none;image=https://app.diagrams.net/img/lib/azure2/integration/AI_Gateway.svg;" value="&lt;b&gt;LLM Gateway&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;modelo por decidir:&lt;br&gt;Azure OpenAI o Gemini&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot; color=&quot;#0277bd&quot;&gt;C3&lt;/font&gt;" vertex="1">
           <mxGeometry height="48" width="48" x="115" y="68" as="geometry" />
         </mxCell>
-        <mxCell id="4C8p2419GL-tcQHq8wRN-29" parent="4C8p2419GL-tcQHq8wRN-1" style="text;html=1;whiteSpace=wrap;fontColor=#1a1a1a;fontSize=20;fontFamily=Helvetica;align=left;verticalAlign=top;" value="&lt;b&gt;Microservicio GESTOR SOLICITUD — por dentro&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:13px&quot; color=&quot;#555555&quot;&gt;El Core SURA lo activa (①) · todo lo de la caja punteada es del microservicio · sale &lt;b&gt;siempre&lt;/b&gt; hacia el Core con uno de 3 resultados (③ · ③b · ⚠) · no habla con otros gestores · píldoras: &lt;b&gt;→ IA&lt;/b&gt; = usa el modelo vía LLM Gateway&lt;/font&gt;" vertex="1">
+        <mxCell id="4C8p2419GL-tcQHq8wRN-29" parent="4C8p2419GL-tcQHq8wRN-1" style="text;html=1;whiteSpace=wrap;fontColor=#1a1a1a;fontSize=20;fontFamily=Helvetica;align=left;verticalAlign=top;" value='&lt;b&gt;Proceso end to end del Gestor de Solicitud&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:13px" color="#555555"&gt;Del canal al estado final: el prestador radica en el &lt;b&gt;canal&lt;/b&gt; → &lt;b&gt;Siniestro integral&lt;/b&gt; crea el siniestro padre, guarda los documentos en su gestor documental y valida → el &lt;b&gt;orquestador de integración&lt;/b&gt; deja un mensaje en la cola RabbitMQ del gestor (①) → el &lt;b&gt;Gestor Solicitud&lt;/b&gt; consulta los documentos, extrae, homologa y valida con su juez → responde &lt;b&gt;siempre&lt;/b&gt; con un JSON por HTTP al orquestador, con uno de 3 resultados (③ · ③b · ⚠) → &lt;b&gt;Siniestro integral&lt;/b&gt; marca el estado y radica o escala a revisión humana → el &lt;b&gt;canal&lt;/b&gt; consulta el estado y notifica al usuario · todo lo de la caja punteada GESTOR SOLICITUD es del microservicio · no habla con otros gestores · píldoras: &lt;b&gt;→ IA&lt;/b&gt; = usa el modelo vía LLM Gateway · &lt;b&gt;→ MCP&lt;/b&gt; = consulta sistemas SURA vía MCP Gateway · &lt;b&gt;→ Torre de control&lt;/b&gt; = envía su trazabilidad al Kafka interno de la Torre de control&lt;/font&gt;' vertex="1">
           <mxGeometry height="60" width="2050" x="79" y="-1167" as="geometry" />
         </mxCell>
         <mxCell id="4C8p2419GL-tcQHq8wRN-30" parent="4C8p2419GL-tcQHq8wRN-1" style="swimlane;startSize=34;html=1;rounded=1;arcSize=2;fillColor=#eef2f7;swimlaneFillColor=#f7fafc;strokeColor=#0288d1;strokeWidth=3;dashed=1;fontColor=#1a1a1a;fontStyle=1;fontSize=15;fontFamily=Helvetica;" value="GESTOR SOLICITUD · Azure Container Apps · LangGraph · escala según su cola" vertex="1">
@@ -745,31 +871,25 @@
         <mxCell id="4C8p2419GL-tcQHq8wRN-36" parent="4C8p2419GL-tcQHq8wRN-30" style="text;html=1;whiteSpace=wrap;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;align=left;verticalAlign=top;" value="&lt;font color=&quot;#0277bd&quot;&gt;&lt;b&gt;A. RECEPCIÓN DEL DOCUMENTO&lt;/b&gt;&lt;/font&gt;" vertex="1">
           <mxGeometry height="22" width="600" x="31" y="72" as="geometry" />
         </mxCell>
-        <mxCell id="4C8p2419GL-tcQHq8wRN-37" parent="4C8p2419GL-tcQHq8wRN-30" style="image;aspect=fixed;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;labelBackgroundColor=none;image=https://app.diagrams.net/img/lib/azure2/storage/Storage_Accounts.svg;" value="&lt;b&gt;Blob de entrada&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;temporal · se borra solo&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot; color=&quot;#0277bd&quot;&gt;C6&lt;/font&gt;" vertex="1">
-          <mxGeometry height="52" width="52" x="667.5" y="358" as="geometry" />
-        </mxCell>
-        <mxCell id="4C8p2419GL-tcQHq8wRN-38" edge="1" parent="4C8p2419GL-tcQHq8wRN-30" source="4C8p2419GL-tcQHq8wRN-34" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7a8496;strokeWidth=2;dashed=0;fontColor=#4f5868;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;" target="4C8p2419GL-tcQHq8wRN-37" value="guarda">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="4C8p2419GL-tcQHq8wRN-39" edge="1" parent="4C8p2419GL-tcQHq8wRN-30" source="4C8p2419GL-tcQHq8wRN-37" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7a8496;strokeWidth=2;dashed=0;fontColor=#4f5868;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;fontFamily=Helvetica;" target="4C8p2419GL-tcQHq8wRN-34" value="">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
+        
+        
+        
         <mxCell id="4C8p2419GL-tcQHq8wRN-40" edge="1" parent="4C8p2419GL-tcQHq8wRN-30" source="4C8p2419GL-tcQHq8wRN-34" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#d79b00;strokeWidth=2;dashed=0;fontColor=#9a6500;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=0.5;exitY=0;exitDx=0;exitDy=0;fontFamily=Helvetica;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="4C8p2419GL-tcQHq8wRN-41" value="① Integración">
           <mxGeometry relative="1" x="-0.5403" y="-2" as="geometry">
             <mxPoint as="offset" />
             <mxPoint x="505.5" y="256.00000000000045" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="4C8p2419GL-tcQHq8wRN-41" parent="4C8p2419GL-tcQHq8wRN-30" style="image;aspect=fixed;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;labelBackgroundColor=none;image=https://icons.diagrams.net/assets/sap/1/SAP_SE_RabbitMQ.svg;" value="Cola del gestor" vertex="1">
+        <mxCell id="4C8p2419GL-tcQHq8wRN-41" parent="4C8p2419GL-tcQHq8wRN-30" style="image;aspect=fixed;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;labelBackgroundColor=none;image=https://icons.diagrams.net/assets/sap/1/SAP_SE_RabbitMQ.svg;" value="Cola del gestor (RabbitMQ)" vertex="1">
           <mxGeometry height="46" width="46" x="171.5" y="122" as="geometry" />
         </mxCell>
         <mxCell id="4C8p2419GL-tcQHq8wRN-42" parent="4C8p2419GL-tcQHq8wRN-30" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f4edfa;strokeColor=#8e5cc4;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;strokeWidth=2;" value="&lt;b&gt;Auditoría propia del Gestor Solicitud&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;MongoDB · qué hizo cada paso, qué decidió el juez y con qué evidencia · solo registra&lt;/font&gt;" vertex="1">
           <mxGeometry height="74" width="760" x="57.5" y="902" as="geometry" />
         </mxCell>
-        <mxCell id="4C8p2419GL-tcQHq8wRN-43" parent="4C8p2419GL-tcQHq8wRN-30" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdf0db;strokeColor=#e08a1e;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;strokeWidth=2;" value="&lt;b&gt;Publica eventos en Kafka&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;solicitud.recibida · documentos.validados · documentos.leídos · resultado.enviado → los escucha la Torre de Control&lt;/font&gt;" vertex="1">
+        <mxCell id="4C8p2419GL-tcQHq8wRN-43" parent="4C8p2419GL-tcQHq8wRN-30" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdf0db;strokeColor=#e08a1e;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;strokeWidth=2;" value='&lt;b&gt;Envía su trazabilidad a la Torre de control (Kafka interno)&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:11px"&gt;solicitud.recibida · documentos.validados · documentos.leídos · resultado.enviado&lt;/font&gt;' vertex="1">
           <mxGeometry height="74" width="1128.5" x="888.5" y="898" as="geometry" />
         </mxCell>
-        <mxCell id="4C8p2419GL-tcQHq8wRN-44" parent="4C8p2419GL-tcQHq8wRN-30" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdeaea;strokeColor=#d9534f;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;strokeWidth=2;" value="&lt;b&gt;⚠ Archivo no procesable&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;dañado o protegido con clave&lt;/font&gt;" vertex="1">
+        <mxCell id="4C8p2419GL-tcQHq8wRN-44" parent="4C8p2419GL-tcQHq8wRN-30" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdeaea;strokeColor=#d9534f;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;strokeWidth=2;" value='&lt;b&gt;⚠ Archivo no procesable&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:11px"&gt;dañado o protegido con clave · responde &lt;b&gt;requiere revisión humana&lt;/b&gt; con la &lt;b&gt;causa detallada&lt;/b&gt;&lt;/font&gt;' vertex="1">
           <mxGeometry height="60" width="300" x="848.5" y="474" as="geometry" />
         </mxCell>
         <mxCell id="4C8p2419GL-tcQHq8wRN-45" edge="1" parent="4C8p2419GL-tcQHq8wRN-30" source="4C8p2419GL-tcQHq8wRN-34" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#d9534f;strokeWidth=2;dashed=0;fontColor=#c0392b;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontFamily=Helvetica;" target="4C8p2419GL-tcQHq8wRN-44" value="falla 2 veces">
@@ -778,10 +898,10 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="4C8p2419GL-tcQHq8wRN-46" parent="4C8p2419GL-tcQHq8wRN-30" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e3;strokeColor=#43a047;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;strokeWidth=2;" value="&lt;b&gt;✔ Solicitud lista&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;datos extraídos + confianza + evidencia + nota del juez&lt;/font&gt;" vertex="1">
-          <mxGeometry height="64" width="300" x="1336.5" y="534" as="geometry" />
+          <mxGeometry height="64" width="300" x="1506.5" y="534" as="geometry" />
         </mxCell>
         <mxCell id="4C8p2419GL-tcQHq8wRN-47" parent="4C8p2419GL-tcQHq8wRN-30" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fde9cc;strokeColor=#d79b00;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;strokeWidth=2;" value="&lt;b&gt;⚠ Requiere revisión&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;faltan datos o el juez no aprobó · dice qué revisar&lt;/font&gt;" vertex="1">
-          <mxGeometry height="64" width="300" x="1354.5" y="753" as="geometry" />
+          <mxGeometry height="64" width="300" x="1524.5" y="753" as="geometry" />
         </mxCell>
         <mxCell id="4C8p2419GL-tcQHq8wRN-48" parent="4C8p2419GL-tcQHq8wRN-1" style="text;html=1;whiteSpace=wrap;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;align=left;verticalAlign=top;" value="&lt;font color=&quot;#0277bd&quot;&gt;&lt;b&gt;B. EXTRACCIÓN CON IA + JUEZ&lt;/b&gt;&lt;/font&gt;" vertex="1">
           <mxGeometry height="22" width="600" x="84" y="1099" as="geometry" />
@@ -805,16 +925,16 @@
           <mxGeometry height="44" width="44" x="692" y="1322" as="geometry" />
         </mxCell>
         <mxCell id="4C8p2419GL-tcQHq8wRN-55" parent="4C8p2419GL-tcQHq8wRN-1" style="image;aspect=fixed;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;labelBackgroundColor=none;image=https://app.diagrams.net/img/lib/azure2/compute/Function_Apps.svg;" value="&lt;b&gt;Validador de salida&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;código: campos, CUPS,&lt;br&gt;paciente, cruce con OCR&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot; color=&quot;#0277bd&quot;&gt;C4 · sin IA&lt;/font&gt;" vertex="1">
-          <mxGeometry height="52" width="52" x="878" y="1208" as="geometry" />
+          <mxGeometry height="52" width="52" x="1048.0" y="1208" as="geometry" />
         </mxCell>
         <mxCell id="4C8p2419GL-tcQHq8wRN-56" parent="4C8p2419GL-tcQHq8wRN-1" style="image;aspect=fixed;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;labelBackgroundColor=none;image=https://app.diagrams.net/img/lib/azure2/ai_machine_learning/Content_Safety.svg;" value="&lt;b&gt;⚖ Juez del microservicio&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;¿clasificó y extrajo bien?&lt;br&gt;rúbrica propia · modelo pequeño&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot; color=&quot;#0277bd&quot;&gt;C7 · Evals&lt;/font&gt;" vertex="1">
-          <mxGeometry height="52" width="52" x="1058" y="1208" as="geometry" />
+          <mxGeometry height="52" width="52" x="1228.0" y="1208" as="geometry" />
         </mxCell>
         <mxCell id="4C8p2419GL-tcQHq8wRN-57" parent="4C8p2419GL-tcQHq8wRN-1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff7d6;strokeColor=#d6b656;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;" value="&lt;b&gt;¿Falta algo o el juez no aprueba?&lt;/b&gt;" vertex="1">
-          <mxGeometry height="104" width="190" x="1199" y="1182" as="geometry" />
+          <mxGeometry height="104" width="190" x="1369.0" y="1182" as="geometry" />
         </mxCell>
         <mxCell id="4C8p2419GL-tcQHq8wRN-58" parent="4C8p2419GL-tcQHq8wRN-1" style="rounded=1;arcSize=50;html=1;fillColor=#e1f5fe;strokeColor=#0288d1;fontColor=#0277bd;fontSize=10;fontStyle=1;fontFamily=Helvetica;strokeWidth=1.5;" value="→ IA" vertex="1">
-          <mxGeometry height="18" width="58" x="996" y="1188" as="geometry" />
+          <mxGeometry height="18" width="58" x="1166.0" y="1188" as="geometry" />
         </mxCell>
         <mxCell id="4C8p2419GL-tcQHq8wRN-59" edge="1" parent="4C8p2419GL-tcQHq8wRN-1" source="4C8p2419GL-tcQHq8wRN-34" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#43a047;strokeWidth=2;dashed=0;fontColor=#2e7d32;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Helvetica;" target="4C8p2419GL-tcQHq8wRN-49" value="② OK → cola interna">
           <mxGeometry relative="1" x="0.1948" as="geometry">
@@ -849,7 +969,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="4C8p2419GL-tcQHq8wRN-65" edge="1" parent="4C8p2419GL-tcQHq8wRN-1" source="4C8p2419GL-tcQHq8wRN-52" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7a8496;strokeWidth=2;dashed=0;fontColor=#4f5868;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;" target="4C8p2419GL-tcQHq8wRN-55" value="">
+        <mxCell id="4C8p2419GL-tcQHq8wRN-65" edge="1" parent="4C8p2419GL-tcQHq8wRN-1" source="4C8p2419GL-tcQHq8wRN-52" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7a8496;strokeWidth=2;dashed=0;fontColor=#4f5868;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;" target="ctx-d01-cc-hom" value="">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="809" y="1154" />
@@ -857,10 +977,10 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="4C8p2419GL-tcQHq8wRN-66" edge="1" parent="4C8p2419GL-tcQHq8wRN-1" source="4C8p2419GL-tcQHq8wRN-53" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7a8496;strokeWidth=2;dashed=0;fontColor=#4f5868;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;" target="4C8p2419GL-tcQHq8wRN-55" value="">
+        <mxCell id="4C8p2419GL-tcQHq8wRN-66" edge="1" parent="4C8p2419GL-tcQHq8wRN-1" source="4C8p2419GL-tcQHq8wRN-53" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7a8496;strokeWidth=2;dashed=0;fontColor=#4f5868;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;" target="ctx-d01-cc-hom" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="4C8p2419GL-tcQHq8wRN-67" edge="1" parent="4C8p2419GL-tcQHq8wRN-1" source="4C8p2419GL-tcQHq8wRN-54" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7a8496;strokeWidth=2;dashed=0;fontColor=#4f5868;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;" target="4C8p2419GL-tcQHq8wRN-55" value="">
+        <mxCell id="4C8p2419GL-tcQHq8wRN-67" edge="1" parent="4C8p2419GL-tcQHq8wRN-1" source="4C8p2419GL-tcQHq8wRN-54" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7a8496;strokeWidth=2;dashed=0;fontColor=#4f5868;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;" target="ctx-d01-cc-hom" value="">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="809" y="1344" />
@@ -880,7 +1000,7 @@
         <mxCell id="4C8p2419GL-tcQHq8wRN-71" edge="1" parent="4C8p2419GL-tcQHq8wRN-1" source="4C8p2419GL-tcQHq8wRN-57" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#d79b00;strokeWidth=2;dashed=0;fontColor=#9a6500;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;" target="4C8p2419GL-tcQHq8wRN-47" value="Sí">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="1294" y="1314" />
+              <mxPoint x="1464.0" y="1314" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -896,17 +1016,17 @@
             <mxPoint x="1855.31" y="1476.94" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="4C8p2419GL-tcQHq8wRN-75" edge="1" parent="4C8p2419GL-tcQHq8wRN-1" source="4C8p2419GL-tcQHq8wRN-46" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#43a047;strokeWidth=2;dashed=0;fontColor=#2e7d32;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=0.5;exitY=0;exitDx=0;exitDy=0;fontFamily=Helvetica;entryX=0.869;entryY=0.513;entryDx=0;entryDy=0;entryPerimeter=0;" target="4C8p2419GL-tcQHq8wRN-90" value="③ resultado">
+        <mxCell id="4C8p2419GL-tcQHq8wRN-75" edge="1" parent="4C8p2419GL-tcQHq8wRN-1" source="4C8p2419GL-tcQHq8wRN-46" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#43a047;strokeWidth=2;dashed=0;fontColor=#2e7d32;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=0.5;exitY=0;exitDx=0;exitDy=0;fontFamily=Helvetica;entryX=0.869;entryY=0.513;entryDx=0;entryDy=0;entryPerimeter=0;" target="4C8p2419GL-tcQHq8wRN-90" value="③ resultado · JSON/HTTP">
           <mxGeometry relative="1" x="-0.6608" as="geometry">
             <mxPoint x="1566.94" y="91.06" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="4C8p2419GL-tcQHq8wRN-76" edge="1" parent="4C8p2419GL-tcQHq8wRN-1" source="4C8p2419GL-tcQHq8wRN-47" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#d79b00;strokeWidth=2;dashed=0;fontColor=#9a6500;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.908;entryY=0.919;entryDx=0;entryDy=0;fontFamily=Helvetica;entryPerimeter=0;" target="4C8p2419GL-tcQHq8wRN-90" value="③b requiere revisión">
-          <mxGeometry relative="1" x="-0.0002" as="geometry">
+        <mxCell id="4C8p2419GL-tcQHq8wRN-76" edge="1" parent="4C8p2419GL-tcQHq8wRN-1" source="4C8p2419GL-tcQHq8wRN-47" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#d79b00;strokeWidth=2;dashed=0;fontColor=#9a6500;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.908;entryY=0.919;entryDx=0;entryDy=0;fontFamily=Helvetica;entryPerimeter=0;" target="4C8p2419GL-tcQHq8wRN-90" value="③b requiere revisión · JSON/HTTP">
+          <mxGeometry x="0.55" relative="1" as="geometry">
             <mxPoint x="1894.5" y="413" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="4C8p2419GL-tcQHq8wRN-77" parent="4C8p2419GL-tcQHq8wRN-1" style="text;html=1;whiteSpace=wrap;fontSize=12;align=left;verticalAlign=top;fontColor=#1a1a1a;fontFamily=Helvetica;" value="&lt;table border=&quot;1&quot; cellpadding=&quot;4&quot; style=&quot;border-collapse:collapse;width:100%;font-size:12px&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th style=&quot;background:#dae8fc&quot;&gt;Entrada / salida&lt;/th&gt;&lt;th style=&quot;background:#dae8fc&quot;&gt;Por dónde&lt;/th&gt;&lt;th style=&quot;background:#dae8fc&quot;&gt;Qué viaja&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;① Entrada: el Core lo activa&lt;/td&gt;&lt;td&gt;API POST /solicitudes → cola q.recepcion&lt;/td&gt;&lt;td&gt;id solicitud, documentos (orden + HC), tipo de solicitud, consumidor&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;② Paso interno&lt;/td&gt;&lt;td&gt;cola interna q.extraccion&lt;/td&gt;&lt;td&gt;id solicitud, páginas válidas en Blob&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;③ Salida: solicitud lista&lt;/td&gt;&lt;td&gt;API del Core (vía MCP Gateway)&lt;/td&gt;&lt;td&gt;datos extraídos, confianza por campo, evidencia, nota del juez&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;③b Salida: requiere revisión&lt;/td&gt;&lt;td&gt;API del Core&lt;/td&gt;&lt;td&gt;qué falta o qué no aprobó el juez · el Core asigna a una persona&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;⚠ Salida: archivo no procesable&lt;/td&gt;&lt;td&gt;API del Core&lt;/td&gt;&lt;td&gt;motivo: dañado o con clave&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" vertex="1">
+        <mxCell id="4C8p2419GL-tcQHq8wRN-77" parent="4C8p2419GL-tcQHq8wRN-1" style="text;html=1;whiteSpace=wrap;fontSize=12;align=left;verticalAlign=top;fontColor=#1a1a1a;fontFamily=Helvetica;" value='&lt;table border="1" cellpadding="4" style="border-collapse:collapse;width:100%;font-size:12px"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th style="background:#dae8fc"&gt;Entrada / salida&lt;/th&gt;&lt;th style="background:#dae8fc"&gt;Por dónde&lt;/th&gt;&lt;th style="background:#dae8fc"&gt;Qué viaja&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;① Entrada: el orquestador de integración lo activa&lt;/td&gt;&lt;td&gt;mensaje en la cola RabbitMQ del gestor (orquestador de integración → topic de gestor de solicitudes → cola del gestor)&lt;/td&gt;&lt;td&gt;id del siniestro padre (trazabilidad), id solicitud, referencias a los documentos en el gestor documental (orden + HC), tipo de solicitud, consumidor · un mensaje por solicitud&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;② Paso interno&lt;/td&gt;&lt;td&gt;cola interna q.extraccion&lt;/td&gt;&lt;td&gt;id solicitud, páginas válidas (leídas en línea del gestor documental de Siniestro integral)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;③ Salida: solicitud lista&lt;/td&gt;&lt;td&gt;JSON por HTTP al orquestador de integración (vía Apigee) → topic → cola que lee Siniestro integral&lt;/td&gt;&lt;td&gt;datos extraídos, confianza por campo, evidencia, nota del juez&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;③b Salida: requiere revisión&lt;/td&gt;&lt;td&gt;igual que ③&lt;/td&gt;&lt;td&gt;qué falta o qué no aprobó el juez · el Core asigna a una persona&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;⚠ Salida: archivo no procesable&lt;/td&gt;&lt;td&gt;igual que ③&lt;/td&gt;&lt;td&gt;respuesta &lt;b&gt;requiere revisión humana&lt;/b&gt; · motivo: fallo en la validación de archivos de entrada (dañado o con clave)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;' vertex="1">
           <mxGeometry height="230" width="1180" x="74.5" y="1940" as="geometry" />
         </mxCell>
         <mxCell id="4C8p2419GL-tcQHq8wRN-78" parent="4C8p2419GL-tcQHq8wRN-1" style="text;html=1;whiteSpace=wrap;fontColor=#1a1a1a;fontSize=12;fontFamily=Helvetica;align=left;verticalAlign=top;fillColor=#f7f7f7;strokeColor=#43a047;rounded=1;spacing=10;" value="&lt;b&gt;⚖ Cómo funciona el juez del microservicio (muy barato)&lt;/b&gt;&lt;br&gt;&lt;b&gt;1. Chequeos con código&lt;/b&gt; (gratis): campos, formatos, cruce OCR vs extracción, coherencia orden ↔ HC.&lt;br&gt;&lt;b&gt;2. Modelo pequeño&lt;/b&gt; (GPT-5 nano o equivalente) solo con el resultado + fragmentos de evidencia, nunca el documento completo; la rúbrica fija se cachea.&lt;br&gt;&lt;b&gt;3. Escala&lt;/b&gt; a un modelo mayor solo si duda (≈ 5–10 % de los casos).&lt;br&gt;&lt;b&gt;Rúbrica propia&lt;/b&gt; por microservicio y por escenario (tipo de solicitud), versionada y configurable · costo ≈ US$ 0,0001 por solicitud." vertex="1">
@@ -1003,11 +1123,7 @@
         <mxCell id="Thst5Bmg4C5o5Ix50Ob--18" edge="1" parent="4C8p2419GL-tcQHq8wRN-1" source="Thst5Bmg4C5o5Ix50Ob--17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;strokeColor=#333333;" target="Thst5Bmg4C5o5Ix50Ob--48">
           <mxGeometry relative="1" x="-0.466" as="geometry" />
         </mxCell>
-        <mxCell id="lCf-iueePdCvOuLlOe5z-11" connectable="0" parent="Thst5Bmg4C5o5Ix50Ob--18" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];inheritText=1;defaultLabelBackgroundColor=page;" value="Text" vertex="1">
-          <mxGeometry relative="1" x="-0.0084" y="1" as="geometry">
-            <mxPoint as="offset" />
-          </mxGeometry>
-        </mxCell>
+        
         <mxCell id="Thst5Bmg4C5o5Ix50Ob--17" parent="4C8p2419GL-tcQHq8wRN-1" style="sketch=0;html=1;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;align=center;fontSize=11;fontStyle=0;fontColor=#1a1a1a;aspect=fixed;pointerEvents=1;shape=mxgraph.gcp3.apigee;fillColor=#4285f4;labelPerimeter=1;fontFamily=Helvetica;" value="Apigee" vertex="1">
           <mxGeometry height="48.74" width="50" x="-97" y="-789.37" as="geometry" />
         </mxCell>
@@ -1017,39 +1133,33 @@
         <mxCell id="Thst5Bmg4C5o5Ix50Ob--28" parent="4C8p2419GL-tcQHq8wRN-1" style="sketch=0;html=1;verticalAlign=top;labelPosition=center;verticalLabelPosition=bottom;align=center;fontSize=11;fontStyle=0;fontColor=#1a1a1a;aspect=fixed;pointerEvents=1;shape=mxgraph.gcp3.apigee;fillColor=#4285f4;labelPerimeter=1;fontFamily=Helvetica;" value="apiG" vertex="1">
           <mxGeometry height="48.74" width="50" x="2420" y="-994.6800000000001" as="geometry" />
         </mxCell>
-        <mxCell id="Thst5Bmg4C5o5Ix50Ob--29" parent="4C8p2419GL-tcQHq8wRN-1" style="swimlane;startSize=34;html=1;rounded=1;arcSize=2;fillColor=#eef2f7;swimlaneFillColor=#f7fafc;strokeColor=#0288d1;strokeWidth=3;dashed=1;fontColor=#1a1a1a;fontStyle=1;fontSize=15;fontFamily=Helvetica;" value="Gestor documental de autorizaciones" vertex="1">
-          <mxGeometry height="193.37" width="711" x="2541.5" y="-1067" as="geometry" />
+        <mxCell id="Thst5Bmg4C5o5Ix50Ob--29" parent="4C8p2419GL-tcQHq8wRN-14" style="swimlane;startSize=34;html=1;rounded=1;arcSize=2;fillColor=#eef2f7;swimlaneFillColor=#f7fafc;strokeColor=#0288d1;strokeWidth=3;dashed=1;fontColor=#1a1a1a;fontStyle=1;fontSize=15;fontFamily=Helvetica;" value="Gestor documental de autorizaciones" vertex="1">
+          <mxGeometry height="193.37" width="310" x="1995" y="40" as="geometry" />
         </mxCell>
         <mxCell id="Thst5Bmg4C5o5Ix50Ob--39" parent="Thst5Bmg4C5o5Ix50Ob--29" style="text;html=1;whiteSpace=wrap;fontColor=#1a1a1a;fontSize=12;fontFamily=Helvetica;align=center;verticalAlign=middle;fillColor=#f7f7f7;strokeColor=#43a047;rounded=1;spacing=10;" value="publicar" vertex="1">
-          <mxGeometry height="52" width="155" x="58" y="50.01" as="geometry" />
+          <mxGeometry height="52" width="160" x="20" y="50.01" as="geometry" />
         </mxCell>
         <mxCell id="Thst5Bmg4C5o5Ix50Ob--43" edge="1" parent="Thst5Bmg4C5o5Ix50Ob--29" source="Thst5Bmg4C5o5Ix50Ob--40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;strokeColor=#333333;" target="Thst5Bmg4C5o5Ix50Ob--41">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="Thst5Bmg4C5o5Ix50Ob--40" parent="Thst5Bmg4C5o5Ix50Ob--29" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.storage_blob;labelPerimeter=1;" value="" vertex="1">
-          <mxGeometry height="45" width="50" x="351" y="83.01" as="geometry" />
+          <mxGeometry height="45" width="50" x="235" y="83.01" as="geometry" />
         </mxCell>
         <mxCell id="Thst5Bmg4C5o5Ix50Ob--41" parent="Thst5Bmg4C5o5Ix50Ob--29" style="text;html=1;whiteSpace=wrap;fontColor=#1a1a1a;fontSize=12;fontFamily=Helvetica;align=center;verticalAlign=middle;fillColor=#f7f7f7;strokeColor=#43a047;rounded=1;spacing=10;" value="consultar" vertex="1">
-          <mxGeometry height="52" width="155" x="58" y="115.01" as="geometry" />
+          <mxGeometry height="52" width="160" x="20" y="115.01" as="geometry" />
         </mxCell>
         <mxCell id="Thst5Bmg4C5o5Ix50Ob--42" edge="1" parent="Thst5Bmg4C5o5Ix50Ob--29" source="Thst5Bmg4C5o5Ix50Ob--39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;defaultLabelBackgroundColor=page;strokeColor=#333333;" target="Thst5Bmg4C5o5Ix50Ob--40">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="Thst5Bmg4C5o5Ix50Ob--36" edge="1" parent="4C8p2419GL-tcQHq8wRN-1" source="4C8p2419GL-tcQHq8wRN-79" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.501;entryY=0.14;entryDx=0;entryDy=0;entryPerimeter=0;defaultLabelBackgroundColor=page;strokeColor=#333333;" target="Thst5Bmg4C5o5Ix50Ob--28">
+        <mxCell id="Thst5Bmg4C5o5Ix50Ob--36" value="publica documentos" edge="1" parent="4C8p2419GL-tcQHq8wRN-1" source="4C8p2419GL-tcQHq8wRN-79" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.501;entryY=0.14;entryDx=0;entryDy=0;entryPerimeter=0;defaultLabelBackgroundColor=page;strokeColor=#333333;" target="Thst5Bmg4C5o5Ix50Ob--28">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="Thst5Bmg4C5o5Ix50Ob--37" edge="1" parent="4C8p2419GL-tcQHq8wRN-1" source="4C8p2419GL-tcQHq8wRN-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.501;entryY=0.888;entryDx=0;entryDy=0;entryPerimeter=0;defaultLabelBackgroundColor=page;strokeColor=#333333;" target="Thst5Bmg4C5o5Ix50Ob--28">
+        <mxCell id="Thst5Bmg4C5o5Ix50Ob--37" value="publica" edge="1" parent="4C8p2419GL-tcQHq8wRN-1" source="4C8p2419GL-tcQHq8wRN-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.501;entryY=0.888;entryDx=0;entryDy=0;entryPerimeter=0;defaultLabelBackgroundColor=page;strokeColor=#333333;" target="Thst5Bmg4C5o5Ix50Ob--28">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="Thst5Bmg4C5o5Ix50Ob--44" edge="1" parent="4C8p2419GL-tcQHq8wRN-1" source="4C8p2419GL-tcQHq8wRN-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.501;entryY=0.888;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;strokeColor=#333333;entryPerimeter=0;" target="Thst5Bmg4C5o5Ix50Ob--28">
+        <mxCell id="Thst5Bmg4C5o5Ix50Ob--44" value="consulta documentos (síncrona)" edge="1" parent="4C8p2419GL-tcQHq8wRN-1" source="4C8p2419GL-tcQHq8wRN-34" style="exitX=1;exitY=0.5;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.501;entryY=0.888;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;strokeColor=#333333;entryPerimeter=0;" target="Thst5Bmg4C5o5Ix50Ob--28">
           <mxGeometry relative="1" x="0.4991" as="geometry">
-            <Array as="points">
-              <mxPoint x="3767.5" y="921" />
-              <mxPoint x="3767.5" y="-857.5" />
-              <mxPoint x="2617.6" y="-857.5" />
-              <mxPoint x="2617.6" y="-658.3" />
-              <mxPoint x="2445.1" y="-658.3" />
-            </Array>
+            <Array as="points"><mxPoint x="2410" y="776.5" /><mxPoint x="2410" y="-900" /><mxPoint x="2445.1" y="-900" /></Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="lCf-iueePdCvOuLlOe5z-2" parent="4C8p2419GL-tcQHq8wRN-1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;" value="id del siniestro padre" vertex="1">
@@ -1061,7 +1171,97 @@
         <mxCell id="lCf-iueePdCvOuLlOe5z-15" parent="4C8p2419GL-tcQHq8wRN-1" style="shape=wedgeCallout;whiteSpace=wrap;html=1;" value="id del siniestro padre" vertex="1">
           <mxGeometry height="80" width="120" x="-9" y="-92" as="geometry" />
         </mxCell>
-      </root>
+      <mxCell id="ctx-p03-cc-e1" edge="1" parent="4C8p2419GL-tcQHq8wRN-1" source="4C8p2419GL-tcQHq8wRN-44" target="4C8p2419GL-tcQHq8wRN-90" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#d79b00;strokeWidth=2;dashed=0;fontColor=#9a6500;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.2;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;fontFamily=Helvetica;" value="⚠ requiere revisión humana · JSON/HTTP">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+          <mxCell id="ctx-p06-cc-ok" parent="4C8p2419GL-tcQHq8wRN-14" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f5e3;strokeColor=#43a047;strokeWidth=2;fontColor=#1a1a1a;fontSize=12;fontFamily=Helvetica;" value="&lt;b&gt;✔ Documento válido&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;sigue al encolamiento&lt;/font&gt;" vertex="1">
+          <mxGeometry height="52" width="155" x="812" y="216.37" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-p06-cc-ko" parent="4C8p2419GL-tcQHq8wRN-14" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fde9cc;strokeColor=#d79b00;strokeWidth=2;dashed=1;fontColor=#1a1a1a;fontSize=12;fontFamily=Helvetica;" value="&lt;b&gt;⏳ Documento no válido&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;flujo pendiente de definir&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="222" x="483" y="322" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-p06-cc-e1" edge="1" parent="4C8p2419GL-tcQHq8wRN-14" source="4C8p2419GL-tcQHq8wRN-19" target="ctx-p06-cc-ok" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;defaultLabelBackgroundColor=page;fontFamily=Helvetica;endArrow=block;strokeColor=#43a047;strokeWidth=2;fontColor=#43a047;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" value="Sí">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-p06-cc-e2" edge="1" parent="4C8p2419GL-tcQHq8wRN-14" source="4C8p2419GL-tcQHq8wRN-19" target="ctx-p06-cc-ko" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;defaultLabelBackgroundColor=page;fontFamily=Helvetica;endArrow=block;strokeColor=#d79b00;strokeWidth=2;dashed=1;fontColor=#d79b00;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-p06-cc-e3" edge="1" parent="4C8p2419GL-tcQHq8wRN-14" source="ctx-p06-cc-ok" target="4C8p2419GL-tcQHq8wRN-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;defaultLabelBackgroundColor=page;fontFamily=Helvetica;endArrow=block;strokeColor=#333333;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+          <mxCell id="ctx-d01-cc-hom" parent="4C8p2419GL-tcQHq8wRN-1" style="image;aspect=fixed;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;labelBackgroundColor=none;image=https://app.diagrams.net/img/lib/azure2/ai_machine_learning/AI_Foundry.svg;" value='&lt;b&gt;Homologador de códigos&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:11px"&gt;códigos extraídos&lt;br&gt;→ códigos SURA&lt;/font&gt;&lt;br&gt;&lt;font style="font-size:10px" color="#0277bd"&gt;C4 · agente&lt;/font&gt;' vertex="1">
+          <mxGeometry height="52" width="52" x="878" y="1208" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-d01-cc-hom-pill" parent="4C8p2419GL-tcQHq8wRN-1" style="rounded=1;arcSize=50;html=1;fillColor=#e1f5fe;strokeColor=#0288d1;fontColor=#0277bd;fontSize=10;fontStyle=1;fontFamily=Helvetica;strokeWidth=1.5;" value="→ MCP" vertex="1">
+          <mxGeometry height="18" width="58" x="936" y="1176" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-d01-cc-hom-e1" edge="1" parent="4C8p2419GL-tcQHq8wRN-1" source="ctx-d01-cc-hom" target="4C8p2419GL-tcQHq8wRN-55" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7a8496;strokeWidth=2;dashed=0;fontColor=#4f5868;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-d01-cc-hom-e2" edge="1" parent="4C8p2419GL-tcQHq8wRN-1" source="ctx-d01-cc-hom" target="4C8p2419GL-tcQHq8wRN-73" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0288d1;strokeWidth=2;dashed=1;fontColor=#0277bd;fontSize=11;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontFamily=Helvetica;" value="consulta tabla de homologación">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="904" y="1160" /><mxPoint x="1994.0" y="1160" /></Array></mxGeometry>
+        </mxCell>
+          <mxCell id="ctx-d03-cc-estado" parent="4C8p2419GL-tcQHq8wRN-14" style="text;html=1;whiteSpace=wrap;fontColor=#1a1a1a;fontSize=12;fontFamily=Helvetica;align=center;verticalAlign=middle;fillColor=#f7f7f7;strokeColor=#43a047;rounded=1;spacing=10;" value='&lt;b&gt;Actualiza el estado de la solicitud&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:11px"&gt;con el detalle de la respuesta del gestor&lt;/font&gt;' vertex="1">
+          <mxGeometry height="60" width="240" x="1406" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-d03-cc-estado-e1" edge="1" parent="4C8p2419GL-tcQHq8wRN-14" source="4C8p2419GL-tcQHq8wRN-22" target="ctx-d03-cc-estado" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;defaultLabelBackgroundColor=page;strokeColor=#333333;fontColor=#1a1a1a;fontFamily=Helvetica;endArrow=block;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" value="marca">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-d03-cc-estado-e2" edge="1" parent="4C8p2419GL-tcQHq8wRN-1" source="4C8p2419GL-tcQHq8wRN-79" target="ctx-d03-cc-estado" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;defaultLabelBackgroundColor=page;strokeColor=#333333;fontColor=#1a1a1a;fontFamily=Helvetica;endArrow=block;dashed=1;strokeColor=#d79b00;fontColor=#9a6500;strokeWidth=2;exitX=0.73;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=block;startFill=1;" value="consulta el estado (vía Apigee) y notifica al usuario">
+          <mxGeometry relative="1" x="-0.45" as="geometry" />
+        </mxCell>
+          <mxCell id="ctx-trz-cc" parent="4C8p2419GL-tcQHq8wRN-4" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f4edfa;strokeColor=#8e5cc4;strokeWidth=2;fontColor=#1a1a1a;fontSize=12;fontFamily=Helvetica;verticalAlign=top;align=center;spacingTop=4;" value="&lt;b&gt;Trazabilidad del mensaje&lt;/b&gt;" vertex="1">
+          <mxGeometry height="95" width="420" x="1000" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-trz-cc-s0" parent="ctx-trz-cc" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#8e5cc4;fontColor=#1a1a1a;fontSize=11;fontFamily=Helvetica;align=center;verticalAlign=middle;" value='&lt;b&gt;1. Recibido&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:10px"&gt;HTTP · responde ACK de inmediato&lt;/font&gt;' vertex="1">
+          <mxGeometry height="44" width="122" x="12" y="38" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-trz-cc-s1" parent="ctx-trz-cc" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#8e5cc4;fontColor=#1a1a1a;fontSize=11;fontFamily=Helvetica;align=center;verticalAlign=middle;" value='&lt;b&gt;2. Procesado&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:10px"&gt;seguridad · registro de trazabilidad&lt;/font&gt;' vertex="1">
+          <mxGeometry height="44" width="122" x="148" y="38" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-trz-cc-e1" edge="1" parent="ctx-trz-cc" source="ctx-trz-cc-s0" target="ctx-trz-cc-s1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7a8496;strokeWidth=2;endArrow=block;endFill=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-trz-cc-s2" parent="ctx-trz-cc" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#8e5cc4;fontColor=#1a1a1a;fontSize=11;fontFamily=Helvetica;align=center;verticalAlign=middle;" value='&lt;b&gt;3. Encolado&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:10px"&gt;topic → cola del destino&lt;/font&gt;' vertex="1">
+          <mxGeometry height="44" width="122" x="284" y="38" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-trz-cc-e2" edge="1" parent="ctx-trz-cc" source="ctx-trz-cc-s1" target="ctx-trz-cc-s2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7a8496;strokeWidth=2;endArrow=block;endFill=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+          <mxCell id="ctx-tc-cc-torre" parent="4C8p2419GL-tcQHq8wRN-1" style="swimlane;startSize=34;html=1;rounded=1;arcSize=2;fillColor=#eef2f7;swimlaneFillColor=#f7fafc;strokeColor=#0288d1;strokeWidth=3;dashed=1;fontColor=#1a1a1a;fontStyle=1;fontSize=15;fontFamily=Helvetica;" value="Torre de control · transversal" vertex="1">
+          <mxGeometry height="300" width="1022" x="2416" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-tc-cc-torre-k" parent="ctx-tc-cc-torre" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdf0db;strokeColor=#e08a1e;strokeWidth=2;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;" value='&lt;b&gt;Kafka interno de la Torre de control&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:11px"&gt;recibe la trazabilidad de todos los componentes: canales · Siniestro integral · orquestador de integración · gestores · cores&lt;/font&gt;' vertex="1">
+          <mxGeometry height="74" width="962" x="30" y="56" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-tc-cc-torre-v" parent="ctx-tc-cc-torre" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f4edfa;strokeColor=#8e5cc4;strokeWidth=2;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;" value='&lt;b&gt;Ve el flujo end to end&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:11px"&gt;arma el recorrido de cada solicitud con la trazabilidad recibida&lt;/font&gt;' vertex="1">
+          <mxGeometry height="74" width="440" x="30" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-tc-cc-torre-t" parent="ctx-tc-cc-torre" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f4edfa;strokeColor=#8e5cc4;strokeWidth=2;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;" value='&lt;b&gt;Tablero + copiloto&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:11px"&gt;estado, tiempos y cuellos de botella · puede pedir acciones al core&lt;/font&gt;' vertex="1">
+          <mxGeometry height="74" width="440" x="552" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-tc-cc-torre-e1" edge="1" parent="ctx-tc-cc-torre" source="ctx-tc-cc-torre-k" target="ctx-tc-cc-torre-v" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7a8496;strokeWidth=2;endArrow=block;endFill=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-tc-cc-torre-e2" edge="1" parent="ctx-tc-cc-torre" source="ctx-tc-cc-torre-v" target="ctx-tc-cc-torre-t" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7a8496;strokeWidth=2;endArrow=block;endFill=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-tc-cc-p-wRN-79" parent="4C8p2419GL-tcQHq8wRN-79" style="rounded=1;arcSize=50;html=1;fillColor=#fdf0db;strokeColor=#e08a1e;fontColor=#b35c00;fontSize=10;fontStyle=1;fontFamily=Helvetica;strokeWidth=1.5;" value="→ Torre de control" vertex="1">
+          <mxGeometry height="18" width="125" x="1925.0" y="6" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-tc-cc-p-wRN-14" parent="4C8p2419GL-tcQHq8wRN-14" style="rounded=1;arcSize=50;html=1;fillColor=#fdf0db;strokeColor=#e08a1e;fontColor=#b35c00;fontSize=10;fontStyle=1;fontFamily=Helvetica;strokeWidth=1.5;" value="→ Torre de control" vertex="1">
+          <mxGeometry height="18" width="125" x="2185.0" y="8" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-tc-cc-p-8wRN-2" parent="4C8p2419GL-tcQHq8wRN-2" style="rounded=1;arcSize=50;html=1;fillColor=#fdf0db;strokeColor=#e08a1e;fontColor=#b35c00;fontSize=10;fontStyle=1;fontFamily=Helvetica;strokeWidth=1.5;" value="→ Torre de control" vertex="1">
+          <mxGeometry height="18" width="125" x="887.0" y="8" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-tc-cc-p-wRN-95" parent="4C8p2419GL-tcQHq8wRN-95" style="rounded=1;arcSize=50;html=1;fillColor=#fdf0db;strokeColor=#e08a1e;fontColor=#b35c00;fontSize=10;fontStyle=1;fontFamily=Helvetica;strokeWidth=1.5;" value="→ Torre de control" vertex="1">
+          <mxGeometry height="18" width="125" x="887.0" y="8" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-tc-cc-p-trz" parent="ctx-trz-cc" style="rounded=1;arcSize=50;html=1;fillColor=#fdf0db;strokeColor=#e08a1e;fontColor=#b35c00;fontSize=10;fontStyle=1;fontFamily=Helvetica;strokeWidth=1.5;" value="→ Torre de control" vertex="1">
+          <mxGeometry height="18" width="125" x="292" y="4" as="geometry" />
+        </mxCell>
+          </root>
     </mxGraphModel>
   </diagram>
   <diagram id="pldnLycSOj0_D_KDJPlL" name="Page-11">
@@ -1329,7 +1529,7 @@
         <mxCell id="D5xN0leXXUPa6SQiap9_-5" edge="1" parent="kM6kHyDOR04DTcKE9BuM-1" source="D5xN0leXXUPa6SQiap9_-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;strokeColor=#333333;fontFamily=Helvetica;" target="D5xN0leXXUPa6SQiap9_-7">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="c1" parent="1" style="text;html=1;whiteSpace=wrap;fontColor=#1a1a1a;fontSize=20;fontFamily=Helvetica;align=left;verticalAlign=top;" value="&lt;b&gt;Microservicio GESTOR EVALUACIÓN — por dentro&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:13px&quot; color=&quot;#555555&quot;&gt;El Core lo activa (④) · &lt;b&gt;consulta al Core una sola vez&lt;/b&gt; y reutiliza esa información en duplicados y pertinencia · recomienda; &lt;b&gt;las reglas duras y la aprobación final están en el Core&lt;/b&gt; · píldoras: &lt;b&gt;→ IA&lt;/b&gt; = modelo vía LLM Gateway · &lt;b&gt;→ MCP&lt;/b&gt; = consulta al Core&lt;/font&gt;" vertex="1">
+        <mxCell id="c1" parent="1" style="text;html=1;whiteSpace=wrap;fontColor=#1a1a1a;fontSize=20;fontFamily=Helvetica;align=left;verticalAlign=top;" value='&lt;b&gt;Microservicio GESTOR EVALUACIÓN — por dentro&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:13px" color="#555555"&gt;El orquestador de integración lo activa con un mensaje en la cola RabbitMQ del gestor (④) · responde con un JSON por HTTP al orquestador de integración, que lo encola hacia Core ADR · &lt;b&gt;consulta al Core una sola vez&lt;/b&gt; y reutiliza esa información en duplicados y pertinencia · recomienda; &lt;b&gt;las reglas duras y la aprobación final están en el Core&lt;/b&gt; · píldoras: &lt;b&gt;→ IA&lt;/b&gt; = modelo vía LLM Gateway · &lt;b&gt;→ MCP&lt;/b&gt; = consulta al Core · &lt;b&gt;→ Torre de control&lt;/b&gt; = envía su trazabilidad al Kafka interno de la Torre de control&lt;/font&gt;' vertex="1">
           <mxGeometry height="60" width="2050" x="81" y="-1339" as="geometry" />
         </mxCell>
         <mxCell id="c3" parent="1" style="swimlane;startSize=34;html=1;rounded=1;arcSize=2;fillColor=#eef2f7;swimlaneFillColor=#f7fafc;strokeColor=#0288d1;strokeWidth=3;dashed=1;fontColor=#1a1a1a;fontStyle=1;fontSize=15;fontFamily=Helvetica;" value="MICROSERVICIO GESTOR EVALUACIÓN · Azure Container Apps · LangGraph · escala según su cola" vertex="1">
@@ -1373,7 +1573,7 @@
         <mxCell id="c44" edge="1" parent="c3" source="c40" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7a8496;strokeWidth=2;dashed=0;fontColor=#4f5868;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;" target="c41" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="c4" parent="c3" style="image;aspect=fixed;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;labelBackgroundColor=none;image=https://icons.diagrams.net/assets/sap/1/SAP_SE_RabbitMQ.svg;" value="&lt;b&gt;cola q.evaluacion&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;evaluaciones&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot; color=&quot;#0277bd&quot;&gt;C3 · C5&lt;/font&gt;" vertex="1">
+        <mxCell id="c4" parent="c3" style="image;aspect=fixed;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;labelBackgroundColor=none;image=https://icons.diagrams.net/assets/sap/1/SAP_SE_RabbitMQ.svg;" value='&lt;b&gt;cola q.evaluacion (RabbitMQ)&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:11px"&gt;evaluaciones&lt;/font&gt;&lt;br&gt;&lt;font style="font-size: 10px;" color="#0277bd"&gt;C3 · C5&lt;/font&gt;' vertex="1">
           <mxGeometry height="46" width="46" x="98.5" y="162" as="geometry" />
         </mxCell>
         <mxCell id="c8" parent="c3" style="image;aspect=fixed;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;labelBackgroundColor=none;image=https://app.diagrams.net/img/lib/azure2/ai_machine_learning/AI_Foundry.svg;" value="&lt;b&gt;3. Pertinencia médica&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;agente: usa el expediente +&lt;br&gt;protocolos · Core solo si falta algo&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot; color=&quot;#0277bd&quot;&gt;C4 · Agente&lt;/font&gt;" vertex="1">
@@ -1418,7 +1618,7 @@
         <mxCell id="c52" parent="c3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f4edfa;strokeColor=#8e5cc4;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;strokeWidth=2;" value="&lt;b&gt;Auditoría propia del Gestor Evaluación&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;MongoDB · expediente usado, regla de duplicidad, evidencia, nota del juez, nivel recomendado&lt;/font&gt;" vertex="1">
           <mxGeometry height="74" width="760" x="73" y="1284" as="geometry" />
         </mxCell>
-        <mxCell id="c53" parent="c3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdf0db;strokeColor=#e08a1e;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;strokeWidth=2;" value="&lt;b&gt;Publica eventos en Kafka&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;evaluación.iniciada · duplicada · recomendación.enviada · escalada.N3 / N4 · decisión.humana&lt;/font&gt;" vertex="1">
+        <mxCell id="c53" parent="c3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdf0db;strokeColor=#e08a1e;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;strokeWidth=2;" value='&lt;b&gt;Envía su trazabilidad a la Torre de control (Kafka interno)&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:11px"&gt;evaluación.iniciada · duplicada · recomendación.enviada · escalada.N3 / N4 · decisión.humana&lt;/font&gt;' vertex="1">
           <mxGeometry height="74" width="800" x="913" y="1284" as="geometry" />
         </mxCell>
         <mxCell id="Dtea1dyIadsECXCXRGKE-76" parent="c3" style="whiteSpace=wrap;html=1;strokeColor=#d6b656;align=center;verticalAlign=top;fontFamily=Helvetica;fontSize=13;fontColor=#1a1a1a;fillColor=#fff7d6;" value="&lt;b style=&quot;white-space: nowrap;&quot;&gt;1. Contexto del caso&lt;/b&gt;&lt;br style=&quot;white-space: nowrap;&quot;&gt;&lt;font style=&quot;white-space: nowrap; font-size: 11px;&quot;&gt;una sola consulta al Core&lt;br&gt;(detalle abajo)&lt;/font&gt;&lt;br style=&quot;white-space: nowrap;&quot;&gt;&lt;font style=&quot;white-space: nowrap; font-size: 10px;&quot;&gt;C5 · servicio&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;white-space: nowrap; font-size: 10px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;white-space: nowrap; font-size: 10px;&quot;&gt;&lt;font style=&quot;text-align: left; font-size: 11px;&quot;&gt;protocolos, políticas y cláusulas&lt;br&gt;filtrados por el plan del afiliado&lt;/font&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;" vertex="1">
@@ -1491,7 +1691,7 @@
             <mxPoint x="238" y="83" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="c54" parent="1" style="text;html=1;whiteSpace=wrap;fontSize=12;align=left;verticalAlign=top;fontColor=#1a1a1a;fontFamily=Helvetica;" value="&lt;table border=&quot;1&quot; cellpadding=&quot;4&quot; style=&quot;border-collapse:collapse;width:100%;font-size:12px&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th style=&quot;background:#dae8fc&quot;&gt;Entrada / salida&lt;/th&gt;&lt;th style=&quot;background:#dae8fc&quot;&gt;Por dónde&lt;/th&gt;&lt;th style=&quot;background:#dae8fc&quot;&gt;Qué viaja&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;④ Entrada: el Core lo activa&lt;/td&gt;&lt;td&gt;API POST /evaluaciones → cola q.evaluacion&lt;/td&gt;&lt;td&gt;id solicitud + datos extraídos&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Paso 1: contexto del caso&lt;/td&gt;&lt;td&gt;API del Core vía MCP (una sola llamada)&lt;/td&gt;&lt;td&gt;pide: historial relevante, datos del afiliado, plan y cláusulas según el servicio&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;⑤ Salida: recomendación&lt;/td&gt;&lt;td&gt;API del Core&lt;/td&gt;&lt;td&gt;pertinente, evidencia, confianza, nota del juez → el Core aplica reglas duras y decide&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;⑤b Salida: duplicada&lt;/td&gt;&lt;td&gt;API del Core&lt;/td&gt;&lt;td&gt;solicitud original y regla aplicada&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;⑥ Paso a personas&lt;/td&gt;&lt;td&gt;cola q.revision-humana → clasificador → bandeja N3 o N4&lt;/td&gt;&lt;td&gt;motivo estructurado, evidencia, nivel recomendado&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;⑥b Salida: decisión humana&lt;/td&gt;&lt;td&gt;API del Core&lt;/td&gt;&lt;td&gt;decisión y motivo de la enfermera o el médico&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" vertex="1">
+        <mxCell id="c54" parent="1" style="text;html=1;whiteSpace=wrap;fontSize=12;align=left;verticalAlign=top;fontColor=#1a1a1a;fontFamily=Helvetica;" value='&lt;table border="1" cellpadding="4" style="border-collapse:collapse;width:100%;font-size:12px"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th style="background:#dae8fc"&gt;Entrada / salida&lt;/th&gt;&lt;th style="background:#dae8fc"&gt;Por dónde&lt;/th&gt;&lt;th style="background:#dae8fc"&gt;Qué viaja&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;④ Entrada: el orquestador de integración lo activa&lt;/td&gt;&lt;td&gt;mensaje en la cola RabbitMQ del gestor (orquestador de integración → topic de gestor de evaluación → cola q.evaluacion)&lt;/td&gt;&lt;td&gt;id solicitud + datos extraídos&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Paso 1: contexto del caso&lt;/td&gt;&lt;td&gt;API del Core vía MCP (una sola llamada)&lt;/td&gt;&lt;td&gt;pide: historial relevante, datos del afiliado, plan y cláusulas según el servicio&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;⑤ Salida: recomendación&lt;/td&gt;&lt;td&gt;JSON por HTTP al orquestador de integración (vía Apigee) → topic → colas de Core ADR (response aprobado / rechazado)&lt;/td&gt;&lt;td&gt;pertinente, evidencia, confianza, nota del juez → el Core aplica reglas duras y decide&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;⑤b Salida: duplicada&lt;/td&gt;&lt;td&gt;igual que ⑤&lt;/td&gt;&lt;td&gt;solicitud original y regla aplicada&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;⑥ Paso a personas&lt;/td&gt;&lt;td&gt;cola q.revision-humana → clasificador → bandeja N3 o N4&lt;/td&gt;&lt;td&gt;motivo estructurado, evidencia, nivel recomendado&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;⑥b Salida: decisión humana&lt;/td&gt;&lt;td&gt;API del Core&lt;/td&gt;&lt;td&gt;decisión y motivo de la enfermera o el médico&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;' vertex="1">
           <mxGeometry height="260" width="1180" x="80" y="2291" as="geometry" />
         </mxCell>
         <mxCell id="c55" parent="1" style="text;html=1;whiteSpace=wrap;fontColor=#1a1a1a;fontSize=12;fontFamily=Helvetica;align=left;verticalAlign=top;fillColor=#f7f7f7;strokeColor=#d6b656;rounded=1;spacing=10;" value="&lt;b&gt;Tres decisiones de diseño&lt;/b&gt;&lt;br&gt;&lt;b&gt;1. Contexto una sola vez&lt;/b&gt;: el paso 1 trae de una vez lo que necesitan duplicados y pertinencia. El agente solo vuelve a llamar al Core si le falta algo puntual.&lt;br&gt;&lt;b&gt;2. Duplicados con código&lt;/b&gt;: las reglas por servicio viven en el catálogo local; aplicarlas no necesita IA.&lt;br&gt;&lt;b&gt;3. Nivel N3 / N4&lt;/b&gt;: el agente de pertinencia deja un &lt;b&gt;motivo estructurado&lt;/b&gt; (documental o clínico). El clasificador decide el nivel con reglas configurables y solo usa un modelo pequeño si el motivo es ambiguo. El nivel es una &lt;b&gt;recomendación&lt;/b&gt;: el Core puede reasignarlo." vertex="1">
@@ -1601,7 +1801,7 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="dfjldwtqLoVjV70JSpbg-23" edge="1" parent="1" source="dfjldwtqLoVjV70JSpbg-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.869;entryY=0.513;entryDx=0;entryDy=0;entryPerimeter=0;defaultLabelBackgroundColor=page;strokeColor=#333333;" target="D5xN0leXXUPa6SQiap9_-11" value="publica respuesta">
+        <mxCell id="dfjldwtqLoVjV70JSpbg-23" edge="1" parent="1" source="dfjldwtqLoVjV70JSpbg-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.869;entryY=0.513;entryDx=0;entryDy=0;entryPerimeter=0;defaultLabelBackgroundColor=page;strokeColor=#333333;" target="D5xN0leXXUPa6SQiap9_-11" value="publica respuesta · JSON/HTTP">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="2558.1" y="-25.6" />
@@ -1617,7 +1817,49 @@
         <mxCell id="kM6kHyDOR04DTcKE9BuM-15" edge="1" parent="1" source="kM6kHyDOR04DTcKE9BuM-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;" target="kM6kHyDOR04DTcKE9BuM-14">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-      </root>
+      <mxCell id="ctx-trz-d2" parent="kM6kHyDOR04DTcKE9BuM-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f4edfa;strokeColor=#8e5cc4;strokeWidth=2;fontColor=#1a1a1a;fontSize=12;fontFamily=Helvetica;verticalAlign=top;align=center;spacingTop=4;" value="&lt;b&gt;Trazabilidad del mensaje&lt;/b&gt;" vertex="1">
+          <mxGeometry height="95" width="420" x="1010" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-trz-d2-s0" parent="ctx-trz-d2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#8e5cc4;fontColor=#1a1a1a;fontSize=11;fontFamily=Helvetica;align=center;verticalAlign=middle;" value='&lt;b&gt;1. Recibido&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:10px"&gt;HTTP · responde ACK de inmediato&lt;/font&gt;' vertex="1">
+          <mxGeometry height="44" width="122" x="12" y="38" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-trz-d2-s1" parent="ctx-trz-d2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#8e5cc4;fontColor=#1a1a1a;fontSize=11;fontFamily=Helvetica;align=center;verticalAlign=middle;" value='&lt;b&gt;2. Procesado&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:10px"&gt;seguridad · registro de trazabilidad&lt;/font&gt;' vertex="1">
+          <mxGeometry height="44" width="122" x="148" y="38" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-trz-d2-e1" edge="1" parent="ctx-trz-d2" source="ctx-trz-d2-s0" target="ctx-trz-d2-s1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7a8496;strokeWidth=2;endArrow=block;endFill=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-trz-d2-s2" parent="ctx-trz-d2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#8e5cc4;fontColor=#1a1a1a;fontSize=11;fontFamily=Helvetica;align=center;verticalAlign=middle;" value='&lt;b&gt;3. Encolado&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:10px"&gt;topic → cola del destino&lt;/font&gt;' vertex="1">
+          <mxGeometry height="44" width="122" x="284" y="38" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-trz-d2-e2" edge="1" parent="ctx-trz-d2" source="ctx-trz-d2-s1" target="ctx-trz-d2-s2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7a8496;strokeWidth=2;endArrow=block;endFill=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+          <mxCell id="ctx-tc-d2-torre" parent="1" style="swimlane;startSize=34;html=1;rounded=1;arcSize=2;fillColor=#eef2f7;swimlaneFillColor=#f7fafc;strokeColor=#0288d1;strokeWidth=3;dashed=1;fontColor=#1a1a1a;fontStyle=1;fontSize=15;fontFamily=Helvetica;" value="Torre de control · transversal" vertex="1">
+          <mxGeometry height="300" width="1022" x="2400" y="1667" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-tc-d2-torre-k" parent="ctx-tc-d2-torre" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdf0db;strokeColor=#e08a1e;strokeWidth=2;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;" value='&lt;b&gt;Kafka interno de la Torre de control&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:11px"&gt;recibe la trazabilidad de todos los componentes: canales · Siniestro integral · orquestador de integración · gestores · cores&lt;/font&gt;' vertex="1">
+          <mxGeometry height="74" width="962" x="30" y="56" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-tc-d2-torre-v" parent="ctx-tc-d2-torre" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f4edfa;strokeColor=#8e5cc4;strokeWidth=2;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;" value='&lt;b&gt;Ve el flujo end to end&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:11px"&gt;arma el recorrido de cada solicitud con la trazabilidad recibida&lt;/font&gt;' vertex="1">
+          <mxGeometry height="74" width="440" x="30" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-tc-d2-torre-t" parent="ctx-tc-d2-torre" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f4edfa;strokeColor=#8e5cc4;strokeWidth=2;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;" value='&lt;b&gt;Tablero + copiloto&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:11px"&gt;estado, tiempos y cuellos de botella · puede pedir acciones al core&lt;/font&gt;' vertex="1">
+          <mxGeometry height="74" width="440" x="552" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-tc-d2-torre-e1" edge="1" parent="ctx-tc-d2-torre" source="ctx-tc-d2-torre-k" target="ctx-tc-d2-torre-v" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7a8496;strokeWidth=2;endArrow=block;endFill=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-tc-d2-torre-e2" edge="1" parent="ctx-tc-d2-torre" source="ctx-tc-d2-torre-v" target="ctx-tc-d2-torre-t" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7a8496;strokeWidth=2;endArrow=block;endFill=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-tc-d2-p-cCON-1" parent="RSVd2VmisQj445nGcCON-1" style="rounded=1;arcSize=50;html=1;fillColor=#fdf0db;strokeColor=#e08a1e;fontColor=#b35c00;fontSize=10;fontStyle=1;fontFamily=Helvetica;strokeWidth=1.5;" value="→ Torre de control" vertex="1">
+          <mxGeometry height="18" width="125" x="1992.0" y="8" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-tc-d2-p-trz" parent="ctx-trz-d2" style="rounded=1;arcSize=50;html=1;fillColor=#fdf0db;strokeColor=#e08a1e;fontColor=#b35c00;fontSize=10;fontStyle=1;fontFamily=Helvetica;strokeWidth=1.5;" value="→ Torre de control" vertex="1">
+          <mxGeometry height="18" width="125" x="292" y="4" as="geometry" />
+        </mxCell>
+          </root>
     </mxGraphModel>
   </diagram>
   <diagram name="Gestor Evaluación Release final" id="p70LqHCaPi_F7LSYZtux">
@@ -1626,7 +1868,7 @@
         <mxCell id="Dlz2w1c-RvbU9iQR3jtd-0" />
         <mxCell id="Dlz2w1c-RvbU9iQR3jtd-1" parent="Dlz2w1c-RvbU9iQR3jtd-0" />
         <mxCell id="Dlz2w1c-RvbU9iQR3jtd-2" parent="Dlz2w1c-RvbU9iQR3jtd-1" style="swimlane;startSize=34;html=1;rounded=1;arcSize=2;fillColor=#eef2f7;swimlaneFillColor=#f7fafc;strokeColor=#0288d1;strokeWidth=3;dashed=1;fontColor=#1a1a1a;fontStyle=1;fontSize=15;fontFamily=Helvetica;" value="Orquestador de integración" vertex="1">
-          <mxGeometry height="263" width="1451" x="43.5" y="-136" as="geometry" />
+          <mxGeometry height="360" width="1451" x="43.5" y="-136" as="geometry" />
         </mxCell>
         <mxCell id="Dlz2w1c-RvbU9iQR3jtd-3" parent="Dlz2w1c-RvbU9iQR3jtd-2" style="text;html=1;whiteSpace=wrap;fontColor=#1a1a1a;fontSize=12;fontFamily=Helvetica;align=center;verticalAlign=middle;fillColor=#f7f7f7;strokeColor=#43a047;rounded=1;spacing=10;" value="Recibir comando de encolamiento" vertex="1">
           <mxGeometry height="52" width="155" x="117" y="87.37" as="geometry" />
@@ -1649,7 +1891,7 @@
         <mxCell id="Dlz2w1c-RvbU9iQR3jtd-8" parent="Dlz2w1c-RvbU9iQR3jtd-2" style="image;aspect=fixed;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;labelBackgroundColor=none;image=https://icons.diagrams.net/assets/sap/1/SAP_SE_RabbitMQ.svg;" value="&lt;b&gt;Topic de gestor de evaluación&lt;/b&gt;" vertex="1">
           <mxGeometry height="46" width="46" x="513.5" y="55" as="geometry" />
         </mxCell>
-        <mxCell id="Dlz2w1c-RvbU9iQR3jtd-9" parent="Dlz2w1c-RvbU9iQR3jtd-1" style="text;html=1;whiteSpace=wrap;fontColor=#1a1a1a;fontSize=20;fontFamily=Helvetica;align=left;verticalAlign=top;" value="&lt;b&gt;Microservicio GESTOR EVALUACIÓN — por dentro&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:13px&quot; color=&quot;#555555&quot;&gt;El Core lo activa (④) · &lt;b&gt;consulta al Core una sola vez&lt;/b&gt; y reutiliza esa información en duplicados y pertinencia · recomienda; &lt;b&gt;las reglas duras y la aprobación final están en el Core&lt;/b&gt; · píldoras: &lt;b&gt;→ IA&lt;/b&gt; = modelo vía LLM Gateway · &lt;b&gt;→ MCP&lt;/b&gt; = consulta al Core&lt;/font&gt;" vertex="1">
+        <mxCell id="Dlz2w1c-RvbU9iQR3jtd-9" parent="Dlz2w1c-RvbU9iQR3jtd-1" style="text;html=1;whiteSpace=wrap;fontColor=#1a1a1a;fontSize=20;fontFamily=Helvetica;align=left;verticalAlign=top;" value='&lt;b&gt;Microservicio GESTOR EVALUACIÓN — por dentro&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:13px" color="#555555"&gt;El orquestador de integración lo activa con un mensaje en la cola RabbitMQ del gestor (④) · responde con un JSON por HTTP al orquestador de integración, que lo encola hacia Core ADR · &lt;b&gt;consulta al Core una sola vez&lt;/b&gt; y reutiliza esa información en duplicados y pertinencia · recomienda; &lt;b&gt;las reglas duras y la aprobación final están en el Core&lt;/b&gt; · píldoras: &lt;b&gt;→ IA&lt;/b&gt; = modelo vía LLM Gateway · &lt;b&gt;→ MCP&lt;/b&gt; = consulta al Core · &lt;b&gt;→ Torre de control&lt;/b&gt; = envía su trazabilidad al Kafka interno de la Torre de control&lt;/font&gt;' vertex="1">
           <mxGeometry height="60" width="2050" x="76" y="-1025" as="geometry" />
         </mxCell>
         <mxCell id="Dlz2w1c-RvbU9iQR3jtd-10" parent="Dlz2w1c-RvbU9iQR3jtd-1" style="swimlane;startSize=34;html=1;rounded=1;arcSize=2;fillColor=#eef2f7;swimlaneFillColor=#f7fafc;strokeColor=#0288d1;strokeWidth=3;dashed=1;fontColor=#1a1a1a;fontStyle=1;fontSize=15;fontFamily=Helvetica;" value="MICROSERVICIO GESTOR EVALUACIÓN · Azure Container Apps · LangGraph · escala según su cola" vertex="1">
@@ -1706,7 +1948,7 @@
         <mxCell id="Dlz2w1c-RvbU9iQR3jtd-24" edge="1" parent="Dlz2w1c-RvbU9iQR3jtd-10" source="Dlz2w1c-RvbU9iQR3jtd-39" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#7a8496;strokeWidth=2;dashed=0;fontColor=#4f5868;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Helvetica;" target="Dlz2w1c-RvbU9iQR3jtd-40" value="">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="Dlz2w1c-RvbU9iQR3jtd-25" parent="Dlz2w1c-RvbU9iQR3jtd-10" style="image;aspect=fixed;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;labelBackgroundColor=none;image=https://icons.diagrams.net/assets/sap/1/SAP_SE_RabbitMQ.svg;" value="&lt;b&gt;cola q.evaluacion&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;evaluaciones&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 10px;&quot; color=&quot;#0277bd&quot;&gt;C3 · C5&lt;/font&gt;" vertex="1">
+        <mxCell id="Dlz2w1c-RvbU9iQR3jtd-25" parent="Dlz2w1c-RvbU9iQR3jtd-10" style="image;aspect=fixed;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;labelBackgroundColor=none;image=https://icons.diagrams.net/assets/sap/1/SAP_SE_RabbitMQ.svg;" value='&lt;b&gt;cola q.evaluacion (RabbitMQ)&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:11px"&gt;evaluaciones&lt;/font&gt;&lt;br&gt;&lt;font style="font-size: 10px;" color="#0277bd"&gt;C3 · C5&lt;/font&gt;' vertex="1">
           <mxGeometry height="46" width="46" x="98.5" y="162" as="geometry" />
         </mxCell>
         <mxCell id="Dlz2w1c-RvbU9iQR3jtd-26" parent="Dlz2w1c-RvbU9iQR3jtd-10" style="image;aspect=fixed;html=1;verticalLabelPosition=bottom;verticalAlign=top;align=center;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;labelBackgroundColor=none;image=https://app.diagrams.net/img/lib/azure2/ai_machine_learning/AI_Foundry.svg;" value="&lt;b&gt;3. Pertinencia médica&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;agente: usa el expediente +&lt;br&gt;protocolos · Core solo si falta algo&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot; color=&quot;#0277bd&quot;&gt;C4 · Agente&lt;/font&gt;" vertex="1">
@@ -1760,7 +2002,7 @@
         <mxCell id="Dlz2w1c-RvbU9iQR3jtd-42" parent="Dlz2w1c-RvbU9iQR3jtd-10" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f4edfa;strokeColor=#8e5cc4;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;strokeWidth=2;" value="&lt;b&gt;Auditoría propia del Gestor Evaluación&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;MongoDB · expediente usado, regla de duplicidad, evidencia, nota del juez, nivel recomendado&lt;/font&gt;" vertex="1">
           <mxGeometry height="74" width="760" x="73" y="1284" as="geometry" />
         </mxCell>
-        <mxCell id="Dlz2w1c-RvbU9iQR3jtd-43" parent="Dlz2w1c-RvbU9iQR3jtd-10" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdf0db;strokeColor=#e08a1e;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;strokeWidth=2;" value="&lt;b&gt;Publica eventos en Kafka&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:11px&quot;&gt;evaluación.iniciada · duplicada · recomendación.enviada · escalada.N3 / N4 · decisión.humana&lt;/font&gt;" vertex="1">
+        <mxCell id="Dlz2w1c-RvbU9iQR3jtd-43" parent="Dlz2w1c-RvbU9iQR3jtd-10" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdf0db;strokeColor=#e08a1e;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;strokeWidth=2;" value='&lt;b&gt;Envía su trazabilidad a la Torre de control (Kafka interno)&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:11px"&gt;evaluación.iniciada · duplicada · recomendación.enviada · escalada.N3 / N4 · decisión.humana&lt;/font&gt;' vertex="1">
           <mxGeometry height="74" width="800" x="913" y="1284" as="geometry" />
         </mxCell>
         <mxCell id="Dlz2w1c-RvbU9iQR3jtd-44" parent="Dlz2w1c-RvbU9iQR3jtd-10" style="whiteSpace=wrap;html=1;strokeColor=#d6b656;align=center;verticalAlign=top;fontFamily=Helvetica;fontSize=13;fontColor=#1a1a1a;fillColor=#fff7d6;" value="&lt;b style=&quot;white-space: nowrap;&quot;&gt;1. Contexto del caso&lt;/b&gt;&lt;br style=&quot;white-space: nowrap;&quot;&gt;&lt;font style=&quot;white-space: nowrap; font-size: 11px;&quot;&gt;una sola consulta al Core&lt;br&gt;(detalle abajo)&lt;/font&gt;&lt;br style=&quot;white-space: nowrap;&quot;&gt;&lt;font style=&quot;white-space: nowrap; font-size: 10px;&quot;&gt;C5 · servicio&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;white-space: nowrap; font-size: 10px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;white-space: nowrap; font-size: 10px;&quot;&gt;&lt;font style=&quot;text-align: left; font-size: 11px;&quot;&gt;protocolos, políticas y cláusulas&lt;br&gt;filtrados por el plan del afiliado&lt;/font&gt;&lt;br style=&quot;font-size: 13px; text-align: left;&quot;&gt;&lt;font style=&quot;text-align: left;&quot;&gt;C6 · RAG&lt;/font&gt;&lt;/font&gt;&lt;/div&gt;" vertex="1">
@@ -1781,7 +2023,7 @@
             <mxPoint x="971" y="792" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Dlz2w1c-RvbU9iQR3jtd-49" edge="1" parent="Dlz2w1c-RvbU9iQR3jtd-10" source="Dlz2w1c-RvbU9iQR3jtd-30" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0288d1;strokeWidth=2;dashed=0;fontColor=#0277bd;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;fontFamily=Helvetica;" target="Dlz2w1c-RvbU9iQR3jtd-31" value="⑤b duplicada">
+        <mxCell id="Dlz2w1c-RvbU9iQR3jtd-49" edge="1" parent="Dlz2w1c-RvbU9iQR3jtd-10" source="Dlz2w1c-RvbU9iQR3jtd-30" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0288d1;strokeWidth=2;dashed=0;fontColor=#0277bd;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;fontFamily=Helvetica;" target="Dlz2w1c-RvbU9iQR3jtd-31" value="⑤b duplicada · JSON/HTTP">
           <mxGeometry relative="1" x="-0.7564" as="geometry">
             <mxPoint x="1858.9999999999973" y="598" as="targetPoint" />
           </mxGeometry>
@@ -1792,7 +2034,7 @@
             <mxPoint x="199.48000000000002" y="168.01999999999953" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Dlz2w1c-RvbU9iQR3jtd-51" parent="Dlz2w1c-RvbU9iQR3jtd-1" style="text;html=1;whiteSpace=wrap;fontSize=12;align=left;verticalAlign=top;fontColor=#1a1a1a;fontFamily=Helvetica;" value="&lt;table border=&quot;1&quot; cellpadding=&quot;4&quot; style=&quot;border-collapse:collapse;width:100%;font-size:12px&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th style=&quot;background:#dae8fc&quot;&gt;Entrada / salida&lt;/th&gt;&lt;th style=&quot;background:#dae8fc&quot;&gt;Por dónde&lt;/th&gt;&lt;th style=&quot;background:#dae8fc&quot;&gt;Qué viaja&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;④ Entrada: el Core lo activa&lt;/td&gt;&lt;td&gt;API POST /evaluaciones → cola q.evaluacion&lt;/td&gt;&lt;td&gt;id solicitud + datos extraídos&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Paso 1: contexto del caso&lt;/td&gt;&lt;td&gt;API del Core vía MCP (una sola llamada)&lt;/td&gt;&lt;td&gt;pide: historial relevante, datos del afiliado, plan y cláusulas según el servicio&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;⑤ Salida: recomendación&lt;/td&gt;&lt;td&gt;API del Core&lt;/td&gt;&lt;td&gt;pertinente, evidencia, confianza, nota del juez → el Core aplica reglas duras y decide&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;⑤b Salida: duplicada&lt;/td&gt;&lt;td&gt;API del Core&lt;/td&gt;&lt;td&gt;solicitud original y regla aplicada&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;⑥ Paso a personas&lt;/td&gt;&lt;td&gt;cola q.revision-humana → clasificador → bandeja N3 o N4&lt;/td&gt;&lt;td&gt;motivo estructurado, evidencia, nivel recomendado&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;⑥b Salida: decisión humana&lt;/td&gt;&lt;td&gt;API del Core&lt;/td&gt;&lt;td&gt;decisión y motivo de la enfermera o el médico&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" vertex="1">
+        <mxCell id="Dlz2w1c-RvbU9iQR3jtd-51" parent="Dlz2w1c-RvbU9iQR3jtd-1" style="text;html=1;whiteSpace=wrap;fontSize=12;align=left;verticalAlign=top;fontColor=#1a1a1a;fontFamily=Helvetica;" value='&lt;table border="1" cellpadding="4" style="border-collapse:collapse;width:100%;font-size:12px"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th style="background:#dae8fc"&gt;Entrada / salida&lt;/th&gt;&lt;th style="background:#dae8fc"&gt;Por dónde&lt;/th&gt;&lt;th style="background:#dae8fc"&gt;Qué viaja&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;④ Entrada: el orquestador de integración lo activa&lt;/td&gt;&lt;td&gt;mensaje en la cola RabbitMQ del gestor (orquestador de integración → topic de gestor de evaluación → cola q.evaluacion)&lt;/td&gt;&lt;td&gt;id solicitud + datos extraídos&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Paso 1: contexto del caso&lt;/td&gt;&lt;td&gt;API del Core vía MCP (una sola llamada)&lt;/td&gt;&lt;td&gt;pide: historial relevante, datos del afiliado, plan y cláusulas según el servicio&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;⑤ Salida: recomendación&lt;/td&gt;&lt;td&gt;JSON por HTTP al orquestador de integración (vía Apigee) → topic → colas de Core ADR (response aprobado / rechazado)&lt;/td&gt;&lt;td&gt;pertinente, evidencia, confianza, nota del juez → el Core aplica reglas duras y decide&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;⑤b Salida: duplicada&lt;/td&gt;&lt;td&gt;igual que ⑤&lt;/td&gt;&lt;td&gt;solicitud original y regla aplicada&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;⑥ Paso a personas&lt;/td&gt;&lt;td&gt;cola q.revision-humana → clasificador → bandeja N3 o N4&lt;/td&gt;&lt;td&gt;motivo estructurado, evidencia, nivel recomendado&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;⑥b Salida: decisión humana&lt;/td&gt;&lt;td&gt;API del Core&lt;/td&gt;&lt;td&gt;decisión y motivo de la enfermera o el médico&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;' vertex="1">
           <mxGeometry height="260" width="1180" x="80" y="2291" as="geometry" />
         </mxCell>
         <mxCell id="Dlz2w1c-RvbU9iQR3jtd-52" parent="Dlz2w1c-RvbU9iQR3jtd-1" style="text;html=1;whiteSpace=wrap;fontColor=#1a1a1a;fontSize=12;fontFamily=Helvetica;align=left;verticalAlign=top;fillColor=#f7f7f7;strokeColor=#d6b656;rounded=1;spacing=10;" value="&lt;b&gt;Tres decisiones de diseño&lt;/b&gt;&lt;br&gt;&lt;b&gt;1. Contexto una sola vez&lt;/b&gt;: el paso 1 trae de una vez lo que necesitan duplicados y pertinencia. El agente solo vuelve a llamar al Core si le falta algo puntual.&lt;br&gt;&lt;b&gt;2. Duplicados con código&lt;/b&gt;: las reglas por servicio viven en el catálogo local; aplicarlas no necesita IA.&lt;br&gt;&lt;b&gt;3. Nivel N3 / N4&lt;/b&gt;: el agente de pertinencia deja un &lt;b&gt;motivo estructurado&lt;/b&gt; (documental o clínico). El clasificador decide el nivel con reglas configurables y solo usa un modelo pequeño si el motivo es ambiguo. El nivel es una &lt;b&gt;recomendación&lt;/b&gt;: el Core puede reasignarlo." vertex="1">
@@ -1876,7 +2118,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="Dlz2w1c-RvbU9iQR3jtd-73" edge="1" parent="Dlz2w1c-RvbU9iQR3jtd-1" source="Dlz2w1c-RvbU9iQR3jtd-29" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#43a047;strokeWidth=2;dashed=0;fontColor=#2e7d32;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.869;entryY=0.513;entryDx=0;entryDy=0;fontFamily=Helvetica;entryPerimeter=0;" target="Dlz2w1c-RvbU9iQR3jtd-55" value="⑤ recomendación">
+        <mxCell id="Dlz2w1c-RvbU9iQR3jtd-73" edge="1" parent="Dlz2w1c-RvbU9iQR3jtd-1" source="Dlz2w1c-RvbU9iQR3jtd-29" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#43a047;strokeWidth=2;dashed=0;fontColor=#2e7d32;fontSize=12;fontStyle=1;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;jumpStyle=arc;jumpSize=10;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.869;entryY=0.513;entryDx=0;entryDy=0;fontFamily=Helvetica;entryPerimeter=0;" target="Dlz2w1c-RvbU9iQR3jtd-55" value="⑤ recomendación · JSON/HTTP">
           <mxGeometry relative="1" x="-0.8734" as="geometry">
             <Array as="points">
               <mxPoint x="1885" y="923" />
@@ -1927,7 +2169,52 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-      </root>
+      <mxCell id="ctx-trz-rf" parent="Dlz2w1c-RvbU9iQR3jtd-2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f4edfa;strokeColor=#8e5cc4;strokeWidth=2;fontColor=#1a1a1a;fontSize=12;fontFamily=Helvetica;verticalAlign=top;align=center;spacingTop=4;" value="&lt;b&gt;Trazabilidad del mensaje&lt;/b&gt;" vertex="1">
+          <mxGeometry height="95" width="420" x="1000" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-trz-rf-s0" parent="ctx-trz-rf" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#8e5cc4;fontColor=#1a1a1a;fontSize=11;fontFamily=Helvetica;align=center;verticalAlign=middle;" value='&lt;b&gt;1. Recibido&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:10px"&gt;HTTP · responde ACK de inmediato&lt;/font&gt;' vertex="1">
+          <mxGeometry height="44" width="122" x="12" y="38" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-trz-rf-s1" parent="ctx-trz-rf" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#8e5cc4;fontColor=#1a1a1a;fontSize=11;fontFamily=Helvetica;align=center;verticalAlign=middle;" value='&lt;b&gt;2. Procesado&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:10px"&gt;seguridad · registro de trazabilidad&lt;/font&gt;' vertex="1">
+          <mxGeometry height="44" width="122" x="148" y="38" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-trz-rf-e1" edge="1" parent="ctx-trz-rf" source="ctx-trz-rf-s0" target="ctx-trz-rf-s1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7a8496;strokeWidth=2;endArrow=block;endFill=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-trz-rf-s2" parent="ctx-trz-rf" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#8e5cc4;fontColor=#1a1a1a;fontSize=11;fontFamily=Helvetica;align=center;verticalAlign=middle;" value='&lt;b&gt;3. Encolado&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:10px"&gt;topic → cola del destino&lt;/font&gt;' vertex="1">
+          <mxGeometry height="44" width="122" x="284" y="38" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-trz-rf-e2" edge="1" parent="ctx-trz-rf" source="ctx-trz-rf-s1" target="ctx-trz-rf-s2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7a8496;strokeWidth=2;endArrow=block;endFill=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+          <mxCell id="ctx-tc-rf-torre" parent="Dlz2w1c-RvbU9iQR3jtd-1" style="swimlane;startSize=34;html=1;rounded=1;arcSize=2;fillColor=#eef2f7;swimlaneFillColor=#f7fafc;strokeColor=#0288d1;strokeWidth=3;dashed=1;fontColor=#1a1a1a;fontStyle=1;fontSize=15;fontFamily=Helvetica;" value="Torre de control · transversal" vertex="1">
+          <mxGeometry height="300" width="1022" x="2400" y="1667" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-tc-rf-torre-k" parent="ctx-tc-rf-torre" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fdf0db;strokeColor=#e08a1e;strokeWidth=2;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;" value='&lt;b&gt;Kafka interno de la Torre de control&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:11px"&gt;recibe la trazabilidad de todos los componentes: canales · Siniestro integral · orquestador de integración · gestores · cores&lt;/font&gt;' vertex="1">
+          <mxGeometry height="74" width="962" x="30" y="56" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-tc-rf-torre-v" parent="ctx-tc-rf-torre" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f4edfa;strokeColor=#8e5cc4;strokeWidth=2;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;" value='&lt;b&gt;Ve el flujo end to end&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:11px"&gt;arma el recorrido de cada solicitud con la trazabilidad recibida&lt;/font&gt;' vertex="1">
+          <mxGeometry height="74" width="440" x="30" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-tc-rf-torre-t" parent="ctx-tc-rf-torre" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f4edfa;strokeColor=#8e5cc4;strokeWidth=2;fontColor=#1a1a1a;fontSize=13;fontFamily=Helvetica;" value='&lt;b&gt;Tablero + copiloto&lt;/b&gt;&lt;br&gt;&lt;font style="font-size:11px"&gt;estado, tiempos y cuellos de botella · puede pedir acciones al core&lt;/font&gt;' vertex="1">
+          <mxGeometry height="74" width="440" x="552" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-tc-rf-torre-e1" edge="1" parent="ctx-tc-rf-torre" source="ctx-tc-rf-torre-k" target="ctx-tc-rf-torre-v" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7a8496;strokeWidth=2;endArrow=block;endFill=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-tc-rf-torre-e2" edge="1" parent="ctx-tc-rf-torre" source="ctx-tc-rf-torre-v" target="ctx-tc-rf-torre-t" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7a8496;strokeWidth=2;endArrow=block;endFill=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-tc-rf-p-jtd-74" parent="Dlz2w1c-RvbU9iQR3jtd-74" style="rounded=1;arcSize=50;html=1;fillColor=#fdf0db;strokeColor=#e08a1e;fontColor=#b35c00;fontSize=10;fontStyle=1;fontFamily=Helvetica;strokeWidth=1.5;" value="→ Torre de control" vertex="1">
+          <mxGeometry height="18" width="125" x="1339.0" y="8" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-tc-rf-p-jtd-57" parent="Dlz2w1c-RvbU9iQR3jtd-57" style="rounded=1;arcSize=50;html=1;fillColor=#fdf0db;strokeColor=#e08a1e;fontColor=#b35c00;fontSize=10;fontStyle=1;fontFamily=Helvetica;strokeWidth=1.5;" value="→ Torre de control" vertex="1">
+          <mxGeometry height="18" width="125" x="1996.0" y="8" as="geometry" />
+        </mxCell>
+        <mxCell id="ctx-tc-rf-p-trz" parent="ctx-trz-rf" style="rounded=1;arcSize=50;html=1;fillColor=#fdf0db;strokeColor=#e08a1e;fontColor=#b35c00;fontSize=10;fontStyle=1;fontFamily=Helvetica;strokeWidth=1.5;" value="→ Torre de control" vertex="1">
+          <mxGeometry height="18" width="125" x="292" y="4" as="geometry" />
+        </mxCell>
+          </root>
     </mxGraphModel>
   </diagram>
   <diagram id="d3" name="Juez del microservicio">
@@ -2403,7 +2690,7 @@
         <mxCell id="c1" value="&lt;b&gt;¿Qué es cada cosa? — Nombre en la Arquitectura de Referencia → qué usamos → para qué sirve&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:13px&quot; color=&quot;#555555&quot;&gt;Para leer el diagrama sin ser técnico&lt;/font&gt;" style="text;html=1;whiteSpace=wrap;fontSize=22;align=left;verticalAlign=top;" vertex="1" parent="1">
           <mxGeometry x="40" y="10" width="1800" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="c2" value="&lt;table border=&quot;1&quot; cellpadding=&quot;4&quot; style=&quot;border-collapse:collapse;width:100%;font-size:12px&quot;&gt;&lt;tr&gt;&lt;th style=&quot;background:#dae8fc&quot;&gt;Capa&lt;/th&gt;&lt;th style=&quot;background:#dae8fc&quot;&gt;Nombre en la referencia&lt;/th&gt;&lt;th style=&quot;background:#dae8fc&quot;&gt;Qué usamos en esta solución&lt;/th&gt;&lt;th style=&quot;background:#dae8fc&quot;&gt;¿Para qué sirve? (en simple)&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C1&lt;/td&gt;&lt;td&gt;Consumidores y superficies&lt;/td&gt;&lt;td&gt;Portal proveedor (ADR), app cliente, asesor, oficina, bandejas N3/N4, Torre de control&lt;/td&gt;&lt;td&gt;Las pantallas por donde la gente pide, revisa o decide. No tienen IA adentro.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C2&lt;/td&gt;&lt;td&gt;Identidad, acceso y contexto&lt;/td&gt;&lt;td&gt;Entra ID, Managed Identities, Key Vault&lt;/td&gt;&lt;td&gt;Saber quién es cada persona o sistema y qué le está permitido hacer.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C3&lt;/td&gt;&lt;td&gt;API Gateway&lt;/td&gt;&lt;td&gt;Azure API Management&lt;/td&gt;&lt;td&gt;La puerta de entrada única para las solicitudes de los canales.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C3&lt;/td&gt;&lt;td&gt;LLM Gateway&lt;/td&gt;&lt;td&gt;API Management (AI Gateway)&lt;/td&gt;&lt;td&gt;El “peaje” obligatorio para hablar con un modelo de IA: controla cuánto se gasta y quién lo usa.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C3&lt;/td&gt;&lt;td&gt;MCP Gateway&lt;/td&gt;&lt;td&gt;API Management (MCP)&lt;/td&gt;&lt;td&gt;Controla qué sistemas de SURA puede consultar cada agente.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C3&lt;/td&gt;&lt;td&gt;A2A Gateway&lt;/td&gt;&lt;td&gt;API Management (futuro)&lt;/td&gt;&lt;td&gt;Para que agentes de otros casos de uso hablen con los nuestros de forma controlada.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;AIS&lt;/td&gt;&lt;td&gt;AI Security&lt;/td&gt;&lt;td&gt;Defender for Storage, Content Safety, Purview, validación de archivos&lt;/td&gt;&lt;td&gt;Revisa que los archivos y textos sean seguros: virus, trucos para engañar a la IA, datos sensibles.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C4&lt;/td&gt;&lt;td&gt;Workflow Runtime&lt;/td&gt;&lt;td&gt;Container Apps / Functions&lt;/td&gt;&lt;td&gt;Ejecuta pasos fijos que siempre son iguales (separar páginas, reglas duras).&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C4&lt;/td&gt;&lt;td&gt;Agent Runtime / Orchestrator&lt;/td&gt;&lt;td&gt;LangChain + LangGraph en Container Apps&lt;/td&gt;&lt;td&gt;Donde viven los gestores que razonan y deciden según el caso.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C4&lt;/td&gt;&lt;td&gt;Processing Strategy&lt;/td&gt;&lt;td&gt;Híbrida&lt;/td&gt;&lt;td&gt;Primero se extrae el texto y luego el modelo mira texto + imagen original.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C4&lt;/td&gt;&lt;td&gt;Document Processor&lt;/td&gt;&lt;td&gt;Azure AI Document Intelligence&lt;/td&gt;&lt;td&gt;Lee el PDF o la foto y dice qué tan seguro está de lo que leyó.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C4&lt;/td&gt;&lt;td&gt;Multimodal Models&lt;/td&gt;&lt;td&gt;GPT-5 mini y modelo razonador (Foundry); Gemini opcional&lt;/td&gt;&lt;td&gt;La IA que entiende documentos y razona sobre pertinencia.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C4&lt;/td&gt;&lt;td&gt;State / session&lt;/td&gt;&lt;td&gt;MongoDB (checkpoints)&lt;/td&gt;&lt;td&gt;Recordar en qué paso va cada solicitud, aunque se reinicie el sistema.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C5&lt;/td&gt;&lt;td&gt;Domain APIs / MCP Tools&lt;/td&gt;&lt;td&gt;SuraHist, reglas duras N1, Global Web, coberturas, prestadores, API docs P8, Tibot&lt;/td&gt;&lt;td&gt;Los sistemas de SURA que el agente consulta o donde escribe el resultado.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C5&lt;/td&gt;&lt;td&gt;Events&lt;/td&gt;&lt;td&gt;RabbitMQ (colas) y Kafka (eventos)&lt;/td&gt;&lt;td&gt;RabbitMQ entrega trabajo a cada gestor (lo urgente primero). Kafka avisa lo que ya pasó a quien le interese, como la Torre de Control.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C4&lt;/td&gt;&lt;td&gt;Gestor (módulo)&lt;/td&gt;&lt;td&gt;API + cola + agentes + auditoría propia&lt;/td&gt;&lt;td&gt;Pieza independiente: se puede usar sola, encadenada o retomar un caso manual.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C4&lt;/td&gt;&lt;td&gt;Coordinador y perfil de proceso&lt;/td&gt;&lt;td&gt;Servicio + configuración en MongoDB&lt;/td&gt;&lt;td&gt;Decide qué gestor sigue según el tipo de solicitud, sin que los gestores se conozcan entre sí.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C7&lt;/td&gt;&lt;td&gt;Auditoría del gestor&lt;/td&gt;&lt;td&gt;MongoDB propio de cada gestor&lt;/td&gt;&lt;td&gt;Registro detallado de lo que hizo cada gestor y sus agentes.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C5&lt;/td&gt;&lt;td&gt;Core SURA (SuraHist)&lt;/td&gt;&lt;td&gt;Sistema core de SURA&lt;/td&gt;&lt;td&gt;Dirige el proceso: decide qué gestor activar y cuándo, y recibe sus resultados.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C4&lt;/td&gt;&lt;td&gt;Microservicio gestor&lt;/td&gt;&lt;td&gt;Una app por gestor en Azure Container Apps&lt;/td&gt;&lt;td&gt;Pieza independiente que el Core activa por su API; no habla con otros gestores.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C7&lt;/td&gt;&lt;td&gt;Juez del microservicio&lt;/td&gt;&lt;td&gt;Chequeos con código + modelo pequeño (GPT-5 nano o equivalente)&lt;/td&gt;&lt;td&gt;Revisa que cada microservicio hizo bien su trabajo; tiene rúbrica propia por escenario y cuesta centavos.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C6&lt;/td&gt;&lt;td&gt;Catálogo de reglas de duplicidad&lt;/td&gt;&lt;td&gt;Copia local en MongoDB, sincronizada desde el Core&lt;/td&gt;&lt;td&gt;Dice qué cuenta como duplicado para cada servicio; el historial del paciente se consulta al Core.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C1&lt;/td&gt;&lt;td&gt;Torre de Control&lt;/td&gt;&lt;td&gt;Componente transversal + tablero + copiloto&lt;/td&gt;&lt;td&gt;Ve el flujo completo con los eventos de Kafka y puede actuar: reasignar, priorizar, reintentar, pausar, reingresar.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C4&lt;/td&gt;&lt;td&gt;Configuración de entrada&lt;/td&gt;&lt;td&gt;Catálogo por tipo de solicitud y consumidor&lt;/td&gt;&lt;td&gt;Define qué documentos buscar (salud: HC + orden) sin cambiar código.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C6&lt;/td&gt;&lt;td&gt;Vector / hybrid search&lt;/td&gt;&lt;td&gt;Azure AI Search&lt;/td&gt;&lt;td&gt;Buscador de protocolos, políticas y CUPS para justificar decisiones.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C6&lt;/td&gt;&lt;td&gt;Object storage&lt;/td&gt;&lt;td&gt;Blob Storage / ADLS Gen2&lt;/td&gt;&lt;td&gt;Guarda los documentos originales y las páginas separadas.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C6&lt;/td&gt;&lt;td&gt;Knowledge Pipeline&lt;/td&gt;&lt;td&gt;Functions (asíncrono)&lt;/td&gt;&lt;td&gt;Mantiene actualizado el buscador cuando cambian las políticas; no frena la respuesta.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C7&lt;/td&gt;&lt;td&gt;Tracing / métricas&lt;/td&gt;&lt;td&gt;App Insights + Azure Monitor + Dynatrace&lt;/td&gt;&lt;td&gt;Ver qué pasó con cada solicitud, cuánto tardó y cuánto costó.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C7&lt;/td&gt;&lt;td&gt;Evals&lt;/td&gt;&lt;td&gt;Foundry Evaluations + LLM juez&lt;/td&gt;&lt;td&gt;Medir si la IA está acertando y avisar si empeora.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C8&lt;/td&gt;&lt;td&gt;Gobierno, riesgo y cumplimiento&lt;/td&gt;&lt;td&gt;Políticas, aprobaciones, retención, Azure Policy&lt;/td&gt;&lt;td&gt;Las reglas: qué se permite, cuánto se guarda la HC, quién aprueba cambios.&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;fontSize=12;align=left;verticalAlign=top;" vertex="1" parent="1">
+        <mxCell id="c2" value='&lt;table border="1" cellpadding="4" style="border-collapse:collapse;width:100%;font-size:12px"&gt;&lt;tr&gt;&lt;th style="background:#dae8fc"&gt;Capa&lt;/th&gt;&lt;th style="background:#dae8fc"&gt;Nombre en la referencia&lt;/th&gt;&lt;th style="background:#dae8fc"&gt;Qué usamos en esta solución&lt;/th&gt;&lt;th style="background:#dae8fc"&gt;¿Para qué sirve? (en simple)&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C1&lt;/td&gt;&lt;td&gt;Consumidores y superficies&lt;/td&gt;&lt;td&gt;Portal proveedor (ADR), app cliente, asesor, oficina, bandejas N3/N4, Torre de control&lt;/td&gt;&lt;td&gt;Las pantallas por donde la gente pide, revisa o decide. No tienen IA adentro.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C2&lt;/td&gt;&lt;td&gt;Identidad, acceso y contexto&lt;/td&gt;&lt;td&gt;Entra ID, Managed Identities, Key Vault&lt;/td&gt;&lt;td&gt;Saber quién es cada persona o sistema y qué le está permitido hacer.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C3&lt;/td&gt;&lt;td&gt;API Gateway&lt;/td&gt;&lt;td&gt;Azure API Management&lt;/td&gt;&lt;td&gt;La puerta de entrada única para las solicitudes de los canales.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C3&lt;/td&gt;&lt;td&gt;LLM Gateway&lt;/td&gt;&lt;td&gt;API Management (AI Gateway)&lt;/td&gt;&lt;td&gt;El “peaje” obligatorio para hablar con un modelo de IA: controla cuánto se gasta y quién lo usa.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C3&lt;/td&gt;&lt;td&gt;MCP Gateway&lt;/td&gt;&lt;td&gt;API Management (MCP)&lt;/td&gt;&lt;td&gt;Controla qué sistemas de SURA puede consultar cada agente.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C3&lt;/td&gt;&lt;td&gt;A2A Gateway&lt;/td&gt;&lt;td&gt;API Management (futuro)&lt;/td&gt;&lt;td&gt;Para que agentes de otros casos de uso hablen con los nuestros de forma controlada.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;AIS&lt;/td&gt;&lt;td&gt;AI Security&lt;/td&gt;&lt;td&gt;Defender for Storage, Content Safety, Purview, validación de archivos&lt;/td&gt;&lt;td&gt;Revisa que los archivos y textos sean seguros: virus, trucos para engañar a la IA, datos sensibles.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C4&lt;/td&gt;&lt;td&gt;Workflow Runtime&lt;/td&gt;&lt;td&gt;Container Apps / Functions&lt;/td&gt;&lt;td&gt;Ejecuta pasos fijos que siempre son iguales (separar páginas, reglas duras).&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C4&lt;/td&gt;&lt;td&gt;Agent Runtime / Orchestrator&lt;/td&gt;&lt;td&gt;LangChain + LangGraph en Container Apps&lt;/td&gt;&lt;td&gt;Donde viven los gestores que razonan y deciden según el caso.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C4&lt;/td&gt;&lt;td&gt;Processing Strategy&lt;/td&gt;&lt;td&gt;Híbrida&lt;/td&gt;&lt;td&gt;Primero se extrae el texto y luego el modelo mira texto + imagen original.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C4&lt;/td&gt;&lt;td&gt;Document Processor&lt;/td&gt;&lt;td&gt;Azure AI Document Intelligence&lt;/td&gt;&lt;td&gt;Lee el PDF o la foto y dice qué tan seguro está de lo que leyó.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C4&lt;/td&gt;&lt;td&gt;Multimodal Models&lt;/td&gt;&lt;td&gt;GPT-5 mini y modelo razonador (Foundry); Gemini opcional&lt;/td&gt;&lt;td&gt;La IA que entiende documentos y razona sobre pertinencia.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C4&lt;/td&gt;&lt;td&gt;State / session&lt;/td&gt;&lt;td&gt;MongoDB (checkpoints)&lt;/td&gt;&lt;td&gt;Recordar en qué paso va cada solicitud, aunque se reinicie el sistema.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C5&lt;/td&gt;&lt;td&gt;Domain APIs / MCP Tools&lt;/td&gt;&lt;td&gt;SuraHist, reglas duras N1, Global Web, coberturas, prestadores, API docs P8, Tibot&lt;/td&gt;&lt;td&gt;Los sistemas de SURA que el agente consulta o donde escribe el resultado.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C5&lt;/td&gt;&lt;td&gt;Events&lt;/td&gt;&lt;td&gt;RabbitMQ (colas) y Kafka interno de la Torre de control (trazabilidad)&lt;/td&gt;&lt;td&gt;RabbitMQ entrega trabajo a cada gestor (lo urgente primero). Al Kafka interno de la Torre de control todos los componentes le envían la trazabilidad de lo que pasa en su proceso.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C4&lt;/td&gt;&lt;td&gt;Gestor (módulo)&lt;/td&gt;&lt;td&gt;cola RabbitMQ (la alimenta el orquestador de integración) + agentes + auditoría propia&lt;/td&gt;&lt;td&gt;Pieza independiente: se puede usar sola, encadenada o retomar un caso manual.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C4&lt;/td&gt;&lt;td&gt;Coordinador y perfil de proceso&lt;/td&gt;&lt;td&gt;Servicio + configuración en MongoDB&lt;/td&gt;&lt;td&gt;Decide qué gestor sigue según el tipo de solicitud, sin que los gestores se conozcan entre sí.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C7&lt;/td&gt;&lt;td&gt;Auditoría del gestor&lt;/td&gt;&lt;td&gt;MongoDB propio de cada gestor&lt;/td&gt;&lt;td&gt;Registro detallado de lo que hizo cada gestor y sus agentes.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C5&lt;/td&gt;&lt;td&gt;Core SURA (SuraHist)&lt;/td&gt;&lt;td&gt;Sistema core de SURA&lt;/td&gt;&lt;td&gt;Dirige el proceso: decide qué gestor activar y cuándo, y recibe sus resultados.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C4&lt;/td&gt;&lt;td&gt;Microservicio gestor&lt;/td&gt;&lt;td&gt;Una app por gestor en Azure Container Apps&lt;/td&gt;&lt;td&gt;Pieza independiente que el orquestador de integración activa con un mensaje en su cola RabbitMQ; no habla con otros gestores.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C7&lt;/td&gt;&lt;td&gt;Juez del microservicio&lt;/td&gt;&lt;td&gt;Chequeos con código + modelo pequeño (GPT-5 nano o equivalente)&lt;/td&gt;&lt;td&gt;Revisa que cada microservicio hizo bien su trabajo; tiene rúbrica propia por escenario y cuesta centavos.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C6&lt;/td&gt;&lt;td&gt;Catálogo de reglas de duplicidad&lt;/td&gt;&lt;td&gt;Copia local en MongoDB, sincronizada desde el Core&lt;/td&gt;&lt;td&gt;Dice qué cuenta como duplicado para cada servicio; el historial del paciente se consulta al Core.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C1&lt;/td&gt;&lt;td&gt;Torre de Control&lt;/td&gt;&lt;td&gt;Componente transversal con Kafka interno + tablero + copiloto&lt;/td&gt;&lt;td&gt;Ve el flujo completo con la trazabilidad que todos los componentes le envían a su Kafka interno y puede actuar: reasignar, priorizar, reintentar, pausar, reingresar.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C4&lt;/td&gt;&lt;td&gt;Configuración de entrada&lt;/td&gt;&lt;td&gt;Catálogo por tipo de solicitud y consumidor&lt;/td&gt;&lt;td&gt;Define qué documentos buscar (salud: HC + orden) sin cambiar código.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C6&lt;/td&gt;&lt;td&gt;Vector / hybrid search&lt;/td&gt;&lt;td&gt;Azure AI Search&lt;/td&gt;&lt;td&gt;Buscador de protocolos, políticas y CUPS para justificar decisiones.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C6&lt;/td&gt;&lt;td&gt;Object storage&lt;/td&gt;&lt;td&gt;Blob Storage / ADLS Gen2&lt;/td&gt;&lt;td&gt;Guarda los documentos originales y las páginas separadas.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C6&lt;/td&gt;&lt;td&gt;Knowledge Pipeline&lt;/td&gt;&lt;td&gt;Functions (asíncrono)&lt;/td&gt;&lt;td&gt;Mantiene actualizado el buscador cuando cambian las políticas; no frena la respuesta.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C7&lt;/td&gt;&lt;td&gt;Tracing / métricas&lt;/td&gt;&lt;td&gt;App Insights + Azure Monitor + Dynatrace&lt;/td&gt;&lt;td&gt;Ver qué pasó con cada solicitud, cuánto tardó y cuánto costó.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C7&lt;/td&gt;&lt;td&gt;Evals&lt;/td&gt;&lt;td&gt;Foundry Evaluations + LLM juez&lt;/td&gt;&lt;td&gt;Medir si la IA está acertando y avisar si empeora.&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;C8&lt;/td&gt;&lt;td&gt;Gobierno, riesgo y cumplimiento&lt;/td&gt;&lt;td&gt;Políticas, aprobaciones, retención, Azure Policy&lt;/td&gt;&lt;td&gt;Las reglas: qué se permite, cuánto se guarda la HC, quién aprueba cambios.&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;' style="text;html=1;whiteSpace=wrap;fontSize=12;align=left;verticalAlign=top;" vertex="1" parent="1">
           <mxGeometry x="40" y="90" width="1840" height="900" as="geometry" />
         </mxCell>
       </root>
