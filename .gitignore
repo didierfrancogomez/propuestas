@@ -9,3 +9,9 @@ Thumbs.db
 # Respaldos que deja la app de escritorio de draw.io
 .$*.bkp
 SURA/gestores-sura/estimacin mvp/insumos/iafirst/*.zip
+
+# Captura con credenciales de prueba visibles: no se versiona
+viva/propuestas/scheduled-payment/resources/screenshots/image.png
+
+# Caché de Python
+__pycache__/
