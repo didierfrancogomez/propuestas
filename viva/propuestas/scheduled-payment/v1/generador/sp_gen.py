@@ -238,7 +238,7 @@ S.append(slide(f'Prerrequisitos y {hl("control de cambios")}',
     pre("Antes de la semana 1", "Permisos, accesos y ambiente estable", ["<b>Permisos y accesos suficientes</b> para desarrollar, configurar, integrar, probar y cargar datos de prueba en desarrollo y TEST, para nuestro equipo y nuestro tester: AWS (incluidos IAM y el despliegue del pipeline), Navitaire, Adyen, SendGrid, Datadog, Terraform y Sonar.", "<b>Ambientes de desarrollo y TEST homologados y estables:</b> misma configuración, versiones e integraciones, salvo parámetros y secrets, con Navitaire, Adyen y SendGrid de prueba disponibles.", "<b>Lineamientos de Viva claros</b> para AWS, SQS, DynamoDB, Terraform y CI/CD, si existen.", "Cuenta de servicio de Navitaire con rol de agente y credencial de Adyen Checkout para <code>VB_WEB</code>, con manual capture."]) +
     pre("Antes de la semana 2", "Para el Identificador", ["Búsqueda de vuelos, paginación y límites de Navitaire confirmados."]) +
     pre("Antes de la semana 3", "Para el Procesador", ["Registro del pago en Navitaire: campos de <code>paymentAdd</code> y cargo de <code>VTUA</code> por pasajero.", "Acceso a SendGrid e ID de plantillas, o una de prueba."]) +
-    pre("Antes de las semanas 4 y 5", "Para el monitoreo y la entrega", ["<b>Semana 4:</b> acceso a la organización de Datadog de Viva, integración de AWS, API keys, canal de avisos y umbrales.", "<b>Semana 5:</b> reservas con <code>VTUP</code> en TEST en los tres escenarios, generadas con Generic API, y colección Postman.", "Responsable de negocio para la aceptación final."]) +
+    pre("Antes de las semanas 4 y 5", "Para el monitoreo y la entrega", ["<b>Semana 4:</b> integración de AWS en Datadog, API keys, canal de avisos y umbrales (el acceso a Datadog ya está en la semana 1).", "<b>Semana 5:</b> reservas con <code>VTUP</code> en TEST en los tres escenarios, generadas con Generic API, y colección Postman.", "Responsable de negocio para la aceptación final."]) +
     pre("Durante las 5 semanas", "Para no perder ritmo", ["<b>Liberar y probar en TEST sin interrupciones:</b> sin ventanas de aprobación ni ambientes bloqueados.", "Patrocinador y un responsable por prerrequisito.", "Respuesta a dudas en 2 días hábiles.", "Volumen supuesto acordado para las pruebas.", "Revisión de seguridad de Viva, si aplica, con hallazgos en 3 días hábiles."]) +
     '</div>'))
 
@@ -247,7 +247,7 @@ S.append(slide(f'Calidad desde la semana 1, {hl("de la mano del negocio")}',
     '<p class="flead">Al inicio se acuerdan con el negocio los criterios y los datos de prueba, y cada componente se prueba en cuanto se despliega. La semana 5 confirma lo ya probado, end-to-end con Generic API.</p><div class="row4">' +
     card("Criterios que Viva aprueba", ["Criterios de aceptación en formato Given / When / Then.", "Reglas verificables: bundles, fechas, escenarios e idempotency."], role="Semana 1") +
     card("Terminado quiere decir probado", ["Los unit tests se escriben al construir cada historia.", "Cada componente se prueba en cuanto se despliega."], role="Semanas 2 y 3") +
-    card("Sin esperar a los sistemas reales", ["Mocks de Navitaire y de Adyen.", "API tests automatizados en el pipeline.", "Casos de compensación forzados: caída después de autorizar y commit sin respuesta."], role="Integración") +
+    card("Sin esperar a los sistemas reales", ["Mocks de Navitaire y de Adyen.", "API tests automatizados en el pipeline.", "Casos de compensación forzados: caída después de autorizar y commit sin respuesta.", "Semana 4: cada monitor de Datadog se dispara en TEST forzando su caso."], role="Integración") +
     card("Con el negocio de Viva", ["Pruebas end-to-end con reservas de Generic API en TEST.", "Aceptación final en la semana 5."], role="Semana 5") +
     '</div><div class="who4">' +
     '<div style="background-color: var(--lighter-violet); color: var(--black)"><b>Desarrollo</b>Diseño, construcción, unit tests, IaC y pipeline.</div>' +
@@ -291,7 +291,7 @@ risks = [
     ("R5", "No se puede leer la queue de Navitaire", "Resuelto: SQS con DLQ como transporte y DynamoDB como estado", "Infraestructura"),
     ("R6", "Cliente cobrado con la reserva pendiente", "Compensating transaction con manual capture y conciliación interna", "Procesador · cobro"),
     ("R7", "Límites de llamadas de Navitaire sin dato de volumen", "Concurrencia configurable, espera ante rechazos y volumen supuesto", "Cliente de Navitaire"),
-    ("R8", "Falta el comentario con el monto de la TUA", "Sin monto no se procesa: se marca como fallido y se alerta", "Procesador · lectura de la reserva"),
+    ("R8", "Falta el comentario con el monto de la TUA", "Sin monto no se procesa: se marca como fallido y se alerta; si se avisa al cliente queda en dudas", "Procesador · lectura de la reserva"),
     ("R9", "Doble cobro si el cliente paga manualmente después de encolado", "Releer la reserva justo antes de cobrar", "Procesador · revalidación"),
     ("R10", "Un cambio en un contrato o componente externo durante las 5 semanas", "Contratos congelados el día 1; cambios por control de cambios, cobrados aparte (lámina 10)", "Gestión del proyecto"),
 ]
