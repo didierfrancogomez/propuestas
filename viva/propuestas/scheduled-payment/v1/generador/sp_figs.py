@@ -142,8 +142,8 @@ def _bars(x0, y0, h, vals, w=13, gap=6):
 def _dot(x, y, s):
     return f'<circle cx="{x}" cy="{y-4}" r="4.5" fill="#5300DF"/>' + _txt(x+10, y, s, 10)
 
-_kpis = [("Cobros del día", "1.248", "capturados"), ("Tasa de éxito", "96,3 %", "cobradas / procesadas"),
-         ("Monto cobrado", "2,1 M MXN", "captura solicitada en Adyen"), ("Cobros sin cerrar", "3", "autorizados sin captura"),
+_kpis = [("Cobros del día", "1.248", "con captura solicitada"), ("Tasa de éxito", "96,3 %", "cobradas / procesadas"),
+         ("Monto cobrado", "2,1 M MXN", "suma de esos cobros"), ("Cobros sin cerrar", "3", "detenidos a medio camino"),
          ("Descartadas", "11", "por motivo, sin cobro"), ("Mensajes en la DLQ", "0", "errores técnicos")]
 _k = "".join(_kpi(20 + n * 194, 182, *v) for n, v in enumerate(_kpis))
 
@@ -184,15 +184,11 @@ dash = ('<svg viewBox="0 0 1200 468" width="100%" role="img" aria-label="Esquema
   + '<polyline points="626,316 650,318 674,312 698,315 722,309 746,313 770,306 794,311 818,304 842,309 866,302 884,306" fill="none" stroke="#280265" stroke-width="2" stroke-dasharray="4 3"/>'
   + _txt(624, 276, "Navitaire (violeta) · Adyen (azul) · SendGrid (punteada)", 10)
   + _box(908, 240, 272, 96, "Conciliación interna · cobros vs Navitaire")
-  + _txt(920, 280, "Cuadran: 1.248 (con VTUA y pago)") + _txt(920, 298, "Diferencias: 0") + _txt(920, 316, "Última conciliación: 05:00")
+  + _txt(920, 280, "Cobros de ayer que cuadran: 1.236") + _txt(920, 298, "Diferencias: 0") + _txt(920, 316, "Última conciliación: hoy 05:00")
   # fila 4
-  + _box(20, 346, 284, 108, "Notificaciones · SQS, Lambda y SendGrid")
-  + _txt(32, 386, "Publicados: 1.282 · enviados: 1.282") + _txt(32, 404, "Reintentos: 6") + _txt(32, 422, "Sin enviar, en su DLQ: 0")
-  + _box(316, 346, 284, 108, "Tarjetas de un solo uso (escenario 1)")
-  + _txt(328, 386, "Borradas en Adyen: 311") + _txt(328, 404, "Fallas al borrar: 0") + _txt(328, 422, "Sin datos de tarjeta: solo tokens")
-  + _box(612, 346, 568, 108, "Monitores")
-  + _dot(626, 386, "Identificador no corrió") + _dot(810, 386, "Nota, tarjeta o monto inválidos") + _dot(1000, 386, "Cola atascada")
-  + _dot(626, 406, "Mensajes en la DLQ") + _dot(810, 406, "Cobros sin cerrar") + _dot(1000, 406, "Diferencias internas")
-  + _dot(626, 426, "Errores de Navitaire o Adyen") + _dot(810, 426, "Rechazos fuera de lo normal") + _dot(1000, 426, "Correos sin enviar")
-  + _dot(626, 446, "Falla al borrar tarjeta")
+  + _box(20, 346, 570, 108, "Notificaciones · SQS, Lambda y SendGrid")
+  + _txt(32, 386, "Avisos publicados: 1.282") + _txt(32, 404, "Enviados por SendGrid: 1.282") + _txt(32, 422, "Reintentos: 6")
+  + _txt(312, 386, "Por tipo: éxito 1.248 · no procesado 34") + _txt(312, 404, "Sin enviar, en su DLQ: 0")
+  + _box(602, 346, 578, 108, "Tarjetas de un solo uso (escenario 1)")
+  + _txt(614, 386, "Borradas en Adyen: 311") + _txt(614, 404, "Fallas al borrar: 0") + _txt(614, 422, "Sin datos de tarjeta: solo tokens y referencias")
   + '</svg>')
