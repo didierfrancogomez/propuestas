@@ -26,8 +26,7 @@ cobre sola, sin CVV, con la tarjeta que usó. Es un KPI estratégico del trimest
 Reglas confirmadas en la sesión:
 
 - **El monto no cambia:** es el que se calculó al reservar, guardado en el comentario `TUA|out|in|total`.
-  Si el comentario no está, se toma de Navitaire (nota "TUA fallback" del diagrama; la fuente no está
-  definida, ver R8).
+  Si el comentario no está, la reserva no se procesa y se marca como fallida (decisión del 2026-11-19, R8).
 - **Cobro completo:** un solo cargo por reserva, por todos sus journeys y pasajeros. No se cobra la ida y
   la vuelta por separado. El requerimiento dice lo contrario (C2, R3).
 - **Fecha de cobro según el bundle** (paquete tarifario que el cliente elige al comprar):
@@ -295,7 +294,7 @@ criterios que lo habilitan están en **Listo**. La columna "Pregunta" remite a l
 | DOR-01 | Regla para distinguir el escenario 1 de los escenarios 2 y 3 (C1, R2): por el tipo de valor de la parte izquierda de la nota. Falta confirmar si el escenario 1 lleva `basketId` o `TUA-{basketId}` | Héctor / Generic API | H3 | 1 | **Parcial:** regla definida sin cambiar Generic API; falta confirmar el formato exacto |
 | DOR-02 | `shopperReference` del escenario 1 con cliente logueado (C3) | Héctor / Generic API | H3 | 6 | **Parcial:** la sesión apunta a `basketId`; confirmar por escrito |
 | DOR-03 | Cobro completo por reserva y llave de idempotencia reserva + intento (C2, R3) | Héctor | H3 | 5 | **Parcial:** confirmado en sesión; el requerimiento dice cobro por journey |
-| DOR-33 | Fecha de cobro cuando los journeys tienen bundles distintos: la primera que se cumpla (lectura nuestra) | Producto | H2 | 5 | Pendiente |
+| DOR-33 | Fecha de cobro cuando los journeys tienen bundles distintos | Producto | H2 | 5 | **Listo (2026-11-19):** el cobro se hace una única vez por reserva, en la primera fecha que se cumpla entre sus journeys |
 | DOR-04 | Ventana de fechas: fecha exacta o rango | Negocio | H2 | 3 | Pendiente |
 | DOR-05 | Intervalo entre intentos y caso ZERO | Producto | — | — | No aplica: un solo intento (2026-11-18) |
 | DOR-06 | Configuración de intervalos y corte | Héctor | — | — | No aplica: un solo intento (2026-11-18) |
@@ -330,7 +329,7 @@ criterios que lo habilitan están en **Listo**. La columna "Pregunta" remite a l
 | DOR-20 | Cuenta AWS, VPC, subredes, estado remoto y módulos de Terraform, acceso a Sonar, secretos y equipo dueño | Viva IT | H1 | 11 | **Parcial:** cuenta existente, por definir cuál |
 | DOR-21 | Volumen diario de vuelos y de reservas candidatas | Viva | H1 | 11 | Sin dato: Viva no tiene estimado (experimentos A/B) |
 | DOR-22 | Acceso al proveedor de correo para el scheduler | Viva | H5 | 9 | Pendiente. Generic API y Transactions ya lo integran |
-| DOR-29 | El comentario `TUA\|out\|in\|total` queda en Navitaire, y se define la fuente del "TUA fallback" (R8) | Viva / Generic API | H3 | 15 | Pendiente |
+| DOR-29 | El comentario `TUA\|out\|in\|total` queda en Navitaire (R8). Si falta, la reserva no se procesa y se marca como fallida: no hay fallback | Viva / Generic API | H3 | 15 | **Parcial:** regla de falta de monto decidida el 2026-11-19 |
 
 **Generic API**
 
@@ -460,7 +459,7 @@ Commit `9a47936cd` (2026-11-18). Rutas relativas a `VivaAerobus.Generic.Api/src/
 | Nota de `VTUP` | Dos versiones en los documentos | `basketId\|FPR` o `customerNumber\|FPR`; el tipo de la parte izquierda dice el escenario | C1 y R2 resueltos sin cambiar Generic API |
 | Transporte | Cola de Navitaire | **SQS con DLQ**, decidido (pedido de Viva y mismo patrón que PUI) | DOR-10 Listo, R5 resuelto |
 | Infraestructura | Desconocida | Fargate, SQS y cuenta AWS existente con IaC | Hito 1, DOR-20 |
-| Monto | Comentario `TUA` | Comentario, fijo al reservar, con un "fallback" a Navitaire sin fuente definida | R8, DOR-29 |
+| Monto | Comentario `TUA` | Comentario, fijo al reservar. Sin comentario, no se procesa y se marca como fallido (2026-11-19) | R8, DOR-29 |
 | Pago manual previo | No contemplado | Generic API quita `VTUP` y `VTUB` | Nuevo R9: revalidar antes de cobrar |
 | Webhooks de Adyen | Necesarios para confirmar captura y cancelación | No se usan; la conciliación diaria confirma (decisión del 2026-11-18) | Sección 7.1, DOR-26. Sin ingreso HTTPS público |
 | Alertas y monitoreo | Tablero y alarmas propuestos por nosotros | Tablero de Datadog y 10 monitores como parte del alcance, incluidas las alertas del requerimiento; plan de 5 semanas (2026-11-18) | Sección 5.1 |
@@ -577,8 +576,9 @@ Cada riesgo con un ejemplo de cómo pasa. Horas, fechas y códigos son ilustrati
   alinearlo y, con la llave del requerimiento, una TUA de vuelta que no se cobra.
 
 - **Mitigación:** estimar con el cobro completo. Un cobro por reserva por el total; borrar `VTUB` y `VTUP`
-  de todos los journeys y pasajeros; llave `reserva + intento`; fecha de cobro, la primera que se cumpla
-  entre los journeys. Pedir que el requerimiento se actualice. (DOR-03, DOR-33, pregunta 5)
+  de todos los journeys y pasajeros; llave `reserva + intento`; el cobro se hace una única vez por reserva,
+  en la primera fecha que se cumpla entre sus journeys (confirmado el 2026-11-19). Pedir que el requerimiento
+  se actualice. (DOR-03, DOR-33, pregunta 5)
 
 ### R4. Con ZERO no caben tres intentos antes del vuelo (ya no aplica: un solo intento)
 
@@ -672,24 +672,23 @@ Cada riesgo con un ejemplo de cómo pasa. Horas, fechas y códigos son ilustrati
 ### R8. No hay monto para cobrar
 
 - **Contexto: de dónde sale el monto.** El batch no calcula la TUA: la lee del comentario
-  `TUA|out|in|total` que Generic API deja al reservar. El diagrama de la sesión agrega: "TUA fallback: si
-  no viene en el comentario, tomarlo de Navitaire".
+  `TUA|out|in|total` que Generic API deja al reservar. El diagrama de la sesión proponía un "TUA fallback"
+  a Navitaire; se descartó el 2026-11-19: sin comentario, la reserva no se procesa y se marca como fallida.
 
-- **Por qué puede pasar:** dos caminos.
-  - Generic API ya mueve a VivaBookingService los comentarios con ciertos prefijos, editables en el Admin
-    Portal (sección 6.1). Si alguien agrega `TUA`, el comentario deja de estar en Navitaire.
-  - El fallback no tiene fuente: en el SkySpeed de la sesión el cargo de TUA (`VBABEQ`) solo aparece cuando
-    ya está pagada. En una reserva pendiente no hay de dónde leerlo.
+- **Por qué puede pasar:** Generic API ya mueve a VivaBookingService los comentarios con ciertos prefijos,
+  editables en el Admin Portal (sección 6.1). Si alguien agrega `TUA`, el comentario deja de estar en
+  Navitaire. También puede faltar por un error al crear la reserva.
 
 - **Cómo pasa, paso a paso:**
   1. Generic API crea la reserva con el comentario `TUA|652.95|664.40|1317.35`.
   2. Alguien agrega `TUA` a los prefijos reubicados; el comentario se mueve a VivaBookingService.
-  3. El Procesador abre la reserva: tiene la tarjeta, pero no el monto, y el fallback no encuentra cargo.
+  3. El Procesador abre la reserva: tiene la tarjeta, pero no el monto.
 
-- **Consecuencia:** el batch no puede cobrar, o cobra un monto equivocado si no valida.
+- **Consecuencia:** esas reservas no se cobran; el cliente paga manualmente, como hoy.
 
-- **Mitigación:** que `TUA` no se reubique, o que el batch lea también los comentarios reubicados; definir
-  la fuente del fallback. Si no hay monto, no se cobra y se alerta. (DOR-29, pregunta 15)
+- **Mitigación:** sin monto, la reserva no se procesa, se marca como fallida y dispara la alerta "Nota,
+  tarjeta o monto inválidos", para que Viva lo vea. Que `TUA` no se agregue a los prefijos reubicados.
+  (DOR-29, pregunta 15)
 
 ### R9. Doble cobro si el cliente paga manualmente después de encolado
 
@@ -752,8 +751,8 @@ Ordenadas por impacto en la estimación. Lo que la sesión respondió ya no est�
 3. **Búsqueda de vuelos:** ¿fecha exacta con `manifestSearch` o rango con `trip/info/legs/simple`?
 4. **Registro en Navitaire:** campos de `paymentAdd` para un pago autorizado fuera de su gateway, y cómo se
    asigna el fee `VBABEQ` por pasajero y journey. El monto del comentario ya se sabe que es por pasajero.
-5. **Cobro completo:** confirmarlo por escrito. Si ida y vuelta tienen bundles distintos, ¿se cobra en la
-   primera fecha que se cumpla?
+5. **Cobro completo:** confirmarlo por escrito. Ya resuelto: el cobro se hace una única vez por reserva, aunque
+   ida y vuelta tengan bundles distintos.
 6. **Escenario 1 con cliente logueado:** ¿el `shopperReference` es siempre el `basketId`?
 7. **Reintentos:** intervalos, corte antes de la salida y ZERO (¿tres intentos el mismo día o uno?). ¿La
    configuración entra en este alcance?
@@ -770,7 +769,8 @@ Ordenadas por impacto en la estimación. Lo que la sesión respondió ya no est�
     ¿Quita `VTUP` al cambiar journeys o pasajeros?
 14. **Transacción compensada:** ¿se acepta autorizar y capturar por separado? ¿De qué reporte de Adyen sale
     la conciliación diaria? ¿Navitaire confirma que nada persiste antes del commit?
-15. **Monto de la TUA:** ¿se garantiza que `TUA` no se reubica? ¿De dónde sale el fallback?
+15. **Monto de la TUA:** ¿se garantiza que `TUA` no se reubica? Si falta el comentario, ya está decidido: no
+    se procesa y se marca como fallido.
 16. **Bóveda de Adyen:** vigencia del token del escenario 1.
 17. **Búsqueda por SSR:** Héctor mencionó un endpoint de Navitaire para obtener las reservas por SSR. ¿Es el
     manifiesto de SSR por leg o existe una búsqueda directa de reservas con `VTUP`? La segunda simplificaría

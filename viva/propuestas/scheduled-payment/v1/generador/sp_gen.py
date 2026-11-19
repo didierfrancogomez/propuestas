@@ -257,8 +257,8 @@ S.append(slide(f'Calidad desde la semana 1, {hl("de la mano del negocio")}',
 # 13 · Dudas
 S.append(slide(f'Dudas a resolver {hl("antes de iniciar")}', '<div class="dq">' +
     f'<div {CARD}><h3 {H3}>{NUM(1)}¿Dónde y con qué se construye?</h3>' + ul(["¿Qué cuenta AWS, qué red y qué equipo la administra?", "¿Qué CI/CD usa Viva, y hay módulos o plantillas de Terraform obligatorios?", "¿Hay lineamientos de Viva para SQS y DynamoDB?"]) + '<p class="imp">Se necesita antes de la semana 1.</p></div>' +
-    f'<div {CARD}><h3 {H3}>{NUM(2)}¿Cómo se registra el cobro en Navitaire?</h3>' + ul(["¿Con qué campos se hace <code>paymentAdd</code> de un pago autorizado fuera de su gateway?", "¿Cómo queda el cargo de <code>VTUA</code> por pasajero y journey?", "Si falta el comentario con el monto por pasajero, ¿de dónde sale?"]) + '<p class="imp">Se necesita antes de la semana 3.</p></div>' +
-    f'<div {CARD}><h3 {H3}>{NUM(3)}¿Qué decide producto?</h3>' + ul(["Texto del correo cuando el cobro no se puede procesar.", "Fecha de cobro si los journeys tienen bundles distintos.", "Tras un cobro no procesado, ¿se borra la tarjeta de un solo uso (escenario 1)?"]) + '<p class="imp">Se necesita antes de la semana 3.</p></div>' +
+    f'<div {CARD}><h3 {H3}>{NUM(2)}¿Cómo se registra el cobro en Navitaire?</h3>' + ul(["¿Con qué campos se hace <code>paymentAdd</code> de un pago autorizado fuera de su gateway?", "¿Cómo queda el cargo de <code>VTUA</code> por pasajero y journey?"]) + '<p class="imp">Se necesita antes de la semana 3.</p></div>' +
+    f'<div {CARD}><h3 {H3}>{NUM(3)}¿Qué decide producto?</h3>' + ul(["Texto del correo cuando el cobro no se puede procesar.", "Tras un cobro no procesado, ¿se borra la tarjeta de un solo uso (escenario 1)?"]) + '<p class="imp">Se necesita antes de la semana 3.</p></div>' +
     '</div>' + note('<b>Otras dudas abiertas.</b> Con Adyen: vigencia del token de un solo uso en la bóveda. Con Generic API: cuándo habrá reservas con <code>VTUP</code> en TEST, si quita <code>VTUP</code> al cambiar journeys o pasajeros, y si el escenario 1 lleva el <code>basketId</code> solo o como <code>TUA-{basketId}</code>. Con Navitaire: si existe una búsqueda directa de reservas por SSR (<code>VTUP</code>), y paginación y límites del manifiesto.')))
 
 # 14 · Términos y condiciones
@@ -289,7 +289,7 @@ risks = [
     ("R5", "No se puede leer la cola de Navitaire", "Resuelto: SQS con DLQ como transporte y DynamoDB como estado", "Infraestructura"),
     ("R6", "Cliente cobrado con la reserva pendiente", "Transacción compensada con captura manual y conciliación interna", "Procesador · cobro"),
     ("R7", "Límites de llamadas de Navitaire sin dato de volumen", "Concurrencia configurable, espera ante rechazos y volumen supuesto", "Cliente de Navitaire"),
-    ("R8", "Falta el comentario con el monto de la TUA", "Sin monto no se cobra y se alerta; fuente del fallback por definir", "Procesador · lectura de la reserva"),
+    ("R8", "Falta el comentario con el monto de la TUA", "Sin monto no se procesa: se marca como fallido y se alerta", "Procesador · lectura de la reserva"),
     ("R9", "Doble cobro si el cliente paga manualmente después de encolado", "Releer la reserva justo antes de cobrar", "Procesador · revalidación"),
     ("R10", "Un cambio en un contrato o componente externo durante las 5 semanas", "Contratos congelados el día 1; cambios por control de cambios, cobrados aparte (lámina 10)", "Gestión del proyecto"),
 ]

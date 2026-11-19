@@ -197,6 +197,8 @@ Viva para las plantillas (pendiente de definir con el ID de plantilla). Así la 
    varios journeys o pasajeros es una sola candidata.
 5. Por cada candidata hace `PutItem` en `tua-cobros` con condición "no existe". Si ya existe, la omite: ya fue
    encolada o procesada antes (incluido un cobro no procesado, que no se vuelve a intentar).
+   Así el cobro se hace **una única vez por reserva**, en la primera fecha que se cumpla entre sus journeys,
+   aunque ida y vuelta tengan bundles distintos.
 6. Encola el mensaje en SQS, en lotes de hasta 10.
 7. En el bloque `finally` registra el fin de la corrida y emite `tua.identificador.corrida.finalizada` con su
    resultado. Si el proceso muere, no hay evento de fin y el monitor de "no corrió" lo detecta (sección 7.6).
@@ -214,7 +216,7 @@ por límite (R7).
 | 1 | Toma el mensaje y marca el cobro | `ENCOLADA → EN_PROCESO` | Condición fallida: ya lo procesa otro, se descarta el mensaje |
 | 2 | Relee la reserva en Navitaire | — | Error técnico: excepción, el mensaje vuelve a SQS y, tras N veces, va a la DLQ |
 | 3 | Sin `VTUP`: el cliente ya pagó | `→ DESCARTADA` (`pago_manual_previo`) | — |
-| 4 | Lee el monto por pasajero del comentario de TUA | `→ DESCARTADA` (`sin_monto`) si no está | — |
+| 4 | Lee el monto por pasajero del comentario de TUA | Si no está, no se procesa y se marca como fallido: `→ DESCARTADA` (`sin_monto`), sin cobro ni aviso al cliente | — |
 | 5 | Lee la nota de `VTUP`: `basketId` o `TUA-{basketId}` (GUID) es escenario 1; `customerNumber` es escenario 2 o 3 | `→ DESCARTADA` (`nota_invalida`) si no es ninguno | — |
 | 6 | `GET /storedPaymentMethods` con el `shopperReference`; elige la tarjeta del `FirstPspReference` | `→ DESCARTADA` (`tarjeta_no_encontrada`) si no está | Error técnico: reintento de SQS |
 | 7 | `POST /payments` sin CVV, captura manual, `idempotency-key = {recordLocator}-autorizar` | `→ AUTORIZADA` o `→ NO_PROCESADA` (`rechazo`) | Timeout: se reintenta con la misma llave; Adyen devuelve el mismo resultado |
