@@ -367,6 +367,8 @@ valor; se elige porque no tiene el límite de 5 horas y da 10 veces el uso de Pr
 licencias: USD 600, según la [página de precios de Claude](https://claude.com/pricing) al 2026-11-18. Al cliente no se le muestran fechas: el plazo cuenta desde el arranque que defina Viva. Supuesto interno:
 arranque el 30 de noviembre de 2026, con festivos el 8 y el 25 de diciembre y el 1 de enero.
 
+En la propuesta los prerrequisitos se piden sin semanas (decisión del 2026-11-19): los contratos de integración definidos y lo necesario para construir, antes de arrancar; las integraciones implementadas en TEST (Generic API con reservas `VTUP`, Navitaire, Adyen y SendGrid de prueba), antes de probar. La última columna dice cuándo los usa el plan interno.
+
 | Semana | Foco | Hitos que cubre | Prerrequisitos antes de arrancarla |
 | --- | --- | --- | --- |
 | 1 | Arranque, contratos congelados, diseño, Terraform base, clientes de Navitaire | 0, 1 | Contratos de integración, cuenta AWS, Terraform y CI/CD, Sonar, Navitaire y Adyen de prueba, permisos del tester en TEST, lineamientos de Viva (AWS, SQS, DynamoDB, Terraform y CI/CD) claros antes de empezar |

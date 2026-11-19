@@ -21,7 +21,7 @@ svg2 = """<svg viewBox="0 0 1200 330" width="100%" role="img" aria-label="Proces
   <text x="317" y="94" text-anchor="middle" font-size="13" fill="#000000">Reservas</text>
   <text x="317" y="132" text-anchor="middle" font-size="12.5" fill="#000000">Manifiestos y SSR:</text>
   <text x="317" y="150" text-anchor="middle" font-size="12.5" fill="#000000">quién tiene VTUP</text>
-  <text x="317" y="188" text-anchor="middle" font-size="12.5" fill="#000000">Nota de VTUP: la tarjeta</text>
+  <text x="317" y="188" text-anchor="middle" font-size="12.5" fill="#000000">Nota de VTUP: ref. tarjeta</text>
   <text x="317" y="206" text-anchor="middle" font-size="12.5" fill="#000000">Comentario: el monto</text>
   <text x="317" y="244" text-anchor="middle" font-size="12.5" fill="#000000">Registro del pago:</text>
   <text x="317" y="262" text-anchor="middle" font-size="12.5" fill="#000000">VTUA y paymentAdd</text>
@@ -72,11 +72,11 @@ svg2 = """<svg viewBox="0 0 1200 330" width="100%" role="img" aria-label="Proces
   <circle cx="963" cy="258" r="13" fill="#5300DF"/><text x="963" y="263" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF">5</text>
 </svg>"""
 legend2 = f"""<div class="legend">
-  <div>{NUM(1)}<span><b>Generic API reserva con pago programado:</b> deja <code>VTUB</code> y <code>VTUP</code> por pasajero, con la tarjeta en la nota de <code>VTUP</code>, y el monto de la TUA en un comentario.</span></div>
+  <div>{NUM(1)}<span><b>Generic API reserva con pago programado:</b> deja <code>VTUB</code> y <code>VTUP</code> por pasajero, con la referencia de la tarjeta en la nota de <code>VTUP</code>, y el monto de la TUA en un comentario.</span></div>
   <div>{NUM(4)}<span><b>Cobramos en Adyen:</b> el Procesador ubica la tarjeta tokenizada y cobra el total de la reserva sin CVV.</span></div>
-  <div>{NUM(2)}<span><b>Identificamos:</b> un scheduled event activa el Identificador, que lee en Navitaire los vuelos que tocan según el bundle (SMART 10, SWITCH 6, ZERO 1 día antes) y encola en SQS cada reserva con <code>VTUP</code>.</span></div>
-  <div>{NUM(5)}<span><b>Avisamos por SendGrid:</b> el Procesador publica el aviso en una queue y una Lambda envía el correo con la plantilla de Viva, con retries.</span></div>
-  <div>{NUM(3)}<span><b>Releemos y registramos:</b> el Procesador toma la reserva de la queue, la relee en Navitaire (tarjeta y monto) y, al cobrar, registra el pago con <code>VTUA</code>.</span></div>
+  <div>{NUM(2)}<span><b>Identificamos:</b> un scheduled event activa el Identificador, que lee en Navitaire los vuelos que tocan según el bundle y encola en SQS cada reserva con <code>VTUP</code>.</span></div>
+  <div>{NUM(5)}<span><b>Avisamos por SendGrid:</b> el Procesador publica el aviso en una queue y una Lambda envía el correo con la plantilla de Viva.</span></div>
+  <div>{NUM(3)}<span><b>Releemos y registramos:</b> el Procesador toma la reserva de la queue, la relee en Navitaire (referencia de la tarjeta y monto) y, al cobrar, registra el pago con <code>VTUA</code>.</span></div>
 </div>"""
 
 arch = '''<svg viewBox="0 0 1200 300" width="100%" role="img" aria-label="Arquitectura AWS del servicio de pago programado">
