@@ -329,7 +329,7 @@ criterios que lo habilitan están en **Listo**. La columna "Pregunta" remite a l
 | DOR-20 | Cuenta AWS, VPC, subredes, estado remoto y módulos de Terraform, acceso a Sonar, secrets y equipo dueño | Viva IT | H1 | 11 | **Parcial:** cuenta existente, por definir cuál |
 | DOR-21 | Volumen diario de vuelos y de reservas candidatas | Viva | H1 | 11 | Sin dato: Viva no tiene estimado (experimentos A/B) |
 | DOR-22 | Acceso al proveedor de correo para el scheduler | Viva | H5 | 9 | Pendiente. Generic API y Transactions ya lo integran |
-| DOR-29 | El comentario `TUA\|out\|in\|total` queda en Navitaire (R8). Si falta, la reserva no se procesa y se marca como fallida: no hay fallback | Viva / Generic API | H3 | 15 | **Parcial:** regla de falta de monto decidida el 2026-11-19 |
+| DOR-29 | El comentario `TUA\|out\|in\|total` queda en Navitaire (R8). Si falta, la reserva no se procesa y se marca como fallida: no hay fallback | Viva / Generic API | H3 | 15 | **Parcial:** el requerimiento no define si se avisa al cliente; mientras tanto se trata como la nota inválida (sin cobro, con alerta). Pasa a dudas de la propuesta (2026-11-19) |
 
 **Generic API**
 
@@ -369,8 +369,8 @@ arranque el 30 de noviembre de 2026, con festivos el 8 y el 25 de diciembre y el
 
 | Semana | Foco | Hitos que cubre | Prerrequisitos antes de arrancarla |
 | --- | --- | --- | --- |
-| 1 | Arranque, contratos congelados, diseño, Terraform base, clientes de Navitaire | 0, 1 | Contratos de integración, cuenta AWS, Terraform y CI/CD, Sonar, Navitaire y Adyen de prueba, permisos del tester en TEST |
-| 2 | Identificador de cobros pendientes, cliente de Adyen, pipeline a TEST | 2 | Búsqueda de vuelos y límites de Navitaire, lineamientos de SQS y DynamoDB |
+| 1 | Arranque, contratos congelados, diseño, Terraform base, clientes de Navitaire | 0, 1 | Contratos de integración, cuenta AWS, Terraform y CI/CD, Sonar, Navitaire y Adyen de prueba, permisos del tester en TEST, lineamientos de Viva (AWS, SQS, DynamoDB, Terraform y CI/CD) claros antes de empezar |
+| 2 | Identificador de cobros pendientes, cliente de Adyen, pipeline a TEST | 2 | Búsqueda de vuelos y límites de Navitaire |
 | 3 | Procesador de cobros: cobro con compensating transaction, registro en Navitaire, correo con el resultado, DLQ | 3, 4, 5 | `paymentAdd` y cargo de `VTUA`, SendGrid, reporte de Adyen |
 | 4 | Monitoreo en Datadog: métricas, logs, dashboard, 10 monitores y conciliación interna | Operación | Organización de Datadog de Viva, integración de AWS, API keys, canal de avisos y umbrales |
 | 5 | End-to-end con Generic API, corrección de defectos, aceptación y entrega | 6, 7 | Reservas con `VTUP` en TEST en los tres escenarios, colección Postman |
@@ -769,8 +769,9 @@ Ordenadas por impacto en la estimación. Lo que la sesión respondió ya no est�
     ¿Quita `VTUP` al cambiar journeys o pasajeros?
 14. **Compensating transaction:** ¿se acepta autorizar y capturar por separado? ¿De qué reporte de Adyen sale
     la conciliación diaria? ¿Navitaire confirma que nada persiste antes del commit?
-15. **Monto de la TUA:** ¿se garantiza que `TUA` no se reubica? Si falta el comentario, ya está decidido: no
-    se procesa y se marca como fallido.
+15. **Monto de la TUA:** ¿se garantiza que `TUA` no se reubica? Si falta el comentario, no se procesa y se marca
+    como fallido. El requerimiento no dice si se avisa al cliente: solo define "no charge, alert" para la nota
+    inválida o la tarjeta no encontrada. Mientras se resuelve, se trata igual: sin cobro, sin correo y con alerta.
 16. **Bóveda de Adyen:** vigencia del token del escenario 1.
 17. **Búsqueda por SSR:** Héctor mencionó un endpoint de Navitaire para obtener las reservas por SSR. ¿Es el
     manifiesto de SSR por leg o existe una búsqueda directa de reservas con `VTUP`? La segunda simplificaría

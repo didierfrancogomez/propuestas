@@ -216,7 +216,7 @@ por límite (R7).
 | 1 | Toma el mensaje y marca el cobro | `ENCOLADA → EN_PROCESO` | Condición fallida: ya lo procesa otro, se descarta el mensaje |
 | 2 | Relee la reserva en Navitaire | — | Error técnico: excepción, el mensaje vuelve a SQS y, tras N veces, va a la DLQ |
 | 3 | Sin `VTUP`: el cliente ya pagó | `→ DESCARTADA` (`pago_manual_previo`) | — |
-| 4 | Lee el monto por pasajero del comentario de TUA | Si no está, no se procesa y se marca como fallido: `→ DESCARTADA` (`sin_monto`), sin cobro ni aviso al cliente | — |
+| 4 | Lee el monto por pasajero del comentario de TUA | Si no está, no se procesa y se marca como fallido: `→ DESCARTADA` (`sin_monto`), sin cobro ni aviso al cliente, igual que la nota inválida del requerimiento (aviso pendiente de confirmar, sección 10) | — |
 | 5 | Lee la nota de `VTUP`: `basketId` o `TUA-{basketId}` (GUID) es escenario 1; `customerNumber` es escenario 2 o 3 | `→ DESCARTADA` (`nota_invalida`) si no es ninguno | — |
 | 6 | `GET /storedPaymentMethods` con el `shopperReference`; elige la tarjeta del `FirstPspReference` | `→ DESCARTADA` (`tarjeta_no_encontrada`) si no está | Error técnico: reintento de SQS |
 | 7 | `POST /payments` sin CVV, manual capture, `idempotency-key = {recordLocator}-autorizar` | `→ AUTORIZADA` o `→ NO_PROCESADA` (`rechazo`) | Timeout: se reintenta con la misma llave; Adyen devuelve el mismo resultado |
@@ -498,4 +498,6 @@ Así el dashboard y los monitores se versionan y se promueven igual que la infra
 | ID de plantilla, parámetros y de dónde sale el destinatario | Lambda notificador | DOR-08 |
 | Organización de Datadog, integración de AWS, API keys, canal y umbrales | Sección 7 | Prerrequisito de la semana 4 |
 | ¿Se borra la tarjeta de un solo uso si el cobro no se procesa? | Paso 11 | DOR-07 |
+| Reserva sin comentario de TUA: ¿se avisa al cliente? El requerimiento no lo define; se trata como la nota inválida (sin cobro ni aviso, con alerta) | Paso 4 del Procesador | DOR-29 |
+| Lineamientos de Viva para AWS, SQS, DynamoDB, Terraform y CI/CD | Secciones 1 y 8 | Prerrequisito antes de empezar |
 | Lambda que activa el Procesador o consumo directo de SQS | Módulo `mensajeria` | Decisión técnica de la semana 1 |
