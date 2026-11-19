@@ -360,7 +360,7 @@ TEAM_CSS = """
 .know .kgrid ul { font-size: .92cqw; line-height: 1.33; padding-left: 1cqw; margin: 0; }
 .know .kgrid li { margin-bottom: .15cqw; }
 """
-def role_slide(nombre, dedicacion, ded_sub, ia, ia_costo, ia_sub, titulo_k, grupos):
+def role_slide(nombre, dedicacion, ded_sub, ia, ia_costo, ia_sub, titulo_k, grupos, titulo=None):
     kg = "".join(f'<div><b style="color: var(--dark-violet)">{g}</b>{ul(items)}</div>' for g, items in grupos)
     body = f'''<div class="rolegrid">
   <div class="rolecard" style="background-color: var(--dark-violet); color: var(--white)">
@@ -370,7 +370,7 @@ def role_slide(nombre, dedicacion, ded_sub, ia, ia_costo, ia_sub, titulo_k, grup
   </div>
   <div class="know" style="background-color: var(--lighter-violet); color: var(--black)"><h3 style="color: var(--dark-violet)">{titulo_k}</h3><div class="kgrid">{kg}</div></div>
 </div>'''
-    return slide(f'Equipo de trabajo: {hl(nombre.lower())}', body, internal=True)
+    return slide(titulo or f'Equipo de trabajo: {hl(nombre.lower())}', body, internal=True)
 
 LT = role_slide("Líder técnico", "100&nbsp;% las 5 semanas", "Unas 176 h, descontando festivos. Diseña, construye, prueba, despliega y entrega el código end-to-end.",
     "Claude · plan Ultra", "USD 200 al mes", "Sin el límite de 5 horas y con 10 veces el uso de Pro cada semana. 2 meses: USD 400.",
@@ -396,8 +396,16 @@ QA = role_slide("Tester", "50&nbsp;% las 5 semanas", "Unas 88 h. Define criterio
     ("Test evidence", ["Evidencias funcionales, de integration y end-to-end", "Bug reporting y regression testing"]),
     ("AI-assisted testing", ["Claude para test case design, test data generation y test automation"]),
     ])
+SOP = role_slide("Líder técnico", "50&nbsp;% inicial, bajo demanda", "Unas 40 h en las 2 primeras semanas. El soporte se calcula por el tiempo dedicado, sin tester al inicio.",
+    "Claude · plan Max", "USD 100 al mes", "5 veces el uso de Pro. Por las 2 semanas de soporte inicial: 1 mes, USD 100.",
+    "Soporte después de la entrega en TEST", [
+    ("Cómo se calcula", ["Bajo demanda: se calcula por el tiempo efectivamente dedicado", "Aparte del precio fijo de la implementación"]),
+    ("Propuesta inicial", ["Líder técnico al 50&nbsp;% durante 2 semanas", "Sin tester: el LT cubre las pruebas de los ajustes", "Claude Max por esas 2 semanas"]),
+    ("Qué cubre", ["Dudas y ajustes de los dos servicios, la IaC y el dashboard en Datadog", "Análisis de mensajes en la DLQ y de cobros con <code>DIFERENCIA</code> en la conciliación", "Acompañamiento a Viva en la integración del frontend y la salida a Producción"]),
+    ("Si la demanda crece", ["Se amplía la dedicación del LT o se suma el tester, con aprobación de Viva"]),
+    ], titulo=f'Equipo de trabajo: {hl("soporte")}')
 # Tiempo y costo al inicio del equipo de trabajo, con las láminas numeradas como en la propuesta del cliente
 TC_TEAM = slide(TC_TITLE, re.sub(r"lámina (\d+)\)", r"lámina \1 de la propuesta)", renum(TC_BODY, _shift)), internal=True, extra="big")
 open(os.path.join(outdir, "equipo-de-trabajo.html"), "w", encoding="utf-8").write(
-    HEAD.replace("Pago programado de la TUA · Viva Aerobus</title>", "Equipo de trabajo · Pago programado de la TUA</title>").replace("</style>", TEAM_CSS + "</style>", 1) + TC_TEAM + LT + QA + TAIL)
+    HEAD.replace("Pago programado de la TUA · Viva Aerobus</title>", "Equipo de trabajo · Pago programado de la TUA</title>").replace("</style>", TEAM_CSS + "</style>", 1) + TC_TEAM + LT + QA + SOP + TAIL)
 print("cliente", len(CLIENT), "fuente", len(S) + len(I))
