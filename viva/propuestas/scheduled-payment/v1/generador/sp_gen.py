@@ -138,7 +138,7 @@ S.append(slide(f'El propósito: que la TUA {hl("se cobre sola")}, sin doble cobr
 
 # 2 · Entendimiento
 S.append(slide(f'Así entendemos la interacción: Generic API, Navitaire, {hl("nuestra solución")}, Adyen y SendGrid',
-    svg2 + legend2 + note('<b>Generic API es precondición:</b> las pruebas de punta a punta necesitan reservas con <code>VTUP</code> en TEST (lámina 10). Cubrimos solo reservas con pago programado (<code>VTUP</code>). Si el cobro no se puede procesar, solo se notifica al cliente; la DLQ guarda lo que falló por un error técnico, para reprocesarlo.')))
+    svg2 + legend2 + note('<b>Generic API es precondición:</b> las pruebas end-to-end necesitan reservas con <code>VTUP</code> en TEST (lámina 10). Cubrimos solo reservas con pago programado (<code>VTUP</code>). Si el cobro no se puede procesar, solo se notifica al cliente; la DLQ guarda lo que falló por un error técnico, para reprocesarlo.')))
 
 # 3 · Plan de 5 semanas
 def wk(n, dates, title, items, out):
@@ -146,31 +146,31 @@ def wk(n, dates, title, items, out):
     return f'<div {CARD}><div {ROLE}>Semana {n}</div>{d}<h3 {H3}>{title}</h3>{ul(items)}<p class="out" style="color: var(--dark-violet)">{out}</p></div>'
 PLAN_IDX = len(S)  # el plan por semanas no va en la versión del cliente
 S.append(slide(f'Plan de {hl("5 semanas")} de implementación', '<div class="row5 wk">' +
-    wk(1, "", "Arranque y base", ["Recepción de los contratos de integración congelados (lámina 10).", "Diseño detallado: estados del cobro, mensajes y datos.", "Terraform base en la cuenta de Viva: Fargate, SQS con DLQ, DynamoDB y secretos.", "Clientes de Navitaire y criterios de aceptación con negocio."], "Base desplegada en desarrollo.") +
-    wk(2, "", "Identificador de cobros pendientes", ["Evento programado, fechas por bundle y manifiestos de Navitaire.", "Filtro de reservas con <code>VTUP</code>, deduplicación y encolado en SQS.", "Cliente de Adyen Checkout y simuladores.", "Pipeline con promoción a TEST."], "Identificador funcionando en TEST.") +
-    wk(3, "", "Procesador de cobros", ["Revalidación de la reserva, tarjeta y monto por pasajero.", "Cobro compensado: autorizar, registrar en Navitaire y capturar o cancelar.", "Cola de notificaciones y Lambda que envía el correo por SendGrid, con reintentos y DLQ.", "Alerta de nota o tarjeta inválida."], "Cobro completo en TEST con simuladores.") +
-    wk(4, "", "Monitoreo en Datadog", ["Métricas de los servicios y logs con criterio de costo.", "Tablero y 10 monitores, en Terraform.", "Conciliación interna diaria contra Navitaire."], "Operación visible en Datadog.") +
-    wk(5, "", "Punta a punta y entrega", ["Pruebas con reservas reales de Generic API en TEST.", "Corrección de defectos.", "Aceptación con negocio y entrega del código fuente y las evidencias de prueba."], "Entrega integrada en TEST.") +
+    wk(1, "", "Arranque y base", ["Recepción de los contratos de integración congelados (lámina 10).", "Diseño detallado: estados del cobro, mensajes y datos.", "Terraform base en la cuenta de Viva: Fargate, SQS con DLQ, DynamoDB y secrets.", "Clientes de Navitaire y criterios de aceptación con negocio."], "Base desplegada en desarrollo.") +
+    wk(2, "", "Identificador de cobros pendientes", ["Scheduled event, fechas por bundle y manifiestos de Navitaire.", "Filtro de reservas con <code>VTUP</code>, deduplicación y encolado en SQS.", "Cliente de Adyen Checkout y mocks.", "Pipeline con promoción a TEST."], "Identificador funcionando en TEST.") +
+    wk(3, "", "Procesador de cobros", ["Revalidación de la reserva, tarjeta y monto por pasajero.", "Cobro con compensating transaction: autorizar, registrar en Navitaire y capturar o cancelar.", "Queue de notificaciones y Lambda que envía el correo por SendGrid, con retries y DLQ.", "Alerta de nota o tarjeta inválida."], "Cobro completo en TEST con mocks.") +
+    wk(4, "", "Monitoreo en Datadog", ["Métricas de los servicios y logs con criterio de costo.", "Dashboard y 10 monitores, en Terraform.", "Conciliación interna diaria contra Navitaire."], "Operación visible en Datadog.") +
+    wk(5, "", "End-to-end y entrega", ["Pruebas con reservas reales de Generic API en TEST.", "Corrección de defectos.", "Aceptación con negocio y entrega del código fuente y las evidencias de prueba."], "Entrega integrada en TEST.") +
     '</div>' + note('Las 5 semanas cuentan desde la fecha de arranque que defina Viva y son semanas hábiles: si caen festivos, el plazo se recorre esos días. La salida a Producción la hace Viva con la misma IaC; el acompañamiento posterior se cotiza aparte.'), extra="big"))
 
 # 10b · Monitoreo en Datadog (parte del alcance)
-S.append(slide(f'Tablero propuesto en {hl("Datadog")}', dash + note('Parte del alcance. Esquema con valores ilustrativos de un día; el detalle de cada monitor está en la lámina siguiente.')))
+S.append(slide(f'Dashboard propuesto en {hl("Datadog")}', dash + note('Parte del alcance. Esquema con valores ilustrativos de un día; el detalle de cada monitor está en la lámina siguiente.')))
 
 MON = [
     ("Identificador no corrió", "No llegó la corrida en el horario programado: ese día nadie se cobra", "Sin datos de la métrica de corrida", "Requerimiento"),
     ("Nota, tarjeta o monto inválidos", "Nota de <code>VTUP</code> sin formato válido, tarjeta no encontrada o comentario de TUA ausente: no se cobra", "Métrica de descartes por motivo", "Requerimiento"),
-    ("Cola atascada", "El mensaje más antiguo de SQS lleva más del umbral sin procesarse", "Métrica de SQS (integración de AWS)", "Operación"),
+    ("Queue atascada", "El mensaje más antiguo de SQS lleva más del umbral sin procesarse", "Métrica de SQS (integración de AWS)", "Operación"),
     ("Mensajes en la DLQ", "Cobros que fallaron por un error técnico y esperan reproceso", "Métrica de SQS mayor que 0", "Operación"),
     ("Cobros sin cerrar", "Cobros detenidos a medio camino: en proceso, autorizados o registrados sin captura, o encolados sin procesar", "Gauge del estado de los cobros, cada 5 minutos", "Integridad del cobro"),
     ("Diferencias internas", "Un cobro con captura solicitada sin <code>VTUA</code> o sin pago en Navitaire, o una cancelación con <code>VTUA</code>", "Métrica de la conciliación mayor que 0", "Integridad del cobro"),
     ("Errores de Navitaire o Adyen", "Errores o rechazos por límite de llamadas por encima del umbral", "Métrica de llamadas por integración y resultado", "Integraciones"),
     ("Rechazos fuera de lo normal", "La tasa de cobros rechazados se sale de su comportamiento habitual", "Monitor de anomalías", "Operación"),
-    ("Correos sin enviar", "Avisos que la Lambda no pudo enviar por SendGrid tras los reintentos: quedan en la DLQ de notificaciones", "Métrica de SQS de la DLQ de notificaciones", "Cliente"),
+    ("Correos sin enviar", "Avisos que la Lambda no pudo enviar por SendGrid tras los retries: quedan en la DLQ de notificaciones", "Métrica de SQS de la DLQ de notificaciones", "Cliente"),
     ("Falla al borrar tarjeta", "Quedó vivo en Adyen el token de una tarjeta de un solo uso", "Métrica de borrado por resultado", "Escenario 1"),
 ]
 mt = '<table class="pre tight"><thead><tr style="color: var(--black)"><th>Monitor</th><th>Qué detecta</th></tr></thead><tbody>' + \
     "".join(f'<tr style="color: var(--black)"><td>{a}</td><td>{b}</td></tr>' for a, b, c, d in MON) + '</tbody></table>'
-S.append(slide(f'Detalle del tablero: {hl("monitores")}', mt, extra="mon"))
+S.append(slide(f'Detalle del dashboard: {hl("monitores")}', mt, extra="mon"))
 
 # 4 · Qué construimos
 def comp(role, title, val, items):
@@ -179,32 +179,33 @@ def comp(role, title, val, items):
     return f'<div {CARD}>{r}<h3 {H3}>{title}</h3><p class="val">{val}</p><dl class="kvl">{dl}</dl></div>'
 S.append(slide(f'Qué construimos y entregamos {hl("en TEST")}', '<div class="itd itd3">' +
     comp("", "Identificador de cobros pendientes", "Encuentra cada día las reservas con pago programado a las que les toca cobro.", [
-        ("Se construye", "Evento programado en EventBridge, fechas por bundle (SMART 10, SWITCH 6 y ZERO 1 día antes), búsqueda de vuelos y manifiesto de SSR por leg, filtro de reservas con <code>VTUP</code>, deduplicación por reserva y encolado en SQS; re-ejecución por fecha."),
-        ("Se prueba", "Con simulador de Navitaire y en TEST: bundles, fechas, reservas con solo <code>VTUB</code> que no deben entrar, duplicados y corrida perdida."),
-        ("Operación", "Alerta si no corrió, re-ejecución por fecha y trazabilidad por <code>recordLocator</code>."),
+        ("Se construye", "Scheduled event en EventBridge, fechas por bundle (SMART 10, SWITCH 6 y ZERO 1 día antes), búsqueda de vuelos y manifiesto de SSR por leg, filtro de reservas con <code>VTUP</code>, deduplicación por reserva y encolado en SQS; re-ejecución por fecha."),
+        ("Se prueba", "Con mock de Navitaire y en TEST: bundles, fechas, reservas con solo <code>VTUB</code> que no deben entrar, duplicados y corrida perdida."),
+        ("Operación", "Alerta si no corrió, re-ejecución por fecha y traceability por <code>recordLocator</code>."),
     ]) +
     comp("", "Procesador de cobros", "Cobra una sola vez y solo cuando Navitaire puede registrar el pago.", [
-        ("Se construye", "Revalidación de la reserva, ubicación de la tarjeta en Adyen, cobro compensado, registro del pago en Navitaire por pasajero y journey, aviso al cliente publicado en una cola de notificaciones, que una Lambda envía por SendGrid con reintentos, DLQ y conciliación interna diaria."),
-        ("Se prueba", "Los tres escenarios de tarjeta, caída de Navitaire después de autorizar, commit sin respuesta, pago manual previo y cobro rechazado; al final, de punta a punta con Generic API."),
-        ("Operación", "Alerta si la nota de <code>VTUP</code> o la tarjeta no son válidas (no se cobra); tablero y monitores en Datadog (lámina 5)."),
+        ("Se construye", "Revalidación de la reserva, ubicación de la tarjeta en Adyen, cobro con compensating transaction, registro del pago en Navitaire por pasajero y journey, aviso al cliente publicado en una queue de notificaciones, que una Lambda envía por SendGrid con retries, DLQ y conciliación interna diaria."),
+        ("Se prueba", "Los tres escenarios de tarjeta, caída de Navitaire después de autorizar, commit sin respuesta, pago manual previo y cobro rechazado; al final, end-to-end con Generic API."),
+        ("Operación", "Alerta si la nota de <code>VTUP</code> o la tarjeta no son válidas (no se cobra); dashboard y monitores en Datadog (lámina 5)."),
     ]) +
-    comp("", "Tablero y monitores en Datadog", "Muestra en un solo lugar si los cobros salieron y avisa cuando algo se detiene.", [
-        ("Se construye", "Métricas del Identificador, del Procesador y de la Lambda de notificación; logs con criterio de costo; tablero con el embudo del día y 10 monitores, todo en Terraform (láminas 5 y 6)."),
+    comp("", "Dashboard y monitores en Datadog", "Muestra en un solo lugar si los cobros salieron y avisa cuando algo se detiene.", [
+        ("Se construye", "Métricas del Identificador, del Procesador y de la Lambda de notificación; logs con criterio de costo; dashboard con el funnel del día y 10 monitores, todo en Terraform (láminas 5 y 6)."),
         ("Se prueba", "Cada monitor se dispara en TEST forzando su caso: corrida que no ocurre, mensajes en la DLQ, cobro sin cerrar, diferencia interna y correo sin enviar."),
         ("Operación", "Avisos al canal que defina Viva, con los umbrales acordados."),
-    ]) + '</div>' + note('<b>Todo se entrega desplegado e integrado en el ambiente de TEST de Viva</b>, no en Producción: Viva despliega en Producción con la misma IaC. Sin reservas de Generic API en TEST, las pruebas de punta a punta solo se validan con simuladores; y como aún no hay estimado de volumen, se prueba con un volumen supuesto acordado.', dark=True), extra="big"))
+    ]) + '</div>' + note('<b>Todo se entrega desplegado e integrado en el ambiente de TEST de Viva</b>, no en Producción: Viva despliega en Producción con la misma IaC. Sin reservas de Generic API en TEST, las pruebas end-to-end solo se validan con mocks; y como aún no hay estimado de volumen, se prueba con un volumen supuesto acordado.', dark=True), extra="big"))
 
 # 11 · Lo que entregamos
 S.append(slide(f'Entregables {hl("del servicio")}', '<div class="tc">' +
-    card("Código e infraestructura", ["Identificador y Procesador en NestJS, contenerizados en ECS Fargate, con las reglas de fecha y cargo configurables, y la Lambda de notificación.", "IaC en Terraform por módulos, parametrizada por ambiente, sobre la cuenta y la red de Viva.", "Pipelines de build, IaC y promoción, con reversa."], 1) +
-    card("Pruebas y evidencias", ["Pruebas unitarias de cada historia y análisis de calidad del código en el Sonar de Viva.", "Simuladores de Navitaire y Adyen.", "Evidencias funcionales, de integración y de punta a punta, incluida la matriz de 9 casos del requerimiento.", "Aceptación con el negocio de Viva."], 2) +
+    card("Código e infraestructura", ["Identificador y Procesador en NestJS, contenerizados en ECS Fargate, con las reglas de fecha y cargo configurables, y la Lambda de notificación.", "IaC en Terraform por módulos, parametrizada por ambiente, sobre la cuenta y la red de Viva.", "Pipelines de build, IaC y promoción, con rollback."], 1) +
+    card("Pruebas y evidencias", ["Unit tests de cada historia y análisis de calidad del código en el Sonar de Viva.", "Mocks de Navitaire y Adyen.", "Evidencias funcionales, de integración y end-to-end, incluida la matriz de 9 casos del requerimiento.", "Aceptación con el negocio de Viva."], 2) +
     card("Seguridad", ["Sin datos de tarjeta en el servicio: solo referencias y tokens de Adyen.", "Secretos en Secrets Manager y cifrado con KMS; sin endpoints expuestos a Internet.", "Corrección de los hallazgos de la revisión de seguridad de Viva, un ciclo."], 3) +
-    card("Operación", ["Tablero y 10 monitores en Datadog, incluidas las alertas del requerimiento (láminas 5 y 6).", "Trazabilidad por reserva y por cobro.", "Conciliación interna diaria."], 4) +
-    card("Entregables", ["<b>Código fuente</b> de los dos servicios, la IaC y los pipelines, en el repositorio de Viva.", "<b>Evidencias de prueba confirmadas:</b> funcionales, de integración y de punta a punta, aceptadas por el negocio de Viva."], 5) +
-    '</div>' + note('<b>Fuera de alcance:</b> confirmar en Adyen las capturas y cancelaciones (lo hace Viva en su conciliación financiera), seguir la entrega final de los correos de SendGrid, reservas sin <code>VTUP</code> (pago posterior manual con solo <code>VTUB</code>, o TUA ya pagada), Generic API y su flujo de pago, el frontend, crear el SSR <code>VTUP</code> en Navitaire, diseñar las plantillas de correo (las define Marketing), desplegar o probar en Producción, ejecutar pruebas de seguridad o de penetración (las hace Viva) y reintentos de cobro o cualquier otra acción sobre la reserva cuando el cobro no se puede procesar.')))
+    card("Operación", ["Dashboard y 10 monitores en Datadog, incluidas las alertas del requerimiento (láminas 5 y 6).", "Traceability por reserva y por cobro.", "Conciliación interna diaria."], 4) +
+    card("Entregables", ["<b>Código fuente</b> de los dos servicios, la IaC y los pipelines, en el repositorio de Viva.", "<b>Evidencias de prueba confirmadas:</b> funcionales, de integración y end-to-end, aceptadas por el negocio de Viva."], 5) +
+    '</div>' + note('<b>Fuera de alcance:</b> confirmar en Adyen las capturas y cancelaciones (lo hace Viva en su conciliación financiera), seguir la entrega final de los correos de SendGrid, reservas sin <code>VTUP</code> (pago posterior manual con solo <code>VTUB</code>, o TUA ya pagada), Generic API y su flujo de pago, el frontend, crear el SSR <code>VTUP</code> en Navitaire, diseñar las plantillas de correo (las define Marketing), desplegar o probar en Producción, ejecutar pruebas de seguridad o de penetración (las hace Viva) y retries de cobro o cualquier otra acción sobre la reserva cuando el cobro no se puede procesar.')))
 
 # 4 · Tiempo y costo
-S.append(slide(f'Tiempo y costo: {hl("fijos")} sobre este alcance', '''<div class="opts">
+TC_TITLE = f'Tiempo y costo: {hl("fijos")} sobre este alcance'
+TC_BODY = '''<div class="opts">
   <div class="opt sel" style="background-color: var(--lighter-violet); color: var(--black)">
     <div class="role" style="color: var(--violet-accent)">Tiempo</div>
     <div class="opt-h" style="color: var(--dark-violet)"><b>5 semanas</b><span>de implementación</span></div>
@@ -220,11 +221,12 @@ S.append(slide(f'Tiempo y costo: {hl("fijos")} sobre este alcance', '''<div clas
     <div class="opt-h" style="color: var(--dark-violet)"><b><span class="pend">[PENDIENTE]</span></b><span>precio fijo</span></div>
     <p>Un solo valor por todo el alcance de esta propuesta. Forma de pago: <span class="pend">[PENDIENTE]</span></p>
     <ul>
-      <li><b>Incluye:</b> los dos servicios, IaC y pipeline, pruebas y evidencias, conciliación interna, el tablero y los monitores en Datadog, el código fuente y las evidencias de prueba confirmadas (lámina 8).</li>
+      <li><b>Incluye:</b> los dos servicios, IaC y pipeline, pruebas y evidencias, conciliación interna, el dashboard y los monitores en Datadog, el código fuente y las evidencias de prueba confirmadas (lámina 8).</li>
       <li><b>Se cobra aparte:</b> cambios en los contratos de integración, cambios o fallas de componentes externos (lámina 10), y el acompañamiento posterior o a Producción.</li>
     </ul>
   </div>
-</div>''' + note('<b>Tiempo y precio son fijos porque los contratos se congelan el día 1</b> y los prerrequisitos llegan en su semana. Lo que cambie después se estima y se aprueba como control de cambios antes de ejecutarlo.'), extra="big"))
+</div>''' + note('<b>Tiempo y precio son fijos porque los contratos se congelan el día 1</b> y los prerrequisitos llegan en su semana. Lo que cambie después se estima y se aprueba como control de cambios antes de ejecutarlo.')
+S.append(slide(TC_TITLE, TC_BODY, extra="big"))
 
 # 6 · Prerrequisitos
 def pre(role, title, items, dark=False):
@@ -233,7 +235,7 @@ def pre(role, title, items, dark=False):
 S.append(slide(f'Prerrequisitos y {hl("control de cambios")}',
     '<p class="prelead" style="color: var(--black)">Si un prerrequisito no está listo en su semana, <b>la fecha final se corre lo mismo</b>. Si después del inicio cambia un contrato de integración, o un componente externo (Navitaire, Adyen, SendGrid, Generic API o la infraestructura AWS de Viva) cambia, falla o no está disponible, <b>es control de cambios</b>. En ambos casos el tiempo adicional se cobra aparte.</p><div class="pregrid">' +
     pre("Antes de la semana 1", "Contratos congelados el día 1", ["<b>Navitaire:</b> búsqueda de vuelos, manifiesto de SSR, reserva, alta y baja de SSR, <code>paymentAdd</code> y commit.", "<b>Adyen Checkout:</b> tarjetas guardadas, pago, captura, cancelación y borrado de token.", "<b>SendGrid:</b> envío con plantilla. <b>Generic API:</b> nota de <code>VTUP</code>, comentario de TUA y SSR.", "<b>Un cambio posterior es control de cambios y se cobra aparte.</b>"], dark=True) +
-    pre("Antes de la semana 1", "Permisos, accesos y ambiente estable", ["<b>Permisos y accesos suficientes</b> para desarrollar, configurar, integrar, probar y cargar datos de prueba en desarrollo y TEST, para nuestro equipo y nuestro tester: AWS (incluidos IAM y el despliegue del pipeline), Navitaire, Adyen, SendGrid, Datadog, Terraform y Sonar.", "<b>Ambientes de desarrollo y TEST homologados y estables:</b> misma configuración, versiones e integraciones, salvo parámetros y secretos, con Navitaire, Adyen y SendGrid de prueba disponibles.", "Cuenta de servicio de Navitaire con rol de agente y credencial de Adyen Checkout para <code>VB_WEB</code>, con captura manual."]) +
+    pre("Antes de la semana 1", "Permisos, accesos y ambiente estable", ["<b>Permisos y accesos suficientes</b> para desarrollar, configurar, integrar, probar y cargar datos de prueba en desarrollo y TEST, para nuestro equipo y nuestro tester: AWS (incluidos IAM y el despliegue del pipeline), Navitaire, Adyen, SendGrid, Datadog, Terraform y Sonar.", "<b>Ambientes de desarrollo y TEST homologados y estables:</b> misma configuración, versiones e integraciones, salvo parámetros y secrets, con Navitaire, Adyen y SendGrid de prueba disponibles.", "Cuenta de servicio de Navitaire con rol de agente y credencial de Adyen Checkout para <code>VB_WEB</code>, con manual capture."]) +
     pre("Antes de la semana 2", "Para el Identificador", ["Búsqueda de vuelos, paginación y límites de Navitaire confirmados.", "Lineamientos de Viva para SQS y DynamoDB, si existen."]) +
     pre("Antes de la semana 3", "Para el Procesador", ["Registro del pago en Navitaire: campos de <code>paymentAdd</code> y cargo de <code>VTUA</code> por pasajero.", "Acceso a SendGrid e ID de plantillas, o una de prueba."]) +
     pre("Antes de las semanas 4 y 5", "Para el monitoreo y la entrega", ["<b>Semana 4:</b> acceso a la organización de Datadog de Viva, integración de AWS, API keys, canal de avisos y umbrales.", "<b>Semana 5:</b> reservas con <code>VTUP</code> en TEST en los tres escenarios, generadas con Generic API, y colección Postman.", "Responsable de negocio para la aceptación final."]) +
@@ -242,15 +244,15 @@ S.append(slide(f'Prerrequisitos y {hl("control de cambios")}',
 
 # 12 · Calidad
 S.append(slide(f'Calidad desde la semana 1, {hl("de la mano del negocio")}',
-    '<p class="flead">Al inicio se acuerdan con el negocio los criterios y los datos de prueba, y cada componente se prueba en cuanto se despliega. La semana 5 confirma lo ya probado, de punta a punta con Generic API.</p><div class="row4">' +
+    '<p class="flead">Al inicio se acuerdan con el negocio los criterios y los datos de prueba, y cada componente se prueba en cuanto se despliega. La semana 5 confirma lo ya probado, end-to-end con Generic API.</p><div class="row4">' +
     card("Criterios que Viva aprueba", ["Criterios de aceptación en formato Dado / Cuando / Entonces.", "Reglas verificables: bundles, fechas, escenarios e idempotencia."], role="Semana 1") +
-    card("Terminado quiere decir probado", ["Las pruebas unitarias se escriben al construir cada historia.", "Cada componente se prueba en cuanto se despliega."], role="Semanas 2 y 3") +
-    card("Sin esperar a los sistemas reales", ["Simuladores de Navitaire y de Adyen.", "Pruebas de API automatizadas en el pipeline.", "Casos de compensación forzados: caída después de autorizar y commit sin respuesta."], role="Integración") +
-    card("Con el negocio de Viva", ["Pruebas de punta a punta con reservas de Generic API en TEST.", "Aceptación final en la semana 5."], role="Semana 5") +
+    card("Terminado quiere decir probado", ["Las unit tests se escriben al construir cada historia.", "Cada componente se prueba en cuanto se despliega."], role="Semanas 2 y 3") +
+    card("Sin esperar a los sistemas reales", ["Mocks de Navitaire y de Adyen.", "API tests automatizadas en el pipeline.", "Casos de compensación forzados: caída después de autorizar y commit sin respuesta."], role="Integración") +
+    card("Con el negocio de Viva", ["Pruebas end-to-end con reservas de Generic API en TEST.", "Aceptación final en la semana 5."], role="Semana 5") +
     '</div><div class="who4">' +
-    '<div style="background-color: var(--lighter-violet); color: var(--black)"><b>Desarrollo</b>Diseño, construcción, pruebas unitarias, IaC y pipeline.</div>' +
-    '<div style="background-color: var(--lighter-violet); color: var(--black)"><b>Calidad</b>Criterios, pruebas funcionales, de integración y de punta a punta.</div>' +
-    '<div style="background-color: var(--lighter-violet); color: var(--black)"><b>Generic API</b>Reservas con <code>VTUP</code> en TEST para las pruebas de punta a punta.</div>' +
+    '<div style="background-color: var(--lighter-violet); color: var(--black)"><b>Desarrollo</b>Diseño, construcción, unit tests, IaC y pipeline.</div>' +
+    '<div style="background-color: var(--lighter-violet); color: var(--black)"><b>Calidad</b>Criterios, pruebas funcionales, de integración y end-to-end.</div>' +
+    '<div style="background-color: var(--lighter-violet); color: var(--black)"><b>Generic API</b>Reservas con <code>VTUP</code> en TEST para las pruebas end-to-end.</div>' +
     '<div style="background-color: var(--lighter-violet); color: var(--black)"><b>Viva</b>Aceptación y revisión de seguridad, si aplica.</div>' +
     '</div>', extra="big"))
 
@@ -264,7 +266,7 @@ S.append(slide(f'Dudas a resolver {hl("antes de iniciar")}', '<div class="dq">' 
 # 14 · Términos y condiciones
 S.append(slide("Términos y condiciones", '<div class="tc">' +
     card("Alcance", ["Solo reservas con pago programado (<code>VTUP</code>).", "Los dos servicios y lo de la lámina 8, entregados en TEST.", "No incluye Generic API, el frontend, Producción ni pruebas de seguridad o de penetración: las hace Viva y corregimos sus hallazgos, un ciclo."], 1) +
-    card("Ambientes", ["Trabajamos en desarrollo y TEST, en la cuenta AWS que defina Viva, con el pipeline entregado.", "Viva da permisos y accesos suficientes para desarrollar, configurar, integrar, probar y cargar datos de prueba, y mantiene desarrollo y TEST homologados (misma configuración salvo parámetros y secretos) y estables. Los ajustes por diferencias entre ambientes se cobran aparte.", "Liberamos y probamos en TEST sin interrupciones, y nuestro tester tiene permisos para operar allí; las interrupciones se cobran aparte.", "TEST cuenta con Navitaire, Adyen y SendGrid de prueba.", "Producción la despliega Viva con la misma IaC."], 2) +
+    card("Ambientes", ["Trabajamos en desarrollo y TEST, en la cuenta AWS que defina Viva, con el pipeline entregado.", "Viva da permisos y accesos suficientes para desarrollar, configurar, integrar, probar y cargar datos de prueba, y mantiene desarrollo y TEST homologados (misma configuración salvo parámetros y secrets) y estables. Los ajustes por diferencias entre ambientes se cobran aparte.", "Liberamos y probamos en TEST sin interrupciones, y nuestro tester tiene permisos para operar allí; las interrupciones se cobran aparte.", "TEST cuenta con Navitaire, Adyen y SendGrid de prueba.", "Producción la despliega Viva con la misma IaC."], 2) +
     card("Contratos y cambios", ["Los contratos de integración se entregan al inicio y quedan congelados (lámina 10).", "Los cambios posteriores en esos contratos son <b>control de cambios</b> y se cobran aparte.", "Los cambios o fallas de componentes externos que afecten la implementación se cobran aparte."], 3) +
     card("Tiempos", ["Tiempo y precio fijos sobre este alcance.", "Las 5 semanas cuentan desde la fecha de arranque que defina Viva, con los prerrequisitos de la semana 1 listos; son semanas hábiles.", "Si un prerrequisito no está listo en su semana, la fecha final se corre lo mismo y ese tiempo se cobra aparte.", "Cambios de reglas, como que el cliente elija la fecha, se estiman aparte."], 4) +
     card("Aceptación", ["Viva acepta la entrega en TEST en 2 días hábiles, con el responsable de negocio que designe.", "Las dudas de la lámina 12 se resuelven en las fechas que ahí se indican."], 5) +
@@ -276,18 +278,18 @@ I.append(slide(f'Arquitectura AWS de la {hl("solución")}', arch + '''<div class
   <div><b>1 · Identificar.</b> EventBridge Scheduler llama al endpoint del Identificador en Fargate; este lee Navitaire, deduplica contra DynamoDB y encola en SQS.</div>
   <div><b>2 · Cobrar.</b> Una Lambda toma cada mensaje y llama al endpoint del Procesador, como se conversó con Héctor. Alternativa más simple: que el servicio consuma SQS directamente.</div>
   <div><b>3 · Estado y compensación.</b> DynamoDB guarda cada cobro (iniciado, autorizado, confirmado, cobrado, cancelado), y evita que una reserva con cobro fallido se vuelva a encolar.</div>
-  <div><b>4 · Sin webhooks.</b> Captura y cancelación responden «received» y se toman como solicitadas; la confirmación del lado de Adyen la hace Viva en su conciliación financiera. No hay ingreso público.</div>
-  <div><b>5 · Notificaciones.</b> El Procesador publica cada aviso en una cola SQS; una Lambda lo envía por SendGrid, con reintentos y DLQ propia. Salida por NAT; si un tercero exige IP fija, Viva la registra.</div>
-  <div><b>6 · Un solo intento.</b> Si el cobro no se puede procesar, se notifica al cliente y la reserva no vuelve a la cola.</div>
+  <div><b>4 · Sin webhooks.</b> Captura y cancelación responden «received» y se toman como solicitadas; la confirmación del lado de Adyen la hace Viva en su conciliación financiera. No hay public ingress.</div>
+  <div><b>5 · Notificaciones.</b> El Procesador publica cada aviso en una queue SQS; una Lambda lo envía por SendGrid, con retries y DLQ propia. Salida por NAT; si un tercero exige IP fija, Viva la registra.</div>
+  <div><b>6 · Un solo intento.</b> Si el cobro no se puede procesar, se notifica al cliente y la reserva no vuelve a la queue.</div>
 </div>''', internal=True))
 
 risks = [
-    ("R1", "El intervalo configurado es más corto que el horario del Identificador", "Ya no aplica: un solo intento, sin reintentos", "—"),
+    ("R1", "El intervalo configurado es más corto que el horario del Identificador", "Ya no aplica: un solo intento, sin retries", "—"),
     ("R2", "Se borra la tarjeta guardada: la nota de <code>VTUP</code> lleva <code>|</code> en los tres escenarios", "El escenario se lee del tipo de la parte izquierda: <code>basketId</code> (GUID) o <code>customerNumber</code>; sin cambiar Generic API", "Procesador · lectura de la reserva"),
     ("R3", "El requerimiento cobra por journey; negocio, por reserva", "Cobro completo y llave reserva + intento", "Identificador y Procesador"),
-    ("R4", "ZERO: no caben tres intentos en un día", "Ya no aplica: un solo intento, sin reintentos", "—"),
-    ("R5", "No se puede leer la cola de Navitaire", "Resuelto: SQS con DLQ como transporte y DynamoDB como estado", "Infraestructura"),
-    ("R6", "Cliente cobrado con la reserva pendiente", "Transacción compensada con captura manual y conciliación interna", "Procesador · cobro"),
+    ("R4", "ZERO: no caben tres intentos en un día", "Ya no aplica: un solo intento, sin retries", "—"),
+    ("R5", "No se puede leer la queue de Navitaire", "Resuelto: SQS con DLQ como transporte y DynamoDB como estado", "Infraestructura"),
+    ("R6", "Cliente cobrado con la reserva pendiente", "Compensating transaction con manual capture y conciliación interna", "Procesador · cobro"),
     ("R7", "Límites de llamadas de Navitaire sin dato de volumen", "Concurrencia configurable, espera ante rechazos y volumen supuesto", "Cliente de Navitaire"),
     ("R8", "Falta el comentario con el monto de la TUA", "Sin monto no se procesa: se marca como fallido y se alerta", "Procesador · lectura de la reserva"),
     ("R9", "Doble cobro si el cliente paga manualmente después de encolado", "Releer la reserva justo antes de cobrar", "Procesador · revalidación"),
@@ -301,9 +303,9 @@ I.append(slide(f'Riesgos del análisis y {hl("dónde quedaron en el plan")}', rt
 
 TEAM_IDX = len(I)
 I.append(slide(f'Equipo y {hl("licencias de Claude")}', '<div class="dq">' +
-    card("Equipo", ["<b>Líder técnico al 100&nbsp;%</b> las 5 semanas: diseño, construcción, pruebas unitarias, IaC, pipeline, monitoreo en Datadog y entrega del código. Unas 176 h, descontando los festivos del 8 y el 25 de diciembre y el 1 de enero si se arranca el 30 de noviembre.", "<b>Tester al 50&nbsp;%</b>, con licencia de Claude (plan Max): criterios de aceptación, pruebas funcionales, de integración y de punta a punta, y la prueba de monitoreo. Unas 88 h.", "No se muestra al cliente: la propuesta solo compromete alcance, plazo y precio."], 1) +
+    card("Equipo", ["<b>Líder técnico al 100&nbsp;%</b> las 5 semanas: diseño, construcción, unit tests, IaC, pipeline, monitoreo en Datadog y entrega del código. Unas 176 h, descontando los festivos del 8 y el 25 de diciembre y el 1 de enero si se arranca el 30 de noviembre.", "<b>Tester al 50&nbsp;%</b>, con licencia de Claude (plan Max): criterios de aceptación, pruebas funcionales, de integración y end-to-end, y la prueba de monitoreo. Unas 88 h.", "No se muestra al cliente: la propuesta solo compromete alcance, plazo y precio."], 1) +
     card("Licencias de Claude", ["<b>Líder técnico · plan Ultra:</b> USD 200 al mes. Las 5 semanas pasan de un mes: 2 meses, USD 400. Se elige porque no tiene el límite de 5 horas y da 10 veces el uso de Pro cada semana.", "<b>Tester · plan Max:</b> USD 100 al mes, con 5 veces el uso de Pro: 2 meses, USD 200. Para diseñar casos, automatizar pruebas y preparar evidencias.", "Total de licencias: USD 600. Se incorporan al valor del proyecto, sin línea aparte para el cliente: no se subsidian. Precios de la página oficial de Claude, a validar antes de cerrar la cotización.", "Si Viva contrata acompañamiento posterior, se suma un mes por licencia por cada mes adicional."], 2) +
-    card("Capacidad: a cuidar", ["La estimación por actividades que hicimos antes sumaba unas 610 h, sin el tablero de Datadog; este equipo suma unas 264 h en 5 semanas.", "El plan depende de la productividad con Claude y de que contratos y prerrequisitos estén listos a tiempo, sin cambios.", "Por eso la propuesta protege el plazo con contratos congelados y control de cambios cobrado aparte (lámina 10)."], 3) +
+    card("Capacidad: a cuidar", ["La estimación por actividades que hicimos antes sumaba unas 610 h, sin el dashboard de Datadog; este equipo suma unas 264 h en 5 semanas.", "El plan depende de la productividad con Claude y de que contratos y prerrequisitos estén listos a tiempo, sin cambios.", "Por eso la propuesta protege el plazo con contratos congelados y control de cambios cobrado aparte (lámina 10)."], 3) +
     '</div>', internal=True, extra="big"))
 
 HEAD = f'''<!DOCTYPE html>
@@ -332,17 +334,70 @@ TAIL = '''<div class="hint" style="background-color: var(--white); color: var(--
 </body>
 </html>
 '''
+def renum(html, f):
+    html = re.sub(r"láminas (\d+) y (\d+)", lambda m: f"láminas {f(int(m.group(1)))} y {f(int(m.group(2)))}", html)
+    return re.sub(r"lámina (\d+)", lambda m: f"lámina {f(int(m.group(1)))}", html)
 os.makedirs(outdir, exist_ok=True)
 base = os.path.join(outdir, "propuesta-viva-scheduled-payment-v1")
 open(base + "-fuente-con-internas.html", "w", encoding="utf-8").write(HEAD + "\n".join(S + I) + TAIL)
 CLIENT = [s for k, s in enumerate(S) if k != PLAN_IDX]
 plan_no = PLAN_IDX + 1
 _shift = lambda n: n - 1 if n > plan_no else n
-client_html = re.sub(r"láminas (\d+) y (\d+)", lambda m: f"láminas {_shift(int(m.group(1)))} y {_shift(int(m.group(2)))}", "\n".join(CLIENT))
-client_html = re.sub(r"lámina (\d+)", lambda m: f"lámina {_shift(int(m.group(1)))}", client_html)
+client_html = renum("\n".join(CLIENT), _shift)
 open(base + "-cliente.html", "w", encoding="utf-8").write(HEAD + client_html + TAIL)
-# Lámina independiente de equipo de trabajo (uso interno de Tech and Solve)
-team = I[TEAM_IDX].replace(f'Equipo y {hl("licencias de Claude")}', f'Equipo {hl("de trabajo")}', 1)
-team = re.sub(r"\(lámina \d+\)", "(lámina de prerrequisitos de la propuesta)", team)
-open(os.path.join(outdir, "equipo-de-trabajo.html"), "w", encoding="utf-8").write(HEAD.replace("Pago programado de la TUA · Viva Aerobus</title>", "Equipo de trabajo · Pago programado de la TUA</title>") + team + TAIL)
+# Equipo de trabajo: una lámina por rol (uso interno de Tech and Solve)
+TEAM_CSS = """
+.rolegrid { display: grid; grid-template-columns: .8fr 1.75fr; gap: 1.4cqw; flex: 1; min-height: 0; }
+.rolecard { border-radius: 1cqw; padding: 1.8cqw 2cqw; display: flex; flex-direction: column; gap: 1.2cqw; }
+.rolecard .rname { font-size: 2.6cqw; font-weight: 700; line-height: 1.15; margin: 0; }
+.rolecard .rk { font-size: .9cqw; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin: 0 0 .25cqw; }
+.rolecard .rv { font-size: 1.6cqw; font-weight: 600; line-height: 1.25; margin: 0; }
+.rolecard .rs { font-size: 1.05cqw; line-height: 1.4; margin: .3cqw 0 0; }
+.know { border-radius: 1cqw; padding: 1.4cqw 1.7cqw; }
+.know h3 { font-size: 1.35cqw; margin: 0 0 .8cqw; }
+.know .kgrid { display: grid; grid-template-columns: 1fr 1fr; gap: .9cqw 1.8cqw; }
+.know .kgrid b { display: block; font-size: 1.02cqw; margin-bottom: .2cqw; }
+.know .kgrid ul { font-size: .92cqw; line-height: 1.33; padding-left: 1cqw; margin: 0; }
+.know .kgrid li { margin-bottom: .15cqw; }
+"""
+def role_slide(nombre, dedicacion, ded_sub, ia, ia_costo, ia_sub, titulo_k, grupos):
+    kg = "".join(f'<div><b style="color: var(--dark-violet)">{g}</b>{ul(items)}</div>' for g, items in grupos)
+    body = f'''<div class="rolegrid">
+  <div class="rolecard" style="background-color: var(--dark-violet); color: var(--white)">
+    <p class="rk" style="color: var(--blue-accent)">Rol</p><p class="rname">{nombre}</p>
+    <div><p class="rk" style="color: var(--blue-accent)">Dedicación</p><p class="rv">{dedicacion}</p><p class="rs" style="color: var(--lighter-violet)">{ded_sub}</p></div>
+    <div><p class="rk" style="color: var(--blue-accent)">Herramienta de IA</p><p class="rv">{ia}</p><p class="rv" style="color: var(--blue-accent)">{ia_costo}</p><p class="rs" style="color: var(--lighter-violet)">{ia_sub}</p></div>
+  </div>
+  <div class="know" style="background-color: var(--lighter-violet); color: var(--black)"><h3 style="color: var(--dark-violet)">{titulo_k}</h3><div class="kgrid">{kg}</div></div>
+</div>'''
+    return slide(f'Equipo de trabajo: {hl(nombre.lower())}', body, internal=True)
+
+LT = role_slide("Líder técnico", "100&nbsp;% las 5 semanas", "Unas 176 h, descontando festivos. Diseña, construye, prueba, despliega y entrega el código end-to-end.",
+    "Claude · plan Ultra", "USD 200 al mes", "Sin el límite de 5 horas y con 10 veces el uso de Pro cada semana. 2 meses: USD 400.",
+    "Conocimientos para desarrollar la solución end to end", [
+    ("Backend", ["NestJS y TypeScript: modules, dependency injection, HTTP clients, error handling", "Unit testing con Jest, mocks y test doubles", "AWS Lambda en TypeScript con SQS event source y partial batch responses"]),
+    ("AWS", ["Amazon ECS on Fargate y Amazon ECR", "Amazon SQS: dead-letter queue, visibility timeout, redrive policy", "Amazon DynamoDB: conditional writes, GSI, idempotency", "EventBridge Scheduler, Secrets Manager, KMS, IAM least privilege, VPC y NAT Gateway"]),
+    ("Infrastructure as Code y CI/CD", ["Terraform: modules, remote state, per-environment variables", "CI/CD pipelines: build, test, container image, promotion a TEST y rollback", "Static code analysis con SonarQube"]),
+    ("Navitaire (dotREZ / NSK API)", ["Agent authentication y session management", "Flight manifest y SSR manifest", "SSR add/delete, <code>paymentAdd</code>, booking commit y booking comments"]),
+    ("Adyen Checkout API", ["Tokenization y stored payment methods (<code>storedPaymentMethods</code>)", "Merchant-initiated transactions sin CVV (<code>ContAuth</code>, <code>UnscheduledCardOnFile</code>)", "Manual capture, cancel e <code>idempotency-key</code>"]),
+    ("Event-driven architecture", ["Producers y consumers desacoplados por queues, scheduled events con EventBridge", "At-least-once delivery, idempotent consumers, retries con backoff, DLQ y redrive", "Saga / compensating transaction y eventual consistency", "SendGrid con dynamic templates como consumer de notificaciones"]),
+    ("Observability (Datadog)", ["Datadog Agent como sidecar en Fargate: DogStatsD, APM y FireLens; Datadog Lambda extension", "Custom metrics, distribution metrics y tag cardinality", "Dashboards y monitors as code con Terraform"]),
+    ("Security y AI-assisted development", ["PCI-aware handling: sin card data, log masking y secrets management", "Claude Code para design, coding, testing, IaC y documentación"]),
+    ])
+QA = role_slide("Tester", "50&nbsp;% las 5 semanas", "Unas 88 h. Define criterios con negocio, prueba cada componente, ejecuta la prueba de monitoreo y prepara las evidencias.",
+    "Claude · plan Max", "USD 100 al mes", "5 veces el uso de Pro. 2 meses: USD 200.",
+    "Conocimientos para asegurar la calidad de la solución", [
+    ("Test design", ["Acceptance criteria en Gherkin (Given / When / Then)", "Traceability matrix de requisito a evidencia", "Edge cases: bundles, fechas, escenarios de tarjeta, pago manual previo"]),
+    ("API testing", ["Postman o equivalente, con collections y environments", "API test automation en el CI/CD pipeline", "Lectura de API contracts y JSON responses"]),
+    ("Dominio de la aerolínea", ["Navitaire y SkySpeed: SSR <code>VTUB</code>, <code>VTUP</code> y <code>VTUA</code>, booking comments y payments", "Payment flow de Generic API para generar test bookings"]),
+    ("Payments testing", ["Adyen test environment y test cards", "Casos de authorisation refused, cancel y capture"]),
+    ("Integration y resilience testing", ["Mocks y stubs de Navitaire y Adyen", "Fault injection: errores técnicos, mensajes a la DLQ, commit timeout", "Event-driven testing: mensajes duplicados, retries, redrive desde la DLQ y eventual consistency", "End-to-end testing con Generic API en TEST"]),
+    ("AWS y Datadog (read-only)", ["Revisar SQS, DLQ, DynamoDB y CloudWatch Logs en la AWS Console", "Leer dashboards y logs, y verificar que cada monitor dispara en Datadog"]),
+    ("Test evidence", ["Evidencias funcionales, de integration y end-to-end", "Bug reporting y regression testing"]),
+    ("AI-assisted testing", ["Claude para test case design, test data generation y test automation"]),
+    ])
+# Tiempo y costo al inicio del equipo de trabajo, con las láminas numeradas como en la propuesta del cliente
+TC_TEAM = slide(TC_TITLE, re.sub(r"lámina (\d+)\)", r"lámina \1 de la propuesta)", renum(TC_BODY, _shift)), internal=True, extra="big")
+open(os.path.join(outdir, "equipo-de-trabajo.html"), "w", encoding="utf-8").write(
+    HEAD.replace("Pago programado de la TUA · Viva Aerobus</title>", "Equipo de trabajo · Pago programado de la TUA</title>").replace("</style>", TEAM_CSS + "</style>", 1) + TC_TEAM + LT + QA + TAIL)
 print("cliente", len(CLIENT), "fuente", len(S) + len(I))

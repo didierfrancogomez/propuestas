@@ -27,10 +27,10 @@ svg2 = """<svg viewBox="0 0 1200 330" width="100%" role="img" aria-label="Proces
   <text x="317" y="262" text-anchor="middle" font-size="12.5" fill="#000000">VTUA y paymentAdd</text>
   <rect x="462" y="24" width="476" height="290" rx="16" fill="#280265"/>
   <text x="700" y="52" text-anchor="middle" font-size="19" font-weight="700" fill="#FFFFFF">Solución Tech and Solve</text>
-  <text x="700" y="72" text-anchor="middle" font-size="12.5" fill="#EBEBFF">AWS, por eventos · alcance de esta propuesta</text>
+  <text x="700" y="72" text-anchor="middle" font-size="12.5" fill="#EBEBFF">AWS, event-driven · alcance de esta propuesta</text>
   <rect x="482" y="88" width="148" height="44" rx="8" fill="#FFFFFF"/>
   <text x="556" y="106" text-anchor="middle" font-size="12" font-weight="700" fill="#280265">EventBridge</text>
-  <text x="556" y="122" text-anchor="middle" font-size="12" fill="#280265">evento programado</text>
+  <text x="556" y="122" text-anchor="middle" font-size="12" fill="#280265">scheduled event</text>
   <rect x="660" y="88" width="258" height="44" rx="8" fill="#EBEBFF"/>
   <text x="789" y="106" text-anchor="middle" font-size="13" font-weight="700" fill="#280265">Identificador de</text>
   <text x="789" y="123" text-anchor="middle" font-size="13" font-weight="700" fill="#280265">cobros pendientes</text>
@@ -74,9 +74,9 @@ svg2 = """<svg viewBox="0 0 1200 330" width="100%" role="img" aria-label="Proces
 legend2 = f"""<div class="legend">
   <div>{NUM(1)}<span><b>Generic API reserva con pago programado:</b> deja <code>VTUB</code> y <code>VTUP</code> por pasajero, con la tarjeta en la nota de <code>VTUP</code>, y el monto de la TUA en un comentario.</span></div>
   <div>{NUM(4)}<span><b>Cobramos en Adyen:</b> el Procesador ubica la tarjeta tokenizada y cobra el total de la reserva sin CVV.</span></div>
-  <div>{NUM(2)}<span><b>Identificamos:</b> un evento programado activa el Identificador, que lee en Navitaire los vuelos que tocan según el bundle (SMART 10, SWITCH 6, ZERO 1 día antes) y encola en SQS cada reserva con <code>VTUP</code>.</span></div>
-  <div>{NUM(5)}<span><b>Avisamos por SendGrid:</b> el Procesador publica el aviso en una cola y una Lambda envía el correo con la plantilla de Viva, con reintentos.</span></div>
-  <div>{NUM(3)}<span><b>Releemos y registramos:</b> el Procesador toma la reserva de la cola, la relee en Navitaire (tarjeta y monto) y, al cobrar, registra el pago con <code>VTUA</code>.</span></div>
+  <div>{NUM(2)}<span><b>Identificamos:</b> un scheduled event activa el Identificador, que lee en Navitaire los vuelos que tocan según el bundle (SMART 10, SWITCH 6, ZERO 1 día antes) y encola en SQS cada reserva con <code>VTUP</code>.</span></div>
+  <div>{NUM(5)}<span><b>Avisamos por SendGrid:</b> el Procesador publica el aviso en una queue y una Lambda envía el correo con la plantilla de Viva, con retries.</span></div>
+  <div>{NUM(3)}<span><b>Releemos y registramos:</b> el Procesador toma la reserva de la queue, la relee en Navitaire (tarjeta y monto) y, al cobrar, registra el pago con <code>VTUA</code>.</span></div>
 </div>"""
 
 arch = '''<svg viewBox="0 0 1200 300" width="100%" role="img" aria-label="Arquitectura AWS del servicio de pago programado">
@@ -121,9 +121,9 @@ arch = '''<svg viewBox="0 0 1200 300" width="100%" role="img" aria-label="Arquit
   <line x1="880" y1="126" x2="956" y2="200" stroke="#280265" stroke-width="2" marker-end="url(#ar2)"/>
 </svg>'''
 
-ARCH_SLIDE_SRC = 'I.append(slide(f\'Arquitectura AWS de la {hl("solución")}\', arch + \'\'\'<div class="archnotes">\n  <div><b>1 · Descubrir.</b> EventBridge Scheduler llama al endpoint del Identificador en Fargate; este lee Navitaire, deduplica contra DynamoDB y encola en SQS.</div>\n  <div><b>2 · Cobrar.</b> Una Lambda toma cada mensaje y llama al endpoint del Procesador, como se conversó con Héctor. Alternativa más simple: que el servicio consuma SQS directamente.</div>\n  <div><b>3 · Estado y compensación.</b> DynamoDB guarda cada cobro (iniciado, autorizado, confirmado, cobrado, cancelado), los intentos y la próxima hora de reintento.</div>\n  <div><b>4 · Sin webhooks.</b> Captura y cancelación responden «received»; la conciliación diaria con el reporte de Adyen confirma el resultado. No hay ingreso público.</div>\n  <div><b>5 · Salida.</b> NAT hacia Navitaire, Adyen y el correo; si alguno exige IP fija, Viva la registra.</div>\n  <div><b>6 · Reintentos.</b> El retraso de SQS llega a 15 minutos, así que los intentos de horas se agendan en DynamoDB y los toma la siguiente corrida.</div>\n</div>\'\'\', internal=True))\n\n'
+ARCH_SLIDE_SRC = 'I.append(slide(f\'Arquitectura AWS de la {hl("solución")}\', arch + \'\'\'<div class="archnotes">\n  <div><b>1 · Descubrir.</b> EventBridge Scheduler llama al endpoint del Identificador en Fargate; este lee Navitaire, deduplica contra DynamoDB y encola en SQS.</div>\n  <div><b>2 · Cobrar.</b> Una Lambda toma cada mensaje y llama al endpoint del Procesador, como se conversó con Héctor. Alternativa más simple: que el servicio consuma SQS directamente.</div>\n  <div><b>3 · Estado y compensación.</b> DynamoDB guarda cada cobro (iniciado, autorizado, confirmado, cobrado, cancelado), los intentos y la próxima hora de reintento.</div>\n  <div><b>4 · Sin webhooks.</b> Captura y cancelación responden «received»; la conciliación diaria con el reporte de Adyen confirma el resultado. No hay public ingress.</div>\n  <div><b>5 · Salida.</b> NAT hacia Navitaire, Adyen y el correo; si alguno exige IP fija, Viva la registra.</div>\n  <div><b>6 · Retries.</b> El retraso de SQS llega a 15 minutos, así que los intentos de horas se agendan en DynamoDB y los toma la siguiente corrida.</div>\n</div>\'\'\', internal=True))\n\n'
 
-# Tablero propuesto en Datadog (esquema, valores ilustrativos)
+# Dashboard propuesto en Datadog (esquema, valores ilustrativos)
 _W = 'fill="#FFFFFF" stroke="#C7B5F7" stroke-width="1.5"'
 def _box(x, y, w, h, title):
     return f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="8" {_W}/><text x="{x+12}" y="{y+19}" font-size="12" font-weight="600" fill="#280265">{title}</text>'
@@ -156,15 +156,15 @@ for n, (lab, val, r) in enumerate(_steps):
     if n < 3:
         _funnel += f'<text x="{x + w + 9}" y="{173}" font-size="13" fill="#280265">›</text>'
 
-dash = ('<svg viewBox="0 0 1200 468" width="100%" role="img" aria-label="Esquema del tablero propuesto en Datadog">'
+dash = ('<svg viewBox="0 0 1200 468" width="100%" role="img" aria-label="Esquema del dashboard propuesto en Datadog">'
   '<rect x="2" y="2" width="1196" height="464" rx="14" fill="#F7F6FF" stroke="#280265" stroke-width="2"/>'
   + _txt(20, 32, "Datadog · Pago programado de la TUA", 15, "#280265", 700)
   + '<rect x="760" y="16" width="120" height="24" rx="12" fill="#FFFFFF" stroke="#C7B5F7"/>' + _txt(820, 32, "ambiente: TEST", 11, "#280265", 400, "middle")
   + '<rect x="890" y="16" width="140" height="24" rx="12" fill="#FFFFFF" stroke="#C7B5F7"/>' + _txt(960, 32, "bundle: todos", 11, "#280265", 400, "middle")
   + '<rect x="1040" y="16" width="140" height="24" rx="12" fill="#FFFFFF" stroke="#C7B5F7"/>' + _txt(1110, 32, "escenario: todos", 11, "#280265", 400, "middle")
   + _k
-  # embudo
-  + _box(20, 122, 580, 108, "Embudo del día: lo encolado contra lo cobrado")
+  # funnel
+  + _box(20, 122, 580, 108, "Funnel del día: lo encolado contra lo cobrado")
   + _funnel
   + _txt(32, 222, "Descartadas 11: pago manual previo 8 · sin monto 2 · nota inválida 1  |  No procesadas 34: rechazos 30 · canceladas 4", 9.3)
   # barras
@@ -176,8 +176,8 @@ dash = ('<svg viewBox="0 0 1200 468" width="100%" role="img" aria-label="Esquema
   # fila 3
   + _box(20, 240, 284, 96, "Identificador · última corrida")
   + _txt(32, 280, "06:00 · 4 min 12 s · 418 legs revisados") + _txt(32, 298, "Encoladas: SMART 512 · SWITCH 401 · ZERO 387") + _txt(32, 316, "Errores con Navitaire: 0")
-  + _box(316, 240, 284, 96, "Cola de cobros (SQS)")
-  + _txt(328, 280, "Mensajes en la cola: 4") + _txt(328, 298, "Edad del más antiguo: 2 min") + _txt(328, 316, "En la DLQ: 0")
+  + _box(316, 240, 284, 96, "Queue de cobros (SQS)")
+  + _txt(328, 280, "Mensajes en la queue: 4") + _txt(328, 298, "Edad del más antiguo: 2 min") + _txt(328, 316, "En la DLQ: 0")
   + _box(612, 240, 284, 96, "Integraciones · latencia p95 y errores")
   + '<polyline points="626,322 650,314 674,318 698,306 722,312 746,302 770,309 794,298 818,305 842,296 866,302 884,294" fill="none" stroke="#5300DF" stroke-width="2"/>'
   + '<polyline points="626,328 650,325 674,327 698,321 722,325 746,319 770,323 794,317 818,322 842,315 866,320 884,313" fill="none" stroke="#22D0FF" stroke-width="2"/>'
@@ -187,7 +187,7 @@ dash = ('<svg viewBox="0 0 1200 468" width="100%" role="img" aria-label="Esquema
   + _txt(920, 280, "Cobros de ayer que cuadran: 1.236") + _txt(920, 298, "Diferencias: 0") + _txt(920, 316, "Última conciliación: hoy 05:00")
   # fila 4
   + _box(20, 346, 570, 108, "Notificaciones · SQS, Lambda y SendGrid")
-  + _txt(32, 386, "Avisos publicados: 1.282") + _txt(32, 404, "Enviados por SendGrid: 1.282") + _txt(32, 422, "Reintentos: 6")
+  + _txt(32, 386, "Avisos publicados: 1.282") + _txt(32, 404, "Enviados por SendGrid: 1.282") + _txt(32, 422, "Retries: 6")
   + _txt(312, 386, "Por tipo: éxito 1.248 · no procesado 34") + _txt(312, 404, "Sin enviar, en su DLQ: 0")
   + _box(602, 346, 578, 108, "Tarjetas de un solo uso (escenario 1)")
   + _txt(614, 386, "Borradas en Adyen: 311") + _txt(614, 404, "Fallas al borrar: 0") + _txt(614, 422, "Sin datos de tarjeta: solo tokens y referencias")
