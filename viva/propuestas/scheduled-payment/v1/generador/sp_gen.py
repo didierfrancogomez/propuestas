@@ -218,11 +218,12 @@ TC_BODY = '''<div class="opts">
   </div>
   <div class="opt sel" style="background-color: var(--lighter-violet); color: var(--black)">
     <div class="role" style="color: var(--violet-accent)">Costo</div>
-    <div class="opt-h" style="color: var(--dark-violet)"><b><span class="pend">[PENDIENTE]</span></b><span>precio fijo</span></div>
-    <p>Un solo valor por todo el alcance de esta propuesta. Forma de pago: <span class="pend">[PENDIENTE]</span></p>
+    <div class="opt-h" style="color: var(--dark-violet)"><b>USD 20.489,94</b><span>precio fijo</span></div>
+    <p>Un solo valor por todo el alcance de esta propuesta. Forma de pago: <b>mes vencido</b>.</p>
     <ul>
       <li><b>Incluye:</b> los dos servicios, IaC y pipeline, pruebas y evidencias, conciliación interna, el dashboard y los monitores en Datadog, el código fuente y las evidencias de prueba confirmadas (lámina 8).</li>
       <li><b>Se cobra aparte:</b> cambios en los contratos de integración, cambios o fallas de componentes externos (lámina 10), y el acompañamiento posterior o a Producción.</li>
+      <li><b>Soporte recomendado:</b> 2 semanas después de la entrega, USD 6.850,00, aparte de este precio.</li>
     </ul>
   </div>
 </div>''' + note('<b>Tiempo y precio son fijos porque los contratos se definen y congelan al arrancar</b> y las integraciones están implementadas para cuando se prueba. Lo que cambie después se estima y se aprueba como control de cambios antes de ejecutarlo.')
@@ -270,7 +271,7 @@ S.append(slide("Términos y condiciones", '<div class="tc">' +
     card("Contratos y cambios", ["Los contratos de integración se entregan al inicio y quedan congelados (lámina 10).", "Los cambios posteriores en esos contratos son <b>control de cambios</b> y se cobran aparte.", "Los cambios o fallas de componentes externos que afecten la implementación se cobran aparte."], 3) +
     card("Tiempos", ["Tiempo y precio fijos sobre este alcance.", "5 semanas hábiles desde el arranque que defina Viva, con los contratos definidos y los prerrequisitos listos.", "Si un prerrequisito o una integración en TEST no está cuando se necesita, la fecha se corre lo mismo y ese tiempo se cobra aparte.", "Cambios de reglas, como que el cliente elija la fecha, se estiman aparte."], 4) +
     card("Aceptación", ["Viva acepta la entrega en TEST en 2 días hábiles, con el responsable de negocio que designe.", "Las dudas de la lámina 12 se resuelven con Viva; si una respuesta cambia el alcance, es control de cambios."], 5) +
-    f'<div {CARD}><h3 {H3}>{NUM(6)}Inversión</h3><ul><li>Valor del proyecto: <span class="pend">[PENDIENTE]</span></li><li>Forma de pago: <span class="pend">[PENDIENTE]</span></li><li>Acompañamiento posterior a la entrega o a la salida a Producción, si Viva lo requiere: <span class="pend">[PENDIENTE]</span></li></ul></div>' +
+    f'<div {CARD}><h3 {H3}>{NUM(6)}Inversión</h3><ul><li>Valor del proyecto: <b>USD 20.489,94</b>, precio fijo.</li><li>Forma de pago: <b>mes vencido</b>.</li><li>Soporte recomendado después de la entrega: 2 semanas, <b>USD 6.850,00</b>, aparte del valor del proyecto.</li></ul></div>' +
     '</div>'))
 
 # ---------------- Internas ----------------
