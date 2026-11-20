@@ -218,12 +218,12 @@ TC_BODY = '''<div class="opts">
   </div>
   <div class="opt sel" style="background-color: var(--lighter-violet); color: var(--black)">
     <div class="role" style="color: var(--violet-accent)">Costo</div>
-    <div class="opt-h" style="color: var(--dark-violet)"><b>USD 19.974</b><span>precio fijo</span></div>
+    <div class="opt-h" style="color: var(--dark-violet)"><b>USD 19.974,00</b><span>precio fijo</span></div>
     <p>Un solo valor por todo el alcance de esta propuesta. Forma de pago: <b>mes vencido</b>.</p>
     <ul>
       <li><b>Incluye:</b> los dos servicios, IaC y pipeline, pruebas y evidencias, conciliación interna, el dashboard y los monitores en Datadog, el código fuente y las evidencias de prueba confirmadas (lámina 8).</li>
       <li><b>Se cobra aparte:</b> cambios en los contratos de integración, cambios o fallas de componentes externos (lámina 10), y el acompañamiento posterior o a Producción.</li>
-      <li><b>Soporte recomendado:</b> 2 semanas después de la entrega, USD 6.850, aparte de este precio.</li>
+      <li><b>Soporte recomendado:</b> 2 semanas después de la entrega, USD 6.850,00, aparte de este precio.</li>
     </ul>
   </div>
 </div>''' + note('<b>Tiempo y precio son fijos porque los contratos se definen y congelan al arrancar</b> y las integraciones están implementadas para cuando se prueba. Lo que cambie después se estima y se aprueba como control de cambios antes de ejecutarlo.')
@@ -271,7 +271,7 @@ S.append(slide("Términos y condiciones", '<div class="tc">' +
     card("Contratos y cambios", ["Los contratos de integración se entregan al inicio y quedan congelados (lámina 10).", "Los cambios posteriores en esos contratos son <b>control de cambios</b> y se cobran aparte.", "Los cambios o fallas de componentes externos que afecten la implementación se cobran aparte."], 3) +
     card("Tiempos", ["Tiempo y precio fijos sobre este alcance.", "5 semanas hábiles desde el arranque que defina Viva, con los contratos definidos y los prerrequisitos listos.", "Si un prerrequisito o una integración en TEST no está cuando se necesita, la fecha se corre lo mismo y ese tiempo se cobra aparte.", "Cambios de reglas, como que el cliente elija la fecha, se estiman aparte."], 4) +
     card("Aceptación", ["Viva acepta la entrega en TEST en 2 días hábiles, con el responsable de negocio que designe.", "Las dudas de la lámina 12 se resuelven con Viva; si una respuesta cambia el alcance, es control de cambios."], 5) +
-    f'<div {CARD}><h3 {H3}>{NUM(6)}Inversión</h3><ul><li>Valor del proyecto: <b>USD 19.974</b>, precio fijo.</li><li>Forma de pago: <b>mes vencido</b>.</li><li>Soporte recomendado después de la entrega: 2 semanas, <b>USD 6.850</b>, aparte del valor del proyecto.</li></ul></div>' +
+    f'<div {CARD}><h3 {H3}>{NUM(6)}Inversión</h3><ul><li>Valor del proyecto: <b>USD 19.974,00</b>, precio fijo.</li><li>Forma de pago: <b>mes vencido</b>.</li><li>Soporte recomendado después de la entrega: 2 semanas, <b>USD 6.850,00</b>, aparte del valor del proyecto.</li></ul></div>' +
     '</div>'))
 
 # ---------------- Internas ----------------
@@ -397,10 +397,10 @@ QA = role_slide("Tester", "50&nbsp;% las 5 semanas", "Unas 88 h. Define criterio
     ("Test evidence", ["Evidencias funcionales, de integration y end-to-end", "Bug reporting y regression testing"]),
     ("AI-assisted testing", ["Claude para test case design, test data generation y test automation"]),
     ])
-SOP = role_slide("Líder técnico", "50&nbsp;% durante 2 semanas", "Unas 40 h después de la entrega en TEST, sin tester. Soporte recomendado: USD 6.850.",
+SOP = role_slide("Líder técnico", "50&nbsp;% durante 2 semanas", "Unas 40 h después de la entrega en TEST, sin tester. Soporte recomendado: USD 6.850,00.",
     "Claude · plan Max", "USD 100 al mes", "5 veces el uso de Pro. Por las 2 semanas de soporte inicial: 1 mes, USD 100.",
     "Soporte después de la entrega en TEST", [
-    ("Cómo se cotiza", ["Soporte recomendado de 2 semanas: USD 6.850", "Aparte del precio fijo de la implementación (USD 19.974), con pago mes vencido"]),
+    ("Cómo se cotiza", ["Soporte recomendado de 2 semanas: USD 6.850,00", "Aparte del precio fijo de la implementación (USD 19.974,00), con pago mes vencido"]),
     ("Propuesta inicial", ["Líder técnico al 50&nbsp;% durante 2 semanas", "Sin tester: el LT cubre las pruebas de los ajustes", "Claude Max por esas 2 semanas"]),
     ("Qué cubre", ["Dudas y ajustes de los dos servicios, la IaC y el dashboard en Datadog", "Análisis de mensajes en la DLQ y de cobros con <code>DIFERENCIA</code> en la conciliación", "Acompañamiento a Viva en la integración del frontend y la salida a Producción"]),
     ("Si la demanda crece", ["Después de las 2 semanas, el soporte adicional se calcula bajo demanda por el tiempo dedicado", "Se amplía la dedicación del LT o se suma el tester, con aprobación de Viva"]),
